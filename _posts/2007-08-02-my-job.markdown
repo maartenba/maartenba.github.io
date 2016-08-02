@@ -1,0 +1,15 @@
+---
+layout: post
+title: "My job?"
+date: 2007-08-02 07:42:00 +0200
+comments: true
+published: true
+categories: ["post"]
+tags: ["Personal", "General"]
+alias: ["/post/2007/08/02/my-job.aspx"]
+author: Maarten Balliauw
+---
+<P>Seems that, according to <A href="http://en.wikipedia.org/wiki/Office_Open_XML" target=_blank mce_href="http://en.wikipedia.org/wiki/Office_Open_XML">this Wikipedia entry</A>, I work at <A href="http://www.microsoft.com/" target=_blank mce_href="http://www.microsoft.com/">Microsoft</A>:</P>
+<P><A href="/images/WindowsLiveWriter/Myjob_6AFD/20070802_maarten_microsoft%5B5%5D.png" mce_href="/images/WindowsLiveWriter/Myjob_6AFD/20070802_maarten_microsoft%5B5%5D.png" atomicselection="true"><IMG style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; MARGIN: 5px; BORDER-LEFT: 0px; WIDTH: 600px; BORDER-BOTTOM: 0px; HEIGHT: 256px" height=256 src="/images/WindowsLiveWriter/Myjob_6AFD/20070802_maarten_microsoft_thumb%5B5%5D.png" width=600 border=0 mce_src="/images/WindowsLiveWriter/Myjob_6AFD/20070802_maarten_microsoft_thumb%5B5%5D.png"></A> </P>
+<P>To clarify this: I do not work at Microsoft, but at <A href="http://www.dolmen.be/" target=_blank mce_href="http://www.dolmen.be">Dolmen</A>, one of the top Belgian IT firms. I do work with Microsoft technology and tend to promote their technology too, but no job at Microsoft.<BR><BR>(Thank you <A href="http://blogs.infosupport.com/wouterv/" target=_blank mce_href="http://blogs.infosupport.com/wouterv/">Wouter</A> for&nbsp;showing me this)</P>
+{% include imported_disclaimer.html %}

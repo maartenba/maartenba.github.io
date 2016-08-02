@@ -1,0 +1,99 @@
+---
+layout: post
+title: "Byebye 2009, welcome 2010!"
+date: 2010-01-04 07:48:00 +0100
+comments: true
+published: true
+categories: ["post"]
+tags: ["General", "Personal"]
+alias: ["/post/2010/01/04/Byebye-2009-welcome-2010!.aspx", "/post/2010/01/04/byebye-2009-welcome-2010!.aspx"]
+author: Maarten Balliauw
+---
+<p><a href="/images/image_26.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="Fireworks!" src="/images/image_thumb_8.png" border="0" alt="Fireworks!" width="736" height="240" /></a></p>
+<p>A year just ended, a new has begun. Congratulations! Happy newyear 2010! And welcome in the next decennium. It&rsquo;s time for a 2009 wrap-up post. And perhaps, even the time for some things I want to do in 2010. First things first: the top 5 blog posts of 2009.</p>
+<h2>Top 5 blog posts of 2009</h2>
+
+<blockquote>
+<p><strong>1.</strong> <a href="/post/2009/05/06/More-ASPNET-MVC-Best-Practices.aspx" target="_blank">More ASP.NET MVC Best Practices</a> &ndash; A blog post gathering best practices from different sources and adds some more of my own.</p>
+<p><strong>2.</strong> <a href="/post/2008/06/04/Code-based-ASPNET-MVC-GridView.aspx">Code based ASP.NET MVC GridView</a> (2008: 4th) &ndash; This post gives a shot at a gridview for the ASP.NET MVC framework, built using expressions.</p>
+<p><strong>3.</strong> <a href="/post/2008/02/07/Code-performance-analysis-in-Visual-Studio-2008.aspx">Code performance analysis in Visual Studio 2008</a> (2008: 2nd) &ndash; Visual Studio developer, did you know you have a great performance analysis (profiling) tool at your fingertips?</p>
+<p><strong>4.</strong> <a href="/post/2008/08/29/Building-an-ASPNET-MVC-sitemap-provider-with-security-trimming.aspx">Building an ASP.NET MVC sitemap provider with security trimming</a> (2008: 5th) &ndash; Building an ASP.NET MVC sitemap provider that can be used with standard ASP.NET sitemap controls.</p>
+<p><strong>5.</strong> <a href="/post/2007/11/22/ASPNET-load-balancing-and-ASPNET-state-server-(aspnet_state).aspx">ASP.NET load balancing and ASP.NET state server (aspnet_state)</a> (2008: 3rd) &ndash; A how-to on load balancing with ASP.NET. Also related to <a href="/post/2008/01/23/ASPNET-Session-State-Partitioning.aspx">ASP.NET Session State Partitioning</a> and <a href="/post/2008/01/24/ASPNET-Session-State-Partitioning-using-State-Server-Load-Balancing.aspx">ASP.NET Session State Partitioning using State Server Load Balancing</a>.</p>
+
+</blockquote>
+
+<p>I did a similar list <a href="/post/2008/12/31/Top-blog-posts-in-2008.aspx" target="_blank">last year</a>, and you can see that I actually can stop blogging. 4 posts are in the top 5 again, with one newcomer on the 1st place.</p>
+<h2>Open-source in 2009</h2>
+<p>What should I say about this one&hellip; I did a lot of that :-) I continued to work on <a href="http://www.phpexcel.net" target="_blank">PHPExcel</a>, <a href="http://www.phplinq.net" target="_blank">PHPLinq</a> and <a href="http://phppowerpoint.codeplex.com" target="_blank">PHPPowerPoint</a>, started work (with Microsoft) on the <a href="http://phpazure.codeplex.com" target="_blank">Windows Azure SDK for PHP</a>, released the <a href="http://mvcsitemap.codeplex.com" target="_blank">ASP.NET MVC SiteMap Provider</a>, released <a href="http://twittermatic.codeplex.com" target="_blank">TwitterMatic</a> on CodePlex and did some contributions to <a href="http://framework.zend.com" target="_blank">Zend Framework</a>. Then there&rsquo;s also my port of <a href="/post/2009/12/02/PHP-Managed-Extensibility-Framework-e28093-PHPMEF.aspx" target="_blank">MEF to PHP</a>, which I will be releasing somewhere in Q1 2010.</p>
+<p>That&rsquo;s a lot! And I really hope to keep the same pace going in 2010. I&rsquo;m constructing a house though, which also takes some time&hellip; Luckily: no windows yet, so I can consider it open-source as well :-)</p>
+<h2>Presentations in 2009</h2>
+<p>Let&rsquo;s see what we have there&hellip; A lot! And I hope to do the same amount (or more) in 2010. <a href="http://www.microsoft.com/belux/techdays/2010/" target="_blank">TechDays Belgium</a>, <a href="http://www.microsoft.com/finland/techdays/techdays2010" target="_blank">TechDays Finland</a> and <a href="http://conference.phpbenelux.eu/speakers/maarten-balliauw/" target="_blank">PHPBenelux conference</a> have been confirmed already, a good start. Anyway: here&rsquo;s the 2009 list. Note that there&rsquo;s also some more at various schools in Belgium, and internal sessions for <a href="http://www.realdolmen.com" target="_blank">RealDolmen</a>.</p>
+
+<blockquote>
+<h3>Cloud computing and the Windows Azure Services Platform</h3>
+<p>This session covers the basics of the Windows Azure Services Platform and drills into some architectural challenges. Learn what components the Windows Azure Services Platform is built of and how they can be leveraged in building a scalable and reliable application.</p>
+<p><em>KU Leuven, December 7, 2009</em></p>
+<p>Slides: <a href="http://www.slideshare.net/maartenba/cloud-computing-and-the-windows-azure-services-platform-ku-leuven">http://www.slideshare.net/maartenba/cloud-computing-and-the-windows-azure-services-platform-ku-leuven</a></p>
+<h3>MSDN - Converting an existing ASP.NET application to Windows Azure</h3>
+<p>Put your stuff in the cloud! Windows Azure allows you to take advantage of cloud computing infranstructure for hosting, computing, and storage of your applications. In this demo filled session we take an existing ASP.Net Application and move it to be hosted in Windows Azure, while taking advantage of Windows Azure storage.</p>
+<p><em>MSDN Live Meeting for MSDN Belgium, November 24, 2009</em></p>
+<p>Slides: <a href="http://www.slideshare.net/maartenba/msdn-converting-an-existing-aspnet-application-to-windows-azure">http://www.slideshare.net/maartenba/msdn-converting-an-existing-aspnet-application-to-windows-azure</a> <br />Demo code: <a href="/files/2009/11/MSDN+-+Converting+an+existing+ASP.NET+application+to+Windows+Azure.zip">MSDN - Converting an existing ASP.NET application to Windows Azure.zip (2.01 mb)</a> <br />Live recording: <a href="http://www.microsoft.com/belux/MSDN/fr/chopsticks/default.aspx?id=1491">http://www.microsoft.com/belux/MSDN/fr/chopsticks/default.aspx?id=1491</a></p>
+<h3>ASP.NET MVC Wisdom</h3>
+<p>Building a Twitter clone in 60 minutes, featuring what's new in ASP.NET MVC 2 preview 1 and focusing on some of the core ASP.NET MVC features like security and routing.</p>
+<p><em>Remix Belgium 2009, Brussels, September 29, 2009</em></p>
+<p>Slides: <a href="http://www.slideshare.net/maartenba/aspnet-mvc-wisdom">http://www.slideshare.net/maartenba/aspnet-mvc-wisdom</a> <br />Demo code: <a href="/files/2009/9/ASP.NET+MVC+Wisdom+-+ReMix.zip">ASP.NET MVC Wisdom - ReMix.zip (8.91 mb)</a> <br />Live recording: <a href="/post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx">/post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx</a></p>
+<h3>PHP and Silverlight</h3>
+<p>So you have an existing PHP application and would like to spice it up with a rich and attractive front-end. Next to Adobe Flex, you can also choose Silverlight as a solution. This session shows you around in Silverlight and shows that PHP and Silverlight can go together easily.</p>
+<p><em>DevDays 2009, The Hague, May 29, 2009&nbsp; -&nbsp; May 29, 2009 <br />Dutch PHP Conference, Amsterdam, June 12, 2009&nbsp; -&nbsp; June 12, 2009</em></p>
+<p>Slides: <a href="http://www.slideshare.net/maartenba/php-and-silverlight-devdays-session?type=powerpoint">http://www.slideshare.net/maartenba/php-and-silverlight-devdays-session?type=powerpoint</a> <br />Demo code: <a href="/files/2009/6/PHP+and+Silverlight+-+DevDays.zip">PHP and Silverlight - DevDays.zip (1.00 mb)</a> <br />Live recording (audio): <a href="http://techportal.ibuildings.com/2009/12/21/introduction-to-silverlight-for-php-developers/">http://techportal.ibuildings.com/2009/12/21/introduction-to-silverlight-for-php-developers/</a></p>
+<h3>PHPPowerPoint &ndash; More OpenXML from PHP</h3>
+<p>Session on the newly released open source project PHPPowerPoint, which enables you to build PPTX files from PHP. This session will provide you a general view of PHPPowerPoint and some architectural insights into the API.</p>
+<p><em>DII Workshop, London, May 18, 2009&nbsp; -&nbsp; May 18, 2009</em></p>
+<h3>Mocking</h3>
+<p>This session provides an introduction to mocking and shows how test-driven development and the use of mocking frameworks such as Moq can speed up application development.</p>
+<p><em>VISUG Belgium, May 7, 2009&nbsp; -&nbsp; May 7, 2009 </em></p>
+<p>Slides: <a href="http://www.slideshare.net/maartenba/mocking-visug-session?type=powerpoint">http://www.slideshare.net/maartenba/mocking-visug-session?type=powerpoint</a> <br />Demo code: <a href="/files/2009/5/MockingDemoCode.zip">MockingDemoCode.zip (1.64 mb)</a></p>
+<h3>ASP.NET MVC (model-view-controller)</h3>
+<p>This session provides an introduction to the ASP.NET MVC framework. Starting with a short intro to the model-view-controller pattern and Microsoft's vision on implementing this pattern for ASP.NET, over some of the key differences between ASP.NET Webforms and ASP.NET MVC to doing some more advanced things like scaffolding and action filters.</p>
+<p><em>MSDN Belgium, April 23, 2009&nbsp; -&nbsp; April 23, 2009 </em></p>
+<p>Slides: <a href="http://www.slideshare.net/maartenba/msdn-aspnet-mvc?type=powerpoint">http://www.slideshare.net/maartenba/msdn-aspnet-mvc?type=powerpoint</a></p>
+
+</blockquote>
+
+<h2>Azure User Group Belgium</h2>
+<p><a href="http://www.azug.be"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 5px 5px 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="/images/image_27.png" border="0" alt="image" width="154" height="65" align="left" /></a> Together with <a href="http://www.devitect.net" target="_blank">Kurt Claeys</a> and <a href="http://www.goeleven.com" target="_blank">Yves Goeleven</a>, we did a first session with the new <a href="http://www.azug.be">Azure User Group Belgium</a>. AZUG.BE is a Belgian user group with focus on development and architecture of the Windows Azure Platform. Our goal is to share knowledge and experiences with the .NET community on Windows Azure, .NET Services and SQL Azure.</p>
+<p>Expect more activity and sessions in 2010!</p>
+<h2>I wrote a book!</h2>
+<p><a href="http://www.amazon.com/gp/product/184719754X?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=184719754X" target="_blank"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="image" src="/images/image_28.png" border="0" alt="image" width="95" height="113" align="right" /></a> That&rsquo;s correct: I did write a book. My first one, but probably not the last one. Don&rsquo;t know when and on what, but I&rsquo;ll probably find the energy to do this effort again. Here&rsquo;s a quite from my <a href="/post/2009/02/17/Announcing-my-book-ASPNET-MVC-10-Quickly.aspx" target="_blank">announcement post</a>:</p>
+
+<blockquote>
+<p><em>It&rsquo;s been quite a job, but there it is: Packt just </em><a href="https://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book"><em>announced my very first book</em></a><em> on their site. It is titled &ldquo;</em><a href="https://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book"><em>ASP.NET MVC 1.0 Quickly</em></a><em>&rdquo;, covering all aspects ASP.NET MVC offers in a to-the-point manner with hands-on examples. The book walks through the main concepts of the MVC framework to help existing ASP.NET developers to move on to a higher level. It includes clear instructions and lots of code examples. It takes a simple approach, thereby allowing you to work with all facets of web application development. Some keywords: Model-view-controller, ASP.NET MVC architecture and components, unit testing, mocking, AJAX using MS Ajax and jQuery, reference application and resources. </em></p>
+<p><em>That&rsquo;s it for the marketing part: let&rsquo;s do a retrospective on the writing process itself. Oh and yes, those are my glasses on the cover. Photo was taken on the </em><a href="http://maps.google.com/?ie=UTF8&amp;ll=51.072067,2.485705&amp;spn=0.001453,0.00324&amp;t=h&amp;z=19"><em>beach near Bray-Dunes (France)</em></a><em>.</em></p>
+
+</blockquote>
+
+<h2>Most valuable professional</h2>
+<p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 5px 5px 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="/images/image_29.png" border="0" alt="image" width="97" height="52" align="left" /> In July 2009, I became an <a href="https://mvp.support.microsoft.com/profile/Maarten.Balliauw" target="_blank">MVP ASP.NET</a>. Let&rsquo;s see if we can repeat this for 2010 :-)</p>
+<p>My focus was still on ASP.NET MVC in 2009, but also more and more on Windows Azure. These two make a great combination, and will be the main topics for my blog in 2010 as well.</p>
+<h2>Traveling</h2>
+<p>Some traveling in 2009 as well. I went on a ski vacation and a summer vacation, but next to that I did some traveling for work as well:</p>
+<ul>
+<li>London, UK: <a href="/post/2009/05/18/Document-Interoperability-Workshop-London-May-18-2009.aspx">Document Interoperability Workshop, London, May 18 2009</a></li>
+<li>The Hague, The Netherlands: <a href="/post/2009/06/02/PHP-and-Silverlight-DevDays-session.aspx">PHP and Silverlight - DevDays session</a></li>
+<li>Los Angeles, US: <a href="/post/2009/11/18/Microsoft-PDC09-keynote-highlights.aspx">Microsoft PDC09 keynote highlights</a></li>
+<li>Seattle, US: <a href="/post/2009/12/07/Microsoft-Web-Development-Summit-2009.aspx">Microsoft Web Development Summit 2009</a></li>
+</ul>
+<p>If only I knew that these last two would provide me a lot of airmiles&hellip; Subscribed at <a href="http://www.milesandmore.com">www.milesandmore.com</a> for possible traveling in 2010 :-)</p>
+<h2>Thank you!</h2>
+<p>I do take credit for all that I did in 2009, but I would also like to thank my company <a href="http://www.realdolmen.com" target="_blank">RealDolmen</a> for providing enough room to do some of this during work hours, as well as for challenging me in this. Really appreciated guys!</p>
+<p>Now is also a great moment to thank my family for not whining too much and also giving me the room to do all of this, often taking time out of family life. Thanks for letting me do all this!</p>
+<h2>Summary and look ahead</h2>
+<p>It&rsquo;s been a relaxing year. No, seriously: I&rsquo;ve been busy, and I expect the same for 2010&hellip; Not sure if I can do 79 blog posts again, but I will sure try. And in order to do that, I need some input from you:</p>
+<ul>
+<li>What topics would you like to see covered?</li>
+<li>Is there anything you want to learn more about?</li>
+<li>A great conceptual idea, no time to work on it? Shoot! Maybe I will work on it.</li>
+<li>Any other feedback for me?</li>
+</ul>
+<p>Enjoy 2010! I will.</p>
+{% include imported_disclaimer.html %}

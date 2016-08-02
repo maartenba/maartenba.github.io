@@ -1,0 +1,1 @@
+ruby -r './blogml.rb' -e 'Jekyll::BlogML.process()'
