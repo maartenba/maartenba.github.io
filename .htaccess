@@ -1,6 +1,6 @@
 RewriteEngine on
-RewriteRule ^Syndication.axd$ /feed.xml [R=301,NC]
-RewriteRule ^["/post/2016/03/23/Someone-broke-the-Internet!-Or-why-you-may-want-to-mirror-your-dependencies\u2026.aspx", "/post/2016/03/23/someone-broke-the-internet!-or-why-you-may-want-to-mirror-your-dependencies\u2026.aspx"]$ /post/2016/03/23/someone-broke-the-internet!-or-why-you-may-want-to-mirror-your-dependencies….html [R=301,NC]
+RewriteRule ^/Syndication.axd$ /feed.xml [R=301,NC]
+RewriteRule ^["/post/2016/03/23/Someone-broke-the-Internet!-Or-why-you-may-want-to-mirror-your-dependencies\u2026.aspx", "/post/2016/03/23/someone-broke-the-internet!-or-why-you-may-want-to-mirror-your-dependencies….aspx"]$ /post/2016/03/23/someone-broke-the-internet!-or-why-you-may-want-to-mirror-your-dependencies….html [R=301,NC]
 RewriteRule ^["/post/2015/12/23/disabling-session-affinity-in-azure-app-service-web-apps-websites.aspx"]$ /post/2015/12/23/disabling-session-affinity-in-azure-app-service-web-apps-websites.html [R=301,NC]
 RewriteRule ^["/post/2015/10/13/Working-with-a-private-npm-registry-in-Azure-Web-Apps.aspx", "/post/2015/10/13/working-with-a-private-npm-registry-in-azure-web-apps.aspx"]$ /post/2015/10/13/working-with-a-private-npm-registry-in-azure-web-apps.html [R=301,NC]
 RewriteRule ^["/post/2015/09/17/Not-enough-space-on-the-disk-Azure-Cloud-Services.aspx", "/post/2015/09/17/not-enough-space-on-the-disk-azure-cloud-services.aspx"]$ /post/2015/09/17/not-enough-space-on-the-disk-azure-cloud-services.html [R=301,NC]

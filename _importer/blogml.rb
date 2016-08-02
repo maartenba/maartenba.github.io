@@ -66,7 +66,7 @@ module Jekyll
 		File.open("disqus_map.csv", "w") do |disqus|
       
         htaccess.puts "RewriteEngine on"
-        htaccess.puts "RewriteRule ^Syndication.axd$ /feed.xml [R=301,NC]"		
+        htaccess.puts "RewriteRule ^/Syndication.axd$ /feed.xml [R=301,NC]"		
       
         # first, we need to parse the existing categories into a known hash for later lookup
         cats = Hash.new
