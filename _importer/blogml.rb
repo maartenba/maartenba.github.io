@@ -169,7 +169,7 @@ module Jekyll
           puts "old_url: #{old_url}"
 
           # Add URL rewrite to htaccess (broken now that we use old_url as an array)
-          htaccess.puts "RewriteRule ^post/#{old_url}$ /post/#{timestamp.strftime("%Y")}/#{timestamp.strftime("%m")}/#{timestamp.strftime("%d")}/#{name}.html [R=301,NC]"
+          htaccess.puts "RewriteRule ^#{old_url}$ /post/#{timestamp.strftime("%Y")}/#{timestamp.strftime("%m")}/#{timestamp.strftime("%d")}/#{name}.html [R=301,NC]"
 
 		  # Map diqus
 		  disqus.puts "#{blog_root}#{item.attributes["post-url"]}, #{blog_root}/post/#{timestamp.strftime("%Y")}/#{timestamp.strftime("%m")}/#{timestamp.strftime("%d")}/#{name}.html"
