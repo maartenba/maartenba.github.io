@@ -102,6 +102,7 @@ author:
 include:
   - .htaccess
   - _pages
+  - files
 exclude:
   - vendor
   - [vendor]
