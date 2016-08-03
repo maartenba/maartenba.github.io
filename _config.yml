@@ -11,7 +11,7 @@ title                    : "Maarten Balliauw {blog}"
 title_separator          : "-"
 name                     : "Maarten Balliauw {blog}"
 description              : "Web development, NuGet, Microsoft Azure, PHP, ..."
-url                      : "http://blog.maartenballiauw.be"
+url                      : #"http://blog.maartenballiauw.be"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -29,7 +29,7 @@ comments:
     num_posts            : 10 # 5 (default)
     colorscheme          : "light" # "light" (default), "dark"
 atom_feed:
-  path                   : # blank (default) uses feed.xml
+  path                   : "Syndication.axd" # blank (default) uses feed.xml
 
 # SEO Related
 google_site_verification :
@@ -53,7 +53,7 @@ social:
   links: # An array of links to social media profiles
     - "https://twitter.com/maartenballiauw"
     - "https://www.linkedin.com/in/maartenballiauw"
-    - "http://about.me/maartenballiauw"
+    - "https://about.me/maartenballiauw"
 
 # Analytics
 analytics:
