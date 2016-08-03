@@ -29,7 +29,7 @@ comments:
     num_posts            : 10 # 5 (default)
     colorscheme          : "light" # "light" (default), "dark"
 atom_feed:
-  path                   : "Syndication.axd" # blank (default) uses feed.xml
+  path                   : # blank (default) uses feed.xml
 
 # SEO Related
 google_site_verification :
