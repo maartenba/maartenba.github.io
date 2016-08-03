@@ -11,7 +11,7 @@ title                    : "Maarten Balliauw {blog}"
 title_separator          : "-"
 name                     : "Maarten Balliauw {blog}"
 description              : "Web development, NuGet, Microsoft Azure, PHP, ..."
-url                      : #"http://blog.maartenballiauw.be"
+url                      : "https://blog.maartenballiauw.be"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
