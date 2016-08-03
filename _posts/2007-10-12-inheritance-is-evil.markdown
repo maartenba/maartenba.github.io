@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Inheritance is evil!"
-date: 2007-10-12 09:49:00 +0200
+date: 2007-10-12 09:49:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["General"]
 alias: ["/post/2007/10/12/inheritance-is-evil.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2007/10/12/inheritance-is-evil.aspx
+ - /post/2007/10/12/inheritance-is-evil.aspx
 ---
 <p>
 Read this on <a href="http://www.berniecode.com/blog/2007/09/29/inheritance-is-evil-and-must-be-destroyed/" target="_blank">Bernie</a>&#39;s blog:

@@ -203,6 +203,9 @@ comments: false
 author: #{author}
 sitemap: false
 permalink: /#{name}.html
+redirect_from:
+ - #{item.attributes["post-url"]}
+ - #{item.attributes["post-url"].downcase}
 ---
 HEADER
 			else
@@ -217,6 +220,9 @@ categories: ["post"]
 tags: #{tags}
 alias: #{old_url}
 author: #{author}
+redirect_from:
+ - #{item.attributes["post-url"]}
+ - #{item.attributes["post-url"].downcase}
 ---
 HEADER
 			end

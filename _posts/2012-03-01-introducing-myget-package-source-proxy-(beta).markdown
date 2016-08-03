@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["CSharp", "General", "MVC", "Personal", "Projects", "Software", "Source control"]
 alias: ["/post/2012/03/01/Introducing-MyGet-package-source-proxy-(beta).aspx", "/post/2012/03/01/introducing-myget-package-source-proxy-(beta).aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2012/03/01/Introducing-MyGet-package-source-proxy-(beta).aspx
+ - /post/2012/03/01/introducing-myget-package-source-proxy-(beta).aspx
 ---
 <p>My blog already has quite the number of blog posts around <a href="http://www.myget.org" target="_blank">MyGet</a>, our NuGet-as-a-Service solution which my colleague <a href="http://www.xavierdecoster.com" target="_blank">Xavier</a> and I are running. There are a lot of reasons to host your own personal NuGet feed (such as protecting your intellectual property or only adding approved packages to the feed, but there&rsquo;s many more as you can &lt;plug&gt;<a href="http://amzn.to/xrzS6j" target="_blank">read in our book</a>&lt;/plug&gt;). We&rsquo;ve added support for another scenario: MyGet now supports proxying remote feeds.</p>
 <p>Up until now, MyGet required you to upload your own NuGet packages and to include packages from the NuGet feed. The problem with this is that you either required your team to register multiple NuGet feeds in Visual Studio (which still is a good option) or to register just your MyGet feed and add all packages your team is using to it. Which, again, is also a good option.</p>

@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "ASP.Net MVC Membership Starter Kit"
-date: 2008-04-04 15:18:00 +0200
+date: 2008-04-04 15:18:00 +0100
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Software"]
 alias: ["/post/2008/04/04/ASPNet-MVC-Membership-Starter-Kit.aspx", "/post/2008/04/04/aspnet-mvc-membership-starter-kit.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/04/04/ASPNet-MVC-Membership-Starter-Kit.aspx
+ - /post/2008/04/04/aspnet-mvc-membership-starter-kit.aspx
 ---
 <p>
 <a href="/images/WindowsLiveWriter/ASP.NetMVCMembershipStarterKit_D20A/image_2.png"><img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/ASP.NetMVCMembershipStarterKit_D20A/image_thumb.png" border="0" alt="ASP.Net MVC Membership starter kit" title="ASP.Net MVC Membership starter kit" width="244" height="231" align="right" /></a> Yesterday, I read a cool blog post from <a href="http://www.squaredroot.com" target="_blank">Troy Goode</a> about his new CodePlex project <a href="http://www.squaredroot.com/post/2008/04/MVC-Membership-Starter-Kit.aspx" target="_blank">MvcMembership</a>. I also noticed his call for help, so I decided to dedicate some of my evening hours to his project. 

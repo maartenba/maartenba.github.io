@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Exploring the ASP.NET MVC 2 futures assemby"
-date: 2009-10-06 10:25:00 +0200
+date: 2009-10-06 10:25:00 +0100
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx", "/post/2009/10/06/exploring-the-aspnet-mvc-2-futures-assemby.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx
+ - /post/2009/10/06/exploring-the-aspnet-mvc-2-futures-assemby.aspx
 ---
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="The future is cloudy!" src="/images/image_14.png" border="0" alt="The future is cloudy!" width="240" height="213" align="right" /> The latest preview of <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=33836" target="_blank">ASP.NET MVC 2, preview 2</a>, has been released on CodePlex last week. All <a href="/post/2009/07/31/ASPNET-MVC-2-Preview-1-released!.aspx" target="_blank">features of the preview 1 version</a> are still in, as well as some nice novelties like client-side validation, single project areas, the model metadata model, &hellip; You can read more about these <a href="http://suhair.in/Blog/aspnet-areas-in-depth" target="_blank">here</a>, <a href="ttp://codingndesign.com/blog/?p=76" target="_blank">here</a> and <a href="http://codingndesign.com/blog/?p=96" target="_blank">here</a>.</p>
 <p>Sure, the official preview contains some great features of which I&rsquo;m already a fan: the model and validation metadata model is quite extensible, allowing the use of DataAnnotations, EntLib, NHibernate or your own custom validation logic in your application, while still being able to use standard model binders and client-side validation. Next to all this, a new version of the MVC 2 futures assembly was <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=33836" target="_blank">released on CodePlex</a>. And oh boy, there&rsquo;s some interesting stuff in there as well! Let&rsquo;s dive in&hellip;</p>

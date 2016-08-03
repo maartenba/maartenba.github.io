@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Book review: Beginning ASP.NET MVC 1.0"
-date: 2009-08-26 08:15:00 +0200
+date: 2009-08-26 08:15:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Book review", "Books", "CSharp", "General", "MVC"]
 alias: ["/post/2009/08/26/Book-review-Beginning-ASPNET-MVC-10.aspx", "/post/2009/08/26/book-review-beginning-aspnet-mvc-10.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/08/26/Book-review-Beginning-ASPNET-MVC-10.aspx
+ - /post/2009/08/26/book-review-beginning-aspnet-mvc-10.aspx
 ---
 <p><a href="http://www.amazon.com/gp/product/047043399X?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=047043399X" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="/images/image_10.png" border="0" alt="image" width="200" height="335" align="right" /></a> It sure looks like August 2009 is the month in which I found multiple books on my doormat for review. Last week I did ASP.NET 3.5 CMS Development, this time I&rsquo;ll be reviewing a competitor to my own book on ASP.NET MVC, <a href="http://www.amazon.com/dp/184719754X?tag=maabalblo-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=184719754X&amp;adid=1X4WGF0SE0JW94CGFYP0&amp;" target="_blank">ASP.NET MVC 1.0 Quickly</a>: <a href="http://codeclimber.net.nz" target="_blank">Simone Chiaretta</a> and <a href="http://nayyeri.net/" target="_blank">Keyvan Nayyeri</a>&rsquo;s &ldquo;<a href="http://www.amazon.com/gp/product/047043399X?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=047043399X" target="_blank">Beginning ASP.NET MVC 1.0</a>&rdquo;.</p>
 <p>Let&rsquo;s start with the &ldquo;official book overview&rdquo;, which I usually copy-paste from Amazon. This book will learn you:</p>

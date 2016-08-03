@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["Azure", "General", "Presentations"]
 alias: ["/post/2009/12/08/Cloud-computing-and-the-Windows-Azure-Services-Platform-(KU-Leuven).aspx", "/post/2009/12/08/cloud-computing-and-the-windows-azure-services-platform-(ku-leuven).aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/12/08/Cloud-computing-and-the-Windows-Azure-Services-Platform-(KU-Leuven).aspx
+ - /post/2009/12/08/cloud-computing-and-the-windows-azure-services-platform-(ku-leuven).aspx
 ---
 <p>It was a fun session yesterday at KU Leuven university! I did a session on cloud computing and Windows Azure there for the <a href="http://www.ieee-sb-leuven.be
 " target="_blank">IEEE Student Branch Leuven</a>.</p>

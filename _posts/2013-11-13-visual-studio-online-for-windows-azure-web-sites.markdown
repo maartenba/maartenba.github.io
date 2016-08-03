@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "JavaScript", "Azure"]
 alias: ["/post/2013/11/13/Visual-Studio-Online-for-Windows-Azure-Web-Sites.aspx", "/post/2013/11/13/visual-studio-online-for-windows-azure-web-sites.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2013/11/13/Visual-Studio-Online-for-Windows-Azure-Web-Sites.aspx
+ - /post/2013/11/13/visual-studio-online-for-windows-azure-web-sites.aspx
 ---
 <p>Today&rsquo;s official Visual Studio 2013 launch provides some interesting novelties, especially for Windows Azure Web Sites. There is now the choice of choosing which pipeline to run in (classic or integrated), we can define separate applications in subfolders of our web site,&nbsp;debug a web site&nbsp;right from within Visual Studio. But the most impressive one is this. How about&hellip; an in-browser editor for your application?</p>
 <p><a href="/images/image_308.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="Editing Node.JS in browser" src="/images/image_thumb_269.png" alt="Editing Node.JS in browser" width="941" height="431" border="0" /></a></p>

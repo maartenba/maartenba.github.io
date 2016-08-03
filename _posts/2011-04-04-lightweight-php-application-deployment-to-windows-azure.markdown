@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Lightweight PHP application deployment to Windows Azure"
-date: 2011-04-04 11:45:00 +0200
+date: 2011-04-04 11:45:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "PHP", "Software"]
 alias: ["/post/2011/04/04/Lightweight-PHP-application-deployment-to-Windows-Azure.aspx", "/post/2011/04/04/lightweight-php-application-deployment-to-windows-azure.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2011/04/04/Lightweight-PHP-application-deployment-to-Windows-Azure.aspx
+ - /post/2011/04/04/lightweight-php-application-deployment-to-windows-azure.aspx
 ---
 <p>Those of you who are deploying PHP applications to Windows Azure, are probably using the <a href="http://www.windowsazure4e.org" target="_blank">Windows Azure tooling for Eclipse</a> or the fantastic <a href="http://www.interoperabilitybridges.com/projects/windows-azure-command-line-tools-for-php" target="_blank">command-line tools</a> available. I will give you a third option that allows for a 100% customized setup and is much more lightweight than the above options. Of course, if you want to have the out-of-the box functionality of those tools, stick with them.</p>
 <p><em><strong>Note:</strong> while this post is targeted at PHP developers, it also shows you how to build your own .cspkg from scratch for any other language out there. That includes you, .NET and Ruby!</em></p>

@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Slides of our VISUG session"
-date: 2010-05-04 10:27:00 +0200
+date: 2010-05-04 10:27:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "Events", "General", "jQuery", "Presentations"]
 alias: ["/post/2010/05/04/Slides-of-our-VISUG-session.aspx", "/post/2010/05/04/slides-of-our-visug-session.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/05/04/Slides-of-our-VISUG-session.aspx
+ - /post/2010/05/04/slides-of-our-visug-session.aspx
 ---
 <p>As promised, here are the slides of the <a href="http://www.visug.be" target="_blank">VISUG</a> session me and <a href="http://www.krisvandermast.com" target="_blank">Kris van der Mast</a> did yesterday.</p>  <h2>Being a pimp without Silverlight!</h2><p>Abstract: <em>“Don't tell us you're jealous of those Silverlight fanboys! We'll show you that applications with bling can be developed using ASP.NET MVC and jQuery. We're talking MVC, template helpers, AJAX, JSON, transitions, live bindings, ...”</em></p>
 

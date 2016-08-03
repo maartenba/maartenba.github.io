@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "ASP.Net MVC Membership Starter Kit alternative authentication"
-date: 2008-04-15 10:45:00 +0200
+date: 2008-04-15 10:45:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects"]
 alias: ["/post/2008/04/15/ASPNet-MVC-Membership-Starter-Kit-alternative-authentication.aspx", "/post/2008/04/15/aspnet-mvc-membership-starter-kit-alternative-authentication.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/04/15/ASPNet-MVC-Membership-Starter-Kit-alternative-authentication.aspx
+ - /post/2008/04/15/aspnet-mvc-membership-starter-kit-alternative-authentication.aspx
 ---
 <p>
 Last week, I blogged about the <a href="/post/2008/04/ASPNet-MVC-Membership-Starter-Kit.aspx" target="_blank">ASP.Net MVC Membership Starter Kit</a> and some of its features. Since then, <a href="http://www.squaredroot.com/post/2008/04/MVC-Membership-Starter-Kit.aspx" target="_blank">Troy Goode</a> and I are developing at warp-speed to provide a complete (Forms)Authentication starter kit for the MVC framework. Scott Guthrie also <a href="http://weblogs.asp.net/scottgu/archive/2008/04/11/april-11th-links-asp-net-asp-net-ajax-asp-net-mvc-visual-studio-silverlight.aspx" target="_blank">noticed our efforts</a>, which forced us to do an <a href="http://www.squaredroot.com/post/2008/04/MVC-Membership-Starter-Kit-11.aspx" target="_blank">official release</a> earlier than planned. 

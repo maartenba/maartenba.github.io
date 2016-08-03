@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "LINQ", "Personal", "PHP", "Projects", "Zend Framework"]
 alias: ["/post/2009/01/29/PHPLinq-040-released-on-CodePlex!.aspx", "/post/2009/01/29/phplinq-040-released-on-codeplex!.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/01/29/PHPLinq-040-released-on-CodePlex!.aspx
+ - /post/2009/01/29/phplinq-040-released-on-codeplex!.aspx
 ---
 <p><img style="border: 0px none ; margin: 5px 0px 5px 5px; display: inline" title="PHPLinq" src="/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/phplinq_logo.png" border="0" alt="PHPLinq" width="240" height="80" align="right" /> I&rsquo;m pleased to announce that <a href="http://www.phplinq.net" target="_blank">PHPLinq 0.4.0</a> has been released on CodePlex. PHPLinq is currently <a href="/post/2008/01/LINQ-for-PHP-Language-Integrated-Query-for-PHP.aspx" target="_blank">one year old</a>, and I decided to add a huge step in functionality for the 0.4.0 release. This blog post will focus on the current status of PHPLinq and what it is capable of doing for you in a PHP project.</p>
 <p>&nbsp;</p>

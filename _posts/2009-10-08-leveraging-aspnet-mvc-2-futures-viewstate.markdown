@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Leveraging ASP.NET MVC 2 futures “ViewState”"
-date: 2009-10-08 11:21:00 +0200
+date: 2009-10-08 11:21:00 +0100
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2009/10/08/Leveraging-ASPNET-MVC-2-futures-ViewState.aspx", "/post/2009/10/08/leveraging-aspnet-mvc-2-futures-viewstate.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/10/08/Leveraging-ASPNET-MVC-2-futures-ViewState.aspx
+ - /post/2009/10/08/leveraging-aspnet-mvc-2-futures-viewstate.aspx
 ---
 <p>Let&rsquo;s start this blog post with a confession: yes, I abused a feature in the ASP.NET MVC 2 futures assembly to fire up discussion. In my <a href="/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx#comment" target="_blank">previous blog post</a>, I called something &ldquo;ViewState in MVC&rdquo; while it is not really ViewState. To be honest, I did this on purpose, wanting to see people discuss this possibly new feature in MVC 2. Discussion started quite fast: most people do not like the word ViewState, especially when it is linked to ASP.NET MVC. As <a href="http://www.haacked.com" target="_blank">Phil Haack</a> pointed out in a <a href="/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx#comment" target="_blank">comment on my previous blog post</a>, I used this foul word where it was not appropriate.</p>
 

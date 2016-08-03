@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Enlisting an ADO.NET command in an NHibernate transaction"
-date: 2007-06-20 21:39:00 +0200
+date: 2007-06-20 21:39:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["CSharp", "General", "Software"]
 alias: ["/post/2007/06/20/enlisting-an-ado-net-command-in-an-nhibernate-transaction.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2007/06/20/enlisting-an-ado-net-command-in-an-nhibernate-transaction.aspx
+ - /post/2007/06/20/enlisting-an-ado-net-command-in-an-nhibernate-transaction.aspx
 ---
 <p>
 For everyone who has read my <a href="/archive/2006/12/26/article-in-net-magazine.aspx">article on NHibernate</a>, here&#39;s a story for you...

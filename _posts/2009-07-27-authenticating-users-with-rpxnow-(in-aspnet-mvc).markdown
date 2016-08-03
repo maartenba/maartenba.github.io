@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Authenticating users with RPXNow (in ASP.NET MVC)"
-date: 2009-07-27 11:10:00 +0200
+date: 2009-07-27 11:10:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2009/07/27/Authenticating-users-with-RPXNow-(in-ASPNET-MVC).aspx", "/post/2009/07/27/authenticating-users-with-rpxnow-(in-aspnet-mvc).aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/07/27/Authenticating-users-with-RPXNow-(in-ASPNET-MVC).aspx
+ - /post/2009/07/27/authenticating-users-with-rpxnow-(in-aspnet-mvc).aspx
 ---
 <p><a href="/images/image_2.png"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="ASP.NET MVC RPX RPXNow" src="/images/image_thumb_2.png" border="0" alt="ASP.NET MVC RPX RPXNow" width="244" height="235" align="right" /></a> Don&rsquo;t you get sick of having to register at website X, at website Y, at website Z, &hellip;? It is really not fun to maintain all these accounts, change passwords, &hellip; Luckily, there are some large websites offering delegated sign-in (for example <a href="http://code.google.com/apis/accounts/index.html" target="_blank">Google Accounts</a>, <a href="http://dev.live.com/" target="_blank">Live ID</a>, <a href="http://apiwiki.twitter.com/OAuth-FAQ" target="_blank">Twitter OAuth</a>, &hellip;). You can use these delegated sign-in methods on your own site, removing the need of registering yet another account. Unfortunately, not everyone has an account at provider X&hellip;</p>
 <p>A while ago, I found out about the free service <a href="http://www.janrain.com" target="_blank">JanRain</a> is offering: <a href="https://rpxnow.com/" target="_blank">RPXNow</a>. This (free!) service combines the strengths of several major account providers (Google Accounts, Live ID, Twitter, Facebook, OpenID, &hellip;) into one simple API. This means that people are able to log in to your website if they have an account at one of these providers! Here&rsquo;s how to use it in ASP.NET MVC&hellip;</p>

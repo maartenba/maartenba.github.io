@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Getting Started with the Tessel"
-date: 2014-07-30 15:21:00 +0200
+date: 2014-07-30 15:21:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["General", "JavaScript", "Projects"]
 alias: ["/post/2014/07/30/Getting-Started-with-the-Tessel.aspx", "/post/2014/07/30/getting-started-with-the-tessel.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2014/07/30/Getting-Started-with-the-Tessel.aspx
+ - /post/2014/07/30/getting-started-with-the-tessel.aspx
 ---
 <p><a href="/images/image_330.png"><img width="240" height="64" title="Tessel Logo" align="right" style="margin: 0px 0px 0px 5px; border: 0px currentColor; border-image: none; padding-top: 0px; padding-right: 0px; padding-left: 0px; float: right; display: inline; background-image: none;" alt="Tessel Logo" src="/images/image_thumb_290.png" border="0"></a>Somewhere last year (I honestly no longer remember when), I saw a few tweets that piqued my interest: a <a href="http://www.dragoninnovation.com/projects/22-tessel">crowdfunding project for the Tessel</a>, “an internet-connected microcontroller programmable in JavaScript”. Since everyone was doing Arduino and Netduino and JavaScript is not the worst language ever, I thought: let’s give these guys a bit of money! A few months later, they reached their goal and it seemed <a href="http://tessel.io">Tessel</a> was going to production. Technical Machine, the company behind the device, sent status e-mails on their production process every couple of weeks and eventually after some delays, there it was!</p> <h2>Plug, install (a little), play!</h2> <p>After unpacking the Tessel, I was happy to see it was delivered witha micro-USB cable to power it, a couple of stuickers and the climate module I ordered with it (a temperature and humidity sensor). The one-line manual said “<a href="http://tessel.io/start">http://tessel.io/start</a>”, so that’s where I went.</p> <p>The setup is pretty easy: plug it in a USB port so that Windows installs the drivers, install the <em>tessel</em> package using NPM and update the device to the latest firmware.</p> <div class="wlWriterEditableSmartContent" id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:d58b514a-652b-49e8-b8df-1d0ba348712a" style="margin: 0px; padding: 0px; float: none; display: inline;"><pre style="width: 652px; height: 55px; overflow: auto; background-color: white;"><div><!--
 

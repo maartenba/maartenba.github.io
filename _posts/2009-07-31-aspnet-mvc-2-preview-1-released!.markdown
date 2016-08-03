@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "ASP.NET MVC 2 Preview 1 released!"
-date: 2009-07-31 10:00:00 +0200
+date: 2009-07-31 10:00:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2009/07/31/ASPNET-MVC-2-Preview-1-released!.aspx", "/post/2009/07/31/aspnet-mvc-2-preview-1-released!.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/07/31/ASPNET-MVC-2-Preview-1-released!.aspx
+ - /post/2009/07/31/aspnet-mvc-2-preview-1-released!.aspx
 ---
 <p>Today, <a href="http://www.haacked.com/archive/2009/07/30/asp.net-mvc-released.aspx" target="_blank">Phil Haack did a blog post</a> on the release of <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=d34f9eaa-fcbe-4e20-b2fd-a9a03de7d6dd&amp;displaylang=en" target="_blank">ASP.NET MVC 2 Preview 1</a>! Get it while it&rsquo;s fresh :-) An <a href="http://aspnet.codeplex.com/Wiki/View.aspx?title=Road%20Map&amp;referringTitle=Home" target="_blank">updated roadmap</a> is also available on CodePlex.</p>
 <p>Guess now is about time to start revising my <a href="http://www.amazon.com/dp/184719754X?tag=maabalblo-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=184719754X&amp;adid=1SCKDEP3JNWZHZ0NK3CT&amp;" target="_blank">ASP.NET MVC 1.0 Quickly</a> book&hellip;</p>

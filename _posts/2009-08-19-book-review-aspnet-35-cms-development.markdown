@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Book review: ASP.NET 3.5 CMS Development"
-date: 2009-08-19 10:51:00 +0200
+date: 2009-08-19 10:51:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Book review", "Books", "CSharp", "General"]
 alias: ["/post/2009/08/19/Book-review-ASPNET-35-CMS-Development.aspx", "/post/2009/08/19/book-review-aspnet-35-cms-development.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/08/19/Book-review-ASPNET-35-CMS-Development.aspx
+ - /post/2009/08/19/book-review-aspnet-35-cms-development.aspx
 ---
 <p><a href="http://www.amazon.com/gp/product/1847193617?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1847193617" target="_blank"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="ASP.NET 3.5 CMS Development" src="/images/image_6.png" border="0" alt="ASP.NET 3.5 CMS Development" width="156" height="256" align="right" /></a> From time to time, the people at <a href="http://www.packtpub.com" target="_blank">Packt Publishing</a> send me a free book, fresh of the presses, and ask nicely if I want to read it and write a review on my blog. Last week, I received their fresh <a href="http://www.packtpub.com/asp-net-3-5-cms-development/book" target="_blank">ASP.NET 3.5 CMS Development</a> book, written by Curt Christianson and Jeff Cochran, both Microsoft MVP (ASP.NET and IIS).</p>
 <p>According to the website, the book aims at learning people how to build a CMS. Now, I know from writing my <a href="http://www.amazon.com/dp/184719754X?tag=maabalblo-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=184719754X&amp;adid=1X4WGF0SE0JW94CGFYP0&amp;" target="_blank">ASP.NET MVC 1.0 Quickly</a> book that these texts are written mostly by marketing people.</p>

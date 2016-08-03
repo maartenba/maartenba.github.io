@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "OpenXML", "Personal", "PHP", "Publications"]
 alias: ["/post/2008/12/01/PHPExcel-featured-in-php7carchitect-November-2008.aspx", "/post/2008/12/01/phpexcel-featured-in-php7carchitect-november-2008.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/12/01/PHPExcel-featured-in-php7carchitect-November-2008.aspx
+ - /post/2008/12/01/phpexcel-featured-in-php7carchitect-november-2008.aspx
 ---
 <p>
 <img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/PHPExcelfeaturedinphparchitectNovember20_7DB5/image_3.png" border="0" alt="Cover of php|architect / November 2008" width="104" height="134" align="right" /> Nice to see that there&#39;s a lot of activity going on related to <a href="http://www.phpexcel.net" target="_blank">PHPExcel</a>! This weekend, I receievd my electronic copy of <a href="http://www.phparch.com/c/magazine/issue/86" target="_blank">php|architect / November 2008</a> featuring an article on generating PDF and Excel files using PHP. Guess which library is being used in the second part of the article...

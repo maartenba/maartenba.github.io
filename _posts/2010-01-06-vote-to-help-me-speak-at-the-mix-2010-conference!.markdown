@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Personal", "PHP", "Presentations", "Azure Database"]
 alias: ["/post/2010/01/06/Vote-to-help-me-speak-at-the-MIX-2010-conference!.aspx", "/post/2010/01/06/vote-to-help-me-speak-at-the-mix-2010-conference!.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/01/06/Vote-to-help-me-speak-at-the-MIX-2010-conference!.aspx
+ - /post/2010/01/06/vote-to-help-me-speak-at-the-mix-2010-conference!.aspx
 ---
 <p>Everybody knows the Microsoft <a href="http://live.visitmix.com/" target="_blank">MIX</a> event, right? The one in Las Vegas? The one with all the fancy web-related stuff? Rings a bell? Ok, great. In the beginning of December 2009, Microsoft did an open call for speakers, which I answered with some session proposals. Who doesn&rsquo;t want to go to Vegas, right?</p>
 <p>The open call proposals have been processed (150+ sessions submitted, wow!) and a voting has started. Yes, you hear me coming: <a href="http://bit.ly/6A0dyC" target="_blank">please go ahead and vote for a session I submitted</a>. Voting ends January 15th, 2010.</p>

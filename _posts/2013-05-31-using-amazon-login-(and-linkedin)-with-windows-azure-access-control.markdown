@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Using Amazon Login (and LinkedIn and …) with Windows Azure Access Control"
-date: 2013-05-31 10:38:00 +0200
+date: 2013-05-31 10:38:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Personal", "Projects", "Security", "Azure"]
 alias: ["/post/2013/05/31/Using-Amazon-Login-(and-LinkedIn)-with-Windows-Azure-Access-Control.aspx", "/post/2013/05/31/using-amazon-login-(and-linkedin)-with-windows-azure-access-control.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2013/05/31/Using-Amazon-Login-(and-LinkedIn)-with-Windows-Azure-Access-Control.aspx
+ - /post/2013/05/31/using-amazon-login-(and-linkedin)-with-windows-azure-access-control.aspx
 ---
 <p>One of the services provided by the Windows Azure cloud computing platform is the <a href="http://www.windowsazure.com/en-us/home/features/identity/">Windows Azure Access Control Service (ACS)</a>. It is a service that provides federated authentication and rules-driven, claims-based authorization. It has some social providers like Microsoft Account, Google Account, Yahoo! and Facebook. But what about the other social identity providers out there? For example the newly introduced <a href="http://login.amazon.com/">Login with Amazon</a>, or <a href="http://www.linkedin.com">LinkedIn</a>? As they are OAuth2 implementations they don&rsquo;t really fit into ACS.</p>
 <p>Meet <a href="http://www.SocialSTS.com">SocialSTS.com</a>. It&rsquo;s a service I created which does a protocol conversion and allows integrating ACS with other social identities. Currently it has support for integrating ACS with Twitter, GitHub, LinkedIn, BitBucket, StackExchange and Amazon. Let&rsquo;s see how this works. There are 2 steps we have to take:</p>

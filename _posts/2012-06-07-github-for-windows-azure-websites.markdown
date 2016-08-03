@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "GitHub for Windows Azure Websites"
-date: 2012-06-07 18:00:00 +0200
+date: 2012-06-07 18:00:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Source control", "Webfarm"]
 alias: ["/post/2012/06/07/GitHub-for-Windows-Azure-Websites.aspx", "/post/2012/06/07/github-for-windows-azure-websites.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2012/06/07/GitHub-for-Windows-Azure-Websites.aspx
+ - /post/2012/06/07/github-for-windows-azure-websites.aspx
 ---
 <p><a href="http://octodex.github.com/cloud/"><img style="background-image: none; margin: 5px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="Windows Azure Websites Git Github for Windows" src="/images/image_184.png" border="0" alt="Windows Azure Websites Git Github for Windows" width="244" height="244" align="right" /></a>With the new release of Windows Azure and Windows Azure Websites, a lot of new scenarios with Windows Azure just became possible. One I like a lot, especially since <a href="http://www.appharbor.com" target="_blank">Appharbor</a> and <a href="http://www.heroku.com" target="_blank">Heroku</a> have similar offers too, is the possibility to push source code (ASP.NET or PHP) to Windows Azure instead of binaries using Windows Azure Websites.</p>
 <p>Not everyone out there is a command-line here though: if you want to use Git as a mechanism of pushing sources to Windows Azure Websites chances are you may go crazy if you are unfamiliar with command-line git commands. Luckily, a couple of weeks ago, GitHub released <a href="http://windows.github.com" target="_blank">GitHub for Windows</a>. It features an easy-to-use GUI on top of GitHub repositories. And with a small trick also on top of Windows Azure Websites.</p>

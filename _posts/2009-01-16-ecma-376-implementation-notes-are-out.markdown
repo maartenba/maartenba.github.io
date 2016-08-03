@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "OpenXML", "PHP", "Projects"]
 alias: ["/post/2009/01/16/ECMA-376-implementation-notes-are-out.aspx", "/post/2009/01/16/ecma-376-implementation-notes-are-out.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/01/16/ECMA-376-implementation-notes-are-out.aspx
+ - /post/2009/01/16/ecma-376-implementation-notes-are-out.aspx
 ---
 <p>
 <img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/ECMA376implementationnotesareout_950B/image_3bc0ec8d-6122-4010-99ec-c652cbf3822a.png" border="0" alt="Document Interop Initiative" width="242" height="78" align="right" /> Last month, Microsoft <a href="/post/2008/12/16/Microsoft-launches-Implementation-Notes-(for-ODF).aspx" target="_blank">released the implementation notes</a> for their ODF implementation in Office 2007. These implementation notes are actually the documentation on how Office 2007 treats ODF documents in various cases. Today, Microsoft released the ECMA-376 implementation notes, or in short: they&#39;ve now documented how Office 2007 handles OpenXML documents. The implementation notes site can be found on <a href="http://www.documentinteropinitiative.org">www.documentinteropinitiative.org</a>. 

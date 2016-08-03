@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "OpenXML", "PHP"]
 alias: ["/post/2008/03/27/Reuse-Excel-business-logic-with-PHPExcel.aspx", "/post/2008/03/27/reuse-excel-business-logic-with-phpexcel.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/03/27/Reuse-Excel-business-logic-with-PHPExcel.aspx
+ - /post/2008/03/27/reuse-excel-business-logic-with-phpexcel.aspx
 ---
 <p><a href="/images/WindowsLiveWriter/ReuseExcelbusinesslogicwithPHPExcel_DB7D/image_2.png"><img style="margin: 5px; border-width: 0px;" src="/images/WindowsLiveWriter/ReuseExcelbusinesslogicwithPHPExcel_DB7D/image_thumb.png" border="0" alt="Price calculation" width="244" height="194" align="left" /></a>In many companies, business logic resides in Excel. This business logic is sometimes created by business analysts and sometimes by business users who want to automate parts of their everyday job using Excel. This same Excel-based business logic is often copied into an application (i.e. a website) and is maintained on 2 places: if the Excel logic changes, the application should also be modified. Did you know you can use PHPExcel to take advantage of the Excel-based business logic without having to worry about duplicate business logic?</p>
 <p>Here's a scenario: You are working in a company which sells "dream cars". For every model, the company has created an Excel spreadsheet which is used to calculate the car's price based on customer preferences. These spreadsheets are updated frequently in order to reflect the car manufacturer's pricing schemes.</p>

@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "New Team Foundation Server projects on CodePlex!"
-date: 2008-04-29 20:21:00 +0200
+date: 2008-04-29 20:21:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["CSharp", "General", "Projects", "Software"]
 alias: ["/post/2008/04/29/New-Team-Foundation-Server-projects-on-CodePlex.aspx", "/post/2008/04/29/new-team-foundation-server-projects-on-codeplex.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/04/29/New-Team-Foundation-Server-projects-on-CodePlex.aspx
+ - /post/2008/04/29/new-team-foundation-server-projects-on-codeplex.aspx
 ---
 <p>
 Busy times... Lots of work, some holidays here in Belgium, ... But there&#39;s always time to browse <a href="http://www.codeplex.com/" target="_blank">CodePlex</a>! It is actually a good thing to do that from time to time. In the past few days, I spotted two great new projects on Team Foundation Server. Thumbs up for their authors!

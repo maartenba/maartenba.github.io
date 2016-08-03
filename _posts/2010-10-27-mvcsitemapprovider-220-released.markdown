@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "MvcSiteMapProvider 2.2.0 released"
-date: 2010-10-27 19:20:00 +0200
+date: 2010-10-27 19:20:00 +0100
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects"]
 alias: ["/post/2010/10/27/MvcSiteMapProvider-220-released.aspx", "/post/2010/10/27/mvcsitemapprovider-220-released.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/10/27/MvcSiteMapProvider-220-released.aspx
+ - /post/2010/10/27/mvcsitemapprovider-220-released.aspx
 ---
 <p><a href="http://mvcsitemap.codeplex.com/"><img style="background-image: none; border-right-width: 0px; margin: 0px 0px 0px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" src="http://download.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=mvcsitemap&amp;DownloadId=137766&amp;Build=17275" border="0" alt="" align="right" /></a></p>
 <p>I&rsquo;m proud to announce that <a href="http://mvcsitemap.codeplex.com/releases/view/54661" target="_blank">MvcSiteMapProvider 2.2.0</a> has just been uploaded to CodePlex. It should also be <a href="/post/2010/10/08/Using-MvcSiteMapProvider-throuh-NuPack.aspx" target="_blank">available through NuPack</a> in the coming hours. This release has taken a while, but that&rsquo;s because I&rsquo;ve been making some important changes...</p>

@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "More ASP.NET MVC Best Practices"
-date: 2009-05-06 14:00:00 +0200
+date: 2009-05-06 14:00:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General"]
 alias: ["/post/2009/05/06/More-ASPNET-MVC-Best-Practices.aspx", "/post/2009/05/06/more-aspnet-mvc-best-practices.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/05/06/More-ASPNET-MVC-Best-Practices.aspx
+ - /post/2009/05/06/more-aspnet-mvc-best-practices.aspx
 ---
 <p>In this post, I&rsquo;ll share some of the best practices and guidelines which I have come across while developing ASP.NET MVC web applications. I will not cover all best practices that are available, instead add some specific things that have not been mentioned in any blog post out there.</p>
 <p>Existing best practices can be found on Kazi Manzur Rashid&rsquo;s blog and Simone Chiaretta&rsquo;s blog:</p>

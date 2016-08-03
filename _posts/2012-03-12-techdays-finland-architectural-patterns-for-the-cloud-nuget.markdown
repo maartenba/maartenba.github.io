@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "Events", "General", "Presentations", "Publications", "Scalability", "Software", "Webfarm"]
 alias: ["/post/2012/03/12/TechDays-Finland-Architectural-Patterns-for-the-Cloud-NuGet.aspx", "/post/2012/03/12/techdays-finland-architectural-patterns-for-the-cloud-nuget.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2012/03/12/TechDays-Finland-Architectural-Patterns-for-the-Cloud-NuGet.aspx
+ - /post/2012/03/12/techdays-finland-architectural-patterns-for-the-cloud-nuget.aspx
 ---
 <p>As promised, here are the slide decks for the two sessions delivered at TechDays Finland last week.</p>
 <h2>Architectural Patterns for the Cloud</h2>

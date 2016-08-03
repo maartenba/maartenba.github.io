@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "Personal"]
 alias: ["/post/2010/01/04/Byebye-2009-welcome-2010!.aspx", "/post/2010/01/04/byebye-2009-welcome-2010!.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/01/04/Byebye-2009-welcome-2010!.aspx
+ - /post/2010/01/04/byebye-2009-welcome-2010!.aspx
 ---
 <p><a href="/images/image_26.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="Fireworks!" src="/images/image_thumb_8.png" border="0" alt="Fireworks!" width="736" height="240" /></a></p>
 <p>A year just ended, a new has begun. Congratulations! Happy newyear 2010! And welcome in the next decennium. It&rsquo;s time for a 2009 wrap-up post. And perhaps, even the time for some things I want to do in 2010. First things first: the top 5 blog posts of 2009.</p>

@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2008/03/21/ASPNET-MVC-Framework-out-on-CodePlex.aspx", "/post/2008/03/21/aspnet-mvc-framework-out-on-codeplex.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/03/21/ASPNET-MVC-Framework-out-on-CodePlex.aspx
+ - /post/2008/03/21/aspnet-mvc-framework-out-on-codeplex.aspx
 ---
 <p>
 This morning, I was browsing the <a href="/admin/Pages/ISO/IEC%2029500" target="_blank" title="http://www.codeplex.com/Project/ProjectDirectory.aspx?SortBy=PublishedDate">new projects page on CodePlex</a> and noticed something nice! The ASP.NET MVC team already <a href="http://weblogs.asp.net/scottgu/archive/2008/02/12/asp-net-mvc-framework-road-map-update.aspx" target="_blank">rumoured</a> <a href="http://www.haacked.com/archive/2008/03/10/thoughts-on-asp.net-mvc-preview-2-and-beyond.aspx" target="_blank">around</a> making the ASP.NET MVC framework source code available on CodePlex, but here it is: <a href="http://www.codeplex.com/aspnet" target="_blank">the ASP.NET MVC project on CodePlex</a>. 

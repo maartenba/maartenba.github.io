@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "ASP.NET MVC framework preview 3 released!"
-date: 2008-05-27 19:16:00 +0200
+date: 2008-05-27 19:16:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Software"]
 alias: ["/post/2008/05/27/ASPNET-MVC-framework-preview-3-released.aspx", "/post/2008/05/27/aspnet-mvc-framework-preview-3-released.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/05/27/ASPNET-MVC-framework-preview-3-released.aspx
+ - /post/2008/05/27/aspnet-mvc-framework-preview-3-released.aspx
 ---
 <p>
 Don&#39;t know how I do it, but I think this blog post is <a href="/post/2008/03/ASPNET-MVC-Framework-out-on-CodePlex.aspx" target="_blank">yet again</a> the first one out there mentioning a new release of the ASP.NET framework (preview 3)&nbsp;<img src="/admin/tiny_mce/plugins/emotions/images/smiley-cool.gif" border="0" alt="Cool" title="Cool" width="18" height="18" /> 

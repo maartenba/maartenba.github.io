@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["Azure", "CSharp", "General", "Scalability", "Webfarm"]
 alias: ["/post/2010/01/17/Creating-an-external-facing-Azure-Worker-Role-endpoint.aspx", "/post/2010/01/17/creating-an-external-facing-azure-worker-role-endpoint.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/01/17/Creating-an-external-facing-Azure-Worker-Role-endpoint.aspx
+ - /post/2010/01/17/creating-an-external-facing-azure-worker-role-endpoint.aspx
 ---
 <p><a href="/images/image_33.png"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="Internet facing Azure Worker Role" src="/images/image_thumb_11.png" border="0" alt="Internet facing Azure Worker Role" width="174" height="164" align="right" /></a> When <a href="http://www.azure.com">Windows Azure</a> was first released, only Web Roles were able to have an externally facing endpoint. Since <a href="http://www.microsoftpdc.com">PDC 2009</a>, Worker Roles can now also have an external facing endpoint, allowing for a custom application server to be hosted in a Worker Role. Another option would be to run your own WCF service and have it hosted in a Worker Role. Features like load balancing, multiple instances of the Worker are all available. Let&rsquo;s see how you can create a simple TCP service that can display the current date and time.</p>
 <p>Here&rsquo;s what I want to see when I connect to my Azure Worker Role using telnet (&ldquo;<em>telnet efwr.cloudapp.net 1234</em>&rdquo;):</p>

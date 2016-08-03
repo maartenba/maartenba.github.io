@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Enabling HTTP proxy for .NET webservice client"
-date: 2007-10-10 02:26:00 +0200
+date: 2007-10-10 02:26:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General"]
 alias: ["/post/2007/10/10/Enabling-HTTP-proxy-for-NET-webservice-client.aspx", "/post/2007/10/10/enabling-http-proxy-for-net-webservice-client.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2007/10/10/Enabling-HTTP-proxy-for-NET-webservice-client.aspx
+ - /post/2007/10/10/enabling-http-proxy-for-net-webservice-client.aspx
 ---
 <p>
 Have you ever written code that makes external (Soap) webservice calls? Tried that same code on your company network? Most of the time, this does not work very well due to a proxy server sitting in between, requiring authentication etc. 

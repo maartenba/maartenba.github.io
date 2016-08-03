@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Remove unnecessary HTTP modules from the ASP.NET pipeline"
-date: 2007-09-21 16:07:00 +0200
+date: 2007-09-21 16:07:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Software"]
 alias: ["/post/2007/09/21/remove-unnecessary-http-modules-from-the-asp-net-pipeline.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2007/09/21/remove-unnecessary-http-modules-from-the-asp-net-pipeline.aspx
+ - /post/2007/09/21/remove-unnecessary-http-modules-from-the-asp-net-pipeline.aspx
 ---
 <p>
 Trying to speed up some things in a demo ASP.NET application for a customer, I found a really simple and effective way to remove some HTTP modules from the ASP.NET pipeline. When you are not using WindowsAuthentication or PassportAuthentication or ..., you can easily disable those modules. This decreases ASP.NET bootstrapping time as there are fewer object creations to do every page load... 

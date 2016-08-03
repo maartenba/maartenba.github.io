@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "ASP.NET MVC - MvcSiteMapProvider 2.0 is out!"
-date: 2010-06-16 07:45:00 +0200
+date: 2010-06-16 07:45:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Software"]
 alias: ["/post/2010/06/16/ASPNET-MVC-MvcSiteMapProvider-20-is-out!.aspx", "/post/2010/06/16/aspnet-mvc-mvcsitemapprovider-20-is-out!.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/06/16/ASPNET-MVC-MvcSiteMapProvider-20-is-out!.aspx
+ - /post/2010/06/16/aspnet-mvc-mvcsitemapprovider-20-is-out!.aspx
 ---
 <p>I&rsquo;m very proud to announce the release of the ASP.NET MVC MvcSiteMapProvider 2.0! I&rsquo;m also proud that the name of this product now exceeds the average length of Microsoft product names. In this blog post, I will give you a feel of what you can (and can not) do with this ASP.NET-specific SiteMapProvider.</p>
 <p>As a warning: if you&rsquo;ve used version 1 of this library, you will notice that I have not thought of backwards compatibility. A lot of principles have also changed. For good reasons though: this release is a rewrite of the original version with improved features, extensibility and stability.</p>

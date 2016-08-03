@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Enabling PHP 5.5 on Windows Azure Web Sites using a remote shell and KuduExec"
-date: 2013-06-24 08:39:00 +0200
+date: 2013-06-24 08:39:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: []
 alias: ["/post/2013/06/24/Enabling-PHP-55-on-Windows-Azure-Web-Sites-using-a-remote-shell-and-KuduExec.aspx", "/post/2013/06/24/enabling-php-55-on-windows-azure-web-sites-using-a-remote-shell-and-kuduexec.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2013/06/24/Enabling-PHP-55-on-Windows-Azure-Web-Sites-using-a-remote-shell-and-KuduExec.aspx
+ - /post/2013/06/24/enabling-php-55-on-windows-azure-web-sites-using-a-remote-shell-and-kuduexec.aspx
 ---
 <p>While probably this post will be outdated in the coming days, at the time of writing Windows Azure Web Sites has no PHP 5.5 support (again: yet). In this post, we&rsquo;ll explore how to enable PHP 5.5 on Windows Azure Web Sites ourselves. Last year my friend Cory wrote a post on <a href="http://blog.syntaxc4.net/post/2012/09/13/enabling-php-5-4-in-windows-azure-web-sites.aspx">enabling PHP 5.4 in Windows Azure Web Sites</a> which applies to PHP 5.5 as well. However I want to discuss a different approach. And do read on if PHP 5.5 is already officially available on WAWS: there are some tips and tricks in here.</p>
 <p>Enabling PHP 5.5 on Windows Azure Web Sites is pretty simple. All we need is an extracted version of <em>php-cgi.exe</em> and all extensions on our web site and a handler mapping in IIS. Now&hellip; how to get that PHP executable there? Cory took the <a href="http://blog.syntaxc4.net/post/2012/09/13/enabling-php-5-4-in-windows-azure-web-sites.aspx">approach of uploading PHP using FTP</a> to upload the executable. But why settle for FTP if we have shell access to our Windows Azure Web Site?</p>

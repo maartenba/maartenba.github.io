@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "PHP", "Software", "Azure"]
 alias: ["/post/2012/12/28/Windows-Azure-Websites-and-PHPStorm.aspx", "/post/2012/12/28/windows-azure-websites-and-phpstorm.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2012/12/28/Windows-Azure-Websites-and-PHPStorm.aspx
+ - /post/2012/12/28/windows-azure-websites-and-phpstorm.aspx
 ---
 <p>In my new role as Technical Evangelist at <a href="http://www.jetbrains.com">JetBrains</a>, I&rsquo;ve been experimenting with one of our products a lot: <a href="http://www.jetbrains.com/phpstorm/">PhpStorm</a>. I was kind of curious how this tool would integrate with <a href="http://www.windowsazure.com/en-us/home/features/web-sites/">Windows Azure Web Sites</a>. Now before you quit reading this post because of that acronym: if you are a Node-head you can also use <a href="http://www.jetbrains.com/webstorm/">WebStorm</a> to do the same things I will describe in this post. Let&rsquo;s see if we can get a simple PHP application running on Windows Azure right from within our IDE&hellip;</p>
 <h2>Setting up a Windows Azure Web Site</h2>

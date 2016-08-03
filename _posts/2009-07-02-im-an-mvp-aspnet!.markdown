@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "I’m an MVP ASP.NET!"
-date: 2009-07-02 14:08:00 +0200
+date: 2009-07-02 14:08:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "General", "Personal", "MVP"]
 alias: ["/post/2009/07/02/Im-an-MVP-ASPNET!.aspx", "/post/2009/07/02/im-an-mvp-aspnet!.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/07/02/Im-an-MVP-ASPNET!.aspx
+ - /post/2009/07/02/im-an-mvp-aspnet!.aspx
 ---
 <p><a href="/images/MVPLogo.gif"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="MVPLogo" src="/images/MVPLogo_thumb.gif" border="0" alt="MVPLogo" width="115" height="240" align="right" /></a>Yesterday evening, I received the following e-mail:</p>
 

@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "MSDN session on ASP.NET MVC"
-date: 2009-04-23 17:08:00 +0200
+date: 2009-04-23 17:08:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Presentations", "Publications"]
 alias: ["/post/2009/04/23/MSDN-session-on-ASPNET-MVC.aspx", "/post/2009/04/23/msdn-session-on-aspnet-mvc.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/04/23/MSDN-session-on-ASPNET-MVC.aspx
+ - /post/2009/04/23/msdn-session-on-aspnet-mvc.aspx
 ---
 <p>As promised to all people attending my online session on ASP.NET MVC this afternoon, here is the slide deck I&rsquo;ve used.</p>
 

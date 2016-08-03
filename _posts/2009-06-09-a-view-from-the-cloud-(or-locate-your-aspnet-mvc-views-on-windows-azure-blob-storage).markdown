@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "A view from the cloud (or: locate your ASP.NET MVC views on Windows Azure Blob Storage)"
-date: 2009-06-09 07:15:00 +0200
+date: 2009-06-09 07:15:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Webfarm"]
 alias: ["/post/2009/06/09/A-view-from-the-cloud-(or-locate-your-ASPNET-MVC-views-on-Windows-Azure-Blob-Storage).aspx", "/post/2009/06/09/a-view-from-the-cloud-(or-locate-your-aspnet-mvc-views-on-windows-azure-blob-storage).aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/06/09/A-view-from-the-cloud-(or-locate-your-ASPNET-MVC-views-on-Windows-Azure-Blob-Storage).aspx
+ - /post/2009/06/09/a-view-from-the-cloud-(or-locate-your-aspnet-mvc-views-on-windows-azure-blob-storage).aspx
 ---
 <p>Hosting and deploying ASP.NET MVC applications on <a href="http://www.azure.com/" target="_blank">Windows Azure</a> works like a charm. However, if you have been reading my blog for a while, you <a href="/post/2008/12/19/CarTrackr-on-Windows-Azure-Part-5-Deploying-in-the-cloud.aspx" target="_blank">might have seen</a> that I don&rsquo;t like the fact that my ASP.NET MVC views are stored in the deployed package as well&hellip; Why? If I want to change some text or I made a typo, I would have to re-deploy my entire application for this. Takes a while, application is down during deployment, &hellip; And all of that for a typo&hellip;</p>
 <p>Luckily, Windows Azure also provides blob storage, on which you can host any blob of data (or any file, if you don&rsquo;t like saying &ldquo;blob&rdquo;). These blobs can easily be managed with a tool like <a href="http://www.codeplex.com/blobexplorer" target="_blank">Azure Blob Storage Explorer</a>. Now let&rsquo;s see if we can abuse blob storage for storing the views of an ASP.NET MVC web application, making it easier to modify the text and stuff. We&rsquo;ll do this by creating a new <a href="http://msdn.microsoft.com/en-us/library/system.web.hosting.virtualpathprovider.aspx" target="_blank">VirtualPathProvider</a>.</p>

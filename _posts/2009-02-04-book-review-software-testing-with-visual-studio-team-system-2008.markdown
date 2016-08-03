@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["Book review", "Books", "General", "Profiling", "Testing"]
 alias: ["/post/2009/02/04/Book-review-Software-Testing-with-Visual-Studio-Team-System-2008.aspx", "/post/2009/02/04/book-review-software-testing-with-visual-studio-team-system-2008.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/02/04/Book-review-Software-Testing-with-Visual-Studio-Team-System-2008.aspx
+ - /post/2009/02/04/book-review-software-testing-with-visual-studio-team-system-2008.aspx
 ---
 <p>
 <a href="http://www.amazon.com/gp/product/184719558X?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=184719558X" target="_blank"><img style="display: inline; margin: 5px 5px 5px 0px; border: 0px" src="/images/WindowsLiveWriter/BookreviewSoftwareTestingwithVisualStudi_BA41/image_ac23272b-c16c-4a81-82f3-550cef56bafa.png" border="0" alt="Software Testing with Visual Studio Team System 2008" title="Software Testing with Visual Studio Team System 2008" width="149" height="244" align="left" /></a> Another <a href="/category/Book-review.aspx" target="_blank">book review</a>, this time for <a href="http://www.packtpub.com/" target="_blank">Packt</a>&rsquo;s &ldquo;<a href="http://www.amazon.com/gp/product/184719558X?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=184719558X" target="_blank">Software Testing with Visual Studio Team System 2008</a>&rdquo;. The book introduces you to the main types of testing available in Visual Studio Team System 2008 for both desktop and web applications, and then walks you through deploying, running, and interpreting the results of tests. 

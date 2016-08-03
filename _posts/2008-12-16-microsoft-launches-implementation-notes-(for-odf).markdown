@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "OpenXML", "Projects"]
 alias: ["/post/2008/12/16/Microsoft-launches-Implementation-Notes-(for-ODF).aspx", "/post/2008/12/16/microsoft-launches-implementation-notes-(for-odf).aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/12/16/Microsoft-launches-Implementation-Notes-(for-ODF).aspx
+ - /post/2008/12/16/microsoft-launches-implementation-notes-(for-odf).aspx
 ---
 <p>
 <img style="display: inline; margin: 5px; border: 0px" src="/images/WindowsLiveWriter/MicrosoftlaunchesImplementationNotesforO_DE6A/image_3.png" border="0" alt="Document Interop Initiative" title="Document Interop Initiative" width="242" height="79" align="left" /> Just a quick post: at the <a href="/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx" target="_blank">Document Operability workshop in Brussels on December 2</a>, Microsoft already announced they were going to do something with implementation notes. Here&rsquo;s a scoop from my blog post on that: 

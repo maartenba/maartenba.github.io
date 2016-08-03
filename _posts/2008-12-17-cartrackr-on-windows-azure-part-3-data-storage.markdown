@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC"]
 alias: ["/post/2008/12/17/CarTrackr-on-Windows-Azure-Part-3-Data-storage.aspx", "/post/2008/12/17/cartrackr-on-windows-azure-part-3-data-storage.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/12/17/CarTrackr-on-Windows-Azure-Part-3-Data-storage.aspx
+ - /post/2008/12/17/cartrackr-on-windows-azure-part-3-data-storage.aspx
 ---
 <p>
 This post is part 3 of my series on <a href="http://www.microsoft.com/azure" target="_blank">Windows Azure</a>, in which I&#39;ll try to convert my ASP.NET MVC application into a cloud application. The current post is all about implementing cloud storage in CarTrackr. 

@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Wordpress auto sign-on with IIS7 and a plugin"
-date: 2011-05-04 11:17:00 +0200
+date: 2011-05-04 11:17:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "General", "PHP", "Projects", "Publications", "Webfarm"]
 alias: ["/post/2011/05/04/Wordpress-auto-sign-on-with-IIS7-and-a-plugin.aspx", "/post/2011/05/04/wordpress-auto-sign-on-with-iis7-and-a-plugin.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2011/05/04/Wordpress-auto-sign-on-with-IIS7-and-a-plugin.aspx
+ - /post/2011/05/04/wordpress-auto-sign-on-with-iis7-and-a-plugin.aspx
 ---
 <p>For our <a href="http://blogs.realdolmen.com/experts/" target="_blank">RealDolmen blog platform</a>, where we use <a href="http://wordpress.org" target="_blank">Wordpress</a> as the engine running multiple external and internal blogs (yes, that’s an internal SaaS we have there!), we wanted to have an easy solution for our employees to sign-on to the platform. We had a look at the Wordpress plugin repository and found the excellent <a href="http://wordpress.org/extend/plugins/simple-ldap-login/" target="_blank">Simple LDAP Login</a> plugin for providing sign-on through Active Directory. This allowed for sign-on using Active Directory credentials. However, when browsing the blogs from the corporate network, the login page is one extra step in the way of users: they are already logged on to the network, so why sign-on again using the same credentials?</p>
 <p>Luckily for us, we are hosting <a href="http://wordpress.org" target="_blank">Wordpress</a> on <a href="http://wordpress.visitmix.com/" target="_blank">Windows, IIS 7 and SQL Server</a>. Shocked? No Linux, MySQL, .htaccess and mod_rewrite there! And it works perfectly. In fact, we get some extras for free: single sign-on is made possible by IIS!</p>

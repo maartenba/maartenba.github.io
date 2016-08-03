@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "ICT", "MVC", "Projects", "Software"]
 alias: ["/post/2015/02/17/Domain-Routing-and-resolving-current-tenant-with-ASPNET-MVC-6-ASPNET-5.aspx", "/post/2015/02/17/domain-routing-and-resolving-current-tenant-with-aspnet-mvc-6-aspnet-5.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2015/02/17/Domain-Routing-and-resolving-current-tenant-with-ASPNET-MVC-6-ASPNET-5.aspx
+ - /post/2015/02/17/domain-routing-and-resolving-current-tenant-with-aspnet-mvc-6-aspnet-5.aspx
 ---
 <p>So you’re building a multi-tenant application. And just like many multi-tenant applications out there, the application will use a single (sub)domain per tenant and the application will use that to select the correct database connection, render the correct stylesheet and so on. Great! But how to do this with ASP.NET MVC 6?</p>
  <p>A few years back, I wrote about <a href="/post/2009/05/20/ASPNET-MVC-Domain-Routing.aspx">ASP.NET MVC Domain Routing</a>. It seems that post was more popular than I thought, as people have been asking me how to do this with the new ASP.NET MVC 6. In this blog post, I’ll do exactly that, as well as provide an alternative way of resolving the current tenant based on the current request URL.</p>

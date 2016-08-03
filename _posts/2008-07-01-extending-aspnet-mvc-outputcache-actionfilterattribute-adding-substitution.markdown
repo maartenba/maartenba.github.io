@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Extending ASP.NET MVC OutputCache ActionFilterAttribute - Adding substitution"
-date: 2008-07-01 07:30:00 +0200
+date: 2008-07-01 07:30:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2008/07/01/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute-Adding-substitution.aspx", "/post/2008/07/01/extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/07/01/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute-Adding-substitution.aspx
+ - /post/2008/07/01/extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution.aspx
 ---
 <p>
 In my <a href="/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx" target="_blank">previous blog post on ASP.NET MVC OutputCache</a>, not all aspects of &quot;classic&quot; ASP.NET output caching were covered. For instance, substitution of cached pages. Allow me to explain... 

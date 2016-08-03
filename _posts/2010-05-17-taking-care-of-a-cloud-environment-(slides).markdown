@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Taking Care of a Cloud Environment (slides)"
-date: 2010-05-17 08:53:00 +0200
+date: 2010-05-17 08:53:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "Debugging", "Events", "General", "Logging", "Presentations", "Publications", "Azure Database", "Webfarm"]
 alias: ["/post/2010/05/17/Taking-Care-of-a-Cloud-Environment-(slides).aspx", "/post/2010/05/17/taking-care-of-a-cloud-environment-(slides).aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/05/17/Taking-Care-of-a-Cloud-Environment-(slides).aspx
+ - /post/2010/05/17/taking-care-of-a-cloud-environment-(slides).aspx
 ---
 <p>It looks like I’m only doing sessions lately :-) Here’s another slide deck for a presentation I did on the Architect Forum last week in Belgium.</p>  <p>Abstract: <em>“No, this session is not about greener IT. Learn about using the RoleEnvironment and diagnostics provided by Windows Azure. Communication between roles, logging and automatic upscaling of your application are just some of the possibilities of what you can do if you know about how the Windows Azure environment works.”</em></p>
 

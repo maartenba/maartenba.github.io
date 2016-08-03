@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Using the ASP.NET MVC ModelBinder attribute - Second part"
-date: 2008-10-02 17:54:00 +0200
+date: 2008-10-02 17:54:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2008/10/02/Using-the-ASPNET-MVC-ModelBinder-attribute-Second-part.aspx", "/post/2008/10/02/using-the-aspnet-mvc-modelbinder-attribute-second-part.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/10/02/Using-the-ASPNET-MVC-ModelBinder-attribute-Second-part.aspx
+ - /post/2008/10/02/using-the-aspnet-mvc-modelbinder-attribute-second-part.aspx
 ---
 <p>
 Just after the ASP.NET MVC preview 5 was released, I made <a href="/post/2008/09/01/Using-the-ASPNET-MVC-ModelBinder-attribute.aspx" target="_blank">a quick attempt to using the ModelBinder attribute</a>. In short, a <em>ModelBinder</em> allows you to use complex objects as action method parameters, instead of just basic types like strings and integers. While my aproach was correct, it did not really cover the whole picture. So here it is: the full picture. 

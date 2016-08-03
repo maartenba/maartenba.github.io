@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Creating Office2007 documents in C#"
-date: 2007-09-06 10:11:00 +0200
+date: 2007-09-06 10:11:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["General", "Software", "PHP", "CSharp", "OpenXML"]
 alias: ["/post/2007/09/06/creating-office2007-documents-in-c.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2007/09/06/creating-office2007-documents-in-c.aspx
+ - /post/2007/09/06/creating-office2007-documents-in-c.aspx
 ---
 <P mce_keep="true">I've been too busy implementing <A class="" href="http://www.phpexcel.net/" target=_blank mce_href="http://www.phpexcel.net">SpreadsheetML</A> in PHP, that I completely forgot to write something on OpenXML and C# on my blog. Luckily, Joris did now: <A class="" href="http://jopx.blogspot.com/2007/09/generating-office-2007-documents-in-c.html" target=_blank mce_href="http://jopx.blogspot.com/2007/09/generating-office-2007-documents-in-c.html">Generating Office 2007 documents in C#</A>. Now learn some PHP too, Joris, I can use a hand on PHPExcel [:P]</P>
 <P mce_keep="true">Here are some additional links to get you started:</P>

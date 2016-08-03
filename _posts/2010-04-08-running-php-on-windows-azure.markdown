@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Running PHP on Windows Azure"
-date: 2010-04-08 09:03:00 +0200
+date: 2010-04-08 09:03:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "General", "PHP", "Presentations", "Azure Database"]
 alias: ["/post/2010/04/08/Running-PHP-on-Windows-Azure.aspx", "/post/2010/04/08/running-php-on-windows-azure.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/04/08/Running-PHP-on-Windows-Azure.aspx
+ - /post/2010/04/08/running-php-on-windows-azure.aspx
 ---
 <p>Yesterday I did some talks on PHP and Windows Azure at <a href="http://www.jumpincamp.com" target="_blank">JumpIn Camp</a> in Z&uuml;rich together with <a href="http://www.joshholmes.com/blog/2010/04/07/php-on-azure-resources/" target="_blank">Josh Holmes</a>. Here are the slide decks and samples we used.</p>
 <h2>Scaling Big while Sleeping Well</h2>

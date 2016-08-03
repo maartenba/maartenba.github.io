@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Windows Azure SDK for PHP v3.0 released"
-date: 2011-05-26 20:44:00 +0200
+date: 2011-05-26 20:44:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "General", "PHP", "Projects"]
 alias: ["/post/2011/05/26/Windows-Azure-SDK-for-PHP-v30-released.aspx", "/post/2011/05/26/windows-azure-sdk-for-php-v30-released.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2011/05/26/Windows-Azure-SDK-for-PHP-v30-released.aspx
+ - /post/2011/05/26/windows-azure-sdk-for-php-v30-released.aspx
 ---
 <p><a href="http://www.microsoft.com">Microsoft</a> and <a href="http://www.realdolmen.com">RealDolmen</a> are very proud to announce the availability of the <a href="http://phpazure.codeplex.com/releases/view/66558">Windows Azure SDK for PHP v3.0</a> on CodePlex! (here's the <a href="http://blogs.msdn.com/b/interoperability/archive/2011/05/26/new-sdk-shows-how-to-leverage-the-scalability-of-windows-azure-with-php.aspx">official Microsoft</a> post) This open source SDK gives PHP developers a speed dial library to fully take advantage of Windows Azure&rsquo;s cool features. Version 3.0 of this SDK marks an important milestone because we&rsquo;re not only starting to witness real world deployment, but also we&rsquo;re seeing more people joining the project and contributing.</p>
 <p>New features include a pluggable logging infrastructure (based on Table Storage) as well as a full implementation of the Windows Azure management API. This means that you can now build your own Windows Azure Management Portal using PHP. How cool is that? What&rsquo;s even cooler about this&hellip; Well&hellip; how about combining some features and build an autoscaling web application in PHP? Checkout <a href="http://dealoftheday.cloudapp.net/">http://dealoftheday.cloudapp.net/</a> for a sample of that. Make sure to read through as there are some links to how you can autoscale YOUR apps as well!</p>

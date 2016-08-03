@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "LINQ", "PHP", "Projects", "Software"]
 alias: ["/post/2008/03/04/PHPLinq-version-020-released!.aspx", "/post/2008/03/04/phplinq-version-020-released!.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/03/04/PHPLinq-version-020-released!.aspx
+ - /post/2008/03/04/phplinq-version-020-released!.aspx
 ---
 <p>Last friday, I released <a href="http://www.phplinq.net/">PHPLinq</a> version 0.2.0. <a href="http://en.wikipedia.org/wiki/Language_Integrated_Query">LINQ</a>, or Language Integrated Query, is a component inside the .NET framework which enables you to perform queries on a variety of data sources like arrays, XML, SQL server, ... These queries are defined using a syntax which is very similar to SQL.</p>
 <p>This latest PHP version of LINQ provides almost all language constructs the "real" LINQ provides. Since regular LINQ applies to enumerators, SQL, datasets, XML, ..., I decided PHPLinq should provide the same infrastructure. Each PHPLinq query is therefore initiated by the <em>PHPLinq_Initiator</em> class. Each <em>PHPLinq_ILinqProvider</em> implementation registers itself with this initiator class, which then determines the correct provider to use. This virtually means that you can write unlimited providers, each for a different data type! Currently, an implementation on PHP arrays is included.</p>

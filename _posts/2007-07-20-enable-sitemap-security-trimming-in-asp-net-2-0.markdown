@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Enable sitemap security trimming in ASP.NET 2.0"
-date: 2007-07-20 18:07:00 +0200
+date: 2007-07-20 18:07:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General"]
 alias: ["/post/2007/07/20/enable-sitemap-security-trimming-in-asp-net-2-0.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2007/07/20/enable-sitemap-security-trimming-in-asp-net-2-0.aspx
+ - /post/2007/07/20/enable-sitemap-security-trimming-in-asp-net-2-0.aspx
 ---
 <p>
 Want to enable security trimming for your ASP.NET sitemap? Here&#39;s how...

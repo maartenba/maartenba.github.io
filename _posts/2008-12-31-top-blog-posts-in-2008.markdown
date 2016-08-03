@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General"]
 alias: ["/post/2008/12/31/Top-blog-posts-in-2008.aspx", "/post/2008/12/31/top-blog-posts-in-2008.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/12/31/Top-blog-posts-in-2008.aspx
+ - /post/2008/12/31/top-blog-posts-in-2008.aspx
 ---
 <p>
 <img style="display: inline; margin: 5px; border: 0px" src="/images/WindowsLiveWriter/Topblogpostsin2008_D71D/image_5.png" border="0" alt="Happy new year 2009!" title="Happy new year 2009!" width="190" height="320" align="right" /> Since everyone (that is <a href="http://codeclimber.net.nz/archive/2008/12/31/best-of-2008-5-most-popular-posts.aspx" target="_blank">Simone Chiaretta</a> and <a href="http://www.haacked.com/archive/2008/12/30/not-your-typical-top-ten-of-2008-post.aspx" target="_blank">Phil Haack</a>) seems to be blogging about 2008 and their top posts, here&rsquo;s my list.

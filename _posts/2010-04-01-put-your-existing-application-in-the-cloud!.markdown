@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Put your existing application in the cloud!"
-date: 2010-04-01 17:30:00 +0200
+date: 2010-04-01 17:30:00 +0100
 comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "Events", "General", "Presentations"]
 alias: ["/post/2010/04/01/Put-your-existing-application-in-the-cloud!.aspx", "/post/2010/04/01/put-your-existing-application-in-the-cloud!.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/04/01/Put-your-existing-application-in-the-cloud!.aspx
+ - /post/2010/04/01/put-your-existing-application-in-the-cloud!.aspx
 ---
 <p>As promised during my talk, here's the slide deck for "Put your existing application in the cloud!".</p>
 <p>Abstract: "<em>Leverage the highly scalable Windows Azure platform and deploy your existing ASP.NET application to a new home in the clouds. This demo filled session will guide you in how to make successful use of Windows Azure&rsquo;s hosting and storage platform as well as SQL Azure, the relational database in the cloud, by moving an existing ASP.NET application to a higher level.</em>"</p>

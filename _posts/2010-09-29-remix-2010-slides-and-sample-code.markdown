@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Remix 2010 slides and sample code"
-date: 2010-09-29 11:19:00 +0200
+date: 2010-09-29 11:19:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "Events", "General", "Presentations", "Silverlight"]
 alias: ["/post/2010/09/29/Remix-2010-slides-and-sample-code.aspx", "/post/2010/09/29/remix-2010-slides-and-sample-code.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2010/09/29/Remix-2010-slides-and-sample-code.aspx
+ - /post/2010/09/29/remix-2010-slides-and-sample-code.aspx
 ---
 <p>As promised during my session on <a href="http://msdn.microsoft.com/nl-be/ff923221.aspx" target="_blank">Remix 10 yesterday in Belgium</a>, here's the slide deck and sample code.</p>
 <h2>Building for the cloud: integrating an application on Windows Azure</h2>

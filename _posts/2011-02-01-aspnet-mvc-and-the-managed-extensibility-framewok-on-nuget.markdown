@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MEF", "MVC", "Projects"]
 alias: ["/post/2011/02/01/ASPNET-MVC-and-the-Managed-Extensibility-Framewok-on-NuGet.aspx", "/post/2011/02/01/aspnet-mvc-and-the-managed-extensibility-framewok-on-nuget.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2011/02/01/ASPNET-MVC-and-the-Managed-Extensibility-Framewok-on-NuGet.aspx
+ - /post/2011/02/01/aspnet-mvc-and-the-managed-extensibility-framewok-on-nuget.aspx
 ---
 <p><a href="/images/image_101.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" src="/images/image_thumb_71.png" border="0" alt="image" width="244" height="75" align="right" /></a>If you search on my blog, there&rsquo;s a <a href="/search.aspx?q=mef">bunch of posts</a> where I talk about ASP.NET MVC and MEF. And what&rsquo;s cool: these posts are the ones that are actually being read quite often. I&rsquo;m not sure about which bloggers actually update their posts like if it was software, but I don&rsquo;t. Old posts are outdated, that&rsquo;s the convention when coming to my blog. However I recently received a on of questions if I could do something with ASP.NET MVC 3 and MEF. I did, and I took things seriously.</p>
 <p>I&rsquo;m not sure if you know <a href="http://mefcontrib.codeplex.com/">MefContrib</a>. MefContrib is a community-developed library of extensions to the Managed Extensibility Framework (MEF). I decided to wear my bad-ass shoes and finally got around installing a Windows-friendly <a href="http://www.github.com/">Git</a> client and decided to just contribute an ASP.NET MVC + MEF component to MefContrib. And while I was at it, I created some NuGet packages for all MefContrib components.</p>

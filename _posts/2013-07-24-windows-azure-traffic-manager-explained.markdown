@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Windows Azure Traffic Manager Explained"
-date: 2013-07-24 07:31:00 +0200
+date: 2013-07-24 07:31:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "General", "Scalability", "Software", "Webfarm", "Azure"]
 alias: ["/post/2013/07/24/Windows-Azure-Traffic-Manager-Explained.aspx", "/post/2013/07/24/windows-azure-traffic-manager-explained.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2013/07/24/Windows-Azure-Traffic-Manager-Explained.aspx
+ - /post/2013/07/24/windows-azure-traffic-manager-explained.aspx
 ---
 <p><a href="/images/image_299.png"><img style="background-image: none; float: right; padding-top: 0px; padding-left: 0px; margin: 5px 0px 5px 5px; display: inline; padding-right: 0px; border: 0px;" title="image" src="/images/image_thumb_260.png" alt="image" width="64" height="67" align="right" border="0" /></a>With <a href="http://weblogs.asp.net/scottgu/archive/2013/07/23/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines.aspx">yesterday&rsquo;s announcement on Windows Azure Traffic Manager</a> surfacing in the management portal (as a preview), I thought it was a good moment to recap this more than 2 year old service. Windows Azure Traffic Manager allows you to control the distribution of network traffic to your Cloud Services and VMs hosted within Windows Azure.</p>
 <h2>&nbsp;</h2>

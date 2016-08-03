@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects"]
 alias: ["/post/2009/03/24/New-CodePlex-project-MvcSiteMap-ndash3b-ASPNET-MVC-sitemap-provider.aspx", "/post/2009/03/24/new-codeplex-project-mvcsitemap-ndash3b-aspnet-mvc-sitemap-provider.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/03/24/New-CodePlex-project-MvcSiteMap-ndash3b-ASPNET-MVC-sitemap-provider.aspx
+ - /post/2009/03/24/new-codeplex-project-mvcsitemap-ndash3b-aspnet-mvc-sitemap-provider.aspx
 ---
 <p><img style="margin: 5px; display: inline; border: 0px" title="Navigation" src="/images/sitemap.jpg" border="0" alt="Navigation" width="144" height="188" align="left" />If you have been using the ASP.NET MVC framework, you possibly have been searching for something like the classic ASP.NET sitemap. After you've played with it, you even found it useful! But not really flexible and easy to map to routes and controllers. To tackle that, last year, somewhere in August, I released a <a href="/post/2008/08/29/Building-an-ASPNET-MVC-sitemap-provider-with-security-trimming.aspx" target="_blank">proof-of-concept sitemap provider for the ASP.NET MVC framework</a> on my blog.</p>
 <p>The blog post on sitemap provider I released back then has received numerous comments, suggestions, code snippets, &hellip; Together with <a href="http://geekswithblogs.net/Patware/Default.aspx" target="_blank">Patrice Calve</a>, we&rsquo;ve released a new version of the sitemap provider on CodePlex: <a href="http://mvcsitemap.codeplex.com" target="_blank">MvcSiteMap</a>.</p>

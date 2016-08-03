@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["CSharp", "General", "Projects", "Source control", "Webfarm", "Azure"]
 alias: ["/post/2013/03/26/Running-unit-tests-when-deploying-ASPNET-to-Windows-Azure-Web-Sites.aspx", "/post/2013/03/26/running-unit-tests-when-deploying-aspnet-to-windows-azure-web-sites.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2013/03/26/Running-unit-tests-when-deploying-ASPNET-to-Windows-Azure-Web-Sites.aspx
+ - /post/2013/03/26/running-unit-tests-when-deploying-aspnet-to-windows-azure-web-sites.aspx
 ---
 <p><img style="background-image: none; float: right; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="Deployment failed" src="/images/image_273.png" border="0" alt="Deployment failed" width="240" height="85" align="right" />One of the well-loved features of Windows Azure Web Sites is the fact that you can simply push our ASP.NET application&rsquo;s source code to the platform using Git (or TFS or DropBox) and that sources are compiled and deployed on your Windows Azure Web Site. If you&rsquo;ve checked the management portal earlier, you may have noticed that a number of deployment steps are executed: the deployment process searches for the project file to compile, compiles it, copies the build artifacts to the web root and has your website running. But did you know you can customize this process?</p>
 <p><strong>[update]</strong> <a href="http://blog.amitapple.com/post/51576689501/testsduringazurewebsitesdeployment">Mstest seems to work now</a> as well, using the console runner from VS2012.</p>

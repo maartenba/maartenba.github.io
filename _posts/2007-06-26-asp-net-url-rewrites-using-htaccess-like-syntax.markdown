@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "ASP.NET URL rewrites using .htaccess-like syntax"
-date: 2007-06-26 18:12:00 +0200
+date: 2007-06-26 18:12:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Projects"]
 alias: ["/post/2007/06/26/asp-net-url-rewrites-using-htaccess-like-syntax.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2007/06/26/asp-net-url-rewrites-using-htaccess-like-syntax.aspx
+ - /post/2007/06/26/asp-net-url-rewrites-using-htaccess-like-syntax.aspx
 ---
 <p>
 Having a PHP background, I&#39;ve been using .htaccess mod_rewrite in Apache for ages. ASP.NET allows rewriting too, but using a different syntax than mod_rewrite. Using the attached library, you can now use mod_rewrite syntax to perform rewrites on your ASP.NET application. Here&#39;s how...

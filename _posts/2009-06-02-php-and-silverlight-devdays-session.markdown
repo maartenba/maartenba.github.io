@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "PHP and Silverlight - DevDays session"
-date: 2009-06-02 08:51:00 +0200
+date: 2009-06-02 08:51:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["Events", "General", "PHP", "Presentations", "Silverlight", "Zend Framework"]
 alias: ["/post/2009/06/02/PHP-and-Silverlight-DevDays-session.aspx", "/post/2009/06/02/php-and-silverlight-devdays-session.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/06/02/PHP-and-Silverlight-DevDays-session.aspx
+ - /post/2009/06/02/php-and-silverlight-devdays-session.aspx
 ---
 <p><img style="float: left; border: 0; margin: 5px;" src="/images/2009/6/devdays.jpg" alt="" width="109" height="81" /></p>
 <p>I just returned from The Hague where <a href="http://kevindockx.blogspot.com/">Kevin</a> and I delivered a session on PHP and Silverlight. As promised, we are putting our slides and demos online. Download the demo code from here: <a href="/files/2009/6/PHP+and+Silverlight+-+DevDays.zip">PHP and Silverlight - DevDays.zip (1.00 mb)</a></p>

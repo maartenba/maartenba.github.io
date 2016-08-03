@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "AZUG Windows Azure Saturday overview"
-date: 2012-06-03 13:53:00 +0200
+date: 2012-06-03 13:53:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "Events", "General", "Offtopic"]
 alias: ["/post/2012/06/03/AZUG-Windows-Azure-Saturday-overview.aspx", "/post/2012/06/03/azug-windows-azure-saturday-overview.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2012/06/03/AZUG-Windows-Azure-Saturday-overview.aspx
+ - /post/2012/06/03/azug-windows-azure-saturday-overview.aspx
 ---
 <p><a href="/images/image_174.png"><img style="background-image: none; margin: 5px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="Windows Azure Saturday" src="/images/image_thumb_140.png" border="0" alt="Windows Azure Saturday" width="244" height="151" align="right" /></a>As one of the board members of the <a href="http://www.azug.be" target="_blank">Windows Azure User Group in Belgium</a>, I wanted to write a post on an event we organized last weekend. We do more events (one each month), however this one was way out of our comfort zone. Typically, we have an evening event in which a speaker delivers one session to around 40 attendees. Last Saturday, we organized our first <a href="http://www.azug.be/events/2012-06-02-windows-azure-saturday" target="_blank">Windows Azure Saturday</a>, a hackaton followed by a barbecue.</p>
 <p>Here&rsquo;s what I will remember about our event&hellip;</p>

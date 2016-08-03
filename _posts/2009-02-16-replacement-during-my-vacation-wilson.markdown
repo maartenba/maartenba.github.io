@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["General", "Personal", "Offtopic"]
 alias: ["/post/2009/02/16/Replacement-during-my-vacation-Wilson.aspx", "/post/2009/02/16/replacement-during-my-vacation-wilson.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2009/02/16/Replacement-during-my-vacation-Wilson.aspx
+ - /post/2009/02/16/replacement-during-my-vacation-wilson.aspx
 ---
 <p>
 This morning, I arrived at work after a great week of skiing in <a href="http://www.pitztaler-gletscher.at/" target="_blank">Pitztal</a>, Austria. Unfortunately, I found my chair occupied by a new colleague looking a bit like <a href="http://en.wikipedia.org/wiki/Wilson_the_Volleyball" target="_blank">Wilson</a>. Good to see he enjoyed working early, like I do. But still, that was my seat and PC he was using&hellip; Thank you, dear colleagues, to see myself replaced by a plastic, smiling ball&hellip; 

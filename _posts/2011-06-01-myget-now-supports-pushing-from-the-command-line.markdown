@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "MyGet now supports pushing from the command line"
-date: 2011-06-01 10:06:00 +0200
+date: 2011-06-01 10:06:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MEF", "MVC", "Projects", "Software"]
 alias: ["/post/2011/06/01/MyGet-now-supports-pushing-from-the-command-line.aspx", "/post/2011/06/01/myget-now-supports-pushing-from-the-command-line.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2011/06/01/MyGet-now-supports-pushing-from-the-command-line.aspx
+ - /post/2011/06/01/myget-now-supports-pushing-from-the-command-line.aspx
 ---
 <p>One of the <a href="http://myget.codeplex.com/workitem/5" target="_blank">work items</a> we had opened for <a href="http://www.myget.org" target="_blank">MyGet</a> was the ability to push packages to a private feed from the command line. Only a few hours after our initial launch, <a href="http://twitter.com/davidfowl" target="_blank">David Fowler</a> provided us with <a href="http://j.mp/mICG8u" target="_blank">example code</a> on how to implement NuGet command line pushes on the server side. An evening of coding later, I quickly hacked this into <a href="http://www.myget.org" target="_blank">MyGet</a>, which means that we now support pushing packages from the command line!</p>
 <p>For those that did not catch up with my <a href="/post/2011/05/31/Creating-your-own-private-NuGet-feed-myget.aspx">blog post overload</a> of the past week: <em>My</em>Get offers you the possibility to create your own, private, filtered <a href="http://nuget.org">NuGet</a> feed for use in the Visual Studio Package Manager.&nbsp; It can contain packages from the official <a href="http://nuget.org">NuGet</a> feed as well as your private packages, hosted on <em>My</em>Get. Want a sample? Add this feed to your Visual Studio package manager: <a href="http://www.myget.org/F/chucknorris">http://www.myget.org/F/chucknorris</a></p>

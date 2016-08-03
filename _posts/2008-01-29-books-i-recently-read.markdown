@@ -8,6 +8,9 @@ categories: ["post"]
 tags: ["ASP.NET", "Book review", "Books", "CSharp", "General", "LINQ"]
 alias: ["/post/2008/01/29/Books-I-recently-read.aspx", "/post/2008/01/29/books-i-recently-read.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2008/01/29/Books-I-recently-read.aspx
+ - /post/2008/01/29/books-i-recently-read.aspx
 ---
 <p>
 A while ago, I was contacted by the people of <a href="http://www.packtpub.com/" target="_blank">Packt Publishing</a> asking me to review two of their latest books, <a href="http://www.packtpub.com/asp-net-data-presentation-controls/book" target="_blank">ASP.NET Data Presentation Controls Essentials</a> (by <a href="http://aspadvice.com/blogs/joydip/" target="_blank">Joydip Kanjilal</a>) and <a href="http://www.packtpub.com/linq-quick-starter/book" target="_blank">LINQ Quickly</a> (by N. Satheesh Kumar). Since both books stated something about LINQ on the back-cover, and me wanting to read more on that matter, I engaged into reviewing them. 

@@ -1,13 +1,16 @@
 ---
 layout: post
 title: "Geographically distributing Windows Azure applications using Traffic Manager"
-date: 2011-04-22 11:09:00 +0200
+date: 2011-04-22 11:09:00 +0000
 comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "Scalability", "Webfarm"]
 alias: ["/post/2011/04/22/Geographically-distributing-Windows-Azure-applications-using-Traffic-Manager.aspx", "/post/2011/04/22/geographically-distributing-windows-azure-applications-using-traffic-manager.aspx"]
 author: Maarten Balliauw
+redirect_from:
+ - /post/2011/04/22/Geographically-distributing-Windows-Azure-applications-using-Traffic-Manager.aspx
+ - /post/2011/04/22/geographically-distributing-windows-azure-applications-using-traffic-manager.aspx
 ---
 <p>With the downtime of Amazon EC2 this week, it seems a lot of websites &ldquo;in the cloud&rdquo; are down at the moment. Most comments I read on Twitter (and that I also made, jokingly :-)) are in the lines of &ldquo;outrageous!&rdquo; and &ldquo;don&rsquo;t go cloud!&rdquo;. While I understand these comments, I think they are wrong. These &ldquo;clouds&rdquo; can fail. They are even designed to fail, and often provide components and services that allow you to cope with these failures. You just have to expect failure at some point in time and build it into your application.</p>
 <p>Let me rephrase my introduction. I just told you to expect failure, but I actually believe that clouds don&rsquo;t &ldquo;fail&rdquo;. Yes, you may think I&rsquo;m lunatic there, providing you with two different and opposing views in 2 paragraphs. Allow me to explain: "a &ldquo;failing&rdquo; cloud is actually a &ldquo;scaling&rdquo; cloud, only thing is: it&rsquo;s scaling down to zero. If you design your application so that it can scale out, you should also plan for scaling &ldquo;in&rdquo;, eventually to zero. Use different availability zones on Amazon, and if you&rsquo;re a Windows Azure user: try the new <a href="http://blogs.msdn.com/b/hanuk/archive/2011/04/12/windows-azure-traffic-manager-watm-ctp-announced-at-mix-11.aspx" target="_blank">Traffic Manager CTP</a>!</p>
