@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Building NuGet and npm using Atlassian Bitbucket Pipelines"
+title: "Building NuGet (.NET Core) using Atlassian Bitbucket Pipelines"
 date: 2016-08-17 07:51:00 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["CSharp", "General", "ICT", "NuGet", "npm", "Software", "Source control"]
+tags: ["CSharp", "General", "ICT", "NuGet", "Software", "Source control"]
 author: Maarten Balliauw
 ---
 
@@ -95,7 +95,7 @@ When using my sample [bitbucket-pipelines.yml](https://bitbucket.org/myget/sampl
 
 Open your Bitbucket repository and select ***Settings \| Pipelines \| Environment Variables***. Add the above keys, and the values that apply to your environment:
 
-[![Environment variables required to push from Bitbucket pipelines to MyGet](/images/2016-08-17-building-nuget-and-npm-using-atlassian-bitbucket-pipelines/environment-variables.png){: .align-center}](/images/2016-08-17-building-nuget-and-npm-using-atlassian-bitbucket-pipelines/environment-variables.png)
+[![Environment variables required to push from Bitbucket pipelines to MyGet](/images/2016-08-17-building-nuget-netcore-using-atlassian-bitbucket-pipelines/environment-variables.png){: .align-center}](/images/2016-08-17-building-nuget-netcore-using-atlassian-bitbucket-pipelines/environment-variables.png)
 
 Note that for the API key, I used a secured variable so the UI shows a mask instead of the actual value.
 
@@ -103,10 +103,10 @@ Note that for the API key, I used a secured variable so the UI shows a mask inst
 
 Once we have a `bitbucket-pipelines.yml` and configure environment variables, we can enable Bitbucket pipelines for our repository (***Settings \| Pipelines \| Settings***) and look at the live output right after a commit:
 
-[![Build log on Bitbucket pipelines](/images/2016-08-17-building-nuget-and-npm-using-atlassian-bitbucket-pipelines/pipelines-output.png){: .align-center}](/images/2016-08-17-building-nuget-and-npm-using-atlassian-bitbucket-pipelines/pipelines-output.png)
+[![Build log on Bitbucket pipelines](/images/2016-08-17-building-nuget-netcore-using-atlassian-bitbucket-pipelines/pipelines-output.png){: .align-center}](/images/2016-08-17-building-nuget-netcore-using-atlassian-bitbucket-pipelines/pipelines-output.png)
 
 Once the pipeline completes, our MyGet feed will contain a new NuGet package version:
 
-[![NuGet package created with Bitbucket pipelines from a .NET Core project](/images/2016-08-17-building-nuget-and-npm-using-atlassian-bitbucket-pipelines/myget-output.png){: .align-center}](/images/2016-08-17-building-nuget-and-npm-using-atlassian-bitbucket-pipelines/myget-output.png)
+[![NuGet package created with Bitbucket pipelines from a .NET Core project](/images/2016-08-17-building-nuget-netcore-using-atlassian-bitbucket-pipelines/myget-output.png){: .align-center}](/images/2016-08-17-building-nuget-netcore-using-atlassian-bitbucket-pipelines/myget-output.png)
 
 Pipelines sure look promising! Enjoy!
