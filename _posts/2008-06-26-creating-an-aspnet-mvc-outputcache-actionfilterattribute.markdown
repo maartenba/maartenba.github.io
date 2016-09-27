@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC", "Personal"]
 alias: ["/post/2008/06/26/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx", "/post/2008/06/26/creating-an-aspnet-mvc-outputcache-actionfilterattribute.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/06/26/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx
- - /post/2008/06/26/creating-an-aspnet-mvc-outputcache-actionfilterattribute.aspx
+ - /post/2008/06/26/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx.html
+ - /post/2008/06/26/creating-an-aspnet-mvc-outputcache-actionfilterattribute.aspx.html
 ---
 <p>In every web application, there are situations where you want to cache the HTML output of a specific page for a certain amount of time, because underlying data and processing isn't really subject to changes a lot. This cached response is stored in the web server's memory and offers very fast responses because no additional processing is required.</p>
 <p>Using "classic" ASP.NET, one can use the <em>OutputCache</em> directive on a .aspx page to tell the ASP.NET runtime to cache the response data for a specific amount of time. Optionally, caching may vary by parameter, which results in different cached responses depending on the parameters that were passed in the URL.</p>

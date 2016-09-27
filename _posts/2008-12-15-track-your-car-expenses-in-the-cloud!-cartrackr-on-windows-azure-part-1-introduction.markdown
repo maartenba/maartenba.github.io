@@ -9,8 +9,8 @@ tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC"]
 alias: ["/post/2008/12/15/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx", "/post/2008/12/15/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/12/15/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx
- - /post/2008/12/15/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx
+ - /post/2008/12/15/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx.html
+ - /post/2008/12/15/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx.html
 ---
 <p>
 As you may see in the title, I will be starting a series on modifying my <a href="/post/2008/10/21/CarTrackr-Sample-ASPNET-MVC-application.aspx" target="_blank">CarTrackr sample application</a> to a cloud-based, <a href="http://www.microsoft.com/azure" target="_blank">Windows Azure</a> application. At this point, I don&#39;t know if it&#39;s easy nor do I know what it takes to achieve this goal. I only have some assumtions on how CarTrackr can be converted to a cloud application. 
@@ -68,7 +68,7 @@ Seriously, here&#39;s what I think needs to be done:
 In addition to the above table, I&#39;ll also have to make the CarTrackr solution aware of Azure. Next thing: make Azure aware of ASP.NET MVC... I&#39;ll also have to deploy this application in the cloud at the end. Stay tuned! 
 </p>
 <p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/09/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx&amp;title=Track your car expenses in the cloud! CarTrackr on Windows Azure - Part 1 - Introduction"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/09/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
+<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/09/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx&amp;title=Track your car expenses in the cloud! CarTrackr on Windows Azure - Part 1 - Introduction"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/09/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx.html" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
 
 {% include imported_disclaimer.html %}

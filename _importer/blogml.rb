@@ -204,8 +204,8 @@ author: #{author}
 sitemap: false
 permalink: /#{name}.html
 redirect_from:
- - #{item.attributes["post-url"]}
- - #{item.attributes["post-url"].downcase}
+ - #{item.attributes["post-url"]}.html
+ - #{item.attributes["post-url"].downcase}.html
 ---
 HEADER
 			else

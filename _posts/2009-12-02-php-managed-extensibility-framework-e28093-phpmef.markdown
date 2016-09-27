@@ -9,8 +9,8 @@ tags: ["General", "MEF", "PHP", "Projects", "Software"]
 alias: ["/post/2009/12/02/PHP-Managed-Extensibility-Framework-e28093-PHPMEF.aspx", "/post/2009/12/02/php-managed-extensibility-framework-e28093-phpmef.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/12/02/PHP-Managed-Extensibility-Framework-e28093-PHPMEF.aspx
- - /post/2009/12/02/php-managed-extensibility-framework-e28093-phpmef.aspx
+ - /post/2009/12/02/PHP-Managed-Extensibility-Framework-e28093-PHPMEF.aspx.html
+ - /post/2009/12/02/php-managed-extensibility-framework-e28093-phpmef.aspx.html
 ---
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="/images/image_24.png" border="0" alt="image" width="260" height="231" align="right" /> While flying sitting in the airplane to the Microsoft Web Developer Summit in Seattle, I was watching some PDC09 sessions on my laptop. During the <a href="http://www.codeplex.com/MEF" target="_blank">MEF</a> session, an idea popped up: there is no MEF for PHP! 3500 kilometers after that moment, PHP got its own MEF&hellip;</p>
 <h2>What is MEF about?</h2>

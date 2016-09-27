@@ -9,8 +9,8 @@ tags: ["CSharp", "Events", "General", "Azure Database", "Azure"]
 alias: ["/post/2013/02/18/Global-Windows-Azure-Bootcamp-april-27th.aspx", "/post/2013/02/18/global-windows-azure-bootcamp-april-27th.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2013/02/18/Global-Windows-Azure-Bootcamp-april-27th.aspx
- - /post/2013/02/18/global-windows-azure-bootcamp-april-27th.aspx
+ - /post/2013/02/18/Global-Windows-Azure-Bootcamp-april-27th.aspx.html
+ - /post/2013/02/18/global-windows-azure-bootcamp-april-27th.aspx.html
 ---
 <p>On April 27th, 2013, you&rsquo;ll have the ability to join a Windows Azure Bootcamp on a location close to you. We&rsquo;ve started this with the idea of maybe having 10 or 15 locations world wide. We were wrong. Here&rsquo;s what happened:</p>
 <p><a href="/images/image_259.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="Much ocations for our bootcamp!" src="/images/image_thumb_221.png" border="0" alt="Much ocations for our bootcamp!" width="484" height="238" /></a></p>

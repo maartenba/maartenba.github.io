@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2008/05/20/Creating-a-custom-ViewEngine-for-the-ASPNET-MVC-framework.aspx", "/post/2008/05/20/creating-a-custom-viewengine-for-the-aspnet-mvc-framework.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/05/20/Creating-a-custom-ViewEngine-for-the-ASPNET-MVC-framework.aspx
- - /post/2008/05/20/creating-a-custom-viewengine-for-the-aspnet-mvc-framework.aspx
+ - /post/2008/05/20/Creating-a-custom-ViewEngine-for-the-ASPNET-MVC-framework.aspx.html
+ - /post/2008/05/20/creating-a-custom-viewengine-for-the-aspnet-mvc-framework.aspx.html
 ---
 <p>
 Have you ever seen a presentation of <a href="http://weblogs.asp.net/scottgu/" target="_blank">ScottGu</a> about the ASP.NET MVC framework? There is one particular slide that keeps coming back, stating that every step in the ASP.NET MVC life cycle is pluggable. Let&#39;s find out if replacing one of these components is actually easy by creating a custom <em>ViewEngine</em> and corresponding view. 

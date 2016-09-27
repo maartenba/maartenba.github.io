@@ -9,8 +9,8 @@ tags: ["General", "OpenXML", "PHP", "Zend Framework"]
 alias: ["/post/2008/11/17/OpenXML-support-in-Zend-Framework-17-Lucene-indexer.aspx", "/post/2008/11/17/openxml-support-in-zend-framework-17-lucene-indexer.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/11/17/OpenXML-support-in-Zend-Framework-17-Lucene-indexer.aspx
- - /post/2008/11/17/openxml-support-in-zend-framework-17-lucene-indexer.aspx
+ - /post/2008/11/17/OpenXML-support-in-Zend-Framework-17-Lucene-indexer.aspx.html
+ - /post/2008/11/17/openxml-support-in-zend-framework-17-lucene-indexer.aspx.html
 ---
 <p>
 <img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/OpenXMLsupportinZendFrame.7Luceneindexer_1377E/image_d7497c6a-0c23-477d-80d0-cea7d4f68856.png" border="0" alt="image" width="165" height="52" align="right" /> It has indeed been a long time since I blogged about OpenXML. However, this does not mean I&#39;m completely doing nothing with it! <a href="http://www.phpexcel.net" target="_blank">PHPExcel</a> still keeps eating a lot of evening hours as well as some other OpenXML-related projects.

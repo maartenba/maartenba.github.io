@@ -9,8 +9,8 @@ tags: ["CSharp", "General", "MEF", "Software"]
 alias: ["/post/2010/03/04/MEF-will-not-get-easier-its-cool-as-ICE.aspx", "/post/2010/03/04/mef-will-not-get-easier-its-cool-as-ice.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2010/03/04/MEF-will-not-get-easier-its-cool-as-ICE.aspx
- - /post/2010/03/04/mef-will-not-get-easier-its-cool-as-ice.aspx
+ - /post/2010/03/04/MEF-will-not-get-easier-its-cool-as-ICE.aspx.html
+ - /post/2010/03/04/mef-will-not-get-easier-its-cool-as-ice.aspx.html
 ---
 <p><img style="margin: 5px 0px 5px 5px; display: inline" src="http://www.thedailygreen.com/cm/thedailygreen/images/iU/gin-tonic-glass-ice-md.jpg" alt="" align="right" />Over the past few weeks, several people asked me to show them how to use MEF (<a href="http://mef.codeplex.com/" target="_blank">Managed Extensibility Framework</a>), some of them seemed to have some difficulties with the concept of MEF. I tried explaining that it will not get easier than it is currently, hence the title of this blog post. MEF is based on 3 keywords: export, import, compose. Since these 3 words all start with a letter that can be combined to a word, and MEF is cool, here&rsquo;s a hint on how to remember it: MEF is cool as ICE!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/03/04/MEF-will-not-get-easier-its-cool-as-ICE.aspx&amp;title=MEF will not get easier, it’s cool as ICE">

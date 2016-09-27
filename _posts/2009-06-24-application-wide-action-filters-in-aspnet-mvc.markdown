@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC", "Software"]
 alias: ["/post/2009/06/24/Application-wide-action-filters-in-ASPNET-MVC.aspx", "/post/2009/06/24/application-wide-action-filters-in-aspnet-mvc.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/06/24/Application-wide-action-filters-in-ASPNET-MVC.aspx
- - /post/2009/06/24/application-wide-action-filters-in-aspnet-mvc.aspx
+ - /post/2009/06/24/Application-wide-action-filters-in-ASPNET-MVC.aspx.html
+ - /post/2009/06/24/application-wide-action-filters-in-aspnet-mvc.aspx.html
 ---
 <p>Ever had a team of developers using your ASP.NET MVC framework? Chances are you have implemented some action filters (i.e. for logging) which should be applied on all controllers in the application. Two ways to do this: kindly ask your developers to add a [Logging] attribute to the controllers they write, or kindly ask to inherit from <em>SomeCustomControllerWithActionsInPlace.</em></p>
 <p>If you have been in this situation, monday mornings, afternoons, tuesdays and other weekdays are in fact days where some developers will forget to do one of the above. This means no logging! Or any other action filters that are executed due to a developer that has not been fed with enough coffee&hellip; Wouldn&rsquo;t it be nice to have a central repository where you can register application-wide action filters? That&rsquo;s exactly what we are going to do in this blog post.</p>

@@ -9,8 +9,8 @@ tags: ["CSharp", "Events", "General", "Silverlight"]
 alias: ["/post/2009/11/19/Microsoft-PDC09-day-2-keynote-highlights.aspx", "/post/2009/11/19/microsoft-pdc09-day-2-keynote-highlights.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/11/19/Microsoft-PDC09-day-2-keynote-highlights.aspx
- - /post/2009/11/19/microsoft-pdc09-day-2-keynote-highlights.aspx
+ - /post/2009/11/19/Microsoft-PDC09-day-2-keynote-highlights.aspx.html
+ - /post/2009/11/19/microsoft-pdc09-day-2-keynote-highlights.aspx.html
 ---
 <p><a href="/images/43721438-cc6489fc8dd8e92153b1720801840ff7_4b04827a-scaled.jpg"><img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="Happiness, pure happiness!" src="/images/43721438-cc6489fc8dd8e92153b1720801840ff7_4b04827a-scaled_thumb.jpg" border="0" alt="Happiness, pure happiness!" width="329" height="373" align="right" /></a></p>
 <p>Day 2 keynote at Microsoft PDC 2009 was quite exciting. To sum things up: Silverlight 4 went beta, IE9 features were previewed, and we got <a href="http://www.microsoftpdc.com/tablet" target="_blank">an external hard disk, nicely fitted in a tablet-pc format</a> case. How thoughtful!</p>

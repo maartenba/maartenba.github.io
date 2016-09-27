@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Security"]
 alias: ["/post/2008/07/14/ASPNET-MVC-Upcoming-preview-4-release.aspx", "/post/2008/07/14/aspnet-mvc-upcoming-preview-4-release.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/07/14/ASPNET-MVC-Upcoming-preview-4-release.aspx
- - /post/2008/07/14/aspnet-mvc-upcoming-preview-4-release.aspx
+ - /post/2008/07/14/ASPNET-MVC-Upcoming-preview-4-release.aspx.html
+ - /post/2008/07/14/aspnet-mvc-upcoming-preview-4-release.aspx.html
 ---
 <p>
 <a href="http://weblogs.asp.net/scottgu/archive/2008/07/14/asp-net-mvc-preview-4-release-part-1.aspx" target="_blank">ScottGu</a> just posted that there&#39;s an upcoming preview 4 release of the ASP.NET MVC framework. What I immediately noticed, is that there are actually some community concepts being integrated in the framework, yay! And what&#39;s even cooler: 2 of these new features are things that I&#39;ve already contributed to the community (the fact that it&nbsp;these are&nbsp;included in the MVC framework now could be coincidence, though...). 
@@ -24,7 +24,7 @@ redirect_from:
 Thank you, ASP.NET MVC team! This preview 4 release seems like a great step in the evolution of the ASP.NET MVC framework. Thumbs up! 
 </p>
 <p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/07/14/ASPNET-MVC-Upcoming-preview-4-release.aspx&amp;title=ASP.NET MVC - Upcoming preview 4 release"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/07/14/ASPNET-MVC-Upcoming-preview-4-release.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
+<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/07/14/ASPNET-MVC-Upcoming-preview-4-release.aspx&amp;title=ASP.NET MVC - Upcoming preview 4 release"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/07/14/ASPNET-MVC-Upcoming-preview-4-release.aspx.html" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
 
 {% include imported_disclaimer.html %}

@@ -9,8 +9,8 @@ tags: ["Azure", "General", "PHP", "Projects", "Software", "Zend Framework"]
 alias: ["/post/2009/05/13/Announcing-PHP-SDK-for-Windows-Azure.aspx", "/post/2009/05/13/announcing-php-sdk-for-windows-azure.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/05/13/Announcing-PHP-SDK-for-Windows-Azure.aspx
- - /post/2009/05/13/announcing-php-sdk-for-windows-azure.aspx
+ - /post/2009/05/13/Announcing-PHP-SDK-for-Windows-Azure.aspx.html
+ - /post/2009/05/13/announcing-php-sdk-for-windows-azure.aspx.html
 ---
 <p><a href="http://phpazure.codeplex.com" target="_blank"><img style="float: right; border: 0; margin: 5px;" src="/images/2009/5/phpazure_logo.jpg" alt="" height="60" /></a></p>
 <p>As part of Microsoft&rsquo;s commitment to Interoperability, a new open source project has just been released on CodePlex: <a href="http://phpazure.codeplex.com/" target="_blank">PHP SDK for Windows Azure</a>, bridging PHP developers to Windows Azure. PHPAzure is an open source project to provide software development kit for Windows Azure and Windows Azure Storage &ndash; Blobs, Tables &amp; Queues. I&rsquo;m pleased that Microsoft has chosen <a href="http://www.realdolmen.com/" target="_blank">RealDolmen</a> and me to work on the PHP SDK for Windows Azure.</p>

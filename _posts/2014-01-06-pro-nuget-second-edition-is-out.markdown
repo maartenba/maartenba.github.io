@@ -9,8 +9,8 @@ tags: ["Books", "CSharp", "General", "MEF", "MVC", "NuGet", "Personal", "Project
 alias: ["/post/2014/01/06/Pro-NuGet-second-edition-is-out.aspx", "/post/2014/01/06/pro-nuget-second-edition-is-out.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2014/01/06/Pro-NuGet-second-edition-is-out.aspx
- - /post/2014/01/06/pro-nuget-second-edition-is-out.aspx
+ - /post/2014/01/06/Pro-NuGet-second-edition-is-out.aspx.html
+ - /post/2014/01/06/pro-nuget-second-edition-is-out.aspx.html
 ---
 <p><a href="http://amzn.to/pronuget2"><img style="background-image: none; float: right; padding-top: 0px; padding-left: 0px; margin: 0px 0px 5px 5px; display: inline; padding-right: 0px; border: 0px;" title="Pro NuGet will learn you all there is to know about NuGet" src="/images/image_313.png" alt="Pro NuGet will learn you all there is to know about NuGet" width="133" height="164" align="right" border="0" /></a>Pfew! Around February 2013, <a href="http://www.xavierdecoster.com">Xavier</a> and I started planning work on an update of our book. Eight months later, we&rsquo;re proud to present you with <a href="http://amzn.to/pronuget2">Pro NuGet (second edition)</a>. It&rsquo;s been a tough couple of months writing this: Xavier has become a father for the second time (congratulations!), we&rsquo;ve had two massive updates to NuGet we had to work in our book, &hellip; But here it is!</p>
 <p>What&rsquo;s new?</p>

@@ -9,8 +9,8 @@ tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC"]
 alias: ["/post/2008/12/16/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx", "/post/2008/12/16/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/12/16/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx
- - /post/2008/12/16/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.aspx
+ - /post/2008/12/16/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx.html
+ - /post/2008/12/16/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.aspx.html
 ---
 <p>
 This post is part 2 of my series on <a href="http://www.microsoft.com/azure" target="_blank">Windows Azure</a>, in which I&#39;ll try to convert my ASP.NET MVC application into a cloud application. The current post is all about enabling the CarTrackr Visual Studio Solution file for Windows Azure. 
@@ -133,7 +133,7 @@ After doing all configuration steps, I can simply start the CarTrackr applicatio
 Nothing fancy here, everything still works! I just can&#39;t help the feeling that Windows Azure will not know my local SQL server for data storage... Which will be the subject of a next blog post! 
 </p>
 <p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx&amp;title=CarTrackr on Windows Azure - Part 2 - Cloud-enabling CarTrackr"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
+<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx&amp;title=CarTrackr on Windows Azure - Part 2 - Cloud-enabling CarTrackr"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx.html" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
 
 {% include imported_disclaimer.html %}

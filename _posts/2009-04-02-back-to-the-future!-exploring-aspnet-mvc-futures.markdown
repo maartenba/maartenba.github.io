@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC", "Webfarm"]
 alias: ["/post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx", "/post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx
- - /post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx
+ - /post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx.html
+ - /post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx.html
 ---
 <p>
 <a href="/images/image.png"><img style="margin: 5px 0px 5px 5px; display: inline; border-width: 0px" src="/images/image_thumb.png" border="0" alt="Back to the future!" title="Back to the future!" width="200" height="187" align="right" /></a>For those of you who did not know yet: next to the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=53289097-73ce-43bf-b6a6-35e00103cb4b&amp;displaylang=en" target="_blank">ASP.NET MVC 1.0</a> version and its <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471" target="_blank">source code</a>, there&rsquo;s also an interesting assembly available if you can not wait for next versions of the ASP.NET MVC framework: the <a href="/admin/Pages/aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471" target="_blank">MVC Futures assembly</a>. In this blog post, I&rsquo;ll provide you with a quick overview of what is available in this assembly and how you can already benefit from&hellip; &ldquo;the future&rdquo;. 

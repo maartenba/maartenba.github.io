@@ -9,8 +9,8 @@ tags: ["Azure", "General", "ICT", "JavaScript", "Windows Azure"]
 alias: ["/post/2015/10/13/Working-with-a-private-npm-registry-in-Azure-Web-Apps.aspx", "/post/2015/10/13/working-with-a-private-npm-registry-in-azure-web-apps.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2015/10/13/Working-with-a-private-npm-registry-in-Azure-Web-Apps.aspx
- - /post/2015/10/13/working-with-a-private-npm-registry-in-azure-web-apps.aspx
+ - /post/2015/10/13/Working-with-a-private-npm-registry-in-Azure-Web-Apps.aspx.html
+ - /post/2015/10/13/working-with-a-private-npm-registry-in-azure-web-apps.aspx.html
 ---
 <p>Using <a href="https://azure.microsoft.com/en-us/documentation/services/app-service/web/">Azure Web Apps</a>, we can deploy and host Node applications quite easily. But what to do with packages the site depends on? Do we have to upload them manually to Azure Web Apps? Include them in our Git repository? None of that: we just have to make sure our app’s <em>package,json</em> is checked in so that Azure Web Apps can install them during deployment. Let’s see how.</p> <h2>Installing node modules during deployment</h2> <p>In this blog post, we’ll create a simple application using <a href="http://expressjs.com/">Express</a>. In its simplest form, an Express application will map incoming request paths to a function that generates the response. This makes Express quite interesting to work with: we can return a simple string or delegate work to a full-fledged MVC component if we want to. Here’s the simplest application I could think of, returning “Hello world!” whenever the root URL is requested. We can save it as <em>server.js</em> so we can deploy it later on.</p> <div class="wlWriterEditableSmartContent" id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:207dd58b-e67a-4612-b180-21f4da61d57b" style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px"><pre style=" width: 829px; height: 260px;background-color:White;overflow: auto;"><div><!--
 

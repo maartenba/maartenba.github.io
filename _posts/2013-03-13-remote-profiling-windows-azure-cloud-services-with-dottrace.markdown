@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "Debugging", "General", "Profiling", "Software", "Az
 alias: ["/post/2013/03/13/Remote-profiling-Windows-Azure-Cloud-Services-with-dotTrace.aspx", "/post/2013/03/13/remote-profiling-windows-azure-cloud-services-with-dottrace.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2013/03/13/Remote-profiling-Windows-Azure-Cloud-Services-with-dotTrace.aspx
- - /post/2013/03/13/remote-profiling-windows-azure-cloud-services-with-dottrace.aspx
+ - /post/2013/03/13/Remote-profiling-Windows-Azure-Cloud-Services-with-dotTrace.aspx.html
+ - /post/2013/03/13/remote-profiling-windows-azure-cloud-services-with-dottrace.aspx.html
 ---
 <p><em>Here&rsquo;s another cross-post from our </em><a href="http://www.jetbrains.com/dotnet"><em>JetBrains .NET blog</em></a><em>. It&rsquo;s focused around dotTrace but there are a lot of tips and tricks around Windows Azure Cloud Services in it as well, especially around working with the load balancer.&nbsp;Enjoy the read!</em></p>
 <p>With <a href="http://www.jetbrains.com/dottrace">dotTrace Performance</a>, we can profile applications running on our local computer <a href="http://blogs.jetbrains.com/dotnet/2012/09/dottrace-remote-profiling/">as well as on remote machines</a>. The latter can be very useful when some performance problems only occur on the staging server (or even worse: only in production). And what if that remote server is a Windows Azure Cloud Service?</p>

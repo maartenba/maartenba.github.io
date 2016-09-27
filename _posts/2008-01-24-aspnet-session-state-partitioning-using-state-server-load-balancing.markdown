@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "Software", "Webfarm"]
 alias: ["/post/2008/01/24/ASPNET-Session-State-Partitioning-using-State-Server-Load-Balancing.aspx", "/post/2008/01/24/aspnet-session-state-partitioning-using-state-server-load-balancing.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/01/24/ASPNET-Session-State-Partitioning-using-State-Server-Load-Balancing.aspx
- - /post/2008/01/24/aspnet-session-state-partitioning-using-state-server-load-balancing.aspx
+ - /post/2008/01/24/ASPNET-Session-State-Partitioning-using-State-Server-Load-Balancing.aspx.html
+ - /post/2008/01/24/aspnet-session-state-partitioning-using-state-server-load-balancing.aspx.html
 ---
 <p><img style="width: 312px; height: 502px;" src="/images/session_state_load_balancing.png" border="1" alt="" hspace="5" vspace="5" width="312" height="502" align="right" />It seems like amount of posts on ASP.NET's Session State keeps growing. Here's the list:</p>
 <ul>

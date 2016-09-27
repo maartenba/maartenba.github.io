@@ -9,8 +9,8 @@ tags: ["Personal", "Security", "Azure"]
 alias: ["/post/2014/06/20/What-happened-to-Code-Spaces-could-happen-to-you-On-Amazon-Azure-and-any-host-out-there.aspx", "/post/2014/06/20/what-happened-to-code-spaces-could-happen-to-you-on-amazon-azure-and-any-host-out-there.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2014/06/20/What-happened-to-Code-Spaces-could-happen-to-you-On-Amazon-Azure-and-any-host-out-there.aspx
- - /post/2014/06/20/what-happened-to-code-spaces-could-happen-to-you-on-amazon-azure-and-any-host-out-there.aspx
+ - /post/2014/06/20/What-happened-to-Code-Spaces-could-happen-to-you-On-Amazon-Azure-and-any-host-out-there.aspx.html
+ - /post/2014/06/20/what-happened-to-code-spaces-could-happen-to-you-on-amazon-azure-and-any-host-out-there.aspx.html
 ---
 <p>Earlier this week, a sad thing happened to the version control hosting service <a href="http://www.codespaces.com/">Code Spaces</a>. A malicious person gained access to their Amazon control panel and after demanding a ransom to the owners of Code Spaces, that malicious person started deleting data and EC2 instances. After a couple of failed attempts from Code Spaces to stop this from happening, the impossible happened: the hacker rendered Code Spaces dead. Everything that was their business is gone. As they state themselves: 
 <blockquote> <p>Code Spaces will not be able to operate beyond this point, the cost of resolving this issue to date and the expected cost of refunding customers who have been left without the service they paid for will put Code Spaces in a irreversible position both financially and in terms of on going credibility.</p>

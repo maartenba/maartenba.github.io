@@ -9,8 +9,8 @@ tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC"]
 alias: ["/post/2008/12/18/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx", "/post/2008/12/18/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/12/18/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx
- - /post/2008/12/18/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx
+ - /post/2008/12/18/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx.html
+ - /post/2008/12/18/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx.html
 ---
 <p>
 This post is part 4 of my series on <a href="http://www.microsoft.com/azure" target="_blank">Windows Azure</a>, in which I&#39;ll try to convert my ASP.NET MVC application into a cloud application. The current post is all about implementing&nbsp;authentication in CarTrackr. 
@@ -362,7 +362,7 @@ This was a quite easy task compared to configuring <a href="/post/2008/12/09/Car
 Stay tuned for the final part: deployment on Azure! I&#39;ll also provide a download link and a live link to the project. 
 </p>
 <p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/11/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx&amp;title=CarTrackr on Windows Azure - Part 4 - Membership and authentication"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/11/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
+<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/11/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx&amp;title=CarTrackr on Windows Azure - Part 4 - Membership and authentication"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/11/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx.html" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
 
 {% include imported_disclaimer.html %}

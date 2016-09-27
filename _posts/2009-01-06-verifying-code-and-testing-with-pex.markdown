@@ -9,8 +9,8 @@ tags: ["CSharp", "Debugging", "General", "Testing"]
 alias: ["/post/2009/01/06/Verifying-code-and-testing-with-Pex.aspx", "/post/2009/01/06/verifying-code-and-testing-with-pex.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/01/06/Verifying-code-and-testing-with-Pex.aspx
- - /post/2009/01/06/verifying-code-and-testing-with-pex.aspx
+ - /post/2009/01/06/Verifying-code-and-testing-with-Pex.aspx.html
+ - /post/2009/01/06/verifying-code-and-testing-with-pex.aspx.html
 ---
 <p>
 <a href="http://research.microsoft.com/en-us/projects/Pex/" target="_blank"><img style="display: inline; margin: 5px; border: 0px" src="/images/WindowsLiveWriter/VerifyingcodeandtestingwithPex_9C89/image_3.png" border="0" alt="Pex, Automated White box testing for .NET" title="Pex, Automated White box testing for .NET" width="204" height="125" align="right" /></a> 

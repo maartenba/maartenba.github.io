@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC", "Presentations", "Publications"]
 alias: ["/post/2009/04/23/MSDN-session-on-ASPNET-MVC.aspx", "/post/2009/04/23/msdn-session-on-aspnet-mvc.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/04/23/MSDN-session-on-ASPNET-MVC.aspx
- - /post/2009/04/23/msdn-session-on-aspnet-mvc.aspx
+ - /post/2009/04/23/MSDN-session-on-ASPNET-MVC.aspx.html
+ - /post/2009/04/23/msdn-session-on-aspnet-mvc.aspx.html
 ---
 <p>As promised to all people attending my online session on ASP.NET MVC this afternoon, here is the slide deck I&rsquo;ve used.</p>
 

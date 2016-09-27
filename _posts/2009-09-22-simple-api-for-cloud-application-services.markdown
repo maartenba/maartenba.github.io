@@ -9,8 +9,8 @@ tags: ["Azure", "General", "Projects", "Software", "Zend Framework"]
 alias: ["/post/2009/09/22/Simple-API-for-Cloud-Application-Services.aspx", "/post/2009/09/22/simple-api-for-cloud-application-services.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/09/22/Simple-API-for-Cloud-Application-Services.aspx
- - /post/2009/09/22/simple-api-for-cloud-application-services.aspx
+ - /post/2009/09/22/Simple-API-for-Cloud-Application-Services.aspx.html
+ - /post/2009/09/22/simple-api-for-cloud-application-services.aspx.html
 ---
 <p>Zend, in co-operation with IBM, Microsoft, Rackspace, GoGrid and other cloud leaders, today have released their Simple API for Cloud Application Services project. The Simple Cloud API project empowers developers to use one interface to interact with the cloud services offered by different vendors. These vendors are all contributing to this open source project, making sure the Simple Cloud API &ldquo;fits like a glove&rdquo; on top of their service.</p>
 <p>Zend Cloud adapters will be available for services such as:</p>

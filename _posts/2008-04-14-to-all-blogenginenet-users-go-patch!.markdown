@@ -9,8 +9,8 @@ tags: ["General", "Software", "Security"]
 alias: ["/post/2008/04/14/To-all-BlogEngineNET-users-Go-patch!.aspx", "/post/2008/04/14/to-all-blogenginenet-users-go-patch!.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/04/14/To-all-BlogEngineNET-users-Go-patch!.aspx
- - /post/2008/04/14/to-all-blogenginenet-users-go-patch!.aspx
+ - /post/2008/04/14/To-all-BlogEngineNET-users-Go-patch!.aspx.html
+ - /post/2008/04/14/to-all-blogenginenet-users-go-patch!.aspx.html
 ---
 <p>
 <img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/ToallBlogEngine.NETusers.Gopatch_8B60/image_3.png" border="0" alt="image" width="206" height="212" align="left" /> This morning, I read about a <a href="http://dannydouglass.com/post/2008/04/BlogEngine-and-the-JavaScript-HttpHandler-Serious-Security-Issue.aspx" target="_blank">serious security issue in BlogEngine.NET</a>. The security issue is in the JavaScript HTTP handler, which lets all files pass trough... In short: if you open <a href="http://your.blog.com/js.axd?path=app_data\users,xml">http://your.blog.com/js.axd?path=app_data\users,xml</a>, anyone can see your usernames/passwords! None of the other HttpHandlers are affected by this security hole. 

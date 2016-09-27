@@ -9,8 +9,8 @@ tags: ["General", "OpenXML", "PHP", "Projects"]
 alias: ["/post/2009/02/03/Saving-a-PHPExcel-spreadsheet-to-Google-Documents.aspx", "/post/2009/02/03/saving-a-phpexcel-spreadsheet-to-google-documents.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/02/03/Saving-a-PHPExcel-spreadsheet-to-Google-Documents.aspx
- - /post/2009/02/03/saving-a-phpexcel-spreadsheet-to-google-documents.aspx
+ - /post/2009/02/03/Saving-a-PHPExcel-spreadsheet-to-Google-Documents.aspx.html
+ - /post/2009/02/03/saving-a-phpexcel-spreadsheet-to-google-documents.aspx.html
 ---
 <p>As you may know, <a href="http://www.phpexcel.net/" target="_blank">PHPExcel</a> is built using an extensible model, supporting different input and output formats. The PHPExcel core class library features a spreadsheet engine, which is supported by <em>IReader</em> and <em>IWriter</em> instances used for reading and writing a spreadsheet to/from a file.</p>
 <p><img style="display: block; float: none; margin: 5px auto; border: 0px" title="PHPExcel architecture" src="/images/WindowsLiveWriter/SavingaPHPExcelspreadsheettoGoogleDocume_B85C/image_115695bd-411a-4210-bc0e-27922ae74679.png" border="0" alt="PHPExcel architecture" width="601" height="343" /></p>

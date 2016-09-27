@@ -9,8 +9,8 @@ tags: ["General", "Personal", "PHP"]
 alias: ["/post/2007/08/13/php-zip-and-parse_url-.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2007/08/13/php-zip-and-parse_url-.aspx
- - /post/2007/08/13/php-zip-and-parse_url-.aspx
+ - /post/2007/08/13/php-zip-and-parse_url-.aspx.html
+ - /post/2007/08/13/php-zip-and-parse_url-.aspx.html
 ---
 <p>
 After having a few months of problems using PHP and fopen(&#39;zip://something.xlsx#xl/worksheets/sheet1.xml&#39;, &#39;r&#39;), I finally found the reason of that exact line of code giving errors on some PC&#39;s... Assuming this uses a call to parse_url under the hood, I tried parsing this, resulting in the following URL parts:

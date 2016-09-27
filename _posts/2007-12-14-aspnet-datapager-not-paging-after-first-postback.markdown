@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "Software"]
 alias: ["/post/2007/12/14/ASPNET-DataPager-not-paging-after-first-PostBack.aspx", "/post/2007/12/14/aspnet-datapager-not-paging-after-first-postback.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2007/12/14/ASPNET-DataPager-not-paging-after-first-PostBack.aspx
- - /post/2007/12/14/aspnet-datapager-not-paging-after-first-postback.aspx
+ - /post/2007/12/14/ASPNET-DataPager-not-paging-after-first-PostBack.aspx.html
+ - /post/2007/12/14/aspnet-datapager-not-paging-after-first-postback.aspx.html
 ---
 <p>
 A few posts ago, I <a href="/post/2007/11/Advanced-ASPNET-caching-events.aspx" target="_blank">mentioned</a> that I am currently giving a classroom training on ASP.NET. People attending are currently working on a project I gave them, and today one of them came up to me with a strange problem... 

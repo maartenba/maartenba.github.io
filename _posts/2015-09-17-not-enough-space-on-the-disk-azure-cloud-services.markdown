@@ -9,8 +9,8 @@ tags: ["Azure", "CSharp", "ICT", "Windows Azure", "Software"]
 alias: ["/post/2015/09/17/Not-enough-space-on-the-disk-Azure-Cloud-Services.aspx", "/post/2015/09/17/not-enough-space-on-the-disk-azure-cloud-services.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2015/09/17/Not-enough-space-on-the-disk-Azure-Cloud-Services.aspx
- - /post/2015/09/17/not-enough-space-on-the-disk-azure-cloud-services.aspx
+ - /post/2015/09/17/Not-enough-space-on-the-disk-Azure-Cloud-Services.aspx.html
+ - /post/2015/09/17/not-enough-space-on-the-disk-azure-cloud-services.aspx.html
 ---
 <p>I have been using Microsoft Azure Cloud Services since PDC 2008 when it was first announced. Ever since, I’ve been a <em>huge</em> fan of “cloud services”, the cattle VMs in the cloud that are stateless. In all those years, I have never seen this error, until yesterday:</p> 
 <blockquote> <p><strong>There is not enough space on the disk.</strong><br>at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)<br>at System.IO.FileStream.WriteCore(Byte[] buffer, Int32 offset, Int32 count)<br>at System.IO.BinaryWriter.Write(Byte[] buffer, Int32 index, Int32 count)</p>

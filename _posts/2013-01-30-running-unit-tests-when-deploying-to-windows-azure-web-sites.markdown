@@ -9,8 +9,8 @@ tags: ["CSharp", "ASP.NET", "General", "PHP", "Azure"]
 alias: ["/post/2013/01/30/Running-unit-tests-when-deploying-to-Windows-Azure-Web-Sites.aspx", "/post/2013/01/30/running-unit-tests-when-deploying-to-windows-azure-web-sites.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2013/01/30/Running-unit-tests-when-deploying-to-Windows-Azure-Web-Sites.aspx
- - /post/2013/01/30/running-unit-tests-when-deploying-to-windows-azure-web-sites.aspx
+ - /post/2013/01/30/Running-unit-tests-when-deploying-to-Windows-Azure-Web-Sites.aspx.html
+ - /post/2013/01/30/running-unit-tests-when-deploying-to-windows-azure-web-sites.aspx.html
 ---
 <p>When deploying an application to Windows Azure Web Sites, a number of deployment steps are executed. For .NET projects, msbuild is triggered. For node.js applications, a list of dependencies is restored. For PHP applications, files are copied from source control to the actual web root which is served publicly. Wouldn’t it be cool if Windows Azure Web Sites refused to deploy fresh source code whenever unit tests fail? In this post, I’ll show you how.</p>  <p><u>Disclaimer:</u>&#160; I’m using PHP and PHPUnit here but the same approach can be used for node.js. .NET is a bit harder since most test runners out there are not supported by the Windows Azure Web Sites sandbox. I’m confident however that in the near future this issue will be resolved and the same technique can be used for .NET applications.</p>  <h2>Our sample application</h2>  <p>First of all, let’s create a simple application. Here’s a very simple one using the <a href="http://silex.sensiolabs.org/">Silex</a> framework which is similar to frameworks like <a href="http://www.sinatrarb.com/">Sinatra</a> and <a href="http://www.nancyfx.org/">Nancy</a>.</p>  <div id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:5539d472-8bdc-4462-a580-86fdb46a9ec9" class="wlWriterEditableSmartContent" style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px"><pre style=" width: 687px; height: 163px;background-color:White;overflow: auto;"><div><!--
 

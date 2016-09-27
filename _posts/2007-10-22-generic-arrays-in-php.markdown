@@ -9,8 +9,8 @@ tags: ["General", "PHP"]
 alias: ["/post/2007/10/22/Generic-arrays-in-PHP.aspx", "/post/2007/10/22/generic-arrays-in-php.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2007/10/22/Generic-arrays-in-PHP.aspx
- - /post/2007/10/22/generic-arrays-in-php.aspx
+ - /post/2007/10/22/Generic-arrays-in-PHP.aspx.html
+ - /post/2007/10/22/generic-arrays-in-php.aspx.html
 ---
 <p>Assuming everyone knows what <a href="http://en.wikipedia.org/wiki/Generic_programming" target="_blank">generics</a> are, let's get down to business right away. PHP does not support generics or something similar, though it could be very useful in PHP development.&nbsp; Luckily, using some standard OO-practises, a semi-generic array can easily be created, even in multiple ways! Here's&nbsp;the road to PHP generics.&nbsp;</p>
 <h1>The hard way...</h1>

@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "Personal"]
 alias: ["/post/2007/05/05/sendmailcontrol-for-asp-net.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2007/05/05/sendmailcontrol-for-asp-net.aspx
- - /post/2007/05/05/sendmailcontrol-for-asp-net.aspx
+ - /post/2007/05/05/sendmailcontrol-for-asp-net.aspx.html
+ - /post/2007/05/05/sendmailcontrol-for-asp-net.aspx.html
 ---
 <p>
 Have you ever used the ASP.NET PasswordRecovery control, or the CreateUserWizard? Probably, you used the mail capabilities of these controls too, and set up a MailDefinition to send an e-mail when the control did his job. Personally, I missed this functionality when wanting to send mails to users. 

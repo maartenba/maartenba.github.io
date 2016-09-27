@@ -9,8 +9,8 @@ tags: ["General", "OpenXML", "PHP", "Projects", "Software"]
 alias: ["/post/2007/10/26/OpenXML-in-Healthcare-in-PHP.aspx", "/post/2007/10/26/openxml-in-healthcare-in-php.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2007/10/26/OpenXML-in-Healthcare-in-PHP.aspx
- - /post/2007/10/26/openxml-in-healthcare-in-php.aspx
+ - /post/2007/10/26/OpenXML-in-Healthcare-in-PHP.aspx.html
+ - /post/2007/10/26/openxml-in-healthcare-in-php.aspx.html
 ---
 <p>Here's a cool present just before the weekend... 2 days ago, <a href="http://blogs.infosupport.com/wouterv/archive/2007/10/24/Open-XML-in-Healthcare.aspx" target="_blank">Wouter</a> posted on his blog about an article he co-operated on for MSDN: <a href="http://msdn2.microsoft.com/en-us/library/bb879915.aspx" target="_blank">OpenXML in Healthcare</a>.</p>
 <p>Being both a Microsoft and PHP fan (yes, you can curse me, I don't care), I thought of porting (part of) the sample code from his article into PHP. Except for the document signing, as I did not have many time to write this sample code...</p>

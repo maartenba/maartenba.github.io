@@ -9,8 +9,8 @@ tags: ["General", "Azure"]
 alias: ["/post/2013/06/27/Autoscaling-Windows-Azure-Cloud-Services-(and-web-sites).aspx", "/post/2013/06/27/autoscaling-windows-azure-cloud-services-(and-web-sites).aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2013/06/27/Autoscaling-Windows-Azure-Cloud-Services-(and-web-sites).aspx
- - /post/2013/06/27/autoscaling-windows-azure-cloud-services-(and-web-sites).aspx
+ - /post/2013/06/27/Autoscaling-Windows-Azure-Cloud-Services-(and-web-sites).aspx.html
+ - /post/2013/06/27/autoscaling-windows-azure-cloud-services-(and-web-sites).aspx.html
 ---
 <p>At the Build conference, Microsoft today announced that Windows Azure Cloud Services now support autoscaling. And they do! From the Windows Azure Management Portal, we can use the newly introduced <em>SCALE</em> tab to configure autoscaling. That&rsquo;s right: some configuration and we can select the range of instances we want to have. Windows Azure does the rest. And this is true for both Cloud Services and Standard Web Sites (formerly known as Reserved instances).</p>
 <p><a href="/images/image_292.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin: 5px auto 6px; display: block; padding-right: 0px; border: 0px;" title="Automatic scaling Windows Azure" src="/images/image_thumb_253.png" alt="Automatic scaling Windows Azure" width="640" height="206" border="0" /></a></p>

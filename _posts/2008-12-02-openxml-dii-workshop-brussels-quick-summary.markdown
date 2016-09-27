@@ -9,8 +9,8 @@ tags: ["Events", "General", "OpenXML", "PHP", "Presentations", "Software"]
 alias: ["/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx", "/post/2008/12/02/openxml-dii-workshop-brussels-quick-summary.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx
- - /post/2008/12/02/openxml-dii-workshop-brussels-quick-summary.aspx
+ - /post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx.html
+ - /post/2008/12/02/openxml-dii-workshop-brussels-quick-summary.aspx.html
 ---
 <p>
 A few days ago, I wrote I was doing a presentation on the <a href="/post/2008/11/28/Presenting-at-the-OpenXML-DII-workshop-Brussels.aspx" target="_blank">DII workshop in Brussels together with Julien Chable</a>. Apart from heavy traffic from Antwerp to Brussels (80km, almost 3 hours... *sigh*), I think the DII workshop was quite succesful! Lots of news around OpenXML and Office, lots of interesting ideas from other community members. It was also great to meet some people who I&#39;ve been mailing with for 2 years in person. 
@@ -109,7 +109,7 @@ Another news item: <a href="http://www.itworld.com/open-source/58726/microsoft-l
 </p>
 <h2>Some pictures of the event</h2><iframe src="http://photozoom.mslivelabs.com/DZApp/IFrame.aspx?store=2&amp;collection=zf65cca55c83d480db341c47992b0c6db" width="640" height="480" frameborder="0"></iframe>
 <p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx&amp;title=OpenXML DII workshop Brussels - Quick summary"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
+<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx&amp;title=OpenXML DII workshop Brussels - Quick summary"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx.html" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
 
 {% include imported_disclaimer.html %}

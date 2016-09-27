@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2009/06/10/ASPNET-MVC-TDD-using-Visual-Studio-2010.aspx", "/post/2009/06/10/aspnet-mvc-tdd-using-visual-studio-2010.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/06/10/ASPNET-MVC-TDD-using-Visual-Studio-2010.aspx
- - /post/2009/06/10/aspnet-mvc-tdd-using-visual-studio-2010.aspx
+ - /post/2009/06/10/ASPNET-MVC-TDD-using-Visual-Studio-2010.aspx.html
+ - /post/2009/06/10/aspnet-mvc-tdd-using-visual-studio-2010.aspx.html
 ---
 <p><a href="http://haacked.com/archive/2009/06/09/aspnetmvc-vs10beta1-roadmap.aspx" target="_blank">Phil Haack announced yesterday</a> that the tooling support for ASP.NET MVC is available for Visual Studio 2010. <a href="http://www.squaredroot.com/2009/06/09/creating-an-mvc-project-in-visual-studio-2010/" target="_blank">Troy Goode</a> already blogged about the designer snippets (which are really really cool, just like other <a href="http://aspnet.codeplex.com/Wiki/View.aspx?title=Road%20Map&amp;referringTitle=Home" target="_blank">parts of the roadmap for ASP.NET MVC 2.0</a>). I&rsquo;ll give the new TDD workflow introduced in VS2010 a take.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/06/10/ASPNET-MVC-TDD-using-Visual-Studio-2010.aspx&amp;title=ASP.NET MVC TDD using Visual Studio 2010"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/06/10/ASPNET-MVC-TDD-using-Visual-Studio-2010.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

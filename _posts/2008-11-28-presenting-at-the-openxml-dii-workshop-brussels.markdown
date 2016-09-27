@@ -9,8 +9,8 @@ tags: ["General", "OpenXML", "PHP", "Presentations"]
 alias: ["/post/2008/11/28/Presenting-at-the-OpenXML-DII-workshop-Brussels.aspx", "/post/2008/11/28/presenting-at-the-openxml-dii-workshop-brussels.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/11/28/Presenting-at-the-OpenXML-DII-workshop-Brussels.aspx
- - /post/2008/11/28/presenting-at-the-openxml-dii-workshop-brussels.aspx
+ - /post/2008/11/28/Presenting-at-the-OpenXML-DII-workshop-Brussels.aspx.html
+ - /post/2008/11/28/presenting-at-the-openxml-dii-workshop-brussels.aspx.html
 ---
 <p>
 First things first: WTF is DII??? It&#39;s the &quot;Document Interoperability Initiative&quot; that Microsoft launched. The workshop will be a day filled with presentations from a variety of people, including members of the Office product groups at Microsoft and developers and consultants from several other companies (basically like <a href="http://blogs.msdn.com/dmahugh/archive/2008/10/26/dii-workshop-recap.aspx" target="_blank">the one held in Redmond</a> a few weeks ago).

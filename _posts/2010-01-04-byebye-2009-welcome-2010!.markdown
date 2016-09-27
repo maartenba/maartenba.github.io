@@ -9,8 +9,8 @@ tags: ["General", "Personal"]
 alias: ["/post/2010/01/04/Byebye-2009-welcome-2010!.aspx", "/post/2010/01/04/byebye-2009-welcome-2010!.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2010/01/04/Byebye-2009-welcome-2010!.aspx
- - /post/2010/01/04/byebye-2009-welcome-2010!.aspx
+ - /post/2010/01/04/Byebye-2009-welcome-2010!.aspx.html
+ - /post/2010/01/04/byebye-2009-welcome-2010!.aspx.html
 ---
 <p><a href="/images/image_26.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="Fireworks!" src="/images/image_thumb_8.png" border="0" alt="Fireworks!" width="736" height="240" /></a></p>
 <p>A year just ended, a new has begun. Congratulations! Happy newyear 2010! And welcome in the next decennium. It&rsquo;s time for a 2009 wrap-up post. And perhaps, even the time for some things I want to do in 2010. First things first: the top 5 blog posts of 2009.</p>
@@ -40,11 +40,11 @@ redirect_from:
 <h3>MSDN - Converting an existing ASP.NET application to Windows Azure</h3>
 <p>Put your stuff in the cloud! Windows Azure allows you to take advantage of cloud computing infranstructure for hosting, computing, and storage of your applications. In this demo filled session we take an existing ASP.Net Application and move it to be hosted in Windows Azure, while taking advantage of Windows Azure storage.</p>
 <p><em>MSDN Live Meeting for MSDN Belgium, November 24, 2009</em></p>
-<p>Slides: <a href="http://www.slideshare.net/maartenba/msdn-converting-an-existing-aspnet-application-to-windows-azure">http://www.slideshare.net/maartenba/msdn-converting-an-existing-aspnet-application-to-windows-azure</a> <br />Demo code: <a href="/files/2009/11/MSDN+-+Converting+an+existing+ASP.NET+application+to+Windows+Azure.zip">MSDN - Converting an existing ASP.NET application to Windows Azure.zip (2.01 mb)</a> <br />Live recording: <a href="http://www.microsoft.com/belux/MSDN/fr/chopsticks/default.aspx?id=1491">http://www.microsoft.com/belux/MSDN/fr/chopsticks/default.aspx?id=1491</a></p>
+<p>Slides: <a href="http://www.slideshare.net/maartenba/msdn-converting-an-existing-aspnet-application-to-windows-azure">http://www.slideshare.net/maartenba/msdn-converting-an-existing-aspnet-application-to-windows-azure</a> <br />Demo code: <a href="/files/2009/11/MSDN+-+Converting+an+existing+ASP.NET+application+to+Windows+Azure.zip">MSDN - Converting an existing ASP.NET application to Windows Azure.zip (2.01 mb)</a> <br />Live recording: <a href="http://www.microsoft.com/belux/MSDN/fr/chopsticks/default.aspx?id=1491">http://www.microsoft.com/belux/MSDN/fr/chopsticks/default.aspx.html?id=1491</a></p>
 <h3>ASP.NET MVC Wisdom</h3>
 <p>Building a Twitter clone in 60 minutes, featuring what's new in ASP.NET MVC 2 preview 1 and focusing on some of the core ASP.NET MVC features like security and routing.</p>
 <p><em>Remix Belgium 2009, Brussels, September 29, 2009</em></p>
-<p>Slides: <a href="http://www.slideshare.net/maartenba/aspnet-mvc-wisdom">http://www.slideshare.net/maartenba/aspnet-mvc-wisdom</a> <br />Demo code: <a href="/files/2009/9/ASP.NET+MVC+Wisdom+-+ReMix.zip">ASP.NET MVC Wisdom - ReMix.zip (8.91 mb)</a> <br />Live recording: <a href="/post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx">/post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx</a></p>
+<p>Slides: <a href="http://www.slideshare.net/maartenba/aspnet-mvc-wisdom">http://www.slideshare.net/maartenba/aspnet-mvc-wisdom</a> <br />Demo code: <a href="/files/2009/9/ASP.NET+MVC+Wisdom+-+ReMix.zip">ASP.NET MVC Wisdom - ReMix.zip (8.91 mb)</a> <br />Live recording: <a href="/post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx">/post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx.html</a></p>
 <h3>PHP and Silverlight</h3>
 <p>So you have an existing PHP application and would like to spice it up with a rich and attractive front-end. Next to Adobe Flex, you can also choose Silverlight as a solution. This session shows you around in Silverlight and shows that PHP and Silverlight can go together easily.</p>
 <p><em>DevDays 2009, The Hague, May 29, 2009&nbsp; -&nbsp; May 29, 2009 <br />Dutch PHP Conference, Amsterdam, June 12, 2009&nbsp; -&nbsp; June 12, 2009</em></p>

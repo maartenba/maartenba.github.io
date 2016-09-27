@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "jQuery", "MVC", "Software"]
 alias: ["/post/2008/12/05/ASPNET-MVC-XForms-released-on-CodePlex.aspx", "/post/2008/12/05/aspnet-mvc-xforms-released-on-codeplex.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/12/05/ASPNET-MVC-XForms-released-on-CodePlex.aspx
- - /post/2008/12/05/aspnet-mvc-xforms-released-on-codeplex.aspx
+ - /post/2008/12/05/ASPNET-MVC-XForms-released-on-CodePlex.aspx.html
+ - /post/2008/12/05/aspnet-mvc-xforms-released-on-codeplex.aspx.html
 ---
 <p>
 Just <a href="http://www.joncurtis.co.uk/post/MVC-XForms-Release-1-on-codeplex.aspx" target="_blank">noticed</a> there&#39;s a new project on CodePlex related to the ASP.NET MVC framework: <a href="http://www.codeplex.com/mvcxforms" target="_blank">MVC XForms</a>. MVC XForms is a simple UI framework for ASP.NET MVC based on the <a href="http://www.w3.org/TR/xforms/" target="_blank">W3C XForms specification</a>. It provides a set of form controls that allow updating of complex model objects. 

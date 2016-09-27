@@ -9,8 +9,8 @@ tags: ["CSharp", "General", "Testing"]
 alias: ["/post/2008/11/10/Integrating-NUnit-test-results-in-Team-Build-2008.aspx", "/post/2008/11/10/integrating-nunit-test-results-in-team-build-2008.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/11/10/Integrating-NUnit-test-results-in-Team-Build-2008.aspx
- - /post/2008/11/10/integrating-nunit-test-results-in-team-build-2008.aspx
+ - /post/2008/11/10/Integrating-NUnit-test-results-in-Team-Build-2008.aspx.html
+ - /post/2008/11/10/integrating-nunit-test-results-in-team-build-2008.aspx.html
 ---
 <p>
 When using Team Foundation Server 2008 and Team Build, chances are you are developing unit tests in Microsoft&rsquo;s test framework which is integrated with Visual Studio 2008. This integration offers valuable data hen a build has been finished on the build server: test run results are published in the Team Foundation Server 2008 data warehouse and can be used to create detailed metrics on how your development team is performing and what the quality of the product being developed is. 
@@ -32,7 +32,7 @@ Make sure the following prerequisites are present on your Team Build server (in 
 	<li>MSBuild Community Tasks - <a href="http://msbuildtasks.tigris.org">http://msbuildtasks.tigris.org</a><br />
 	<em>The MSBuild Community Tasks Project is an open source project for MSBuild tasks. The goal of the project is to provide a collection of open source tasks for MSBuild.<br />
 	</em></li>
-	<li>NXSLT.exe - <a href="http://www.xmllab.net/Downloads/tabid/61/Default.aspx">http://www.xmllab.net/Downloads/tabid/61/Default.aspx</a><br />
+	<li>NXSLT.exe - <a href="http://www.xmllab.net/Downloads/tabid/61/Default.aspx">http://www.xmllab.net/Downloads/tabid/61/Default.aspx.html</a><br />
 	<em>NXSLT is a free XSLT command line tool.<br />
 	</em></li>
 	<li>NUnit for Team Build - <a href="http://www.codeplex.com/nunit4teambuild">http://www.codeplex.com/nunit4teambuild</a><br />

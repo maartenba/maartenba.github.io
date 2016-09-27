@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2008/07/01/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute-Adding-substitution.aspx", "/post/2008/07/01/extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/07/01/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute-Adding-substitution.aspx
- - /post/2008/07/01/extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution.aspx
+ - /post/2008/07/01/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute-Adding-substitution.aspx.html
+ - /post/2008/07/01/extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution.aspx.html
 ---
 <p>
 In my <a href="/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx" target="_blank">previous blog post on ASP.NET MVC OutputCache</a>, not all aspects of &quot;classic&quot; ASP.NET output caching were covered. For instance, substitution of cached pages. Allow me to explain... 
@@ -230,7 +230,7 @@ private string ResolveSubstitutions(ControllerContext filterContext, string sour
 How easy was all that? You can <a href="http://examples.maartenballiauw.be/AspNetMvcOutputCache/MvcCaching.zip" target="_blank">download the full soure and an example here</a>. 
 </p>
 <p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/07/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute---Adding-substitution.aspx&amp;title=Extending ASP.NET MVC OutputCache ActionFilterAttribute - Adding substitution"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/07/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute---Adding-substitution.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
+<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/07/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute---Adding-substitution.aspx&amp;title=Extending ASP.NET MVC OutputCache ActionFilterAttribute - Adding substitution"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/07/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute---Adding-substitution.aspx.html" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
 
 {% include imported_disclaimer.html %}

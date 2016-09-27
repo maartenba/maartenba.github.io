@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "LINQ", "OpenXML", "Software"]
 alias: ["/post/2008/01/11/Preview-Word-files-(docx)-in-HTML-using-ASPNET-OpenXML-and-LINQ-to-XML.aspx", "/post/2008/01/11/preview-word-files-(docx)-in-html-using-aspnet-openxml-and-linq-to-xml.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/01/11/Preview-Word-files-(docx)-in-HTML-using-ASPNET-OpenXML-and-LINQ-to-XML.aspx
- - /post/2008/01/11/preview-word-files-(docx)-in-html-using-aspnet-openxml-and-linq-to-xml.aspx
+ - /post/2008/01/11/Preview-Word-files-(docx)-in-HTML-using-ASPNET-OpenXML-and-LINQ-to-XML.aspx.html
+ - /post/2008/01/11/preview-word-files-(docx)-in-html-using-aspnet-openxml-and-linq-to-xml.aspx.html
 ---
 <p>Since an image (or even an example) tells&nbsp;more than any text will ever do, here's what I've created in the past few evening hours:</p>
 <p style="text-align: center;"><img style="border: 0px;" src="/images/WindowsLiveWriter/PreviewWordfilesd.NETOpenXMLandLINQtoXML_C70E/image_3.png" border="0" alt="image" width="660" height="238" /></p>

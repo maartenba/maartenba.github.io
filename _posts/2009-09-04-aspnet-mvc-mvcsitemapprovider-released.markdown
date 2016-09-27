@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects"]
 alias: ["/post/2009/09/04/ASPNET-MVC-MvcSiteMapProvider-released.aspx", "/post/2009/09/04/aspnet-mvc-mvcsitemapprovider-released.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/09/04/ASPNET-MVC-MvcSiteMapProvider-released.aspx
- - /post/2009/09/04/aspnet-mvc-mvcsitemapprovider-released.aspx
+ - /post/2009/09/04/ASPNET-MVC-MvcSiteMapProvider-released.aspx.html
+ - /post/2009/09/04/aspnet-mvc-mvcsitemapprovider-released.aspx.html
 ---
 <p><a href="http://mvcsitemap.codeplex.com/"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 5px 5px 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="/images/image_13.png" border="0" alt="image" width="240" height="97" align="left" /></a> Back in March, I blogged about an experimental MvcSiteMap provider I <a href="/post/2009/03/24/New-CodePlex-project-MvcSiteMap-ndash3b-ASPNET-MVC-sitemap-provider.aspx">was building</a>. Today, I am proud to announce that it is stable enough to call it version 1.0! Download <a href="http://mvcsitemap.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=32395">MvcSiteMapProvider 1.0</a> over at CodePlex.</p>
 <p>Ever since the source code release I did back in March, a lot of new features have been added, such as <em>HtmlHelper</em> extension methods, attributes, dynamic parameters, &hellip; I&rsquo;ll leave most of them up to you to discover, but there are some I want to quickly highlight.</p>

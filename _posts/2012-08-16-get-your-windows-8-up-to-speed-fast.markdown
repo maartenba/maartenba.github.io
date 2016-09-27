@@ -9,8 +9,8 @@ tags: ["General", "Personal", "Software"]
 alias: ["/post/2012/08/16/Get-your-Windows-8-up-to-speed-fast.aspx", "/post/2012/08/16/get-your-windows-8-up-to-speed-fast.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2012/08/16/Get-your-Windows-8-up-to-speed-fast.aspx
- - /post/2012/08/16/get-your-windows-8-up-to-speed-fast.aspx
+ - /post/2012/08/16/Get-your-Windows-8-up-to-speed-fast.aspx.html
+ - /post/2012/08/16/get-your-windows-8-up-to-speed-fast.aspx.html
 ---
 <p>With the release of Windows 8 on MSDN yesterday, I have a gut feeling that today, around the globe, people are installing this fresh operating system on their machine. I&rsquo;ve done so too and I wanted to share with your two tools: one that helped me get up to speed fast, one that will help me up to speed even faster the next time I want to reset my PC.</p>
 <h2>Chocolatey</h2>

@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "MVC", "Personal", "Presentations", "Screencasts"]
 alias: ["/post/2008/11/27/Using-the-ASPNET-MVC-ModelBinder-(screencast).aspx", "/post/2008/11/27/using-the-aspnet-mvc-modelbinder-(screencast).aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/11/27/Using-the-ASPNET-MVC-ModelBinder-(screencast).aspx
- - /post/2008/11/27/using-the-aspnet-mvc-modelbinder-(screencast).aspx
+ - /post/2008/11/27/Using-the-ASPNET-MVC-ModelBinder-(screencast).aspx.html
+ - /post/2008/11/27/using-the-aspnet-mvc-modelbinder-(screencast).aspx.html
 ---
 <p>
 A new screencast has just been uploaded to the <a href="http://www.microsoft.com/belux/MSDN/nl/chopsticks/default.aspx" target="_blank">MSDN Belgium Chopsticks</a> page. Don&#39;t forget to rate the video! 

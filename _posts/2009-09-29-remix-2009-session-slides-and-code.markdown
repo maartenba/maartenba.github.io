@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "Events", "General", "MVC", "Presentations", "Testin
 alias: ["/post/2009/09/29/Remix-2009-session-Slides-and-code.aspx", "/post/2009/09/29/remix-2009-session-slides-and-code.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/09/29/Remix-2009-session-Slides-and-code.aspx
- - /post/2009/09/29/remix-2009-session-slides-and-code.aspx
+ - /post/2009/09/29/Remix-2009-session-Slides-and-code.aspx.html
+ - /post/2009/09/29/remix-2009-session-slides-and-code.aspx.html
 ---
 <p><a href="/images/2009/9/maartenatremix.jpg"><img src="/images/2009/9/maartenatremix.jpg" alt="" align="right" width="140" border="0" hspace="5" /></a>As promised during the session at Remix 2009, here’s my example code and slide deck.</p>  <p>Abstract: <em>&quot;Building a Twitter clone in 60 minutes, featuring what's new in ASP.NET MVC 2 preview 1 and focusing on some of the core ASP.NET MVC features like security and routing.&quot;</em></p>
 

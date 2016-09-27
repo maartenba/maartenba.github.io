@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC", "Software"]
 alias: ["/post/2009/03/18/ASPNET-MVC-10-has-been-released!.aspx", "/post/2009/03/18/aspnet-mvc-10-has-been-released!.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/03/18/ASPNET-MVC-10-has-been-released!.aspx
- - /post/2009/03/18/aspnet-mvc-10-has-been-released!.aspx
+ - /post/2009/03/18/ASPNET-MVC-10-has-been-released!.aspx.html
+ - /post/2009/03/18/aspnet-mvc-10-has-been-released!.aspx.html
 ---
 <p>
 <img style="display: inline; margin: 5px 0px 5px 5px; width: 114px; height: 132px; border-width: 0px" src="/images/WindowsLiveWriter/AnnouncingmybookASP.NETMVC1.0Quickly_D7E4/184719754X_9c5c7835-7f2b-41b1-a4b4-43be5f7704d7.jpg" border="0" alt="ASP.NET MVC 1.0 Quickly" title="ASP.NET MVC 1.0 Quickly" width="114" height="132" align="right" />To keep up with a good tradition (see <a href="/post/2008/03/ASPNET-MVC-Framework-out-on-CodePlex.aspx" target="_blank">here</a> and <a href="/post/2008/05/27/ASPNET-MVC-framework-preview-3-released.aspx" target="_blank">here</a>), I have some great news on ASP.NET MVC: we are at version 1.0! This means production ready, supported, stable, &hellip;! Grab the download at <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=53289097-73ce-43bf-b6a6-35e00103cb4b&amp;displaylang=en" target="_blank">Microsoft.com</a>. 

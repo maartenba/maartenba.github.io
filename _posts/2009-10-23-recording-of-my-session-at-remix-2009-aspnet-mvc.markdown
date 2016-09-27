@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "Events", "General", "MVC", "Presentations", "Screen
 alias: ["/post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx", "/post/2009/10/23/recording-of-my-session-at-remix-2009-aspnet-mvc.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx
- - /post/2009/10/23/recording-of-my-session-at-remix-2009-aspnet-mvc.aspx
+ - /post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx.html
+ - /post/2009/10/23/recording-of-my-session-at-remix-2009-aspnet-mvc.aspx.html
 ---
 <p>On September 29, I did a session on ASP.NET MVC at Remix 2009 Belgium. All session recordings are now online, check the <a href="http://www.microsoft.com/belux/remix09/#agenda" target="_blank">Remix09 site</a>.&nbsp;Slides and code for my talk can be found in a <a href="/post/2009/09/29/Remix-2009-session-Slides-and-code.aspx">previous blog post</a>. The video material can be found below. Enjoy! And feel free to leave some comments!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/10/23/Recording-of-my-session-at-Remix-2009-ASPNET-MVC.aspx&amp;title=Recording of my session at Remix 2009 - ASP.NET MVC">

@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC", "Scalability", "Security", "WebAPI
 alias: ["/post/2012/12/18/Storing-user-uploads-in-Windows-Azure-blob-storage.aspx", "/post/2012/12/18/storing-user-uploads-in-windows-azure-blob-storage.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2012/12/18/Storing-user-uploads-in-Windows-Azure-blob-storage.aspx
- - /post/2012/12/18/storing-user-uploads-in-windows-azure-blob-storage.aspx
+ - /post/2012/12/18/Storing-user-uploads-in-Windows-Azure-blob-storage.aspx.html
+ - /post/2012/12/18/storing-user-uploads-in-windows-azure-blob-storage.aspx.html
 ---
 <p>On one of the mailing lists I follow, an interesting question came up: &ldquo;We want to write a VSTO plugin for Outlook which copies attachments to blob storage. What&rsquo;s the best way to do this? What about security?&rdquo;. Shortly thereafter, an answer came around: &ldquo;That can be done directly from the client. And storage credentials can be encrypted for use in your VSTO plugin.&rdquo;</p>
 <p>While that&rsquo;s certainly a solution to the problem, it&rsquo;s not the best. Let&rsquo;s try and answer&hellip;</p>

@@ -9,8 +9,8 @@ tags: ["Azure", "CSharp", "General", "Projects", "Software", "Azure Database"]
 alias: ["/post/2009/08/26/SQL-Azure-Manager.aspx", "/post/2009/08/26/sql-azure-manager.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/08/26/SQL-Azure-Manager.aspx
- - /post/2009/08/26/sql-azure-manager.aspx
+ - /post/2009/08/26/SQL-Azure-Manager.aspx.html
+ - /post/2009/08/26/sql-azure-manager.aspx.html
 ---
 <p><a href="http://sql.azure.com"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="image" src="/images/image_11.png" border="0" alt="image" width="240" height="99" align="right" /></a></p>
 <p>A few days ago, the SQL Server Team <a href="http://blogs.technet.com/dataplatforminsider/archive/2009/08/18/sql-server-streaminsight-and-sql-azure-database-ctp-availability.aspx">announced</a> the availability of three major CTP&rsquo;s and several new upcoming projects in the SQL related family tree: SQL Server 2008 R2, SQL Server StreamInsight and SQL Azure. Now that last one is interesting: Microsoft will offer a 1GB or 10GB database server &ldquo;in the cloud&rdquo; for a good price.</p>

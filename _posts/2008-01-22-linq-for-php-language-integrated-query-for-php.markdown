@@ -9,8 +9,8 @@ tags: ["General", "LINQ", "PHP", "Projects", "Software"]
 alias: ["/post/2008/01/22/LINQ-for-PHP-Language-Integrated-Query-for-PHP.aspx", "/post/2008/01/22/linq-for-php-language-integrated-query-for-php.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/01/22/LINQ-for-PHP-Language-Integrated-Query-for-PHP.aspx
- - /post/2008/01/22/linq-for-php-language-integrated-query-for-php.aspx
+ - /post/2008/01/22/LINQ-for-PHP-Language-Integrated-Query-for-PHP.aspx.html
+ - /post/2008/01/22/linq-for-php-language-integrated-query-for-php.aspx.html
 ---
 <p>Perhaps you have already heard of C# 3.5's "<a href="http://msdn2.microsoft.com/en-us/netframework/aa904594.aspx" target="_blank">LINQ</a>" component. <a href="http://en.wikipedia.org/wiki/Language_Integrated_Query" target="_blank">LINQ</a>, or Language Integrated Query, is a component inside the .NET framework which enables you to perform queries on a variety of data sources like arrays, XML, SQL server, ... These queries are defined using a syntax which is very similar to SQL.</p>
 <p>There is a problem with LINQ though... If you start using this, you don't want to access data sources differently anymore. Since I'm also a PHP developer, I thought of creating a similar concept for PHP. So here's the result of a few days coding:</p>

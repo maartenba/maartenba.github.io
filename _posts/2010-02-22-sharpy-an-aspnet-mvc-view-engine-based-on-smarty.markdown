@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx", "/post/2010/02/22/sharpy-an-aspnet-mvc-view-engine-based-on-smarty.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx
- - /post/2010/02/22/sharpy-an-aspnet-mvc-view-engine-based-on-smarty.aspx
+ - /post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx.html
+ - /post/2010/02/22/sharpy-an-aspnet-mvc-view-engine-based-on-smarty.aspx.html
 ---
 <p><a href="/images/image_42.png"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="Sharpy - ASP.NET MVC View Engine based on Smarty" src="/images/image_thumb_17.png" border="0" alt="Sharpy - ASP.NET MVC View Engine based on Smarty" width="202" height="121" align="right" /></a>Are you also one of those ASP.NET MVC developers who prefer a different view engine than the default Webforms view engine available? You tried <a href="http://sparkviewengine.com/" target="_blank">Spark</a>, <a href="http://code.google.com/p/nhaml/" target="_blank">NHaml</a>, &hellip;? If you are familiar with the PHP world as well, chances are you know <a href="http://www.smarty.net" target="_blank">Smarty</a>, a great engine for creating views that can easily be read and understood by both developers and designers. And here&rsquo;s the good news: <a href="http://sharpy.codeplex.com" target="_blank">Sharpy</a> provides the same syntax for ASP.NET MVC!</p>
 <p>If you want more details on Sharpy, visit <a href="http://www.jacopretorius.net/" target="_blank">Jaco Pretorius&rsquo; blog</a>:</p>
@@ -20,7 +20,7 @@ redirect_from:
 <li><a href="http://www.jacopretorius.net/2010/02/master-pages-and-partial-views-in.html">How to use master pages and partial views</a></li>
 <li><a href="http://www.jacopretorius.net/2010/02/how-to-extend-sharpy.html">How to extend Sharpy with your own functions and modifiers</a></li>
 </ul>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx&amp;title=Sharpy - an ASP.NET MVC view engine based on Smarty"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
+<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx&amp;title=Sharpy - an ASP.NET MVC view engine based on Smarty"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx.html" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 <h2>A simple example&hellip;</h2>
 <p>Here&rsquo;s a simple example:</p>
 <p>[code:c#]</p>

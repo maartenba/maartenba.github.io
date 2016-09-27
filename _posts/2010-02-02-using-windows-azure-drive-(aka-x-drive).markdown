@@ -9,8 +9,8 @@ tags: ["Azure", "CSharp", "General", "Scalability"]
 alias: ["/post/2010/02/02/Using-Windows-Azure-Drive-(aka-X-Drive).aspx", "/post/2010/02/02/using-windows-azure-drive-(aka-x-drive).aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2010/02/02/Using-Windows-Azure-Drive-(aka-X-Drive).aspx
- - /post/2010/02/02/using-windows-azure-drive-(aka-x-drive).aspx
+ - /post/2010/02/02/Using-Windows-Azure-Drive-(aka-X-Drive).aspx.html
+ - /post/2010/02/02/using-windows-azure-drive-(aka-x-drive).aspx.html
 ---
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="Windows Azure X Drive" src="/images/image_40.png" border="0" alt="Windows Azure X Drive" width="213" height="147" align="right" /> With today&rsquo;s release of the <a href="http://blogs.msdn.com/windowsazure/archive/2010/02/02/windows-azure-tools-and-sdk-1-1-released.aspx" target="_blank">Windows Azure Tools and SDK version 1.1</a>, also the Windows Azure Drive feature has been released. Announced at last year&rsquo;s <a href="http://www.microsoftpdc.com" target="_blank">PDC</a> as X-Drive, which has nothing to do with a <a href="http://www.bmw.de" target="_blank">well-known German car manufacturer</a>, this new feature enables a Windows Azure application to use existing NTFS APIs to access a durable drive. This allows the Windows Azure application to mount a page blob as a drive letter, such as X:, and enables easily migration of existing NTFS applications to the cloud.</p>
 <p>This blog post will describe the necessary steps to create and/or mount a virtual hard disk on a Windows Azure role instance.</p>

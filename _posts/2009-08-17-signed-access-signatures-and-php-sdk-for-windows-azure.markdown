@@ -9,8 +9,8 @@ tags: ["Azure", "General", "PHP", "Projects"]
 alias: ["/post/2009/08/17/Signed-Access-Signatures-and-PHP-SDK-for-Windows-Azure.aspx", "/post/2009/08/17/signed-access-signatures-and-php-sdk-for-windows-azure.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/08/17/Signed-Access-Signatures-and-PHP-SDK-for-Windows-Azure.aspx
- - /post/2009/08/17/signed-access-signatures-and-php-sdk-for-windows-azure.aspx
+ - /post/2009/08/17/Signed-Access-Signatures-and-PHP-SDK-for-Windows-Azure.aspx.html
+ - /post/2009/08/17/signed-access-signatures-and-php-sdk-for-windows-azure.aspx.html
 ---
 <p><a href="http://phpazure.codeplex.com/"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="PHP SDK for Windows Azure" src="/images/image_5.png" border="0" alt="PHP SDK for Windows Azure" width="292" height="278" align="right" /></a> The latest <a href="http://blogs.msdn.com/windowsazure/archive/2009/08/11/new-windows-azure-blob-features-august-2009.aspx" target="_blank">Windows Azure storage release</a> featured a new concept: &ldquo;Shared Access Signatures&rdquo;. The idea of those is that you can create signatures for specific resources in blob storage and that you can provide more granular access than the default &ldquo;all-or-nothing&rdquo; approach that is taken by Azure blob storage. Steve Marx <a href="http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures" target="_blank">posted a sample on this</a>, demonstrating how you can provide read access to a blob for a specified amount of minutes, after which the access is revoked.</p>
 <p>The <a href="http://phpazure.codeplex.com/" target="_blank">PHP SDK for Windows Azure</a> is now equipped with a credentials mechanism, based on Signed Access Signatures. Let&rsquo;s see if we can demonstrate how this would work&hellip;</p>

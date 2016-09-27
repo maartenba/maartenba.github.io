@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "WebAPI", "Azure"]
 alias: ["/post/2012/12/07/Configuring-IIS-verbs-for-ASPNET-Web-API-on-Windows-Azure-Websites-and-elsewhere.aspx", "/post/2012/12/07/configuring-iis-verbs-for-aspnet-web-api-on-windows-azure-websites-and-elsewhere.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2012/12/07/Configuring-IIS-verbs-for-ASPNET-Web-API-on-Windows-Azure-Websites-and-elsewhere.aspx
- - /post/2012/12/07/configuring-iis-verbs-for-aspnet-web-api-on-windows-azure-websites-and-elsewhere.aspx
+ - /post/2012/12/07/Configuring-IIS-verbs-for-ASPNET-Web-API-on-Windows-Azure-Websites-and-elsewhere.aspx.html
+ - /post/2012/12/07/configuring-iis-verbs-for-aspnet-web-api-on-windows-azure-websites-and-elsewhere.aspx.html
 ---
 <p>That&rsquo;s a pretty long title, I agree. When working on my <a href="http://htcpcp.azurewebsites.net/">implementation of RFC2324</a>, also known as the <a href="http://tools.ietf.org/html/rfc2324">HyperText Coffee Pot Control Protocol</a>, I&rsquo;ve been struggling with something that you will struggle with as well in your ASP.NET Web API&rsquo;s: supporting additional HTTP methods like HEAD, PATCH or PROPFIND. ASP.NET Web API has no issue with those, but when hosting them on IIS you&rsquo;ll find yourself in Yellow-screen-of-death heaven.</p>
 <p>The reason why IIS blocks these methods (or fails to route them to ASP.NET) is because it may happen that your IIS installation has some configuration leftovers from another API: WebDAV. WebDAV allows you to work with a virtual filesystem (and others) using a HTTP API. IIS of course supports this (because flagship product &ldquo;SharePoint&rdquo; uses it, probably) and gets in the way of your API.</p>

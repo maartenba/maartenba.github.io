@@ -9,8 +9,8 @@ tags: ["CSharp", "General", "OpenXML", "Silverlight"]
 alias: ["/post/2008/03/06/OpenXML-and-Silverlight-is-cool.aspx", "/post/2008/03/06/openxml-and-silverlight-is-cool.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/03/06/OpenXML-and-Silverlight-is-cool.aspx
- - /post/2008/03/06/openxml-and-silverlight-is-cool.aspx
+ - /post/2008/03/06/OpenXML-and-Silverlight-is-cool.aspx.html
+ - /post/2008/03/06/openxml-and-silverlight-is-cool.aspx.html
 ---
 <p>
 Mix &#39;08 announced some nice things, among them the release of <a href="http://silverlight.net/" target="_blank">Silverlight 2.0 (beta)</a>, <a href="http://www.asp.net/mvc" target="_blank">ASP.NET MVC framework (CTP 2)</a>. This morning, I saw one very cool thing in my RSS reader: <a href="http://james.newtonking.com/archive/2008/03/06/silverlight-2-0-ooxml-textglow.aspx" target="_blank">TextGlow</a>.

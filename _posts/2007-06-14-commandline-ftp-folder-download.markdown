@@ -9,8 +9,8 @@ tags: ["CSharp", "General", "Personal", "Projects"]
 alias: ["/post/2007/06/14/commandline-ftp-folder-download.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2007/06/14/commandline-ftp-folder-download.aspx
- - /post/2007/06/14/commandline-ftp-folder-download.aspx
+ - /post/2007/06/14/commandline-ftp-folder-download.aspx.html
+ - /post/2007/06/14/commandline-ftp-folder-download.aspx.html
 ---
 <p>
 A quick annoyed post...&nbsp;I just spent two hours searching the Internet for a means on how to recursively download a complete FTP folder, command-line, and in a simple way. Oh yeah, and preferably freeware.

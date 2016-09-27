@@ -9,8 +9,8 @@ tags: ["Azure", "General", "LINQ", "PHP", "Projects", "Zend Framework"]
 alias: ["/post/2009/07/29/Query-the-cloud-with-PHP-(PHPLinq-and-Windows-Azure).aspx", "/post/2009/07/29/query-the-cloud-with-php-(phplinq-and-windows-azure).aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/07/29/Query-the-cloud-with-PHP-(PHPLinq-and-Windows-Azure).aspx
- - /post/2009/07/29/query-the-cloud-with-php-(phplinq-and-windows-azure).aspx
+ - /post/2009/07/29/Query-the-cloud-with-PHP-(PHPLinq-and-Windows-Azure).aspx.html
+ - /post/2009/07/29/query-the-cloud-with-php-(phplinq-and-windows-azure).aspx.html
 ---
 <p><a href="/images/image_3.png"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="PHPLinq Architecture" src="/images/image_thumb_3.png" border="0" alt="PHPLinq Architecture" width="244" height="212" align="right" /></a> I&rsquo;m pleased to announce <a href="http://phplinq.codeplex.com/" target="_blank">PHPLinq</a> currently supports basic querying of <a href="http://www.azure.com/" target="_blank">Windows Azure</a> Table Storage. PHPLinq is a class library for PHP, based on the idea of <a href="http://msdn.microsoft.com/en-us/vbasic/aa904594.aspx">Microsoft&rsquo;s LINQ technology</a>. LINQ is short for <em>language integrated query</em>, a component in the .NET framework which enables you to perform queries on a variety of data sources like arrays, XML, SQL server, ... These queries are defined using a syntax which is very similar to SQL.</p>
 <p>Next to PHPLinq querying arrays, XML and objects, which was already supported, PHPLinq now enables you to query <a href="http://www.azure.com/" target="_blank">Windows Azure</a> Table Storage in the same manner as you would query a list of employees, simply by passing PHPLinq a Table Storage client and table name as storage hint in the <em>in()</em> method:</p>

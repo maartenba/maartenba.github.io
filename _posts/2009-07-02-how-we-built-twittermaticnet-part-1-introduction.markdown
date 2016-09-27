@@ -9,8 +9,8 @@ tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Projects"]
 alias: ["/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx", "/post/2009/07/02/how-we-built-twittermaticnet-part-1-introduction.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx
- - /post/2009/07/02/how-we-built-twittermaticnet-part-1-introduction.aspx
+ - /post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx.html
+ - /post/2009/07/02/how-we-built-twittermaticnet-part-1-introduction.aspx.html
 ---
 <p><em><a href="http://www.twittermatic.net/"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic" src="/images/logo.gif" border="0" alt="TwitterMatic" width="120" height="92" align="right" /></a> &ldquo;Once upon a time, </em><a href="http://www.microsoft.com" target="_blank"><em>Microsoft</em></a><em> started a </em><a href="http://www.azure.com" target="_blank"><em>Windows Azure</em></a><em> developing contest named </em><a href="http://www.newcloudapp.com/" target="_blank"><em>new CloudApp();</em></a><em>. While it first was only available for US candidates, the contest was opened for international submissions too. Knight Maarten The Brave Coffeedrinker and his fellow knightsmen at </em><a href="http://www.realdolmenblogs.com/" target="_blank"><em>RealDolmen</em></a><em> decided to submit a small <a href="http://www.twittermatic.net" target="_blank">sample application</a> that could be hosted in an unknown environment, known by the digital villagers as &ldquo;the cloud&rdquo;. The application was called <a href="http://www.twittermatic.net" target="_blank">TwitterMatic</a>, named after the great god of social networking, <a href="http://www.twitter.com" target="_blank">Twitter</a>. It would allow digital villagers to tell the latest stories, even when they were asleep or busy working.&rdquo;</em></p>
 <p>There, a nice fairy tale :-) It should describe the subject of a blog post series that I am starting around the techncal background of <a href="http://www.twittermatic.net/" target="_blank">TwitterMatic</a><em></em>, our contest entry for the <a href="http://www.newcloudapp.com/" target="_blank">new CloudApp();</a> contest. Now don't forget to <a href="http://www.newcloudapp.com/vote.html" target="_blank">vote for us&nbsp;between 10 July and 20 July</a>!</p>
@@ -24,7 +24,7 @@ redirect_from:
 </ul>
 <p>Perfect excuses to build our application for the clouds. Now for something more interesting: the technical side!</p>
 <p>If you are impatient and immediately want the source code for Twitter<em>Matic</em>, check <a href="http://twittermatic.codeplex.com">http://twittermatic.codeplex.com</a>.</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx&amp;title=How we built TwitterMatic.net - Part 1: Introduction"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
+<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx&amp;title=How we built TwitterMatic.net - Part 1: Introduction"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx.html" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 <h2>TwitterMatic architectural overview</h2>
 <p>Since we&rsquo;re building a demo application, we thought: why not make use of as much features as possible which Windows Azure has to offer? We&rsquo;re talking web role, worker role, table storage and queue storage here!</p>
 <ul>
@@ -47,5 +47,5 @@ redirect_from:
 <li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-7-Deploying-to-the-cloud.aspx">Part 7: Deploying to the cloud </a></li>
 </ul>
 <p>Stay tuned during the coming weeks! And don&rsquo;t forget to start scheduling Tweets using <a href="http://www.twittermatic.net" target="_blank">TwitterMatic</a><em></em>.</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx&amp;title=How we built TwitterMatic.net - Part 1: Introduction"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
+<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx&amp;title=How we built TwitterMatic.net - Part 1: Introduction"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx.html" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 {% include imported_disclaimer.html %}

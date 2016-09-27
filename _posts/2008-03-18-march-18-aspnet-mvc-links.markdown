@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "General", "MVC"]
 alias: ["/post/2008/03/18/March-18-ASPNET-MVC-links.aspx", "/post/2008/03/18/march-18-aspnet-mvc-links.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/03/18/March-18-ASPNET-MVC-links.aspx
- - /post/2008/03/18/march-18-aspnet-mvc-links.aspx
+ - /post/2008/03/18/March-18-ASPNET-MVC-links.aspx.html
+ - /post/2008/03/18/march-18-aspnet-mvc-links.aspx.html
 ---
 <p>
 Too busy this week to write large blog posts myself... Luckily other people do write interesting things on ASP.NET MVC! 

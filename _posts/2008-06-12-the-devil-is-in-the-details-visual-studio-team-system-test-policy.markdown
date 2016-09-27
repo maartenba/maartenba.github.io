@@ -9,8 +9,8 @@ tags: ["CSharp", "General", "Projects", "Testing"]
 alias: ["/post/2008/06/12/The-devil-is-in-the-details-Visual-Studio-Team-System-test-policy.aspx", "/post/2008/06/12/the-devil-is-in-the-details-visual-studio-team-system-test-policy.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2008/06/12/The-devil-is-in-the-details-Visual-Studio-Team-System-test-policy.aspx
- - /post/2008/06/12/the-devil-is-in-the-details-visual-studio-team-system-test-policy.aspx
+ - /post/2008/06/12/The-devil-is-in-the-details-Visual-Studio-Team-System-test-policy.aspx.html
+ - /post/2008/06/12/the-devil-is-in-the-details-visual-studio-team-system-test-policy.aspx.html
 ---
 <p>
 Have you ever been in a difficult situation where a software product is overall very good, but a small detail is going wrong? At least I&#39;ve been, for the past week... 

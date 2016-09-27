@@ -9,8 +9,8 @@ tags: ["Azure", "CSharp", "General", "Scalability"]
 alias: ["/post/2012/10/08/What-PartitionKey-and-RowKey-are-for-in-Windows-Azure-Table-Storage.aspx", "/post/2012/10/08/what-partitionkey-and-rowkey-are-for-in-windows-azure-table-storage.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2012/10/08/What-PartitionKey-and-RowKey-are-for-in-Windows-Azure-Table-Storage.aspx
- - /post/2012/10/08/what-partitionkey-and-rowkey-are-for-in-windows-azure-table-storage.aspx
+ - /post/2012/10/08/What-PartitionKey-and-RowKey-are-for-in-Windows-Azure-Table-Storage.aspx.html
+ - /post/2012/10/08/what-partitionkey-and-rowkey-are-for-in-windows-azure-table-storage.aspx.html
 ---
 <p>For the past few months, I&rsquo;ve been coaching a &ldquo;Microsoft Student Partner&rdquo; (who has a great blog on <a href="http://www.kinectingforwindows.com/">Kinect for Windows</a> by the way!) on Windows Azure. One of the questions he recently had was around <em>PartitionKey</em> and <em>RowKey</em> in Windows Azure Table Storage. What are these for? Do I have to specify them manually? Let&rsquo;s explain&hellip;</p>
 <h2>Windows Azure storage partitions</h2>
@@ -37,7 +37,7 @@ redirect_from:
 <p>Less fast but still fast enough will be querying by specifying PartitionKey: table storage will know which partition to query.</p>
 <p>Less fast: querying on only RowKey. Doing this will give table storage no pointer on which partition to search in, resulting in a query that possibly spans multiple partitions, possibly multiple storage nodes as well. Wihtin a partition, searching on RowKey is still pretty fast as it&rsquo;s a unique index.</p>
 <p>Slow: searching on other properties (again, spans multiple partitions and properties).</p>
-<p>Note that Windows Azure storage&nbsp;may decide to group partitions in so-called "Range partitions" - see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx</a>.</p>
+<p>Note that Windows Azure storage&nbsp;may decide to group partitions in so-called "Range partitions" - see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx.html</a>.</p>
 <p>In order to improve query performance, think about your PartitionKey and RowKey upfront, as they are the fast way into your datasets.</p>
 <h2>Deciding on PartitionKey and RowKey</h2>
 <p>Here&rsquo;s an exercise: say you want to store customers, orders and orderlines. What will you choose as the PartitionKey (PK) / RowKey (RK)?</p>
