@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2016-08-04 01:34:00 +0200
+date: 2016-09-27 01:34:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -18,13 +18,14 @@ If you want me to deliver a talk at your conference, feel free to [shoot me an e
 
 Upcoming talks:
 
-* CloudBurst, Sweden - September 2016
 * TechDays Netherlands - October 2016
 
 ## Past talks
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2016-10-4 | Sherlock Homepage - A detective story about running large web services | TechDays 2016 | Netherlands - Amsterdam | [download](http://www.slideshare.net/maartenba/sherlock-homepage-a-detective-story-about-running-large-web-services-ndc-oslo) |  | 
+| 2016-9-22 | Sherlock Homepage - A detective story about running large web services | CloudBurst 2016 | Sweden - Stockholm | [download](http://www.slideshare.net/maartenba/sherlock-homepage-a-detective-story-about-running-large-web-services-ndc-oslo) |  | 
 | 2016-8-4 | Get more than a cache back! The Microsoft Azure (Redis) Cache | NDC Sydney 2016 | Australia - Sydney | [download](http://www.slideshare.net/maartenba/get-more-than-a-cache-back-the-microsoft-azure-redis-cache-ndc-oslo) | [download](https://vimeo.com/131641614) | 
 | 2016-8-3 | Sherlock Homepage - A detective story about running large web services | NDC Sydney 2016 | Australia - Sydney | [download](http://www.slideshare.net/maartenba/sherlock-homepage-a-detective-story-about-running-large-web-services-ndc-oslo) | [download](https://vimeo.com/171317241) | 
 | 2016-6-10 | DNS for Developers | NDC Oslo 2016 | Norway - Oslo | [download](http://www.slideshare.net/maartenba/dns-for-developers-ndc-oslo-2016) | [download](https://vimeo.com/171319744) | 
