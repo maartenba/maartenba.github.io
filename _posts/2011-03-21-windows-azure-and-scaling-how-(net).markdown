@@ -9,8 +9,8 @@ tags: ["Azure", "CSharp", "General", "Scalability", "Webfarm"]
 alias: ["/post/2011/03/21/Windows-Azure-and-scaling-how-(NET).aspx", "/post/2011/03/21/windows-azure-and-scaling-how-(net).aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2011/03/21/Windows-Azure-and-scaling-how-(NET).aspx
- - /post/2011/03/21/windows-azure-and-scaling-how-(net).aspx
+ - /post/2011/03/21/Windows-Azure-and-scaling-how-(NET).aspx.html
+ - /post/2011/03/21/windows-azure-and-scaling-how-(net).aspx.html
 ---
 <p>One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:</p>
 <ul>

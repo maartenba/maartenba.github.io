@@ -9,8 +9,8 @@ tags: ["ASP.NET", "Azure", "CSharp", "General", "NuGet", "Projects", "Software"]
 alias: ["/post/2011/11/16/Publishing-symbol-packages-for-a-MyGet-feed.aspx", "/post/2011/11/16/publishing-symbol-packages-for-a-myget-feed.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2011/11/16/Publishing-symbol-packages-for-a-MyGet-feed.aspx
- - /post/2011/11/16/publishing-symbol-packages-for-a-myget-feed.aspx
+ - /post/2011/11/16/Publishing-symbol-packages-for-a-MyGet-feed.aspx.html
+ - /post/2011/11/16/publishing-symbol-packages-for-a-myget-feed.aspx.html
 ---
 <p><a href="/images/image_148.png"><img style="background-image: none; margin: 0px 5px 5px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; padding-top: 0px; border: 0px;" title="MyGet host your NuGet feed server" src="/images/image_thumb_116.png" border="0" alt="MyGet host your NuGet feed server" width="240" height="75" align="left" /></a>Ever since <a href="http://www.nuget.org" target="_blank">NuGet</a> 1.2, there is a great way for NuGet package authors to let their users debug into the package&rsquo;s binaries. With almost no additional effort, package authors can publish their symbols and sources, and package consumers can debug into them from Visual Studio, simply by pushing a symbols package in addition to the standard NuGet package.</p>
 <p><a href="/images/image_149.png"><img style="background-image: none; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="SymbolSource" src="/images/image_thumb_117.png" border="0" alt="SymbolSource" width="240" height="38" align="right" /></a>Today, we&rsquo;re proud to announce <a href="http://www.myget.org" target="_blank">MyGet</a> has partnered with <a href="http://www.symbolsource.org" target="_blank">SymbolSource.org</a> to offer an easy workflow to publish symbol packages for a private MyGet feed. This means from now on you can publish symbol packages for your private feeds as well!</p>

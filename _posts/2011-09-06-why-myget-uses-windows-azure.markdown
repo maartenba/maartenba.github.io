@@ -9,8 +9,8 @@ tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Scalability", "Webfarm"]
 alias: ["/post/2011/09/06/Why-MyGet-uses-Windows-Azure.aspx", "/post/2011/09/06/why-myget-uses-windows-azure.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2011/09/06/Why-MyGet-uses-Windows-Azure.aspx
- - /post/2011/09/06/why-myget-uses-windows-azure.aspx
+ - /post/2011/09/06/Why-MyGet-uses-Windows-Azure.aspx.html
+ - /post/2011/09/06/why-myget-uses-windows-azure.aspx.html
 ---
 <p><a href="http://www.myget.org" target="_blank"><img style="margin: 0px 0px 5px 5px; display: inline; float: right;" title="MyGet - NuGet hosting private feed" src="http://www.myget.org/content/themes/myget/logo.png" alt="MyGet - NuGet hosting private feed" width="250" height="78" align="right" /></a>Recently one of the Tweeps following me started fooling around and hit one of my sweet spots: Windows Azure. Basically, he mocked me for using Windows Azure for <a href="http://www.myget.org" target="_blank">MyGet</a>, a website with enough users but not enough to justify the &ldquo;scalability&rdquo; aspect he thought Windows Azure was offering. Since Windows Azure is much, much more than scalability alone, I decided to do a quick writeup about the various reasons on why we use <a href="http://www.azure.com" target="_blank">Windows Azure</a> for MyGet. And those are not scalability.</p>
 <p>First of all, here&rsquo;s a high-level overview of our deployment, which may illustrate some of the aspects below:</p>

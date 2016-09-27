@@ -9,8 +9,8 @@ tags: ["General", "Offtopic", "Personal"]
 alias: ["/post/2010/10/14/Windows-Phone-7-First-Impressions.aspx", "/post/2010/10/14/windows-phone-7-first-impressions.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2010/10/14/Windows-Phone-7-First-Impressions.aspx
- - /post/2010/10/14/windows-phone-7-first-impressions.aspx
+ - /post/2010/10/14/Windows-Phone-7-First-Impressions.aspx.html
+ - /post/2010/10/14/windows-phone-7-first-impressions.aspx.html
 ---
 <p><a href="/images/Photo_C5170B50-0CBE-E168-FCE4-BA3721A04E4D_thumb_1.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="Windows Phone 7" src="/images/Photo_C5170B50-0CBE-E168-FCE4-BA3721A04E4D_thumb_thumb.jpg" border="0" alt="Windows Phone 7" width="225" height="244" align="right" /></a>Back in june of this year, I received a very surprising e-mail stating that I would receive a Windows Phone 7 developer device. The reason for this? No, not that I&rsquo;m handsome. But the fact that I paid $99 for listing an application in the marketplace that they were hoping me to port to Windows Phone 7. The wait continued: july? No phone. August? No phone. By september I thought I was not getting a Windows Phone 7 anymore. Until this week: another e-mail stating that the device was shipped. And today, <a href="http://www.fedex.com" target="_blank">FedEx</a> kindly handed me over a developer device.</p>
 <p>After installing my SIM card and starting the phone, I was welcomed by the nice looking Windows Phone 7 tiles. And that is where the rest of my journey started&hellip;</p>

@@ -9,8 +9,8 @@ tags: ["ASP.NET", "CSharp", "Events", "General", "jQuery", "MEF", "MVC", "Person
 alias: ["/post/2011/01/25/Viva-Las-Vegas!.aspx", "/post/2011/01/25/viva-las-vegas!.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2011/01/25/Viva-Las-Vegas!.aspx
- - /post/2011/01/25/viva-las-vegas!.aspx
+ - /post/2011/01/25/Viva-Las-Vegas!.aspx.html
+ - /post/2011/01/25/viva-las-vegas!.aspx.html
 ---
 <p><a href="http://live.visitmix.com/OpenCall/Vote/Session/10"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="Vote your MIX session" src="/images/300x250_Mix11_011011_US_b.gif" border="0" alt="Vote your MIX session" width="244" height="204" align="right" /></a>I have asked it last year, and I&rsquo;ll ask it again. One of my session proposals made it to the &ldquo;short&rdquo;list for MIX11. One thing left though: votes are the only currency to get my session proposal in Vegas.</p>
 <p>Here&rsquo;s the session abstract:</p>

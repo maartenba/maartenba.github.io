@@ -9,8 +9,8 @@ tags: ["Azure", "General", "PHP", "Projects"]
 alias: ["/post/2011/05/30/Scaffolding-and-packaging-a-Windows-Azure-project-in-PHP.aspx", "/post/2011/05/30/scaffolding-and-packaging-a-windows-azure-project-in-php.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2011/05/30/Scaffolding-and-packaging-a-Windows-Azure-project-in-PHP.aspx
- - /post/2011/05/30/scaffolding-and-packaging-a-windows-azure-project-in-php.aspx
+ - /post/2011/05/30/Scaffolding-and-packaging-a-Windows-Azure-project-in-PHP.aspx.html
+ - /post/2011/05/30/scaffolding-and-packaging-a-windows-azure-project-in-php.aspx.html
 ---
 <p><a href="/images/image_114.png"><img style="background-image: none; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="Scaffolding Cloud" src="/images/image_thumb_84.png" border="0" alt="Scaffolding Cloud" width="240" height="240" align="right" /></a>With the fresh release of the <a href="/post/2011/05/26/Windows-Azure-SDK-for-PHP-v30-released.aspx">Windows Azure SDK for PHP v3.0</a>, it&rsquo;s time to have a look at the future. One of the features we&rsquo;re playing with is creating a full-fledged replacement for the current <a href="http://azurephptools.codeplex.com/">Windows Azure Command-Line tools</a> available. These tools sometimes are a life saver and sometimes a big PITA due to baked-in defaults and lack of customization options. And to overcome that last one, here&rsquo;s what we&rsquo;re thinking of: scaffolders.</p>
 <p>Basically what we&rsquo;ll be doing is splitting the packaging process into two steps:</p>

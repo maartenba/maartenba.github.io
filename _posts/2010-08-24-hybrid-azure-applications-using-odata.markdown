@@ -9,8 +9,8 @@ tags: ["Azure", "CSharp", "General"]
 alias: ["/post/2010/08/24/Hybrid-Azure-applications-using-OData.aspx", "/post/2010/08/24/hybrid-azure-applications-using-odata.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2010/08/24/Hybrid-Azure-applications-using-OData.aspx
- - /post/2010/08/24/hybrid-azure-applications-using-odata.aspx
+ - /post/2010/08/24/Hybrid-Azure-applications-using-OData.aspx.html
+ - /post/2010/08/24/hybrid-azure-applications-using-odata.aspx.html
 ---
 <p><a href="/images/OData%20in%20the%20cloud%20on%20Azure.png"><img style="background-image: none; border-right-width: 0px; margin: 5px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="OData in the cloud on Azure" src="/images/OData%20in%20the%20cloud%20on%20Azure_thumb.png" border="0" alt="OData in the cloud on Azure" width="90" height="108" align="right" /></a>In the whole <a href="http://www.azure.com" target="_blank">Windows Azure</a> story, Microsoft has always been telling you could build hybrid applications: an on-premise application with a service on Azure or a database on SQL Azure. But how to do it in the opposite direction? Easy answer there: use the (careful, long product name coming!) Windows Azure platform AppFabric Service Bus to expose an on-premise WCF service securely to an application hosted on Windows Azure. Now how would you go about exposing your database to Windows Azure? Open a hole in the firewall? Use something like <a href="http://blogs.msdn.com/b/clemensv/archive/2009/11/18/port-bridge.aspx" target="_blank">PortBridge</a> to redirect TCP traffic over the service bus? Why not just create an OData service for our database and expose that over AppFabric Service Bus. In this post, I&rsquo;ll show you how.</p>
 <p>For those who can not wait: download the sample code: <a href="/files/2010/8/ServiceBusHost.zip">ServiceBusHost.zip (7.87 kb)</a></p>

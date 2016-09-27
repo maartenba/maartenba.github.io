@@ -9,8 +9,8 @@ tags: ["Azure", "CSharp", "General", "Scalability", "Webfarm"]
 alias: ["/post/2011/03/09/Put-your-cloud-on-a-diet-(or-Windows-Azure-and-scaling-why).aspx", "/post/2011/03/09/put-your-cloud-on-a-diet-(or-windows-azure-and-scaling-why).aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2011/03/09/Put-your-cloud-on-a-diet-(or-Windows-Azure-and-scaling-why).aspx
- - /post/2011/03/09/put-your-cloud-on-a-diet-(or-windows-azure-and-scaling-why).aspx
+ - /post/2011/03/09/Put-your-cloud-on-a-diet-(or-Windows-Azure-and-scaling-why).aspx.html
+ - /post/2011/03/09/put-your-cloud-on-a-diet-(or-windows-azure-and-scaling-why).aspx.html
 ---
 <p><a href="/images/image_106.png"><img style="background-image: none; border-right-width: 0px; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Windows Azure scaling" src="/images/image_thumb_76.png" border="0" alt="Windows Azure scaling" width="240" height="252" align="right" /></a>One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:</p>
 <ul>

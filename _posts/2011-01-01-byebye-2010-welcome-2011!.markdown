@@ -9,8 +9,8 @@ tags: ["General", "Personal"]
 alias: ["/post/2011/01/01/Byebye-2010-welcome-2011!.aspx", "/post/2011/01/01/byebye-2010-welcome-2011!.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2011/01/01/Byebye-2010-welcome-2011!.aspx
- - /post/2011/01/01/byebye-2010-welcome-2011!.aspx
+ - /post/2011/01/01/Byebye-2010-welcome-2011!.aspx.html
+ - /post/2011/01/01/byebye-2010-welcome-2011!.aspx.html
 ---
 <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="fireworks" src="/images/fireworks.jpg" border="0" alt="fireworks" width="736" height="267" /></p>
 <p>Happy New Year 2011! I wish you all the best in your career and personal life. And I know it&rsquo;s a classic one: I wish you a good health! Some family members have had some serious issues on that part and really, health is the most imprtant thing you need. All the rest depends on that. If you&rsquo;re healthy, you will do something, that something will earn you money, and money buys you things. An Indian taxi driver in Redmond, Seattle, WA told me this exact lesson this year. I was a bit fuzzy at that time after a long flight from Belgium, Europe, but he is right. Sandeep, happy new year to you to although you may probably not read my blog.</p>

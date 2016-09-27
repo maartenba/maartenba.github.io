@@ -9,8 +9,8 @@ tags: ["CSharp", "General", "MVC"]
 alias: ["/post/2012/06/18/Domain-based-routing-with-ASPNET-Web-API.aspx", "/post/2012/06/18/domain-based-routing-with-aspnet-web-api.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2012/06/18/Domain-based-routing-with-ASPNET-Web-API.aspx
- - /post/2012/06/18/domain-based-routing-with-aspnet-web-api.aspx
+ - /post/2012/06/18/Domain-based-routing-with-ASPNET-Web-API.aspx.html
+ - /post/2012/06/18/domain-based-routing-with-aspnet-web-api.aspx.html
 ---
 <p><a href="/images/image_205.png"><img style="background-image: none; margin: 5px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="Subdomain route ASP.NET Web API WCF" src="/images/image_thumb_170.png" border="0" alt="Subdomain route ASP.NET Web API WCF" width="162" height="244" align="right" /></a>Imagine you are building an API which is &ldquo;multi-tenant&rdquo;: the domain name defines the tenant or customer name and should be passed as a route value to your API. An example would be <a href="http://customer1.mydomain.com/api/v1/users/1">http://customer1.mydomain.com/api/v1/users/1</a>. Customer 2 can use the same API, using <a href="http://customer2.mydomain.com/api/v1/users/1">http://customer2.mydomain.com/api/v1/users/1</a>. How would you solve routing based on a (sub)domain in your ASP.NET Web API projects?</p>
 <p>Almost 2 years ago (wow, time flies), I&rsquo;ve written a blog post on <a href="/post/2009/05/20/ASPNET-MVC-Domain-Routing.aspx">ASP.NET MVC Domain Routing</a>. Unfortunately, that solution does not work out-of-the-box with ASP.NET Web API. The good news is: it <em>almost</em> works out of the box. The only thing required is adding one simple class:</p>

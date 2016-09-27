@@ -9,8 +9,8 @@ tags: ["Azure", "General", "PHP"]
 alias: ["/post/2011/01/28/Introducing-the-PHP-on-Azure-Contest.aspx", "/post/2011/01/28/introducing-the-php-on-azure-contest.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2011/01/28/Introducing-the-PHP-on-Azure-Contest.aspx
- - /post/2011/01/28/introducing-the-php-on-azure-contest.aspx
+ - /post/2011/01/28/Introducing-the-PHP-on-Azure-Contest.aspx.html
+ - /post/2011/01/28/introducing-the-php-on-azure-contest.aspx.html
 ---
 <p>It&rsquo;s not every day that I get to be in the jury for <a href="http://www.phpazurecontest.com/">a contest</a>. It&rsquo;s not every day that I deliver a <a href="https://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032476474&amp;Culture=en-US">training about PHP on Azure</a>. Since this is about a contest where I&rsquo;m doing both, I thought this is definitely worth telling you:</p>
 

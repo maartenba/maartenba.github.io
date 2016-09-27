@@ -9,8 +9,8 @@ tags: ["ASP.NET", "Azure", "CSharp", "General", "Scalability", "Azure Database",
 alias: ["/post/2012/07/24/Hands-on-Windows-Azure-Services-for-Windows.aspx", "/post/2012/07/24/hands-on-windows-azure-services-for-windows.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2012/07/24/Hands-on-Windows-Azure-Services-for-Windows.aspx
- - /post/2012/07/24/hands-on-windows-azure-services-for-windows.aspx
+ - /post/2012/07/24/Hands-on-Windows-Azure-Services-for-Windows.aspx.html
+ - /post/2012/07/24/hands-on-windows-azure-services-for-windows.aspx.html
 ---
 <p>A couple of weeks ago, Microsoft announced their <a href="http://www.microsoft.com/hosting/en/us/services.aspx" target="_blank">Windows Azure Services for Windows Server</a>. If you&rsquo;ve ever heard about the Windows Azure Appliance (which is vaporware imho :-)), you&rsquo;ll be interested to see that the Windows Azure Services for Windows Server are in fact bringing the Windows Azure Services to your datacenter. It&rsquo;s still a Technical Preview, but I took the plunge and installed this on a <a href="http://www.windowsazure.com" target="_blank">bunch of virtual machines I had lying around</a>. In this post, I&rsquo;ll share you with some impressions, ideas, pains and speculations.</p>
 <p>Why would you run Windows Azure Services in your own datacenter? Why not! You will make your developers happy because they have access to all services they are getting to know and getting to love. You&rsquo;ll be able to provide self-service access to SQL Server, MySQL, shared hosting and virtual machines. You decide on the quota. And if you&rsquo;re a server hugger like a lot of companies in Belgium: you can keep hugging your servers. I&rsquo;ll elaborate more on the &ldquo;why?&rdquo; further in this blog post.</p>

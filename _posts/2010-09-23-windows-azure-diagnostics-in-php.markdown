@@ -9,8 +9,8 @@ tags: ["Azure", "General", "Logging", "PHP", "Projects"]
 alias: ["/post/2010/09/23/Windows-Azure-Diagnostics-in-PHP.aspx", "/post/2010/09/23/windows-azure-diagnostics-in-php.aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2010/09/23/Windows-Azure-Diagnostics-in-PHP.aspx
- - /post/2010/09/23/windows-azure-diagnostics-in-php.aspx
+ - /post/2010/09/23/Windows-Azure-Diagnostics-in-PHP.aspx.html
+ - /post/2010/09/23/windows-azure-diagnostics-in-php.aspx.html
 ---
 <p><a href="/images/image_63.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: ; border-top: 0px; border-right: 0px; padding-top: 0px" title="Diagnose Azure Application" src="/images/image_thumb_34.png" border="0" alt="Diagnose Azure Application" width="244" height="164" align="right" /></a>When working with PHP on Windows Azure, chances are you may want to have a look at what&rsquo;s going on: log files, crash dumps, performance counters, &hellip; All this is valuable information when investigating application issues or doing performance tuning.</p>
 <p>Windows Azure is slightly different in diagnostics from a regular web application. Usually, you log into a machine via remote desktop or SSH and inspect the log files: management tools (remote desktop or SSH) and data (log files) are all on the same machine. This approach also works with 2 machines, maybe even with 3. However on Windows Azure, you may scale beyond that and have a hard time looking into what is happening in your application if you would have to use the above approach. A solution for this? Meet the Diagnostics Monitor.</p>

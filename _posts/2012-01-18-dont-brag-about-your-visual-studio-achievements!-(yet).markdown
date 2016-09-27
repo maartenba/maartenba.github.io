@@ -9,8 +9,8 @@ tags: ["CSharp", "General"]
 alias: ["/post/2012/01/18/Dont-brag-about-your-Visual-Studio-achievements!-(yet).aspx", "/post/2012/01/18/dont-brag-about-your-visual-studio-achievements!-(yet).aspx"]
 author: Maarten Balliauw
 redirect_from:
- - /post/2012/01/18/Dont-brag-about-your-Visual-Studio-achievements!-(yet).aspx
- - /post/2012/01/18/dont-brag-about-your-visual-studio-achievements!-(yet).aspx
+ - /post/2012/01/18/Dont-brag-about-your-Visual-Studio-achievements!-(yet).aspx.html
+ - /post/2012/01/18/dont-brag-about-your-visual-studio-achievements!-(yet).aspx.html
 ---
 <p><a href="/images/image_164.png"><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="image" src="/images/image_thumb_131.png" border="0" alt="image" width="47" height="47" align="right" /></a>The Channel 9 folks seem to have released the first beta of their Visual Studio Achievements project. The idea of Visual Studio Achievements is pretty awesome:</p>
 
