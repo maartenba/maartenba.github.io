@@ -8,17 +8,13 @@ sitemap: false
 permalink: /talks-presentations.html
 ---
 
-This page contains links and short information on the talks that I have (co-)presented. If available, a link to slides and demo material is also provided.
+This page contains links and short information on the talks that I have (co-)presented. If available, a link to slides and recording is also provided.
 
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [e-mail](mailto:maarten@maartenballiauw.be).
 
 ## Upcoming talks
 
 If you want me to deliver a talk at your conference, feel free to [shoot me an e-mail](mailto:maarten@maartenballiauw.be). I'll be happy to provide you with session proposals.
-
-Upcoming talks:
-
-* TechDays Netherlands - October 2016
 
 ## Past talks
 
