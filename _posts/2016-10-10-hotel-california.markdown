@@ -17,4 +17,4 @@ I'll be carving some more time to work on [MyGet](https://www.myget.org) in my a
 
 I discovered a new passion while at Microsoft: mentoring and coaching devs, as well as diving deep into the innards of an application to track down hard-to-find bugs, optimize performance, ... I want to be speaking at conferences on these topics, and if you feel like being my "war story", you can always [hire me](/hire-me.html) for some short-term gigs.
 
-Now let's roll! I do hope Hotel Caliornia's [room service is better than it used to be on Monday mornings...](https://twitter.com/hhariri/status/278024879062777859)
+Now let's roll! I do hope Hotel California's [room service is better than it used to be on Monday mornings...](https://twitter.com/hhariri/status/278024879062777859)
