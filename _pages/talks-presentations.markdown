@@ -6,15 +6,17 @@ comments: false
 author: Maarten Balliauw
 sitemap: false
 permalink: /talks-presentations.html
+redirect_from:
+ - /talks-presentations.aspx.html
 ---
 
 This page contains links and short information on the talks that I have (co-)presented. If available, a link to slides and recording is also provided.
 
-Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [e-mail](mailto:maarten@maartenballiauw.be).
+Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
 
 ## Upcoming talks
 
-If you want me to deliver a talk at your conference, feel free to [shoot me an e-mail](mailto:maarten@maartenballiauw.be). I'll be happy to provide you with session proposals.
+If you want me to deliver a talk at your conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
 ## Past talks
 

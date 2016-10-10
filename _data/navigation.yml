@@ -3,8 +3,14 @@ main:
   - title: "About me"
     url: /about-me.html
 
+  - title: "Hire me"
+    url: /hire-me.html
+
   - title: "Talks &amp; Presentations"
     url: /talks-presentations.html
+
+  - title: "Contact"
+    url: /contact-me.html
 
   - title: "Archive"
     url: /archive/posts-by-year.html
