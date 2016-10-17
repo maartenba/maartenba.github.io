@@ -18,6 +18,9 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 If you want me to deliver a talk at your conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
+* January, 2017 - Copenhagen Azure User Group - Copenhagen, Denmark
+* March 2017 - ConFoo Montreal - Montreal, Canada
+
 ## Past talks
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
