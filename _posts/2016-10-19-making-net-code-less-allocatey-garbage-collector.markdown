@@ -93,6 +93,11 @@ There's a hidden allocation in here... The call to `ParamsArrayImpl()` looks lik
 
 Essentially, we are allocating an empty array of strings, and then passing that to our `ParamsArrayImpl()` method. This empty array has to be cleaned up by the GC. Better would be to create an overload that takes no arguments, or one argument, or two. This allocation is the reason [`string.Format` has a few overloads](https://referencesource.microsoft.com/#mscorlib/system/string.cs,2906) - fewer required allocations of that array.
 
+<p class="notice">
+  <strong>Quick note:</strong>
+  Starting with .NET 4.6, no empty array will be allocated. Instead, <code>Array.Empty&lt;T&gt;</code> will be passed which is a cached, empty array.
+</p>
+
 Next up: using LINQ and anonymous functions. Have a look at this snippet and try to spot the hidden allocation:
 
 ```csharp
