@@ -110,7 +110,10 @@ In this example, we need to store the values of `min` and `max` for use in our L
 
 ![Capturing variable](/images/2016-10-19-making-net-code-less-allocatey-garbage-collector/variable-capture.png)
 
-Matt Warren has [a nice overview of LINQ-specific cases](http://mattwarren.org/2016/09/29/Optimising-LINQ/).
+<p class="notice--info">
+  <strong>Quick note:</strong>
+  Matt Warren has <a href="http://mattwarren.org/2016/09/29/Optimising-LINQ/" target="_blank">a nice overview of LINQ-specific cases</a>. Also, <a href="https://github.com/antiufo/roslyn-linq-rewrite" target="_blank">roslyn-linq-rewrite</a> is something to keep an eye on. It's a tool that changes C# compilation in such a way that syntax trees of LINQ expressions are rewritten using plain procedural code, minimizing allocations and dynamic dispatching.
+</p>
 
 There are many more examples, try looking at this piece of code's IL:
 
