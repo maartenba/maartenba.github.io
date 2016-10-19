@@ -5,7 +5,7 @@ date: 2016-10-19 08:51:00 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", "C#", "Development", "Performance", "Memory", "Profiling"]
+tags: ["General", "ICT", "CSharp", "Development", "Performance", "Memory", "Profiling"]
 author: Maarten Balliauw
 ---			
 
