@@ -267,7 +267,7 @@ Here's what dotMemory tells us:
 
 Less allocations on `gen0` and `gen1`. Almost no memory traffic (allocations and GC) happening between snapshots. Victory! This will definitely help out a busy production application, as the GC has less work do do in this case. There are some more optimizations that can be done (allocating less strings in parsing the JSON), but this is a good improvement. Our code looked fine at first, but runing it and profiling it uncovered some allocations that could be avoided and benefit our running application.
 
-On a side note, re-using objects is often a good way of optimizing allocations. Re-using objects that were already allocated reduces the number of objects the GC has to scan. The [object pool pattern](https://en.wikipedia.org/wiki/Object_pool_pattern) is one that can be used as well.
+On a side note, re-using objects is often a good way of optimizing allocations. Re-using objects that were already allocated reduces the number of objects the GC has to scan. The [object pool pattern](https://en.wikipedia.org/wiki/Object_pool_pattern) is one that can be used as well. The [folks building ASP.NET Core](https://github.com/aspnet/AspLabs/issues/3) are using similar ideas.
 
 ## Don't optimize what should not be optimized
 
