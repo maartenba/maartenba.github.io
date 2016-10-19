@@ -104,6 +104,7 @@ include:
   - .htaccess
   - _pages
   - files
+  - favicon.ico
 exclude:
   - vendor
   - [vendor]
