@@ -129,3 +129,5 @@ As a rule of thumb, keep this in mind:
 * When in doubt, measure. Use [a memory profiler](http://jetbrains.com/dotmemory) to detect string duplicates and analyze where they come from and how they can be optimized. Do watch out: [you may see strings as a potential memory issue but they most probably are not](https://blogs.msdn.microsoft.com/tess/2009/02/27/net-memory-leak-reader-email-are-you-really-leaking-net-memory/).
 
 Enjoy! And remember, don't optimize what should not be optimized (but do optimize the rest).
+
+P.S.: Thank you [Wesley Cabus](https://wesleycabus.be) for reviewing!
