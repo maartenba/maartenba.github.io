@@ -91,9 +91,9 @@ If you need some bed literature, the metadata streams are [described in the ECMA
 
 ## String interning
 
-With string interning, we can store strings in the intern pool, a set of unique strings we can reference at runtime. We saw that the compiler optimizes string usage by storing string literals in the intern pool making sure they are not duplicated.
+With string interning, we can store strings in the intern pool, a set of unique strings we can reference at runtime. We saw that the compiler optimizes string usage by storing string literals in the PE metadata and that the CLR adds those into the intern pool, making sure they are not duplicated.
 
-Why aren't *all* strings interned then? There are several reasons for that... But before we answer that, let's see how we can allocate strings on the intern pool ourselves.
+Why aren't *all* strings in our application interned then? There are several reasons for that... But before we answer that, let's see how we can allocate strings on the intern pool ourselves.
 
 We can intern strings manually by using the [`String.Intern`](https://msdn.microsoft.com/en-us/library/system.string.intern(v=vs.110).aspx) method. We can check whether there is already an interned string with the same value (or the same "character sequence", to be correct), using the `String.IsInterned` method.
 
