@@ -69,14 +69,16 @@ var a = "Hello, World!";
 var b = "Hello, World!"; 
 ```
 
-If we run this piece of code, we will not see the string `"Hello, World!"` appear in the profiler. The reason for that is that the CLR optimizes this code and allocates the string `"Hello, World!"` in a special place, called the intern pool. Every string literal in our code is placed in this pool, and checked for duplicates. If we'd run the following snippet, the result would be `True`, twice, because both the value and object reference of `a` and `b` are equal. 
+If we run this piece of code, we will not see the string `"Hello, World!"` appear in the profiler. The reason for that is that the compiler optimizes this code and allocates the string `"Hello, World!"` in a special place, called the intern pool. Every string literal in our code is placed in this pool, and duplicates simply reference the entry in the pool. If we'd run the following snippet, the result would be `True`, twice, because both the value and object reference of `a` and `b` are equal. 
 
 ```csharp
 Console.WriteLine(a == b);
 Console.WriteLine(Object.ReferenceEquals(a, b));
 ```
 
-In essence, `"Hello, World!"` is in memory only once - very optimized!
+In essence, `"Hello, World!"` is in memory only once - very optimized! We can double-check this using [dotPeek](http://www.jetbrains.com/dotpeek) and explore the Portable Executable (PE) metadata tree. The string intern table is visible (under `#US` here, for **U**nicode **S**trings).
+
+![Interned strings in PE header metadata](/images/2016-11-15-exploring-memory-allocation-and-strings/string-intern-table-pe.png)
 
 <p class="notice">
   <strong>Quick note:</strong>
@@ -85,7 +87,7 @@ In essence, `"Hello, World!"` is in memory only once - very optimized!
 
 ## String interning
 
-With string interning, we can store strings in the intern pool, a set of unique strings we can reference at runtime. We saw that the CLR optimizes string usage by, at JIT compilation time, storing string literals in the intern pool making sure they are not duplicated.
+With string interning, we can store strings in the intern pool, a set of unique strings we can reference at runtime. We saw that the compiler optimizes string usage by storing string literals in the intern pool making sure they are not duplicated.
 
 Why aren't *all* strings interned then? There are several reasons for that... But before we answer that, let's see how we can allocate strings on the intern pool ourselves.
 
