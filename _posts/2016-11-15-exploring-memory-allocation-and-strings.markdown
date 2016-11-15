@@ -87,7 +87,7 @@ Let's geek out a little bit. We can double-check the string literals using [dotP
 
 <img src="/images/2016-11-15-exploring-memory-allocation-and-strings/string-intern-table-pe.png" width="500" alt="Interned strings in PE header metadata" />
 
-If you need some bed literature, the metadata streams are [described in the ECMA-335 standard](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-335.pdf), section II.24.2.4. Under section III.4.16, we can see the Intermediate Language (IL) instruction `ldstr` loads a string literal from the metadata.
+If you need some bed literature, the metadata streams are [described in the ECMA-335 standard](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-335.pdf#page=438), section II.24.2.4. Under section III.4.16, we can see the Intermediate Language (IL) instruction `ldstr` loads a string literal from the metadata.
 
 ## String interning
 
