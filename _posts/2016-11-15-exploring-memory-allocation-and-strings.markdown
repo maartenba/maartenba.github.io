@@ -83,9 +83,9 @@ So in essence, `"Hello, World!"` is in memory only once - very optimized!
   What would be the better thing to use: <code>""</code> or <code>string.Empty</code>? From what we learned so far, <code>""</code> would be interned, which means it will only be stored in memory once, right? Right! There is one downside however: each time we use <code>""</code>, the intern pool is checked which spends some precious CPU time. If we use <code>string.Empty</code>, we're passing around the object reference instead which means no extra memory is allocated and no extra CPU cycles are wasted checking the intern pool.
 </p>
 
-Let's geek out a little bit. We can double-check the string literals using [dotPeek](http://www.jetbrains.com/dotpeek),  exploring the Portable Executable (PE) metadata tree. The full list of unique strings is added in the `#Strings` and `#US` (for **U**nicode **S**trings) metadata streams.
+Let's geek out a little bit. We can double-check the string literals using [dotPeek](http://www.jetbrains.com/dotpeek),  exploring the Portable Executable (PE) metadata tree. The full list of unique strings is added in the `#Strings` and `#US` (for **U**ser **S**trings) metadata streams.
 
-![Interned strings in PE header metadata](/images/2016-11-15-exploring-memory-allocation-and-strings/string-intern-table-pe.png)
+<img src="/images/2016-11-15-exploring-memory-allocation-and-strings/string-intern-table-pe.png" width="500" alt="Interned strings in PE header metadata" />
 
 If you need some bed literature, the metadata streams are [described in the ECMA-335 standard](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-335.pdf), section II.24.2.4. Under section III.4.16, we can see the Intermediate Language (IL) instruction `ldstr` loads a string literal from the metadata.
 
