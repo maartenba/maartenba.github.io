@@ -80,7 +80,7 @@ So in essence, `"Hello, World!"` is in memory only once - very optimized!
 
 <p class="notice">
   <strong>Quick note:</strong>
-  What would be the better thing to use: <code>""</code> or <code>string.Empty</code>? From what we learned so far, <code>""</code> would be interned, which means it will only be stored in memory once, right? Right! There is one downside however: each time we use <code>""</code>, the intern pool is checked which spends some precious CPU time. If we use <code>string.Empty</code>, we're passing around the object reference instead which means no extra memory is allocated and no extra CPU cycles are wasted checking the intern pool.
+  What would be the better thing to use: <code>""</code> or <code>string.Empty</code>? From what we learned so far, <code>""</code> would be interned, which means it will only be stored in memory once, right? Right! There is one downside however: each time we use <code>""</code>, the intern pool is checked which spends some precious CPU time. If we use <code>string.Empty</code>, we're passing around the object reference instead which means no extra memory is allocated and no extra CPU cycles are wasted checking the intern pool. However, starting from .NET 4.5, the compiler no longer emits `ldstr ""` but `ldsfld string [mscorlib]System.String::Empty`, essentially automatically using `string.Empty` when the source code just uses `""`.
 </p>
 
 Let's geek out a little bit. We can double-check the string literals using [dotPeek](http://www.jetbrains.com/dotpeek),  exploring the Portable Executable (PE) metadata tree. The full list of unique strings is added in the `#Strings` and `#US` (for **U**ser **S**trings) metadata streams.
