@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2016-09-27 01:34:00 +0200
+date: 2016-11-21 01:34:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -19,7 +19,9 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 If you want me to deliver a talk at your conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
 * January, 2017 - Copenhagen Azure User Group - Copenhagen, Denmark
+* January, 2017 - IglooConf - Helsinki, Finland
 * March 2017 - ConFoo Montreal - Montreal, Canada
+* April 2017 - iSense - Gouda, Netherlands
 
 ## Past talks
 
