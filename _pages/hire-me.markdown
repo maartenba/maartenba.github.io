@@ -13,6 +13,10 @@ Hi, I'm Maarten Balliauw! Thank you for wanting to hire me!
 
 As a freelance consultant, I provide software development, consultancy, training, coaching and mentoring services to other companies. [Learn more about me](/about-me.html) or [have a look at my public CV](http://stackoverflow.com/cv/maartenballiauw), and [contact me](/contact-me.html) if you want more info or want to have a chat.
 
+<p class="notice--success">
+  Have you ever faced a blocking issue and quickly needed advide from an expert in the field? Have an important question but don't want to hire a consultant to come on-site for a full day? You periodically need some external advice on your project? <em>We can set up a remote meeting for one or more hours and analyze the issue right away! <b><a href="/contact-me.html">Get in touch!</a></b></em>
+</p>
+
 My focus is on:
 
 * .NET ecosystem, C#, ASP.NET MVC
