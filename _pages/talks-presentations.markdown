@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2016-11-21 01:34:00 +0200
+date: 2016-12-20 01:34:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
