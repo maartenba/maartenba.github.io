@@ -16,10 +16,11 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks
 
-If you want me to deliver a talk at your conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
+If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
 * January, 2017 - Copenhagen Azure User Group - Copenhagen, Denmark
 * January, 2017 - IglooConf - Helsinki, Finland
+* March 2017 - Wroc# - Wroclaw, Poland
 * March 2017 - ConFoo Montreal - Montreal, Canada
 * April 2017 - iSense - Gouda, Netherlands
 
