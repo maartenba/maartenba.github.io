@@ -391,6 +391,6 @@ Usign a proper profiler is of course much easier, but one has to geek out every 
 
 ## Conclusion
 
-In this post, I wanted to take a practical approach to exploring the managed heap, and thought ClrMD was a good tool to use with that goal in mind. Do remember to explore the Internet for *"ClrMD"*, as there are tons of great samples out there! The [ClrMD GitHub repo](https://github.com/Microsoft/clrmd) also has some fine examples.
+In this post, I wanted to take a practical approach to exploring the managed heap, and thought ClrMD was a good tool to use with that goal in mind. Do remember to explore the Internet for *"ClrMD"*, as there are tons of great samples out there (like [Sasha Goldstein's msos](https://github.com/goldshtn/msos))! The [ClrMD GitHub repo](https://github.com/Microsoft/clrmd) also has some fine examples.
 
 Enjoy! And happy new year!
