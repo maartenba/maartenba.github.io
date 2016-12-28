@@ -75,7 +75,7 @@ public class ContactBinder : IModelBinder<br />
 </p>
 <p>
 <strong>UPDATE:</strong> Also check <a href="http://www.singingeels.com/Articles/Model_Binders_in_ASPNET_MVC.aspx" target="_blank">Timothy&#39;s blog</a> post on this one.<br />
-<strong>UPDATE: </strong>And my <a href="/post/2008/10/02/Using-the-ASPNET-MVC-ModelBinder-attribute-Second-part.aspx">follow-up blog post</a>.
+<strong>UPDATE: </strong>And my <a href="/post/2008/10/02/using-the-aspnet-mvc-modelbinder-attribute-second-part.aspx">follow-up blog post</a>.
 </p>
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/08/29/Using-the-ASPNET-MVC-ModelBinder-attribute.aspx&amp;title=Using the ASP.NET MVC ModelBinder attribute"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/08/29/Using-the-ASPNET-MVC-ModelBinder-attribute.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>

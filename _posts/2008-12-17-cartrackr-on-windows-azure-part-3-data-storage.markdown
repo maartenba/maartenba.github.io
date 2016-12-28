@@ -19,11 +19,11 @@ This post is part 3 of my series on <a href="http://www.microsoft.com/azure" tar
 Other parts: 
 </p>
 <ul>
-	<li><a href="/post/2008/12/09/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx" target="_blank">Part 1 - Introduction</a>, containg links to all other parts</li>
-	<li><a href="/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx" target="_blank">Part 2 - Cloud-enabling CarTrackr</a></li>
+	<li><a href="/post/2008/12/09/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx" target="_blank">Part 1 - Introduction</a>, containg links to all other parts</li>
+	<li><a href="/post/2008/12/09/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.aspx" target="_blank">Part 2 - Cloud-enabling CarTrackr</a></li>
 	<li>Part 3 - Data storage (current part)</li>
-	<li><a href="/post/2008/12/11/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx" target="_blank">Part 4 - Membership and authentication</a> </li>
-	<li><a href="/post/2008/12/19/CarTrackr-on-Windows-Azure-Part-5-Deploying-in-the-cloud.aspx" target="_blank">Part 5 - Deploying in the cloud</a></li>
+	<li><a href="/post/2008/12/11/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx" target="_blank">Part 4 - Membership and authentication</a> </li>
+	<li><a href="/post/2008/12/19/cartrackr-on-windows-azure-part-5-deploying-in-the-cloud.aspx" target="_blank">Part 5 - Deploying in the cloud</a></li>
 </ul>
 <h2>Types of Azure storage</h2>
 <p>

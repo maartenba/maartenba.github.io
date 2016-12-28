@@ -13,7 +13,7 @@ redirect_from:
  - /post/2007/12/10/aspnet-mvc-framework-basic-sample-application.aspx.html
 ---
 <p>
-<img style="width: 222px; height: 497px" src="/images/visualstudiomvcframework.jpg" border="1" alt="ASP.NET MVC Framework" title="ASP.NET MVC Framework" hspace="5" vspace="5" width="222" height="497" align="right" />You <a href="/post/2007/11/ASPNET-MVC-framework-preview-to-be-released-next-week.aspx" target="_blank">might</a> <a href="/post/2007/12/ASPNET-35-Extensions-CTP-preview-released.aspx" target="_blank">have</a> noticed that I&#39;m quite enhousiast about the new ASP.NET MVC framework. 
+<img style="width: 222px; height: 497px" src="/images/visualstudiomvcframework.jpg" border="1" alt="ASP.NET MVC Framework" title="ASP.NET MVC Framework" hspace="5" vspace="5" width="222" height="497" align="right" />You <a href="/post/2007/11/aspnet-mvc-framework-preview-to-be-released-next-week.aspx" target="_blank">might</a> <a href="/post/2007/12/aspnet-35-extensions-ctp-preview-released.aspx" target="_blank">have</a> noticed that I&#39;m quite enhousiast about the new ASP.NET MVC framework. 
 </p>
 <h2>What are you talking about?</h2>
 <p>

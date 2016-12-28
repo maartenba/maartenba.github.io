@@ -63,6 +63,6 @@ redirect_from:
 <p>&nbsp;&nbsp;&nbsp; return cacheKey.ToString();<br /> }</p>
 <p>[/code]</p>
 <p>There you go! Now note that you can add this <em>OutputCache</em> attribute to any controller and any controller action you&nbsp; have in your application. The full source code is available for download here: <a href="/files/2012/11/MvcCaching.zip">MvcCaching.zip (211.33 kb)</a>&nbsp;(full sample) or <a href="/files/2012/11/OutputCache.zip">OutputCache.zip (1.59 kb)</a>&nbsp;(only attribute).</p>
-<p><strong>UPDATE:</strong> Make sure to read&nbsp;part 2, available <a href="/post/2008/07/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute---Adding-substitution.aspx">here</a>.</p>
+<p><strong>UPDATE:</strong> Make sure to read&nbsp;part 2, available <a href="/post/2008/07/extending-aspnet-mvc-outputcache-actionfilterattribute---adding-substitution.aspx">here</a>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx&amp;title=Creating an ASP.NET MVC OutputCache ActionFilterAttribute"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a></p>
 {% include imported_disclaimer.html %}

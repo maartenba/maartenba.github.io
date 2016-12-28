@@ -17,7 +17,7 @@ Just over the weekend, Microsoft has <a href="http://weblogs.asp.net/scottgu/arc
 </p>
 <ul>
 	<li>ASP.NET AJAX Improvements contains some new AJAX features like browser history support (back-forward), improvements to the JavaScript library, ...</li>
-	<li>The new ASP.NET MVC framework which I <a href="/post/2007/11/ASPNET-MVC-framework-preview-to-be-released-next-week.aspx" target="_blank">blogged about last week</a></li>
+	<li>The new ASP.NET MVC framework which I <a href="/post/2007/11/aspnet-mvc-framework-preview-to-be-released-next-week.aspx" target="_blank">blogged about last week</a></li>
 	<li>ASP.NET Dynamic Data Support contains some new features for building a data-driven application much faster.</li>
 	<li>ASP.NET Silverlight support</li>
 	<li>ADO.NET data services, also known under the name &quot;Astoria&quot;.</li>

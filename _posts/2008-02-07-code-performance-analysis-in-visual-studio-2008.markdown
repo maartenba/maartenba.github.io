@@ -118,7 +118,7 @@ In theory, this should perform better. Let&rsquo;s run our performance session a
 <strong>Update 2008-02-14:</strong> Some people commented on not finding the <em>Analyze</em> menu. This is only available in the <em>Developer</em> or <em>Team Edition</em> of Visual Studio. <a href="http://msdn2.microsoft.com/en-us/vstudio/products/cc149003.aspx" target="_blank">Click here for a full comparison</a> of all versions. 
 </p>
 <p align="left">
-<strong>Update 2008-05-29:</strong> Make sure to check <a href="/post/2008/05/Detailed-code-metrics-with-NDepend.aspx" target="_blank">my post on NDepend</a> as well, as it offers even more insight in your code!
+<strong>Update 2008-05-29:</strong> Make sure to check <a href="/post/2008/05/detailed-code-metrics-with-ndepend.aspx" target="_blank">my post on NDepend</a> as well, as it offers even more insight in your code!
 </p>
 <p align="left">
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/02/Code-performance-analysis-in-Visual-Studio-2008.aspx&amp;title=Code performance analysis in Visual Studio 2008"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/02/Code-performance-analysis-in-Visual-Studio-2008.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>

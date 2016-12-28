@@ -19,7 +19,7 @@ redirect_from:
 I&rsquo;m expecting an epic blog post by <a href="http://weblogs.asp.net/scottgu/" target="_blank">the Gu</a>, but here&rsquo;s some stuff you may want to have a look at: <a href="/category/MVC.aspx" target="_blank">all my posts on ASP.NET MVC</a>. 
 </p>
 <p>
-Another thing you can do: <a href="/post/2009/02/17/Announcing-my-book-ASPNET-MVC-10-Quickly.aspx" target="_blank">order my book on ASP.NET MVC</a> :-) We&rsquo;ve released the print version yesterday, meaning you are now completely set to start developing with ASP.NET MVC. 
+Another thing you can do: <a href="/post/2009/02/17/announcing-my-book-aspnet-mvc-10-quickly.aspx" target="_blank">order my book on ASP.NET MVC</a> :-) We&rsquo;ve released the print version yesterday, meaning you are now completely set to start developing with ASP.NET MVC. 
 </p>
 <p>
 <strong>Edit:</strong> Looks like <a href="http://codeclimber.net.nz/archive/2009/03/18/asp.net-mvc-goes-rtm-before-mix09.aspx" target="_blank">Simone</a> was equally fast :-)&nbsp;And <a href="http://blog.krisvandermast.com/ASPNETMVC1SeemsToBeOut.aspx" target="_blank">Kris</a>.<br />

@@ -111,7 +111,7 @@ Also check <a href="http://support.microsoft.com/kb/325056" target="_blank">MS K
 Our solution now works! Only problem left is that we have a new single point of failure (SPOF): the ASP.NET state service. But we might just set up 2 of those and fail over both session service machines. 
 </p>
 <p>
-<strong>UPDATE 2008-01-23:</strong> Also check out my blog post on <a href="/post/2008/01/ASPNET-Session-State-Partitioning.aspx">Session State Partitioning</a>! 
+<strong>UPDATE 2008-01-23:</strong> Also check out my blog post on <a href="/post/2008/01/aspnet-session-state-partitioning.aspx">Session State Partitioning</a>! 
 </p>
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2007/11/ASPNET-load-balancing-and-ASPNET-state-server-(aspnet_state).aspx&amp;title=ASP.NET load balancing and ASP.NET state server (aspnet_state)">

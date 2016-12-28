@@ -13,7 +13,7 @@ redirect_from:
  - /post/2008/12/15/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx.html
 ---
 <p>
-As you may see in the title, I will be starting a series on modifying my <a href="/post/2008/10/21/CarTrackr-Sample-ASPNET-MVC-application.aspx" target="_blank">CarTrackr sample application</a> to a cloud-based, <a href="http://www.microsoft.com/azure" target="_blank">Windows Azure</a> application. At this point, I don&#39;t know if it&#39;s easy nor do I know what it takes to achieve this goal. I only have some assumtions on how CarTrackr can be converted to a cloud application. 
+As you may see in the title, I will be starting a series on modifying my <a href="/post/2008/10/21/cartrackr-sample-aspnet-mvc-application.aspx" target="_blank">CarTrackr sample application</a> to a cloud-based, <a href="http://www.microsoft.com/azure" target="_blank">Windows Azure</a> application. At this point, I don&#39;t know if it&#39;s easy nor do I know what it takes to achieve this goal. I only have some assumtions on how CarTrackr can be converted to a cloud application. 
 </p>
 <p>
 This post is part 1 of the series, in which I&#39;ll describe the architecture of <a href="http://www.microsoft.com/azure" target="_blank">Windows Azure</a> and what I think it takes to convert my ASP.NET MVC application into a cloud application. 
@@ -22,11 +22,11 @@ This post is part 1 of the series, in which I&#39;ll describe the architecture o
 Other parts: 
 </p>
 <ul>
-	<li><a href="/post/2008/12/09/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx" target="_blank">Part 1 - Introduction</a>, containg links to all other parts </li>
-	<li><a href="/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx" target="_blank">Part 2 - Cloud-enabling CarTrackr</a> </li>
-	<li><a href="/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-3-Data-storage.aspx" target="_blank">Part 3 - Data storage</a> </li>
-	<li><a href="/post/2008/12/11/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx" target="_blank">Part 4 - Membership and authentication</a> </li>
-	<li><a href="/post/2008/12/19/CarTrackr-on-Windows-Azure-Part-5-Deploying-in-the-cloud.aspx" target="_blank">Part 5 - Deploying in the cloud</a></li>
+	<li><a href="/post/2008/12/09/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx" target="_blank">Part 1 - Introduction</a>, containg links to all other parts </li>
+	<li><a href="/post/2008/12/09/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.aspx" target="_blank">Part 2 - Cloud-enabling CarTrackr</a> </li>
+	<li><a href="/post/2008/12/09/cartrackr-on-windows-azure-part-3-data-storage.aspx" target="_blank">Part 3 - Data storage</a> </li>
+	<li><a href="/post/2008/12/11/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx" target="_blank">Part 4 - Membership and authentication</a> </li>
+	<li><a href="/post/2008/12/19/cartrackr-on-windows-azure-part-5-deploying-in-the-cloud.aspx" target="_blank">Part 5 - Deploying in the cloud</a></li>
 </ul>
 <h2>Microsoft Azure</h2>
 <p>
@@ -37,7 +37,7 @@ You can currently download the Windows Azure SDK from <a href="http://www.azure.
 </p>
 <h2>CarTrackr</h2>
 <p>
-From my <a href="/post/2008/10/21/CarTrackr-Sample-ASPNET-MVC-application.aspx" target="_blank">previous blog post</a>: &quot;CarTrackr is a sample application for the ASP.NET MVC framework using the repository pattern and dependency injection using the Unity application block. It was written for various demos in presentations done by Maarten Balliauw. CarTrackr is an online software application designed to help you understand and track your fuel usage and kilometers driven.&quot; 
+From my <a href="/post/2008/10/21/cartrackr-sample-aspnet-mvc-application.aspx" target="_blank">previous blog post</a>: &quot;CarTrackr is a sample application for the ASP.NET MVC framework using the repository pattern and dependency injection using the Unity application block. It was written for various demos in presentations done by Maarten Balliauw. CarTrackr is an online software application designed to help you understand and track your fuel usage and kilometers driven.&quot; 
 </p>
 <p>
 <a href="/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_806C/image_6.png"><img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_806C/image_thumb_2.png" border="0" alt="CarTrackr, cloud version" width="180" height="87" align="right" /></a> That being said: what will it take to port this onto the <a href="http://www.azure.com" target="_blank">Azure</a> platform? First of all, a new logo applies. I now want a logo with clouds in it. Since it&#39;s still no official release, I&#39;ll also keep the &quot;beta&quot; label in place. Looks nice, eh? :-) 

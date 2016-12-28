@@ -77,7 +77,7 @@ redirect_from:
 <li>When using action filters </li>
 </ul>
 <p>More on that in my next post on ASP.NET MVC 3, as I think it deserves a full post rather than jut some smaller paragraphs.</p>
-<p><strong>Update:</strong> Here's that next post on <a href="/post/2010/07/22/ASPNET-MVC-3-and-MEF-sitting-in-a-tree.aspx" target="_blank">ASP.NET MVC 3 and dependency injection / MEF</a></p>
+<p><strong>Update:</strong> Here's that next post on <a href="/post/2010/07/22/aspnet-mvc-3-and-mef-sitting-in-a-tree.aspx" target="_blank">ASP.NET MVC 3 and dependency injection / MEF</a></p>
 <h2>New action result types</h2>
 <p>Not very ground-skaing news, but there's a new set of ActionResult variants available which will make your life easier:</p>
 <ul>
@@ -88,5 +88,5 @@ redirect_from:
 <h2>Conclusion</h2>
 <p>I only touched the tip of the iceberg. There&rsquo;s more to ASP.NET MVC 3 preview 1, described in the release notes.</p>
 <p>In short, I&rsquo;m very positive about the amount of progress being made in this framework! Very pleased with the DI portion of it, on which I&rsquo;ll do a blog post later.</p>
-<p><strong>Update:</strong> Here's that next post on <a href="/post/2010/07/22/ASPNET-MVC-3-and-MEF-sitting-in-a-tree.aspx" target="_blank">ASP.NET MVC 3 and dependency injection / MEF</a></p>
+<p><strong>Update:</strong> Here's that next post on <a href="/post/2010/07/22/aspnet-mvc-3-and-mef-sitting-in-a-tree.aspx" target="_blank">ASP.NET MVC 3 and dependency injection / MEF</a></p>
 {% include imported_disclaimer.html %}

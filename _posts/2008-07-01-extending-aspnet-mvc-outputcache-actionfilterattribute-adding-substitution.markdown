@@ -13,7 +13,7 @@ redirect_from:
  - /post/2008/07/01/extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution.aspx.html
 ---
 <p>
-In my <a href="/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx" target="_blank">previous blog post on ASP.NET MVC OutputCache</a>, not all aspects of &quot;classic&quot; ASP.NET output caching were covered. For instance, substitution of cached pages. Allow me to explain... 
+In my <a href="/post/2008/06/creating-an-aspnet-mvc-outputcache-actionfilterattribute.aspx" target="_blank">previous blog post on ASP.NET MVC OutputCache</a>, not all aspects of &quot;classic&quot; ASP.NET output caching were covered. For instance, substitution of cached pages. Allow me to explain... 
 </p>
 <p>
 When using output caching you might want to have everything cached, except, for example, a user&#39;s login name or a time stamp. When caching a full HTTP response, it is not really possible to inject dynamic data. ASP.NET introduced the <em>Substitution</em> control, which allows parts of a cached response to be dynamic. The contents of the Substitution control are dynamically injected after retrieving cached data, by calling a certain static method which returns string data. Now let&#39;s build this into my <em><a href="/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx" target="_blank">OutputCache ActionFilterAttribute</a></em>... 
@@ -132,7 +132,7 @@ public partial class Index : ViewPage<br />
 </p>
 <h2>3. Extending the OutputCache ActionFilterAttribute</h2>
 <p>
-<a href="/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx" target="_blank">Previously</a>, we did server-side output caching by implementing 2 overrides of the ActionFilterAttribute, namely <em>OnResultExecuting</em> and <em>OnResultExecuted</em>. To provide substitution support, we&#39;ll have to modify these 2 overloads a little. Basically, just pass all output through the <em>ResolveSubstitutions</em> method. Here&#39;s the updated <em>OnResultExecuted</em> overload: 
+<a href="/post/2008/06/creating-an-aspnet-mvc-outputcache-actionfilterattribute.aspx" target="_blank">Previously</a>, we did server-side output caching by implementing 2 overrides of the ActionFilterAttribute, namely <em>OnResultExecuting</em> and <em>OnResultExecuted</em>. To provide substitution support, we&#39;ll have to modify these 2 overloads a little. Basically, just pass all output through the <em>ResolveSubstitutions</em> method. Here&#39;s the updated <em>OnResultExecuted</em> overload: 
 </p>
 <p>
 [code:c#] 

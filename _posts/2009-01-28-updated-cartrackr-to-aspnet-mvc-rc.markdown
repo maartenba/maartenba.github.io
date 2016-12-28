@@ -16,7 +16,7 @@ redirect_from:
 <a href="http://www.cartrackr.net" target="_blank"><img style="display: inline; margin: 5px; border-width: 0px" src="/images/WindowsLiveWriter/UpdatedCarTrackrtoASP.NETMVCRC_7A3D/image_6a85bd63-e0f1-4e0a-a1bb-4a2143240f0e.png" border="0" alt="image" title="image" width="206" height="100" align="left" /></a> As you may have noticed, <a href="http://go.microsoft.com/fwlink/?LinkID=141184&amp;clcid=0x409" target="_blank">ASP.NET MVC 1.0 Release Candidate</a> has been released over the night. You can read all about it in <a href="http://weblogs.asp.net/scottgu/archive/2009/01/27/asp-net-mvc-1-0-release-candidate-now-available.aspx" target="_blank">ScottGu&rsquo;s blog post</a>, covering all new tools that have been released with the RC. 
 </p>
 <p>
-Since I&rsquo;ve been trying to <a href="/post/2008/10/21/CarTrackr-Sample-ASPNET-MVC-application.aspx" target="_blank">maintain a small reference application for ASP.NET MVC known as CarTrackr</a>, I have updated the source code to reflect some changes in the ASP.NET MVC RC. You can download it directly from the CodePlex project page at <a href="http://www.cartrackr.net">www.cartrackr.net</a>. 
+Since I&rsquo;ve been trying to <a href="/post/2008/10/21/cartrackr-sample-aspnet-mvc-application.aspx" target="_blank">maintain a small reference application for ASP.NET MVC known as CarTrackr</a>, I have updated the source code to reflect some changes in the ASP.NET MVC RC. You can download it directly from the CodePlex project page at <a href="http://www.cartrackr.net">www.cartrackr.net</a>. 
 </p>
 <p>
 Here&rsquo;s what I have updated (copied from the <a href="http://go.microsoft.com/fwlink/?LinkID=137661&amp;clcid=0x409" target="_blank">release notes</a>): 

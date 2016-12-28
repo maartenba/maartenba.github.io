@@ -38,13 +38,13 @@ redirect_from:
 <h2>What&rsquo;s next?</h2>
 <p><a href="http://www.realdolmen.com" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="RealDolmen Windows Azure" src="/images/logorealdolmen_1.jpg" border="0" alt="RealDolmen Windows Azure" width="215" height="31" align="right" /></a> The next parts of this series around Windows Azure will be focused on the following topics:</p>
 <ul>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx">Part 1: Introduction </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-2-Creating-an-Azure-project.aspx">Part 2: Creating an Azure project </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-3-Store-data-in-the-cloud.aspx">Part 3: Store data in the cloud </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-4-Authentication-and-membership.aspx">Part 4: Authentication and membership </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-5-the-front-end.aspx">Part 5: The front end </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-6-The-back-end.aspx">Part 6: The back-end </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-7-Deploying-to-the-cloud.aspx">Part 7: Deploying to the cloud </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-1-introduction.aspx">Part 1: Introduction </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-2-creating-an-azure-project.aspx">Part 2: Creating an Azure project </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-3-store-data-in-the-cloud.aspx">Part 3: Store data in the cloud </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-4-authentication-and-membership.aspx">Part 4: Authentication and membership </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-5-the-front-end.aspx">Part 5: The front end </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-6-the-back-end.aspx">Part 6: The back-end </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-7-deploying-to-the-cloud.aspx">Part 7: Deploying to the cloud </a></li>
 </ul>
 <p>Stay tuned during the coming weeks! And don&rsquo;t forget to start scheduling Tweets using <a href="http://www.twittermatic.net" target="_blank">TwitterMatic</a><em></em>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx&amp;title=How we built TwitterMatic.net - Part 1: Introduction"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx.html" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

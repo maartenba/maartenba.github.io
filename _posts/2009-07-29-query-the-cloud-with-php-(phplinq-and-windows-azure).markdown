@@ -17,7 +17,7 @@ redirect_from:
 <p>[code:c#]</p>
 <p>$result = from('$employee')-&gt;in( array($storageClient, 'employees', 'AzureEmployee') ) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt;where('$employee =&gt; $employee-&gt;Name == "Maarten"') <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt;select('$employee');</p>
 <p>[/code]</p>
-<p>The Windows Azure Table Storage layer is provided by Microsoft&rsquo;s <a href="/post/2009/07/06/PHP-SDK-for-Windows-Azure-Milestone-2-release.aspx" target="_blank">PHP SDK for Windows Azure</a> and leveraged by PHPLinq to enable querying &ldquo;the cloud&rdquo;.</p>
+<p>The Windows Azure Table Storage layer is provided by Microsoft&rsquo;s <a href="/post/2009/07/06/php-sdk-for-windows-azure-milestone-2-release.aspx" target="_blank">PHP SDK for Windows Azure</a> and leveraged by PHPLinq to enable querying &ldquo;the cloud&rdquo;.</p>
 <ul>
 <li>More on <a href="http://www.azure.com/" target="_blank">Windows Azure</a>?</li>
 <li>More on <a href="http://phpazure.codeplex.com" target="_blank">PHP SDK for Windows Azure</a>? (also see my <a href="/post/2009/07/06/PHP-SDK-for-Windows-Azure-Milestone-2-release.aspx" target="_blank">previous blog post</a>)</li>

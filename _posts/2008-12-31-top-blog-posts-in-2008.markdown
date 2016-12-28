@@ -17,19 +17,19 @@ redirect_from:
 </p>
 <h2>Top 5 blog posts in 2008</h2>
 <p>
-<strong>1.</strong> <a href="/post/2008/03/27/Reuse-Excel-business-logic-with-PHPExcel.aspx">Reuse Excel business logic with PHPExcel</a> &ndash; This post explains how to use PHPExcel in a business scenario where a spreadsheet contains calculation logic which is used in a PHP application.
+<strong>1.</strong> <a href="/post/2008/03/27/reuse-excel-business-logic-with-phpexcel.aspx">Reuse Excel business logic with PHPExcel</a> &ndash; This post explains how to use PHPExcel in a business scenario where a spreadsheet contains calculation logic which is used in a PHP application.
 </p>
 <p>
-<strong>2.</strong> <a href="/post/2008/02/07/Code-performance-analysis-in-Visual-Studio-2008.aspx">Code performance analysis in Visual Studio 2008</a> - Visual Studio developer, did you know you have a great performance analysis (profiling) tool at your fingertips?
+<strong>2.</strong> <a href="/post/2008/02/07/code-performance-analysis-in-visual-studio-2008.aspx">Code performance analysis in Visual Studio 2008</a> - Visual Studio developer, did you know you have a great performance analysis (profiling) tool at your fingertips?
 </p>
 <p>
 <strong>3.</strong> <a href="/post/2007/11/22/ASPNET-load-balancing-and-ASPNET-state-server-(aspnet_state).aspx">ASP.NET load balancing and ASP.NET state server (aspnet_state)</a> &ndash; A how-to on load balancing with ASP.NET. Also related to <a href="/post/2008/01/23/ASPNET-Session-State-Partitioning.aspx">ASP.NET Session State Partitioning</a> and <a href="/post/2008/01/24/ASPNET-Session-State-Partitioning-using-State-Server-Load-Balancing.aspx">ASP.NET Session State Partitioning using State Server Load Balancing</a>.
 </p>
 <p>
-<strong>4.</strong> <a href="/post/2008/06/04/Code-based-ASPNET-MVC-GridView.aspx">Code based ASP.NET MVC GridView</a> &ndash; This post gives a shot at a gridview for the ASP.NET MVC framework, built using expressions.
+<strong>4.</strong> <a href="/post/2008/06/04/code-based-aspnet-mvc-gridview.aspx">Code based ASP.NET MVC GridView</a> &ndash; This post gives a shot at a gridview for the ASP.NET MVC framework, built using expressions.
 </p>
 <p>
-<strong>5.</strong> <a href="/post/2008/08/29/Building-an-ASPNET-MVC-sitemap-provider-with-security-trimming.aspx">Building an ASP.NET MVC sitemap provider with security trimming</a> &ndash; Building an ASP.NET MVC sitemap provider that can be used with standard ASP.NET sitemap controls.
+<strong>5.</strong> <a href="/post/2008/08/29/building-an-aspnet-mvc-sitemap-provider-with-security-trimming.aspx">Building an ASP.NET MVC sitemap provider with security trimming</a> &ndash; Building an ASP.NET MVC sitemap provider that can be used with standard ASP.NET sitemap controls.
 </p>
 <h2>About the past year</h2>
 <p>

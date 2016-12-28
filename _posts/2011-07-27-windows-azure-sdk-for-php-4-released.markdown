@@ -29,8 +29,8 @@ redirect_from:
 <li><a href="http://azurephp.interoperabilitybridges.com/articles/setup-the-windows-azure-sdk-for-php">Setup the Windows Azure SDK for PHP</a></li>
 <li><a href="http://azurephp.interoperabilitybridges.com/articles/packaging-applications">Packaging applications</a></li>
 <li><a href="http://azurephp.interoperabilitybridges.com/articles/using-scaffolds">Using scaffolds</a></li>
-<li><a href="/post/2011/07/11/A-hidden-gem-in-the-Windows-Azure-SDK-for-PHP-command-line-parsing.aspx">A hidden gem in the Windows Azure SDK for PHP: command line parsing</a></li>
-<li><a href="/post/2011/05/30/Scaffolding-and-packaging-a-Windows-Azure-project-in-PHP.aspx">Scaffolding and packaging a Windows Azure project in PHP</a></li>
+<li><a href="/post/2011/07/11/a-hidden-gem-in-the-windows-azure-sdk-for-php-command-line-parsing.aspx">A hidden gem in the Windows Azure SDK for PHP: command line parsing</a></li>
+<li><a href="/post/2011/05/30/scaffolding-and-packaging-a-windows-azure-project-in-php.aspx">Scaffolding and packaging a Windows Azure project in PHP</a></li>
 </ul>
 <p>Also keep an eye on <a href="http://www.sdn.nl">www.sdn.nl</a> where I&rsquo;ll be posting an article on scripting a complete application deployment to Windows Azure, including SQL Azure, storage and firewalls.</p>
 <p>And finally: keep an eye on <a title="http://azurephp.interoperabilitybridges.com" href="http://azurephp.interoperabilitybridges.com">http://azurephp.interoperabilitybridges.com</a>&nbsp;and <a href="http://blogs.technet.com/b/port25/">http://blogs.technet.com/b/port25/</a>. I have a feeling some cool stuff may be coming following this release...</p>

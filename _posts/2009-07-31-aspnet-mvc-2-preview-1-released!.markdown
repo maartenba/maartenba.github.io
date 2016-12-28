@@ -42,7 +42,7 @@ redirect_from:
 <br />}</p>
 <p>[/code]</p>
 <p>Easy no? Now just use the model binder inside your controller and validation will occur &ldquo;automagically&rdquo;.</p>
-<p>Also check my <a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-5-the-front-end.aspx" target="_blank">blog post on TwitterMatic</a> for another example.</p>
+<p>Also check my <a href="/post/2009/07/02/how-we-built-twittermaticnet-part-5-the-front-end.aspx" target="_blank">blog post on TwitterMatic</a> for another example.</p>
 <h2>HttpPost attribute</h2>
 <p>A small update: [AcceptVerbs(HttpVerbs.Post)] can now be written as [HttpPost]. Easier to read IMHO.</p>
 <p>This means that:</p>

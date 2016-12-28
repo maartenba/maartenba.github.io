@@ -13,7 +13,7 @@ redirect_from:
  - /post/2008/05/27/aspnet-mvc-framework-preview-3-released.aspx.html
 ---
 <p>
-Don&#39;t know how I do it, but I think this blog post is <a href="/post/2008/03/ASPNET-MVC-Framework-out-on-CodePlex.aspx" target="_blank">yet again</a> the first one out there mentioning a new release of the ASP.NET framework (preview 3)&nbsp;<img src="/admin/tiny_mce/plugins/emotions/images/smiley-cool.gif" border="0" alt="Cool" title="Cool" width="18" height="18" /> 
+Don&#39;t know how I do it, but I think this blog post is <a href="/post/2008/03/aspnet-mvc-framework-out-on-codeplex.aspx" target="_blank">yet again</a> the first one out there mentioning a new release of the ASP.NET framework (preview 3)&nbsp;<img src="/admin/tiny_mce/plugins/emotions/images/smiley-cool.gif" border="0" alt="Cool" title="Cool" width="18" height="18" /> 
 </p>
 <p>
 The official&nbsp;installation package can be <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=92F2A8F0-9243-4697-8F9A-FCF6BC9F66AB&amp;displaylang=en" target="_blank">downloaded from the Microsoft site</a>. Source code is also <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=13792" target="_blank">available from CodePlex</a>. 

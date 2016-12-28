@@ -14,10 +14,10 @@ redirect_from:
 ---
 <p><img style="width: 312px; height: 502px;" src="/images/session_state_load_balancing.png" border="1" alt="" hspace="5" vspace="5" width="312" height="502" align="right" />It seems like amount of posts on ASP.NET's Session State keeps growing. Here's the list:</p>
 <ul>
-<li><a href="/post/2008/01/ASPNET-Session-State-Partitioning.aspx">ASP.NET Session State Partitioning</a></li>
-<li><a href="/post/2007/11/ASPNET-load-balancing-and-ASPNET-state-server-(aspnet_state).aspx">ASP.NET load balancing and ASP.NET state server (aspnet_state)</a></li>
+<li><a href="/post/2008/01/aspnet-session-state-partitioning.aspx">ASP.NET Session State Partitioning</a></li>
+<li><a href="/post/2007/11/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx">ASP.NET load balancing and ASP.NET state server (aspnet_state)</a></li>
 </ul>
-<p>Yesterday's <a href="/post/2008/01/ASPNET-Session-State-Partitioning.aspx">post on Session State Partitioning</a> used a round-robin method for partitioning session state over different state server machines. The solution I presented actually works, but can still lead to performance bottlenecks.</p>
+<p>Yesterday's <a href="/post/2008/01/aspnet-session-state-partitioning.aspx">post on Session State Partitioning</a> used a round-robin method for partitioning session state over different state server machines. The solution I presented actually works, but can still lead to performance bottlenecks.</p>
 <p>Let's say you have a web farm running multiple applications, all using the same pool of state server machines. When having multiple sessions in each application, the situation where one state server handles much more sessions than another state server could occur. For that reason, ASP.NET supports real load balancing of all session state servers.</p>
 <h2>Download example</h2>
 <p>Want an instant example? Download it here: <a href="/files/2012/11/SessionPartitioning2.zip">SessionPartitioning2.zip (4.16 kb)</a><br />Want to know what's behind all this? Please, continue reading.</p>
@@ -41,7 +41,7 @@ redirect_from:
 <p>[code:c#]</p>
 <p>&lt;configuration&gt;<br /> &nbsp; &lt;system.web&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;sessionState mode="StateServer"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; partitionResolverType="PartitionResolver"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sessionIDManagerType="SessionIdManager" /&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br /> &nbsp; &lt;/system.web&gt;<br /> &lt;/configuration&gt;</p>
 <p>[/code]</p>
-<p>You notice our custom <em>SessionIdManager</em> class is now registered to be the <em>sessionIDManager</em>. The <em>PartitionResolver</em> I <a href="/post/2008/01/ASPNET-Session-State-Partitioning.aspx" target="_blank">blogged about</a> is also present in a modified version.</p>
+<p>You notice our custom <em>SessionIdManager</em> class is now registered to be the <em>sessionIDManager</em>. The <em>PartitionResolver</em> I <a href="/post/2008/01/aspnet-session-state-partitioning.aspx" target="_blank">blogged about</a> is also present in a modified version.</p>
 <h3>3. Using the correct state server for a specific session id</h3>
 <p>In the previous code listing, we assigned a session to a specific server. Now for ASP.NET to read session state from the correct server, we still have to use the <em>PartitionResolver</em> class:</p>
 <p>[code:c#]</p>

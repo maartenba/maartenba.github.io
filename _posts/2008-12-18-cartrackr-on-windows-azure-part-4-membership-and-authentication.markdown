@@ -19,15 +19,15 @@ This post is part 4 of my series on <a href="http://www.microsoft.com/azure" tar
 Other parts: 
 </p>
 <ul>
-	<li><a href="/post/2008/12/09/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx" target="_blank">Part 1 - Introduction</a>, containg links to all other parts </li>
-	<li><a href="/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx" target="_blank">Part 2 - Cloud-enabling CarTrackr</a> </li>
-	<li><a href="/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-3-Data-storage.aspx" target="_blank">Part 3 - Data storage</a> </li>
+	<li><a href="/post/2008/12/09/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx" target="_blank">Part 1 - Introduction</a>, containg links to all other parts </li>
+	<li><a href="/post/2008/12/09/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.aspx" target="_blank">Part 2 - Cloud-enabling CarTrackr</a> </li>
+	<li><a href="/post/2008/12/09/cartrackr-on-windows-azure-part-3-data-storage.aspx" target="_blank">Part 3 - Data storage</a> </li>
 	<li>Part 4 - Membership and authentication (current part)</li>
-	<li><a href="/post/2008/12/19/CarTrackr-on-Windows-Azure-Part-5-Deploying-in-the-cloud.aspx" target="_blank">Part 5 - Deploying in the cloud</a></li>
+	<li><a href="/post/2008/12/19/cartrackr-on-windows-azure-part-5-deploying-in-the-cloud.aspx" target="_blank">Part 5 - Deploying in the cloud</a></li>
 </ul>
 <h2>Picking a solution...</h2>
 <p>
-In my <a href="/post/2008/12/09/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx" target="_blank">opening post on this series</a>, I defined some tasks which I would probably have to do prior to being able to run CarTrackr on Azure. For membership and authentication, I defined 2 solutions:&nbsp; <a href="http://dotnetslackers.com/articles/aspnet/Azure-Cloudship-Membership-Provider-for-the-Cloud.aspx">Cloudship</a> or <a href="http://dev.live.com/liveid/">Windows Live ID</a>. 
+In my <a href="/post/2008/12/09/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx" target="_blank">opening post on this series</a>, i defined some tasks which i would probably have to do prior to being able to run cartrackr on azure. for membership and authentication, i defined 2 solutions:&nbsp; <a href="http://dotnetslackers.com/articles/aspnet/azure-cloudship-membership-provider-for-the-cloud.aspx">cloudship</a> or <a href="http://dev.live.com/liveid/">Windows Live ID</a>. 
 </p>
 <p>
 At first, <a href="http://dotnetslackers.com/articles/aspnet/Azure-Cloudship-Membership-Provider-for-the-Cloud.aspx">Cloudship</a> looked really nice as it is just an implementation of ASP.NET&#39;s provider model based on Azure. Some thinking cycles later, this did not feel right for CarTrackr... For CarTrackr, authentication only would be enough, membership would be real overkill. 
@@ -356,7 +356,7 @@ One reminder left when deploying this to Azure: I&#39;ll have to make sure that 
 </p>
 <h2>Conclusion</h2>
 <p>
-This was a quite easy task compared to configuring <a href="/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-3-Data-storage.aspx" target="_blank">TableStorage</a>. Thank&#39;s to the <a href="http://www.codeplex.com/MvcMembership/SourceControl/changeset/view/11559" target="_blank">MVC Membership Starter Kit</a>, the Live ID integration was easy. 
+This was a quite easy task compared to configuring <a href="/post/2008/12/09/cartrackr-on-windows-azure-part-3-data-storage.aspx" target="_blank">tablestorage</a>. thank&#39;s to the <a href="http://www.codeplex.com/mvcmembership/sourcecontrol/changeset/view/11559" target="_blank">MVC Membership Starter Kit</a>, the Live ID integration was easy. 
 </p>
 <p>
 Stay tuned for the final part: deployment on Azure! I&#39;ll also provide a download link and a live link to the project. 

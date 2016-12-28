@@ -17,15 +17,15 @@ redirect_from:
 <h2>Top 5 blog posts of 2009</h2>
 
 <blockquote>
-<p><strong>1.</strong> <a href="/post/2009/05/06/More-ASPNET-MVC-Best-Practices.aspx" target="_blank">More ASP.NET MVC Best Practices</a> &ndash; A blog post gathering best practices from different sources and adds some more of my own.</p>
-<p><strong>2.</strong> <a href="/post/2008/06/04/Code-based-ASPNET-MVC-GridView.aspx">Code based ASP.NET MVC GridView</a> (2008: 4th) &ndash; This post gives a shot at a gridview for the ASP.NET MVC framework, built using expressions.</p>
-<p><strong>3.</strong> <a href="/post/2008/02/07/Code-performance-analysis-in-Visual-Studio-2008.aspx">Code performance analysis in Visual Studio 2008</a> (2008: 2nd) &ndash; Visual Studio developer, did you know you have a great performance analysis (profiling) tool at your fingertips?</p>
-<p><strong>4.</strong> <a href="/post/2008/08/29/Building-an-ASPNET-MVC-sitemap-provider-with-security-trimming.aspx">Building an ASP.NET MVC sitemap provider with security trimming</a> (2008: 5th) &ndash; Building an ASP.NET MVC sitemap provider that can be used with standard ASP.NET sitemap controls.</p>
+<p><strong>1.</strong> <a href="/post/2009/05/06/more-aspnet-mvc-best-practices.aspx" target="_blank">More ASP.NET MVC Best Practices</a> &ndash; A blog post gathering best practices from different sources and adds some more of my own.</p>
+<p><strong>2.</strong> <a href="/post/2008/06/04/code-based-aspnet-mvc-gridview.aspx">Code based ASP.NET MVC GridView</a> (2008: 4th) &ndash; This post gives a shot at a gridview for the ASP.NET MVC framework, built using expressions.</p>
+<p><strong>3.</strong> <a href="/post/2008/02/07/code-performance-analysis-in-visual-studio-2008.aspx">Code performance analysis in Visual Studio 2008</a> (2008: 2nd) &ndash; Visual Studio developer, did you know you have a great performance analysis (profiling) tool at your fingertips?</p>
+<p><strong>4.</strong> <a href="/post/2008/08/29/building-an-aspnet-mvc-sitemap-provider-with-security-trimming.aspx">Building an ASP.NET MVC sitemap provider with security trimming</a> (2008: 5th) &ndash; Building an ASP.NET MVC sitemap provider that can be used with standard ASP.NET sitemap controls.</p>
 <p><strong>5.</strong> <a href="/post/2007/11/22/ASPNET-load-balancing-and-ASPNET-state-server-(aspnet_state).aspx">ASP.NET load balancing and ASP.NET state server (aspnet_state)</a> (2008: 3rd) &ndash; A how-to on load balancing with ASP.NET. Also related to <a href="/post/2008/01/23/ASPNET-Session-State-Partitioning.aspx">ASP.NET Session State Partitioning</a> and <a href="/post/2008/01/24/ASPNET-Session-State-Partitioning-using-State-Server-Load-Balancing.aspx">ASP.NET Session State Partitioning using State Server Load Balancing</a>.</p>
 
 </blockquote>
 
-<p>I did a similar list <a href="/post/2008/12/31/Top-blog-posts-in-2008.aspx" target="_blank">last year</a>, and you can see that I actually can stop blogging. 4 posts are in the top 5 again, with one newcomer on the 1st place.</p>
+<p>I did a similar list <a href="/post/2008/12/31/top-blog-posts-in-2008.aspx" target="_blank">last year</a>, and you can see that I actually can stop blogging. 4 posts are in the top 5 again, with one newcomer on the 1st place.</p>
 <h2>Open-source in 2009</h2>
 <p>What should I say about this one&hellip; I did a lot of that :-) I continued to work on <a href="http://www.phpexcel.net" target="_blank">PHPExcel</a>, <a href="http://www.phplinq.net" target="_blank">PHPLinq</a> and <a href="http://phppowerpoint.codeplex.com" target="_blank">PHPPowerPoint</a>, started work (with Microsoft) on the <a href="http://phpazure.codeplex.com" target="_blank">Windows Azure SDK for PHP</a>, released the <a href="http://mvcsitemap.codeplex.com" target="_blank">ASP.NET MVC SiteMap Provider</a>, released <a href="http://twittermatic.codeplex.com" target="_blank">TwitterMatic</a> on CodePlex and did some contributions to <a href="http://framework.zend.com" target="_blank">Zend Framework</a>. Then there&rsquo;s also my port of <a href="/post/2009/12/02/PHP-Managed-Extensibility-Framework-e28093-PHPMEF.aspx" target="_blank">MEF to PHP</a>, which I will be releasing somewhere in Q1 2010.</p>
 <p>That&rsquo;s a lot! And I really hope to keep the same pace going in 2010. I&rsquo;m constructing a house though, which also takes some time&hellip; Luckily: no windows yet, so I can consider it open-source as well :-)</p>
@@ -81,10 +81,10 @@ redirect_from:
 <h2>Traveling</h2>
 <p>Some traveling in 2009 as well. I went on a ski vacation and a summer vacation, but next to that I did some traveling for work as well:</p>
 <ul>
-<li>London, UK: <a href="/post/2009/05/18/Document-Interoperability-Workshop-London-May-18-2009.aspx">Document Interoperability Workshop, London, May 18 2009</a></li>
-<li>The Hague, The Netherlands: <a href="/post/2009/06/02/PHP-and-Silverlight-DevDays-session.aspx">PHP and Silverlight - DevDays session</a></li>
-<li>Los Angeles, US: <a href="/post/2009/11/18/Microsoft-PDC09-keynote-highlights.aspx">Microsoft PDC09 keynote highlights</a></li>
-<li>Seattle, US: <a href="/post/2009/12/07/Microsoft-Web-Development-Summit-2009.aspx">Microsoft Web Development Summit 2009</a></li>
+<li>London, UK: <a href="/post/2009/05/18/document-interoperability-workshop-london-may-18-2009.aspx">Document Interoperability Workshop, London, May 18 2009</a></li>
+<li>The Hague, The Netherlands: <a href="/post/2009/06/02/php-and-silverlight-devdays-session.aspx">PHP and Silverlight - DevDays session</a></li>
+<li>Los Angeles, US: <a href="/post/2009/11/18/microsoft-pdc09-keynote-highlights.aspx">Microsoft PDC09 keynote highlights</a></li>
+<li>Seattle, US: <a href="/post/2009/12/07/microsoft-web-development-summit-2009.aspx">Microsoft Web Development Summit 2009</a></li>
 </ul>
 <p>If only I knew that these last two would provide me a lot of airmiles&hellip; Subscribed at <a href="http://www.milesandmore.com">www.milesandmore.com</a> for possible traveling in 2010 :-)</p>
 <h2>Thank you!</h2>

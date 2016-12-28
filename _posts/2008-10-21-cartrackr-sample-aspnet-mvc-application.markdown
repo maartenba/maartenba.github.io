@@ -42,7 +42,7 @@ Here&#39;s a list of technologies and techniques used:
 	<li>Form validation is included on most forms, leveraging the ViewData.ModelState class</li>
 	<li>It is possible to sign in using <a href="http://openid.net/">OpenID</a>, for which the <a href="http://www.codeplex.com/MvcMembership">ASP.NET MVC Membership</a> starter kit was used</li>
 	<li>LinqToSQL is used as the persistence layer</li>
-	<li>CarTrackr uses my <a href="/post/2008/08/29/Building-an-ASPNET-MVC-sitemap-provider-with-security-trimming.aspx">ASP.NET MVC sitemap provider</a></li>
+	<li>CarTrackr uses my <a href="/post/2008/08/29/building-an-aspnet-mvc-sitemap-provider-with-security-trimming.aspx">ASP.NET MVC sitemap provider</a></li>
 	<li><a href="http://www.codeplex.com/csd">Configuration Section Designer</a> was used to create a custom configuration section</li>
 	<li>Extension methods are created for including Silverlight charts (rendered with <a href="http://www.visifire.com/">Visifire</a>)</li>
 	<li><a href="http://creatr.cc/creatr/" target="_blank">Web 2.0 logo creator</a> was used to generate a classy logo</li>

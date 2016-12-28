@@ -15,19 +15,19 @@ redirect_from:
 <p><em><a href="http://www.twittermatic.net/" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic - Schedule your Twitter updates" src="/images/twittermatic1015.png" border="0" alt="TwitterMatic - Schedule your Twitter updates" width="204" height="219" align="right" /></a></em><em>&ldquo;After having found a god-like guardian for his application, Knight Maarten The Brave Coffeedrinker found out that his application still had no functional front-end. It&rsquo;s OK to have a guardian and a barn in the cloud, but if there&rsquo;s nothing to guard, this is a bit useless. Having asked the carpenter and the smith of the village, our knight decided that the so-called &ldquo;ASP.NET MVC&rdquo; framework might help in his quest.&rdquo;</em></p>
 <p>This post is part of a series on how we built <a href="http://www.twittermatic.net/" target="_blank">TwitterMatic.net</a>. Other parts:</p>
 <ul>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx">Part 1: Introduction </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-2-Creating-an-Azure-project.aspx">Part 2: Creating an Azure project </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-3-Store-data-in-the-cloud.aspx">Part 3: Store data in the cloud </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-4-Authentication-and-membership.aspx">Part 4: Authentication and membership </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-5-the-front-end.aspx">Part 5: The front end </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-6-The-back-end.aspx">Part 6: The back-end </a></li>
-<li><a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-7-Deploying-to-the-cloud.aspx">Part 7: Deploying to the cloud </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-1-introduction.aspx">Part 1: Introduction </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-2-creating-an-azure-project.aspx">Part 2: Creating an Azure project </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-3-store-data-in-the-cloud.aspx">Part 3: Store data in the cloud </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-4-authentication-and-membership.aspx">Part 4: Authentication and membership </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-5-the-front-end.aspx">Part 5: The front end </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-6-the-back-end.aspx">Part 6: The back-end </a></li>
+<li><a href="/post/2009/07/02/how-we-built-twittermaticnet-part-7-deploying-to-the-cloud.aspx">Part 7: Deploying to the cloud </a></li>
 </ul>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-5-the-front-end.aspx&amp;title=How we built TwitterMatic.net - Part 5: the front-end">
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-5-the-front-end.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
 <h2>The front-end</h2>
-<p>In <a href="/post/2009/07/02/How-we-built-TwitterMaticnet-Part-2-Creating-an-Azure-project.aspx">part 2 of this series</a>, we have already created the basic ASP.NET MVC structure in the web role project. There are few action methods and views to create: we need one for displaying our scheduled tweets and one for scheduling a tweet. We&rsquo;ll concentrate on the latter in this post.</p>
+<p>In <a href="/post/2009/07/02/how-we-built-twittermaticnet-part-2-creating-an-azure-project.aspx">part 2 of this series</a>, we have already created the basic ASP.NET MVC structure in the web role project. There are few action methods and views to create: we need one for displaying our scheduled tweets and one for scheduling a tweet. We&rsquo;ll concentrate on the latter in this post.</p>
 <h3>Action methods</h3>
 <p>The <em>Create</em> action method will look like this:</p>
 <p>[code:c#]</p>

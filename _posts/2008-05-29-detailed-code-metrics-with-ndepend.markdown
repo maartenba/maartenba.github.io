@@ -13,7 +13,7 @@ redirect_from:
  - /post/2008/05/29/detailed-code-metrics-with-ndepend.aspx.html
 ---
 <p>
-A while ago, I blogged about <a href="/post/2008/02/Code-performance-analysis-in-Visual-Studio-2008.aspx" target="_blank">code performance analysis in Visual Studio 2008</a>. Using profiling and hot path tracking, I measured code performance and was able to react to that. Last week, <a href="http://codebetter.com/blogs/patricksmacchia/" target="_blank">Patrick Smacchia</a> contacted me asking if I wanted to test his project <a href="http://www.ndepend.com/" target="_blank">NDepend</a>. He promised me NDepend would provide more insight in my applications. Let&#39;s test that! 
+A while ago, I blogged about <a href="/post/2008/02/code-performance-analysis-in-visual-studio-2008.aspx" target="_blank">code performance analysis in Visual Studio 2008</a>. Using profiling and hot path tracking, I measured code performance and was able to react to that. Last week, <a href="http://codebetter.com/blogs/patricksmacchia/" target="_blank">Patrick Smacchia</a> contacted me asking if I wanted to test his project <a href="http://www.ndepend.com/" target="_blank">NDepend</a>. He promised me NDepend would provide more insight in my applications. Let&#39;s test that! 
 </p>
 <p>
 After <a href="http://www.ndepend.com/NDependDownload.aspx" target="_blank">downloading</a>, extracting and starting NDepend, an almost familiar interface shows up. Unfortunately, the interface that shows up after analyzing a set of assemblies is a little bit overwhelming... Note that this overwhelming feeling fades away after 15 minutes: the interface shows the information you want in a very efficient way! Here&#39;s the analysis of a personal &quot;wine tracking&quot; application I wrote 2 years ago. 

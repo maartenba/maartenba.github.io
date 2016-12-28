@@ -16,12 +16,12 @@ redirect_from:
 This is the second post in my series on Data Driven Testing in Visual Studio 2008. The first post focusses on Data Driven Testing in regular Unit Tests. This part will focus on the same in web testing. 
 </p>
 <ul>
-	<li><a href="/post/2008/02/Data-Driven-Testing-in-Visual-Studio-2008---Part-1.aspx" target="_blank">Data Driven Testing in Visual Studio 2008 - Part 1 - Unit testing</a> </li>
-	<li><a href="/post/2008/02/Data-Driven-Testing-in-Visual-Studio-2008---Part-2.aspx" target="_blank">Data Driven Testing in Visual Studio 2008 - Part 2 - Web testing</a> </li>
+	<li><a href="/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx" target="_blank">Data Driven Testing in Visual Studio 2008 - Part 1 - Unit testing</a> </li>
+	<li><a href="/post/2008/02/data-driven-testing-in-visual-studio-2008---part-2.aspx" target="_blank">Data Driven Testing in Visual Studio 2008 - Part 2 - Web testing</a> </li>
 </ul>
 <h2>Web Testing</h2>
 <p>
-I assume you have read my <a href="/post/2008/02/Data-Driven-Testing-in-Visual-Studio-2008---Part-1.aspx" target="_blank">previous post</a> and saw the cool user interface I created. Let&#39;s first add some code to that, focussing on the <em>TextBox_TextChanged</em> event handler that is linked to <em>TextBox1</em> and <em>TextBox2</em>. 
+I assume you have read my <a href="/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx" target="_blank">previous post</a> and saw the cool user interface I created. Let&#39;s first add some code to that, focussing on the <em>TextBox_TextChanged</em> event handler that is linked to <em>TextBox1</em> and <em>TextBox2</em>. 
 </p>
 <p>
 [code:c#] 
@@ -66,7 +66,7 @@ You&#39;ll notice an entry on the left for each request that is being fired. Whe
 </p>
 <h2>Data Driven Web testing</h2>
 <p>
-There&#39;s our web test! But it&#39;s not data driven yet... First thing to do is linking the database we created in <a href="/post/2008/02/Data-Driven-Testing-in-Visual-Studio-2008---Part-1.aspx" target="_blank">part 1</a> by clicking the &quot;<img style="border: 0px" src="/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part2_A33C/image_bcfa582e-41f3-49f2-9168-926d5981bed1.png" border="0" alt="Add datasource" width="13" height="14" />&nbsp; Add Datasource&quot; button. Finish the wizard by selecting the database and the correct table. Afterwards, you can pick one of the Form Post Parameters and assign the value from our newly added datasource. Do this for each step in our test: the first step should fill TextBox1, the second should fill TextBox1 and TextBox2. 
+There&#39;s our web test! But it&#39;s not data driven yet... First thing to do is linking the database we created in <a href="/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx" target="_blank">part 1</a> by clicking the &quot;<img style="border: 0px" src="/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part2_A33C/image_bcfa582e-41f3-49f2-9168-926d5981bed1.png" border="0" alt="Add datasource" width="13" height="14" />&nbsp; Add Datasource&quot; button. Finish the wizard by selecting the database and the correct table. Afterwards, you can pick one of the Form Post Parameters and assign the value from our newly added datasource. Do this for each step in our test: the first step should fill TextBox1, the second should fill TextBox1 and TextBox2. 
 </p>
 <p align="center">
 <img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part2_A33C/image_b1a618a0-1642-4b2e-85fd-4a0997f272b8.png" border="0" alt="Bind Form Post Parameters" width="684" height="279" /> 

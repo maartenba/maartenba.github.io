@@ -14,12 +14,12 @@ redirect_from:
 ---
 <p>One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:</p>
 <ul>
-<li><a href="/post/2011/03/09/Put-your-cloud-on-a-diet-(or-Windows-Azure-and-scaling-why).aspx">Put your cloud on a diet (or: Windows Azure and scaling: why?)</a></li>
-<li><a href="/post/2011/03/21/Windows-Azure-and-scaling-how-(NET).aspx">Windows Azure and scaling: how? (.NET)</a> </li>
+<li><a href="/post/2011/03/09/put-your-cloud-on-a-diet-(or-windows-azure-and-scaling-why).aspx">Put your cloud on a diet (or: Windows Azure and scaling: why?)</a></li>
+<li><a href="/post/2011/03/21/windows-azure-and-scaling-how-(net).aspx">Windows Azure and scaling: how? (.NET)</a> </li>
 <li>Windows Azure and scaling: how? (PHP) &ndash; the post you are currently reading </li>
 </ul>
 <h2>Creating and uploading a management certificate</h2>
-<p>In order to keep things DRY (Don&rsquo;t Repeat Yourself), I&rsquo;ll just link you to the previous post (<a href="/post/2011/03/09/Windows-Azure-and-scaling-how-(NET).aspx">Windows Azure and scaling: how? (.NET)</a>) for this one.</p>
+<p>In order to keep things DRY (Don&rsquo;t Repeat Yourself), I&rsquo;ll just link you to the previous post (<a href="/post/2011/03/09/windows-azure-and-scaling-how-(net).aspx">Windows Azure and scaling: how? (.NET)</a>) for this one.</p>
 <p>For PHP however, you&rsquo;ll be needing a .pem certificate. Again, for the lazy, here&rsquo;s mine (<a href="/files/2011/3/management.pfx">management.pfx (4.05 kb)</a>, <a href="/files/2011/3/management.cer">management.cer (1.18 kb)</a> and <a href="/files/2011/3/management.pem">management.pem (5.11 kb)</a>). If you want to create one yourself, check <a href="https://www.sslshopper.com/ssl-converter.html" target="_blank">this site where you can convert and generate certificates</a>.</p>
 <h2>Building a small command-line scaling tool (in PHP)</h2>
 <p>In order to be able to scale automatically, let&rsquo;s build a small command-line tool in PHP. The idea is that you will be able to run the following command on a console to scale to 4 instances:</p>

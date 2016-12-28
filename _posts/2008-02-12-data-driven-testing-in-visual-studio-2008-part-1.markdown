@@ -13,14 +13,14 @@ redirect_from:
  - /post/2008/02/12/data-driven-testing-in-visual-studio-2008-part-1.aspx.html
 ---
 <p>
-Last week, I blogged about <a href="/post/2008/02/Code-performance-analysis-in-Visual-Studio-2008.aspx" target="_blank">code performance analysis in Visual Studio 2008</a>. Since that topic provoked <a href="/post/2008/02/Code-performance-analysis-in-Visual-Studio-2008.aspx#comment" target="_blank">lots of comments</a> (thank you <a href="http://www.bartonline.be" target="_blank">Bart</a> for associating &quot;hotpaths&quot; with &quot;hotpants&quot;), thought about doing another post on code quality in .NET. 
+Last week, I blogged about <a href="/post/2008/02/code-performance-analysis-in-visual-studio-2008.aspx" target="_blank">code performance analysis in visual studio 2008</a>. since that topic provoked <a href="/post/2008/02/code-performance-analysis-in-visual-studio-2008.aspx#comment" target="_blank">lots of comments</a> (thank you <a href="http://www.bartonline.be" target="_blank">Bart</a> for associating &quot;hotpaths&quot; with &quot;hotpants&quot;), thought about doing another post on code quality in .NET. 
 </p>
 <p>
 This post will be the first of two on Data Driven Testing. This part will focus on Data Driven Testing in regular Unit Tests. The second part will focus on the same in web testing. 
 </p>
 <ul>
-	<li><a href="/post/2008/02/Data-Driven-Testing-in-Visual-Studio-2008---Part-1.aspx" target="_blank">Data Driven Testing in Visual Studio 2008 - Part 1 - Unit testing</a></li>
-	<li><a href="/post/2008/02/Data-Driven-Testing-in-Visual-Studio-2008---Part-2.aspx" target="_blank">Data Driven Testing in Visual Studio 2008 - Part 2 - Web testing</a></li>
+	<li><a href="/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx" target="_blank">Data Driven Testing in Visual Studio 2008 - Part 1 - Unit testing</a></li>
+	<li><a href="/post/2008/02/data-driven-testing-in-visual-studio-2008---part-2.aspx" target="_blank">Data Driven Testing in Visual Studio 2008 - Part 2 - Web testing</a></li>
 </ul>
 <h2>Data Driven Testing?</h2>
 <p>
