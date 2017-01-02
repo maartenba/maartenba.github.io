@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Exploring .NET managed heap with ClrMD"
-date: 2016-12-27 08:51:00 +0100
+date: 2017-01-03 08:51:00 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -17,7 +17,7 @@ So what is ClrMD? ClrMD is the short name for the [Microsoft.Diagnostics.Runtime
 
 To get started with ClrMD, create a new Console Application and [`Install-Package Microsoft.Diagnostics.Runtime`](http://www.nuget.org/packages/Microsoft.Diagnostics.Runtime). Once we have that, we can start making use of ClrMD's `DataTarget` class to work with either a dump file or by attaching to a running process.
 
-![Using ClrMD DataTarget to attach to a process](/images/2016-12-28-exploring-.net-managed-heap-with-clrmd/datatarget-attachtoprocess.png)
+![Using ClrMD DataTarget to attach to a process](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/datatarget-attachtoprocess.png)
 
 <p class="notice">
   <strong>Quick note:</strong>
@@ -149,11 +149,11 @@ There is much more to the type system than what I will explain here, but it's go
 
 When writing code, we always have the choice to work with Value Types (allocated on the stack) or Reference Types (allocated on the heap). Value types are quite simple in that they are a simple pointer to a few places in memory containing their embedded data. The CLR knows about the values stored and their size, so it knows the next field's offset in memory.
 
-![Stack allocation of value types](/images/2016-12-28-exploring-.net-managed-heap-with-clrmd/stack.png)
+![Stack allocation of value types](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/stack.png)
 
 For reference types, things are slightly more complicated. They are allocated on the heap, which we'll explore in a bit, and contain a bunch or references to metadata about the reference type, such as which interfaces are defined, where to find the methods that can be executed, ... 
 
-![Heap allocation of reference types](/images/2016-12-28-exploring-.net-managed-heap-with-clrmd/heap.png)
+![Heap allocation of reference types](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/heap.png)
 
 Each instance of a Reference Type contains pointers to information the runtime can use to deal with Garbage Collection, Type information (RTTI - Runtime Type Information) and so on. Or in other words: a mapping of memory onto a table of information about the structure of our class, where its methods live, ... We will see this in ClrMD as well: if we want to read an object, we'll have to know about this and ask the CLR explicitly for type information.
 
@@ -271,7 +271,7 @@ class Clock
 Even though we are disposing the `Clock` object, its `OnTick` method is still referenced from the `Timer` class' `Tick` event, essentially preventing it from being garbage collected. In other words: this is a simple example of a potential memory leak, as our `Clock` will not be collected until we clean up that event handler. When using a profiler like [JetBrains dotMemory](http://www.jetbrains.com/dotmemory), we'd be able to visualize the retention path of our `Clock` object. 
 The profiler shows us the path from the GC root to our object, helping us in figuring out why it is in memory:
 
-![Object retention path in JetBrains dotMemory](/images/2016-12-28-exploring-.net-managed-heap-with-clrmd/dotmemory-retention.png)
+![Object retention path in JetBrains dotMemory](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/dotmemory-retention.png)
 
 <p class="notice">
   <strong>Quick note:</strong>
@@ -385,7 +385,7 @@ private static bool GetPathToObject(ClrHeap heap, ulong objectPointer, Stack<ulo
 
 Et voila! If we now run this code, we'll get the same information dotMemory provided us with earlier (added profiler's diagram here as well):
 
-![Object retention path using ClrMD](/images/2016-12-28-exploring-.net-managed-heap-with-clrmd/clrmd-retention.png)
+![Object retention path using ClrMD](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/clrmd-retention.png)
 
 Usign a proper profiler is of course much easier, but one has to geek out every once in a while, no?
 
