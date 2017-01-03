@@ -387,7 +387,7 @@ Et voila! If we now run this code, we'll get the same information dotMemory prov
 
 ![Object retention path using ClrMD](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/clrmd-retention.png)
 
-Usign a proper profiler is of course much easier, but one has to geek out every once in a while, no?
+Using a proper profiler is of course much easier, but one has to geek out every once in a while, no?
 
 ## Conclusion
 
