@@ -138,7 +138,7 @@ Now, I opened this post saying we'd explore the .NET memory heap, and so far we'
 
 ## Structure of the managed heap
 
-How would you write a managed type system and store it in memory? Store full objects wih type information? Store values and type information separately? In another way? I often joke to people that programming is nothing more than mapping one data structure to another and then to another, with some logic in between. The CLR is not that different from this claim: it hold several tables of data and has some logic to map and combine them into what we as developers work with while writing code.
+How would you write a managed type system and store it in memory? Store full objects with type information? Store values and type information separately? In another way? I often joke to people that programming is nothing more than mapping one data structure to another and then to another, with some logic in between. The CLR is not that different from this claim: it hold several tables of data and has some logic to map and combine them into what we as developers work with while writing code.
 
 <p class="notice">
   <strong>Quick note:</strong>
