@@ -21,6 +21,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 * March 2017 - Wroc# - Wroclaw, Poland
 * March 2017 - ConFoo Montreal - Montreal, Canada
 * April 2017 - iSense - Gouda, Netherlands
+* June 2017 - DevSum - Stockholm, Sweden
 
 ## Past talks
 
