@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2016-12-20 01:34:00 +0200
+date: 2017-01-18 01:34:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -18,8 +18,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
-* January, 2017 - Copenhagen Azure User Group - Copenhagen, Denmark
-* January, 2017 - IglooConf - Helsinki, Finland
 * March 2017 - Wroc# - Wroclaw, Poland
 * March 2017 - ConFoo Montreal - Montreal, Canada
 * April 2017 - iSense - Gouda, Netherlands
@@ -28,6 +26,9 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2017-1-19 | What is going on - Application diagnostics on Azure | IglooConf 2017 | Finland - Helsinki | [download](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group) |  | 
+| 2017-1-17 | Exploring .NET’s memory management – a trip down memory lane | .NET User Group | Denmark - Copenhagen | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
+| 2017-1-17 | What is going on - Application diagnostics on Azure | .NET User Group | Denmark - Copenhagen | [download](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group) |  | 
 | 2016-10-4 | Sherlock Homepage - A detective story about running large web services | TechDays 2016 | Netherlands - Amsterdam | [download](http://www.slideshare.net/maartenba/sherlock-homepage-a-detective-story-about-running-large-web-services-ndc-oslo) |  | 
 | 2016-9-22 | Sherlock Homepage - A detective story about running large web services | CloudBurst 2016 | Sweden - Stockholm | [download](http://www.slideshare.net/maartenba/sherlock-homepage-a-detective-story-about-running-large-web-services-ndc-oslo) |  | 
 | 2016-8-4 | Get more than a cache back! The Microsoft Azure (Redis) Cache | NDC Sydney 2016 | Australia - Sydney | [download](http://www.slideshare.net/maartenba/get-more-than-a-cache-back-the-microsoft-azure-redis-cache-ndc-oslo) | [download](https://vimeo.com/131641614) | 
