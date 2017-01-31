@@ -9,7 +9,7 @@ tags: ["General", "ICT", "CSharp", "Development", "Azure"]
 author: Maarten Balliauw
 ---			
 
-Two weeks ago I had a wonderful experience speaking [at a small conference in Finland](http://www.iglooconf.fi). The talk was titled *What is going on - Application diagnostics on Azure* ([slides](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group) and focused on the importance of semantic logging and how Azure Application Insights (AppInsights) can help make sense of that data and correlate it with other telemetry coming from the application server. What I did not cover in that talk was AppInsights telemetry processors - essentially a pipeline through which your server-side AppInsights data passes before it is sent off to the giant data store that is the AppInsights service.
+Two weeks ago I had a wonderful experience speaking [at a small conference in Finland](http://www.iglooconf.fi). The talk was titled *What is going on - Application diagnostics on Azure* ([slides](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group)) and focused on the importance of semantic logging and how Azure Application Insights (AppInsights) can help make sense of that data and correlate it with other telemetry coming from the application server. What I did not cover in that talk was AppInsights telemetry processors - essentially a pipeline through which your server-side AppInsights data passes before it is sent off to the giant data store that is the AppInsights service.
 
 Some use cases for fiddling with the data that is sent off to the AppInsights backend:
 
