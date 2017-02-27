@@ -105,7 +105,9 @@ http://www.CodeHighlighter.com/
 <ul>
 <li>Everything is a package 
 <li>Everything specifies their dependencies explicitly (well, almost everything) 
-<li>It’s human readable and machine readable</li></ul>
+<li>It’s human readable and machine readable</li>
+</ul>
+
 <p>So let’s see what we would have to do if we want to automate a build of, say, the <a href="https://github.com/aspnet/EntityFramework">Entity Framework repository on GitHub</a>.</p>
 <h2>Automated building of ASP.NET 5 projects</h2>
 <p>This is going to be so dissappointing when you read it: to build Entity Framework, you run <em>build.cmd</em> (or <em>build.sh</em> on non-Windows OS). That’s it. It will compile everything into assemblies in NuGet packages, run tests and that’s it. But what does this <em>build.cmd</em> do, exactly? Let’s dissect it! Here’s the source code that’s in there at time of writing this blog post:</p>
@@ -156,15 +158,18 @@ packages</span><span style="color: rgb(0, 0, 0);">\</span><span style="color: rg
 <li>The KoreBuild package contains a few things (go on, use <a href="http://npe.codeplex.com">NuGet Package Explorer</a> and see, I’ll wait) 
 <ul>
 <li>A <em>kvm.ps1</em>, which is the bootstrapper for the ASP.NET 5 runtime that installs a specific runtime version and <em>kpm</em>, the package manager. 
-<li>A bunch of <em>.shade</em> files</li></ul></li>
+<li>A bunch of <em>.shade</em> files</li>
+</ul></li>
 <li>Using that<em> kvm.ps1</em>, the latest CoreCLR runtime is installed and activated 
-<li><em>Sake.exe</em> is run from the Sake package</li></ul>
+<li><em>Sake.exe</em> is run from the Sake package</li>
+</ul>
 <p>Dissappointment, I can feel it! This file does botstrap having the CoreCLR runtime on the build machine, but how is the <em>actual</em> build performed? The answer lies in the<em> .shade</em> files from that KoreBuild package. A lot of information is there, but distilling it all, here’s how a build is done using Sake:</p>
 <ul>
 <li>All <em>bin</em> folders underneath the current directory are removed. Consider this the old-fashioned “clean” target in msbuild. 
 <li>The <em>kpm restore</em> command is run from the folder where the <em>global.json</em> file is. This will ensure that all dependencies for all project files are downloaded and made available on the machine the build is running on. 
 <li>In every folder containing a<em> project.json</em> file, the <em>kpm build</em> command is run, which compiles it all and generates a NuGet package for every project. 
-<li>In every folder containing a<em> project.json</em> file where a <em>command</em> element is found that is named test, the <em>k test</em> command is run to execute unit tests</li></ul>
+<li>In every folder containing a<em> project.json</em> file where a <em>command</em> element is found that is named test, the <em>k test</em> command is run to execute unit tests</li>
+</ul>
 <p>This is a simplified version, as it also cleans and restores npm and bower, but you get the idea. A build is pretty easy now. KoreBuild and Sake do this, but we could also just run all steps in the same order to achieve a fully working build. So that’s what I did…</p>
 <h2>Automated building of ASP.NET 5 projects with TeamCity</h2>
 <p>To see if it all was true, I decided to try and automate things using TeamCity. Entity Framework would be to easy as that’s just calling build.bat. Which is awesome! </p>
@@ -229,7 +234,8 @@ http://www.CodeHighlighter.com/
 <li>Build all projects 
 <li>Test one project 
 <li>Test all projects 
-<li>Package application</li></ul>
+<li>Package application</li>
+</ul>
 <p>PS: Thanks <a href="http://www.twitter.com/techmike2kx">Mike</a> for helping me out with some PowerShell goodness!</p>
 
 {% include imported_disclaimer.html %}
