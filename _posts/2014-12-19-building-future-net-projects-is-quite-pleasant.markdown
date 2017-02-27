@@ -99,7 +99,8 @@ http://www.CodeHighlighter.com/
 <li>A description (as I have been preaching a long time: every project is now a package!) 
 <li>Where is our source code stored? II n this case, all .cs files in all folders and some in a shared folder one level up. 
 <li>Dependencies of our project. These are identifiers of other packages, that will either be searched for on NuGet, or on the filesystem. Since every project is a package, there is no difference between a project or a NuGet package. During development, you can depend on a project. When released, you can depend on a package. Convenient! 
-<li>The frameworks supported and the framework components we require.</li></ul>
+<li>The frameworks supported and the framework components we require.</li>
+</ul>
 <p>That’s the project system. These are not all supported elements, <a href="https://github.com/aspnet/Home/wiki/Project.json-file">there are more</a>. But generally speaking: our project now defines what it needs. One I like is the option to <a href="https://github.com/aspnet/Home/wiki/Project.json-file#scripts">run scripts at various stages</a> of the project’s lifecycle and build lifecycle, such as restoring npm or bower packages. SLight thorn in my eye there is that the examples out there all assume npm and bower are on the build machine. Yes, that’s a hidden dependency right there…</p>
 <p>The good things?</p>
 <ul>
