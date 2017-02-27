@@ -150,11 +150,13 @@ packages</span><span style="color: rgb(0, 0, 0);">\</span><span style="color: rg
 <li>Using NuGet, 2 packages are installed (currently from <a href="https://www.myget.org/gallery/aspnetvnext">the alpha feed the ASP.NET team has on MyGet</a>, but I assume these will end up on <a href="http://www.nuget.org">NuGet.org</a> someday) 
 <ul>
 <li>KoreBuild 
-<li>Sake</li></ul>
+<li>Sake</li>
+</ul></li>
+
 <li>The KoreBuild package contains a few things (go on, use <a href="http://npe.codeplex.com">NuGet Package Explorer</a> and see, I’ll wait) 
 <ul>
 <li>A <em>kvm.ps1</em>, which is the bootstrapper for the ASP.NET 5 runtime that installs a specific runtime version and <em>kpm</em>, the package manager. 
-<li>A bunch of <em>.shade</em> files</li></ul>
+<li>A bunch of <em>.shade</em> files</li></ul></li>
 <li>Using that<em> kvm.ps1</em>, the latest CoreCLR runtime is installed and activated 
 <li><em>Sake.exe</em> is run from the Sake package</li></ul>
 <p>Dissappointment, I can feel it! This file does botstrap having the CoreCLR runtime on the build machine, but how is the <em>actual</em> build performed? The answer lies in the<em> .shade</em> files from that KoreBuild package. A lot of information is there, but distilling it all, here’s how a build is done using Sake:</p>
@@ -228,5 +230,7 @@ http://www.CodeHighlighter.com/
 <li>Test one project 
 <li>Test all projects 
 <li>Package application</li></ul>
-<p>PS: Thanks <a href="http://www.twitter.com/techmike2kx">Mike</a> for helping me out with some PowerShell goodness!</p>
-{% include imported_disclaimer.html %}
+<p>PS: Thanks <a href="http://www.twitter.com/techmike2kx">Mike</a> for helping me out with some PowerShell goodness!</p>
+
+{% include imported_disclaimer.html %}
+
