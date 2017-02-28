@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-01-18 01:34:00 +0200
+date: 2017-02-28 01:34:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -21,6 +21,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 * March 2017 - Wroc# - Wroclaw, Poland
 * March 2017 - ConFoo Montreal - Montreal, Canada
 * April 2017 - iSense - Gouda, Netherlands
+* May 2017 - dotNetCologne - Cologne, Germany
 * June 2017 - DevSum - Stockholm, Sweden
 
 ## Past talks
