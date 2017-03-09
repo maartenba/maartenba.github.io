@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-03-04 01:34:00 +0200
+date: 2017-03-08 01:34:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -18,7 +18,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
-* March 2017 - ConFoo Montreal - Montreal, Canada
 * April 2017 - iSense - Gouda, Netherlands
 * April 2017 - VISUG User Group - Zaventem, Belgium
 * May 2017 - dotNetCologne - Cologne, Germany
@@ -28,6 +27,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2017-3-9 | DNS for Developers | ConFoo Montreal 2017 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/dns-for-developers-confoo-montreal) |  | 
+| 2017-3-8 | Get more than a cache back! | ConFoo Montreal 2017 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/get-more-than-a-cache-back-confoo-montreal) |  | 
 | 2017-3-3 | What is going on - Application diagnostics on Azure | WrocSharp 2017 | Poland - Wroclaw | [download](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group) |  | 
 | 2017-1-19 | What is going on - Application diagnostics on Azure | IglooConf 2017 | Finland - Helsinki | [download](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group) |  | 
 | 2017-1-17 | Exploring .NET’s memory management – a trip down memory lane | .NET User Group | Denmark - Copenhagen | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
