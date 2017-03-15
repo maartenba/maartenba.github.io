@@ -21,6 +21,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 * April 2017 - iSense - Gouda, Netherlands
 * April 2017 - VISUG User Group - Zaventem, Belgium
 * May 2017 - dotNetCologne - Cologne, Germany
+* May 2017 - dotNext - Saint Petersburg, Russia
 * June 2017 - DevSum - Stockholm, Sweden
 
 ## Past talks
