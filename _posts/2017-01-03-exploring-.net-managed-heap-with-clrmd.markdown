@@ -132,7 +132,7 @@ Here's the output:
 	
 	Stack trace:
 
-Not very spectacular as an example, as the application we're attached to is just a simple console application which occopies the foreground thread with waiting for input (`System.Console.ReadLine()`), but nevertheless quite cool to be able to access that information.
+Not very spectacular as an example, as the application we're attached to is just a simple console application which occupies the foreground thread with waiting for input (`System.Console.ReadLine()`), but nevertheless quite cool to be able to access that information.
 
 Now, I opened this post saying we'd explore the .NET memory heap, and so far we've only looked at how to attach to a process using ClrMD and print the stacktraces of all of our threads to the output. Let's hold true to that promise - by first stepping back a little bit...
 
