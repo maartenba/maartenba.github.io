@@ -94,7 +94,7 @@ Now how to build one? Pretty simple: all you need is a `Program.cs` / a main ent
         }
     }
 
-When we call `dotnet sometool`, the .NET CLI will launch `dotnet-sometool.exe` and pass all other arguments in. That's pretty much it!
+When we call `dotnet sometool`, the .NET CLI will launch `dotnet-sometool.exe` and pass all other arguments in. We can then parse these and fire up our own logic.
 
 Here's some more info on [extending the .NET CLI](https://github.com/dotnet/docs/blob/master/docs/core/tools/extensibility.md).
 
