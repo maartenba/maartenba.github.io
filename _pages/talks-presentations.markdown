@@ -28,6 +28,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2017-4-6 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Webinar | Online -  | [download](https://www.slideshare.net/maartenba/exploring-net-memory-management-jetbrains-webinar) |  | 
 | 2017-3-9 | DNS for Developers | ConFoo Montreal 2017 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/dns-for-developers-confoo-montreal) |  | 
 | 2017-3-8 | Get more than a cache back! | ConFoo Montreal 2017 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/get-more-than-a-cache-back-confoo-montreal) |  | 
 | 2017-3-3 | What is going on - Application diagnostics on Azure | WrocSharp 2017 | Poland - Wroclaw | [download](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group) |  | 
