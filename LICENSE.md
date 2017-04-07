@@ -5,7 +5,7 @@ This repository and contents made available at [http://blog.maartenballiauw.be](
 
 ## Content
 
-Blog content such as articles, page contents, images embedded in content, ... are &copy Copyright Maarten Balliauw
+Blog content such as articles, page contents, images embedded in content, ... are &copy; Copyright Maarten Balliauw
 
 ## Jekyll-based site generation templates - MIT license
 
