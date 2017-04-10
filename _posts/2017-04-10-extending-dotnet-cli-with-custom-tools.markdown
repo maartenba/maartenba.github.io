@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extending .NET CLI with custom tools - dotnet init initializes up your NuGet package"
+title: "Extending .NET CLI with custom tools - dotnet init initializes your NuGet package"
 date: 2017-04-10 06:20:00 +0100
 comments: true
 published: true
