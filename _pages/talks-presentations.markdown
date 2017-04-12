@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-03-08 01:34:00 +0200
+date: 2017-03-12 01:34:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -18,7 +18,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
-* April 2017 - iSense - Gouda, Netherlands
 * April 2017 - VISUG User Group - Zaventem, Belgium
 * May 2017 - dotNetCologne - Cologne, Germany
 * May 2017 - dotNext - Saint Petersburg, Russia
@@ -28,6 +27,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2017-4-11 | Exploring .NET’s memory management – a trip down memory lane | iSense User Group | Netherlands - Gouda | [download](https://www.slideshare.net/maartenba/exploring-net-memory-management-isense) |  | 
+| 2017-4-11 | SignalR - Code, not toothpaste. | iSense User Group | Netherlands - Gouda | [download](https://www.slideshare.net/maartenba/signalr-realtime-clientserver-communication-isense) |  | 
 | 2017-4-6 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Webinar | Online | [download](https://www.slideshare.net/maartenba/exploring-net-memory-management-jetbrains-webinar) |  | 
 | 2017-3-9 | DNS for Developers | ConFoo Montreal 2017 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/dns-for-developers-confoo-montreal) |  | 
 | 2017-3-8 | Get more than a cache back! | ConFoo Montreal 2017 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/get-more-than-a-cache-back-confoo-montreal) |  | 
