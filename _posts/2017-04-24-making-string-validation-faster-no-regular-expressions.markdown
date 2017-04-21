@@ -42,7 +42,7 @@ public string Identifier
 }
 ```
 
-Aren't regular expressions, especially those with `RegexOptions.Compiled`, supposed to be super fast? And especially in this case, where we're basically validating the string consists of a set of allowed characters, and making sure the string length is between 1 and 254 characters in length?
+Aren't regular expressions, especially those with `RegexOptions.Compiled`, supposed to be super fast? And especially in this case, where we're only validating the string consists of a set of allowed characters, and making sure the string length is between 1 and 254 characters in length?
 
 Some [DuckDuckGo](https://www.duckduckgo.com)-ing (horrible as a verb...) later, we found a few interesting articles:
 
