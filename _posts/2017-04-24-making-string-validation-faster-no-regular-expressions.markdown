@@ -51,7 +51,7 @@ Some [DuckDuckGo](https://www.duckduckgo.com)-ing (horrible as a verb...) later,
 
 Unfortunately, none of these seemed to explain the numbers we were seeing. And doing the math on the number of calls times regex execution time, the regex was actually fast enough, the number of calls was the big issue...
 
-So how could we make this faster? Trial and error! We decided to try a couple of solutions to the problem and benchmark them. But before we bencmark: let's look at the solution candidates first.
+So how could we make this faster? Trial and error! We decided to try a couple of solutions to the problem and benchmark them. But before we benchmark: let's look at the solution candidates first.
 
 ## Candidates for improvement
 
@@ -71,11 +71,11 @@ Given `RegexOptions.Compiled` is considered to not always be the best option, we
 Regex.IsMatch("Some.Sample-Data.To-Valid@te", "^[A-Za-z0-9@/._-]{1,254}$")
 ```
 
-Our common sense told us this would not be better, but the only way to find out i by trying.
+Our common sense told us this would not be better, but the only way to find out is by trying.
 
 ### Candidate 2: using a `Regex` instance
 
-While MSDN tols us that regular expressions are cached when using `Regex.IsMatch()` and others, we decided to also try another option: creating an instance of `Regex` and using that one. Or, in code, we'd create one instance:
+While MSDN told us that regular expressions are cached when using `Regex.IsMatch()` and others, we decided to also try another option: creating an instance of `Regex` and using that one. Or, in code, we'd create one instance:
 
 ```csharp
 private static readonly Regex _precompiledRegex = new Regex("^[A-Za-z0-9@/._-]{1,254}$", RegexOptions.Compiled);
