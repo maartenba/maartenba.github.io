@@ -116,7 +116,7 @@ Always fascinated by the inner workings of things, I decided to open and decompi
 
 ![Decompiled regular expression in dotPeek](/images/2017/04/regex-decompiled.png)
 
-A factory (used internally by the Regex engine), a `ValidationPattern` (as expected) and `ValidationPatternRunner1` - the class that hold the regular expression logic. Don't be scared, but this simple regex (again validating character classes + string length) does seem quite elaborate:
+A factory (used internally by the Regex engine), a `ValidationPattern` (as expected) and `ValidationPatternRunner1` - the class that holds the regular expression logic. Don't be scared, but this simple regex (again validating character classes + string length) does seem quite elaborate:
 
 ```csharp
     public override void Go()
@@ -399,23 +399,23 @@ Frequency=2240912 Hz, Resolution=446.2469 ns, Timer=TSC
 Runtime=Clr  
 
 ```
- |                                     Method |       Job |       Jit | Platform | LaunchCount | TargetCount | WarmupCount |          Mean |     StdDev |        Median | Scaled | Scaled-StdDev |
- |------------------------------------------- |---------- |---------- |--------- |------------ |------------ |------------ |-------------- |----------- |-------------- |------- |-------------- |
- |                 Regex.IsMatch - no options |       Clr | LegacyJit |      X86 |     Default |     Default |     Default | 1,226.8297 ns |  3.5225 ns | 1,227.3018 ns |   1.17 |          0.01 |
- | Regex.IsMatch - with RegexOptions.Compiled |       Clr | LegacyJit |      X86 |     Default |     Default |     Default | 1,047.4588 ns |  5.4065 ns | 1,047.4815 ns |   1.00 |          0.00 |
- |                     Regex instance.IsMatch |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |   687.6756 ns |  3.2074 ns |   687.6606 ns |   0.66 |          0.00 |
- |   Assembly-compiled Regex instance.IsMatch |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |   678.6101 ns |  3.1376 ns |   679.1363 ns |   0.65 |          0.00 |
- |                                Custom code |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |   232.7207 ns |  1.5766 ns |   233.4604 ns |   0.22 |          0.00 |
- |                 Regex.IsMatch - no options |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 | 1,223.2374 ns | 13.3485 ns | 1,224.9534 ns |   1.17 |          0.02 |
- | Regex.IsMatch - with RegexOptions.Compiled |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 | 1,046.5155 ns |  8.4462 ns | 1,046.1358 ns |   1.00 |          0.00 |
- |                     Regex instance.IsMatch |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |   691.9244 ns | 16.1136 ns |   687.4307 ns |   0.66 |          0.02 |
- |   Assembly-compiled Regex instance.IsMatch |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |   679.6252 ns |  8.4723 ns |   678.1218 ns |   0.65 |          0.01 |
- |                                Custom code |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |   222.1603 ns |  2.4627 ns |   221.7280 ns |   0.21 |          0.00 |
- |                 Regex.IsMatch - no options | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default | 1,264.0441 ns | 20.6973 ns | 1,269.0945 ns |   1.26 |          0.03 |
- | Regex.IsMatch - with RegexOptions.Compiled | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default | 1,001.7433 ns | 17.6897 ns | 1,003.1064 ns |   1.00 |          0.00 |
- |                     Regex instance.IsMatch | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |   626.9669 ns |  2.7593 ns |   626.6262 ns |   0.63 |          0.01 |
- |   Assembly-compiled Regex instance.IsMatch | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |   623.4043 ns |  3.1937 ns |   622.1284 ns |   0.62 |          0.01 |
- |                                Custom code | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |   168.9835 ns |  0.9644 ns |   168.8081 ns |   0.17 |          0.00 |
+ |                                     Method |       Job |       Jit | Platform | LaunchCount | TargetCount | WarmupCount |          Mean |     StdDev |        Median | Scaled |
+ |------------------------------------------- |---------- |---------- |--------- |------------ |------------ |------------ |-------------- |----------- |-------------- |------- |
+ |                 Regex.IsMatch - no options |       Clr | LegacyJit |      X86 |     Default |     Default |     Default | 1,226.8297 ns |  3.5225 ns | 1,227.3018 ns |   1.17 |
+ | Regex.IsMatch - with RegexOptions.Compiled |       Clr | LegacyJit |      X86 |     Default |     Default |     Default | 1,047.4588 ns |  5.4065 ns | 1,047.4815 ns |   1.00 |
+ |                     Regex instance.IsMatch |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |   687.6756 ns |  3.2074 ns |   687.6606 ns |   0.66 |
+ |   Assembly-compiled Regex instance.IsMatch |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |   678.6101 ns |  3.1376 ns |   679.1363 ns |   0.65 |
+ |                                Custom code |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |   232.7207 ns |  1.5766 ns |   233.4604 ns |   0.22 |
+ |                 Regex.IsMatch - no options |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 | 1,223.2374 ns | 13.3485 ns | 1,224.9534 ns |   1.17 |
+ | Regex.IsMatch - with RegexOptions.Compiled |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 | 1,046.5155 ns |  8.4462 ns | 1,046.1358 ns |   1.00 |
+ |                     Regex instance.IsMatch |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |   691.9244 ns | 16.1136 ns |   687.4307 ns |   0.66 |
+ |   Assembly-compiled Regex instance.IsMatch |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |   679.6252 ns |  8.4723 ns |   678.1218 ns |   0.65 |
+ |                                Custom code |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |   222.1603 ns |  2.4627 ns |   221.7280 ns |   0.21 |
+ |                 Regex.IsMatch - no options | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default | 1,264.0441 ns | 20.6973 ns | 1,269.0945 ns |   1.26 |
+ | Regex.IsMatch - with RegexOptions.Compiled | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default | 1,001.7433 ns | 17.6897 ns | 1,003.1064 ns |   1.00 |
+ |                     Regex instance.IsMatch | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |   626.9669 ns |  2.7593 ns |   626.6262 ns |   0.63 |
+ |   Assembly-compiled Regex instance.IsMatch | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |   623.4043 ns |  3.1937 ns |   622.1284 ns |   0.62 |
+ |                                Custom code | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |   168.9835 ns |  0.9644 ns |   168.8081 ns |   0.17 |
 
 First of all, there is no real difference between JIT versions. We sort of expected that but still wanted to see if there were any big changes in selecting the JIT version.
 
