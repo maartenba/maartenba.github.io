@@ -276,7 +276,13 @@ label_19:
     }
 ```
 
-That's... a lot of code for a simple validation. But nevertheless: it's all compiled, so performance may just be awesome!
+There is not a lot of documentaton on this [`Go()`](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexrunner.go?view=netframework-4.7) method, but reading through it we can see a few things:
+
+* It loops through the input string and checks various conditions
+* It makes a number of cals to `this.CheckTimeout()`, to verify the current processor tick count against a configured timeout tick count (so there are a few side-tracks in this code)
+* There are a few calls to `Capture()`and `Uncapture()`, the Regex-y stuff that keeps track of capture groups etc.
+
+That's... a lot of code to power a simple validation. But nevertheless: it's all compiled, so performance may just be awesome!
 
 ### Candidate 4: Custom code
 
