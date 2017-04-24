@@ -333,25 +333,7 @@ public class RegexVsCodeBenchmark
 
     private static bool Matches(string value)
     {
-        var len = value.Length;
-        var matches = len >= 1 && len <= 254;
-
-        if (matches)
-        {
-            for (int i = 0; i < len; i++)
-            {
-                matches = char.IsLetterOrDigit(value[i])
-                          || value[i] == '@'
-                          || value[i] == '/'
-                          || value[i] == '.'
-                          || value[i] == '_'
-                          || value[i] == '-';
-
-                if (!matches) return false;
-            }
-        }
-
-        return matches;
+        // code from above
     } 
 
     [Benchmark(Description = "Regex.IsMatch - no options")]
