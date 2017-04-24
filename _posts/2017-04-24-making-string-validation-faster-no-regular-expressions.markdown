@@ -405,23 +405,219 @@ Frequency=2240912 Hz, Resolution=446.2469 ns, Timer=TSC
 Runtime=Clr  
 
 ```
- |                                     Method |          Mean |     StdDev |        Median | Scaled |       Job |       Jit | Platform | LaunchCount | TargetCount | WarmupCount |
- |------------------------------------------- |-------------- |----------- |-------------- |------- |---------- |---------- |--------- |------------ |------------ |------------ |
- |                 Regex.IsMatch - no options | 1,226.8297 ns |  3.5225 ns | 1,227.3018 ns |   1.17 |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |
- | Regex.IsMatch - with RegexOptions.Compiled | 1,047.4588 ns |  5.4065 ns | 1,047.4815 ns |   1.00 |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |
- |                     Regex instance.IsMatch |   687.6756 ns |  3.2074 ns |   687.6606 ns |   0.66 |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |
- |   Assembly-compiled Regex instance.IsMatch |   678.6101 ns |  3.1376 ns |   679.1363 ns |   0.65 |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |
- |                                Custom code |   232.7207 ns |  1.5766 ns |   233.4604 ns |   0.22 |       Clr | LegacyJit |      X86 |     Default |     Default |     Default |
- |                 Regex.IsMatch - no options | 1,223.2374 ns | 13.3485 ns | 1,224.9534 ns |   1.17 |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |
- | Regex.IsMatch - with RegexOptions.Compiled | 1,046.5155 ns |  8.4462 ns | 1,046.1358 ns |   1.00 |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |
- |                     Regex instance.IsMatch |   691.9244 ns | 16.1136 ns |   687.4307 ns |   0.66 |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |
- |   Assembly-compiled Regex instance.IsMatch |   679.6252 ns |  8.4723 ns |   678.1218 ns |   0.65 |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |
- |                                Custom code |   222.1603 ns |  2.4627 ns |   221.7280 ns |   0.21 |   LongRun | LegacyJit |      X86 |           3 |         100 |          15 |
- |                 Regex.IsMatch - no options | 1,264.0441 ns | 20.6973 ns | 1,269.0945 ns |   1.26 | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |
- | Regex.IsMatch - with RegexOptions.Compiled | 1,001.7433 ns | 17.6897 ns | 1,003.1064 ns |   1.00 | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |
- |                     Regex instance.IsMatch |   626.9669 ns |  2.7593 ns |   626.6262 ns |   0.63 | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |
- |   Assembly-compiled Regex instance.IsMatch |   623.4043 ns |  3.1937 ns |   622.1284 ns |   0.62 | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |
- |                                Custom code |   168.9835 ns |  0.9644 ns |   168.8081 ns |   0.17 | RyuJitX64 |    RyuJit |      X64 |     Default |     Default |     Default |
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Mean</th>
+<th>StdDev</th>
+<th>Median</th>
+<th>Scaled</th>
+<th>Job</th>
+<th>Jit</th>
+<th>Platform</th>
+<th>LaunchCount</th>
+<th>TargetCount</th>
+<th>WarmupCount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regex.IsMatch - no options</td>
+<td>1,226.8297 ns</td>
+<td>3.5225 ns</td>
+<td>1,227.3018 ns</td>
+<td>1.17</td>
+<td>Clr</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Regex.IsMatch - with RegexOptions.Compiled</td>
+<td>1,047.4588 ns</td>
+<td>5.4065 ns</td>
+<td>1,047.4815 ns</td>
+<td>1.00</td>
+<td>Clr</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Regex instance.IsMatch</td>
+<td>687.6756 ns</td>
+<td>3.2074 ns</td>
+<td>687.6606 ns</td>
+<td>0.66</td>
+<td>Clr</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Assembly-compiled Regex instance.IsMatch</td>
+<td>678.6101 ns</td>
+<td>3.1376 ns</td>
+<td>679.1363 ns</td>
+<td>0.65</td>
+<td>Clr</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Custom code</td>
+<td>232.7207 ns</td>
+<td>1.5766 ns</td>
+<td>233.4604 ns</td>
+<td>0.22</td>
+<td>Clr</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Regex.IsMatch - no options</td>
+<td>1,223.2374 ns</td>
+<td>13.3485 ns</td>
+<td>1,224.9534 ns</td>
+<td>1.17</td>
+<td>LongRun</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>3</td>
+<td>100</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Regex.IsMatch - with RegexOptions.Compiled</td>
+<td>1,046.5155 ns</td>
+<td>8.4462 ns</td>
+<td>1,046.1358 ns</td>
+<td>1.00</td>
+<td>LongRun</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>3</td>
+<td>100</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Regex instance.IsMatch</td>
+<td>691.9244 ns</td>
+<td>16.1136 ns</td>
+<td>687.4307 ns</td>
+<td>0.66</td>
+<td>LongRun</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>3</td>
+<td>100</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Assembly-compiled Regex instance.IsMatch</td>
+<td>679.6252 ns</td>
+<td>8.4723 ns</td>
+<td>678.1218 ns</td>
+<td>0.65</td>
+<td>LongRun</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>3</td>
+<td>100</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Custom code</td>
+<td>222.1603 ns</td>
+<td>2.4627 ns</td>
+<td>221.7280 ns</td>
+<td>0.21</td>
+<td>LongRun</td>
+<td>LegacyJit</td>
+<td>X86</td>
+<td>3</td>
+<td>100</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Regex.IsMatch - no options</td>
+<td>1,264.0441 ns</td>
+<td>20.6973 ns</td>
+<td>1,269.0945 ns</td>
+<td>1.26</td>
+<td>RyuJitX64</td>
+<td>RyuJit</td>
+<td>X64</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Regex.IsMatch - with RegexOptions.Compiled</td>
+<td>1,001.7433 ns</td>
+<td>17.6897 ns</td>
+<td>1,003.1064 ns</td>
+<td>1.00</td>
+<td>RyuJitX64</td>
+<td>RyuJit</td>
+<td>X64</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Regex instance.IsMatch</td>
+<td>626.9669 ns</td>
+<td>2.7593 ns</td>
+<td>626.6262 ns</td>
+<td>0.63</td>
+<td>RyuJitX64</td>
+<td>RyuJit</td>
+<td>X64</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Assembly-compiled Regex instance.IsMatch</td>
+<td>623.4043 ns</td>
+<td>3.1937 ns</td>
+<td>622.1284 ns</td>
+<td>0.62</td>
+<td>RyuJitX64</td>
+<td>RyuJit</td>
+<td>X64</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Custom code</td>
+<td>168.9835 ns</td>
+<td>0.9644 ns</td>
+<td>168.8081 ns</td>
+<td>0.17</td>
+<td>RyuJitX64</td>
+<td>RyuJit</td>
+<td>X64</td>
+<td>Default</td>
+<td>Default</td>
+<td>Default</td>
+</tr></tbody></table>
 
 First of all, there is no real difference between JIT versions. We sort of expected that but still wanted to see if there were any big changes in selecting the JIT version.
 
