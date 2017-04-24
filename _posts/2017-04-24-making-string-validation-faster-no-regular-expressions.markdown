@@ -9,7 +9,7 @@ tags: ["General", "ICT", "CSharp", "Development", "Regular expressions"]
 author: Maarten Balliauw
 ---
 
-A while back, we were performance profiling an application and noticed a big performance bottleneck while mapping objects using [AutoMapper](https://www.automapper.org). Mapping is of course somewhat expensive, but the numbers we were seeing were way higher than expected: mapping was ridiculously slow! And "just mapping" was not a good explanation for these numbers. Trusting the work of [Jimmy](https://twitter.com/jbogard) and trusting AutoMapper, we expected something else was probably causing this. And it was: **a regular expression match was to blame!**
+A while back, we were performance profiling an application and noticed a big performance bottleneck while mapping objects using [AutoMapper](http://automapper.org/). Mapping is of course somewhat expensive, but the numbers we were seeing were way higher than expected: mapping was ridiculously slow! And "just mapping" was not a good explanation for these numbers. Trusting the work of [Jimmy](https://twitter.com/jbogard) and trusting AutoMapper, we expected something else was probably causing this. And it was: **a regular expression match was to blame!**
 
 ## The code was to blame
 
