@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Making string validation faster by not using a regular expression. A story."
-date: 2017-04-24 06:20:00 +0100
+date: 2017-04-24 07:40:00 +0100
 comments: true
 published: true
 categories: ["post"]
