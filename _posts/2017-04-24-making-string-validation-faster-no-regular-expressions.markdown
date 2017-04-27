@@ -315,7 +315,46 @@ private static bool Matches(string value)
 } 
 ```
 
-Simple, readable. If the length is not ok, just return false. In other cases, check each character and when one does not match, return false early without validating the rest of the string. Looks good, easy to read. Let's see how all candidates rank against each other...
+Simple, readable. If the length is not ok, just return false. In other cases, check each character and when one does not match, return false early without validating the rest of the string. Looks good, easy to read.
+
+### Candidate 5: Custom code (just ASCII)
+
+**Edit** - Some people pointed out in the comments that `char.IsLetterOrDigit()` works on Unicode and thus the custom code is not 100% similar to the original regular expression. They also pointed out performance could be better, so here's an addition to the benchmark!
+
+The [`char.IsLetterOrDigit()`](https://referencesource.microsoft.com/#mscorlib/system/char.cs,360) is already optimized a bit. It checks for the character class (latin or not) and then determines if it's a letter or a digit base on the character class. That's important: it checks the *class*, not the value! And turns out [there are quite a few classes to loop trough](https://referencesource.microsoft.com/#mscorlib/system/char.cs,46).
+
+So instead of using `char.IsLetterOrDigit()`, which [checks on Unicode](https://msdn.microsoft.com/en-us/library/system.char.isletterordigit(v=vs.110).aspx), let's take the [ASCII table](http://www.asciitable.com/) at hand and manually check for character ranges instead.
+
+The code:
+
+```csharp
+private static bool MatchesASCII(string value)
+{
+    var len = value.Length;
+    var matches = len >= 1 && len <= 254;
+
+    if (matches)
+    {
+        for (int i = 0; i < len; i++)
+        {
+            matches = (value[i] >= 48 && value[i] <= 57) // 0-9
+                      || (value[i] >= 65 && value[i] <= 90) // A-Z
+                      || (value[i] >= 97 && value[i] <= 122) // a-z
+                      || value[i] == '@'
+                      || value[i] == '/'
+                      || value[i] == '.'
+                      || value[i] == '_'
+                      || value[i] == '-';
+
+            if (!matches) return false;
+        }
+    }
+
+    return matches;
+} 
+```
+
+Still simple and readable. If the length is not ok, just return false. In other cases, check each character and when one does not match, return false early without validating the rest of the string. Let's see how all candidates rank against each other...
 
 ## Running the benchmark
 
@@ -333,7 +372,12 @@ public class RegexVsCodeBenchmark
 
     private static bool Matches(string value)
     {
-        // code from above
+        // code from above candidate 4
+    }
+	
+    private static bool MatchesASCII(string value)
+    {
+        // code from above candidate 5
     } 
 
     [Benchmark(Description = "Regex.IsMatch - no options")]
@@ -365,6 +409,12 @@ public class RegexVsCodeBenchmark
     {
         return Matches("Some.Sample-Data.To-Valid@te");
     }
+
+    [Benchmark(Description = "Custom code - ASCII only")]
+    public bool CustomCodeASCIIMatch()
+    {
+        return MatchesASCII("Some.Sample-Data.To-Valid@te");
+    }
 }
 ```
 
@@ -390,216 +440,28 @@ Runtime=Clr
 
 <table>
 <thead>
-<tr>
-<th>Method</th>
-<th>Mean</th>
-<th>StdDev</th>
-<th>Median</th>
-<th>Scaled</th>
-<th>Job</th>
-<th>Jit</th>
-<th>Platform</th>
-<th>LaunchCount</th>
-<th>TargetCount</th>
-<th>WarmupCount</th>
-</tr>
+<tr><th>Method</th><th>Job</th><th>Jit</th><th>Platform</th><th>Mean</th><th>StdErr</th><th>StdDev</th><th>Median</th><th>Scaled</th><th>Scaled-StdDev</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>Regex.IsMatch - no options</td>
-<td>1,226.8297 ns</td>
-<td>3.5225 ns</td>
-<td>1,227.3018 ns</td>
-<td>1.17</td>
-<td>Clr</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Regex.IsMatch - with RegexOptions.Compiled</td>
-<td>1,047.4588 ns</td>
-<td>5.4065 ns</td>
-<td>1,047.4815 ns</td>
-<td>1.00</td>
-<td>Clr</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Regex instance.IsMatch</td>
-<td>687.6756 ns</td>
-<td>3.2074 ns</td>
-<td>687.6606 ns</td>
-<td>0.66</td>
-<td>Clr</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Assembly-compiled Regex instance.IsMatch</td>
-<td>678.6101 ns</td>
-<td>3.1376 ns</td>
-<td>679.1363 ns</td>
-<td>0.65</td>
-<td>Clr</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Custom code</td>
-<td>232.7207 ns</td>
-<td>1.5766 ns</td>
-<td>233.4604 ns</td>
-<td>0.22</td>
-<td>Clr</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Regex.IsMatch - no options</td>
-<td>1,223.2374 ns</td>
-<td>13.3485 ns</td>
-<td>1,224.9534 ns</td>
-<td>1.17</td>
-<td>LongRun</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>3</td>
-<td>100</td>
-<td>15</td>
-</tr>
-<tr>
-<td>Regex.IsMatch - with RegexOptions.Compiled</td>
-<td>1,046.5155 ns</td>
-<td>8.4462 ns</td>
-<td>1,046.1358 ns</td>
-<td>1.00</td>
-<td>LongRun</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>3</td>
-<td>100</td>
-<td>15</td>
-</tr>
-<tr>
-<td>Regex instance.IsMatch</td>
-<td>691.9244 ns</td>
-<td>16.1136 ns</td>
-<td>687.4307 ns</td>
-<td>0.66</td>
-<td>LongRun</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>3</td>
-<td>100</td>
-<td>15</td>
-</tr>
-<tr>
-<td>Assembly-compiled Regex instance.IsMatch</td>
-<td>679.6252 ns</td>
-<td>8.4723 ns</td>
-<td>678.1218 ns</td>
-<td>0.65</td>
-<td>LongRun</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>3</td>
-<td>100</td>
-<td>15</td>
-</tr>
-<tr>
-<td>Custom code</td>
-<td>222.1603 ns</td>
-<td>2.4627 ns</td>
-<td>221.7280 ns</td>
-<td>0.21</td>
-<td>LongRun</td>
-<td>LegacyJit</td>
-<td>X86</td>
-<td>3</td>
-<td>100</td>
-<td>15</td>
-</tr>
-<tr>
-<td>Regex.IsMatch - no options</td>
-<td>1,264.0441 ns</td>
-<td>20.6973 ns</td>
-<td>1,269.0945 ns</td>
-<td>1.26</td>
-<td>RyuJitX64</td>
-<td>RyuJit</td>
-<td>X64</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Regex.IsMatch - with RegexOptions.Compiled</td>
-<td>1,001.7433 ns</td>
-<td>17.6897 ns</td>
-<td>1,003.1064 ns</td>
-<td>1.00</td>
-<td>RyuJitX64</td>
-<td>RyuJit</td>
-<td>X64</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Regex instance.IsMatch</td>
-<td>626.9669 ns</td>
-<td>2.7593 ns</td>
-<td>626.6262 ns</td>
-<td>0.63</td>
-<td>RyuJitX64</td>
-<td>RyuJit</td>
-<td>X64</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Assembly-compiled Regex instance.IsMatch</td>
-<td>623.4043 ns</td>
-<td>3.1937 ns</td>
-<td>622.1284 ns</td>
-<td>0.62</td>
-<td>RyuJitX64</td>
-<td>RyuJit</td>
-<td>X64</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>Custom code</td>
-<td>168.9835 ns</td>
-<td>0.9644 ns</td>
-<td>168.8081 ns</td>
-<td>0.17</td>
-<td>RyuJitX64</td>
-<td>RyuJit</td>
-<td>X64</td>
-<td>Default</td>
-<td>Default</td>
-<td>Default</td>
-</tr></tbody></table>
+<tr><td>'Regex.IsMatch - no options'</td><td>Clr</td><td>LegacyJit</td><td>X86</td><td>1,218.3968 ns</td><td>11.8194 ns</td><td>54.1633 ns</td><td>1,217.1536 ns</td><td>1.18</td><td>0.06</td></tr>
+<tr><td>'Regex.IsMatch - with RegexOptions.Compiled'</td><td>Clr</td><td>LegacyJit</td><td>X86</td><td>1,031.7433 ns</td><td>5.3394 ns</td><td>20.6795 ns</td><td>1,035.4243 ns</td><td>1.00</td><td>0.00</td></tr>
+<tr><td>'Regex instance.IsMatch'</td><td>Clr</td><td>LegacyJit</td><td>X86</td><td>700.5653 ns</td><td>6.9606 ns</td><td>41.1793 ns</td><td>684.1019 ns</td><td>0.68</td><td>0.04</td></tr>
+<tr><td>'Assembly-compiled Regex instance.IsMatch'</td><td>Clr</td><td>LegacyJit</td><td>X86</td><td>661.8107 ns</td><td>2.0592 ns</td><td>7.9751 ns</td><td>663.8463 ns</td><td>0.64</td><td>0.01</td></tr>
+<tr><td>'Custom code'</td><td>Clr</td><td>LegacyJit</td><td>X86</td><td>224.7163 ns</td><td>0.7633 ns</td><td>2.9562 ns</td><td>224.3792 ns</td><td>0.22</td><td>0.01</td></tr>
+<tr><td>'Custom code - ASCII only'</td><td>Clr</td><td>LegacyJit</td><td>X86</td><td>64.3772 ns</td><td>0.1642 ns</td><td>0.6142 ns</td><td>64.3874 ns</td><td>0.06</td><td>0.00</td></tr>
+<tr><td>'Regex.IsMatch - no options'</td><td>LongRun</td><td>LegacyJit</td><td>X86</td><td>1,198.7954 ns</td><td>1.8423 ns</td><td>30.8819 ns</td><td>1,189.2547 ns</td><td>1.12</td><td>0.03</td></tr>
+<tr><td>'Regex.IsMatch - with RegexOptions.Compiled'</td><td>LongRun</td><td>LegacyJit</td><td>X86</td><td>1,068.7349 ns</td><td>0.5691 ns</td><td>9.3863 ns</td><td>1,068.4618 ns</td><td>1.00</td><td>0.00</td></tr>
+<tr><td>'Regex instance.IsMatch'</td><td>LongRun</td><td>LegacyJit</td><td>X86</td><td>679.9538 ns</td><td>1.3558 ns</td><td>22.9687 ns</td><td>678.8977 ns</td><td>0.64</td><td>0.02</td></tr>
+<tr><td>'Assembly-compiled Regex instance.IsMatch'</td><td>LongRun</td><td>LegacyJit</td><td>X86</td><td>669.3583 ns</td><td>1.0979 ns</td><td>18.5671 ns</td><td>669.0480 ns</td><td>0.63</td><td>0.02</td></tr>
+<tr><td>'Custom code'</td><td>LongRun</td><td>LegacyJit</td><td>X86</td><td>213.6533 ns</td><td>0.4295 ns</td><td>7.1998 ns</td><td>213.9596 ns</td><td>0.20</td><td>0.01</td></tr>
+<tr><td>'Custom code - ASCII only'</td><td>LongRun</td><td>LegacyJit</td><td>X86</td><td>64.9729 ns</td><td>0.1251 ns</td><td>2.1187 ns</td><td>64.6303 ns</td><td>0.06</td><td>0.00</td></tr>
+<tr><td>'Regex.IsMatch - no options'</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1,215.8591 ns</td><td>11.9689 ns</td><td>56.1390 ns</td><td>1,223.4556 ns</td><td>1.28</td><td>0.06</td></tr>
+<tr><td>'Regex.IsMatch - with RegexOptions.Compiled'</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>947.7736 ns</td><td>5.1000 ns</td><td>19.0825 ns</td><td>947.6938 ns</td><td>1.00</td><td>0.00</td></tr>
+<tr><td>'Regex instance.IsMatch'</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>604.0008 ns</td><td>1.5033 ns</td><td>5.8223 ns</td><td>605.4844 ns</td><td>0.64</td><td>0.01</td></tr>
+<tr><td>'Assembly-compiled Regex instance.IsMatch'</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>622.9912 ns</td><td>6.3879 ns</td><td>33.8018 ns</td><td>605.1827 ns</td><td>0.66</td><td>0.04</td></tr>
+<tr><td>'Custom code'</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>220.1304 ns</td><td>1.0477 ns</td><td>4.0575 ns</td><td>218.1767 ns</td><td>0.23</td><td>0.01</td></tr>
+<tr><td>'Custom code - ASCII only'</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>51.4059 ns</td><td>0.0785 ns</td><td>0.2603 ns</td><td>51.4702 ns</td><td>0.05</td><td>0.00</td></tr></tbody>
+</table>
 
 First of all, there is no real difference between JIT versions. We sort of expected that but still wanted to see if there were any big changes in selecting the JIT version.
 
@@ -607,9 +469,10 @@ There *are* big differences in our different candidates, though. From slow to fa
 
 * Candidate 1, `Regex.IsMatch` (not using `RegexOptions.Compiled`) is clearly slowest. We expected this but still wanted to try.
 * The baseline, `Regex.IsMatch` (using `RegexOptions.Compiled`) isn't significantly faster. It is faster, but the improvement is not spectacular.
-* Candidate 2, using an instance, only takes 60% of the time our baseline takes. That's significantly faster, and would be a good improvement in our codebase.
+* Candidate 2, using an instance, only takes (roughly) 65% of the time our baseline takes. That's significantly faster, and would be a good improvement in our codebase.
 * Candidate 3, using a regular expression compiled into an external assembly, is only *slightly* faster than candidate 2. The difference could be in the startup time (where candidate 2 still has to be compiled at runtime), but we did not measure.
-* Candidate 4, our custom code, seems to outperform all others. Our focused piece of code runs in 17% of the time the baseline took to run. That's a massive improvement!
+* Candidate 4, our custom code is fast! Our focused piece of code runs in 21% of the time the baseline took to run. That's a massive improvement!
+* Candidate 5, our custom code that checks just ASCII characters, seems to outperform all others. It runs in 6% of the time the baseline took to run. Nice!
 
 Based on these result, our custom validation logic was added into production code and proved much, much faster!
 
@@ -622,9 +485,10 @@ In the case at hand, though, custom code was the better path:
 * The validation logic was simple, and writing it in code is still very readable
 * We did not need capturing and all other features regular expressions give us
 
-So then what *is* the takeaway for this post? I'd say there are two:
+So then what *is* the takeaway for this post? I'd say there are three:
 
 * Always be measuring. Use [a profiler](https://www.jetbrains.com/dottrace) and regularly measure different code paths in an application. If anything looks out of expected ranges, look at how it can be improved.
+* Always be learning. I had no idea `char.IsLetterOrDigit()` would be "slow" compared with just checking ASCII characters.
 * Use regular expressions! Just not for validating string length.
 
 Enjoy!
