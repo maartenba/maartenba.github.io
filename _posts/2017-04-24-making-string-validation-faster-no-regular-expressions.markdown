@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Making string validation faster by not using a regular expression. A story."
-date: 2017-04-24 07:40:00 +0100
+date: 2017-04-24 07:41:00 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -492,3 +492,5 @@ So then what *is* the takeaway for this post? I'd say there are three:
 * Use regular expressions! Just not for validating string length.
 
 Enjoy!
+
+**Edit - April 29, 2017** - Daniel Hegener [took this a bit further](http://harponcsharp.blogspot.be/2017/04/going-harder-on-topic-of-string.html) and wrote another few alternative solutions that make string validation for the above case *really* fast. [Go check it out!](http://harponcsharp.blogspot.be/2017/04/going-harder-on-topic-of-string.html)
