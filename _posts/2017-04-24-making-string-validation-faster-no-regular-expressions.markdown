@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Making string validation faster by not using a regular expression. A story."
-date: 2017-04-24 07:41:00 +0100
+date: 2017-04-24 07:42:00 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -324,6 +324,8 @@ Simple, readable. If the length is not ok, just return false. In other cases, ch
 The [`char.IsLetterOrDigit()`](https://referencesource.microsoft.com/#mscorlib/system/char.cs,360) is already optimized a bit. It checks for the character class (latin or not) and then determines if it's a letter or a digit base on the character class. That's important: it checks the *class*, not the value! And turns out [there are quite a few classes to loop trough](https://referencesource.microsoft.com/#mscorlib/system/char.cs,46).
 
 So instead of using `char.IsLetterOrDigit()`, which [checks on Unicode](https://msdn.microsoft.com/en-us/library/system.char.isletterordigit(v=vs.110).aspx), let's take the [ASCII table](http://www.asciitable.com/) at hand and manually check for character ranges instead.
+
+Of course .NET is based on Unicode, but for the values from the ASCII character set the indexes in the character set match - so it's safe to do this here.
 
 The code:
 
