@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-03-12 01:34:00 +0200
+date: 2017-03-12 01:35:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -18,14 +18,15 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
-* May 2017 - dotNetCologne - Cologne, Germany
-* May 2017 - dotNext - Saint Petersburg, Russia
 * June 2017 - DevSum - Stockholm, Sweden
 
 ## Past talks
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2017-5-19 | NuGet beyond Hello World | DotNext Piter | Russia - St. Petersburg | [download](https://www.slideshare.net/maartenba/nuget-beyond-hello-world-dotnext-piter-2017) |  | 
+| 2017-5-5 | Exploring .NET’s memory management – a trip down memory lane | dotNetCologne 2017 | Germany - Cologne | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
+| 2017-5-5 | Rider - Cross-platform C# IDE | dotNetCologne 2017 | Germany - Cologne |  |  | 
 | 2017-4-20 | Exploring .NET’s memory management – a trip down memory lane | VISUG User Group | Belgium - Zaventem | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
 | 2017-4-11 | Exploring .NET’s memory management – a trip down memory lane | iSense User Group | Netherlands - Gouda | [download](https://www.slideshare.net/maartenba/exploring-net-memory-management-isense) |  | 
 | 2017-4-11 | SignalR - Code, not toothpaste. | iSense User Group | Netherlands - Gouda | [download](https://www.slideshare.net/maartenba/signalr-realtime-clientserver-communication-isense) |  | 
