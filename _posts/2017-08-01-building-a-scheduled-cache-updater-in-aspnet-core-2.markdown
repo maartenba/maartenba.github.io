@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a scheduled cache updater in ASP.NET Core 2.0"
-date: 2017-08-01 07:42:00 +0100
+date: 2017-08-01 07:42:01 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -210,6 +210,6 @@ If we now start our application, it should fetch the quote of the day every 6 ho
 
 Maybe one little word about the `AddScheduler` above. As you can see, it takes a delegate that handles unobserved exceptions. In our scheduler code, we've used `TaskFactory.StartNew()` to run our task's code. If we have an unhandled exception in there, we won't see a thing... Which is why we may want to be able to do some logging. This is normally done by setting `TaskScheduler.UnobservedTaskException`, but I found that too global for this case so added my own to specifically catch scheduled tasks unhandled exceptions.
 
-Give it a try! The sample code is [available here](/files/2017/building-a-scheduled-cache-updater-in-aspnet-core-2.zip). I'd love to hear your thoughts on this. But do remember: this is not a proper scheduler for complicated background tasks. There are better approaches to doing that type of work.
+Give it a try! The sample code is [available here](/files/2017/building-a-scheduled-cache-updater-in-aspnet-core-2.zip). I'd love to hear your thoughts on this. But do remember: this is not a proper scheduler for complicated background tasks. There are better approaches to doing that type of work. The proposed solution may not even be a good approach to this type of problem.
 
 Enjoy!
