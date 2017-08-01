@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building a scheduled task in .NET Core/Standard 2.0"
+title: "Building a scheduled task in ASP.NET Core/Standard 2.0"
 date: 2017-08-01 07:42:02 +0100
 comments: true
 published: true
