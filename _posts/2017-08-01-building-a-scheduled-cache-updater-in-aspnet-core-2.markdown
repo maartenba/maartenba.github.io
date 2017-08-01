@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a scheduled cache updater in ASP.NET Core 2.0"
-date: 2017-08-01 07:42:01 +0100
+date: 2017-08-01 07:42:02 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -9,17 +9,17 @@ tags: ["General", "ICT", "CSharp", "Development", ".NET Core"]
 author: Maarten Balliauw
 ---
 
-In this post, we'll look at writing a simple system for scheduling tasks in ASP.NET Core 2.0. That's quite a big claim, so I want to add a disclaimer: this system is *mainly* meant to populate data in our application's cache in the background, although it can probably be used for other things as well. Before we dive in, I want to give some of the background about why I thought of writing this.
+In this post, we'll look at writing a simple system for scheduling tasks in ASP.NET Core 2.0. That's quite a big claim, so I want to add a disclaimer: this system is *mainly* meant to populate data in our application's cache in the background, although it can probably be used for other things as well. It builds on the ASP.NET Core 2.0 `IHostedService` interface. Before we dive in, I want to give some of the background about why I thought of writing this.
 
 ## Background
 
 At [JetBrains](https://ww.jetbrains.com), various teams make use of a [Slack](https://www.slack.com) bot, which we write in [Kotlin](https://www.kotlinlang.org). This bot performs various tasks, ranging from saying *"Hi!"* to managing our stand-ups to keeping track of which developer manages which part of our IDE's. While working on the bot code, I found this little piece of code:
 
 ```
-    @Scheduled(cron = "0 0/2 * * * *")
-    @Synchronized fun releases() {
-        releasesList.set(fetchReleases())
-    }
+@Scheduled(cron = "0 0/2 * * * *")
+@Synchronized fun releases() {
+    releasesList.set(fetchReleases())
+}
 ```
 
 Wondering what it did, I asked around and did some research. Turns out that the `@Scheduled` attribute is [part of the Spring framework](https://spring.io/guides/gs/scheduling-tasks/) and allows simple scheduling of background tasks. In this example, our bot uses the `releasesList` to return data about upcoming product releases when someone asks on Slack.
