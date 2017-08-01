@@ -167,7 +167,6 @@ So `TaskFactory.StartNew()`... Why not simply await them here, you ask? Well, wh
 ## Using the scheduler
 
 As an example application, I want to display a "quote of the day" which is loaded from the [TheySaidSo.com API](https://theysaidso.com/api/). This API has a new quote every day, so ideally our task should only fetch this data once a day. Here's the `IScheduledTask` implementation which runs every 6 hours:
-ere's the full code for the `SchedulerHostedService`.
 
 ```csharp
 public class QuoteOfTheDayTask : IScheduledTask
