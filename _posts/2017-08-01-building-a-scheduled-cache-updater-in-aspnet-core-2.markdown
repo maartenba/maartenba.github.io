@@ -164,12 +164,6 @@ So `TaskFactory.StartNew()`... Why not simply await them here, you ask? Well, wh
 As an example application, I want to display a "quote of the day" which is loaded from the [TheySaidSo.com API](https://theysaidso.com/api/). This API has a new quote every day, so ideally our task should only fetch this data once a day. Here's the `IScheduledTask` implementation which runs every 6 hours:
 ere's the full code for the `SchedulerHostedService`.
 
-
-
-
-
-
-In the [sample application](TODO), 
 ```csharp
 public class QuoteOfTheDayTask : IScheduledTask
 {
@@ -187,6 +181,8 @@ public class QuoteOfTheDayTask : IScheduledTask
 ```
 
 In this case, it's setting the `QuoteOfTheDay.Current` so we can use it in our ASP.NET MVC controller. Of course it could also [populate cache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory) or use another means of setting the data. I wanted to have a simple approach (see [background](#background), so this will do.
+
+Another thing to note: [I am using `HttpClient` wrong](https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/) for the sake of simplicity. Go read [this post](https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/).
 
 Next up, we'll have to register our task as well as our scheduler. We can do this in `Startup.cs`, simply registering it with the `IServiceCollection`. Let's also register the scheduler itself:
 
