@@ -9,6 +9,7 @@ tags: ["General", "ICT", "CSharp", "Development", ".NET Core"]
 author: Maarten Balliauw
 redirect_from:
  - /post/2017/08/01/building-a-scheduled-cache-updater-in-aspnet-core-2.html
+ - /post/2017/08/01/building-a-scheduled-tash-in-aspnet-core-standard-2.html
 ---
 
 In this post, we'll look at writing a simple system for scheduling tasks in ASP.NET Core 2.0. That's quite a big claim, so I want to add a disclaimer: this system is *mainly* meant to populate data in our application's cache in the background, although it can probably be used for other things as well. It builds on the ASP.NET Core 2.0 `IHostedService` interface. Before we dive in, I want to give some of the background about why I thought of writing this.
