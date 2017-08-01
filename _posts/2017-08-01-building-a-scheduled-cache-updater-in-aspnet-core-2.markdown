@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a scheduled task in ASP.NET Core/Standard 2.0"
-date: 2017-08-01 07:42:02 +0100
+date: 2017-08-01 07:42:03 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -31,7 +31,7 @@ For this case, I kind of like the approach of being able to populate a list of d
 
 This same approach is taken in various other places of the application. Twice a day, we fetch the list of employees for some other functionality. We have a few other occasions, but they all share one pattern: a simple background fetch of data, moving it outside of the request path.
 
-Then earlier this week, I saw [Steve Gordon blogged about using `IHostedService` in ASP.NET Core 2.0](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice), and I noticed this was potentially the same. Except: I find it *way* to cumbersome. Yes, it's a more powerful way of handling this type of background work, but look at that Kotlin sample above! It's short, simple, clean. So I thought of working on a system that would be more similar to the Kotlin approach above. Well, Spring approach actually - except for the `fun` in writing code (we *never* heard that joke before ;-)) the above sample will work in pretty much any Spring application.
+Then earlier this week, I saw [Steve Gordon blogged about using `IHostedService` in ASP.NET Core 2.0](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice), and I noticed this was potentially the same. Except: I find it *way* too cumbersome. Yes, it's a more powerful way of handling this type of background work, but look at that Kotlin sample above! It's short, simple, clean. So I thought of working on a system that would be more similar to the Kotlin approach above. Well, Spring approach actually - except for the `fun` in writing code (we *never* heard that joke before ;-)) the above sample will work in pretty much any Spring application.
 
 Before we dive in, please read [Steve's post about using `IHostedService` in ASP.NET Core 2.0](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice). I'll wait right here.
 
@@ -93,6 +93,8 @@ public class SchedulerHostedService : HostedService
 ```
 
 Now what is this `SchedulerTaskWrapper`? It's a simple class that holds the `IScheduledTask`, the previous and next run time, and a parsed cron expression so we can easily check whether the task should be run or not. If you look at the example code (check the bottom of this post), the cron parsing logic comes from a library I have used long, long ago: [AzureToolkit](https://azuretoolkit.codeplex.com/). Very unmaintained, but the cron parsing works just fine.
+
+Perhaps another quick note: the `NextRunTime` is set to "now". Reason for that is for the purpose of these self-updating pieces of data, I want them to be available ASAP. So setting the `NextRunTime` (or at this point, the first run time) will make sure the task is triggered as soon as possible.
 
 Next up: deciding whether to run our schedule tasks. That's pretty straightforward: we just need to implement [Steve's `HostedService` base class](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice) `ExecuteAsync()` method. We'll just create an infinite loop (that does check a `CancellationToken`) that triggers every minute.
 
