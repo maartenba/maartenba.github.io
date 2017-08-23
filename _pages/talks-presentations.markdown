@@ -16,6 +16,9 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks
 
+* November - DotNext - Moscow, Russia
+* December - ConFoo - Vancouver, Canada
+
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
 ## Past talks
