@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-03-12 01:36:00 +0200
+date: 2017-09-11 01:36:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,6 +16,8 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks
 
+* October - JetBrains Day - Paris, France
+* October - TechDays - Amsterdam, Netherlands
 * November - DotNext - Moscow, Russia
 * December - ConFoo - Vancouver, Canada
 
