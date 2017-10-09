@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-09-11 01:36:00 +0200
+date: 2017-10-10 01:36:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,10 +16,10 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks
 
-* October - JetBrains Day - Paris, France
-* October - TechDays - Amsterdam, Netherlands
-* November - DotNext - Moscow, Russia
-* December - ConFoo - Vancouver, Canada
+* November 2017 - DotNext - Moscow, Russia
+* December 2017 - ConFoo - Vancouver, Canada
+* December 2017 - Azure User Group - Belgium
+* January 2018 - IglooConf - Helsinki, Finland
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
@@ -27,6 +27,9 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2017-10-13 | Mastering the debugger in Rider | TechDays 2017 | Amsterdam - Netherlands |  |  | 
+| 2017-10-12 | Become a productive .NET developer with JetBrains Rider | TechDays 2017 | Amsterdam - Netherlands |  |  | 
+| 2017-10-5 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Night Paris | France - Paris | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
 | 2017-6-9 | What is going on - Application diagnostics on Azure | DevSum 2017 | Sweden - Stockholm | [download](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group) |  | 
 | 2017-5-19 | NuGet beyond Hello World | DotNext Piter | Russia - St. Petersburg | [download](https://www.slideshare.net/maartenba/nuget-beyond-hello-world-dotnext-piter-2017) | [view](https://www.youtube.com/watch?v=4VqiwQbQZ-k) | 
 | 2017-5-5 | Exploring .NET’s memory management – a trip down memory lane | dotNetCologne 2017 | Germany - Cologne | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
