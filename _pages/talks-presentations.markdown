@@ -17,6 +17,7 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 ## Upcoming talks
 
 * November 2017 - DotNext - Moscow, Russia
+* November 2017 - DevDay Mons - Mons, Belgium
 * December 2017 - ConFoo - Vancouver, Canada
 * December 2017 - Azure User Group - Belgium
 * January 2018 - IglooConf - Helsinki, Finland
