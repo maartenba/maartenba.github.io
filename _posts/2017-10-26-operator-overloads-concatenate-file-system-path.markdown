@@ -74,7 +74,7 @@ public struct FilePath
 }
 ```
 
-ReSharper's internal use of operator overloads made me realize that I've not been using this enough in the past. It allows nice looking syntax using `+`, `-`, `/`, ... [full list](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/overloadable-operators).
+ReSharper's internal use of operator overloads made me realize that I've not been using this enough in the past. It allows nice looking syntax using `+`, `-`, `/`, ... - see [full list](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/overloadable-operators).
 
 This could be used on more technical things (I'd love for some operators overloads like `+` on an `IEnumerable<>` or a collection to create a union of two collections), but also on domain objects (a `>>` operator to move a `Person` to a new `Address` and other types of syntax abuse).
 
