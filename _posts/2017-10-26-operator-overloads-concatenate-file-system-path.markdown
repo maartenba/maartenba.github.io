@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using operator overloads for concatenating file system paths in CSharp"
-date: 2017-10-26 06:43:03 +0100
+date: 2017-10-26 06:43:05 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -53,16 +53,6 @@ public struct FilePath
     }
 
     public static FilePath operator /(FilePath left, string right)
-    {
-        return new FilePath(System.IO.Path.Combine(left.Path, right));
-    }
-    
-    public static FilePath operator +(FilePath left, FilePath right)
-    {
-        return new FilePath(System.IO.Path.Combine(left.Path, right.Path));
-    }
-
-    public static FilePath operator +(FilePath left, string right)
     {
         return new FilePath(System.IO.Path.Combine(left.Path, right));
     }
