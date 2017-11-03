@@ -48,7 +48,7 @@ The Azure folks have created a Maven Archetype which we can use. If you're famil
 
 Next, we'll have to specify a group id and artifact name (compared to .NET, these two are our NuGet package identifier - everything in Maven is a package so our project will be, too). I'll go with the Java-style group `be.maartenballiauw.azure`, then `ktfunction` as the artifact name.
 
-Nnext, we must add two additional properties: `package` and `appName`. These will be used later on by the Azure Functions Maven plugin to deploy our app. For `package`, I'll go with `be.maartenballiauw.azure.ktfunction` and the `appName` will be whatever our target function app is called in the Azure portal.
+Next, we must add two additional properties: `package` and `appName`. These will be used later on by the Azure Functions Maven plugin to deploy our app. For `package`, I'll go with `be.maartenballiauw.azure.ktfunction` and the `appName` will be whatever our target function app is called in the Azure portal.
 
 ![Maven project properties](../images/2017/11/maven-project-properties.png)
 
@@ -89,7 +89,7 @@ class HelloKotlin {
 }
 ```
 
-Very clean code! Unfortuntaley, it does nothing yet. Let's code a function that takes a `String` input and returns another `String`. Some sort of "Hello World":
+Very clean code! Unfortunately, it does nothing yet. Let's code a function that takes a `String` input and returns another `String`. Some sort of "Hello World":
 
 ```kotlin
 class HelloKotlin {
@@ -201,6 +201,8 @@ Note: I have been struggling with an *Object reference not set to an instance of
 After startup, we can now invoke our Kotlin Azure Function. Either from the browser, hitting [http://localhost:7071/api/hello?name=Maarten](http://localhost:7071/api/hello?name=Maarten), or using IntelliJ IDEA's built-in REST client (**Tools | Test RESTFul Webservice**):
 
 ![Test Kotlin Azure Function in IDE](../images/2017/11/test-restful-webservice.png)
+
+()
 
 The result value will be `Hello, Maarten!` or whatever we wrote in our Kotlin Azure Function.
 
