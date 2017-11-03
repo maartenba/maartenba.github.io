@@ -23,7 +23,7 @@ The idea is we can just write a function, tell Azure we want to run it whenever 
 
 Over the past year, I was introduced to [Kotlin](https://kotlinlang.org/) at [JetBrains](https://www.jetbrains.com). Some of our internal tools run it, IDE's like [Rider](https://www.jetbrains.com/rider) are built using it and I've been writing some plugins for our [.NET IDE](https://www.jetbrains.com/rider) as well. One to [run XDT transforms](https://github.com/maartenba/rider-plugin-xdt), one to [manage .NET Core SDK versions](https://github.com/maartenba/rider-plugin-globaljson) and one that will provide C# Interactive support (but won't live as a plugin but will be in the product out of the box).
 
-To me, the language is easy to get started with coming from C#, in fact it feels like it combined the best things from C# with some F#, Swing, TypeScript, ... - in short: it's enjoyable! Kotlin compiles to the JVM and provides Java interop. What I find very neat is that it provides a C# LINQ-like syntax but compiles it to good-old-and-fast low-level language constructs like `for` loops.
+To me, the language is easy to get started with coming from C#, in fact it feels like it combined the best things from C# with some F#, Swing, TypeScript, ... - in short: it's enjoyable! Kotlin compiles to the JVM and provides Java interop. What I find very neat is that it provides a C# LINQ-like syntax but compiles it to good-old-and-fast low-level language constructs like `for` loops. In short: I'm starting to really really like this language!
 
 Also loving Azure as a cloud platform, I felt like I had to marry these two. Turns out that marriage is quite easy if you know how to do it - which I did not but learned along the way. Here goes!
 
