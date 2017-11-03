@@ -133,7 +133,7 @@ If we'd run the `package` target, we will find a `ktfunction-1.0-SNAPSHOT.jar` f
 
 We are missing one thing: our dependencies. When packaging our application, all we get is a package containing our own code, because the project system assumes dependencies can be found at runtime. That's not true, unfortunately. The Azure Functions cloud environment will not know about Kotlin. If you're using a database access library or a JSON serializer, the Azure Functions cloud environment will probably not know about it either. In short: we have to include all of our runtime dependencies in our package.
 
-To add runtime dependencies to our deployment package, we can edit the `pom.xml` file. This is the project model Maven uses to do its thing. For .NET developers, it's a bit of a `.csproj` mixed ith a bit of NuGet and some additional MSBuild.
+To add runtime dependencies to our deployment package, we can edit the `pom.xml` file. This is the project model Maven uses to do its thing. For .NET developers, it's a bit of a `.csproj` mixed with a bit of NuGet and some additional MSBuild.
 
 Under the `<plugins>` element, we can add the following two plugins. Note these should be the first elements under the `<plugins>` element, at least before the Azure Functions plugins that are in our `pom.xml`.
 
@@ -201,8 +201,6 @@ Note: I have been struggling with an *Object reference not set to an instance of
 After startup, we can now invoke our Kotlin Azure Function. Either from the browser, hitting [http://localhost:7071/api/hello?name=Maarten](http://localhost:7071/api/hello?name=Maarten), or using IntelliJ IDEA's built-in REST client (**Tools | Test RESTFul Webservice**):
 
 ![Test Kotlin Azure Function in IDE](../images/2017/11/test-restful-webservice.png)
-
-()
 
 The result value will be `Hello, Maarten!` or whatever we wrote in our Kotlin Azure Function.
 
