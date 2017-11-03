@@ -82,7 +82,7 @@ We can do two things now:
 
 While the first options is great and works mostly flawless to auto-convert Java to Kotlin, let's create a function from scratch. So drop the two classes, and then let's add a new class `HelloKotlin`:
 
-```
+```kotlin
 package be.maartenballiauw.azure.ktfunction
 
 class HelloKotlin {
@@ -91,7 +91,7 @@ class HelloKotlin {
 
 Very clean code! Unfortuntaley, it does nothing yet. Let's code a function that takes a `String` input and returns another `String`. Some sort of "Hello World":
 
-```
+```kotlin
 class HelloKotlin {
     fun hello(name: String): String {
         return String.format("Hello, %s!", name)
@@ -101,14 +101,14 @@ class HelloKotlin {
 
 This function is public, takes a non-nullable string ([Kotlin dislikes `null`](https://kotlinlang.org/docs/reference/null-safety.html), if you do want to support `null` you could make it a `String?`).
 
-One more thing to do: adding an `import` statement (the Java and Kotlin equivalent of .NET `using`), and some annotations (the Java and Kotlin equivalent of .NET attributes) that will help us generate the required Azure Functions metadata to make our project run.
+One more thing to do: adding an `import` statement (the Java and Kotlin equivalent of .NET `using`), and some annotations (the Java and Kotlin equivalent of .NET attributes) that will help us generate the required Azure Functions metadata to make our project run. This is not required, but makes life easier.
 
 * Adding `@FunctionName("hello")` on the function level will tell the Azure Functions Maven plugin this method will be exposed as a function.
-* Adding `@HttpTrigger(name = "name", methods = arrayOf("get"), authLevel = AuthorizationLevel.ANONYMOUS)` on the `name` parameter will help the Azure Functions Maven plugin to determine this parameter is really called "name" and can be available on anonymous `GET` requuests.
+* Adding `@HttpTrigger(name = "name", methods = arrayOf("get"), authLevel = AuthorizationLevel.ANONYMOUS)` on the `name` parameter will help the Azure Functions Maven plugin to determine this parameter is really called "name" and can be available on anonymous `GET` requests.
 
 The full code:
 
-```
+```kotlin
 package be.maartenballiauw.azure.ktfunction
 
 import com.microsoft.azure.serverless.functions.annotation.*
@@ -137,7 +137,7 @@ To add runtime dependencies to our deployment package, we can edit the `pom.xml`
 
 Under the `<plugins>` element, we can add the following two plugins. Note these should be the first elements under the `<plugins>` element, at least before the Azure Functions plugins that are in our `pom.xml`.
 
-```
+```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-jar-plugin</artifactId>
