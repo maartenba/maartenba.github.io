@@ -13,6 +13,12 @@ A while back, the Azure folks [announced support for Java on Azure Functions](ht
 
 (and if you're a .NET developer, you'll learn a bit about that other platform: the JVM)
 
+## What are Azure Functions?
+
+[Azure Functions](https://azure.microsoft.com/en-us/services/functions/) are Microsoft Azure's event-driven, serverless compute experience. That's all the buzzwords, probably, but it boils down to not having to worry about virtual machines, sites, ...
+
+The idea is we can just write a function, tell Azure we want to run it whenever an HTTP request comes in, a file is uploaded in a storage account, or when there is a full moon. Azure will execute it, no matter if it's just once or 500.000 times.
+
 ## Why try Azure Functions with Kotlin?
 
 Over the past year, I was introduced to [Kotlin](https://kotlinlang.org/) at [JetBrains](https://www.jetbrains.com). Some of our internal tools run it, IDE's like [Rider](https://www.jetbrains.com/rider) are built using it and I've been writing some plugins for our [.NET IDE](https://www.jetbrains.com/rider) as well. One to [run XDT transforms](https://github.com/maartenba/rider-plugin-xdt), one to [manage .NET Core SDK versions](https://github.com/maartenba/rider-plugin-globaljson) and one that will provide C# Interactive support (but won't live as a plugin but will be in the product out of the box).
