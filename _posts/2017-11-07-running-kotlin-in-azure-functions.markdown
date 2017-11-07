@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Running Kotlin in Azure Functions"
-date: 2017-11-08 06:43:03 +0100
+date: 2017-11-07 06:43:03 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -44,19 +44,19 @@ Ready? Then let's start!
 
 The Azure folks have created a Maven Archetype which we can use. If you're familiar with .NET Core, a Maven Archetype is like a `dotnet new` template we can use to bootstrap a project. When creating a new project in IntelliJ IDEA, we can pick **Maven** as the project type, then *Create from archetype*, then pick (or add, first) the `com.microsoft.azure/azure-functions-archetype` archetype version 1.0:
 
-![Create Azure Functions project from Maven Archetype using IntelliJ IDEA](../images/2017/11/intellij-idea-create-from-archetype.png)
+![Create Azure Functions project from Maven Archetype using IntelliJ IDEA](/images/2017/11/intellij-idea-create-from-archetype.png)
 
 Next, we'll have to specify a group id and artifact name (compared to .NET, these two are our NuGet package identifier - everything in Maven is a package so our project will be, too). I'll go with the Java-style group `be.maartenballiauw.azure`, then `ktfunction` as the artifact name.
 
 Next, we must add two additional properties: `package` and `appName`. These will be used later on by the Azure Functions Maven plugin to deploy our app. For `package`, I'll go with `be.maartenballiauw.azure.ktfunction` and the `appName` will be whatever our target function app is called in the Azure portal.
 
-![Maven project properties](../images/2017/11/maven-project-properties.png)
+![Maven project properties](/images/2017/11/maven-project-properties.png)
 
 In the next step we can choose where on disk we want to save our project, then *Finish*  and let IntelliJ IDEA create the new Azure functions project for us.
 
 One more thing: since we'll use Maven as the project system, IntelliJ IDEA will ask us to manually import the Maven project or auto-import it. Let's *Enable Auto-Import* here. 
 
-![Auto-import Maven project](../images/2017/11/auto-import-maven.png)
+![Auto-import Maven project](/images/2017/11/auto-import-maven.png)
 
 *Note: if you prefer command-line for the above steps, check the [Azure Functions with Maven tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven#generate-a-new-functions-project) Microsoft created.*
 
@@ -64,7 +64,7 @@ One more thing: since we'll use Maven as the project system, IntelliJ IDEA will 
 
 We now have an Azure Functions project that uses Java. Let's enable Kotlin! This requires either a few manual steps fiddling in our [Maven `pom.xml` file](https://kotlinlang.org/docs/reference/using-maven.html), or a few clicks in the IDE. Let's go for the latter and use the **Tools | Kotlin | Configure Kotlin in Project...**  menu. A dialog will ask us to specify which modules we want to enable it in, let's just keep the defaults and make it happen.
 
-![Configure Kotlin in project](../images/2017/11/configure-kotlin-in-project.png)
+![Configure Kotlin in project](/images/2017/11/configure-kotlin-in-project.png)
 
 We're now ready to write some Kotlin!
 
@@ -125,7 +125,7 @@ class HelloKotlin {
 
 We can now package our application (double-clicking the `package` Maven goal), then run it (double-clicking the `azure-functions | azure-functions:run` Maven goal). Here's where to find them, if you want you can run the `package` goal right now but don't run it just yet:
 
-![Azure Functions Maven targets](../images/2017/11/azure-functions-maven-targets.png)
+![Azure Functions Maven targets](/images/2017/11/azure-functions-maven-targets.png)
 
 ## 4. Including runtime dependencies in our Azure Functions artifact
 
@@ -184,7 +184,7 @@ Ready? We can now double-click the `package` Maven goal to generate our deployme
 
 Once finished, we can see the resulting files pop up in our project folder:
 
-![Target folder contents](../images/2017/11/azure-functions-target-folder.png)
+![Target folder contents](/images/2017/11/azure-functions-target-folder.png)
 
 We can see a `.jar` file which contains our function code and dependencies. The size is now close to 1 MB (because of the dependencies being embedded). The `function.json` file(s) have been generated based on the annotations we added earlier in code.
 
@@ -194,13 +194,13 @@ Before running, make sure to edit the `local.settings.json` and add the required
 
 We're there. All set. Ready to roll! We can double-click the `azure-functions | azure-functions:run` Maven goal and run our function in the emulator. 
 
-![Run Kotlin Azure Function in emulator](../images/2017/11/run-azure-function-kotlin.png)
+![Run Kotlin Azure Function in emulator](/images/2017/11/run-azure-function-kotlin.png)
 
 Note: I have been struggling with an *Object reference not set to an instance of an object*  error at startup. Some back-an-forth e-mails with the Azure team learned this error typically means the `JAVA_HOME` environment variable is not set. If you encounter this error, make sure to set it! Check the prerequisites again!
 
 After startup, we can now invoke our Kotlin Azure Function. Either from the browser, hitting [http://localhost:7071/api/hello?name=Maarten](http://localhost:7071/api/hello?name=Maarten), or using IntelliJ IDEA's built-in REST client (**Tools | Test RESTFul Webservice**):
 
-![Test Kotlin Azure Function in IDE](../images/2017/11/test-restful-webservice.png)
+![Test Kotlin Azure Function in IDE](/images/2017/11/test-restful-webservice.png)
 
 The result value will be `Hello, Maarten!` or whatever we wrote in our Kotlin Azure Function.
 
@@ -208,6 +208,6 @@ The result value will be `Hello, Maarten!` or whatever we wrote in our Kotlin Az
 
 Running Kotlin in Azure Functions is quite easy. There's a bit of setup work to make the packaging work properly (but in reality, that happens a lot with any Maven-based project), but apart from that we can run Kotlin on Azure Functions - both the emulator as well as production.
 
-Looking for the sample project? Here you go - [ktfunction.zip](../images/2017/11/ktfunction.zip) contains the full project I've used throughout this post.
+Looking for the sample project? Here you go - [ktfunction.zip](/images/2017/11/ktfunction.zip) contains the full project I've used throughout this post.
 
 Let me know if you try this, would love to see some Kotlin Azure Functions in production!
