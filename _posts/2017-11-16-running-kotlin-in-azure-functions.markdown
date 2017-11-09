@@ -204,6 +204,28 @@ After startup, we can now invoke our Kotlin Azure Function. Either from the brow
 
 The result value will be `Hello, Maarten!` or whatever we wrote in our Kotlin Azure Function.
 
+## 6. Debugging our Kotlin Azure Function
+
+Running our Kotlin Azure Function is one thing, we may also want to debug it. This is a little bit tricky, because of how the Azure Functions runtime works.
+
+In short, when we run our Kotlin Azure Function, we are actually running a Maven target, which runs `dotnet.exe`, which in turn runs a Java worker process in which our function lives. That means three processes are involved:
+
+1. JVM running `azure-functions:run` goal
+2. `dotnet.exe` running Azure Functions runtime
+3. JVM running our Kotlin Azure Function
+
+Our IDE will start #1, while we really want to debug #3. Good thing for us is that the JVM process running our Kotlin Azure Function also exposes itself for debuggers to attach to it!
+
+![JVM running our Kotlin Azure Function exposes debugger port](/images/2017/11/listening-jvm-kotlin-function.png)
+
+This means that in IntelliJ IDEA, we can use the **Run | Attach to Local Process...** menu, and pick our worker process:
+
+![Attach debugger to Kotlin Azure Function](/images/2017/11/attach-debugger.png)
+
+If we now place a breakpoint in our function and invoke our function, the debugger will pause our function and show us what is going on, allowing us to inspect variables, step through code, ...
+
+![Debugging Kotlin on Azure](/images/2017/11/kotlin-azure-debugger.png)
+
 ## Conclusion
 
 Running Kotlin in Azure Functions is quite easy. There's a bit of setup work to make the packaging work properly (but in reality, that happens a lot with any Maven-based project), but apart from that we can run Kotlin on Azure Functions - both the emulator as well as production.
