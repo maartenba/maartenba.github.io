@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Running Kotlin in Azure Functions"
-date: 2017-11-07 06:43:03 +0100
+date: 2017-11-16 05:43:03 +0100
 comments: true
 published: true
 categories: ["post"]
