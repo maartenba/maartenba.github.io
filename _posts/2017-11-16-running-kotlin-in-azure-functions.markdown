@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Running Kotlin in Azure Functions"
-date: 2017-11-16 05:43:03 +0100
+date: 2017-11-16 05:44:03 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -62,7 +62,7 @@ One more thing: since we'll use Maven as the project system, IntelliJ IDEA will 
 
 ## 2. Enabling Kotlin in our project
 
-We now have an Azure Functions project that uses Java. Let's enable Kotlin! This requires either a few manual steps fiddling in our [Maven `pom.xml` file](https://kotlinlang.org/docs/reference/using-maven.html), or a few clicks in the IDE. Let's go for the latter and use the **Tools | Kotlin | Configure Kotlin in Project...**  menu. A dialog will ask us to specify which modules we want to enable it in, let's just keep the defaults and make it happen.
+We now have an Azure Functions project that uses Java. Let's enable Kotlin! This requires either a few manual steps fiddling in our [Maven `pom.xml` file](https://kotlinlang.org/docs/reference/using-maven.html), or a few clicks in the IDE. Let's go for the latter and use the **Tools \| Kotlin \| Configure Kotlin in Project...**  menu. A dialog will ask us to specify which modules we want to enable it in, let's just keep the defaults and make it happen.
 
 ![Configure Kotlin in project](/images/2017/11/configure-kotlin-in-project.png)
 
@@ -123,7 +123,7 @@ class HelloKotlin {
 }
 ```
 
-We can now package our application (double-clicking the `package` Maven goal), then run it (double-clicking the `azure-functions | azure-functions:run` Maven goal). Here's where to find them, if you want you can run the `package` goal right now but don't run it just yet:
+We can now package our application (double-clicking the `package` Maven goal), then run it (double-clicking the `azure-functions \| azure-functions:run` Maven goal). Here's where to find them, if you want you can run the `package` goal right now but don't run it just yet:
 
 ![Azure Functions Maven targets](/images/2017/11/azure-functions-maven-targets.png)
 
@@ -192,13 +192,13 @@ Before running, make sure to edit the `local.settings.json` and add the required
 
 ## 5. Running our Kotlin Azure Function
 
-We're there. All set. Ready to roll! We can double-click the `azure-functions | azure-functions:run` Maven goal and run our function in the emulator. 
+We're there. All set. Ready to roll! We can double-click the `azure-functions \| azure-functions:run` Maven goal and run our function in the emulator. 
 
 ![Run Kotlin Azure Function in emulator](/images/2017/11/run-azure-function-kotlin.png)
 
 Note: I have been struggling with an *Object reference not set to an instance of an object*  error at startup. Some back-an-forth e-mails with the Azure team learned this error typically means the `JAVA_HOME` environment variable is not set. If you encounter this error, make sure to set it! Check the prerequisites again!
 
-After startup, we can now invoke our Kotlin Azure Function. Either from the browser, hitting [http://localhost:7071/api/hello?name=Maarten](http://localhost:7071/api/hello?name=Maarten), or using IntelliJ IDEA's built-in REST client (**Tools | Test RESTFul Webservice**):
+After startup, we can now invoke our Kotlin Azure Function. Either from the browser, hitting [http://localhost:7071/api/hello?name=Maarten](http://localhost:7071/api/hello?name=Maarten), or using IntelliJ IDEA's built-in REST client (**Tools \| Test RESTFul Webservice**):
 
 ![Test Kotlin Azure Function in IDE](/images/2017/11/test-restful-webservice.png)
 
@@ -218,7 +218,7 @@ Our IDE will start #1, while we really want to debug #3. Good thing for us is th
 
 ![JVM running our Kotlin Azure Function exposes debugger port](/images/2017/11/listening-jvm-kotlin-function.png)
 
-This means that in IntelliJ IDEA, we can use the **Run | Attach to Local Process...** menu, and pick our worker process:
+This means that in IntelliJ IDEA, we can use the **Run \| Attach to Local Process...** menu, and pick our worker process:
 
 ![Attach debugger to Kotlin Azure Function](/images/2017/11/attach-debugger.png)
 
