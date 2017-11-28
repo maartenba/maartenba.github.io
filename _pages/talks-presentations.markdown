@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-10-10 01:37:00 +0200
+date: 2017-10-11 01:37:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,7 +16,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks
 
-* November 2017 - DevDay Mons - Mons, Belgium
 * December 2017 - ConFoo - Vancouver, Canada
 * December 2017 - Azure User Group - Belgium
 * January 2018 - IglooConf - Helsinki, Finland
@@ -27,6 +26,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2017-11-28 | Become a productive .NET developer with JetBrains Rider | DevDay 2017 | Mons - Belgium |  | [view](https://youtu.be/yg7C4QNVjk0) | 
 | 2017-11-12 | Approaches to application request throttling | DotNext Moscow | Moscow - Russia | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
 | 2017-10-13 | Mastering the debugger in Rider | TechDays 2017 | Amsterdam - Netherlands |  | [view](https://youtu.be/rKig5iTODHs) | 
 | 2017-10-12 | Become a productive .NET developer with JetBrains Rider | TechDays 2017 | Amsterdam - Netherlands |  | [view](https://youtu.be/yg7C4QNVjk0) | 
