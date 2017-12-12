@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-10-11 01:37:00 +0200
+date: 2017-10-12 01:37:00 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,9 +16,8 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks
 
-* December 2017 - ConFoo - Vancouver, Canada
-* December 2017 - Azure User Group - Belgium
 * January 2018 - IglooConf - Helsinki, Finland
+* March 2018 - ConFoo - Montreal, Canada
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
@@ -26,6 +25,9 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2017-12-12 | Approaches to application request throttling | AZUG user group | Belgium - Kontich | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
+| 2017-12-6 | NuGet beyond Hello World | ConFoo Vancouver 2017 | Canada - Vancouver | [download](https://www.slideshare.net/maartenba/nuget-beyond-hello-world-dotnext-piter-2017) | [view](https://www.youtube.com/watch?v=4VqiwQbQZ-k) | 
+| 2017-12-5 | Exploring .NET’s memory management – a trip down memory lane | ConFoo Vancouver 2017 | Canada - Vancouver | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
 | 2017-11-28 | Become a productive .NET developer with JetBrains Rider | DevDay 2017 | Mons - Belgium |  | [view](https://youtu.be/yg7C4QNVjk0) | 
 | 2017-11-12 | Approaches to application request throttling | DotNext Moscow | Moscow - Russia | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
 | 2017-10-13 | Mastering the debugger in Rider | TechDays 2017 | Amsterdam - Netherlands |  | [view](https://youtu.be/rKig5iTODHs) | 
