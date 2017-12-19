@@ -13,10 +13,11 @@ redirect_from:
 This page contains links and short information on the talks that I have (co-)presented. If available, a link to slides and recording is also provided.
 
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
-
 ## Upcoming talks
 
 * January 2018 - IglooConf - Helsinki, Finland
+* January 2018 - AZUG user group, Belgium
+* February 2018 - MADN user group, Belgium
 * March 2018 - ConFoo - Montreal, Canada
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
