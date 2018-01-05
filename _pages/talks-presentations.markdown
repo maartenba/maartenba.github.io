@@ -19,6 +19,8 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 * January 2018 - AZUG user group, Belgium
 * February 2018 - MADN user group, Belgium
 * March 2018 - ConFoo - Montreal, Canada
+* March 2018 - TechDays - Helsinki, Finland
+* May 2018 - DevSum - Stockholm, Sweden
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
