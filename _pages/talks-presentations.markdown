@@ -31,7 +31,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 | 2018-2-22 | Approaches to application request throttling | WAZUG.nl User Group | Netherlands - Den Haag | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
 | 2018-2-5 | Become a productive .NET developer with JetBrains Rider | MADN user group | Belgium - Kontich |  |  | 
 | 2018-1-23 | Approaches to application request throttling | AZUG user group | Belgium - Kontich | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
-| 2018-1-18 | Approaches to application request throttling | IglooConf 2018 | Finland - Helsinki | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  [view](https://www.youtube.com/watch?v=yqS4U048Iwo) | 
+| 2018-1-18 | Approaches to application request throttling | IglooConf 2018 | Finland - Helsinki | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) | [view](https://www.youtube.com/watch?v=yqS4U048Iwo) | 
 | 2017-12-6 | NuGet beyond Hello World | ConFoo Vancouver 2017 | Canada - Vancouver | [download](https://www.slideshare.net/maartenba/nuget-beyond-hello-world-dotnext-piter-2017) | [view](https://www.youtube.com/watch?v=4VqiwQbQZ-k) | 
 | 2017-12-5 | Exploring .NET’s memory management – a trip down memory lane | ConFoo Vancouver 2017 | Canada - Vancouver | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
 | 2017-11-28 | Become a productive .NET developer with JetBrains Rider | DevDay 2017 | Mons - Belgium |  | [view](https://youtu.be/yg7C4QNVjk0) | 
