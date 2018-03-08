@@ -15,7 +15,6 @@ This page contains links and short information on the talks that I have (co-)pre
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
 ## Upcoming talks
 
-* March 2018 - ConFoo - Montreal, Canada
 * March 2018 - TechDays - Helsinki, Finland
 * April 2018 - C# Corner Conference - New Delhi, India
 * April 2018 - dotNext - St. Petersburg, Russia
@@ -28,6 +27,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2018-3-8 | NuGet beyond Hello World | ConFoo | Canada - Montreal | [download](https://www.slideshare.net/maartenba/nuget-beyond-hello-world) | [view](https://www.youtube.com/watch?v=4VqiwQbQZ-k) | 
+| 2018-3-8 | Exploring .NET’s memory management – a trip down memory lane | ConFoo | Canada - Montreal | [download](https://www.slideshare.net/maartenba/confoo-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
 | 2018-2-22 | Approaches to application request throttling | WAZUG.nl User Group | Netherlands - Den Haag | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
 | 2018-2-5 | Become a productive .NET developer with JetBrains Rider | MADN user group | Belgium - Kontich |  |  | 
 | 2018-1-23 | Approaches to application request throttling | AZUG user group | Belgium - Kontich | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
