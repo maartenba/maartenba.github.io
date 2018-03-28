@@ -6,7 +6,7 @@ window['ga-disable-{{ site.analytics.google.tracking_id }}'] = false;
 
 var trackPageView = function(consentGiven) {
   window['ga-disable-{{ site.analytics.google.tracking_id }}'] = !consentGiven;
-  if (!window['ga-disable-{{ site.analytics.google.tracking_id }}']) {
+  if (consentGiven) {
     ga('create', '{{ site.analytics.google.tracking_id }}', 'auto');
     ga('send', 'pageview');
   }
@@ -27,13 +27,13 @@ window.addEventListener("load", function(){
       "href": "https://cookiesandyou.com"
     },
     onInitialise: function (status) {
-      trackPageView(this.options.type == 'opt-out' && !this.hasConsented());
+      trackPageView(this.options.type != 'opt-out' || this.hasConsented());
 	},
     onStatusChange: function(status, chosenBefore) {
-      trackPageView(this.options.type == 'opt-out' && !this.hasConsented());
+      trackPageView(this.options.type != 'opt-out' || this.hasConsented());
 	},
     onRevokeChoice: function() {
-      trackPageView(this.options.type == 'opt-out');
+      trackPageView(this.options.type != 'opt-out');
 	}
   })
 });
