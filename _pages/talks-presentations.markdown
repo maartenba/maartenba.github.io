@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-10-10 01:37:00 +0200
+date: 2017-10-12 01:38:01 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -13,13 +13,12 @@ redirect_from:
 This page contains links and short information on the talks that I have (co-)presented. If available, a link to slides and recording is also provided.
 
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
-
 ## Upcoming talks
 
-* November 2017 - DevDay Mons - Mons, Belgium
-* December 2017 - ConFoo - Vancouver, Canada
-* December 2017 - Azure User Group - Belgium
-* January 2018 - IglooConf - Helsinki, Finland
+* April 2018 - C# Corner Conference - New Delhi, India
+* April 2018 - dotNext - St. Petersburg, Russia
+* May 2018 - NDC Minnesota - Minneapolis, USA
+* May 2018 - DevSum - Stockholm, Sweden
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
 
@@ -27,6 +26,16 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2018-3-22 | What is going on - Application diagnostics on Azure | TechDays | Finland - Helsinki | [download](https://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-techdays-finland) |  | 
+| 2018-3-8 | NuGet beyond Hello World | ConFoo | Canada - Montreal | [download](https://www.slideshare.net/maartenba/nuget-beyond-hello-world) | [view](https://www.youtube.com/watch?v=4VqiwQbQZ-k) | 
+| 2018-3-8 | Exploring .NET’s memory management – a trip down memory lane | ConFoo | Canada - Montreal | [download](https://www.slideshare.net/maartenba/confoo-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
+| 2018-2-22 | Approaches to application request throttling | WAZUG.nl User Group | Netherlands - Den Haag | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
+| 2018-2-5 | Become a productive .NET developer with JetBrains Rider | MADN user group | Belgium - Kontich |  |  | 
+| 2018-1-23 | Approaches to application request throttling | AZUG user group | Belgium - Kontich | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
+| 2018-1-18 | Approaches to application request throttling | IglooConf 2018 | Finland - Helsinki | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) | [view](https://www.youtube.com/watch?v=yqS4U048Iwo) | 
+| 2017-12-6 | NuGet beyond Hello World | ConFoo Vancouver 2017 | Canada - Vancouver | [download](https://www.slideshare.net/maartenba/nuget-beyond-hello-world-dotnext-piter-2017) | [view](https://www.youtube.com/watch?v=4VqiwQbQZ-k) | 
+| 2017-12-5 | Exploring .NET’s memory management – a trip down memory lane | ConFoo Vancouver 2017 | Canada - Vancouver | [download](http://www.slideshare.net/maartenba/exploring-net-memory-management-a-trip-down-memory-lane-copenhagen-net-user-group) |  | 
+| 2017-11-28 | Become a productive .NET developer with JetBrains Rider | DevDay 2017 | Mons - Belgium |  | [view](https://youtu.be/yg7C4QNVjk0) | 
 | 2017-11-12 | Approaches to application request throttling | DotNext Moscow | Moscow - Russia | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
 | 2017-10-13 | Mastering the debugger in Rider | TechDays 2017 | Amsterdam - Netherlands |  | [view](https://youtu.be/rKig5iTODHs) | 
 | 2017-10-12 | Become a productive .NET developer with JetBrains Rider | TechDays 2017 | Amsterdam - Netherlands |  | [view](https://youtu.be/yg7C4QNVjk0) | 

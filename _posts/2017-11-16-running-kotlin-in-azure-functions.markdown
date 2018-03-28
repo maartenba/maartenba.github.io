@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Running Kotlin in Azure Functions"
-date: 2017-11-16 05:44:03 +0100
+date: 2017-11-16 05:44:04 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -94,7 +94,7 @@ Very clean code! Unfortunately, it does nothing yet. Let's code a function that 
 ```kotlin
 class HelloKotlin {
     fun hello(name: String): String {
-        return String.format("Hello, %s!", name)
+        return "Hello $name"
     }
 }
 ```
@@ -118,7 +118,7 @@ class HelloKotlin {
     fun hello(
             @HttpTrigger(name = "name", methods = arrayOf("get"), authLevel = AuthorizationLevel.ANONYMOUS)
             name: String): String {
-        return String.format("Hello, %s!", name)
+        return "Hello $name"
     }
 }
 ```
