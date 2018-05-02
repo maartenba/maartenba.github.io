@@ -27,7 +27,7 @@ While I may temporarily feel a bit demotivated for ticking so many boxes on scor
 
 Whatever you choose to believe, Microsoft is in the money-making business. They have communities around their products and platforms, and decide on the rules there. I find a divorce for this reason plain stupid, but it's their rules. It's their good right to offer me the choice between a "light" version or suggest retiring. I chose the latter because for me, there is no value in that (and as mentioned earlier, there is the thin line in the MVP agreement as well).
 
-I've gotten wonderful opportunities, and I've met some amazing folks. Some of that has been thanks to being in the MVP program for over 7 years. But a lot of it is because sharing passion for technology results in meeting amazing folks around the world. And I'll keep doing that. Although I may do a bit less Microsoft marketing.
+I've gotten wonderful opportunities, and I've met some amazing folks. Some of that has been thanks to being in the MVP program for over 7 years. But a lot of it is because sharing passion for technology results in meeting amazing folks around the world. After all, it's not about the title.
 
 **It's all about the passion, the technology and the people, and the drive to develop.**
 
