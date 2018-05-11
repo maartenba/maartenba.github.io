@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-10-12 01:38:01 +0200
+date: 2017-10-12 01:39:01 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -15,7 +15,6 @@ This page contains links and short information on the talks that I have (co-)pre
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
 ## Upcoming talks
 
-* May 2018 - NDC Minnesota - Minneapolis, USA
 * May 2018 - DevSum - Stockholm, Sweden
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). I'll be happy to provide you with session proposals.
@@ -24,6 +23,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2018-5-10 | Kotlin for curious C# developers | NDC Minnesota | USA - St. Paul / Minneapolis |  |  | 
+| 2018-5-4 | Become a productive .NET developer with JetBrains Rider | dotNetCologne | Germany - Cologne |  |  | 
 | 2018-4-22 | What is going on - Application diagnostics on Azure | DotNext Piter | Russia - St. Petersburg | [download](https://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-techdays-finland) |  | 
 | 2018-4-16 | Exploring .NET’s memory management – a trip down memory lane | Mathura Developer Conference | India - Mathura | [download](https://www.slideshare.net/maartenba/confoo-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
 | 2018-4-14 | Exploring .NET’s memory management – a trip down memory lane | CSharp Corner Conference | India - Delhi | [download](https://www.slideshare.net/maartenba/confoo-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
