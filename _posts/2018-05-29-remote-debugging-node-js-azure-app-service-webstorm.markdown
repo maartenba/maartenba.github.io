@@ -13,13 +13,13 @@ At Microsoft Build 2018, a [number of Azure App Service on Linux enhancements](h
 
 > [Remote debugging](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/remotedebugginglinux/), in public preview: You can now choose to remote debug your Node.JS applications running on App Service on Linux.
 
-Sweet! But... how? The blog post did not mention a lot of details on the debugging part, so let's walk through it, shall we?
+Sweet! But... how? The blog post did not mention a lot of details on the debugging part, so let's walk through it, shall we? **Remote debugging of Node.js apps on Azure App Service from WebStorm!**
 
 ## Prerequisites
 
 First of all, we will need a number of things on our machine:
 
-* The latest version of the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* The latest version of the **[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)**
 * The latest `webapp` CLI extension preview. To get it, open a command prompt, make sure the `az` command is on the `PATH`, and run:
 
   > `az extension add --name webapp`
