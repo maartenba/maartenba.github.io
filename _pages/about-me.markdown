@@ -14,7 +14,7 @@ redirect_from:
 <a href="/images/maarten-400x400_1.jpg"><img width="200" height="200" title="maarten-400x400" align="right" style="border: 0px currentColor; border-image: none; padding-top: 0px; padding-right: 0px; padding-left: 0px; float: right; display: inline; background-image: none;" alt="maarten-400x400" src="/images/maarten-400x400_thumb_1.jpg" border="0"></a>
  
 * **Name:** Maarten Balliauw  
-* **Age:** DateTime.Now.Year - 1983  
+* **Age:** `DateTime.UtcNow.Year - 1983`
 * **Gender:** male  
 * **Occupation:**
 	* Owner of [MyGet](http://www.myget.org)
@@ -37,7 +37,7 @@ Thanks for wanting to contact me! Whether you have a question, you would like to
 
 ## Bio
 
-Maarten Balliauw loves building web and cloud apps. His main interests are in ASP.NET MVC, C#, Microsoft Azure, PHP and application performance. He co-founded [MyGet](http://www.myget.org) and is Developer Advocate at JetBrains. He's an ASP Insider and former Microsoft MVP. Maarten is a frequent speaker at various national and international events and organizes [Azure User Group](http://www.azug.be) events in Belgium. In his free time, he brews his own beer. Maarten's blog can be found at [http://blog.maartenballiauw.be](http://blog.maartenballiauw.be).
+Maarten Balliauw loves building web and cloud apps. His main interests are in .NET web technologies, C#, Microsoft Azure and application performance. He co-founded [MyGet](http://www.myget.org) and is Developer Advocate at JetBrains. He's an ASP Insider and former Microsoft MVP. Maarten is a frequent speaker at various national and international events and organizes [Azure User Group](http://www.azug.be) events in Belgium. In his free time, he brews his own beer. Maarten's blog can be found at [http://blog.maartenballiauw.be](http://blog.maartenballiauw.be).
 
 * Blog: [http://blog.maartenballiauw.be](http://blog.maartenballiauw.be)
 * Previous talks and presentations: [full list of talks](/talks-presentations.html)
