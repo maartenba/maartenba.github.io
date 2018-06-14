@@ -158,7 +158,7 @@ In the above code snippet, some work happens executing the `_streamAction`. And 
 
 ### Part 4: being confused about PInvoke
 
-Looking at all the code snippets, things seemed quite okay. Yet the profiler shows differently. ANd reality, too - the request takes too much time to execute!
+Looking at all the code snippets, things seemed quite okay. Yet the profiler shows differently. And reality, too - the request takes too much time to execute!
 
 So let's circle back to our observations and look into the `ExplicitFlush` method, in the `System.Web.Hosting.IIS7WorkerRequest`. Good thing is that the [source code is available](https://referencesource.microsoft.com/#System.Web/Hosting/IIS7WorkerRequest.cs,d0d1bd65a6f428fa)!
 
