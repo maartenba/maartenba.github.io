@@ -214,7 +214,7 @@ this.Flush(true, false);
 
 We are on to something! Preliminary conclusion is that for every single call to `Write...` in JSON.NET, we are calling an underlying `Flush` (which in the end hits our dreaded `ExplicitFlush`).
 
-And for sure: every single JSON token we are writing [is triggering a flush](https://referencesource.microsoft.com/#mscorlib/system/io/streamwriter.cs,293). Making a PInvoke call because that's what we told ASP.NET to do by setting `response.BufferOutput = false;` in the `ChunkedFileStreamResult` class.
+And for sure: every single JSON token we are writing [is triggering a flush](https://referencesource.microsoft.com/#mscorlib/system/io/streamwriter.cs,293). Making a PInvoke call under the hood, because that's what we told ASP.NET to do by setting `response.BufferOutput = false;` in the `ChunkedFileStreamResult` class.
 
 **GOTCHA!** But now, the fix...
 
