@@ -13,7 +13,7 @@ Recently, someone asked me to look at their ASP.NET MVC application and help fig
 
 ## Getting started: observe
 
-Much like with [hunting serial killers](http://highscalability.com/blog/2015/7/30/how-debugging-is-like-hunting-serial-killers.html), you have to become one with the scene at hand. Look at a few things that happen, and observe.
+Much like with [hunting serial killers](http://highscalability.com/blog/2015/7/30/how-debugging-is-like-hunting-serial-killers.html), you have to become one with the scene at hand. Watch the crime scene. Look at the things that happen, and observe.
 
 ### Observation 1: response content with Fiddler
 
@@ -72,7 +72,7 @@ Interesting! The heavy hitter is the `ExplicitFlush` method, in the `System.Web.
 The next thing to look at in this case would be the call tree we observed. Summarized, it looks like this:
 
 * HTTP request comes in and hits the ASP.NET MVC Controller
-  * Controller does things and returns a `ChunkedFileStreamResult` which, when executed writes JSON to the output stream
+  * Controller does things and returns a `ChunkedFileStreamResult` which, when executed, writes JSON to the output stream
     * Writing JSON to the output is done using JSON.NET, using the `JsonTextWriter` class
       * ASP.NET MVC and IIS do their thing to get the response to the client
 
@@ -220,7 +220,9 @@ And for sure: every single JSON token we are writing [is triggering a flush](htt
 
 ## Fixing things
 
-As we mentioned earlier in this post, `ChunkedFileStreamResult` *could* be useful if we do not know the size of the data we will be sending. We don't know, but we do know that the typical JSON returned will not be too large (a few 100kb maximum), so there is no need to use chunked encoding anyway.
+There are in fact two fixes to this. A first one is setting [`AutoFlush = false` on our `StreamWriter`](https://msdn.microsoft.com/en-us/library/system.io.streamwriter.autoflush%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396). This will not invoke the underlying `ExplicitFlush` on every write, and would solve things for sure.
+
+We decided to go with another approach, though. As we mentioned earlier in this post, `ChunkedFileStreamResult` *could* be useful if we do not know the size of the data we will be sending. We don't know, but we do know that the typical JSON returned will not be too large (a few 100kb maximum), so there is no need to use chunked encoding anyway.
 
 So in our controller instead of using this special stream result, we can simply return our JSON by rendering it into a string and returning that instead. Rough pseudo-code:
 
