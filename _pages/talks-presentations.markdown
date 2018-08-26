@@ -15,7 +15,9 @@ This page contains links and short information on the talks that I have (co-)pre
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
 ## Upcoming talks
 
-* August 2018 - Xamarin User Group Cologne
+* September 2018 - Limburg Software Developers Meetup, the Netherlands
+* October 2018 - DotNetFest Kiev, Ukraine
+* November 2018 - Various events in Tokyo and South Korea
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
@@ -23,6 +25,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2018-8-23 | Become a productive .NET developer with JetBrains Rider | Xamarin User Group | Germany - Hürth |  |  | 
 | 2018-6-1 | Approaches to application request throttling | DevSum | Sweden - Stockholm | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
 | 2018-5-10 | Kotlin for curious C# developers | NDC Minnesota | USA - St. Paul / Minneapolis |  |  | 
 | 2018-5-4 | Become a productive .NET developer with JetBrains Rider | dotNetCologne | Germany - Cologne |  |  | 
