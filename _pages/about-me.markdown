@@ -17,8 +17,8 @@ redirect_from:
 * **Age:** `DateTime.UtcNow.Year - 1983`
 * **Gender:** male  
 * **Occupation:**
-	* Owner of [MyGet](http://www.myget.org)
 	* Developer Advocate at [JetBrains](http://www.jetbrains.com)
+	* Former founder and owner of [MyGet](http://www.myget.org)
 	* Developer, mentor, ... on your team, [contact me](mailto:mailto:maarten@maartenballiauw.be) or [find out more](/hire-me.html)
 * **Location:** [Antwerp](http://en.wikipedia.org/wiki/Antwerp), [Belgium](http://en.wikipedia.org/wiki/Belgium)
 * **Favourite beer:** [Westmalle Tripel](http://www.trappistwestmalle.be/en/page/tripel.aspx), [Rochefort 8](http://en.wikipedia.org/wiki/Brasserie_de_Rochefort), [La Chouffe (Achouffe)](http://en.wikipedia.org/wiki/Brasserie_d%27Achouffe)
@@ -37,7 +37,7 @@ Thanks for wanting to contact me! Whether you have a question, you would like to
 
 ## Bio
 
-Maarten Balliauw loves building web and cloud apps. His main interests are in .NET web technologies, C#, Microsoft Azure and application performance. He co-founded [MyGet](http://www.myget.org) and is Developer Advocate at JetBrains. He's an ASP Insider and former Microsoft MVP. Maarten is a frequent speaker at various national and international events and organizes [Azure User Group](http://www.azug.be) events in Belgium. In his free time, he brews his own beer. Maarten's blog can be found at [http://blog.maartenballiauw.be](http://blog.maartenballiauw.be).
+Maarten Balliauw loves building web and cloud apps. His main interests are in .NET web technologies, C#, Microsoft Azure and application performance. He is Developer Advocate at JetBrains. He's an ASP Insider and former Microsoft MVP. Maarten is a frequent speaker at various national and international events and organizes [Azure User Group](http://www.azug.be) events in Belgium. In his free time, he brews his own beer. Maarten's blog can be found at [http://blog.maartenballiauw.be](http://blog.maartenballiauw.be).
 
 * Blog: [http://blog.maartenballiauw.be](http://blog.maartenballiauw.be)
 * Previous talks and presentations: [full list of talks](/talks-presentations.html)
