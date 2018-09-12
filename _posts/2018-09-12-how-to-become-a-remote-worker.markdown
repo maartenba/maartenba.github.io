@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to become a remote worker"
-date: 2018-09-12 04:44:04 +0100
+date: 2018-09-12 04:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -32,7 +32,8 @@ Let's start with personal things. I remember when my boss told me I could work r
 <div class="tenor-gif-embed" data-postid="4700420" data-share-method="host" data-width="100%" data-aspect-ratio="1.324468085106383"><a href="https://tenor.com/view/suck-yousuck-sucka-sucker-simpsons-gif-4700420">So Long, Suckers! - The Simpsons GIF</a> from <a href="https://tenor.com/search/suck-gifs">Suck GIFs</a></div>
 <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-And then you get home. Now what...
+
+And then you get home. Now what do you do...
 
 ### Remote work means work
 
@@ -40,7 +41,7 @@ To some, remote work may sound like a vacation. In some ways it is: no morning a
 
 During the week, my wife leaves towards work at 7:30 AM. That's when I start my working day. Usually, she arrives home around 4 PM. That's when I try to end my working day. More on that in a second.
 
-I have been very used to working business hours, I find productivity mostly in the morning, so I start early. Bonus points, as this also lets me stop quite early. Since this gives me 8h30 of work time, it also gives me time to take a break or go for a short walk during lunch.
+I have always been used to working business hours, I find productivity mostly in the morning, so I start early. Bonus points, as this also lets me stop quite early. Since this gives me 8h30 of work time, it also gives me time to take a break or go for a short walk during lunch.
 
 If your team expects you to be there during business hours, stick to those hours. If you have flexible start/stop times, try to stay close to the times you would work at the office. It keeps the routine, and I find it easier for myself to make me believe I'm at work.
 
