@@ -116,5 +116,7 @@ http://www.CodeHighlighter.com/
 
 <p>Why would you need this? Well, imagine you are building a customer-specific service where you want to track service calls for a specific sutomer. For example, if you’re creating private NuGet repositories. And yes, this was a hint on a future blog post :-)</p>
 
-<p>Feel this is useful to you as well? Grab the code here: <a href="/files/2011/5/DynamicServiceRoute.cs">DynamicServiceRoute.cs (1.94 kb)</a></p>
-{% include imported_disclaimer.html %}
+<p>Feel this is useful to you as well? Grab the code here: <a href="/images/2011/5/DynamicServiceRoute.cs">DynamicServiceRoute.cs (1.94 kb)</a></p>
+
+{% include imported_disclaimer.html %}
+
