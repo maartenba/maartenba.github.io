@@ -15,11 +15,9 @@ This page contains links and short information on the talks that I have (co-)pre
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
 ## Upcoming talks
 
-* September 2018 - Limburg Software Developers Meetup, the Netherlands
-* September 2018 - VISUG, Belgium
-* October 2018 - DotNetFest Kiev, Ukraine
 * October 2018 - SWENUG user group, Sweden
 * October 2018 - DOUGH user group, Sweden
+* October 2018 - DotNetFest Kiev, Ukraine
 * November 2018 - Various events in Tokyo and South Korea
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
@@ -28,6 +26,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2018-9-26 | Approaches to application request throttling | VISUG User Group | Belgium - Diegem | [download](https://www.slideshare.net/maartenba/visug-approaches-for-application-request-throttling) |  | 
+| 2018-9-20 | Exploring .NET’s memory management – a trip down memory lane | Limburg Software Developers Meetup | Netherlands - Heerlen |  |  | 
 | 2018-8-23 | Become a productive .NET developer with JetBrains Rider | Xamarin User Group | Germany - Hürth |  |  | 
 | 2018-6-1 | Approaches to application request throttling | DevSum | Sweden - Stockholm | [download](https://www.slideshare.net/maartenba/approaches-to-application-request-throttling) |  | 
 | 2018-5-10 | Kotlin for curious C# developers | NDC Minnesota | USA - St. Paul / Minneapolis |  |  | 
