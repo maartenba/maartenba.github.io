@@ -105,6 +105,7 @@ include:
   - _pages
   - files
   - favicon.ico
+  - favicon-96x96.png
   - ads.txt
 exclude:
   - vendor

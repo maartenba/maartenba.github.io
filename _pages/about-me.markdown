@@ -11,7 +11,7 @@ redirect_from:
 
 ## Quick overview
 
-<a href="/images/maarten-400x400_1.jpg"><img width="200" height="200" title="maarten-400x400" align="right" style="border: 0px currentColor; border-image: none; padding-top: 0px; padding-right: 0px; padding-left: 0px; float: right; display: inline; background-image: none;" alt="maarten-400x400" src="/images/maarten-400x400_thumb_1.jpg" border="0"></a>
+<a href="/images/avatars/maarten-2018-400x400.jpg"><img width="200" height="200" title="maarten-400x400" align="right" style="border: 0px currentColor; border-image: none; padding-top: 0px; padding-right: 0px; padding-left: 0px; float: right; display: inline; background-image: none;" alt="maarten-400x400" src="/images/avatars/maarten-2018-800x800.jpg" border="0"></a>
  
 * **Name:** Maarten Balliauw  
 * **Age:** `DateTime.UtcNow.Year - 1983`
