@@ -1,0 +1,5 @@
+id: dsq-937491093
+date: 2008-11-19T13:48:39.0000000+01:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: "<p>Sam, I guess you should consider both options: SQL server will be more reliable but a little slower, state server / partitioning will be a bit faster but there's still possible loss of session data.</p>"

@@ -1,0 +1,5 @@
+id: dsq-1869136512
+date: 2015-02-22T15:45:08.0000000+01:00
+name: Svys2nov
+avatar: https://disqus.com/api/users/avatars/svys2nov.jpg
+message: <p>I'm sorry for my question. I'm new in asp mvc, but what to do in case when you need to call action method of another controller? If I'm not mistaken this code will search action method in current controller.</p>

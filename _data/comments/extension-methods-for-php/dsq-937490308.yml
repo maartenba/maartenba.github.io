@@ -1,0 +1,5 @@
+id: dsq-937490308
+date: 2010-05-19T10:07:54.0000000+02:00
+name: Hodicska Gergely
+avatar: https://disqus.com/api/users/avatars/Hodicska Gergely.jpg
+message: <p>Hello Ralph,</p><p>I would argue a little as we are using reflection API in a very high trafficed environment (<a href="http://ustream.tv" rel="nofollow noopener" title="ustream.tv">ustream.tv</a> was already among alexa top 200), and it makes the controllers and the templates much cleaner. When I introduced this feature I thought that I would cache the result of the reflection API into APC (as it was always stated the reflection API is very slow), but I was surprised as getting the needed information from the API and from APC was the same.</p><p>Of course using the reflection API was noticeable on the performance side but even with it our framework outperforms all the popular (and of course general) PHP frameworks (over 1000 req/sec from a hello world page). Actually for us this cost worth the benefits we get on development side. And if we want we can avoid the slowdown by generating a static cache as part of the build/code deployment process.</p><p>Regards,<br>Felhő</p>

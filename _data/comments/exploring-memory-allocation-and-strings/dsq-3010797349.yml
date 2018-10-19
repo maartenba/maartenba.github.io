@@ -1,0 +1,5 @@
+id: dsq-3010797349
+date: 2016-11-20T02:52:05.0000000+01:00
+name: LetMeCodeThis
+avatar: https://disqus.com/api/users/avatars/letmecodethis.jpg
+message: "<p>In relation to: \"There is one downside however: each time we use \"\", the intern pool is checked which spends some precious CPU time.\". Some time ago I've benchmarked that and the result was exactly the same so this made me curious. Looked at IL code and noticed you were right that different op code is being used (ldstr for \"\" and ldsfld for string.Empty) but from .NET 4.5 ldstr \"\" is replaced with ldsfld    string [mscorlib]System.String::Empty by the jitter resulting with exactly the same asm code being generated.</p>"

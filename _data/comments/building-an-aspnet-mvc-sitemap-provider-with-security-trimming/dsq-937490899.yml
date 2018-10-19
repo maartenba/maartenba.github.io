@@ -1,0 +1,5 @@
+id: dsq-937490899
+date: 2009-02-24T11:29:14.0000000+01:00
+name: Nick Gieschen
+avatar: https://disqus.com/api/users/avatars/Nick Gieschen.jpg
+message: <p>Your GetSiteMapNodeFromXMLElement is failing to account for a nested provider in the XML. To fix this do something like:</p><p>protected SiteMapNode GetSiteMapNodeFromXMLElement(XElement node)<br>{<br>     var provider = GetAttributeValue(node.Attribute("provider"));<br>      if (!string.IsNullOrEmpty(provider))<br>           return GetSiteMapNodesFromProvider(provider);</p><p>...<br>}</p><p>private SiteMapNode GetSiteMapNodesFromProvider(string provider)<br>{<br>     var ds = new SiteMapDataSource { ShowStartingNode = true };<br>     ds.SiteMapProvider = provider;<br>     var view = (SiteMapDataSourceView)ds.GetView(string.Empty);<br>     var nodes = (SiteMapNodeCollection)view.Select(DataSourceSelectArguments.Empty);<br>     return nodes[0];<br>}</p>

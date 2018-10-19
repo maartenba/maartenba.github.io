@@ -1,0 +1,6 @@
+id: dsq-937491246
+replyToId: dsq-937490160
+date: 2011-12-13T22:38:31.0000000+01:00
+name: Rob
+avatar: https://disqus.com/api/users/avatars/Rob.jpg
+message: <p>You will never get past UAC. Chocolatey will stop and ask for permission if it needs to, I am unsure of the other tools. You can temporarily disable it for this process so you can get everything installed in one fell swoop.</p>

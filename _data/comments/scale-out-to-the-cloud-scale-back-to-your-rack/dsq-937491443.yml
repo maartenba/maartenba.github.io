@@ -1,0 +1,6 @@
+id: dsq-937491443
+replyToId: dsq-937491307
+date: 2010-10-23T10:02:13.0000000+02:00
+name: KristoferA
+avatar: https://disqus.com/api/users/avatars/KristoferA.jpg
+message: "<p>Yeah, imagine if you could do SQL Server log-shipping from a local live SQL Server instance to SQL Azure. That way you're not more than one transaction log backup away from doing a 'failover' to the cloud. The switch would then be: make local db readonly, backup tx log, ship, make azure live...  And then the same thing in the opposite direction when going from Azure back to a local server.</p>"

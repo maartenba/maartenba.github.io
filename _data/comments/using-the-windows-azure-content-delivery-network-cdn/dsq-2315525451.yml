@@ -1,0 +1,5 @@
+id: dsq-2315525451
+date: 2015-10-19T21:16:00.0000000+02:00
+name: Marco van Zuylen
+avatar: https://disqus.com/api/users/avatars/marcovanzuylen.jpg
+message: <p>Great article,<br>But somewhere something is not working. I feel like an idiot, but, I ask anyway :)<br>The code works, all my files are on the storage blob container. The CDN links to the blob container, but when I try to use the cdn css files, they cannot be found. Any idea/thoughts would help me.<br>Sorry for spelling mistakes, English is not my native language,</p>

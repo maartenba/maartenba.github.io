@@ -1,0 +1,5 @@
+id: dsq-937490332
+date: 2011-03-09T17:30:48.0000000+01:00
+name: Maria
+avatar: https://disqus.com/api/users/avatars/Maria.jpg
+message: <p>Hi, the problem with RenderAction I realize that only happens when you are rendering to the same controller.</p><p>Example:<br>RenderAction("Index","Home"); this is correct! but when you make RenderAction("List", Home); inside Index.cshtml or Index.aspx you got the error.<br>If you change de action List to another controller, i'ts done ok this way RenderAction("List", SubHome);<br>I know that it's not an elegant solution but it works!</p><p>Greetings for the article :)</p>

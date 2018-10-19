@@ -1,0 +1,5 @@
+id: dsq-937490741
+date: 2011-01-10T21:43:32.0000000+01:00
+name: jlafay
+avatar: https://disqus.com/api/users/avatars/jlafay.jpg
+message: <p>So how about querying a MySQL database? That will be a common scenario and would be preferred considering the number of frameworks out there. Not everyone writes web apps with the Zend framework. Is there a DataContext that maps to MySQL by chance?</p>

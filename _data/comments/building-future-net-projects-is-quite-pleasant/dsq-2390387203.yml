@@ -1,0 +1,5 @@
+id: dsq-2390387203
+date: 2015-12-03T11:01:53.0000000+01:00
+name: Mateusz Owdziej
+avatar: https://disqus.com/api/users/avatars/mateuszowdziej.jpg
+message: "<p>I had problem with kvm. After change kvm command to dnvm I get error like this:<br>'kpm' is not recognized as an internal or external command. buildall: Foreach { kpm build $_.FullName --configuration %mr.Configuration% }; exit $Lastexitcode <br>Do you know how to solve this problem?</p>"

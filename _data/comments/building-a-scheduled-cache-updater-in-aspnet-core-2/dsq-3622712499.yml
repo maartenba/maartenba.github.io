@@ -1,0 +1,6 @@
+id: dsq-3622712499
+replyToId: dsq-3585688882
+date: 2017-11-19T01:19:23.0000000+01:00
+name: Ronaldo Reis
+avatar: https://disqus.com/api/users/avatars/ronaldooreis.jpg
+message: "<p>Hi<br>After all changes, I got: Cannot consume scoped service 'Scheduling.IMaintenanceTasksService' from singleton 'Scheduling.IScheduledTaskService'.</p><p>I'm affraid something is missing... Any thoughts?</p>"

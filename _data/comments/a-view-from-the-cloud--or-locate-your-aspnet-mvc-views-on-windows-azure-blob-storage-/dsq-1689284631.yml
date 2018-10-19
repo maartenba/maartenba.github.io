@@ -1,0 +1,6 @@
+id: dsq-1689284631
+replyToId: dsq-1687624552
+date: 2014-11-12T11:10:00.0000000+01:00
+name: Ant rad
+avatar: https://disqus.com/api/users/avatars/ant_rad.jpg
+message: <p>Yes now it works, it was the order in which the events were called. All I had to do is, move the "routes.MapRoute" before the default one. But now I am stuck with a blank rendered view. The "System.IO.Stream Open()" brings back view from blob successfully, however this is not rendered.</p>

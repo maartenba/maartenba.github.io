@@ -1,0 +1,6 @@
+id: dsq-937491377
+replyToId: dsq-937490557
+date: 2009-04-22T14:11:08.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>That should work, you'll have to issue a catalog.Refresh() in code though. Also, I've noticed the ASP.NET devserver locks the plugin dll's which makes it a bit difficult to overwrite while running. But in theory, it should work.</p>

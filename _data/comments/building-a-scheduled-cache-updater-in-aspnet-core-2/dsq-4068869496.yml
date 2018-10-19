@@ -1,0 +1,5 @@
+id: dsq-4068869496
+date: 2018-08-30T19:29:13.0000000+02:00
+name: Przem
+avatar: https://disqus.com/api/users/avatars/disqus_e4qUGBFi6j.jpg
+message: <p>Why would You do this instead of</p><p>private IMemoryCache _cache;<br>public GetProductReleases()<br>{<br>   return _cache.GetOrCreate('key', entry =&gt;<br>    {<br>        entry.Expires = TimeSpan.FromHours(2);<br>        return LoadProductReleases();<br>    });<br>}</p>

@@ -1,0 +1,5 @@
+id: dsq-937490629
+date: 2009-04-28T12:41:41.0000000+02:00
+name: Jamir
+avatar: https://disqus.com/api/users/avatars/Jamir.jpg
+message: <p>Great work Maarten!</p><p>In my MVC project, I am trying to convert to MvcSitemap from SiteMap. I have different sub folders within my Controller projects, which holds the controllers. RouteRegister registers and redirects appropriately depending on the folder and subfolder.</p><p>In my current implementation using SiteMap. I have following syntax<br>      &lt;siteMapNode  title="Mileage Rates"  url="~/Setup/MileageRates" description="Mileage Rates" roles="*" /&gt;</p><p>I would like to pass /SetUp/MileageRates/Index and not just MileageRates/Index. How do I do it using MVCSitemap? When I tried giving controller="Setup/MileageRates" action="Index", it fails in MvcSiteMapProvider.cs, does not recognize "Setup/MileageRates" as a controller, which is expected.</p><p>Any suggestion?</p><p>Thanks,<br>Jamir</p>

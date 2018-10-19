@@ -1,0 +1,5 @@
+id: dsq-937491081
+date: 2008-02-01T02:18:15.0000000+01:00
+name: Scott Hanselman
+avatar: https://disqus.com/api/users/avatars/Scott Hanselman.jpg
+message: <p>Fantastic series! One question, however, isn't there measurable overhead in the creation of that remote Performance Counter? How much optimization have you had to do in that CreateSessionID call?</p>

@@ -1,0 +1,5 @@
+id: dsq-937491182
+date: 2008-05-15T22:36:53.0000000+02:00
+name: Pablo Szittyay
+avatar: https://disqus.com/api/users/avatars/Pablo Szittyay.jpg
+message: <p>Thanks for respondig so soon. Woled it be to much trouble to give me an example of how to configure the  proxy of the web request. I have tried, using the following code:</p><p>                WebRequest request = WebRequest.Create(forecastUrl);<br>                request.Proxy = new WebProxy ("172.16.15.235",8080);<br>                request.Credentials = new NetworkCredential ("degas","xxxx","172.16.15.235:8080");<br>                WebResponse response = request.GetResponse();</p><p>On the proxy (wich is the way out to consume the Rssfeed) and i have set the credentials of the proxy.<br> It doesn`t work, i sure that i am doing something wrong. Do you know what? if you have an example it would be great. <br>Thanks a lot</p>

@@ -1,0 +1,5 @@
+id: dsq-937490240
+date: 2011-04-09T00:19:07.0000000+02:00
+name: tom thorp
+avatar: https://disqus.com/api/users/avatars/tom thorp.jpg
+message: <p>First, let me say, I like the concepts and implementation of your package.  But I'm also having a problem AppStart_MefContribMVC3.</p><p>The line - <br>      var dependencyResolver = new CompositionDependencyResolver(catalog);<br>has an internal exception of - <br>  Message - Object reference not set to an instance of an object.<br>  Stack Trace - <br>        at MefContrib.Web.Mvc.Internal.WcfOperationContext.get_Current()<br>        at MefContrib.Web.Mvc.CurrentRequestContext.get_Items()<br>        at MefContrib.Web.Mvc.CompositionDependencyResolver.get_Container()</p><p>It appears because of that, framework does not resolve any controllers.</p><p>Can you suggestion something or point me to where I could download the source to your package.</p>

@@ -1,0 +1,6 @@
+id: dsq-937491353
+replyToId: dsq-937490434
+date: 2009-08-14T13:22:13.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>Best thing would be to also store the provider. ANother option is creating a local account "esmith", where you can add trusted providers. FOr example, local esmith can state he will login via Twitter and sometimes via OpenID.</p>

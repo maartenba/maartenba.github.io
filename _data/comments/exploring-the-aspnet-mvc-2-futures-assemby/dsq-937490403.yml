@@ -1,0 +1,5 @@
+id: dsq-937490403
+date: 2009-10-09T21:39:15.0000000+02:00
+name: John Farrell
+avatar: https://disqus.com/api/users/avatars/John Farrell.jpg
+message: <p>@PK All this functionality is doing is serializing an object and then deserializing it back inside of a model binder.</p><p>That is not complex, very KISS, and is certainly not anything close to "black magic".  Is the Session[""] dictionary black magic?</p>

@@ -1,0 +1,5 @@
+id: dsq-937490385
+date: 2009-10-09T15:19:15.0000000+02:00
+name: Jaco Pretorius
+avatar: https://disqus.com/api/users/avatars/Jaco Pretorius.jpg
+message: <p>I suppose it's a nice feature but I can't really see myself using it - I prefer fine-grained control over the generated html.  Maybe I'll change my mind at a later stage...</p><p>I just wanted to point out that your implementation of RowVersion seems a little fishy.  The concurrency field should always be implemented as a Timestamp and NOT as a DateTime.  Timestamp != DateTime.  I guess you were doing this for demonstration purposes, but it might be worth mentioning.</p><p>Nice article.</p>

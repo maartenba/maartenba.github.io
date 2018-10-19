@@ -1,0 +1,5 @@
+id: dsq-937490229
+date: 2011-02-11T21:56:57.0000000+01:00
+name: Elio
+avatar: https://disqus.com/api/users/avatars/Elio.jpg
+message: <p>Victory! I had my whole team vote for you.  We just started building a large web application using Mvc3 and Mef.  Btw, it would be great if you could show an example of factoring out some reusable pages into its own project.  Getting the controllers, models, repository code is easy.  But getting the view code(razor .cshtml) to work has been tricky.  I am currently trying to implement a virtual path provider, and embed views as resources in the dll.  FYI, we cant use Mefcontrib, so a portable area is not an option.</p>

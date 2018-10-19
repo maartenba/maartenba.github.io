@@ -1,0 +1,5 @@
+id: dsq-937490868
+date: 2008-09-24T01:01:49.0000000+02:00
+name: robert
+avatar: https://disqus.com/api/users/avatars/robert.jpg
+message: <p>Maarten,</p><p>Thanks for the quick response. I did update the code, but I still get a null MvcHandler each time. Not sure how to instantiate it properly I guess.</p>

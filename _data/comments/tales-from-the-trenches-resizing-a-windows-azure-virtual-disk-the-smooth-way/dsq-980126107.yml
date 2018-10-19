@@ -1,0 +1,5 @@
+id: dsq-980126107
+date: 2013-07-29T15:35:47.0000000+02:00
+name: stephan
+avatar: https://disqus.com/api/users/avatars/disqus_uzhPGfGpy9.jpg
+message: <p>Could not get the resizing done. Tried to resize a 30 Gbyte VM disk with Windows 2008 operating system. Have created URL with SAS, always get the message "The given disk size exceeds 127 GB. Azure will not be able to start the virtual machine stored on this disk if you continue. Aborted".</p><p>I have tried various disk sizes from 64424509440 (60 GByte) down to 2147482648 Bytes (2 GByte) - always thesame result, even when I manipulate the SAS. Also tried with account name and account key directly (do I needtoput them in "")?</p>

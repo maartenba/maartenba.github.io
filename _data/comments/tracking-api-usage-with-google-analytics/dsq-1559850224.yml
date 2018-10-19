@@ -1,0 +1,6 @@
+id: dsq-1559850224
+replyToId: dsq-1559846316
+date: 2014-08-26T15:08:31.0000000+02:00
+name: Fred .
+avatar: https://disqus.com/api/users/avatars/disqus_UewjzPq6jN.jpg
+message: <p>I see. I didn't know this about the filter config is specific to MVC and WebApiConfig is specific to the Web API.</p><p>It still says it cannot resolve ControllerDescriptor.</p><p>Are you sure it should be <code>action.ControllerDescriptor.ControllerName</code> and not <code>action.ControllerContext.ControllerDescriptor.ControllerName</code> ?</p><p>Because the first doesn't resolve, but then I discovered that the other one resolves.</p>

@@ -1,0 +1,6 @@
+id: dsq-937491235
+replyToId: dsq-937490118
+date: 2012-06-09T18:56:13.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>Thats possible I think. Another idea is to put those in a NuGet package and download them at build time - see my next post at <a href="http://blog.maartenballiauw.be/post/2012/06/07/Use-NuGet-Package-Restore-to-avoid-pushing-assemblies-to-Windows-Azure-Websites.aspx" rel="nofollow noopener" title="http://blog.maartenballiauw.be/post/2012/06/07/Use-NuGet-Package-Restore-to-avoid-pushing-assemblies-to-Windows-Azure-Websites.aspx">http://blog.maartenballiauw...</a></p>

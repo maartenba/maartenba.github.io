@@ -1,0 +1,6 @@
+id: dsq-989014996
+replyToId: dsq-989013960
+date: 2013-08-05T12:25:23.0000000+02:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>The autoscaler indeed turns off (or on) virtual machines.</p><p>Stopped virtual machines (in IaaS) are no longer billed for, except the storage they use (see <a href="http://weblogs.asp.net/scottgu/archive/2013/06/03/windows-azure-announcing-major-improvements-for-dev-test-in-the-cloud.aspx)" rel="nofollow noopener" title="http://weblogs.asp.net/scottgu/archive/2013/06/03/windows-azure-announcing-major-improvements-for-dev-test-in-the-cloud.aspx)">http://weblogs.asp.net/scot...</a>. Which means if the autoscaling scales down to one instance, you only pay one instance. From that same post, billing is by the minute.</p>

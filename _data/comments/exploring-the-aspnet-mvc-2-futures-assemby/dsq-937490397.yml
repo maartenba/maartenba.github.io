@@ -1,0 +1,5 @@
+id: dsq-937490397
+date: 2009-10-07T16:16:59.0000000+02:00
+name: David Kemp
+avatar: https://disqus.com/api/users/avatars/David Kemp.jpg
+message: <p>This is so far from viewstate that it beggars belief.<br>Since the dawn of time, people have been putting "state" in hidden form fields. <br>MS took the mickey with their concept of viewstate to try to make WebForms behave like windows applications.<br>However, having the ability to put an encrypted/signed ID value in a hidden field is really good, and can help security enormously.</p>

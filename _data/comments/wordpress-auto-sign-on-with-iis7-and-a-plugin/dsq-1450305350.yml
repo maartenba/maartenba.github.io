@@ -1,0 +1,5 @@
+id: dsq-1450305350
+date: 2014-06-23T21:28:06.0000000+02:00
+name: Wayne
+avatar: https://disqus.com/api/users/avatars/disqus_d7UQ3ufqpS.jpg
+message: <p>I can't seem to get the plugin to show up in the list to be activated.  I downloaded the updated version (for WP 3.1+) which is just the IISAUTH.PHP file.  I then created a plugin directory called iisauth and added the php file.  I also added Windows Authentication and restarted the server.  What am I missing?</p>

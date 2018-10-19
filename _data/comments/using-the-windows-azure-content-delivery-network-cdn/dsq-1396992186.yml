@@ -1,0 +1,5 @@
+id: dsq-1396992186
+date: 2014-05-21T11:58:04.0000000+02:00
+name: dev mondo
+avatar: https://disqus.com/api/users/avatars/devmondo.jpg
+message: <p>Awesome article, could you please explain to me the following,</p><p>i thought that most CDNs uses pull and push technology, so you dont have to upload your content manually, so say you have the following<br>&lt;img src="cdn.mycompany/content/image1.jpg"/&gt; when user hits the page, image1.jpg will be uploaded automatically to the server, and this is great, but now i am confused about a legacy application, where there are hundreds of local images links, what is the best way to convert them to cdn links? maybe the URL rewrite above will help ?</p><p>thanks in advanced.</p>

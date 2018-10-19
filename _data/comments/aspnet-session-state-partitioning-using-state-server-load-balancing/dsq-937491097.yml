@@ -1,0 +1,5 @@
+id: dsq-937491097
+date: 2010-10-29T00:31:28.0000000+02:00
+name: raees
+avatar: https://disqus.com/api/users/avatars/raees.jpg
+message: <p>Well everything is fine in this post.</p><p>But from the sample application when i host my application on Server A, and use State Server in B and C and try to do load balancing i added</p><p>stateServers.Add(new StateServer("tcpip=192.168.1.11:42424", "."));<br>stateServers.Add(new StateServer("tcpip=192.168.1.12:42424", "."));</p><p>Then from my webserver whoose ip is 192.168.1.10 i accessed the information and everytime the nextvalue was 0 only and it was picking the first state server. I accessed the same machine from 10 different machine and all were coming to first state server and nextvalue was always 0 only when i printed that.</p><p>Please help how can i do this.</p>

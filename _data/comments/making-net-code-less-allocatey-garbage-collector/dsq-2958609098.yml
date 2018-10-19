@@ -1,0 +1,5 @@
+id: dsq-2958609098
+date: 2016-10-19T18:52:00.0000000+02:00
+name: Kevin Deenanauth
+avatar: https://disqus.com/api/users/avatars/kevindeenanauth.jpg
+message: <p>Does using dependency injection frameworks help or hurt with object allocations? It seems like they would because of the prescribed lifecycle management.</p>

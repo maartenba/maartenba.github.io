@@ -1,0 +1,6 @@
+id: dsq-937491827
+replyToId: dsq-937491663
+date: 2010-05-20T00:19:22.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>While it is called extension method, this technique does not give access to the class internals. Which makes it essentially a shorthand for the helper classes I described above.</p>

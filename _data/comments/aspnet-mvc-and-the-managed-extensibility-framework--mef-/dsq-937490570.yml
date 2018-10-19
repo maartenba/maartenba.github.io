@@ -1,0 +1,5 @@
+id: dsq-937490570
+date: 2009-11-20T04:55:16.0000000+01:00
+name: Tom
+avatar: https://disqus.com/api/users/avatars/Tom.jpg
+message: <p>Thank you for the reply.  I downloaded your example and it works.  However, I noticed your view code does not actually display any data from the strongly typed model.  I went to augment the view to display the DemoProperty element from  MvcMefDemo.Plugins.Sample.Models.DemoModel.  I was expecting to do this:</p><p>&lt;%= Model.DemoProperty %&gt;</p><p>but Model is not an option in Intellisense.  I then put the code back like it was, recompiled, then copied new Views folder and generated DLLs from MvcMefDemo.Plugins.Sample/bin/debug to MvcMefDemo.Web/Plugins.  I reloaded the Demo page in the browser and got :</p><p>Could not load 'System.Web.Mvc.ViewPage&lt;MvcMefDemo.Plugins.Sample.Models.DemoModel&gt;</p><p>So, I am not sure how to proceed.  Any ideas?  Thanks</p><p>Tom</p>

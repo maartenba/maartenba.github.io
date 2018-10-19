@@ -1,0 +1,5 @@
+id: dsq-937490906
+date: 2009-03-16T18:41:14.0000000+01:00
+name: Joel D'Souza
+avatar: https://disqus.com/api/users/avatars/latenightcoder.jpg
+message: "<p>Great work here. An issue I've faced is that the menus aren't rendered properly on a WebKit browser (only tested Chrome/Safari). They need to be treated as uplevel browsers/be handled with updated browsercaps available here : <a href=\"http://owenbrady.net/browsercaps\" rel=\"nofollow noopener\" title=\"http://owenbrady.net/browsercaps\">http://owenbrady.net/browse...</a></p>"

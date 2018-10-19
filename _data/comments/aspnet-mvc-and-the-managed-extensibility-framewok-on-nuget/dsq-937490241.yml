@@ -1,0 +1,5 @@
+id: dsq-937490241
+date: 2011-03-24T17:43:42.0000000+01:00
+name: Corey Gaudin
+avatar: https://disqus.com/api/users/avatars/Corey Gaudin.jpg
+message: <p>No. I want to do just a regular object and I dont want to do it by convention. I just want to add that object in like the above. container.ComposeExportedValue&lt;ISomeObject&gt;(new SomeObject()); before the first controller is instantiated so that it can import in the ISomeObject. I havent found a place I can do this and it works yet.</p>

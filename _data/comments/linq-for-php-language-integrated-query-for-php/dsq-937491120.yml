@@ -1,0 +1,5 @@
+id: dsq-937491120
+date: 2008-05-31T07:19:13.0000000+02:00
+name: Ren
+avatar: https://disqus.com/api/users/avatars/Ren.jpg
+message: <p>With the operator overload extension can remove alot of the strings, and have actual objects representing the tables and columns.. like</p><p>$q = new mcQuery();<br>$q-&gt;from(<br>$q-&gt;leftJoin($catalog-&gt;Persons,<br>$catalog-&gt;Employees,<br>$catalog-&gt;Persons-&gt;personId == $catalog-&gt;Employees-&gt;employeeId)<br>)-&gt;where($catalog-&gt;Persons-&gt;name &lt; 'Ren');<br>$q-&gt;append($catalog-&gt;Persons-&gt;name . ' ' . $catalog-&gt;Persons-&gt;personId);</p>

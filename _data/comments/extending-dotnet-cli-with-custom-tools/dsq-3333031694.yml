@@ -1,0 +1,6 @@
+id: dsq-3333031694
+replyToId: dsq-3333028138
+date: 2017-05-31T11:34:57.0000000+02:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>It has to be on *a* NuGet server, whether file share or external. Haven't tried locally referencing it (but think you can copy it into the dotnet folder on your machine, too)</p>

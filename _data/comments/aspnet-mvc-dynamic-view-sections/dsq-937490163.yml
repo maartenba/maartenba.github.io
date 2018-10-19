@@ -1,0 +1,5 @@
+id: dsq-937490163
+date: 2011-09-11T19:14:41.0000000+02:00
+name: Edgar Ochieng&#39;
+avatar: https://disqus.com/api/users/avatars/Edgar Ochieng&#39;.jpg
+message: <p>What if you have two models like Agenda and Day. Agenda has a DayID item. I want to list the every day&amp;#39s agenda in the following format:</p><p>Day 1<br>-------Agenda Item 1<br>-------Agenda Item 2<br>-------Agenda Item 3</p><p>Day 2<br>-------Agenda Item 1<br>-------Agenda Item 2<br>-------Agenda Item 3</p>

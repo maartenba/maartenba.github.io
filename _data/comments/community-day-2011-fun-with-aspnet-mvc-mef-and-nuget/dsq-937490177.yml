@@ -1,0 +1,5 @@
+id: dsq-937490177
+date: 2011-07-19T22:13:39.0000000+02:00
+name: Jan
+avatar: https://disqus.com/api/users/avatars/Jan.jpg
+message: <p>Hi,</p><p>Ik heb wat gespeeld met je demo applicatie. Maar er is iets zeer bizar, iets wat ik niet kan vatten. In het project Initech.Components.Web.Mvc.Authentication zitten de views voor de Account controller. Als ik de account views gewoon uit het project haal blijft alles mooi werken. Als ik dan een nieuwe view maak en deze probeer aan te roepen vanuit de controller, dan komt er steeds de error dat de view niet is te vinden. Kan jij mij hier verder mee helpen wat hier het probleem is of hoe dit alles werkt ?</p><p>Bedankt</p>

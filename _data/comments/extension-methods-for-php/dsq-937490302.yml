@@ -1,0 +1,5 @@
+id: dsq-937490302
+date: 2010-05-18T23:22:26.0000000+02:00
+name: Eric
+avatar: https://disqus.com/api/users/avatars/Eric.jpg
+message: <p>Thank you for posting this sample - it seems conceptually similar to mixins, in that is is a good way to implement utility methods.  The main difference I can see is that methods must a) be declared statically, and b) type hint the caller as the first parameter.  This seems like a solution with a smaller code footprint than mixins.</p><p>I am curious though about performance.  Both PHP magic methods and the Reflection API have a reputation for not being the best methods for a PHP production environment.  Have you tested calling these as extension methods vs. a typical inheritance structure?  Is the difference negligible?</p><p>thanks again,<br>- Eric</p>

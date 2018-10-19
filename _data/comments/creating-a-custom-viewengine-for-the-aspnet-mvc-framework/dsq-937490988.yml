@@ -1,0 +1,5 @@
+id: dsq-937490988
+date: 2008-10-10T01:05:19.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: '<p>Actually, this is no longer possible. MVC is all about separation of concerns: the controller does not have to know which ViewEngine is used. It just knows a name and that specific data (the model) is required.</p>'

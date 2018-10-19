@@ -1,0 +1,6 @@
+id: dsq-1404434303
+replyToId: dsq-1404385242
+date: 2014-05-26T09:25:12.0000000+02:00
+name: Adrian
+avatar: https://disqus.com/api/users/avatars/adrianlittee.jpg
+message: <p>Thanks for the quick response. I've already updated them.</p><p>I did play around with the wp_setcookie parameters and added a few more as per the function library on the WP website. Adding true as the keep me signed in keeps me signed in when I close IE. But for first time ever users it still asks for the credentials which shouldn't be all that bad.</p><p>The IE check wasn't picking up I was using IE so I commented it out and now it seems to work in Chrome as well.</p>

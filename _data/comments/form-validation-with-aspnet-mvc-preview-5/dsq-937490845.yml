@@ -1,0 +1,5 @@
+id: dsq-937490845
+date: 2008-09-01T13:56:33.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: '<p>@Sean: these helper methods simply render some HTML tags. For example, HtmlHelper.Form() will render a &lt;form&gt; tag, HtmlHelper.ValidationSummary() will render an &lt;ul&gt; with validation messages.</p><p>@Brad: True! Thanks for noticing. Will fix in this post.</p>'

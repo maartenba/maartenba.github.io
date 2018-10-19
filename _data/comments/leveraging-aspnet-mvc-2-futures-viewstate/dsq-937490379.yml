@@ -1,0 +1,5 @@
+id: dsq-937490379
+date: 2009-10-08T23:21:59.0000000+02:00
+name: mogadanez
+avatar: https://disqus.com/api/users/avatars/mogadanez.jpg
+message: <p>why need serialize entire Person, if really we need only  Id and Timestamp for optimistic locking?</p>

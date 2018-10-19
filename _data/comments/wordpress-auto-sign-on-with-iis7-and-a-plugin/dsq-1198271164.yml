@@ -1,0 +1,6 @@
+id: dsq-1198271164
+replyToId: dsq-1198269953
+date: 2014-01-13T12:46:59.0000000+01:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>Can you check if the $_SERVER['REMOTE_USER'] variable holds the full username?</p>

@@ -1,0 +1,6 @@
+id: dsq-1198515077
+replyToId: dsq-1198499472
+date: 2014-01-13T17:06:05.0000000+01:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>Should be WaWorkerHost.exe according to <a href="http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx" rel="nofollow noopener" title="http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx">http://blogs.msdn.com/b/kwi...</a>, but it may depend on SDK version and if you are running a "normal" worker role or starting your own exe/.net process.</p>

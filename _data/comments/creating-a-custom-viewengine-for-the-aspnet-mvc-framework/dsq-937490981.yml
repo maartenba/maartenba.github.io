@@ -1,0 +1,5 @@
+id: dsq-937490981
+date: 2008-06-30T14:49:40.0000000+02:00
+name: Andrey
+avatar: https://disqus.com/api/users/avatars/Andrey.jpg
+message: <p>It's not posiible to store views in database,because ViewLocator simple return file name in file system,but you can take a look at VirtualPathProvider.That's very weak extensibility point.</p>

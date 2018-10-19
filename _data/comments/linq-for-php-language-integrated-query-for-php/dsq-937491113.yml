@@ -1,0 +1,5 @@
+id: dsq-937491113
+date: 2008-03-26T19:05:03.0000000+01:00
+name: smt
+avatar: https://disqus.com/api/users/avatars/smt.jpg
+message: <p>[quote]...-&gt;select('new {<br>                    "EmailAddress" =&gt; $employee-&gt;Email,<br>                    "Domain" =&gt; substr($employee-&gt;Email, strpos($employee-&gt;Email, "@") + 1)<br>                  }');<br>[/quote]<br>this is not much KISS in the style of PHP, let this return an array:<br>[quote]...-&gt;select(' <br>                    "EmailAddress" =&gt; $employee-&gt;Email,<br>                    "Domain" =&gt; substr($employee-&gt;Email, strpos($employee-&gt;Email, "@") + 1)<br>                  ');<br>[/quote]<br>great work, impatient to see it working with mysql!</p>

@@ -1,0 +1,5 @@
+id: dsq-937490333
+date: 2011-03-18T03:45:10.0000000+01:00
+name: Cory
+avatar: https://disqus.com/api/users/avatars/Cory.jpg
+message: <p>Has anyone tried this with Areas?<br>It does not seem to handle areas.</p><p>I did make an adjustment to allow a Translatedroute to set the route.DataTokens["area"] = AreaName;<br>When debugging, the translation is found but I still get a 404.</p><p>Example Area registration<br>context.MapTranslatedRoute(AreaName, "Account_default", "Account", new { controller = "Account", action = "Profile" }, new { controller = _translationProvider }, true);</p><p>any help would be appreciated!</p>

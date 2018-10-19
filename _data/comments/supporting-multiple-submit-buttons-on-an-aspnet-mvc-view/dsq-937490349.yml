@@ -1,0 +1,5 @@
+id: dsq-937490349
+date: 2009-11-27T02:36:51.0000000+01:00
+name: Thomas Eyde
+avatar: https://disqus.com/api/users/avatars/Thomas Eyde.jpg
+message: "<p>Nice approach! I learned something this evening.</p><p>However, your approach has one caveat: The action selector now depends on the button value, which, I think, is strictly a view concern. When the whimsy product owner changes his mind, he break our code. And so does localization.</p><p>I need this functionality for my list where I can delete an individual row. What I'd like is to have a button with the row-id embedded in the name:</p><p>&lt;input type=\"submit\" value=\"Delete\" name=\"deleteRow:99\" /&gt;</p><p>And have this routed to:</p><p>[HttpPost]<br>[MultiButton(Key = \"deleteRow\")]<br>[BindMultiButtonTo(\"id\")]<br>public ActionResult DeleteRow(int id, Whatever form) {}</p><p>Maybe it's possible to combine those with some crazy inheritance chain:</p><p>[HttpPost]<br>[MultiButton(Key = \"deleteRow\", BindTo = \"id\")]<br>public ActionResult DeleteRow(int id, Whatever form) {}</p><p>That would be cool!</p>"

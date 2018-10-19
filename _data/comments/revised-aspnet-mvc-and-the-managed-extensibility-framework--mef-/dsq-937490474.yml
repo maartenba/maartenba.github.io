@@ -1,0 +1,5 @@
+id: dsq-937490474
+date: 2009-07-09T23:17:48.0000000+02:00
+name: Ben
+avatar: https://disqus.com/api/users/avatars/Ben.jpg
+message: <p>Hello,</p><p>Great solution! We were having the same problem and you code works a treat!</p><p>I took me a while to get it to work, we would have an exception thrown when instanciating DirectoryCatalog. Looking into the exception it was having difficulties loading the System.Web.Mvc assembly.</p><p>As it happens we were using MVC futures and referencing Microsoft.Web.MVC.dll.</p><p>Removing that reference and deleting Microsoft.Web.MVC.dll from the bin folder of the MVC project fixed the problem (it was OK to remove that reference because in the end we ended up using nothing the the MVC futures project).</p><p>Hope this helps!</p><p>Ben</p>

@@ -1,0 +1,5 @@
+id: dsq-937490781
+date: 2008-12-01T04:22:00.0000000+01:00
+name: Miha
+avatar: https://disqus.com/api/users/avatars/Miha.jpg
+message: <p>Maarten, an interesting take on the problem, but wouldn't you say it is a workaround rather than a solution? Wouldn't you be better off writing a custom ActionResult (PartialViewResult, XHTMLFragmentViewResult or even JsonViewResult) and return that instead of a full blown view? As you really should be returning the XHTML fragment and not the whole page. I'm guessing the performance would be worse with your approach, since you're doing stuff that wouldn't be necessary if you'd taken the "custom ActionResult" approach.<br>What is the benefit of using a content view (view, that is part of the "master page") anyhow? Maybe I am missing something...</p><p>Very good content otherwise! Keep up the good work! Thanks, Miha.</p>

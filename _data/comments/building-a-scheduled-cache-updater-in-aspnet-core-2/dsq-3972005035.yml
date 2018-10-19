@@ -1,0 +1,5 @@
+id: dsq-3972005035
+date: 2018-07-03T15:13:45.0000000+02:00
+name: NunoFas
+avatar: https://disqus.com/api/users/avatars/nunofas.jpg
+message: <p>Great work. I'm trying to set Cron to execute the task every 24h at 19:30.<br>Setting the schedule variable to  &lt; public string Schedule =&gt; " 30 19 * * * "; &gt; does not do the trick. It seems that the schedule time is never hit. Do you know why? Thanks, best regards.</p>

@@ -1,0 +1,6 @@
+id: dsq-937491314
+replyToId: dsq-937490304
+date: 2010-05-18T23:56:20.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: "<p>Hello Ralph,</p><p>This is indeed bad code, performance hits: a lot!</p><p>What I wanted to do is intentionally be vague on some of the \"why\" and \"how\". basically, in .NET, this technique is uded to extend classes that are final and can not be inherited from. It's also a widely used solution to making clean code wth 1 full blown method and then adding extension methods for those who need it.</p><p>I hope this post will give some more discussion :-)</p><p>Maarten</p>"

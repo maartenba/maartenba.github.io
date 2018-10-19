@@ -1,0 +1,5 @@
+id: dsq-974403333
+date: 2013-07-24T10:09:52.0000000+02:00
+name: Henri De Roeck
+avatar: https://disqus.com/api/users/avatars/henrideroeck.jpg
+message: <p>Good article and good suggestions you are making. However, would you risk it using it for production environments? I'm afraid it will be offline for x hours, only to be hearing from Microsoft it wasn't production ready in the first place. Although unlikely, it may happen (e.g. for scheduled maintenance).</p>

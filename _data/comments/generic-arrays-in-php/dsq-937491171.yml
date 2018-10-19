@@ -1,0 +1,5 @@
+id: dsq-937491171
+date: 2007-11-08T17:48:02.0000000+01:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>Kyle, that is true, except for primitive types like string etc. For real objects, the isValid() method is indeed more appropriate.</p>

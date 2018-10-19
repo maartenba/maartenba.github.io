@@ -1,0 +1,6 @@
+id: dsq-937491272
+replyToId: dsq-937490204
+date: 2011-04-30T18:51:25.0000000+02:00
+name: maartenbax
+avatar: https://disqus.com/api/users/avatars/maartenbax.jpg
+message: '<p>Have done that one as well. There&amp;#39s some options for that.</p><p>Option 1) Make your service proxy "partial&amp;#39" and add an [Export] on the partial<br>Option 2) Don&amp;#39t use the service proxy generated, instead use the service client without a proxy. Only thing needed is a class inheriting this client on which you can place the export<br>Option 3) Embed the proxy in another object and use that object<br>Option 4) The cleanest IMHO: use the MefContrib convention-based model to export the proxy at runtime. E.g. add a MefContrib convention which exports all classes with the name of your service proxy.</p><p>BTW, service configuration can be embedded in NuGet packages and applied to your web/app.config.</p>'

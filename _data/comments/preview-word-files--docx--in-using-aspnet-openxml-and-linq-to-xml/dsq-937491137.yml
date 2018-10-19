@@ -1,0 +1,5 @@
+id: dsq-937491137
+date: 2008-05-05T14:33:28.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: "<p>@Mikey: I think the code shows quite clear how to access a specific OpenXML part? With LINQ, you'l have to experiment a little on how to loop over all elements in numbering.xml.</p><p>@Dilip: have a look at the code, the handler shows clearly hoq to retrieve an image part from an OpenXML package.</p>"

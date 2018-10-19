@@ -1,0 +1,5 @@
+id: dsq-3921315299
+date: 2018-05-28T23:38:03.0000000+02:00
+name: Martin Kirk
+avatar: https://disqus.com/api/users/avatars/martinkirk.jpg
+message: "<p>how about mapping a domain to an area ??... would that make sense ?</p><p>eg: <br><a href=\"http://www.Area1.com\" rel=\"nofollow noopener\" title=\"www.Area1.com\">www.Area1.com</a> -&gt; <a href=\"http://www.hostapplication.com/Area1/\" rel=\"nofollow noopener\" title=\"www.hostapplication.com/Area1/\">www.hostapplication.com/Area1/</a><br><a href=\"http://www.Area2.com\" rel=\"nofollow noopener\" title=\"www.Area2.com\">www.Area2.com</a> -&gt; <a href=\"http://www.hostapplication.com/Area2/\" rel=\"nofollow noopener\" title=\"www.hostapplication.com/Area2/\">www.hostapplication.com/Area2/</a></p><p>This would make it possible to share common code between multiple websites and retain a lot of flexibility in having multiple controllers / actions / views per Area..</p><p>I've been thinking / trying to make this work, but some parts of MVC starts breaking. Especially the ActionLink whoose VirtualPathReducer throws an exception.</p>"

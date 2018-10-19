@@ -1,0 +1,5 @@
+id: dsq-937491092
+date: 2008-11-19T03:30:35.0000000+01:00
+name: SamR
+avatar: https://disqus.com/api/users/avatars/SamR.jpg
+message: <p>Hey All,</p><p>We have a website that is running on 2 boxes, and every other click we lose our sessions in production. This doesn't happen in local machine at all. Should I try switching to SQL Server or partitioning.<br>Thank u.</p>

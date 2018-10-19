@@ -1,0 +1,5 @@
+id: dsq-937490931
+date: 2008-08-01T00:45:40.0000000+02:00
+name: Steve Sanderson
+avatar: https://disqus.com/api/users/avatars/Steve Sanderson.jpg
+message: <p>Maarten, this is really good, and in some ways more useful than the official built-in [OutputCache] filter introduced in Preview 4.</p><p>However, I think there's a slight mistake! When you use OnRequestExecuting(), you should really be using OnActionExecuting() - otherwise you're running the action method every time, even when it's "cached". I tried you code, changing OnRequestExecuting() to OnActionExecuting(), and it works really well.</p><p>Nice one.</p>

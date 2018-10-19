@@ -1,0 +1,5 @@
+id: dsq-937490505
+date: 2010-02-24T18:05:54.0000000+01:00
+name: William
+avatar: https://disqus.com/api/users/avatars/William.jpg
+message: '<p>Not fully tested but this seems to work if added to the DomainRoute class:</p><p>[quote]public DomainRoute(string domain, string url, object defaults, object constraints, string[] namespaces)<br>            : base(url, new RouteValueDictionary(defaults), new MvcRouteHandler())<br>        {<br>            if (url == null) {<br>                throw new ArgumentNullException("url");<br>            }</p><p>            Route route = new Route(url, new MvcRouteHandler()) {<br>                Defaults = new RouteValueDictionary(defaults),<br>                Constraints = new RouteValueDictionary(constraints)<br>            };</p><p>            if ((namespaces != null) &amp;&amp; (namespaces.Length &gt; 0)) {<br>                route.DataTokens = new RouteValueDictionary();<br>                route.DataTokens["Namespaces"] = namespaces;<br>            }</p><p>            Domain = domain;<br>        }[/quote]</p>'

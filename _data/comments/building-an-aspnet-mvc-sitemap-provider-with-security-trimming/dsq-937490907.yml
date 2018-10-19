@@ -1,0 +1,5 @@
+id: dsq-937490907
+date: 2009-03-17T02:56:52.0000000+01:00
+name: matt
+avatar: https://disqus.com/api/users/avatars/matt.jpg
+message: <p>Great article but im wondering if it is possible to use a drop down menu i created instead of that asp:menu? I was told to avoid tables unless its a grid or something similar and i really would like to do the menu this way but im not sure on how to create my own menu that takes a datasource like this. Any suggestions?</p>

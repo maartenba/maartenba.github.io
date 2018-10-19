@@ -1,0 +1,5 @@
+id: dsq-937490936
+date: 2011-01-24T14:48:26.0000000+01:00
+name: Zahir Khan
+avatar: https://disqus.com/api/users/avatars/Zahir Khan.jpg
+message: <p>Hi,<br>I am running your code on MVC2 but its not working. For some reason I do not get any data from the cache. 1st time the page loads correctly but on refreshing it does not display anything. Basically it is getting the Cache Key from the context but cache returns no data and hence the page blanks out on refresh. Any ideas what could be the possible issue?</p>

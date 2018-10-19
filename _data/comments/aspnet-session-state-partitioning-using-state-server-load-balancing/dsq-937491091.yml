@@ -1,0 +1,5 @@
+id: dsq-937491091
+date: 2008-11-01T13:50:20.0000000+01:00
+name: submariner_highlander
+avatar: https://disqus.com/api/users/avatars/submariner_highlander.jpg
+message: <p>Lets try it again. Your code is flawed in 2 places:</p><p>1.SessionIdManager - if you have two state servers in the list one will never get hit.</p><p>2.ParftitionResolver - When a state server goes down all live sessions for that server will raise an exception. If that exception is handled in Application_Error handler in Global.asax by redirecting to a custom error page (common scenario) and that page try to access session it will hit PartitionResolver again creating a nasty loop. If you have enough live sessions for the dead state server it might bring your application down.</p><p>To overcome the problem you have to catch that exception, create a new sessionID, recreate session object for the current context with that new sessionID. Sure user will loose the session but the application will recover gracefully and they can start a new session.</p>

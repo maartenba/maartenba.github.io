@@ -1,0 +1,5 @@
+id: dsq-937491148
+date: 2009-02-18T20:46:04.0000000+01:00
+name: Ramakrishna
+avatar: https://disqus.com/api/users/avatars/Ramakrishna.jpg
+message: <p>Hi Mikey,<br>The handlers seems to be an excellent piece of work. But one thing is missing here...to fetch the tables from word document and displaying them. the content from it seems to be fetched but the table structure is not generated in your code. can you give me linq query to fetch the tables and display them. that would be really of great help for me.<br>Thanks,<br>Ramakrishna</p>

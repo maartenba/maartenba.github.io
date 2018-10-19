@@ -1,0 +1,6 @@
+id: dsq-937491096
+replyToId: dsq-937491080
+date: 2009-12-31T02:37:50.0000000+01:00
+name: lianglisen
+avatar: https://disqus.com/api/users/avatars/lianglisen.jpg
+message: <p>About your article “ASP.NET Session State Partitioning using State Server Load Balancing”<br>I want to ask something:I have download and  test you code from maarten balliauw blog,is the webserver appication store the session on the state server one by one?e.g:1st connection,session store in state server A, 2nd connection,session store in state server B,....... cycle again and again。Hoping to get you help.Best Regards.</p>

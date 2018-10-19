@@ -1,0 +1,5 @@
+id: dsq-937490517
+date: 2010-09-01T11:10:12.0000000+02:00
+name: Hernan
+avatar: https://disqus.com/api/users/avatars/Hernan.jpg
+message: <p>This implementation is not working with catch all routing. For instance,</p><p>routes.Add("DomainRoute", new DomainRoute(<br>                "{language}.localhost",     // Domain with parameters<br>                "{*view}",    // URL with parameters<br>                new { language = "es", controller = "Main", action = "Index", view = UrlParameter.Optional }  // Parameter defaults<br>            ));</p><p>The parsing of  "{*view}" fails because of the asterisk. Can you please help me with this? Thanks.</p>

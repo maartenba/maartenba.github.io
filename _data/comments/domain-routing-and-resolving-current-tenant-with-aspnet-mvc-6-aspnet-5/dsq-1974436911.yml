@@ -1,0 +1,6 @@
+id: dsq-1974436911
+replyToId: dsq-1939917562
+date: 2015-04-18T18:23:14.0000000+02:00
+name: Homory
+avatar: https://disqus.com/api/users/avatars/homory.jpg
+message: <p>I'd like to know if we could do as the following:</p><p>public async Task Invoke(HttpContext context)<br>{<br>var tenant = new Tenant<br>{<br>Id = context.Request.Host<br>};<br>if (context.Request.Host.Value.IndexOf("我的家") &lt; 0)<br>{<br>context.Response.Redirect("http://我的家.中国/");<br>return;<br>}<br>var tenantFeature = new TenantFeature(tenant);<br>context.SetFeature&lt;itenantfeature&gt;(tenantFeature);<br>await _requestDelegate(context);<br>}</p>

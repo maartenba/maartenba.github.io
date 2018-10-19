@@ -1,0 +1,6 @@
+id: dsq-3301610363
+replyToId: dsq-3301607837
+date: 2017-05-12T08:20:24.0000000+02:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>The system was one where a catalog of items was fetched from the database and then rendered in either HTML or JSON. It had to be loaded fresh for every request (caching was not an option, still not sure why not but that was the constraint) and request times were usually around 1-2 seconds. We saw CPU spikes when a lot of these requests came in and investigated why, discovered the issue described in this post and started thinking about ways to give the CPU more time to do other stuff. Response times dropped to under 1 second, improving end user experience (as they too had to wait for this data to arrive in their browser).</p>

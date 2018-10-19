@@ -1,3 +1,117 @@
-<!-- start custom comments snippet -->
+{% include base_path %}
 
-<!-- end custom comments snippet -->
+{% capture default_slug %}{{ page.slug | default: (page.title | slugify) }}{% endcapture %}
+{% capture slug %}{{ (page.slug | fallback: default_slug) | downcase | replace: '.', '-' }}{% endcapture %}
+<!-- Comment slug: {{ slug }} -->
+{% assign comments_map = site.data.comments[slug] %}
+{% assign comments = site.emptyArray %}
+{% for comment in comments_map %}
+  {% assign comments = comments | push: comment[1] %}
+{% endfor %}
+{% assign comment_count = comments | size %}
+{% assign author = site.authors[page.author] %}
+<div id="comments">
+
+  <form action="/fake" data-action="{{ site.comments.receiver }}" method="post" id="commentform" class="form-horizontal comment-box">
+    <input name="post_id" type="hidden" value="{{ slug }}">
+    <input name="comment-site" type="hidden" value="{{ site.url }}">
+    <div id="comment-box">
+      <img src="/images/comments/unknown-avatar.png" data-fallbacksrc="/images/comments/unknown-avatar.png" data-role="user-avatar" alt="avatar" class="avatar" id="avatarPreview" />
+      <div id="commenttext">
+        <div id="commentstatus" class="status"></div>
+        <div contenteditable="PLAINTEXT-ONLY" tabindex="0" role="textbox" aria-multiline="true" data-role="editable" class="textarea" aria-label="Join the discussion..." id="comment-div"></div>
+        <input type="hidden" name="message" id="message" data-required="true" value="" />
+      </div>
+    </div>
+    <div id="comment-author">
+      <div class="control-group">
+        <input type="text" name="name" id="name" placeholder="Display Name" title="Name displayed with your comment" data-required="true" />
+        <input type="text" name="email" id="email" placeholder="E-mail" title="E-mail used to render your avatar." data-required="true" value="" />
+        <input type="text" name="url" id="url" placeholder="Website URL" title="Website URL (optional)." value="" />
+        <span class="info-circle" title="Identity is used to generate an avatar image only. It is not submitted with the form."></span>
+        <button type="button" id="commentbutton">Leave response</button>
+      </div>
+    </div>
+  </form>
+
+  <h4 id="comment-count">{% if comment_count == 1 %}One response{% else %}{{ comment_count }} responses{% endif %}</h4>
+  <ol id="comments-list">
+  {% assign sorted_comments = comments | sort: 'date' %}
+  {% for comment in sorted_comments %}
+    <li{% if comment.name == author.name %} class="byauthor" {% endif %}>
+		{% if comment.url %}
+		<a href="{{ comment.url }}" rel="nofollow">
+		  <img alt="Avatar for {{ comment.name | xml_escape }}" src="{{comment.avatar}}" class="avatar" height="48" width="48">
+		</a>
+		{% else %}
+		<img alt="Avatar for {{ comment.name | xml_escape }}" src="{{comment.avatar}}" class="avatar" height="48" width="48">
+		{% endif %}
+
+		<blockquote id="{{ comment.id }}">
+		  <cite>
+			<span class="author">
+			  {% if comment.url %}
+				<a href="{{ comment.url }}" rel="nofollow">{{ comment.name | xml_escape }}</a>
+			  {% else %}
+				{{ comment.name | xml_escape }}
+			  {% endif %}
+			</span>
+			<span class="bullet">•</span>
+			<a href="#{{ comment.id }}" class="muted" title="{{ comment.date | date_to_rfc822 }}">
+			  {{ comment.date | date: '%B' }}
+			  {% assign d = comment.date | date: "%-d" %}
+			  {% case d %}
+				{% when '1' or '21' or '31' %}{{d}}st,
+				{% when '2' or '22' %}{{d}}nd,
+				{% when '3' or '23' %}{{d}}rd,
+				{% else %}{{d}}th,
+			  {% endcase %}
+			  {{ comment.date | date: '%Y' }}
+			</a>
+		  </cite>
+		  <div class="comment-body">{{ comment.message | markdownify }}</div>
+		</blockquote>
+    </li>
+  {% endfor %}
+  </ol>
+  
+<script>
+var commentBoxInitializer = function() {
+  document.removeEventListener("DOMContentLoaded", commentBoxInitializer);
+  window.removeEventListener("load", commentBoxInitializer);
+
+  var form = document.getElementById('commentform');
+	
+  if (form) {
+    document.getElementById('comment-div').oninput = function (e) {
+      document.getElementById('message').value = e.target.innerText;
+    };
+
+    document.getElementById('commentbutton').onclick = function (e) {
+      var status = document.getElementById('commentstatus');
+      status.innerText = '';
+
+      var missing = Array.from(form.querySelectorAll('[data-required]')).filter(el => el.value === '').map(el => el.name);
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')';
+        return;
+      }
+      var button = e.target;
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment';
+        button.title = 'Click the button again to confirm the comment';
+        button.classList.add('confirm-button');
+        return;
+      }
+
+      button.disabled = true;
+      button.innerText = 'Posting...';
+      form.action = form.dataset.action;
+      form.submit();
+    }
+  }
+};
+document.addEventListener("DOMContentLoaded", commentBoxInitializer);
+window.addEventListener("load", commentBoxInitializer);
+</script>
+</div>

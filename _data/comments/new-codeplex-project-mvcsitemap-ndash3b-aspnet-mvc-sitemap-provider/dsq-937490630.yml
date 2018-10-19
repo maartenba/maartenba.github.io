@@ -1,0 +1,5 @@
+id: dsq-937490630
+date: 2009-04-28T17:54:37.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>@Jamir, simply pass in the controller name (SetUp or MileageRates I assume). MvcSiteMap will use routing to determine the correct URL here.</p>

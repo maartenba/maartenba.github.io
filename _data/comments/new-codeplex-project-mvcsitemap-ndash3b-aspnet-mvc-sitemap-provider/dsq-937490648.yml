@@ -1,0 +1,5 @@
+id: dsq-937490648
+date: 2009-06-18T03:14:46.0000000+02:00
+name: Elijah Manor
+avatar: https://disqus.com/api/users/avatars/Elijah Manor.jpg
+message: <p>I am working on slowly integrating MVC into an existing WebForm project.</p><p>I was wondering if there would be a way to use your SiteMapProvider to support both controllers/actions and/or url paths?</p><p>I was hoping to reuse the same solution across both mvc &amp; webform.</p>

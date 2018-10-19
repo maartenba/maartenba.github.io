@@ -1,0 +1,6 @@
+id: dsq-1559857491
+replyToId: dsq-1559851886
+date: 2014-08-26T15:14:29.0000000+02:00
+name: Fred .
+avatar: https://disqus.com/api/users/avatars/disqus_UewjzPq6jN.jpg
+message: <p>I don't get any exception when using putting it in the WebApiConfig.cs as you told me to.</p><p>I did get an exception earlier though when I foolishly put it into the FilterConfig.cs file though.</p><p>But when I put <code>action.ControllerDescriptor.ControllerName</code> into the WebApiConfig.cs file it does not resolve the <code>ControllerDescriptor</code> in <code>action</code>.</p><p>However, if I change <code>action</code> to <code>action.ControllerContext</code> so it becomes <code>action.ControllerContext.ControllerDescriptor.ControllerName</code> then <br><code>action.ControllerContext</code> resolves.</p>

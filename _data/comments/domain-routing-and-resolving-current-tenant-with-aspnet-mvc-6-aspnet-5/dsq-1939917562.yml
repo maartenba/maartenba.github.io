@@ -1,0 +1,5 @@
+id: dsq-1939917562
+date: 2015-04-01T16:00:49.0000000+02:00
+name: rabahBell
+avatar: https://disqus.com/api/users/avatars/rabahbell.jpg
+message: <p>If we use the middleware<br>approach, do we have to change the existing default MVC routing? <br>My understanding is that the second approach will only<br>resolve the issue of getting the name of the subdomain.</p><p>But how about handling<br>routing for multitenant application. My understanding is tha MVC does not know<br>how to route subdomains( is this a correct statement). Also what about the HtmlHelper extension<br>methods that you have suggested in your 2009 post. Do we still need that?<br>Please note I am new to MVC.</p>

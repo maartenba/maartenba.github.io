@@ -1,0 +1,5 @@
+id: dsq-937491144
+date: 2008-09-12T03:23:01.0000000+02:00
+name: Guy Ellis
+avatar: https://disqus.com/api/users/avatars/Guy Ellis.jpg
+message: <p>To get this to compile I had to replace paragraph.Runs with paragraph.TextRuns - might be because I'm using .net 3.5 sp1? I'm guessing that Runs has been replaced with TextRuns? I haven't tried to run this yet but thought that I'd comment before I forgot.</p>

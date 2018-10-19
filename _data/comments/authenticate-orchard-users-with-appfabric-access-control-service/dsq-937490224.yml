@@ -1,0 +1,5 @@
+id: dsq-937490224
+date: 2011-03-12T06:21:44.0000000+01:00
+name: Stu
+avatar: https://disqus.com/api/users/avatars/Stu.jpg
+message: <p>I'm receving this error wehn working with Orchard and WLID:</p><p>Token not issued by access control service. Ensure thumbprint and STS issuer URK are configured correctly.</p><p>I've verified the thumbnail 20 different ways, the STS issuer URL is right, The audience is right... What am I doing wrong?</p><p>I also have everything set up almost identically as the examples.  Any help would be appreciated...</p><p>Stu</p>

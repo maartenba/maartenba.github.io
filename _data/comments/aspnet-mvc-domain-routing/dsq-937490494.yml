@@ -1,0 +1,5 @@
+id: dsq-937490494
+date: 2009-07-25T15:30:39.0000000+02:00
+name: Chad
+avatar: https://disqus.com/api/users/avatars/Chad.jpg
+message: <p>My site has membership. I tried implementing what you did here to do subdomain routing based on language.</p><p>Problem is, when logged in, ASP.NET MVC's built-in membership system thinks the site is totally different... asking me to login every time I change subdomain... ;/</p>

@@ -1,0 +1,5 @@
+id: dsq-1559923127
+date: 2014-08-26T16:01:28.0000000+02:00
+name: Fred .
+avatar: https://disqus.com/api/users/avatars/disqus_UewjzPq6jN.jpg
+message: <p>I would like to track user agents and user languages.</p><p>I saw this could be accomplished using the the <code>Tracker</code> object and with the <code>TrackPageView</code> extension method.</p><p>However, I was wondering if it it possible to accomplish this when registering <code>ActionTrackingAttribute</code> as a global action filter?<br>Since I would like to avoid cluttering my controller actions.</p>

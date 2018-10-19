@@ -1,0 +1,5 @@
+id: dsq-937490609
+date: 2009-04-01T08:45:34.0000000+02:00
+name: Matt Penner
+avatar: https://disqus.com/api/users/avatars/Matt Penner.jpg
+message: <p>I don't want to be a downer but can someone explain to me the benefit of site maps?  Web Forms was never my thing and now I'm loving MVC but I don't see the point of a site map.  Since the site map file isn't publicly available it's not for SEO.  The only examples I ever find are menus and tree layouts.  If I have dynamic menus based on login, roles and context I don't think I can use a standard control that consumes a site map.</p><p>So, again, if someone can tell me (or better yet, show me) where they have used this in a decent sized site in a practical fashion I'd love to learn more.</p>

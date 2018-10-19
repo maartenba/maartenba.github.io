@@ -1,0 +1,6 @@
+id: dsq-937490104
+replyToId: dsq-937490101
+date: 2012-08-10T21:56:05.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>That should work, although you&amp;#39ll have to fiddle with sources a bit. The main thing to do is have the nameidentifier and identityprovider in the user&amp;#39s delegation set to the one coming from Google or Yahoo</p>

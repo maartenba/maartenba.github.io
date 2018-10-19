@@ -1,0 +1,6 @@
+id: dsq-1029589899
+replyToId: dsq-1029535567
+date: 2013-09-04T16:32:41.0000000+02:00
+name: Marta Rossi
+avatar: https://disqus.com/api/users/avatars/glipme.jpg
+message: <p>any way to improve it and free server memory?</p><p>I try something like this (code to add to InMemoryThrottleStore, in VB). The big problem is that from this class I cannot really understand if an item is expired, so I've checking generic items "too old"</p><p>  Private _cleanUpTime As New System.Threading.Timer(AddressOf CleanUp, Nothing, TimeSpan.FromMinutes(15), TimeSpan.FromMinutes(15))</p><p>        Private Sub CleanUp()</p><p>            Dim expired = From te In _throttleStore Where te.Value.PeriodStart.AddHours(1) &gt; Now</p><p>            For Each item In expired<br>                Dim dummy As ThrottleEntry<br>                _throttleStore.TryRemove(item.Key, dummy)<br>            Next</p><p>        End Sub</p>

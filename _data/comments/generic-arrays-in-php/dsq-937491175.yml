@@ -1,0 +1,5 @@
+id: dsq-937491175
+date: 2007-11-06T06:27:16.0000000+01:00
+name: Jesdisciple (Chris)
+avatar: https://disqus.com/api/users/avatars/Jesdisciple (Chris).jpg
+message: <p>I agree, Stoyan. In fact, my non-OOP implementation (double implementation, actually - a Map class) currently uses two strings $keyValidation and $valueValidation, which get sent to eval() in validateKey() and validateValue(). My next task is to convert this to an interface (and consolidate my two validation functions into one).</p><p>P.S. I like your live preview; that's not something I had thought of using JavaScript for.</p>

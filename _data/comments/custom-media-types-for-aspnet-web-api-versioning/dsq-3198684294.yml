@@ -1,0 +1,6 @@
+id: dsq-3198684294
+replyToId: dsq-937490047
+date: 2017-03-11T10:03:49.0000000+01:00
+name: Frankie Fajardo
+avatar: https://disqus.com/api/users/avatars/frankiefajardo.jpg
+message: "<p>You got it the other way around. Commas separate multiple media types, and semicolon separates a media type from its associated accept parameter. <br>So if you have the version as part of the media type, then you'd have:<br>application/foo+v1, application/bar+v2.</p><p>And if you have them as accept parameters, then you'd have:<br>application/foo; version=1, application/bar; version=2.</p><p>References: <br><a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html\" rel=\"nofollow noopener\" title=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html\">https://www.w3.org/Protocol...</a> <br><a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept\" rel=\"nofollow noopener\" title=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept\">https://developer.mozilla.o...</a></p>"

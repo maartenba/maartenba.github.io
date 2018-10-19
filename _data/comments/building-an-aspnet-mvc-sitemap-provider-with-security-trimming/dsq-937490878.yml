@@ -1,0 +1,5 @@
+id: dsq-937490878
+date: 2008-10-23T07:16:39.0000000+02:00
+name: Robert Dean
+avatar: https://disqus.com/api/users/avatars/Robert Dean.jpg
+message: <p>Hi Maarten,</p><p>I think I got my extension method to work now. I used part of your code to create an extension method that determines if the user is able to see/click on a link based on the Authorize attribute of the Controller or it's methods. Let me know what you think.<br><a href="http://inq.me" rel="nofollow noopener" title="http://inq.me">http://inq.me</a><br>-Robert</p>

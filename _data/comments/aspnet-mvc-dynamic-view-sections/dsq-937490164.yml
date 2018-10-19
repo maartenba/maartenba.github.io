@@ -1,0 +1,5 @@
+id: dsq-937490164
+date: 2011-11-08T01:32:07.0000000+01:00
+name: David
+avatar: https://disqus.com/api/users/avatars/David.jpg
+message: <p>A nice find Maarten - what would be interesting to know is how a Model of List&lt;dynamic&gt; - that consists of editable fields can be processed by the Post Action (and understand what each of the indivdual Sections it contain map to for persitence). I am presuming that the type of the Model passed back to the Action is also List&lt;dynamic&gt; ...?</p><p>I tried a very simple test that posted back from a UI rendered from List&lt;dynamic&gt; and the data is indeed posted, but is not reconstructed back into the List&lt;dynamic&gt;, as obviously it does not know what to recompose...</p>

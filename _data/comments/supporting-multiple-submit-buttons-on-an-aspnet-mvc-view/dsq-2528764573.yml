@@ -1,0 +1,5 @@
+id: dsq-2528764573
+date: 2016-02-22T18:12:52.0000000+01:00
+name: ShinJamWinWam
+avatar: https://disqus.com/api/users/avatars/ShinJamWinWam.jpg
+message: <p>The only problem that I have with this is that I still have to have a unique method signature in my controller, for instance having these two ActionResults.</p><p>[HttpPost]</p><p>        [ValidateAntiForgeryToken]</p><p>        [Authorize(Roles = "Admin, BCNCAdmin, BCNCSubstitution")]</p><p>        [MyAnnotations.MultipleButton(Name = "submitButton", Argument = "Save")]</p><p>        public ActionResult Edit(DVM.OrderIndexData viewModel){}<br>//////////////////////////////////////////////////////////////////////////////////////////////</p><p>[HttpPost]</p><p>        [ValidateAntiForgeryToken]</p><p>        [Authorize(Roles = "Admin, BCNCAdmin, BCNCSubstitution")]</p><p>        [MyAnnotations.MultipleButton(Name = "submitButton", Argument = "Test")]</p><p>        public ActionResult Edit(DVM.OrderIndexData viewModel)</p><p>Throws an error</p>

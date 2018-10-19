@@ -1,0 +1,6 @@
+id: dsq-937491699
+replyToId: dsq-937491568
+date: 2009-09-30T22:32:54.0000000+02:00
+name: alains
+avatar: https://disqus.com/api/users/avatars/alains.jpg
+message: "<p>I changed some parameter to use PHP 5  and now it works !<br>but now appears a new problem : the memory size (mutualized server) is not enough<br>(32 MO)<br>the file's size is 5 MO<br>It seems that when in RAM, it needs more than 32 MO</p><p>so if I load only one sheet I have the following problem :</p><p>this sheet contains formulas refering to other sheets which are not loaded</p><p>-&gt; the cells containing formulas have no more values</p><p>is it possible to do better ?</p>"

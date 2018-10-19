@@ -1,0 +1,5 @@
+id: dsq-1705068607
+date: 2014-11-21T13:23:17.0000000+01:00
+name: Sonu kumar
+avatar: https://disqus.com/api/users/avatars/disqus_8OXkdP2VZl.jpg
+message: <p>Its working fine for multiple sub-domain. But i also want solution for this. {<a href="http://store1.abc.com/about-us" rel="nofollow noopener" title="store1.abc.com/about-us">store1.abc.com/about-us</a>}<br>{<a href="http://store2.abc.com/about-us" rel="nofollow noopener" title="store2.abc.com/about-us">store2.abc.com/about-us</a>}, {<a href="http://store3.abc.com/about-us" rel="nofollow noopener" title="store3.abc.com/about-us">store3.abc.com/about-us</a>} and many more. And all about us page is different for different store. But it is only accessing the same about-us for all store.</p><p>Can any one please help me? My application is in <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> mvc.</p><p>Thanks in advance.</p>

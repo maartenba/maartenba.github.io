@@ -1,0 +1,5 @@
+id: dsq-937490662
+date: 2009-09-22T20:57:24.0000000+02:00
+name: Phunk
+avatar: https://disqus.com/api/users/avatars/Phunk.jpg
+message: <p>Hi Maarten,</p><p>How can I render all elements in the Web.sitemap, please? I would like the whole menu tree rendered for a drop down menu:</p><p>&lt;ul id="menu"&gt;<br>  &lt;li&gt;Account<br>      &lt;ul&gt;<br>            &lt;li&gt;Create user&lt;/li&gt;<br>            &lt;li&gt;Manage roles&lt;/li&gt;<br>      &lt;/ul&gt;<br>  &lt;/li&gt;<br>  &lt;li&gt;Home&lt;/li&gt;<br>  &lt;li&gt;Away&lt;/li&gt;<br>&lt;/ul&gt;</p><p>I've of course set up the Web.sitemap with the same hierarchy, but I can't find a way to render it correctly in the Masterpage.</p><p>Thanks!</p>

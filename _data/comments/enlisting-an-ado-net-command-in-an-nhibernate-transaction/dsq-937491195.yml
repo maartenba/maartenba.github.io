@@ -1,0 +1,5 @@
+id: dsq-937491195
+date: 2007-10-16T15:44:15.0000000+02:00
+name: wiryadi adidharma
+avatar: https://disqus.com/api/users/avatars/wiryadi adidharma.jpg
+message: <p>Thank you for your post.</p><p>I was creating a test fixture. Using ADO.Net datareader to verify the NHibernate mapping behaviour.<br>Using this method, I can now use the same transaction for ADO.NET and NHibernate.</p><p>At the test setup I wrap the NHibernate and ADO.Net with the same transaction.<br>The ADO.Net can now read uncommitted NHibernate action.<br>At the test teardown I can now just rollback the transaction. No need to clean up the database,<br>Sweet...</p>

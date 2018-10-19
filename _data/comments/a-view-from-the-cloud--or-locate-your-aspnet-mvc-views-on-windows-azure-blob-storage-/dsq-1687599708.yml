@@ -1,0 +1,5 @@
+id: dsq-1687599708
+date: 2014-11-11T13:05:49.0000000+01:00
+name: Ant rad
+avatar: https://disqus.com/api/users/avatars/ant_rad.jpg
+message: <p>Do you have a working example for MVC 5? I am trying to replicate your article in MVC 5 and having issues. The GetFile doesnt gets called and i get the following error "The resource you are looking for has been removed, had its name changed, or is temporarily unavailable."</p>

@@ -1,0 +1,5 @@
+id: dsq-937490671
+date: 2009-04-14T14:19:41.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>Hello Vladimir,</p><p>The routing engine actually "sees" that there is a route that expects the id parameter. ActionLink() uses the route dictionary to determine the URL, which will thus be generated using the id parameter from the route. Parameters that are not in the route are appended as a query string.</p><p>Regards,<br>Maarten</p>

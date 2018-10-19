@@ -1,0 +1,5 @@
+id: dsq-1198269953
+date: 2014-01-13T12:44:47.0000000+01:00
+name: jamblosaints
+avatar: https://disqus.com/api/users/avatars/jamblosaints.jpg
+message: <p>Hi there</p><p>Have been using this wondering plugin for a good while to great success. However we've just discovered an issue where users with hyphens (-) in their names, eg. Bob Jones-Smith is not being logged in automatically. They can still login, but have to use wp-login. It seems the hyphen does not make it through the IIS Authentication Plugin.</p><p>Do you know of any methods we can use to solve this?</p><p>Many thanks,<br>James</p>

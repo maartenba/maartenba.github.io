@@ -1,0 +1,5 @@
+id: dsq-937490201
+date: 2011-04-30T05:39:38.0000000+02:00
+name: binjiezhao
+avatar: https://disqus.com/api/users/avatars/binjiezhao.jpg
+message: <p>Hi Maarten</p><p>Thanks for sharing the demo code. It&amp;#39s all very exciting technologies.<br>I have found a little glitch in the msbuild script(might not be a glitch at all depending where you put the source code):</p><p>&lt;Exec WorkingDirectory="$(PackagesPublishDir)"<br>          Command="$(NuGetExe) pack $(BuildDir)\temp\Package\package.nuspec" /&gt;</p><p>Above line gives a msb error with exits code of 9009. After I added escaped quots around the command and params, it works:<br>&lt;Exec WorkingDirectory="$(PackagesPublishDir)"<br>          Command="&amp;quot;$(NuGetExe)&amp;quot; pack &amp;quot;$(BuildDir)\temp\Package\package.nuspec&amp;quot;" /&gt;</p><p>But I still have to run the build script for a number of times to get rid of an "assembly or dependencies not found error" in all the build scripts of the components at line 40. Seems you have to run it twice to build each of them. I can&amp;#39t figure out why.</p>

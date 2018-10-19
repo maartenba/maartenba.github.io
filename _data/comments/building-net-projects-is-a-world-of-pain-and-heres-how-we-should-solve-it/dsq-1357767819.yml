@@ -1,0 +1,5 @@
+id: dsq-1357767819
+date: 2014-04-27T17:36:28.0000000+02:00
+name: Ubikuity
+avatar: https://disqus.com/api/users/avatars/ubikuity.jpg
+message: <p>The next step probably is to find a way to run unit tests without external dependencies. For example MsTest which requires Visual Studio or Visual Studio Team Agent on the build server.<br>A nuget package for MsTest would be more than welcome.</p>

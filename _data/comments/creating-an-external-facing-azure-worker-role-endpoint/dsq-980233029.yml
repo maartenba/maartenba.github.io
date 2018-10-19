@@ -1,0 +1,5 @@
+id: dsq-980233029
+date: 2013-07-29T17:12:21.0000000+02:00
+name: Uriel Kluk
+avatar: https://disqus.com/api/users/avatars/urielkluk.jpg
+message: <p>I did something similar but I get robots scanning the port and connecting to my socket. Using RDP, I tried to whitelist one specific IP address, but I am not really managing the load balancer, just the VM internal endpoint ... <br>For your example how can I only allow some friendly machines to connect to TCP port 1234?</p>
