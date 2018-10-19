@@ -1,0 +1,6 @@
+id: dsq-937491279
+replyToId: dsq-937491276
+date: 2011-03-23T02:49:04.0000000+01:00
+name: Christian Weyer
+avatar: https://disqus.com/api/users/avatars/Christian Weyer.jpg
+message: <p>Hm...  but if I do not provide the .pfx I get an exception:</p><p>System.ServiceModel.Security.MessageSecurityException was unhandled<br>  Message=The HTTP request was forbidden with client authentication scheme 'Anonymous'.</p><p>Hm...</p>

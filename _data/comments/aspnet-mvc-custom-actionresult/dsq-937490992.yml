@@ -1,0 +1,5 @@
+id: dsq-937490992
+date: 2008-05-28T01:27:37.0000000+02:00
+name: Dylan Beattie
+avatar: https://disqus.com/api/users/avatars/Dylan Beattie.jpg
+message: <p>This code looks great, makes sense... but, alas, it doesn't work for me! (on MVC Preview 2 April code refresh)</p><p>If anyone else is getting MissingMethodException for Response.get_OutputStream(), I've started a thread over at</p><p><a href="http://forums.asp.net/t/1266968.aspx" rel="nofollow noopener" title="http://forums.asp.net/t/1266968.aspx">http://forums.asp.net/t/126...</a></p><p>to see if it's a known issue or if there's a workaround.</p>

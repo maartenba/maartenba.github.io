@@ -1,0 +1,5 @@
+id: dsq-937490984
+date: 2008-06-02T13:47:20.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>That is perfectly possible. Make sure you create your own viewlocator on top of the WebFormsViewEngine, for example, and you can store your ASP.NET webforms-based views in a database for example.</p>

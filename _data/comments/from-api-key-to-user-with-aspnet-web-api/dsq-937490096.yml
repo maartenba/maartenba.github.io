@@ -1,0 +1,5 @@
+id: dsq-937490096
+date: 2012-10-22T20:31:32.0000000+02:00
+name: Sandor Drieenhuizen
+avatar: https://disqus.com/api/users/avatars/Sandor Drieenhuizen.jpg
+message: '<p>Great post!<br>I have one question though: do you know if there&amp;#39s a mechanism similar to IFilterProvider to add DI-support (I&amp;#39m okay with property injection) to my delegating handler? I don&amp;#39t want to access the IOC container directly ofcourse.</p>'

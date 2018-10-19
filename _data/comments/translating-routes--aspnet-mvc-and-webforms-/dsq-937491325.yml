@@ -1,0 +1,6 @@
+id: dsq-937491325
+replyToId: dsq-937490333
+date: 2011-03-23T21:51:32.0000000+01:00
+name: Gee
+avatar: https://disqus.com/api/users/avatars/Gee.jpg
+message: <p>I had problems with area too.</p><p>When you don't use TranslatedRoute, but the default "MapRoute" method, you'll notice that some [b]DataTokenValues [/b]are added when using areas.<br>Just add these tokens to the RouteData, for example:</p><p>                varRouteData.DataTokens.Add("Namespaces", "&lt;your namespace here&gt;.*");<br>                varRouteData.DataTokens.Add("area", "&lt;your area here&gt;");<br>                varRouteData.DataTokens.Add("UseNamespaceFallback", false);</p><p>It did the trick for me!</p><p>Thx for the very nice article, worx like a charm!</p>

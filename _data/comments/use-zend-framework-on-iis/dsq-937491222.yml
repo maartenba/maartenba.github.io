@@ -1,0 +1,5 @@
+id: dsq-937491222
+date: 2008-08-04T01:39:26.0000000+02:00
+name: Piotr Blasiak
+avatar: https://disqus.com/api/users/avatars/Piotr Blasiak.jpg
+message: <p>There is now actually a way to do this for free, if you have IIS 7.0. I wrote a small tutorial in my blog:</p><p><a href="http://blog.qiui.com/index.php/2008/08/03/zend-framework-in-iis7-with-url-rewrite-module/" rel="nofollow noopener" title="http://blog.qiui.com/index.php/2008/08/03/zend-framework-in-iis7-with-url-rewrite-module/">http://blog.qiui.com/index....</a></p><p>Hope this helps some people. I had to figure this out by myself as the module if pretty new :)</p>

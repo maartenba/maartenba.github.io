@@ -1,0 +1,5 @@
+id: dsq-937491150
+date: 2008-02-06T08:21:26.0000000+01:00
+name: Brad
+avatar: https://disqus.com/api/users/avatars/Brad.jpg
+message: <p>What if you need to doing your databind after several methods in the page load have already run.</p><p>There has to be a fix for this somehow...</p>

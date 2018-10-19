@@ -1,0 +1,5 @@
+id: dsq-937490758
+date: 2009-01-15T16:25:58.0000000+01:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>I think this just adds an extra layer of verification on your code. In the example I gave, TDD would perhaps not provide me with a test that checks for a ceratin Exception but instead only tests the happy path.</p>

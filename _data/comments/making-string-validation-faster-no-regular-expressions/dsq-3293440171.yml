@@ -1,0 +1,5 @@
+id: dsq-3293440171
+date: 2017-05-07T20:58:42.0000000+02:00
+name: Bevan Arps
+avatar: https://disqus.com/api/users/avatars/theunrepentantgeek.jpg
+message: <p>Admittedly I'm indulging my inner pedant, but you're not working with ASCII. .NET is Unicode based through and through. Unless you're processing a byte array, you'll never see actual ASCII. Your custom solution is checking code-point indexes that happen to match ASCII byte values, but are not the same thing. They match because the folks behind Unicode decided to do it that way for backward compatibility.</p>

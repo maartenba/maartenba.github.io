@@ -1,0 +1,5 @@
+id: dsq-937491207
+date: 2008-02-11T05:40:21.0000000+01:00
+name: TrentTompkins
+avatar: https://disqus.com/api/users/avatars/TrentTompkins.jpg
+message: <p>Amazingly hard to find how to do this. This program doesn't work either. It reads . as a directory, so, the first path it reads is:</p><p>public_html/<br>then public_html/./<br>then public_html/././<br>public_html/./././</p><p>ect, ect, ect.</p>

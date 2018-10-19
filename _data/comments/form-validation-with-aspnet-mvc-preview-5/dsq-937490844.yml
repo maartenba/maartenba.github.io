@@ -1,0 +1,5 @@
+id: dsq-937490844
+date: 2008-08-31T12:43:16.0000000+02:00
+name: Brad Wilson
+avatar: https://disqus.com/api/users/avatars/Brad Wilson.jpg
+message: <p>This:</p><p>&lt;% using (Html.Form&lt;ValidationExample.Controllers.HomeController&gt;( c =&gt; c.Contact("", "", ""), FormMethod.Post)) { %&gt;</p><p>could just be:</p><p>&lt;% using (Html.Form()) { %&gt;</p>

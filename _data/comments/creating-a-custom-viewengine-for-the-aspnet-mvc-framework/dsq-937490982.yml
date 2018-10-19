@@ -1,0 +1,5 @@
+id: dsq-937490982
+date: 2008-07-07T04:53:55.0000000+02:00
+name: Scott Hanselman
+avatar: https://disqus.com/api/users/avatars/Scott Hanselman.jpg
+message: "<p>Audrey, actually there's nothing that INSISTS that you use ViewLocator. It's just there as a helper. You can ignore it and pull the View page from whereever. That said, you are correct that VirtualPathProvider was actually intended for this purpose. Here's a DbVirtualPathProvider: <a href=\"http://www.dotnetbips.com/articles/fbc64253-aa68-4087-8ac5-bd56a2902979.aspx\" rel=\"nofollow noopener\" title=\"http://www.dotnetbips.com/articles/fbc64253-aa68-4087-8ac5-bd56a2902979.aspx\">http://www.dotnetbips.com/a...</a></p>"

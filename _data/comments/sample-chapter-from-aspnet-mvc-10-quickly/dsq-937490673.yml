@@ -1,0 +1,5 @@
+id: dsq-937490673
+date: 2009-05-12T10:57:03.0000000+02:00
+name: Vladimir Kelman
+avatar: https://disqus.com/api/users/avatars/Vladimir Kelman.jpg
+message: <p>Got it, thank you. I replaced id to id1 in global.aspx.cs for a moment, and index.aspx immediately started to render id as a query string, since id was no more in the route.</p><p>Maarten, is there something like a forum (perhaps a Google Group) for readers of your book? I don't really want to bother you with questions, on which many readers, more knowledgeable than me, could answer. And... it just helps to have a group of people who share similar learning goal. I know it well by "Authors forums" for Manning books.</p>

@@ -1,0 +1,5 @@
+id: dsq-937490297
+date: 2010-06-16T17:27:18.0000000+02:00
+name: Augi
+avatar: https://disqus.com/api/users/avatars/Augi.jpg
+message: <p>Really good stuff!</p><p>Btw. GetDynamicNodeCollection() method would look better when iterator block ;-)</p><p>    public override IEnumerable&lt;DynamicNode&gt; GetDynamicNodeCollection() <br>    { <br>        // Create a node for each album <br>        foreach (var album in storeDB.Albums.Include("Genre")) <br>        { <br>            DynamicNode node = new DynamicNode(); <br>            node.Title = album.Title; <br>            node.ParentKey = "Genre_" + album.Genre.Name; <br>            node.RouteValues.Add("id", album.AlbumId);</p><p>            yield return node; <br>        }<br>    }</p>

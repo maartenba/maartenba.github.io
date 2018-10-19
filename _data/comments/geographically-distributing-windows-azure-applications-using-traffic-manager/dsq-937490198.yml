@@ -1,0 +1,5 @@
+id: dsq-937490198
+date: 2011-04-28T15:54:27.0000000+02:00
+name: krishna kishore
+avatar: https://disqus.com/api/users/avatars/krishna kishore.jpg
+message: <p>Hi Maarten,</p><p>While the idea of using 2 (or more) data centers, with separate URLs and using Traffic Manager is good, what about your application&amp;#39s data? I&amp;#39m assuming that your data (be it SQL Azure or Azure Storage) is in the same data center as your application - which means, you have 2 copies of your data. How do you keep them in sync so that the other instance also participates - either because of failover, performance or round robin? <br>How &amp;#39expensive&amp;#39 is the mechanism - twice the cost, plus cost of data moving up and down the wire?</p><p>regards,<br>kk</p>

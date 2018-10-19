@@ -1,0 +1,5 @@
+id: dsq-937490537
+date: 2009-06-09T02:25:21.0000000+02:00
+name: Andrei Rînea
+avatar: https://disqus.com/api/users/avatars/Andrei_Rinea.jpg
+message: <p>I don't get how you passed an anonymous type instance to the view in the controller and used in the view directly. I have tried and, just as I thought, it doesn't compile..</p>

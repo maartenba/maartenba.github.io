@@ -1,0 +1,5 @@
+id: dsq-937490553
+date: 2009-04-22T02:32:07.0000000+02:00
+name: hammett
+avatar: https://disqus.com/api/users/avatars/hammett.jpg
+message: <p>Also, c =&gt; c.GetExportedObject() is very bad :-)  <br>You're constructing all controllers (and their dependency chain). The best approach would be to associate a metadata with the controller, or use a custom catalog for controllers.</p>

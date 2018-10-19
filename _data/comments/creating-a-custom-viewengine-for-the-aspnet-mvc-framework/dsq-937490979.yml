@@ -1,0 +1,5 @@
+id: dsq-937490979
+date: 2008-05-31T03:58:57.0000000+02:00
+name: Roger
+avatar: https://disqus.com/api/users/avatars/Roger.jpg
+message: <p>I'm curious, would it be possible to store views in a database or somewhere other than the Views folder? I know that routes always look to the Views folder, but if we can change the View Engine, etc, could we not make the framework look to a database for the view?</p>

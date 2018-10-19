@@ -1,0 +1,6 @@
+id: dsq-937491541
+replyToId: dsq-937491442
+date: 2010-05-19T23:59:34.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: '<p>Ever had the situation where you hard to do this:</p><p>You get: final class Foo { }<br>You need a helper method, lik&amp;#235: FooHelper::bar( $myInstanceOfFoo )</p><p>Using extension methods, you can just wire up this helper method at runtime.</p>'

@@ -1,0 +1,5 @@
+id: dsq-937490473
+date: 2009-08-17T19:31:54.0000000+02:00
+name: Joe Future
+avatar: https://disqus.com/api/users/avatars/Joe Future.jpg
+message: <p>It seems that copying files to the bin folder causes the app pool to restart, which causes Refresh() to get called next time I load an extension controller, which copies folders to the bin folder, etc.</p><p>I worked around this problem by adding some post-build lines to my build process to cycle IIS and then drop the built extension binaries into the bin folder myself.  It's a hack for now, but at least my site isn't constantly reloading now.</p>

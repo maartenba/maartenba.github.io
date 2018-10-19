@@ -1,0 +1,5 @@
+id: dsq-1904370382
+date: 2015-03-13T00:40:21.0000000+01:00
+name: Cassandra
+avatar: https://disqus.com/api/users/avatars/disqus_DdGDV8ClIO.jpg
+message: <p>Hi, thanks for sharing this, great explanation. I have tried to apply this solution, and it works fine, except when I create ActionLinks. If I create them this way "@Html.ActionLink("Test", "TestIt", "Home", null, null, true)", the link is generated as "/TestIt", it doesn't add the controller name, but it is returned ok in the ActionLink extension (in "return htmlHelper.ActionLink(linkText, actionName, controllerName, routeValues, htmlAttributes);"). Am I missing something?</p>

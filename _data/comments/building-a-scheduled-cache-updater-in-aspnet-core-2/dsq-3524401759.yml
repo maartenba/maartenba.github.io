@@ -1,0 +1,6 @@
+id: dsq-3524401759
+replyToId: dsq-3523618563
+date: 2017-09-19T12:59:28.0000000+02:00
+name: Constantinos L.
+avatar: https://disqus.com/api/users/avatars/constantinosl.jpg
+message: <p>Here is a gist with SchedulerHostedService <a href="https://gist.github.com/cleftheris/a08b91fe8550c1492272991c456a42a0" rel="nofollow noopener" title="https://gist.github.com/cleftheris/a08b91fe8550c1492272991c456a42a0">https://gist.github.com/cle...</a></p><p>And Here is the IScheduledTask (Notice it is missing the execute it is on purpose)<br><a href="https://gist.github.com/cleftheris/e5643ea2aa56e893c0cdc0c60d98a0ac" rel="nofollow noopener" title="https://gist.github.com/cleftheris/e5643ea2aa56e893c0cdc0c60d98a0ac">https://gist.github.com/cle...</a></p><p>Lastly here is the Quote of the day task<br><a href="https://gist.github.com/cleftheris/110654b22bcd979f9232dc891bfd07cc" rel="nofollow noopener" title="https://gist.github.com/cleftheris/110654b22bcd979f9232dc891bfd07cc">https://gist.github.com/cle...</a></p><p>TL;DR your tasks can now have an "Invoke" method with any number of parameters (dependencies) that will be resolved on each run instead of upfront.</p>

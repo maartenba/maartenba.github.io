@@ -1,0 +1,6 @@
+id: dsq-937491260
+replyToId: dsq-937490179
+date: 2011-07-28T13:28:17.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: '<p>Can you try this one:</p><p>            var catalog = new AggregateCatalog( <br>                new DirectoryCatalog("Plugins"),<br>                 new DirectoryCatalog("bin"), <br>                new ConventionCatalog(new MvcApplicationRegistry())); // Note: add your own (convention)catalogs here if needed.</p>'

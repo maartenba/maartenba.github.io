@@ -1,0 +1,5 @@
+id: dsq-937490471
+date: 2009-07-01T03:38:43.0000000+02:00
+name: Joe Future
+avatar: https://disqus.com/api/users/avatars/Joe Future.jpg
+message: <p>This is pretty slick - thanks for sharing.</p><p>When I implemented this solution, I noticed that the plugin dlls are being copied to my bin directory properly, but the 1st time the page is rendered I'm getting errors because types defined in those plugins aren't able to load.  If I refresh the page again, it all loads fine (presumably because the assemblies are in the bin folder from the start of the IIS process).  Know of any way to prevent this situation?</p>

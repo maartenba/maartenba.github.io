@@ -1,0 +1,5 @@
+id: dsq-937490217
+date: 2011-06-12T05:04:12.0000000+02:00
+name: Sergey
+avatar: https://disqus.com/api/users/avatars/Sergey.jpg
+message: '<p>I have similar code and it works. However, I have one question which worries me a lot: <br>I would expect that when I&amp;#39m upscale, current instances stay untouched and new once begin initialization, while it looks like already working instances are also upgraded and become temporary not available (it is more visible when I upscale from 1 to 2 - there is a break period when service is not available at all).<br>Do you have any ideas how to overcome this?</p>'

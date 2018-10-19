@@ -1,0 +1,6 @@
+id: dsq-937490398
+replyToId: dsq-937490394
+date: 2009-10-06T17:17:07.0000000+02:00
+name: Maarten
+avatar: https://disqus.com/api/users/avatars/Maarten.jpg
+message: <p>Agreed. I've checked the internals, and this should be possible. It requires a lot of plumbing though... Will see if I can get in touch with the MVC team on that.</p>

@@ -1,0 +1,5 @@
+id: dsq-937490047
+date: 2013-03-08T23:23:51.0000000+01:00
+name: Glenn Block
+avatar: https://disqus.com/api/users/avatars/Glenn Block.jpg
+message: '<p>Cool.</p><p>One correction, the property should be separated by comma not ;</p><p>Accept: application/foo, version=1.0</p><p>The semicolons are for multiple media types ie</p><p>Accept: application/foo, version=1.0; application/bar, version=2.0</p>'

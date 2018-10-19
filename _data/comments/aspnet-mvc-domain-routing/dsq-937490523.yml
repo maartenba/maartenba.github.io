@@ -1,0 +1,5 @@
+id: dsq-937490523
+date: 2011-01-27T17:47:43.0000000+01:00
+name: rczjp
+avatar: https://disqus.com/api/users/avatars/rczjp.jpg
+message: <p>Thanks<br>I have some errors “System.Web.Mvc.MvcHtmlString” can not convert to “string"<br>How to resolve?</p><p>return htmlHelper.ActionLink(linkText, actionName, controllerName, domainData.Protocol, domainData.HostName, domainData.Fragment, routeData.Values, null);</p>

@@ -1,0 +1,5 @@
+id: dsq-937490950
+date: 2008-06-04T22:31:23.0000000+02:00
+name: Glenn
+avatar: https://disqus.com/api/users/avatars/Glenn.jpg
+message: <p>Nice stuff.  What really needs to occur for Web development to move forward.  A couple things though...</p><p>Minor - it looks like the Cancel and Delete icons are mixed up.  (Cancel shows to delete line, Delete shows to Cancel Edit.)<br>Not so Minor - Sorting would be needed for what I usually use a GridView for.<br>Not so Minor - It posts back with each added line or change.  Can't it do this using Ajax?  This doesn't look much better than a using ViewState Web Page Control.</p>

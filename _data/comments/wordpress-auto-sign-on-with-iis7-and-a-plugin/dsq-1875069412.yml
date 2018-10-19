@@ -1,0 +1,5 @@
+id: dsq-1875069412
+date: 2015-02-25T18:41:00.0000000+01:00
+name: Fiyas
+avatar: https://disqus.com/api/users/avatars/disqus_oWmslnK8sV.jpg
+message: <p>Hi</p><p>Can I  use Active Directory Integration plugin <a href="https://wordpress.org/plugins/active-directory-integration/" rel="nofollow noopener" title="https://wordpress.org/plugins/active-directory-integration/">https://wordpress.org/plugi...</a> or do i have to use  Simple LDAP Login plugin for providing sign-on through Active Directory for this.</p><p>My intention is when a user logs in to the computer using his user id he doesn't have to again login to the site . it has to automatically login to the site using his userid of active directory. Mine is an intranet site.</p><p>Does this work for the for this case.</p>

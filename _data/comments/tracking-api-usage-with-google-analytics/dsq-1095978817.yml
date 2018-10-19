@@ -1,0 +1,5 @@
+id: dsq-1095978817
+date: 2013-10-25T05:44:31.0000000+02:00
+name: Markive
+avatar: https://disqus.com/api/users/avatars/markive.jpg
+message: <p>Thanks Maarten! This works great.. Is there a way to get my Web Api to automatically use the ActionFilter without having to decorate every function with it? For example overriding APIController.. My web applications is Web Forms not MVC, so I can't use the RegisterGlobalFilters() function..</p>

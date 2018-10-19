@@ -1,0 +1,5 @@
+id: dsq-937491046
+date: 2010-07-21T18:45:29.0000000+02:00
+name: Abhijeet
+avatar: https://disqus.com/api/users/avatars/Abhijeet.jpg
+message: <p>In a data driven  web test how do I  run specific tests depnding on data and how can i run specific test irrespective of data ? e.g I have a recorded webtest which contains many actions including Login and Logout. So I want rest of the actions i.e. actions other than Login and Logout to be run depending on data iteratively and Login Logout should be done only once. Is it possible. Please do let me know.</p>

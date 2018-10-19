@@ -1,0 +1,5 @@
+id: dsq-937490635
+date: 2009-05-04T02:28:24.0000000+02:00
+name: Jamir
+avatar: https://disqus.com/api/users/avatars/Jamir.jpg
+message: <p>Hi Marteen,</p><p>I had some issue with my Authorization, I have fixed that. Now I can push my roles to MVC Context. I have source from "10098" dated April 24th.</p><p>My Web.Config has securityTrimmingEnabled="true" entry and my Controller method has [Authorize(Roles = "Superuser")]</p><p>Now when my user does not have the "SuperUser" role. It just shows my login screen. It does not change any behavior by removing or adding securityTrimmingEnabled="true" in Web.Config... I am missing any additional flag to set ?</p><p>I have a second question. I have secondary menus. My primary menu should not do any work by clicking it. Similar to using SiteMapNode with BLANK URL. When I don't have any Controller or action in the definition, it assumes the higher nodes definitions, which is Home in this case and errors out with duplicate URL. Is it possible to do achieve such functionality ?</p><p>Thank you very much for your time and help.<br>Jamir</p>

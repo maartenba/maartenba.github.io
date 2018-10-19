@@ -1,0 +1,5 @@
+id: dsq-937491183
+date: 2008-05-15T05:02:07.0000000+02:00
+name: Pablo Szittyay
+avatar: https://disqus.com/api/users/avatars/Pablo Szittyay.jpg
+message: <p>I have an application that consumes from a RssFeed. All works fine in development, but when i try in the server (Windows Server 2003), with a proxy configuration i get the folliwing error.</p><p>Service name could not be resolved</p><p>The server has a proxy configuration. Do you know how to cnfigure the WebRequest object, so that it uses the proxy.</p>

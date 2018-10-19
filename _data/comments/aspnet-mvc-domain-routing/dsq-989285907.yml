@@ -1,0 +1,5 @@
+id: dsq-989285907
+date: 2013-08-05T18:01:20.0000000+02:00
+name: hbopuri
+avatar: https://disqus.com/api/users/avatars/hbopuri.jpg
+message: <p>Thank you very much this was very helpful for me. Only thing you may want to check on this, I had to make some changes here <br> //htmlHelper.ActionLink(linkText, actionName, controllerName, domainData.Protocol, domainData.HostName, domainData.Fragment, routeData.Values, null);</p><p>                    return htmlHelper.ActionLink(</p><p>                        linkText, actionName, controllerName,</p><p>                        new RouteValueDictionary(new {domainData.Protocol, domainData.HostName, domainData.Fragment}),</p><p>                        routeData.Values, false);</p>

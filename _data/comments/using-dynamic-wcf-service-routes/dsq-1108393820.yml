@@ -1,0 +1,5 @@
+id: dsq-1108393820
+date: 2013-11-04T17:12:37.0000000+01:00
+name: Jeroen
+avatar: https://disqus.com/api/users/avatars/disqus_6sJ1Lp2DJH.jpg
+message: <p>The id of the feed and all the entries now contain the rewritten path instead of the correct url to the feed or correct entry. Is there a way to correct the id's in the output of the data-service? Thanks in advance.</p>

@@ -1,0 +1,6 @@
+id: dsq-981204395
+replyToId: dsq-980197786
+date: 2013-07-30T12:10:14.0000000+02:00
+name: stephan
+avatar: https://disqus.com/api/users/avatars/disqus_uzhPGfGpy9.jpg
+message: <p>Maarten, it also worked on the "hot" system perfectly.Many thanks - saved me a lot of time.<br>Do you think it is also possible to write a tool that resets e.g. the RDP port (3389) ? Sometimes it happens that you exclude yourself blocking this port and then you cannot access the VM again. The standard procedure is the same as for "resizing OS disk" - shut down and delete VM, delete disk, download disk, re-configure vhd using a vm tool, etc.  ...</p>

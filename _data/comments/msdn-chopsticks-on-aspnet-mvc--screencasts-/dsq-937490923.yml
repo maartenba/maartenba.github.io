@@ -1,0 +1,5 @@
+id: dsq-937490923
+date: 2008-08-07T16:07:26.0000000+02:00
+name: Dragan Panjkov
+avatar: https://disqus.com/api/users/avatars/Dragan Panjkov.jpg
+message: <p>I have one opinion regarding passing strongly typed view data. I think it is not necessary to create wrapper class around employee object when passing t to the view. you might simply pass employee class to the view.<br> however, in your approach, you have one advantage that is your wrapper class could contain more objects of different types and pass them to the view, instead of only passing one type of object, for exampe, in method body</p><p>Employee emp = new Employeee { Name = "Name", Email = "eml@eml.com"};<br>return View(emp);</p><p>and view could be strongly typed <br>... ViewPage&lt;Employee&gt; {<br>}<br>in my example, i can pass only employee to View, and not other objects.</p><p>in summary, excellent screencasts. I like ViewData wrapper classes approach you use :)</p>

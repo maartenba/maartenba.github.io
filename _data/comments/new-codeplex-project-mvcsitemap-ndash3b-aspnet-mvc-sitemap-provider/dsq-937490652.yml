@@ -1,0 +1,5 @@
+id: dsq-937490652
+date: 2009-07-02T06:31:48.0000000+02:00
+name: Ronnie Overby
+avatar: https://disqus.com/api/users/avatars/Ronnie Overby.jpg
+message: <p>I know that you can pass an arbitrary route parameter to a MvcSiteMapNode by just adding an xml attribute in Web.Sitemap. I need to do this from an action method. How do you do it?</p><p>Specifically, I need to do something like this:<br>[b]((MvcSiteMapNode)SiteMap.CurrentNode.ParentNode).AddRouteParameter("id", product.Category.ID);[/b]</p><p>I'm betting that there is a real way to do this, but I just am missing it.</p><p>Thanks.</p>

@@ -1,0 +1,6 @@
+id: dsq-2958674940
+replyToId: dsq-2958609098
+date: 2016-10-19T19:26:39.0000000+02:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>I've actually had a case where the DI container did not invoke Dispose() on disposable objects, essentially keeping the object in memory and being the cause of a memory leak. Most DI frameworks indeed handle these things correctly though.</p>

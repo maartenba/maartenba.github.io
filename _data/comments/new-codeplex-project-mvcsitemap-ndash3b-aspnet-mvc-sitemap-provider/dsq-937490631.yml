@@ -1,0 +1,5 @@
+id: dsq-937490631
+date: 2009-04-29T11:09:56.0000000+02:00
+name: Jamir
+avatar: https://disqus.com/api/users/avatars/Jamir.jpg
+message: <p>maartenba,</p><p>I have used MVC areas as subfolders under views as well as controller see blog below. More specifically I am using Sharp-Architecture.</p><p><a href="http://devlicio.us/blogs/billy_mccafferty/archive/2009/01/22/mvc-quot-areas-quot-as-hierarchical-subfolders-under-views.aspx" rel="nofollow noopener" title="http://devlicio.us/blogs/billy_mccafferty/archive/2009/01/22/mvc-quot-areas-quot-as-hierarchical-subfolders-under-views.aspx">http://devlicio.us/blogs/bi...</a></p><p>Sharp-Architecture:<br><a href="http://code.google.com/p/sharp-architecture/" rel="nofollow noopener" title="http://code.google.com/p/sharp-architecture/">http://code.google.com/p/sh...</a></p><p>For my project, http://localhost:1383/MileageRates will not work, I have to specify http://localhost:1383/Setup/MileageRates instead.</p><p>Do you see any workaround here?</p><p>Thank you very much for your time.<br>Jamir</p>

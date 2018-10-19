@@ -1,0 +1,5 @@
+id: dsq-937491181
+date: 2007-10-12T20:07:04.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>Catchy blog titles are important tools too ;-)</p><p>But you are right in your opinion. You should not stop using inheritance, as it is a powerful tool. Just remember to refactor some things into a Strategy pattern if you come across an issue with Jedi's...</p>

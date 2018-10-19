@@ -1,0 +1,5 @@
+id: dsq-937490783
+date: 2008-12-04T20:26:32.0000000+01:00
+name: Sergio Pereira
+avatar: https://disqus.com/api/users/avatars/Sergio Pereira.jpg
+message: <p>@Miha, there are already JsonResult and PartialViewResult in MVC (your commented sounded like we would need to build them).<br>One good thing with Maarten's approach is that you can make any existing action available via Ajax just by slapping that attribute on it. If we were to use a PartialViewResult, then we would have to check if this was an Ajax call or regular request in every one of those actions.<br>I like this.</p>

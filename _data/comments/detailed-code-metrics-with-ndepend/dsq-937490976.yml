@@ -1,0 +1,5 @@
+id: dsq-937490976
+date: 2008-05-31T01:22:56.0000000+02:00
+name: Grant Palin
+avatar: https://disqus.com/api/users/avatars/Grant Palin.jpg
+message: <p>Yes NDepend is a pretty neat tool - it shows you visually what you would otherwise have to do code reviews for.  I wrote about it on my site a while ago, and plan to be using it more heavily soon when I start refactoring one of my ASP.NET projects.  Although that will be AFTER I get some unit tests in place.</p>

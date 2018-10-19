@@ -1,0 +1,5 @@
+id: dsq-1958708611
+date: 2015-04-11T11:03:44.0000000+02:00
+name: Massood
+avatar: https://disqus.com/api/users/avatars/massood.jpg
+message: <p>Great article.<br>One minor fix though. Path.GetExtension(file) returns an extra dot with the file extension, e.g.  ".png".</p>

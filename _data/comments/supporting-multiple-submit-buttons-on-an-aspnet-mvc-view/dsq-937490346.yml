@@ -1,0 +1,5 @@
+id: dsq-937490346
+date: 2009-11-27T02:00:49.0000000+01:00
+name: Miguel
+avatar: https://disqus.com/api/users/avatars/Miguel.jpg
+message: <p>Hi Maarten. This is very elegant, bravo! I did something similar where I had a variable number of buttons that could submit a form, I ended up delegating the button html generation in the form to an HtmlHelper in the view and in the controller I had a method parse out the form value to return the correct action which I had defined elsewhere using an enumeration. I think my method works better for what I needed to do since the button pressed was just information that went to my database but when you can justify a button altering the execution path of your controller contingent on the form submission this should come in handy. Thanks.</p>

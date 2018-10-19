@@ -1,0 +1,5 @@
+id: dsq-937490616
+date: 2009-04-02T23:00:34.0000000+02:00
+name: Alberto Ferreira
+avatar: https://disqus.com/api/users/avatars/Alberto Ferreira.jpg
+message: "<p>Dear Maarten,</p><p>Incredible how fast are you :)</p><p>It works. Thank You a lot!</p><p>I will try to take advantage of your good will, and request you the following features:</p><p>- At your Helper Menu, a property to specify the starting node level (ex.: for a 2&amp;#186 level left menu);<br>- At SiteMapNode an attribute that specify if it will be visible, so that Menu Helper don't show this nodes (like I asked you before, sometimes we want that a Action Method just shows in BreadCrumb but not at Menu);<br>- Generate your URL's like URL.Action() do. Sometimes, we have custom routes that don't map \"directely\" Controller and Action methods. For example, I have a controller \"ProductsController\" and a action method \"CreateByFile\", but my route is: \"Products/Add/ByFile\". If I ask URL.Action(\"CreateByFile\", \"Products\") it will give me \"Products/Add/ByFile\". Your SiteMapProvider gives me \"Products/CreateByFile\" ...</p><p>Thank you again.</p>"

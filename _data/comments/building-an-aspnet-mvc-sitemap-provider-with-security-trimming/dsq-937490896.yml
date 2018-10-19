@@ -1,0 +1,5 @@
+id: dsq-937490896
+date: 2009-02-23T04:30:11.0000000+01:00
+name: dkarantonis
+avatar: https://disqus.com/api/users/avatars/dkarantonis.jpg
+message: <p>Hi Maarten,</p><p>i' ve asked you on September 2008 how could i implement your code in a multilingual site scenario in a theoretical basis. Now, i am actually in the phase of implementation and just adding the local and language parameter in the global.asax routing and in the sitemap xml file doesn't solve the problem. I mean, how could i implement localized versions of sitemap menu and path in order to be displayed correspondingly upon user (or browser) language selection?</p><p>My second question has to with the Details page. I don't want the Details page to be displayed on the sitemap menu, since i don't know the product that the user will select and because i don't want to hard code all the product urls to the sitemap xml file by providing the paramid of each product. But i want the Details page to be displayed on the sitemap path, each time a product details link is selected. How could i implement it?</p><p>best regards!</p>

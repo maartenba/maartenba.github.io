@@ -1,0 +1,5 @@
+id: dsq-974628704
+date: 2013-07-24T16:20:37.0000000+02:00
+name: dskrtic
+avatar: https://disqus.com/api/users/avatars/dskrtic.jpg
+message: <p>We're using Traffic Manager not for hot-site fail-over but to redirect to another hosted service that displays a "We're undergoing maintenance" page, for those occasions when there are breaking changes that require us to have some downtime during a deployment.</p>

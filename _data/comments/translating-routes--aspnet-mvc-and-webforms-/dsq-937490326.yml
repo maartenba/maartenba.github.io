@@ -1,0 +1,5 @@
+id: dsq-937490326
+date: 2011-01-11T20:00:06.0000000+01:00
+name: Marthijn
+avatar: https://disqus.com/api/users/avatars/Marthijn.jpg
+message: <p>Thanks for this post!<br>I have a question, in my project I have a route <a href="http://www.example.com/search" rel="nofollow noopener" title="www.example.com/search">www.example.com/search</a> which I mapped to /Home/Search:<br>routes.MapRoute("SearchRoute", "search", new { controller = "Home", action = "Search" });<br>Is there a way to translate the url (in this case 'search')? Or do I have to create another route with the translated url?</p>

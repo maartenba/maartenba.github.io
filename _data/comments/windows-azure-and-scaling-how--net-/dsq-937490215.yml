@@ -1,0 +1,5 @@
+id: dsq-937490215
+date: 2011-04-01T21:24:03.0000000+02:00
+name: Larry
+avatar: https://disqus.com/api/users/avatars/Larry.jpg
+message: <p>Doesn't work for me either,  Maarten.  It certainly works on your machine since it generated the .cer in the first place.  Without the private key my machine looks different to Azure.  Azure is asking "are you the machine that created the cert?"  Since my machine didn't create the cert it fails the test.</p><p>I am working on this problem.  I suspect it has to do with remote server management.<br>Larry</p>

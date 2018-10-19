@@ -1,0 +1,5 @@
+id: dsq-973002306
+date: 2013-07-23T05:18:07.0000000+02:00
+name: JamesMcLachlan
+avatar: https://disqus.com/api/users/avatars/JamesMcLachlan.jpg
+message: <p>Lots of great info here. But I have 2 questions:<br>1. How do you build the test dll? I don't see a custom script step and Azure doesn't seem to build the whole solution.<br>2. How did you know curl was available for use on the Azure webserver? I can't seem to find a list of supported commands.</p>

@@ -1,0 +1,5 @@
+id: dsq-937490254
+date: 2010-11-26T15:57:04.0000000+01:00
+name: batman
+avatar: https://disqus.com/api/users/avatars/batman.jpg
+message: <p>Hi,<br>Have you tried to run php script as worker role? I'm getting silly error saying something like "could not start php". I'm running my application in development fabric.</p>

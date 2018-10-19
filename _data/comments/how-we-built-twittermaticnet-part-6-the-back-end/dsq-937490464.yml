@@ -1,0 +1,5 @@
+id: dsq-937490464
+date: 2009-09-09T04:33:41.0000000+02:00
+name: Josh
+avatar: https://disqus.com/api/users/avatars/Josh.jpg
+message: <p>Thank you for this very helpful article!</p><p>However, I'm trying to understand how you are handling the membership/authentication. It looks like you are using the <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> membership provider, but creating the users in the background based on their twitter credentials.</p><p>What I'm unclear about is how you are using this to validate to their account when you post. In the code above, you use the properties tweet.Token and tweet.TokenSecret, but I don't see where these are set. I assume they are populated on authentication (in part 4) but I don't see these properties set. Instead you set the users PASSWORD, which unless I'm mistaken, should never be used (since they use twitter to login).</p><p>Additionally, don't these tokens expire? How do you authenticate a token to last for, say, 6 months?</p>

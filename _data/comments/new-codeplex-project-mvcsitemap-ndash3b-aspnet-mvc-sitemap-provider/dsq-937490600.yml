@@ -1,0 +1,5 @@
+id: dsq-937490600
+date: 2009-03-24T22:15:03.0000000+01:00
+name: Kam
+avatar: https://disqus.com/api/users/avatars/Kam.jpg
+message: "<p>I like it. I'm currently working on a similar project from the other direction: I want to make the actual URLs look like the sitemap does, so I'm working with the routing engine to support hierarchical routes to a controller based on a database driven hierarchy.</p><p>Backlinking the routes is the biggest problem with it (e.g. it breaks Html.ActionLink()) but I hope to come up with a decent solution for that.</p>"

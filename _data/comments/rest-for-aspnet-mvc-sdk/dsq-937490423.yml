@@ -1,0 +1,5 @@
+id: dsq-937490423
+date: 2009-08-28T08:14:15.0000000+02:00
+name: Uzivatel
+avatar: https://disqus.com/api/users/avatars/Uzivatel.jpg
+message: <p>if I set the Accept header to “application/json,text/xml”, REST for ASP.NET MVC will provide me with JSON if possible, and if not, it will send me XML.</p><p>Does it mean it will provide me JSON when I have javascript turned on, and will fall down to xml (xhtml) when I have it switched off?</p><p>If not how can I achieve this thing? i.e. parse JSON data and have AJAX calls, but have ability to get data for clients which do not have javascript turned on. Or at least no AJAX (as this is hard on mobile browser).</p><p>Thanks for clearing what you meant.</p>

@@ -1,0 +1,5 @@
+id: dsq-2098582214
+date: 2015-06-25T09:30:22.0000000+02:00
+name: Tom
+avatar: https://disqus.com/api/users/avatars/disqus_im2KPh36h0.jpg
+message: <p>Hi Maarten !<br>Still having the same problems Wayne had!<br>I can't seem to get the plugin to show up in the list to be activated. I downloaded the updated version (for WP 3.1+) which is just the IISAUTH.PHP file.  I then created a plugin directory called iisauth and added the php file and renamed it to iisauth.php. But it just won't show up to be activated. What am I doing wrong ?<br>The WP is actually 4.2.2 ...</p>

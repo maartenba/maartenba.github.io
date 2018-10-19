@@ -1,0 +1,5 @@
+id: dsq-3585283269
+date: 2017-10-26T09:53:13.0000000+02:00
+name: Matthias
+avatar: https://disqus.com/api/users/avatars/matkoch.jpg
+message: <p>I've also had this implemented like here once. Now after some time I'm not so sure anymore about overloading the + operator. Is it obvious what this will yield?</p><p>"output" / "package" + i / "sub"</p>

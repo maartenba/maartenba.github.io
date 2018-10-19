@@ -1,0 +1,5 @@
+id: dsq-937490927
+date: 2008-07-17T01:17:18.0000000+02:00
+name: Swordfish
+avatar: https://disqus.com/api/users/avatars/Swordfish.jpg
+message: <p>I have somewhat mixed feelings about the forth release of MVC. Now it also includes a membership controller. With every release the 'empty' MVC project template becomes larger and larger. I guess the firth release would be a complete starter kit...</p><p>A framework doesn't provide world ready solutions, it should provide the basis for w website. However a MembershipController can be shipped as an item template, just like the About form in a WinForms application.</p><p>I understand that Scott tries to show the power of the <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> MVC framework, I only find it a bit annoying that it's also part of a new clean MVC project..</p>

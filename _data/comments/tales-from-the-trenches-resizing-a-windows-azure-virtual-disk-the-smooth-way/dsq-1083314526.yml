@@ -1,0 +1,5 @@
+id: dsq-1083314526
+date: 2013-10-15T19:04:23.0000000+02:00
+name: stephan
+avatar: https://disqus.com/api/users/avatars/disqus_uzhPGfGpy9.jpg
+message: <p>Maarten, you have saved my day a second time. Last time I could increase the VM disk sucessfully, now I had to shrink one. Microsoft has increased disk size in their virtual machines (VMs) to 127 GByte! On the one hand this is plenty of space for almost all applications. However VHDs with this size are tedious to move. <br>I compiled the new version of WindowsAzureDiskResizer and could resize my VHD from 127 GByte down to 38 GByte. It took two trials - I got error messages while running the tool. I think I forgot to generate an URL with SAS with Write Premissions. There was an exception that has not been caught  - maybe you can add catching the exception in the case that the writing permission is missing in the SAS string. I also had to put the URL including the SAS between quotations ("") to get it interpreted correctly. Without I got errors.<br>Many thanks - now I can move the VHD at reasonable times and efforts.</p>

@@ -1,0 +1,5 @@
+id: dsq-937490811
+date: 2008-10-05T17:57:47.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>Chris, the idea here is that you et the original Person object (in the hidden field) + the modified fiels that can be applied on the model. Reason for this is that you might want to have the Person object the way it was at the time a view was generated, for example for concurrency reasons.</p><p>Tasarim, I suggest posting your question on the ASP.NET MVC forum (<a href="http://forums.asp.net" rel="nofollow noopener" title="forums.asp.net">forums.asp.net</a>), as it is not really a modelbinder issue. If you want to, you can also send me an email containing some more details and I'll see if I can help you out.</p>

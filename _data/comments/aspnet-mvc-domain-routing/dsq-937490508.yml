@@ -1,0 +1,5 @@
+id: dsq-937490508
+date: 2010-06-29T04:17:59.0000000+02:00
+name: Gorkem Pacaci
+avatar: https://disqus.com/api/users/avatars/Gorkem Pacaci.jpg
+message: <p>There is a little problem with this solution. Say, you want to handle subdomains as different users:</p><p>routes.Add("SD", new DomainRoute("user}.localhost", "", new { controller = "Home", action = "IndexForUser", user="u1" } ));</p><p>It caches the homepage as well. This is because of the regex that's generated. In order to fix this, you can make a copy of the CreateRegex method in DomainRoute.cs, name it CreateDomainRegex, change the * on this line to +:</p><p>source = source.Replace("}", @"&gt;([a-zA-Z0-9_]*))");</p><p>and use this new method instead to generate domain regex in GetRouteData method:</p><p>domainRegex = CreateDomainRegex(Domain);</p><p>Then it won't catch the non-sub-domain homepage. (http://localhost/)</p>

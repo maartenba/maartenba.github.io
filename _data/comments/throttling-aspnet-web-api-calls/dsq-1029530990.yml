@@ -1,0 +1,5 @@
+id: dsq-1029530990
+date: 2013-09-04T15:46:25.0000000+02:00
+name: Marta Rossi
+avatar: https://disqus.com/api/users/avatars/glipme.jpg
+message: <p>It seems that InMemoryThrottleStore doesn't use Cache but a simple in memory object. So, if a (anonymous) user will call an API that its entry will remain in server memory forever (until the process is recycled, of course)?</p>

@@ -1,0 +1,5 @@
+id: dsq-937490993
+date: 2008-07-12T06:02:14.0000000+02:00
+name: Swordfish
+avatar: https://disqus.com/api/users/avatars/Swordfish.jpg
+message: <p>Dylan have you've read the article (not just viewing the pictures)? ActionResults are new to preview 3, so it doesn't work for preview 2..<br>(sorry, but I had to get it out of my system..)</p><p>A few comments:<br>- Why not using the width and height from the Image extention method also to define the size of the image (both are equal, but the bitmap is now hardcoded to 200x50)<br>- It would write the if block for the contenttype as switch block for readability.</p>

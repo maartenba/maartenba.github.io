@@ -1,0 +1,5 @@
+id: dsq-937490393
+date: 2010-09-19T04:32:58.0000000+02:00
+name: Wout
+avatar: https://disqus.com/api/users/avatars/Wout.jpg
+message: <p>Hi Maarten,</p><p>The serialization is very cool, I use it for almost the exact same purpose. Thank you for your post! (Can't believe it's not in the regular ASP.NET MVC!) However, your concurrent update check ultimately has to be done by the database itself, because after your check there is still room for another update to happen, just before you save. What I do is do an UPDATE in the db, with all the old fields in the WHERE clause. If nothing was updated, then somebody else updated first. So the old fields you can get from the deserialized model. The updated model you could create from the deserialized model, and then updating the clone (so not updating the original!).</p><p>About the designs using time stamp/row version, that's just an alternative way of doing it (the choice depends on your priorities). I tend to just compare the whole record and not introduce an extra column. Updates are usually infrequent, and queries are frequent, so not needing an extra column makes queries a little bit faster.</p><p>- Wout</p>

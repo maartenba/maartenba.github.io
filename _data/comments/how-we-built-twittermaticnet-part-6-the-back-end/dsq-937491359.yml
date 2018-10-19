@@ -1,0 +1,6 @@
+id: dsq-937491359
+replyToId: dsq-937490464
+date: 2009-09-09T13:50:45.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>Good questions!</p><p>1) I am indeed using Membership to store the username and the authentication token. I need both to submit a Tweet afterwards, so keeping them is a good option.<br>2) tweet.Token and tweet.Secret are being set when saving a tweet. This way, a tweet always hasd the last known auth token to send it to Twitter.<br>3) Tokens do expire, but only if a user denies access to your application in his Twitter account. So generally speaking, if you do not use the "Deny" button sometime, the token will not expire. We can't do anything but fail the tweet when the token is invalid, since the user has denied us access to his account in that case.</p>

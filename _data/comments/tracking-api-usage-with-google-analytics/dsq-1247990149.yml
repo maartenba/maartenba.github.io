@@ -1,0 +1,5 @@
+id: dsq-1247990149
+date: 2014-02-17T15:45:28.0000000+01:00
+name: Kristoffer Andersson
+avatar: https://disqus.com/api/users/avatars/disqus_FaGdF9Z10B.jpg
+message: <p>Very nice but i get the error -  "The type or namespace name 'ActionTracking' could not be found (are you missing a using directive or an assembly reference?". Iv'e added the namespace "using GoogleAnalyticsTracker" aswell as using Google; but the error remain. Why is this? Thanks</p>

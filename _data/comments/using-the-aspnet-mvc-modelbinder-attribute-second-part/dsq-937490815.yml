@@ -1,0 +1,5 @@
+id: dsq-937490815
+date: 2008-10-05T21:02:03.0000000+02:00
+name: Andy
+avatar: https://disqus.com/api/users/avatars/Andy.jpg
+message: <p>For concurrency and versions, surely an ETag (last-modified) approach with MVC, rather than serializing the object to the client would be better.</p>

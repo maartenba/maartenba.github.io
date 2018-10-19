@@ -1,0 +1,6 @@
+id: dsq-937491481
+replyToId: dsq-937491417
+date: 2009-10-21T18:33:29.0000000+02:00
+name: Tran Chi Khanh
+avatar: https://disqus.com/api/users/avatars/Tran Chi Khanh.jpg
+message: <p>Thanks maartenba. I know "there are multiple nodes in the sitemap which are generating the same URL."<br>But i don't know why i use &lt;mvcSiteMapNode title="Manage" controller="Products" action="Index" /&gt; --&gt; it always generate url is /root instead of /root/controller/action because i declare controller is Products and action is Index. I want to use index in my sitemap with several controller.</p>

@@ -1,0 +1,5 @@
+id: dsq-3528390450
+date: 2017-09-21T19:07:46.0000000+02:00
+name: Herb
+avatar: https://disqus.com/api/users/avatars/herbstahl.jpg
+message: <p>Nice and immediately useful.  I am using this to keep configuration json's up to date from <a href="http://rawgit.com" rel="nofollow noopener" title="rawgit.com">rawgit.com</a>.  Works fantastic for simple proofs and abstractions during development.  I will see if I can keep it in production at scale as an alternative to hangfire.</p>

@@ -1,0 +1,5 @@
+id: dsq-937490493
+date: 2009-05-22T10:02:41.0000000+02:00
+name: Frobozz
+avatar: https://disqus.com/api/users/avatars/Frobozz.jpg
+message: <p>Great work!</p><p>But DomainRoute class doesn't allow to use routing for subdomains that contain '-' symbol (for ex. '{section}.site.com').<br>The problem is inside DomainRoute.CreateRegex method - it allows only alphanumeric and underscore for '{section}' in this example.<br>Don't sure now if it's correct to change it like this <br>source = source.Replace("}", @"&gt;([a-zA-Z0-9_\-]*))");</p>

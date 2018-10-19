@@ -1,0 +1,5 @@
+id: dsq-937490434
+date: 2009-08-14T02:33:18.0000000+02:00
+name: Jeff Garoutte
+avatar: https://disqus.com/api/users/avatars/Jeff Garoutte.jpg
+message: <p>If you are storing the user name in your local database how are you handling a reapeat of a user name across several providers?</p><p>For example two siblings Edan and Ethan Smith may each have a username of ESmith, one at provider x and the other at provider y.  What happens when the both register at a site using this service and the username is stored as the key for an account?  Im just wondering as I havent really looked into the subject much.</p>

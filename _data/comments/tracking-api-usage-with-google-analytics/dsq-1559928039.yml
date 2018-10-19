@@ -1,0 +1,6 @@
+id: dsq-1559928039
+replyToId: dsq-1559923127
+date: 2014-08-26T16:04:36.0000000+02:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>You could create an overload of the attribute and override the OnTrackingAction<br> method to add whatever you want to the tracker object.</p>

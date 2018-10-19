@@ -1,0 +1,6 @@
+id: dsq-1012346777
+replyToId: dsq-1012343427
+date: 2013-08-22T07:50:14.0000000+02:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>Shrinking partitions beforehand is the key to success, just shrinking the disk basically kills the file system as it potentially misses partition tables.</p>

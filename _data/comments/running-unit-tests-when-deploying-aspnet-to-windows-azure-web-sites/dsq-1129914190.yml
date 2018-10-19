@@ -1,0 +1,5 @@
+id: dsq-1129914190
+date: 2013-11-19T19:37:06.0000000+01:00
+name: khalidabuhakmeh
+avatar: https://disqus.com/api/users/avatars/khalidabuhakmeh.jpg
+message: <p>I'm doing more in depth research on some of the nuance of Windows Azure and keep finding myself coming back to this site, even when I google for something completely separate. Maybe I should ask now, is there anything you haven't done with Azure?</p><p>Also, would you recommend this approach of running unit tests before deployment or should you implement a TeamCity build server in Azure and let that handle the build and unit testing?</p>

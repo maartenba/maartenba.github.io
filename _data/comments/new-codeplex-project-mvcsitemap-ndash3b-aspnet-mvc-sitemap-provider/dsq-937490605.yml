@@ -1,0 +1,5 @@
+id: dsq-937490605
+date: 2009-03-25T16:57:14.0000000+01:00
+name: Matthew
+avatar: https://disqus.com/api/users/avatars/Matthew.jpg
+message: <p>I tried using this with the code for the <a href="http://www.asp.net" rel="nofollow noopener" title="www.asp.net">www.asp.net</a> tutorial on Providing Website Navigation with SiteMaps (C#)  @ <a href="http://www.asp.net/learn/mvc/tutorial-20-cs.aspx" rel="nofollow noopener" title="http://www.asp.net/learn/mvc/tutorial-20-cs.aspx">http://www.asp.net/learn/mv...</a>. I keep getting exceptions on the line</p><p>[b]var topLevelNodes = SiteMap.RootNode.ChildNodes; [/b]</p><p>as the ChildNodes is empty/null</p>

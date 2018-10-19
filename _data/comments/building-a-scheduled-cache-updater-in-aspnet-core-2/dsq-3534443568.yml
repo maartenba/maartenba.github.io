@@ -1,0 +1,5 @@
+id: dsq-3534443568
+date: 2017-09-25T14:19:02.0000000+02:00
+name: AlexanderNaiden
+avatar: https://disqus.com/api/users/avatars/alexandernaiden.jpg
+message: <p>Hi.Could I run background task in <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> core 2.0 without scheduler? For example in <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> core 2 app I called long running operation like request of large list from external api after that I save it in db and then return status of import operation.</p>

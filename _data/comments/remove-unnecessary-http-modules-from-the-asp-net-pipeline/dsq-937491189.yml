@@ -1,0 +1,5 @@
+id: dsq-937491189
+date: 2008-01-17T16:18:24.0000000+01:00
+name: Maarten
+avatar: https://disqus.com/api/users/avatars/Maarten.jpg
+message: "<p>We did not measure the speed-up, it should save a few initialisation routines at every request.</p><p>Personally, I think this trick should only be used on high-trafic web applications. Also make sure every developer knows this trick has been used: if one wants to use Sessions, and they are disabled, an unexperienced developer might have to search a while to fid out why sessions aren't working...</p>"

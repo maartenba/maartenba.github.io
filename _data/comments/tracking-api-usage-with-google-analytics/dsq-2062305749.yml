@@ -1,0 +1,6 @@
+id: dsq-2062305749
+replyToId: dsq-2062174778
+date: 2015-06-04T21:03:40.0000000+02:00
+name: envisiondata
+avatar: https://disqus.com/api/users/avatars/$160379753.jpg
+message: <p>I downloaded the latest version from <a href="https://github.com/maartenba/GoogleAnalyticsTracker" rel="nofollow noopener" title="https://github.com/maartenba/GoogleAnalyticsTracker">https://github.com/maartenb...</a> and rebuilt it with Visual Studio 2013 and am still getting the same information, country and city are where my AWS box is located. I am using the ActionFilter method on my class. I also tried the ActionMethod on an action with the same result. Should I be using it differently?</p><p>GoogleAnalyticsTracker.Core.dll v4.0.0.0<br>GoogleAnalyticsTracker.WebAPI.dll v4.0.0.0</p>

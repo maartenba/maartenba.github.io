@@ -1,0 +1,5 @@
+id: dsq-937490572
+date: 2010-11-15T21:28:43.0000000+01:00
+name: Dea
+avatar: https://disqus.com/api/users/avatars/Dea.jpg
+message: <p>Hi maartenba,<br>I am trying to use your implementation with mvc 3.0 there is new method in IControllerFactory<br>public SessionStateBehavior GetControllerSessionBehavior(RequestContext requestContext, string controllerName)<br>may be you may give some advice how to implement it.</p>

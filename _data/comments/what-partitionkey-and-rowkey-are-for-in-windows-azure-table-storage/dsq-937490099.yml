@@ -1,0 +1,5 @@
+id: dsq-937490099
+date: 2012-10-19T00:46:39.0000000+02:00
+name: Daniel J Root
+avatar: https://disqus.com/api/users/avatars/Daniel J Root.jpg
+message: '<p>Excellent post, and clarifies this some for me.  The thing I still have a hard time groking is that for most real-world systems, what I end up wanting are multiple scenarios.  In your example, you&amp;#39ll often be building a system where you want to be able to do fast searches on region, customer id, name, OR worse, ad hoc: "all customers in region X who have ordered widget ABC since a given date".  I gather that to enable this you would need multiple customer tables, but how exactly would this be implemented?  Taken to extreme, you&amp;#39d have separate storage for every possible query, which would be difficult to maintain (do you populate 12 tables when you do an insert or update?)   Even several years into it, I still have a hard time shifting from a relational model...</p>'

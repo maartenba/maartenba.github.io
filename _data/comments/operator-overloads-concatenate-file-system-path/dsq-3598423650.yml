@@ -1,0 +1,6 @@
+id: dsq-3598423650
+replyToId: dsq-3586859542
+date: 2017-11-03T15:54:25.0000000+01:00
+name: George Chakhidze
+avatar: https://disqus.com/api/users/avatars/georgechakhidze.jpg
+message: "<p>And also this \U0001F603</p><p></p><pre><code><br>public static implicit operator FilePath(string path)<br>{<br>    return new FilePath(path);<br>}<br></code></pre><p></p><p>and then:</p><p></p><pre><code><br>FilePath root = Environment.CurrentDirectory;<br>FilePath path = root / \"Hello\" / \"World\";<br></code></pre>"

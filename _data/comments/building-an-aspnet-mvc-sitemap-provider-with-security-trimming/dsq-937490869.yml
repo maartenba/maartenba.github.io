@@ -1,0 +1,5 @@
+id: dsq-937490869
+date: 2008-09-24T01:31:41.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>Try fetching the principal via HttpContext.Current.User.Identity</p>

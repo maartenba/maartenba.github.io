@@ -1,0 +1,5 @@
+id: dsq-937490239
+date: 2011-03-24T03:19:03.0000000+01:00
+name: Corey Gaudin
+avatar: https://disqus.com/api/users/avatars/Corey Gaudin.jpg
+message: <p>Maarten,</p><p>Where would you add a line to add an export without the [Export] Attribute?</p><p>I tried adding something in the AppStart_MefContribMVC3 to do dependencyResolver.Build&lt;ITestObject&gt;(new TestObject()); and dependencyResolver.Container.ComposeExportedValue&lt;ITestObject&gt;(new TestObject) and it errored out with a Object Reference null (because the Container was still null at this point).</p><p>I moved it to the ApplicationStart in Global.cs, and while it didnt error adding in that part, it does not import in that value to the controllers. Its as if it isnt adding that part as a export.</p>

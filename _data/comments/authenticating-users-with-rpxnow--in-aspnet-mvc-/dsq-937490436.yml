@@ -1,0 +1,5 @@
+id: dsq-937490436
+date: 2009-09-18T23:01:53.0000000+02:00
+name: Shan McArthur
+avatar: https://disqus.com/api/users/avatars/Shan McArthur.jpg
+message: <p>Your ASP.NET example uses a SQL membership provider.  Since all authentication in ASP.NET is handled with a membership provider, don't you think that modifying your implementation to model a membership provider would be useful for the <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> community?  JanRain isn't aware of any customers that use their product with ASP.NET which makes me worry about the feasibility of using their product in ASP.NET and getting ANY customer support from them.</p>

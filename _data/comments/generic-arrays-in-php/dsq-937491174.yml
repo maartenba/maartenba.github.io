@@ -1,0 +1,5 @@
+id: dsq-937491174
+date: 2007-10-23T17:20:22.0000000+02:00
+name: Stoyan
+avatar: https://disqus.com/api/users/avatars/Stoyan.jpg
+message: <p>Hmm it's seems to be a great technique, though I can't figure ou it's usage in my current projects at the moment. <br>I think it would be more readable (in the sense of OOP manner) to define validator class, not a function:</p><p>abstract class Validate {</p><p>  abstract function isValid($value) {}<br>}</p><p>class MyValidate extends Validate {</p><p>  public function isValid($value) {<br>    return $value instanceof Example;<br>  }<br>}</p><p>then something like :</p><p>$myArray-&gt;setValidationClass('MyValidate');</p><p>The GenericArrayObject could then check if MyValidate is a valid Validate class and throw the corresponding Exception if not. I.e. GenericArrayObject could act as a Visitor.</p>

@@ -1,0 +1,5 @@
+id: dsq-937490965
+date: 2009-05-02T20:50:31.0000000+02:00
+name: vamsi
+avatar: https://disqus.com/api/users/avatars/vamsi.jpg
+message: "<p>Hi all,</p><p>can any one of you ppl please send me the code to bind gridview in mvc 1.0.</p><p>i am getting the following error when i try to bind data to the gridview.</p><p>[b]Compiler Error Message[/b]: CS1928: 'System.Web.Mvc.HtmlHelper' does not contain a definition for 'GridView' and the best extension method overload 'MvcGridView.Extensions.GridViewExtensions.GridView&lt;T&gt;(System.Web.Mvc.HtmlHelper, MvcGridView.Extensions.GridViewData&lt;T&gt;, System.Action&lt;MvcGridView.Extensions.GridViewData&lt;T&gt;&gt;, System.Action&lt;T,string&gt;, string, string, System.Action&lt;T&gt;, System.Action&lt;MvcGridView.Extensions.GridViewData&lt;T&gt;&gt;)' has some invalid arguments</p><p>Thanks in Advance,<br>vamsi.</p>"

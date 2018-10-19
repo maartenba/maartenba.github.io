@@ -1,0 +1,5 @@
+id: dsq-937490849
+date: 2008-12-07T21:18:04.0000000+01:00
+name: nishzone
+avatar: https://disqus.com/api/users/avatars/nishzone.jpg
+message: <p>I'm created an mvc project with the first beta release and automatically the AccountController had generated ModelState.AddModelError like your example. When I updated to preview 5 from codeplex, I could no longer access ModelState.AddModelError from System.web.mvc.dll....How come you don't seem to be having this issue? Am I missing something?</p>

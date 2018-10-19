@@ -1,0 +1,5 @@
+id: dsq-937490633
+date: 2009-04-30T12:33:23.0000000+02:00
+name: Jamir
+avatar: https://disqus.com/api/users/avatars/Jamir.jpg
+message: '<p>maartenba,</p><p>Couple of question on how to include Authorization to menu.</p><p>1. I have implemented my own FormAuthentication, how can I pass Roles after user logged into the system such that my [Authorize(Roles = "Superuser")]  will Authorize based on user Role. After user is logged into the system, I need to some how set this Roles for the user, what is the handle.</p><p>2. Once I have #1 working, I would like to make my menus to be invisible when user does not have particular Role for the Action that is being displayed. When the user is not logged on, menus with Role [*] can only show up all other menus to disappear.</p><p>Thank you very much for your time and help.<br>Jamir</p>'

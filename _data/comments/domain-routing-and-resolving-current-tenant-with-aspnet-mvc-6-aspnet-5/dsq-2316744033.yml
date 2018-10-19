@@ -1,0 +1,6 @@
+id: dsq-2316744033
+replyToId: dsq-2316691531
+date: 2015-10-20T15:48:05.0000000+02:00
+name: hbul
+avatar: https://disqus.com/api/users/avatars/hbul.jpg
+message: <p>That's what I already use (albeit modified), but I am still not entirely pleased of the way it looks. The code in this post just looks so much more mature and integrated into the framework, and I was wondering if there is such a thing as middleware in MVC5? I am not sure where to incorporate it into.</p>

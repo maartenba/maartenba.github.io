@@ -1,0 +1,5 @@
+id: dsq-937490187
+date: 2011-05-31T18:16:14.0000000+02:00
+name: Stif
+avatar: https://disqus.com/api/users/avatars/Stif.jpg
+message: <p>What devexpress is doing you can see in Scott Hanselmans talk about NuGet on Tech-Ed (starting from minute 42:20):<br><a href="http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DEV338" rel="nofollow noopener" title="http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DEV338">http://channel9.msdn.com/Ev...</a></p><p>I actually tought they we&amp;#39re using authentication, but after re-viewing the video it turns out that it&amp;#39s also "by obscurity" with the difference that you can generate new urls based on tokens.</p><p>I&amp;#39m also not sure if it&amp;#39s supported or not but maybe it wouldn&amp;#39t be a bad idea for NuGet to start supporting authentication for feeds.</p>

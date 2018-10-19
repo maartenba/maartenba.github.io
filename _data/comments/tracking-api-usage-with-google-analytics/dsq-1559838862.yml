@@ -1,0 +1,6 @@
+id: dsq-1559838862
+replyToId: dsq-1559826055
+date: 2014-08-26T14:59:01.0000000+02:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>Just tried installing googleanalyticstracker.webapi2, works smoothly? Also, do make sure the filter is added to the Web API filter collection and not the MVC one, whichcould be causing this error.</p>

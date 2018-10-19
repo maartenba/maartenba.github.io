@@ -1,0 +1,5 @@
+id: dsq-3301607837
+date: 2017-05-12T08:16:31.0000000+02:00
+name: Vince
+avatar: https://disqus.com/api/users/avatars/vincpa.jpg
+message: <p>I enjoyed reading this post as you've explained all the different scenarios and reasoning behind the decisions made.</p><p>Some context on the problem would be nice though. Are you working in a high performance environment (such as trading systems) where 1 second matters? I've done quite a bit of performance tuning over the years and I have rarely found the CPU to be a bottle neck in most applications.</p><p>I'm also really interested in knowing about the return, either monetary or other tangible benefit) to your product.</p>

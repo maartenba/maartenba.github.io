@@ -1,0 +1,5 @@
+id: dsq-937491071
+date: 2008-05-27T14:06:53.0000000+02:00
+name: Greg Skluzacek
+avatar: https://disqus.com/api/users/avatars/Greg Skluzacek.jpg
+message: <p>in section 2 Retrieving the full text, where you are getting all of the text runs, I think you have a small error with the x-path expression</p><p>$runs = $paragraph-&gt;xpath('//w:r/w:t');</p><p>When I use the above code, for each paragraph it returns all the runs for ALL paragraphs, not just the one in the current $paragraph (from the foreach loop).</p><p>I changed the x-path expression to:</p><p>$runs = $paragraph-&gt;xpath('w:r/w:t');</p><p>and removed the leading // and it solved the issues. Don't know if this is a bug in the PHP x-path code or the SimpleXML implementation.</p><p>Regards,<br>-- Greg</p>

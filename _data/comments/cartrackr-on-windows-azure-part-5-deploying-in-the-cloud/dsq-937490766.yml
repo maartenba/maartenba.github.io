@@ -1,0 +1,5 @@
+id: dsq-937490766
+date: 2009-06-05T01:41:12.0000000+02:00
+name: Ian Harkin
+avatar: https://disqus.com/api/users/avatars/Ian Harkin.jpg
+message: <p>Brilliant. I had to tweak some code and attributes, because my setup didnt like<br>!AjaxExtensions.IsMvcAjaxRequest(Request)  so I used !Request.IsAjaxRequest() instead<br>and <br>[ValidateAntiForgeryToken] had to become<br> [System.Web.Mvc.ValidateAntiForgeryToken]<br>but it was worth it because yours is the first Azure Tables storage app using a global.asax file that I got to run even locally. <br>Now I only have to figure out what I'm doing wrong with my own effort :-)</p>

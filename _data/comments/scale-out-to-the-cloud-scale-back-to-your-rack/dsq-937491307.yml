@@ -1,0 +1,6 @@
+id: dsq-937491307
+replyToId: dsq-937490259
+date: 2010-10-22T22:55:17.0000000+02:00
+name: maartenba
+avatar: https://disqus.com/api/users/avatars/maartenba.jpg
+message: <p>There is SQL Azure data sync stuff available which moves your SQL Server DB to SQL Azure. May be another component of the above scenario (and may take longer than a few minutes to deploy).</p>

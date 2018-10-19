@@ -1,0 +1,5 @@
+id: dsq-937490542
+date: 2009-11-18T14:26:38.0000000+01:00
+name: Gleb
+avatar: https://disqus.com/api/users/avatars/Gleb.jpg
+message: <p>Thanks for the post.<br>May I ask a question - when you`re using white-listing or black-listing in model binding, what values will excluded properties/fields have in the view? Default value for its type? Or something else?</p>

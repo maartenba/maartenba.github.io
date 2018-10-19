@@ -1,0 +1,5 @@
+id: dsq-937491083
+date: 2008-03-18T22:05:38.0000000+01:00
+name: Elan
+avatar: https://disqus.com/api/users/avatars/Elan.jpg
+message: <p>How does this address failover? Am I correct in assuming that when a server goes down, the if (PerformanceCounterCategory.CounterExists) doesn't blow the whole thing up and also prevents that [offline] server from being assigned to store this session state?</p><p>But then what happens if a user's session state had been assigned to the server that just went down? Does the PartitionResolver throw an error? Perhaps to make this more robust, the exception handling can be set to reset and reassign the session? Then the worst that happens to the client is a lost session - but no error messages.</p>

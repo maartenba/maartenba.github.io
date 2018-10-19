@@ -1,0 +1,5 @@
+id: dsq-937490569
+date: 2009-11-19T13:14:34.0000000+01:00
+name: Tom
+avatar: https://disqus.com/api/users/avatars/Tom.jpg
+message: <p>Hi.  Thank you for your article and introduction to MEF for MVC.  I noticed the views in your plugin are not strongly typed.  I tried modifying your code to make your demo Index.aspx view strongly typed and it failed.  Can you make views in the plugins strongly typed as opposed to passing data to the view via ViewModel dictionary?  Thanks</p>

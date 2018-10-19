@@ -1,0 +1,5 @@
+id: dsq-2417435773
+date: 2015-12-19T18:35:17.0000000+01:00
+name: IgorDR
+avatar: https://disqus.com/api/users/avatars/IgorDR.jpg
+message: <p>Very good article.</p><p>I like your solution to use rewrite CDN static resources in web.config</p><p>I too use Azure CDN but I faced the problem that I do not want to use the CDN during development or in Azure staging slots, so I developed an expression builder that renders CDN URLs only in production</p><p><a href="https://www.idea-r.it/blog/130/en/how-to-use-cdn-in-production-but-not-during-development" rel="nofollow noopener" title="https://www.idea-r.it/blog/130/en/how-to-use-cdn-in-production-but-not-during-development">https://www.idea-r.it/blog/...</a></p>

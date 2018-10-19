@@ -1,0 +1,5 @@
+id: dsq-937490043
+date: 2013-03-08T23:13:36.0000000+01:00
+name: Glenn Block
+avatar: https://disqus.com/api/users/avatars/Glenn Block.jpg
+message: '<p>Cool variant, however I am MEH on you putting it into the media type portion itself. Have you considered using the version property of the media type? I.e. Accept: application/foo; version=1.0</p><p>The advantage of this is not having to mint a new media type for each version, which you do not want to do.</p>'

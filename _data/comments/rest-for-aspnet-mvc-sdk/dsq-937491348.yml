@@ -1,0 +1,6 @@
+id: dsq-937491348
+replyToId: dsq-937490422
+date: 2009-08-21T15:12:24.0000000+02:00
+name: Maarten
+avatar: https://disqus.com/api/users/avatars/Maarten.jpg
+message: <p>Dirk, when you first set the WIndsorControllerFactory as the default controlle rfactory and afterwards the REST factory, you should be OK. The REST factory sits on top of the default factory and thus provides chaining over the default factory and itself.</p>

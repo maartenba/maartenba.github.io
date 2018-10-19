@@ -1,0 +1,5 @@
+id: dsq-989013960
+date: 2013-08-05T12:22:54.0000000+02:00
+name: TomasJansson
+avatar: https://disqus.com/api/users/avatars/TomasJansson.jpg
+message: <p>Nice post. I'm not sure if I got everything but let me try to understand. First you have a cloud service, then you have multiple machines associated with that cloud service that is pre-configured. When scaling those machines is turned off or on, is that right?</p><p>If that is the case I have a follow up question. I thought that Windows Azure charged you per virtual machine you have, it doesn't matter if it is up and running or not. Is it different when using a cloud service?</p>

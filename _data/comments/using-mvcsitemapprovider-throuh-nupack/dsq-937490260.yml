@@ -1,0 +1,5 @@
+id: dsq-937490260
+date: 2011-01-28T03:31:31.0000000+01:00
+name: Jhonny Alfaro
+avatar: https://disqus.com/api/users/avatars/Jhonny Alfaro.jpg
+message: <p>Hello Maarten<br>I installe MVCSiteMap version 2.3.0 using the NuPack, it worked great, but after install ASP.Net MVC 3 the following error appears 'MvcSiteMap' is not a member of 'System.Web.Mvc.HtmlHelper(Of Object)' do you have any clue of what could be happen?</p><p>Thanks,</p>

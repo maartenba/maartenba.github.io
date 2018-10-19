@@ -1,0 +1,5 @@
+id: dsq-937490469
+date: 2009-06-26T16:29:15.0000000+02:00
+name: Augi
+avatar: https://disqus.com/api/users/avatars/Augi.jpg
+message: <p>I think that good practice is to use custom base controller for each application. Then you don't have to create new controller factory - you can set controller's ActionInvoker property in CustomController.Initialize method.</p><p>I'm using this scenario of global action filters and it works well :)</p>

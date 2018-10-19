@@ -1,0 +1,5 @@
+id: dsq-937490955
+date: 2008-06-23T01:53:09.0000000+02:00
+name: Duckie
+avatar: https://disqus.com/api/users/avatars/Duckie.jpg
+message: <p>Hm, is there any way to convert this to <a href="http://vb.net" rel="nofollow noopener" title="vb.net">vb.net</a>, i tried and failed :-)</p><p>sp:Content ID="indexContent" ContentPlaceHolderID="MainContent" runat="server"&gt;<br>    &lt;h2&gt;Employees&lt;/h2&gt;<br>    &lt;%Html.GridView&lt;Employee&gt;(<br>          this.ViewData.Model,<br>          data =&gt; { %&gt;<br>            &lt;table class="grid" cellpadding="0" cellspacing="0"&gt;<br>                &lt;tr&gt;<br>                ....</p>

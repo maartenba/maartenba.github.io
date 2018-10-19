@@ -1,0 +1,5 @@
+id: dsq-3593364468
+date: 2017-10-31T15:18:00.0000000+01:00
+name: Dan Miser
+avatar: https://disqus.com/api/users/avatars/dan_miser.jpg
+message: <p>Nice article. I was going to add operator overloading for StringBuilder to make things look more compact when Appending, but then I came across Eric Lippert talking about why that wasn't a good idea. From a theory point of view, I agree with him. From a practical one, I still think there is some value to that (and this).</p><p><a href="https://stackoverflow.com/questions/21923816/why-didnt-microsoft-overload-the-operator-for-stringbuilder" rel="nofollow noopener" title="https://stackoverflow.com/questions/21923816/why-didnt-microsoft-overload-the-operator-for-stringbuilder">https://stackoverflow.com/q...</a></p>

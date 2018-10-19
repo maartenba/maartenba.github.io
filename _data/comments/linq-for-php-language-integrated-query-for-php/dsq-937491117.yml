@@ -1,0 +1,5 @@
+id: dsq-937491117
+date: 2008-04-02T01:21:07.0000000+02:00
+name: Evgeniy
+avatar: https://disqus.com/api/users/avatars/Evgeniy.jpg
+message: <p>I think that some extended functionality can be added with Reflection, for example attributes reading like in C#.<br>Reflection classes has getDocComment() method that can be used to retrieve comments....<br>It's useful for DB entities...<br>For example:<br>/** [Table(Name="MyTable")] */<br> class MyTable<br>{<br>/** [Column] */<br>    protected $id;<br>/** [Column] */<br>    protected $mode;<br>...<br>}</p>

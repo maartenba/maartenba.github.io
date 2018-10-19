@@ -1,0 +1,5 @@
+id: dsq-937490373
+date: 2009-11-09T10:17:06.0000000+01:00
+name: lehoangdung
+avatar: https://disqus.com/api/users/avatars/lehoangdung.jpg
+message: <p>Great job!</p><p>Besause we I in Vietnam and using vietnamese, so I must write apps that support multiple languages, I've successed in implement localization within SharpArch (NHibernate, ASP.NET MVC 1.0).</p><p>How can you using Localization Resources when you separate your entities, controllers and views in separated assemblies? (You can not use Resources.ModelValidation for example)</p><p>Thanks in advanced!</p>

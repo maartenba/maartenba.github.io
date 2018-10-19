@@ -1,0 +1,5 @@
+id: dsq-937490734
+date: 2009-02-21T02:41:13.0000000+01:00
+name: James
+avatar: https://disqus.com/api/users/avatars/James.jpg
+message: <p>How do you add error messages for the situation where someone enters text in a numeric-only or date field?<br>i.e. if you have:<br>public ActionResult Add(Employee item)<br>{ <br>} <br>and someone puts in "blahblah" into the BirthDate field (which presumably is of type DateTime)...</p><p>The allocation of each field to the employee object happens before the Add method is called, and the ModelState already has an error from the start of the method, but with a blank error message. Is there any way to capture this and add a message in? At the moment i'm identifying the blank error message, removing the error from the dictionary object and adding it back in with a generic message ... all from within the controller... which doesn't seem quite right...</p>

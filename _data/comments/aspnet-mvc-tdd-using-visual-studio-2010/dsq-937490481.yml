@@ -1,0 +1,5 @@
+id: dsq-937490481
+date: 2009-06-10T20:33:40.0000000+02:00
+name: Imran
+avatar: https://disqus.com/api/users/avatars/Imran.jpg
+message: <p>You can't do 'exaclty' the same thing in resharper (4.1) or atleast I havent found a way. The code genreation for classes will place in internal class in the file you are working on instead of allowing you to specify location. Correct me if I am wrong as i would love to havie this feature in 2k5 with r#4.1.</p>

@@ -1,0 +1,5 @@
+id: dsq-2620090812
+date: 2016-04-12T20:02:52.0000000+02:00
+name: Alec
+avatar: https://disqus.com/api/users/avatars/disqus_qvRUhVtR9Y.jpg
+message: <p>Hi Maarten, I am having difficulty getting your code to work, as I believe some methods you're using no longer exist, or have otherwise changed.  Do you have an updated version of this concept?</p><p>In the middleware example, 'context.SetFeature' (line 31) doesn't want tor resolve for me.  In the first example, '_matcher.Match(requestHost);' (line 12) doesn't work because the method now expects a PathString, which does not include (and therefore cannot match) the host.</p>

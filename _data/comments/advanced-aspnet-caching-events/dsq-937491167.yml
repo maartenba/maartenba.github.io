@@ -1,0 +1,5 @@
+id: dsq-937491167
+date: 2008-11-26T21:04:48.0000000+01:00
+name: Sarah Williams
+avatar: https://disqus.com/api/users/avatars/Sarah Williams.jpg
+message: <p>I agree with Paul. ASP.NET Caching mechanism isn't scalable due to its in-process standalone nature. That's why Microsoft has entered the distributed caching arena themselves. Distributed caching not only improves performance, but also keeps cache synchronized across multiple servers.</p><p>All the best!</p>

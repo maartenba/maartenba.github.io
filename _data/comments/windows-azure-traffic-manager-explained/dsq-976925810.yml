@@ -1,0 +1,6 @@
+id: dsq-976925810
+replyToId: dsq-976152881
+date: 2013-07-26T07:37:11.0000000+02:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>For that, you will have to ensure your architecture supports it. For example by putting write operations on a queue and have a worker process it and store data on all locations.</p>

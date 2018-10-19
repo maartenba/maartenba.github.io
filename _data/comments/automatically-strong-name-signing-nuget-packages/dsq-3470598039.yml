@@ -1,0 +1,5 @@
+id: dsq-3470598039
+date: 2017-08-16T12:38:26.0000000+02:00
+name: astig07
+avatar: https://disqus.com/api/users/avatars/astig07.jpg
+message: <p>Hello. I have problem with nuget package which refer some other nuget packages. For example, Selenium.Support which refer to Selenium.WebDriver. When I install Signed versions of this two librarys I recieve error message:<br>"ErrorCS0433The type 'RemoteWebDriver' exists in both 'WebDriver, Version=3.5.1.0, Culture=neutral, PublicKeyToken=null' and 'WebDriver, Version=3.5.1.0, Culture=neutral, PublicKeyToken=86042e4d16998b2a'"</p><p> <a href="https://uploads.disquscdn.com/images/fb3d258fd85ff0f62bcce24e7c9e527d5e1b32daa5f56256fe09bd46f246b28e.png" rel="nofollow noopener" title="https://uploads.disquscdn.com/images/fb3d258fd85ff0f62bcce24e7c9e527d5e1b32daa5f56256fe09bd46f246b28e.png">https://uploads.disquscdn.c...</a></p>

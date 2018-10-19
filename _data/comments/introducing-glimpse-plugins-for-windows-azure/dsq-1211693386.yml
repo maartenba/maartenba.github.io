@@ -1,0 +1,6 @@
+id: dsq-1211693386
+replyToId: dsq-1211692271
+date: 2014-01-22T09:40:57.0000000+01:00
+name: Maarten Balliauw
+avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
+message: <p>That should come in from the WIndowsAzure storage package itself... Can youtry this again and see if it is added? I'm suspecting a bindringredirect in web.config that went wrong here.</p>

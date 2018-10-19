@@ -1,0 +1,5 @@
+id: dsq-937490161
+date: 2011-12-23T22:02:21.0000000+01:00
+name: Geert Serneels
+avatar: https://disqus.com/api/users/avatars/Geert Serneels.jpg
+message: '<p>At this moment version 4 of WebPI is available.  <br>If you download v4, you will need to do some changes.</p><p>1. &amp;#39[u]WebPiCmdline[/u]&amp;#39 has been renamed to &amp;#39[u]WebPiCmd[/u]&amp;#39 <br>2. It requires a new parameter &amp;#39/Install&amp;#39  (btw, it seems that this should be the first one) <br>  For example : "PS C:\&gt; [i]webpicmd /Install /Products:VS2010SP1Pack /AcceptEula /SuppressReboot[/i]"</p><p>Btw, there&amp;#39s also a Chocolatey package for WebPiCmd, wich contains v4.</p>'

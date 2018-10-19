@@ -1,0 +1,5 @@
+id: dsq-937490527
+date: 2009-05-07T04:27:29.0000000+02:00
+name: John
+avatar: https://disqus.com/api/users/avatars/John.jpg
+message: <p>If you're excluding the Id from the Model, how are you locating the person in the database? In the case of save that works, in the case of Update it doesn't.</p>

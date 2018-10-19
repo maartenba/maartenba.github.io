@@ -1,0 +1,5 @@
+id: dsq-937490933
+date: 2008-07-01T02:47:44.0000000+02:00
+name: Chris van de Steeg
+avatar: https://disqus.com/api/users/avatars/Chris van de Steeg.jpg
+message: <p>Creating a custom httpcontext, seems to disable the session state for that request. I needed to catch the output also, but ran into that problem...</p>
