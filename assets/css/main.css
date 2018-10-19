@@ -8,3 +8,150 @@ a:focus{outline:thin dotted #f89406;outline:5px auto #f89406;outline-offset:-2px
 @media (max-width: 800px) {
   .ad-left { display: none; }
 }
+
+div#comments h3#comment-count, div#comments h2 {
+  padding: 8px;
+}
+div#comments img.avatar {
+  border-radius: 32px;
+  float: left;
+  width: 48px;
+  height: 48px;
+}
+div#comments #comments-list {
+  list-style-type: none;
+}
+div#comments #comments-list li {
+  padding: 8px;
+  clear: both;
+  min-height: 48px;
+  font-size: 15px;
+  line-height: 21px;
+  margin-top: 8px;
+}
+div#comments #comments-list li blockquote {
+  margin-left: 60px;
+  margin-top: 0;
+}
+div#comments #comments-list li blockquote cite {
+  font-style: normal;
+  font-size: 12px;
+}
+div#comments #comments-list li blockquote cite span.author {
+  font-weight: 700;
+  font-size: 13px;
+}
+div#comments #comments-list li blockquote cite a.muted {
+  color: #656c7a;
+  font-size: 12px;
+}
+div#comments #comments-list li blockquote div.comment-body {
+  line-height: 21px;
+  font-size: 15px;
+}
+div#comments #comments-list li.byauthor {
+  border-radius: 4px;
+  background-color: #fcf9eb;
+}
+div#comments #comments-list .bullet {
+  padding: 0;
+  color: #c2c6cc;
+  line-height: 1.4;
+}
+div#comments form#commentform {
+  padding: 8px;
+}
+div#comments form#commentform input {
+  transition: all 0.2s linear;
+  padding: 5px 9px;
+  margin: 10px 0 0 0;
+  font-size: 13px;
+  border-radius: 4px;
+  height: 32px;
+}
+div#comments form#commentform input:focus, div#comments form#commentform div.textarea:focus, div#comments form#commentform button#commentbutton:active, div#comments form#commentform button#commentbutton:focus {
+  outline: none;
+  box-shadow: 0 0 8px #e6d2b4;
+  border-color: #aaa;
+}
+div#comments form#commentform div.textarea, div#comments form#commentform div.status {
+  border-radius: 4px;
+  height: auto;
+  line-height: 1.4;
+  font-size: 14px;
+  font-family: "Helvetica Neue", arial, sans-serif;
+  padding: 6px 10px 8px;
+}
+div#comments form#commentform div.textarea {
+  width: 100%;
+  transition: all 0.15s ease-in-out;
+  overflow: auto;
+  word-wrap: break-word;
+  color: #2a2e2e;
+  cursor: text;
+  display: block;
+  padding: 6px 10px 8px;
+  min-height: 100px;
+}
+div#comments form#commentform div.status:not(:empty) {
+  margin-bottom: 10px;
+  border: solid 1px #eaa;
+  background-color: #ecc;
+}
+div#comments form#commentform div.status:empty {
+  display: none;
+}
+div#comments form#commentform [contenteditable=PLAINTEXT-ONLY]:empty:not(:focus):before {
+  color: #687a86;
+  line-height: 30px;
+  font-size: 18px;
+  content: attr(aria-label);
+  display: block;
+  /* For Firefox */
+}
+div#comments form#commentform div#commenttext {
+  margin-left: 60px;
+}
+div#comments form#commentform div#comment-box {
+  min-height: 48px;
+}
+div#comments form#commentform div#comment-author {
+  margin-left: 60px;
+}
+div#comments form#commentform button#commentbutton, div#comments form#commentform input, div#comments form#commentform div.textarea {
+  border: 1px solid #caced3;
+}
+div#comments form#commentform button#commentbutton {
+  margin: 10px 0 0 0;
+  padding: 5px 9px;
+  height: 44px;
+  color: #505050;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: 1px solid #dbdfe4;
+}
+div#comments form#commentform button#commentbutton:hover {
+  border: 1px solid #b0b0c0;
+  background-color: 1px solid #dbdfe4;
+}
+div#comments form#commentform button#commentbutton:active {
+  border: 1px solid #a8acc2;
+  background-color: 1px #cbcfd4;
+  background-image: none;
+}
+div#comments form#commentform button#commentbutton.confirm-button {
+  background-color: 1px solid #ffffee;
+  background-image: linear-gradient(-180deg, #ffffee 0%, #eeeedd 90%);
+}
+div#comments form#commentform #remember-me {
+  display: inline-block;
+  padding: 10px 6px;
+}
+div#comments form#commentform #remember-me input {
+  margin: auto;
+  padding: auto;
+  height: auto;
+}
+div#comments #comment-count, div#comments cite, div#comments #remember-me {
+  font-family: "Helvetica Neue", arial, sans-serif;
+}
