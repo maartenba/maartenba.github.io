@@ -15,9 +15,6 @@ This page contains links and short information on the talks that I have (co-)pre
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
 ## Upcoming talks
 
-* October 2018 - SWENUG user group, Sweden
-* October 2018 - DOUGH user group, Sweden
-* October 2018 - DotNetFest Kiev, Ukraine
 * November 2018 - Various events in Tokyo and South Korea
 * January 2019 - IglooConf, Finland
 
@@ -27,6 +24,11 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2018-10-26 | Let's refresh our memory! Memory management in .NET | DotNetFest 2018 | Ukraine - Kiev | [download](https://www.slideshare.net/maartenba/dotnetfest-lets-refresh-our-memory-memory-management-in-net) |  | 
+| 2018-10-23 | What is going on - Application diagnostics on Azure | DOUGH User Group | Sweden - Gothenburg | [download](https://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-techdays-finland) |  | 
+| 2018-10-23 | Approaches to application request throttling | DOUGH User Group | Sweden - Gothenburg | [download](https://www.slideshare.net/maartenba/visug-approaches-for-application-request-throttling) |  | 
+| 2018-10-22 | Become a productive .NET developer with JetBrains Rider | SWENUG User Group | Sweden - Gothenburg |  |  | 
+| 2018-10-22 | Exploring .NET’s memory management – a trip down memory lane | SWENUG User Group | Sweden - Gothenburg |  |  | 
 | 2018-9-26 | Approaches to application request throttling | VISUG User Group | Belgium - Diegem | [download](https://www.slideshare.net/maartenba/visug-approaches-for-application-request-throttling) |  | 
 | 2018-9-20 | Exploring .NET’s memory management – a trip down memory lane | Limburg Software Developers Meetup | Netherlands - Heerlen |  |  | 
 | 2018-8-23 | Become a productive .NET developer with JetBrains Rider | Xamarin User Group | Germany - Hürth |  |  | 
