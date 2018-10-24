@@ -1,0 +1,5 @@
+id: 5022a8e0
+date: 2018-10-23T20:09:25.9831188Z
+name: Josh Mouch
+avatar: https://secure.gravatar.com/avatar/6e5cf81ce4785d33b1f1e413c21a8745?s=80&r=pg
+message: This doesn't work for "PackageReference" format.  It only works for "package.config" format.
