@@ -24,7 +24,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
-| 2018-10-26 | Let's refresh our memory! Memory management in .NET | DotNetFest 2018 | Ukraine - Kiev |  |  | 
+| 2018-10-26 | Let's refresh our memory! Memory management in .NET | DotNetFest 2018 | Ukraine - Kiev | [download](https://www.slideshare.net/maartenba/dotnetfest-lets-refresh-our-memory-memory-management-in-net) |  | 
 | 2018-10-23 | What is going on - Application diagnostics on Azure | DOUGH User Group | Sweden - Gothenburg | [download](https://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-techdays-finland) |  | 
 | 2018-10-23 | Approaches to application request throttling | DOUGH User Group | Sweden - Gothenburg | [download](https://www.slideshare.net/maartenba/visug-approaches-for-application-request-throttling) |  | 
 | 2018-10-22 | Become a productive .NET developer with JetBrains Rider | SWENUG User Group | Sweden - Gothenburg |  |  | 
