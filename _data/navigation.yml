@@ -3,9 +3,6 @@ main:
   - title: "About me"
     url: /about-me.html
 
-  - title: "Hire me"
-    url: /hire-me.html
-
   - title: "Talks &amp; Presentations"
     url: /talks-presentations.html
 
