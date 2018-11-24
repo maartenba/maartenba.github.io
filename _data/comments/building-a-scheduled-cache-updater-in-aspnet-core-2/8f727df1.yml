@@ -1,0 +1,5 @@
+id: 9009e0ee
+date: 2018-11-23T19:32:20.0682906Z
+name: Hien Duong
+avatar: https://secure.gravatar.com/avatar/0dcdb78bbb6455ff1728edeb4672a856?s=80&r=pg
+message: "Hi Maarten, \r\nFirst of all, thanks for helpful article. \r\n\r\nI have quick question though, for some reasons the deployed scheduled task does not wake up under IIS. I tested with IIS express it works. Are you aware of this issue?"
