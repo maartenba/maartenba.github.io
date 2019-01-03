@@ -35,6 +35,20 @@
     {% if post.read_time %}
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.modified %}
+      <small><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="{{ post.modified | date: "%Y-%m-%d" }}">{{ post.modified | date: "%B %d, %Y" }}</time></small>
+    {% elsif post.date %}
+      <small class="page__date"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></small>
+    {% endif %}
+    {% if post.excerpt %}
+	  <p class="archive__item-excerpt" itemprop="description">
+	    {{ post.excerpt | markdownify | strip_html | truncate: 320 }}
+        {% if post.link %}
+          <em><a href="{{ post.link }}">Read more &raquo;</a></em>
+        {% else %}
+          <em><a href="{{ base_path }}{{ post.url }}" rel="permalink">Read more &raquo;</a></em>
+        {% endif %}
+	  </p>
+	{% endif %}
   </article>
 </div>

@@ -21,7 +21,7 @@ comments:
   provider               : "custom" # false (default), "disqus", "discourse", "facebook", "google-plus", custom"
   receiver               : "https://maartenballiauw-blog.azurewebsites.net/api/PostComment" # "http://localhost:7071/api/PostComment"
   disqus:
-    shortname            : "maartenballiauwblog-false"
+    shortname            : # "maartenballiauwblog"
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
