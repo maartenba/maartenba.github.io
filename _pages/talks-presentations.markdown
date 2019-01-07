@@ -29,6 +29,35 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
+## Recent talks and presentations
+
+Here are links to recent presentations at various events, including slides and recordings (when available).
+
+{% include group-by-array collection=site.posts field="categories" %}
+
+{% assign posts = group_items[1] %}
+<ul>
+{% for post in posts limit:6 %}
+  {% if post.id %}
+    {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% else %}
+    {% assign title = post.title %}
+  {% endif %}
+  <li>
+    {% if post.link %}
+      <a href="{{ post.link }}"><strong>{{ title }}</strong></a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+    {% else %}
+      <a href="{{ base_path }}{{ post.url }}" rel="permalink"><strong>{{ title }}</strong></a>
+    {% endif %}
+    {% if post.modified %}
+      (<time datetime="{{ post.modified | date: "%Y-%m-%d" }}">{{ post.modified | date: "%B %d, %Y" }}</time>)
+    {% elsif post.date %}
+      (<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>)
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+
 ## Past talks and conferences
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
@@ -37,8 +66,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 | 2018-11-23 | Exploring .NET’s memory management – a trip down memory lane | Company private event | South Korea - Seoul |  |  | 
 | 2018-11-23 | Become a productive .NET developer with JetBrains Rider | Company private event | South Korea - Seoul |  |  | 
 | 2018-11-23 | Exploring .NET’s memory management – a trip down memory lane | Company private event | South Korea - Seoul |  |  | 
-| 2018-11-22 | Become a productive .NET developer with JetBrains Rider | JetBrains Day | South Korea - Seoul | [download](https://www.slideshare.net/maartenba/jetbrains-day-seoul-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
-| 2018-11-22 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Day | South Korea - Seoul | [download](https://www.slideshare.net/maartenba/jetbrains-day-seoul-exploring-nets-memory-management-a-trip-down-memory-lane-123918483) |  | 
+| 2018-11-22 | Become a productive .NET developer with JetBrains Rider | JetBrains Day | South Korea - Seoul | [download](https://www.slideshare.net/maartenba/jetbrains-day-seoul-exploring-nets-memory-management-a-trip-down-memory-lane) | [view](https://www.youtube.com/watch?v=xzJL8QDs3Gk) | 
+| 2018-11-22 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Day | South Korea - Seoul | [download](https://www.slideshare.net/maartenba/jetbrains-day-seoul-exploring-nets-memory-management-a-trip-down-memory-lane-123918483) | [view](https://www.youtube.com/watch?v=K_4u4aQrgLU) | 
 | 2018-11-23 | Become a productive .NET developer with JetBrains Rider | Company private event | Japan - Tokyo |  |  | 
 | 2018-11-23 | Exploring .NET’s memory management – a trip down memory lane | Company private event | Japan - Tokyo |  |  | 
 | 2018-11-19 | Become a productive .NET developer with JetBrains Rider | Lifebear Meetup | Japan - Tokyo |  |  | 

@@ -2,7 +2,6 @@
 layout: post
 title: "Thank you!"
 description: "Thank you for your comment"
-date: 2018-06-11 -0800
 comments: false
 categories: [personal]
 sharing: false
