@@ -32,6 +32,11 @@ layout: default
           {% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
           {% endif %}
+          {% if page.modified %}
+            <small><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></small>
+          {% elsif page.date %}
+            <small class="page__date"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></small>
+          {% endif %}
         </header>
       {% endunless %}
 
