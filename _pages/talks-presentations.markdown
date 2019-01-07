@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2017-10-12 01:39:02 +0200
+date: 2019-01-07 01:39:02 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -37,8 +37,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 | 2018-11-23 | Exploring .NET’s memory management – a trip down memory lane | Company private event | South Korea - Seoul |  |  | 
 | 2018-11-23 | Become a productive .NET developer with JetBrains Rider | Company private event | South Korea - Seoul |  |  | 
 | 2018-11-23 | Exploring .NET’s memory management – a trip down memory lane | Company private event | South Korea - Seoul |  |  | 
-| 2018-11-22 | Become a productive .NET developer with JetBrains Rider | JetBrains Day | South Korea - Seoul | [download](https://www.slideshare.net/maartenba/jetbrains-day-seoul-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
-| 2018-11-22 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Day | South Korea - Seoul | [download](https://www.slideshare.net/maartenba/jetbrains-day-seoul-exploring-nets-memory-management-a-trip-down-memory-lane-123918483) |  | 
+| 2018-11-22 | Become a productive .NET developer with JetBrains Rider | JetBrains Day | South Korea - Seoul | [download](https://www.slideshare.net/maartenba/jetbrains-day-seoul-exploring-nets-memory-management-a-trip-down-memory-lane) | [view](https://www.youtube.com/watch?v=xzJL8QDs3Gk) | 
+| 2018-11-22 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Day | South Korea - Seoul | [download](https://www.slideshare.net/maartenba/jetbrains-day-seoul-exploring-nets-memory-management-a-trip-down-memory-lane-123918483) | [view](https://www.youtube.com/watch?v=K_4u4aQrgLU) | 
 | 2018-11-23 | Become a productive .NET developer with JetBrains Rider | Company private event | Japan - Tokyo |  |  | 
 | 2018-11-23 | Exploring .NET’s memory management – a trip down memory lane | Company private event | Japan - Tokyo |  |  | 
 | 2018-11-19 | Become a productive .NET developer with JetBrains Rider | Lifebear Meetup | Japan - Tokyo |  |  | 
