@@ -15,7 +15,7 @@ Now... Imagine inheriting a code base that has *zero* of these measures implemen
 
 In this series:
 
-* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](TODO)
+* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/post/2019/01/09/help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html)
 
 ## Wait, wait! What is this Cross-Site Request Forgery (CSRF) thing?
 
@@ -46,18 +46,18 @@ Let's assume we are the banking website. There is a straightforward way of catch
 
 > **Tip:** Read about the [synchronizer pattern](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#General_Recommendation:_Synchronizer_Token_Pattern) if you want to learn more about the ideas behind how a CSRF attack can be mitigated.
 
-1) Store another cookie value, the *session token*, an unpredictable identifier that is tied to our current session on the banking website.
-2) For every form we want to post, add a hidden field with a *field token* that contains some other token related to our user and *session token*.
-3) When a form post comes in, validate the *session token* and *field token*, and verify they relate to one another as expected, and if not, refuse the form post.
+* Store another cookie value, the *session token*, an unpredictable identifier that is tied to our current session on the banking website.
+* For every form we want to post, add a hidden field with a *field token* that contains some other token related to our user and *session token*.
+* When a form post comes in, validate the *session token* and *field token*, and verify they relate to one another as expected, and if not, refuse the form post.
 
 If I would now trick you into using my hidden form above, the post will be denied because there is no way I could come up with a proper *session token* and *field token* that corresponds to how our banking site wants to see it. Unless many people use that form while the banking website is still vulnerable, so I get some sponsorship to purchase a quantum computer and break encryption.
 
 In ASP.NET MVC, this can be done by:
 
-1) Adding `@Html.AntiForgeryToken()` in our form, which will add a *field token* in our form
-2) Experience framework magic which will add a *session token* cookie
-3) When a for is posted, call `@AntiForgery.Validate()` in Razor or add the `[ValidateAntiForgeryToken]` attribute to the action method receivign the post, which will throw an exception if these do not match.
-4) There is no 4.
+* Adding `@Html.AntiForgeryToken()` in our form, which will add a *field token* in our form
+* Experience framework magic which will add a *session token* cookie
+* When a for is posted, call `@AntiForgery.Validate()` in Razor or add the `[ValidateAntiForgeryToken]` attribute to the action method receiving the post, which will throw an exception if these do not match.
+* There is no 4.
 
 Generally speaking, every action method that is callable from a URL (roughly speaking: `public` methods in a `Controller`) and is a `POST`, `PUT`, `PATCH`, `DELETE`, ... should do the above and validate the CSRF token.
 
@@ -75,4 +75,4 @@ Funnily enough, I started writing this post without wanting to dive into the abo
 
 In the next post, we will look at the problem at hand: imagine inheriting a code base that has *zero* `[ValidateAntiForgeryToken]`. How can we find all action methods where this attribute should be added?
 
-Stay tuned.
+Stay tuned!
