@@ -17,7 +17,7 @@ Today, we will look at implementin a unit test that ensures all action methods t
 
 In this series:
 
-* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](TODO)
+* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/post/2019/01/09/help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html)
 * [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](TODO)
 * [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](TODO)
 
