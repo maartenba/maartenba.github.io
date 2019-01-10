@@ -125,7 +125,7 @@ That long-named method is the code we wrote earlier and searched for action meth
 
 If we run that test, we will probably see a lot of failed tests. What's nice is that, when using the [ReSharper test runner](https://www.jetbrains.com/resharper), we can see the parameters passed into our test and then find the controller/action that we need to correct.
 
-![Failing tests tell us where we need a `[ValidateAntiForgeryToken]`](images/2019/01/test-results-failed.png)
+![Failing tests tell us where we need a `[ValidateAntiForgeryToken]`](/images/2019/01/test-results-failed.png)
 
 All that's left is fix these occurrences, and we are done!
 
@@ -179,7 +179,7 @@ public void AllActionsHaveAntiForgeryTokenIfNotGet(string controller, MemberInfo
 
 When we now run our test using the ReSharper or Rider test runner, we get easy navigation for free!
 
-![A clever trick to make navigation from the test runner to our action method much easier](images/2019/01/resharper-tricking-test-runner-navigation.png)
+![A clever trick to make navigation from the test runner to our action method much easier](/images/2019/01/resharper-tricking-test-runner-navigation.png)
 
 From here, we can add the `[ValidateAntiForgeryToken]` attribute, then navigate to the related view, find the form in there, and add `@Html.AntiForgeryToken()`.
 
