@@ -99,6 +99,8 @@ Summarized:
 
 This can probably be refined a bit by adding more than just one assembly (if that's what your solution contains), and probably we also want to add a list of action methods that should not be checked because there are always exceptions to the rule.
 
+> **Nice!** Our code will also find action methods that have no explicit `[HttpGet]` on them. When a public method in a controller does not specify which HTTP methods it accepts, it accepts all of them. Which means the above logic will catch those cases and requires us to be explicit about what is supported.
+
 ## Unit testing for `ValidateAntiForgeryTokenAttribute`
 
 Our test will be written using [xUnit.net](https://xunit.github.io/). We can use it to [create parameterized tests](https://andrewlock.net/creating-parameterised-tests-in-xunit-with-inlinedata-classdata-and-memberdata/), where one test is executed for each piece of data we pass it.
