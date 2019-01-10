@@ -193,4 +193,6 @@ By using a clever trick to make navigation from the test runner to our action me
 
 By making this a unit test, we also made sure our future self and team members properly keep adding those `[ValidateAntiForgeryToken]` attributes - if not, our tests will catch it!
 
+As a final tip: our goal was to find all places in our codebase where we need to add `[ValidateAntiForgeryToken]`. [Dominick Baier](https://twitter.com/leastprivilege) suggested that there is an [`AutoValidateAntiforgeryTokenAttribute`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) in ASP.NET Core which can be applied as a global filter to trigger validation of anti forgery tokens by default for an application and HTTP methods other than `GET`, `HEAD`, `OPTIONS`, and `TRACE`. This global filter renders our manual additions of `[ValidateAntiForgeryToken]` useless, unless there are exceptional cases where CSRF validation should not be done. And that's eactly the brownfield codebase we inherited, where not all best practices can be applied at once.
+
 Enjoy!
