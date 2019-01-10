@@ -67,13 +67,13 @@ Sometimes, we need to go just beyond a simple, textual find/replace. With SSR, w
 
 As an example, let's say we want to find all calls similar to `someEnumerable.Count() > 0` and replace them with `someEnumerable.Any()`. But `someEnumerable` can be called `someList`, or `people`, or `customers`, or... - you get the idea: too many cases for a textual search/replace, we are after those `IEnumerable` and don't care about the variable name!
 
-In Visual Studio with ReSharper installed, we can use the **ReSharper | Find | Search With Pattern** menu and bring up the search dialog. As a search, we could enter `$enumerable$.Count() > 0`. The `$enumerable$` placeholder will be recognized as an expression, which we can edit, and set to a given type `System.Collections.IEnumerable`.
+In Visual Studio with ReSharper installed, we can use the **ReSharper \| Find \| Search With Pattern** menu and bring up the search dialog. As a search, we could enter `$enumerable$.Count() > 0`. The `$enumerable$` placeholder will be recognized as an expression, which we can edit, and set to a given type `System.Collections.IEnumerable`.
 
-![ReSharper Structural Search](images/2019/01/resharper-structural-search-replace.png)
+![ReSharper Structural Search](/images/2019/01/resharper-structural-search-replace.png)
 
 Once configured, we can search for all occurrences we are after. And what's better, we could create a replace pattern as well and fix all occurrences in our solution:
 
-![ReSharper Structural Search and Replace](images/2019/01/resharper-structural-search-replace-enumerable.png)
+![ReSharper Structural Search and Replace](/images/2019/01/resharper-structural-search-replace-enumerable.png)
 
 Neat, no? Looks like something we could use for finding our action methods!
 
@@ -97,11 +97,11 @@ public {ReturnType} {MethodName}({Arguments}})
 
 Our replace pattern will add `, ValidateAntiForgeryToken` as an attribute, done.
 
-![Using ReSharper Structural Search and Replace to find POST action methods](images/2019/01/resharper-structural-search-replace-to-find-mvc-action-methods.png)
+![Using ReSharper Structural Search and Replace to find POST action methods](/images/2019/01/resharper-structural-search-replace-to-find-mvc-action-methods.png)
 
 We can now run a replace, and get a preview of all occurrences that match our SSR pattern:
 
-![Preview and perform Structural Search and Replace](images/2019/01/structural-search-replace-preview.png)
+![Preview and perform Structural Search and Replace](/images/2019/01/structural-search-replace-preview.png)
 
 Excellent! Or is it...
 
