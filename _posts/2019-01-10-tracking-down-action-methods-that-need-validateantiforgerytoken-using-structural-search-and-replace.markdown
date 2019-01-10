@@ -16,7 +16,7 @@ Today, we will look at using [ReSharper](https://www.jetbrains.com/resharper) to
 In this series:
 
 * [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/post/2019/01/09/help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html)
-* [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](TODO)
+* [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html)
 
 ## What's the plan? Which action methods are we after?
 
