@@ -18,6 +18,8 @@ In this series:
 * [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/post/2019/01/09/help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html)
 * [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html)
 
+> **Note:** In this series, our goal is to find all places in our codebase where we need to add `[ValidateAntiForgeryToken]`. [Dominick Baier](https://twitter.com/leastprivilege) suggested that there is an [`AutoValidateAntiforgeryTokenAttribute`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) in ASP.NET Core which can be applied as a global to trigger validation of antiforgery tokens by default for an application and HTTP methods other than `GET`, `HEAD`, `OPTIONS`, and `TRACE`. This global filter renders our manual additions of `[ValidateAntiForgeryToken]` useless, unless there are exceptional cases where CSRF validation should not be done. And before you scream "they should be done everywhere!", consider an inherited codebase where not all best practices can be applied at once. Brownfield projects are awesome!
+
 ## Wait, wait! What is this Cross-Site Request Forgery (CSRF) thing?
 
 Let's look at the definition first:
