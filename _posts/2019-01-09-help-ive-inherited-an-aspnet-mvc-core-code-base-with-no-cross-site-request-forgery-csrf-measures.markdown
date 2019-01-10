@@ -16,6 +16,7 @@ Now... Imagine inheriting a code base that has *zero* of these measures implemen
 In this series:
 
 * [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/post/2019/01/09/help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html)
+* [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html)
 
 ## Wait, wait! What is this Cross-Site Request Forgery (CSRF) thing?
 
@@ -73,6 +74,6 @@ Intrigued? Here are a few resources that may be of interest:
 
 Funnily enough, I started writing this post without wanting to dive into the above introduction, but that happened and this blog post became a short series...
 
-In the next post, we will look at the problem at hand: imagine inheriting a code base that has *zero* `[ValidateAntiForgeryToken]`. How can we find all action methods where this attribute should be added?
+In the [next post](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html), we will look at the problem at hand: imagine inheriting a code base that has *zero* `[ValidateAntiForgeryToken]`. How can we find all action methods where this attribute should be added?
 
-Stay tuned!
+Learn all about it in ["tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace"](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html)!
