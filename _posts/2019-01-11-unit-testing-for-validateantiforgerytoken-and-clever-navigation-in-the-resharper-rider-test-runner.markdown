@@ -19,7 +19,7 @@ In this series:
 
 * [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/post/2019/01/09/help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html)
 * [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html)
-* [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](TODO)
+* [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/post/2019/01/11/unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner.html)
 
 ## What's the plan? Which action methods are we after?
 
