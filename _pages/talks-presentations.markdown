@@ -16,8 +16,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* January 2019
-  * [IglooConf](https://www.iglooconf.fi/), Helsinki, Finland
 * February 2019
   * RealDolmen community, Belgium
   * [TechDays](http://techdaysfi.com/), Helsinki, Finland
@@ -62,6 +60,8 @@ Here are links to recent presentations at various events, including slides and r
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-1-17 | The ups and downs of bootstrapping a SaaS and surviving 6 years of Azure | IglooConf 2019 | Finland - Helsinki |  |  | 
+| 2019-1-15 | The ups and downs of bootstrapping a SaaS and surviving 6 years of Azure | Focus! Meetup | Belgium - Antwerp |  |  | 
 | 2018-11-23 | Become a productive .NET developer with JetBrains Rider | Company private event | South Korea - Seoul |  |  | 
 | 2018-11-23 | Exploring .NET’s memory management – a trip down memory lane | Company private event | South Korea - Seoul |  |  | 
 | 2018-11-23 | Become a productive .NET developer with JetBrains Rider | Company private event | South Korea - Seoul |  |  | 
