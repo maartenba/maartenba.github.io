@@ -17,13 +17,15 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 ## Upcoming talks and conferences
 
 * February 2019
-  * RealDolmen community, Belgium
   * [TechDays](http://techdaysfi.com/), Helsinki, Finland
 * March 2019
   * [Confoo](https://www.confoo.ca), Montreal, Canada
   * User groups, Switzerland
 * April 2019
   * [CodeStock](https://www.codestock.com), Knoxville, TN, USA
+  * RealDolmen community, Belgium
+* May 2019
+  * [AZUG](https://www.azug.be), Belgium
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
