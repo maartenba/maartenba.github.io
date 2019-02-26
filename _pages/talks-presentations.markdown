@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-01-07 01:39:02 +0200
+date: 2019-02-28 01:39:02 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,8 +16,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* February 2019
-  * [TechDays](http://techdaysfi.com/), Helsinki, Finland
 * March 2019
   * [Confoo](https://www.confoo.ca), Montreal, Canada
   * User groups, Switzerland
@@ -33,6 +31,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-2-28 | Microservices for building an IDE - The innards of JetBrains Rider | TechDays 2019 | Finland - Helsinki | [download](https://www.slideshare.net/maartenba/microservices-for-building-an-ide-the-innards-of-jetbrains-rider-techdays-finland) |  | 
 | 2019-1-17 | The ups and downs of bootstrapping a SaaS and surviving 6 years of Azure | IglooConf 2019 | Finland - Helsinki |  |  | 
 | 2019-1-15 | The ups and downs of bootstrapping a SaaS and surviving 6 years of Azure | Focus! Meetup | Belgium - Antwerp |  |  | 
 | 2018-11-23 | Become a productive .NET developer with JetBrains Rider | Company private event | South Korea - Seoul |  |  | 
