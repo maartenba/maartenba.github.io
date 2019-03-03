@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-02-28 01:39:02 +0200
+date: 2019-03-03 01:39:02 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -24,6 +24,9 @@ Attended a talk and looking for demo material or thought of a question? Don't he
   * RealDolmen community, Belgium
 * May 2019
   * [AZUG](https://www.azug.be), Belgium
+  * [Cloud Developer Days](http://cloud.developerdays.pl/), Krakow, Poland
+* June 2019
+  * [NDC Oslo](https://www.ndcoslo.com), Oslo, Norway
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
