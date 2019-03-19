@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-03-13 01:39:10 +0200
+date: 2019-03-19 01:39:10 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,8 +16,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* March 2019
-  * User groups, Switzerland
 * April 2019
   * [CodeStock](https://www.codestock.com), Knoxville, TN, USA
   * RealDolmen community, Belgium
@@ -35,6 +33,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-3-13 | Approaches to application request throttling | .NET Usergroup Zentralschweiz | Switzerland - Luzern | [download](https://www.slideshare.net/maartenba/confoo-montreal-approaches-for-application-request-throttling) |  | 
+| 2019-3-13 | Approaches to application request throttling | .NET User Group Bern | Switzerland - Bern | [download](https://www.slideshare.net/maartenba/confoo-montreal-approaches-for-application-request-throttling) |  | 
 | 2019-3-14 | Microservices for building an IDE - The innards of JetBrains Rider | ConFoo 2019 | Canada - Monreal | [download](https://www.slideshare.net/maartenba/confoo-montreal-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) |  | 
 | 2019-3-13 | Approaches to application request throttling | ConFoo 2019 | Canada - Monreal | [download](https://www.slideshare.net/maartenba/confoo-montreal-approaches-for-application-request-throttling) |  | 
 | 2019-2-28 | Microservices for building an IDE - The innards of JetBrains Rider | TechDays 2019 | Finland - Helsinki | [download](https://www.slideshare.net/maartenba/microservices-for-building-an-ide-the-innards-of-jetbrains-rider-techdays-finland) |  | 
