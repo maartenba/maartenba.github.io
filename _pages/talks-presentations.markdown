@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-04-12 01:39:10 +0200
+date: 2019-04-12 01:39:11 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -20,6 +20,7 @@ Attended a talk and looking for demo material or thought of a question? Don't he
   * RealDolmen community, Belgium
 * May 2019
   * [AZUG](https://www.azug.be), Belgium
+  * [dotNetCologne](https://dotnet-cologne.de/), Germany
   * [Cloud Developer Days](http://cloud.developerdays.pl/), Krakow, Poland
 * June 2019
   * [NDC Oslo](https://www.ndcoslo.com), Oslo, Norway
