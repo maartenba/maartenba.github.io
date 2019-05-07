@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-04-23 01:39:11 +0200
+date: 2019-05-07 01:39:11 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -17,7 +17,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 ## Upcoming talks and conferences
 
 * May 2019
-  * [AZUG](https://www.azug.be), Belgium
   * [dotNetCologne](https://dotnet-cologne.de/), Germany
   * [Cloud Developer Days](http://cloud.developerdays.pl/), Krakow, Poland
 * June 2019
@@ -31,6 +30,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-5-7 | The ups and downs of bootstrapping a SaaS and surviving 6 years of Azure | AZUG user group | Belgium - Antwerp |  |  | 
 | 2019-4-23 | Become a productive .NET developer with JetBrains Rider | RealDolmen Community | Belgium - Kontich |  |  | 
 | 2019-4-12 | Exploring .NET’s memory management – a trip down memory lane | CodeStock 2019 | USA - Knoxville, TN | [download](https://www.slideshare.net/maartenba/codestock-exploring-net-memory-management-a-trip-down-memory-lane) |  | 
 | 2019-3-13 | Approaches to application request throttling | .NET Usergroup Zentralschweiz | Switzerland - Luzern | [download](https://www.slideshare.net/maartenba/confoo-montreal-approaches-for-application-request-throttling) |  | 
