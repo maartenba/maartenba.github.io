@@ -16,9 +16,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* May 2019
-  * [dotNetCologne](https://dotnet-cologne.de/), Germany
-  * [Cloud Developer Days](http://cloud.developerdays.pl/), Krakow, Poland
 * June 2019
   * [NDC Oslo](https://www.ndcoslo.com), Oslo, Norway
 * October 2019
@@ -30,6 +27,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-5-29 | Indexing and searching NuGet.org with Azure Functions and Search | Cloud Developer Days | Poland - Krakow | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-cloud-developer-days-poland) |  | 
+| 2019-5-28 | Approaches to application request throttling | Cloud Developer Days | Poland - Krakow | [download](https://www.slideshare.net/maartenba/approaches-for-application-request-throttling-cloud-developer-days-poland) |  | 
 | 2019-5-7 | The ups and downs of bootstrapping a SaaS and surviving 6 years of Azure | AZUG user group | Belgium - Antwerp |  |  | 
 | 2019-4-23 | Become a productive .NET developer with JetBrains Rider | RealDolmen Community | Belgium - Kontich |  |  | 
 | 2019-4-12 | Exploring .NET’s memory management – a trip down memory lane | CodeStock 2019 | USA - Knoxville, TN | [download](https://www.slideshare.net/maartenba/codestock-exploring-net-memory-management-a-trip-down-memory-lane) |  | 
