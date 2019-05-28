@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Talk - Exploring .NET memory management - a trip down memory lane - CodeStock 2019 - Knoxvilla, TN - USA"
+title: "Talk - Exploring .NET memory management - a trip down memory lane - CodeStock 2019 - Knoxville, TN - USA"
 date: 2019-04-12 00:00:00 +0100
 comments: true
 published: true
