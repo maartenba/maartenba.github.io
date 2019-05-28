@@ -1,0 +1,6 @@
+id: eae888c2
+date: 2019-05-22T16:36:19.9664616Z
+name: Dave
+avatar: https://secure.gravatar.com/avatar/cecf8ac0eca83ed6e02b3942a7a260ea?s=80&r=pg
+url: tracezero.net
+message: Maarten, thanks for this writeup.  In my case my swagger output was totally inaccessible, always resulting in a 404.  I checked the applicationhost.config file and the IDE had created a /swagger virtual directory pointing to "/"..  I have no idea why it chose to do this, and the same config file from a fresh Swashbuckled project did not have this virtual directory, so I simply deleted applicationhost.config and let the IDE rebuild it - everything works fine now.
