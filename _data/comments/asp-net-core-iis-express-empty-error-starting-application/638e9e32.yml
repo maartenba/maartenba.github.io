@@ -1,0 +1,10 @@
+id: 63b66adc
+date: 2019-06-07T20:51:15.0314553Z
+name: bhargavi kotha
+avatar: https://secure.gravatar.com/avatar/17be426d5877afa094860207fa12dcaf?s=80&r=pg
+message: >-
+  Maarten, Good article, it helped me, my service hosted in multiple websites with different domain's , one domain works other one is showing 500 error. Changed  Web.config " <handlers> <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule**V2**" resourceType="Unspecified" /> </handlers>
+
+  to
+
+  <handlers> <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" /> </handlers>" it started working. 
