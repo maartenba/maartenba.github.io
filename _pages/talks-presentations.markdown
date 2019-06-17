@@ -16,8 +16,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* June 2019
-  * [NDC Oslo](https://www.ndcoslo.com), Oslo, Norway
 * October 2019
   * [Internet & Mobile World 2019](https://imworld.ro/), Bucharest, Romania
 
@@ -27,6 +25,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-6-19 | Indexing and searching NuGet.org with Azure Functions and Search | NDC Oslo | Norway - Oslo | [download](https://www.slideshare.net/maartenba/ndc-oslo-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-5-29 | Indexing and searching NuGet.org with Azure Functions and Search | Cloud Developer Days | Poland - Krakow | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-cloud-developer-days-poland) |  | 
 | 2019-5-28 | Approaches to application request throttling | Cloud Developer Days | Poland - Krakow | [download](https://www.slideshare.net/maartenba/approaches-for-application-request-throttling-cloud-developer-days-poland) |  | 
 | 2019-5-7 | The ups and downs of bootstrapping a SaaS and surviving 6 years of Azure | AZUG user group | Belgium - Antwerp |  |  | 
