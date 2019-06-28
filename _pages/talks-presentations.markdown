@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-05-07 01:39:11 +0200
+date: 2019-06-28 01:39:11 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -25,7 +25,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
-| 2019-6-19 | Indexing and searching NuGet.org with Azure Functions and Search | NDC Oslo | Norway - Oslo | [download](https://www.slideshare.net/maartenba/ndc-oslo-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
+| 2019-6-19 | Indexing and searching NuGet.org with Azure Functions and Search | NDC Oslo | Norway - Oslo | [download](https://www.slideshare.net/maartenba/ndc-oslo-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) | [view](https://www.youtube.com/watch?v=s6rYDP1emUA) | 
 | 2019-5-29 | Indexing and searching NuGet.org with Azure Functions and Search | Cloud Developer Days | Poland - Krakow | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-cloud-developer-days-poland) |  | 
 | 2019-5-28 | Approaches to application request throttling | Cloud Developer Days | Poland - Krakow | [download](https://www.slideshare.net/maartenba/approaches-for-application-request-throttling-cloud-developer-days-poland) |  | 
 | 2019-5-7 | The ups and downs of bootstrapping a SaaS and surviving 6 years of Azure | AZUG user group | Belgium - Antwerp |  |  | 
