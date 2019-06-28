@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talk - Indexing and searching NuGet.org with Azure Functions and Search - NDC Oslo - Norway - Oslo"
-date: 2019-06-19 00:00:00 +0100
+date: 2019-06-19 00:00:01 +0100
 comments: true
 published: true
 categories: ["talk"]
@@ -11,7 +11,7 @@ author: Maarten Balliauw
 
 This week, I had the opportunity to speak at [NDC Oslo](https://www.ndcoslo.com). The talk I did was "Indexing and searching NuGet.org with Azure Functions and Search", which covers a story of re-building an existing service using a serverless approach, on Azure Functions.
 
-As promised, here are the slides. Recording should become available at some point as well.
+As promised, here are the slides as well as the recording.
 
 ## Indexing and searching NuGet.org with Azure Functions and Search
 
@@ -23,7 +23,7 @@ Together, we will create a highly-scalable serverless search engine using Azure 
 
 ### Session recording
 
-Session recording will be made available in a couple of weeks.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s6rYDP1emUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Slides
 
