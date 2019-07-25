@@ -45,7 +45,7 @@ P.S.: Source code for this blog post [is on GitHub](https://github.com/maartenba
 
 ## Recording
 
-This blog post is a written version of my conference talk *"Indexing and searching NuGet.orgwith Azure Functions and Search"*. In case you prefer watching and listening, you can use the recording below (captured at [NDC Oslo 2019](https://www.ndcoslo.com)).
+This blog post is a written version of my conference talk *"Indexing and searching NuGet.org with Azure Functions and Search"*. In case you prefer watching and listening, you can use the recording below (captured at [NDC Oslo 2019](https://www.ndcoslo.com)).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s6rYDP1emUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
