@@ -68,7 +68,7 @@ The end product that was released in ReSharper consisted of two things:
 
 The latter one was created as an Azure Cloud Service (Web role for the API, and Worker role for the indexing process). The indexer made use of the NuGet OData feed, running queries similar to this one:
 
-[$select=Id,Version,NormalizedVersion,LastEdited,Published - $filter=LastEdited gt <timestamp>](https://www.nuget.org/api/v2/Packages?$select=Id,Version,NormalizedVersion,LastEdited,Published&$orderby=LastEdited%20desc&$filter=LastEdited%20gt%20datetime%272012-01-01%27)
+[$select=Id,Version,NormalizedVersion,LastEdited,Published - $filter=LastEdited gt {timestamp}](https://www.nuget.org/api/v2/Packages?$select=Id,Version,NormalizedVersion,LastEdited,Published&$orderby=LastEdited%20desc&$filter=LastEdited%20gt%20datetime%272012-01-01%27)
 
 In short: we retrieved just the fields we were interested in (Id, Version and some timestamps), and filtered the results to packages after the last time we checked for packages. With the idea nad version we can build the download URL, fetch the package and do our thing.
 
@@ -880,10 +880,12 @@ We tried a deployment of these functions and did a full index of all of NuGet.or
 
 We found 2.1 million package versions in the NuGet.org catalog, over 8400 catalog pages with 4.2 million catalog leafs. Double? Remember repository signing happened, so roughly double makes sense such a short time after that happened...
 
-Will this go in production? No idea. It was definitely fun to build, I've also taken some learnings from working with Azure Functions into [Rider's Azure plugin](https://plugins.jetbrains.com/plugin/11220-azure-toolkit-for-rider) - such as the ability to quickly run/debug individual functions while developing.
+Will this go in production? No idea. It was definitely fun to build, I've also taken some learnings from working with Azure Functions into [Rider's Azure plugin](https://plugins.jetbrains.com/plugin/11220-azure-toolkit-for-rider) - such as the ability to quickly run/debug individual functions while developing which is super handy! (will be in the 2019.2 release)
 
-Regarding this indexing/search pipeline, I would deploy each task into a separate Azure Function App, for isolation and scaling purposes. The first function (catalog traversal) is the only one that has to be always on, because of the custom trigger. It doesn't need a lot of capacity, so it could easily be run on the smallest VM that can be used. Indexing could be a separate, consumption-based deployment, that would scale out and in based on queue size. And then the search API endpoint would also be separate, for scale, but also for isolation from potential issues in the indexing process.
+![Run individual Azure Function with Rider](../images/2019/07/run-individual-function.png)
+
+Regarding the indexing/search pipeline, I would deploy each task into a separate Azure Function App, for isolation and scaling purposes. The first function (catalog traversal) is the only one that has to be always on, because of the custom trigger. It doesn't need a lot of capacity, so it could easily be run on the smallest VM that can be used. Indexing could be a separate, consumption-based deployment, that would scale out and in based on queue size. And then the search API endpoint would also be separate, for scale, but also for isolation from potential issues in the indexing process.
 
 Regarding custom bindings. They are fantastic! All of the input/output can be extracted away from most of the business logic, which makes for a very nice programming model. Downside though, is that it could be harder to run the same solution on AWS Lambda or OpenFaaS, if that is a concern. If runtime lock-in matters to you, I'd probably not use too many custom bindings, but otherwise they do deliver on the event-driven input/processing/output model.
 
-One thing I learned from writing this blog post is that my talks seem packaed with too much info. But regardless, I hope you enjoyed this one. See you!
+One thing I learned from writing this blog post is that my talks seem packed with too much info :-) But regardless, I hope you enjoyed this one. See you!
