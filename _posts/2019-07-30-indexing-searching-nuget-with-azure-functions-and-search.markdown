@@ -889,7 +889,7 @@ Will this go in production? No idea. It was definitely fun to build, I've also t
 
 Regarding the indexing/search pipeline... This codebase groups all functions in one project, but that does not mean I would deploy all functions into one Azure Function App. Each task here should be deployed into a separate Azure Function App, for isolation and scaling purposes. The first function (catalog traversal) is the only one that has toalways run, because of the custom trigger. It doesn't need a lot of capacity, so it could easily be run on the smallest VM that can be used. Indexing could be a separate, consumption-based deployment, that would scale out and in based on queue size. And then the search API endpoint would also be separate, for scale, but also for isolation from potential issues in the indexing process.
 
-Regarding custom bindings. They are fantastic! All of the input/output can be extracted away from most of the business logic, which makes for a very nice programming model. Downside though, is that it could be harder to run the same solution on AWS Lambda or OpenFaaS, if that is a concern. If runtime lock-in matters to you, I'd probably not use too many custom bindings, but otherwise they do deliver on the event-driven input/processing/output model.
+**Regarding custom bindings,** they are fantastic! All of the input/output can be extracted away from most of the business logic, which makes for a very nice programming model. Downside though, is that it could be harder to run the same solution on AWS Lambda or OpenFaaS, if that is a concern. If runtime lock-in matters to you, I'd probably not use too many custom bindings, but otherwise they do deliver on the event-driven input/processing/output model.
 
 I hope you enjoyed this one. See you!
 
