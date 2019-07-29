@@ -120,7 +120,7 @@ Its structure is a tree. After finding the catalog root from [api.nuget.org/v3/i
 
 The catalog root contains a bunch of links to catalog pages, with the timestamp they were added/updated. We can then traverse each page, and find out URLs to all catalog leafs, which contain the operation type (update or delete), as well as basic package metadata.
 
-Using a timestamp as a cursor, and traversing some JSON. Seams easy enough to get the data we needed in the first place! And it turns out that there is a NuGet package, [NuGet.Services.Metadata.Catalog](https://www.nuget.org/packages/NuGet.Services.Metadata.Catalog) (code [on GitHub](https://github.com/NuGet/NuGet.Services.Metadata)) which already implemented access to the catalog.
+Using a timestamp as a cursor, and traversing some JSON... That seems easy enough to get the data we need! And it turns out that there is a NuGet package, [NuGet.Services.Metadata.Catalog](https://www.nuget.org/packages/NuGet.Services.Metadata.Catalog) (code [on GitHub](https://github.com/NuGet/NuGet.Services.Metadata)) which already implemented access to the catalog.
 
 > Note: there's [another NuGet package](https://www.nuget.org/packages/NuGet.CatalogReader/) which provides access to the catalog in case you need it. Use what works best for you!
 
