@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Indexing and searching NuGet.org with Azure Functions and Search"
-date: 2019-07-30 04:44:05 +0100
+date: 2019-07-30 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -62,7 +62,7 @@ When using a type name, for example `JsonConvert`, a quick fix **"Find this type
 
 ReSharper 9 introduced this [back in 2015](https://www.jetbrains.com/resharper/whatsnew/whatsnew_9.html). Visual Studio did a similar thing [in 2017](https://www.hanselman.com/blog/VisualStudio2017CanAutomaticallyRecommendNuGetPackagesForUnknownTypes.aspx).
 
-> Story time! 2015 is not when the idea for this feature came about! At what must have been my first JetBrains New Year's party back in 2013, I was chatting with a couple of colleagues and found Alexander Shvedov, who was working on NuGet support in ReSharper. I pitched the idea of a reverse package search, thinking it was a novel idea. Granted, that thought might have been infused by party beverages, but still. Turns out I did *not* have a novel idea: "We're already working on this" was the answer I received.
+> Story time! 2015 is not when the idea for this feature came about! At what must have been my first JetBrains New Year's party back in 2013, I was chatting with a couple of colleagues working on NuGet support in ReSharper back then. I pitched the idea of a reverse package search, thinking it was a novel idea. Granted, that thought might have been infused by party beverages, but still. Turns out I did *not* have a novel idea: "We're already working on this" was the answer I received.
 
 The end product that was released in ReSharper consisted of two things:
 
