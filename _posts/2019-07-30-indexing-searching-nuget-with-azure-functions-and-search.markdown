@@ -217,7 +217,7 @@ Our set of requirements could be modelled into individual functions. A rough arc
 
 ![Diagram of functions used in our solution](../images/2019/07/indexer-functions-diagram.png)
 
-> Note: why did I use Azure Storage Queue icons and not something like Azure Service Bus topics? For my demoware, I want to be able to run things locally. I'm often on the road and not requiring an Internet connection for most tasks comes in very handy. Azure Storage Queues can run on my developer machine.
+> Note: why did I use Azure Service Bus Queue icons here? Mostly because I needed an icon! I'm not even going to use Azure Service Bus here, but Azure Storage Queues instead. For my demoware, I want to be able to run things locally. I'm often on the road and not requiring an Internet connection for most tasks comes in very handy. Azure Storage Queues can run on my developer machine.
 
 Let's start with the first function.
 
