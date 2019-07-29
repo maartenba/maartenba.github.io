@@ -556,7 +556,7 @@ So... Shall we do an assembly load and reflect over it? Rather not. Loading ever
 
 The [`System.Reflection.Metadata`](https://www.nuget.org/packages/System.Reflection.Metadata) package gives us low-level access to .NET metadata ([ECMA-335 for some light reading](https://www.ecma-international.org/publications/standards/Ecma-335.htm)). Every .NET assembly comes with a Portable Executable (PE) header that is a collection of tables describing everything in the assembly and where it is to be found.
 
-Using a [decompiler like dotPeek](www.jetbrains.com/dotpeek), we can peek (pun intended) into those PE headers. We'll need all public type names and public namespaces, so we can look at the *TypeDef* table and follow the pointers for every type to the *#Strings* table. Visually:
+Using a [decompiler like dotPeek](https://www.jetbrains.com/dotpeek), we can peek (pun intended) into those PE headers. We'll need all public type names and public namespaces, so we can look at the *TypeDef* table and follow the pointers for every type to the *#Strings* table. Visually:
 
 ![Exploring Portable Executable PE header with dotPeek](../images/2019/07/dotpeek-pe-header.png)
 
