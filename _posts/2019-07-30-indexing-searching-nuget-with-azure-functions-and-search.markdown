@@ -40,8 +40,6 @@ Since it's a long post, I'll start off with a table of contents:
   * [One more thing...](#one-more-thing)
 * [Conclusion](#conclusion)
 
-+ TODO images URLs
-
 Now grab a nice beverage and a comfortable chair, TODO words are awaiting you!
 
 P.S.: Source code for this blog post [is on GitHub](https://github.com/maartenba/NuGetTypeSearch).
@@ -58,7 +56,7 @@ In case you did not know: [ReSharper](https://www.jetbrains.com/resharper) and [
 
 When using a type name, for example `JsonConvert`, a quick fix **"Find this type on NuGet"** is made available which does exactly that: find a package containing this type and install it. The nice thing is that we can code and almost automatically install required packages from the location where we're writing code, without having to switch tool windows too much.
 
-![NuGet type search in ReSharper and Rider](../images/2019/07/resharper-nuget-type-search.png)
+![NuGet type search in ReSharper and Rider](/images/2019/07/resharper-nuget-type-search.png)
 
 ReSharper 9 introduced this [back in 2015](https://www.jetbrains.com/resharper/whatsnew/whatsnew_9.html). Visual Studio did a similar thing [in 2017](https://www.hanselman.com/blog/VisualStudio2017CanAutomaticallyRecommendNuGetPackagesForUnknownTypes.aspx).
 
@@ -177,7 +175,7 @@ class Program
 
 When we run this, we'll see all package additions/deletes since the beginning of (NuGet.org) time being written to the console output:
 
-![Packages in the NuGet.org V3 API catalog](../images/2019/07/dump-nuget-api-v3-catalog.png)
+![Packages in the NuGet.org V3 API catalog](/images/2019/07/dump-nuget-api-v3-catalog.png)
 
 So, what's next?
 
@@ -207,7 +205,7 @@ Watching that catalog could be a periodic check (e.g. every hour). We could enqu
 
 This does sound like a good thing to try on Azure Functions, no? In every presentation about the subject, I have seen diagrams like this:
 
-![Azure Functions are input-processing-output](../images/2019/07/azure-functions--what-is-it-diagram.png)
+![Azure Functions are input-processing-output](/images/2019/07/azure-functions--what-is-it-diagram.png)
 
 Such a novel technology! We have input that gets processed, and that processing produces output!
 
@@ -215,7 +213,7 @@ A little touch of sarcasm aside, the nice thing is that processing is only trigg
 
 Our set of requirements could be modelled into individual functions. A rough architecture diagram could look like this:
 
-![Diagram of functions used in our solution](../images/2019/07/indexer-functions-diagram.png)
+![Diagram of functions used in our solution](/images/2019/07/indexer-functions-diagram.png)
 
 > Note: why did I use Azure Service Bus Queue icons here? Mostly because I needed an icon! I'm not even going to use Azure Service Bus here, but Azure Storage Queues instead. For my demoware, I want to be able to run things locally. I'm often on the road and not requiring an Internet connection for most tasks comes in very handy. Azure Storage Queues can run on my developer machine.
 
@@ -558,11 +556,11 @@ The [`System.Reflection.Metadata`](https://www.nuget.org/packages/System.Reflect
 
 Using a [decompiler like dotPeek](https://www.jetbrains.com/dotpeek), we can peek (pun intended) into those PE headers. We'll need all public type names and public namespaces, so we can look at the *TypeDef* table and follow the pointers for every type to the *#Strings* table. Visually:
 
-![Exploring Portable Executable PE header with dotPeek](../images/2019/07/dotpeek-pe-header.png)
+![Exploring Portable Executable PE header with dotPeek](/images/2019/07/dotpeek-pe-header.png)
 
 Using `System.Reflection.Metadata`, we can do the same - but in code. Loop over type definitions, check whether they are public, and if they are, fetch the strings representing the type name and the namespace. I apologize for code in a screenshot, but it is so I can overlay those same "pointer" arrows.
 
-![Navigate TypeDef using System.Reflection.Metadata](../images/2019/07/navigate-typedef-system.reflection.metadata.png)
+![Navigate TypeDef using System.Reflection.Metadata](/images/2019/07/navigate-typedef-system.reflection.metadata.png)
 
 Go ahead, run this against any assembly stream. It's super fast as there is no reflection or assembly loading involved, and it provides us with the data we want.
 
@@ -860,11 +858,11 @@ new SearchParameters
 
 After retrieving matching documents from the search index, we'll return them in the API:
 
-![Reverse Package Search for type returns package data](../images/2019/07/type-search-http-request.png)
+![Reverse Package Search for type returns package data](/images/2019/07/type-search-http-request.png)
 
 We can also run ReSharper in internal mode (`devenv.exe /ReSharper.Internal`) where the NuGet Browser tool window allows specifying the API URL to use, and try this out with ReSharper:
 
-![Find type on NuGet.org using our Azure Functions-powered search engine](../images/2019/07/using-find-type-on-nuget.png)
+![Find type on NuGet.org using our Azure Functions-powered search engine](/images/2019/07/using-find-type-on-nuget.png)
 
 Success! Our indexer seems to work, and search returns results!
 
@@ -885,7 +883,7 @@ We found 2.1 million package versions in the NuGet.org catalog, over 8400 catalo
 
 Will this go in production? No idea. It was definitely fun to build, I've also taken some learnings from working with Azure Functions into [Rider's Azure plugin](https://plugins.jetbrains.com/plugin/11220-azure-toolkit-for-rider) - such as the ability to quickly run/debug individual functions while developing which is super handy! (will be in the 2019.2 release)
 
-![Run individual Azure Function with Rider](../images/2019/07/run-individual-function.png)
+![Run individual Azure Function with Rider](/images/2019/07/run-individual-function.png)
 
 **Regarding the indexing/search pipeline...** This codebase groups all functions in one project, but that does not mean I would deploy all functions into one Azure Function App. Each task here should be deployed into a separate Azure Function App, for isolation and scaling purposes. The first function (catalog traversal) is the only one that has toalways run, because of the custom trigger. It doesn't need a lot of capacity, so it could easily be run on the smallest VM that can be used. Indexing could be a separate, consumption-based deployment, that would scale out and in based on queue size. And then the search API endpoint would also be separate, for scale, but also for isolation from potential issues in the indexing process.
 
