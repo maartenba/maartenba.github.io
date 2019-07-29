@@ -223,7 +223,7 @@ Let's start with the first function.
 
 ### Collecting data from the catalog
 
-Since everything in the catalog is cursor based, and that cursor is a timestamp, perhaps the easy way to do periodic checks for new packages in the catalog woul be to create a function that is triggered by a `TimerTrigger`?
+Since everything in the catalog is cursor based, and that cursor is a timestamp, perhaps the easy way to do periodic checks for new packages in the catalog would be to create a function that is triggered by a `TimerTrigger`?
 
 A rough outline could be this:
 
