@@ -118,7 +118,7 @@ Its structure is a tree. After finding the catalog root from [api.nuget.org/v3/i
   * N catalog pages - [api.nuget.org/v3/catalog0/page0.json](https://api.nuget.org/v3/catalog0/page0.json)
     * N catalog leafs - [api.nuget.org/v3/catalog0/data/2015.02.01.06.22.45/adam.jsgenerator.1.1.0.json](https://api.nuget.org/v3/catalog0/data/2015.02.01.06.22.45/adam.jsgenerator.1.1.0.json)
 
-The catalog root contains a bunch of links to catalog pages, with the timestamp they were added/updated. We can then traverse each page, and find out URLs to all catalog leafs, which contain the opration type (update or delete), as well as basic package metadata.
+The catalog root contains a bunch of links to catalog pages, with the timestamp they were added/updated. We can then traverse each page, and find out URLs to all catalog leafs, which contain the operation type (update or delete), as well as basic package metadata.
 
 Using a timestamp as a cursor, and traversing some JSON. Seams easy enough to get the data we needed in the first place! And it turns out that there is a NuGet package, [NuGet.Services.Metadata.Catalog](https://www.nuget.org/packages/NuGet.Services.Metadata.Catalog) (code [on GitHub](https://github.com/NuGet/NuGet.Services.Metadata)) which already implemented access to the catalog.
 
