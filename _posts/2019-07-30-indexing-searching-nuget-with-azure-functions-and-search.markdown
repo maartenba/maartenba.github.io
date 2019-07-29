@@ -103,7 +103,7 @@ That V3 API is not really "one" API. It's a set of API's that are made available
 * Report abuse URL template
 * ...
 
-The NuGet client uses these depending on the scenario. Obviously, it uses search when searching packages, but will use the flat container for package restore as that API is much better suited for quickly resolving package binaries.
+The NuGet client uses these depending on the scenario. Obviously, it uses search when looking for packages, but will use the flat container for package restore as that API is much better suited for quickly resolving package binaries.
 
 ### NuGet catalog
 
