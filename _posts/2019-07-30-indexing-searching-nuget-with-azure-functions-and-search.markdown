@@ -552,7 +552,7 @@ Before we dive into the Azure Functions part, let's take a step back and think a
 
 So... Shall we do an assembly load and reflect over it? Rather not. Loading every single assembly published on NuGet into our runtime would be a nightmare and a generally bad idea for multiple reasons. Luckily for us, there is a better option! 
 
-#### System.Reflection.Metadata
+### System.Reflection.Metadata
 
 The [`System.Reflection.Metadata`](https://www.nuget.org/packages/System.Reflection.Metadata) package gives us low-level access to .NET metadata ([ECMA-335 for some light reading](https://www.ecma-international.org/publications/standards/Ecma-335.htm)). Every .NET assembly comes with a Portable Executable (PE) header that is a collection of tables describing everything in the assembly and where it is to be found.
 
@@ -570,7 +570,7 @@ Go ahead, run this against any assembly stream. It's super fast as there is no r
 
 With that out of the way, let's think about indexing and search.
 
-#### Azure Search
+### Azure Search
 
 We'll use [Azure Search](https://azure.microsoft.com/services/search/) here, but for a lookup based on e.g. just the type name, a SQL Database could have been enough.
 
@@ -655,7 +655,7 @@ SearchServiceClient.Indexes.CreateOrUpdate(new Index
 
 Once that's done, we can start adding documents into our index.
 
-#### Indexing on Azure Functions
+### Indexing on Azure Functions
 
 The indexing function will look very similar to the downloading function. Its input will be another `PackageOperation` message. And we'll also output a `Blob` here. Remember it would be nice if we could re-index fast if needed? Turns out Azure Search can populate an index from a container of blobs containing documents to index - so if we write the `PackageDocument` to a blob in JSON format, we can use that later on if we want to.
 
