@@ -73,7 +73,7 @@ The latter one was created as an Azure Cloud Service (Web role for the API, and 
 
 [$select=Id,Version,NormalizedVersion,LastEdited,Published - $filter=LastEdited gt {timestamp}](https://www.nuget.org/api/v2/Packages?$select=Id,Version,NormalizedVersion,LastEdited,Published&$orderby=LastEdited%20desc&$filter=LastEdited%20gt%20datetime%272012-01-01%27)
 
-In short: we retrieved just the fields we were interested in (Id, Version and some timestamps), and filtered the results to packages after the last time we checked for packages. With the idea nad version we can build the download URL, fetch the package and do our thing.
+In short: we retrieved just the fields we were interested in (Id, Version and some timestamps), and filtered the results to packages after the last time we checked for packages. With the idea and version we can build the download URL, fetch the package and do our thing.
 
 Now, between 2015 and now a number of things happened... First, increased NuGet usage and an increasing number of NuGet packages! The daily upload counts were increasing, and our indexer kept receiving more and more work.
 
