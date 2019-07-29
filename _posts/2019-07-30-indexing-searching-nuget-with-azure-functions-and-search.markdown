@@ -13,7 +13,7 @@ In an application I'm writing, I need to deserialize some JSON. I know the class
 
 Granted, that's an obvious one. Yet, there are many uses for a **"NuGet reverse package search"** that helps finding the correct NuGet package based on a public type.
 
-While ReSharper and Rider have had one for many years, and Visual Studio has had something similar for fewer years, I wanted to see if I could **build an indexer and search engine** that collects public type information from NuGet packages and makes them searchable. And along the way, I discovered that this would be an ideal use case for **[Azure Functions](https://azure.microsoft.com/en-in/services/functions/)**.
+While ReSharper and Rider initially added this nice feature and Visual Studio has added this a few years later as well, I wanted to see if I could **build an indexer and search engine** that collects public type information from NuGet packages and makes them searchable. And along the way, I discovered that this would be an ideal use case for **[Azure Functions](https://azure.microsoft.com/en-in/services/functions/)**.
 
 In this (long!) blog post, let's build a "reverse package search" that helps finding the correct NuGet package based on a public type. We will create a highly-scalable serverless search engine using Azure Functions and Azure Search that performs 3 tasks: listening for new packages on NuGet.org (using a custom binding), indexing packages in a distributed way, and exposing an API that accepts queries and gives our clients the best result.
 
