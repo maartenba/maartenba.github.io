@@ -133,7 +133,7 @@ Task<bool> ProcessPackageDeleteAsync(PackageDeleteCatalogLeaf leaf);
 
 That seems easy enough! These two methods get called whenever the `CatalogProcessor` processes a leaf from the catalog, and gives us details about add/update, and delete operations.
 
-> Note: in code examples, you will see me using `BatchCatalogProcessor`. This is a [custom cataog processor](https://gist.github.com/maartenba/7b6d6f5f9a96286314e8bbd65435b9f9) that speeds up traversing the catalog. For every page, it only takes the newest leaf of every single package id + version combination instead of every single operation. For indexing packages, all we'd need is the latest state (is a package considered existing, or considered deleted?).
+> Note: in code examples, you will see me using [`BatchCatalogProcessor`](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Catalog/BatchCatalogProcessor.cs). This is a custom catalog processor that speeds up traversing the catalog. For every page, it only takes the newest leaf of every single package id + version combination instead of every single operation. For indexing packages, all we'd need is the latest state (is a package considered existing, or considered deleted?).
 
 The following code snippet should be enough to dump every package addition and removal on NuGet.org to our console output window:
 
