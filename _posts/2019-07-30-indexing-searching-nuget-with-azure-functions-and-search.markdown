@@ -15,7 +15,10 @@ Granted, that's an obvious one. Yet, there are many uses for a **"NuGet reverse 
 
 While ReSharper and Rider initially added this nice feature and Visual Studio has added this a few years later as well, I wanted to see if I could **build an indexer and search engine** that collects public type information from NuGet packages and makes them searchable. And along the way, I discovered that this would be an ideal use case for **[Azure Functions](https://azure.microsoft.com/en-in/services/functions/)**.
 
-In this (long!) blog post, let's build a "reverse package search" that helps finding the correct NuGet package based on a public type. We will create a highly-scalable serverless search engine using Azure Functions and Azure Search that performs 3 tasks: listening for new packages on NuGet.org (using a custom binding), indexing packages in a distributed way, and exposing an API that accepts queries and gives our clients the best result.
+In this blog post, we'll build a "reverse package search" that helps finding the correct NuGet package based on a public type. We will create a highly-scalable serverless search engine using Azure Functions and Azure Search that performs 3 tasks:
+1. Listening for new packages on NuGet.org (using a custom binding)
+2. Indexing packages in a distributed way
+3. Exposing an API that accepts queries and gives our clients the best result.
 
 Since it's a long post, I'll start off with a table of contents:
 
