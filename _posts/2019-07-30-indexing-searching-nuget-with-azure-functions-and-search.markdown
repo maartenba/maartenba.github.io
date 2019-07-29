@@ -75,7 +75,7 @@ The latter one was created as an Azure Cloud Service (Web role for the API, and 
 
 In short: we retrieved just the fields we were interested in (Id, Version and some timestamps), and filtered the results to packages after the last time we checked for packages. With the idea and version we can build the download URL, fetch the package and do our thing.
 
-Now, between 2015 and now a number of things happened... First, increased NuGet usage and an increasing number of NuGet packages! The daily upload counts were increasing, and our indexer kept receiving more and more work.
+Now, between 2015 and now a number of things happened... First, increased NuGet usage and number of NuGet packages! The daily upload counts were increasing, and our indexer kept receiving more and more work.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">huh, <a href="https://t.co/tn7WCIynaN">nuget.org</a> repo is 1.9Tb now... was like 250Gb in a year 2015 <a href="https://t.co/aP73rbgq9J">pic.twitter.com/aP73rbgq9J</a></p>&mdash; Alexander Shvedov (@controlflow) <a href="https://twitter.com/controlflow/status/1067724815958777856?ref_src=twsrc%5Etfw">November 28, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
