@@ -891,4 +891,6 @@ Regarding the indexing/search pipeline, I would deploy each task into a separate
 
 Regarding custom bindings. They are fantastic! All of the input/output can be extracted away from most of the business logic, which makes for a very nice programming model. Downside though, is that it could be harder to run the same solution on AWS Lambda or OpenFaaS, if that is a concern. If runtime lock-in matters to you, I'd probably not use too many custom bindings, but otherwise they do deliver on the event-driven input/processing/output model.
 
-One thing I learned from writing this blog post is that my talks seem packed with too much info :-) But regardless, I hope you enjoyed this one. See you!
+I hope you enjoyed this one. See you!
+
+P.S.: Thank you [Tom Kerkhove](https://twitter.com/tomkerkhove) for reviewing this post!
