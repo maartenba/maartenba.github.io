@@ -223,12 +223,12 @@ Let's start with the first function.
 
 ### Collecting data from the catalog
 
-Since everything in the catalog is cursor based, and that cursor is a timestamp, perhaps the easy way to do periodic checks for new packages in the catalog woul be to create a function that is triggered by a `TimerTrigger`?
+Since everything in the catalog is cursor based, and that cursor is a timestamp, perhaps the easy way to do periodic checks for new packages in the catalog would be to create a function that is triggered by a `TimerTrigger`?
 
 A rough outline could be this:
 
 ```
-[FunctionName("Enqueuer")]
+[FunctionName("Catalog Watch")]
 public static async Task Run(
     [TimerTrigger("* */1 * * * *", RunOnStartup = true)] TimerInfo timer,
     [Queue(Constants.IndexingQueue, Connection = Constants.IndexingQueueConnection)] ICollector<PackageOperation> queueCollector,
@@ -556,7 +556,7 @@ So... Shall we do an assembly load and reflect over it? Rather not. Loading ever
 
 The [`System.Reflection.Metadata`](https://www.nuget.org/packages/System.Reflection.Metadata) package gives us low-level access to .NET metadata ([ECMA-335 for some light reading](https://www.ecma-international.org/publications/standards/Ecma-335.htm)). Every .NET assembly comes with a Portable Executable (PE) header that is a collection of tables describing everything in the assembly and where it is to be found.
 
-Using a [decompiler like dotPeek](www.jetbrains.com/dotpeek), we can peek (pun intended) into those PE headers. We'll need all public type names and public namespaces, so we can look at the *TypeDef* table and follow the pointers for every type to the *#Strings* table. Visually:
+Using a [decompiler like dotPeek](https://www.jetbrains.com/dotpeek), we can peek (pun intended) into those PE headers. We'll need all public type names and public namespaces, so we can look at the *TypeDef* table and follow the pointers for every type to the *#Strings* table. Visually:
 
 ![Exploring Portable Executable PE header with dotPeek](../images/2019/07/dotpeek-pe-header.png)
 
