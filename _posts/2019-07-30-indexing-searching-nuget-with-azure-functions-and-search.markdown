@@ -228,7 +228,7 @@ Since everything in the catalog is cursor based, and that cursor is a timestamp,
 A rough outline could be this:
 
 ```
-[FunctionName("Enqueuer")]
+[FunctionName("Catalog Watch")]
 public static async Task Run(
     [TimerTrigger("* */1 * * * *", RunOnStartup = true)] TimerInfo timer,
     [Queue(Constants.IndexingQueue, Connection = Constants.IndexingQueueConnection)] ICollector<PackageOperation> queueCollector,
