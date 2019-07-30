@@ -41,7 +41,7 @@ Since it's a long post, I'll start off with a table of contents:
   * [One more thing...](#one-more-thing)
 * [Conclusion](#conclusion)
 
-Now grab a nice beverage and a comfortable chair, TODO words are awaiting you!
+Now grab a nice beverage and a comfortable chair, almost 7000 words are awaiting you!
 
 P.S.: Source code for this blog post [is on GitHub](https://github.com/maartenba/NuGetTypeSearch).
 
