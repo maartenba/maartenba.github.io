@@ -519,7 +519,7 @@ The name of the blob will be `packages/{Id}/{VersionNormalized}/{Id}.{VersionNor
 
 > Note: the blob name is not super important, as long as we can easily reference it. However, the above name (or rather: URL) structure is similar to NuGet's flat container structure used for package restores. So in theory, we could run package restores against this blob structure...
 
-So, we have input, we have an output, on to processing! When a message triggers function execution, we'll determine whether the package operation is an add/update or a delete, and either download and store the downloaded package, or delete the paciage from our blob storage structure.
+So, we have input, we have an output, on to processing! When a message triggers function execution, we'll determine whether the package operation is an add/update or a delete, and either download and store the downloaded package, or delete the package from our blob storage structure.
 
 Simplified:
 
