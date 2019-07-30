@@ -210,7 +210,7 @@ This does sound like a good thing to try on Azure Functions, no? In every presen
 
 Such a novel technology! We have input that gets processed, and that processing produces output!
 
-A little touch of sarcasm aside, the nice thing is that processing is only triggered when there is input. So no new packages? No processing needed. A sudden influx of new packages? Ramp up processing and make uit happen. Azure Functions are triggered by input, and can scale based on the amount of input that is pending. And while that is not unique to Azure Functions, it does work well as we will see later in this blog post.
+A little touch of sarcasm aside, the nice thing is that processing is only triggered when there is input. So no new packages? No processing needed. A sudden influx of new packages? Ramp up processing and make it happen. Azure Functions are triggered by input, and can scale based on the amount of input that is pending. And while that is not unique to Azure Functions, it does work well - as we will see later in this blog post.
 
 Our set of requirements could be modelled into individual functions. A rough architecture diagram could look like this:
 
