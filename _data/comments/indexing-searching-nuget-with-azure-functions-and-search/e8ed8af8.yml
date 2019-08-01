@@ -1,0 +1,6 @@
+id: ea596866
+date: 2019-08-01T15:16:45.6047973Z
+name: Maarten Balliauw
+avatar: https://secure.gravatar.com/avatar/f62ebe822f6b351538e68cb2bbadefe9?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: The main "issue" there is the need for an always-on "enqueuer". But with pre-populated queues, quite some throughput should be possible (next bottleneck at that point is going to be Azure Search ingestion throttling).
