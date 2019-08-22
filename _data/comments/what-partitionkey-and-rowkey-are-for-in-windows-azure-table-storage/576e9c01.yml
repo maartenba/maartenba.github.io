@@ -1,0 +1,5 @@
+id: 57e30ac1
+date: 2019-08-16T21:42:09.8811045Z
+name: Adem Sahin
+avatar: https://secure.gravatar.com/avatar/f13636d30ca192c1a1a33797622d76f5?s=80&r=pg
+message: I used table storage in my logic app first time this morning and couldn't make sure whether I used partition key and row key correctly even though I read Microsoft documentation. Fortunately, it is entirely clear to me after this article. Thank you for sharing this valuable information.
