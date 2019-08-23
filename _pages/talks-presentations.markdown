@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-06-28 01:39:12 +0200
+date: 2019-08-28 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -17,8 +17,11 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 ## Upcoming talks and conferences
 
 * October 2019
-  * [Internet & Mobile World 2019](https://imworld.ro/), Bucharest, Romania
+  * [GoTech World 2019](https://gotech.world/), Bucharest, Romania
+  * JetBrains .NET Night Sydney, Sydney, Australia
   * [NDC Sydney](https://www.ndcsydney.com/), Sydney, Australia
+  * JetBrains Meetup Melbourne, Melbourne, Australia
+  * JetBrains .NET Night Brisbane, Brisbane, Australia
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
@@ -26,6 +29,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-8-30 | Indexing and searching NuGet.org with Azure Functions and Search | CloudBurst 2019 | Sweden - Stockholm | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
+| 2019-8-28 | Indexing and searching NuGet.org with Azure Functions and Search | CloudBurst @ FooCafe | Sweden - Malmo | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-6-19 | Indexing and searching NuGet.org with Azure Functions and Search | NDC Oslo | Norway - Oslo | [download](https://www.slideshare.net/maartenba/ndc-oslo-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) | [view](https://www.youtube.com/watch?v=s6rYDP1emUA) | 
 | 2019-5-29 | Indexing and searching NuGet.org with Azure Functions and Search | Cloud Developer Days | Poland - Krakow | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-cloud-developer-days-poland) |  | 
 | 2019-5-28 | Approaches to application request throttling | Cloud Developer Days | Poland - Krakow | [download](https://www.slideshare.net/maartenba/approaches-for-application-request-throttling-cloud-developer-days-poland) |  | 
