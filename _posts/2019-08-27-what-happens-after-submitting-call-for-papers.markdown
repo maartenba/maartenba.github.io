@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What happens when submitting for a Call for Papers?"
+title: "What happens after submitting a session in a Call for Papers?"
 date: 2019-08-27 03:44:05 +0100
 comments: true
 published: true
