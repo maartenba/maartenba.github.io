@@ -11,7 +11,7 @@ author: Maarten Balliauw
 
 In 2013, I was asked to be part of a conference agenda committee. Since, I have been part of a couple more, for conferences in different parts of the world.
 
-Being "on the other side" of a Call for Papers has been very interesting, and thought me that this is a difficult job. There's lots of reading, discussion, re-reading and more discussion involved. At some point there comes the rewarding bit of accepting sessions to the agenda, and the part I hate the most: having to reject sessions.
+Being "on the other side" of a Call for Papers has been very interesting, and taught me that this is a difficult job. There's lots of reading, discussion, re-reading and more discussion involved. At some point there comes the rewarding bit of accepting sessions to the agenda, and the part I hate the most: having to reject sessions.
 
 Having been a speaker for a long time and having submitted talks to lots of conferences, I have been part of both: the accepted sessions, and very often also of the rejected sessions. 
 
