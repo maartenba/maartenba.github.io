@@ -81,7 +81,7 @@ In general, try to write a good, clear title, and an abstract that sets expectat
 
 Nowadays, many CfP's are run using tools like [Sessionize](https://www.sessionize.com) or [PaperCall](https://www.papercall.io). They make submitting session proposals easier for speakers, and make evaluating proposals easier for organizers.
 
-One thing I am seeing recently, is that these tools make submitting sessions _too_ easy. For CfP's where these tools are used, a session submission is often picking one or more sessions from your speaker profile and sending them in.
+One thing I am seeing recently, is that these tools make submitting sessions _too_ easy. For CfP's where these tools are used, a session submission is often picking one or more sessions from your speaker profile and sending them in. Good thing is Sessionize now has a feature to limit the number of submissions per speaker.
 
 At some point, even when doing "blind" session ratings, your name will be shown as well. Most agenda committees I have been on seem to dislike speakers with so many submissions. In general, I think the sweet spot is to send 2-4 session proposals in a CfP. This will help the agenda committee make a balanced selection, shows what areas and topics you can cover, and in case the conference offers international travel they might want to have you present two sessions.
 
