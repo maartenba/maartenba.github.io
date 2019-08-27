@@ -51,6 +51,8 @@ How are those shortlists created? That depends on guidance from the conference o
 
 Personally, I like CfP's that are done through [Sessionize](https://www.sessionize.com). They have a tool to "rate" talks, where they show 3 session proposals at a time and you rank them 1, 2 or 3. Each talk is shown a number of times, in a different set of three, so the score is a pretty decent metric over time. The best thing about this, though, is that when resizing the browser window, speaker names are not visible during this rating. I prefer to do a "blind" pass through the set of sessions, to keep bias to a minimum.
 
+**Edit:** I just learned from the folks at Sessionize that inviring team members and setting them in "anonymous" mode always hides speaker details going though that ranking process.
+
 Keep in mind that your session title and abstract are your most important weapons at this stage. Check out [Niall Merrigan's post - "Make me an offer I can't refuse"](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/), for tips and tricks around writing a good session title and abstract. Remember the agenda committee has to go through _a lot_ of titles and abstracts, so remember that first impression counts.
 
 ## Organizer notes, past speaking experience and other metadata
