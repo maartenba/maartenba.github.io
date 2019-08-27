@@ -69,6 +69,8 @@ There is no rule for these "organizer notes", so put in anything you feel matter
 
 Another field is "past speaking experience". This will be used to search for past session recordings and/or blog posts, to look at speaking style/communication style. This is by no means a catch 22, it's really there to make sure that your talk will not be you reading a Wikipedia page for an hour. If past speaking experience is empty, that's OK. Most conferences I know budget some agenda capacity specifically for new speakers.
 
+Related is that dreaded "has this session been presented before?" question. Does that imply the conference only wants new content? Or do they want to check whether the session has had at least one run somewhere and thus has had a proper run-through. Two viewpoints that could be the truth, although the truth will probably be this field gets ignored by folks on the agenda committee anyway.
+
 ## Checking back
 
 Sometimes, the session title and abstract are not clear enough. People on the agenda committee may choose to reach out to you and ask for clarification, and sometimes work with you to get the title and abstract in shape.
