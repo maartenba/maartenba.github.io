@@ -13,9 +13,9 @@ In 2013, I was asked to be part of a conference agenda committee. Since, I have 
 
 Being "on the other side" of a Call for Papers has been very interesting, and taught me that this is a difficult job. There's lots of reading, discussion, re-reading and more discussion involved. At some point there comes the rewarding bit of accepting sessions to the agenda, and the part I hate the most: having to reject sessions.
 
-Having been a speaker for a long time and having submitted talks to lots of conferences, I have been part of both: the accepted sessions, and very often also of the rejected sessions. 
+Having been a speaker for a long time, and having submitted talks to lots of conferences, I have been part of both. I've had sessions accepted, but more often had sessions rejected.
 
-Whether you are a beginning speaker or a well-seasoned one, those rejections may be discouraging. Why didn't they accept this session I submitted? Is it because I have never spoken before? Do they not like me? Why did they pick speaker X and not me? All questions I have seen people ask themselves. 
+Whether you are a beginning speaker or a well-seasoned one, those rejections may be discouraging. Why didn't they accept this session I submitted? Is it because I have never spoken before? Do they not like me? Was it because my previous talk was not well received? Why did they pick speaker X and not me? All questions I have seen people ask themselves. 
 
 In this post, I want to open the curtain a bit, and talk from experience on various agenda committees.
 
@@ -51,13 +51,15 @@ How are those shortlists created? That depends on guidance from the conference o
 
 Personally, I like CfP's that are done through [Sessionize](https://www.sessionize.com). They have a tool to "rate" talks, where they show 3 session proposals at a time and you rank them 1, 2 or 3. Each talk is shown a number of times, in a different set of three, so the score is a pretty decent metric over time. The best thing about this, though, is that when resizing the browser window, speaker names are not visible during this rating. I prefer to do a "blind" pass through the set of sessions, to keep bias to a minimum.
 
-Keep in mind that your session title and abstract are your most important weapons at this stage. Check out [Niall Merrigan's post - "Make me an offer I can't refuse"](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/), for tips and tricks around writing a good session title and abstract. Remember the agenda committee has to go through _a lot_ of titles and abstracts, so make that first impression count.
+Keep in mind that your session title and abstract are your most important weapons at this stage. Check out [Niall Merrigan's post - "Make me an offer I can't refuse"](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/), for tips and tricks around writing a good session title and abstract. Remember the agenda committee has to go through _a lot_ of titles and abstracts, so remember that first impression counts.
 
 ## Organizer notes, past speaking experience and other metadata
 
 Many CfP's ask several additional questions, next to the actual session title and abstract.
 
-One example would be the "organizer notes". This field can be used to inform the organizers of something you don't want printed in the agenda, but helps reviewing talks. I have seen this field used for a variety of things. Examples are a *"this has not been released yet but by the time the conference happens, it will be"* note which could be useful for talks about the newest of the newest technologies or concepts. Other examples could clarify why you think a certain topic matters. This sometimes comes in handy for "niche" talks, about a lesser known/used framework. Bigger conferences may skip that type of talk because it's not "general audience" enough. Adding some notes may bring it more attention.
+One example would be the "organizer notes". This field can be used to inform the organizers of something you don't want printed in the agenda, but helps reviewing talks. Even though the field may be there, not all organizers check it.
+
+I have seen this field used for a variety of things. Examples are a *"this has not been released yet but by the time the conference happens, it will be"* note which could be useful for talks about the newest of the newest technologies or concepts. Other examples could clarify why you think a certain topic matters. This sometimes comes in handy for "niche" talks, about a lesser known/used framework. Bigger conferences may skip that type of talk because it's not "general audience" enough. Adding some notes may bring it more attention.
 
 Another usage I have seen is speakers listing key takeaways of a talk. The abstract is there to convince attendees to come see your talk, "organizer notes" can be used to convince the agenda committee to consider your talk.
 
@@ -67,7 +69,7 @@ Another field is "past speaking experience". This will be used to search for pas
 
 ## Checking back
 
-Sometimes, the session title and abstract are not clear enough. People on the agenda committee may choose to reach out to you and ask for clarification, and sometimes work with you to get the tile and abstract in shape.
+Sometimes, the session title and abstract are not clear enough. People on the agenda committee may choose to reach out to you and ask for clarification, and sometimes work with you to get the title and abstract in shape.
 
 Now, don't *count* on being contacted. It may happen, but it will be rare. What I have seen is that this sometimes happens early on in the CfP, when the agenda committee is still fresh and hasn't read through 200 abstracts yet. Another good reason to submit early on in the CfP.
 
