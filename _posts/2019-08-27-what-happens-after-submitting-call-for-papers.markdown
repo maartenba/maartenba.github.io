@@ -21,7 +21,7 @@ In this post, I want to open the curtain a bit, and talk from experience on vari
 
 ## Disclaimer 
 
-Before we start: this is all based on my own experiences and thoughts, and does not reflect the views of any company or conference. I hope sharing this experience will help aspiring and seasoned speakers understand the Call for Papers (CfP) and agenda-building process better. 
+Before we start: this is all based on my own experiences and thoughts being part of different agenda committees, and does not reflect the views of any particular company or conference. I hope sharing this experience will help aspiring and seasoned speakers understand the Call for Papers (CfP) and agenda-building process better. 
 
 ## The Process
 
@@ -85,7 +85,7 @@ Oh, and while we are on the topic of "number of sessions". Some companies have m
 
 ## Agenda draft - Negotiating for spots in the agenda
 
-At some point, the shortlists of each agenda committee member will be used to start building a draft agenda. When a session appears on more than one shortlist, that's probably going to end up on the draft agenda.
+At some point, the shortlists of each agenda committee member will be used to start building a draft agenda. Sometimes via conference calls, sometimes in-person with a group of 10 people gathered around a table and using copious amounts of post-it notes. When a session appears on more than one shortlist, that's probably going to end up on the draft agenda.
 
 Most conference organizers create a "budget" per track/category/tag. Don't think monetary budget here (more on that later), but a budget along the lines of wanting 5 web development talks, 3 talks about cloud, 3 about mobile and 2 architecture talks.
 
