@@ -127,7 +127,7 @@ You didn't get selected? In my 10 years of speaking at conferences, I have been 
 
 Check [Niall Merrigan's post](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/) for tips on making your title and abstract more attractive, but keep in mind other aspects like similar topics, budget in terms of number of available agenda spots and monetary budgets are a big influence, too.
 
-Most often, the "why" of not getting selected is a simple capacity problem. Think 1400 session abstracts and only 120 available places in the agenda. Where those 120 available spots are really 80 spots, because there are some spots reserved for sponsors, and those headliners need some room as well. And international speakers have to do two sessions to make T&E worthwhile. And not to forget, a few spots for new speakers.
+Most often, the "why" of not getting selected is a simple capacity problem. Think 1400 session abstracts and only 120 available places in the agenda. Where those 120 available spots are really 80 spots, or only 6 if you count capacity for front-end web development. Of which there has to be a bit of Vue, a bit of Angular and so on. Some spots reserved for sponsors, and those headliners need some room as well. And international speakers have to do two sessions to make T&E worthwhile. And not to forget, a few spots for new speakers.
 
 In other words: it's probably not you, but a matter of marrying all aspects of conference planning into an agenda.
 
