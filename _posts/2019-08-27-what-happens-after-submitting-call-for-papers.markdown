@@ -57,7 +57,9 @@ Keep in mind that your session title and abstract are your most important weapon
 
 Many CfP's ask several additional questions, next to the actual session title and abstract.
 
-One example would be the "organizer notes". This field can be used to inform the organizers of something you don't want printed in the agenda, but helps reviewing talks. I have seen this field used for a variety of things. Examples are a *"this has not been released yet but by the time the conference happens, it will be"* note which could be useful for talks about the newest of the newest technologies or concepts. Other examples could clarify why you think a certain topic matters. This sometimes comes in handy for "niche" talks, about a lesser known/used framework. Bigger conferences may skip that type of talk because it's not "general audience" enough. Some notes may bring it more attention.
+One example would be the "organizer notes". This field can be used to inform the organizers of something you don't want printed in the agenda, but helps reviewing talks. I have seen this field used for a variety of things. Examples are a *"this has not been released yet but by the time the conference happens, it will be"* note which could be useful for talks about the newest of the newest technologies or concepts. Other examples could clarify why you think a certain topic matters. This sometimes comes in handy for "niche" talks, about a lesser known/used framework. Bigger conferences may skip that type of talk because it's not "general audience" enough. Adding some notes may bring it more attention.
+
+Another usage I have seen is speakers listing key takeaways of a talk. The abstract is there to convince attendees to come see your talk, "organizer notes" can be used to convince the agenda committee to consider your talk.
 
 There is no rule for these "organizer notes", so put in anything you feel matters in evaluating your session topic. And if you feel the title and abstract are enough, that's fine too.
 
