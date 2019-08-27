@@ -77,7 +77,7 @@ Nowadays, many CfP's are run using tools like [Sessionize](https://www.sessioniz
 
 One thing I am seeing recently, is that these tools make submitting sessions _too_ easy. For CfP's where these tools are used, a session submission is often picking one or more sessions from your speaker profile and sending them in.
 
-At some point, even when doing "blind" session ratings, your name will be shown as well. Most agenda committees I have been on seem to dislike speakers with so many submissions. In general, I think the sweet spot is to send 2-4 session proposals in a CfP.
+At some point, even when doing "blind" session ratings, your name will be shown as well. Most agenda committees I have been on seem to dislike speakers with so many submissions. In general, I think the sweet spot is to send 2-4 session proposals in a CfP. This will help the agenda committee make a balanced selection, shows what areas and topics you can cover, and in case the conference offers international travel they might want to have you present two sessions.
 
 Oh, and while we are on the topic of "number of sessions". Some companies have multiple speakers submit very similar talks. Don't. Communicate between colleagues on who will submit what. Ten talks about a certain topic by people from the same company will almost always come across as "too commercial".
 
