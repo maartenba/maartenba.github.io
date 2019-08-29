@@ -49,7 +49,7 @@ One thing all of the agenda committees I have been on so far have in common, is 
 
 How are those shortlists created? That depends on guidance from the conference organizers, but in the end it boils down to each individual person making that list.
 
-Personally, I like CfP's that are done through [Sessionize](https://www.sessionize.com). They have a tool to "rate" talks, where they show 3 session proposals at a time and you rank them 1, 2 or 3. Each talk is shown a number of times, in a different set of three, so the score is a pretty decent metric over time. The best thing about this, though, is that when resizing the browser window, speaker names are not visible during this rating. I prefer to do a "blind" pass through the set of sessions, to keep bias to a minimum.
+Personally, I like CfP's that are done through [Sessionize](https://sessionize.com). They have a tool to "rate" talks, where they show 3 session proposals at a time and you rank them 1, 2 or 3. Each talk is shown a number of times, in a different set of three, so the score is a pretty decent metric over time. The best thing about this, though, is that when resizing the browser window, speaker names are not visible during this rating. I prefer to do a "blind" pass through the set of sessions, to keep bias to a minimum.
 
 **Edit:** I just learned from the folks at Sessionize that inviting team members and setting them in "anonymous" mode always hides speaker details going though that ranking process.
 
