@@ -1,0 +1,25 @@
+id: bd7c93da
+date: 2019-09-04T07:57:18.9335047Z
+name: Shivani Shah
+avatar: https://secure.gravatar.com/avatar/773edc95640fae0254a5b56ef66f2318?s=80&r=pg
+message: >+
+  Hi,
+
+
+
+  I am getting "cannot convert lambda expression to string because it is not a delegate type" error in below code in 3rd line.
+
+   config.Filters.Add(new ActionTrackingAttribute(
+
+                     "UA-XXXXXX-XX", "www.example.org",
+
+                     action => action.ControllerContext.ControllerDescriptor.ControllerName == "Api")
+
+                     );
+
+
+
+  Pl help.Why i am getting this error?
+
+
+
