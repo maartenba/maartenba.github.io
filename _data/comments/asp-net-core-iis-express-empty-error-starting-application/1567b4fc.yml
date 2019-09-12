@@ -1,0 +1,18 @@
+id: 15cc00d6
+date: 2019-09-11T02:19:07.1564208Z
+name: Aaron Queenan
+avatar: https://secure.gravatar.com/avatar/14e1f1271d3e099ca520c334f22d27ed?s=80&r=pg
+message: >-
+  I found exactly the same problem, but caused by 64-bit versions of the aspnetcore dlls and schema (the 32-bit versions were present).
+
+
+
+  https://developercommunity.visualstudio.com/content/problem/217361/aspnet-core-2-wont-run-iis-express.html refers to the problem.
+
+
+
+  Repairing Visual Studio 2019 fixed the problem for me.
+
+
+
+  Note that this was from an almost clean install of Visual Studio 2019.
