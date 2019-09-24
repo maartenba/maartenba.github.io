@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-08-28 01:39:12 +0200
+date: 2019-09-24 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -29,6 +29,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-9-25 | Indexing and searching NuGet.org with Azure Functions | .NET Conf 2019 | Online | [download](https://www.slideshare.net/maartenba/net-conf-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-8-30 | Indexing and searching NuGet.org with Azure Functions and Search | CloudBurst 2019 | Sweden - Stockholm | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-8-28 | Indexing and searching NuGet.org with Azure Functions and Search | CloudBurst @ FooCafe | Sweden - Malmo | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-6-19 | Indexing and searching NuGet.org with Azure Functions and Search | NDC Oslo | Norway - Oslo | [download](https://www.slideshare.net/maartenba/ndc-oslo-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) | [view](https://www.youtube.com/watch?v=s6rYDP1emUA) | 
