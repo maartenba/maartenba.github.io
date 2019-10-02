@@ -15,6 +15,8 @@ A friend of mine this week asked me whether they could use middleware in their H
 
 My immediate response was *"whyyyyyy?!?"*. And in this blog post, I'll try to explain.
 
+<div style="width:100%;height:0;padding-bottom:62%;position:relative;"><iframe src="https://giphy.com/embed/mCClSS6xbi8us" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/jeff-goldblum-jurassic-park-jurassicparkedit-mCClSS6xbi8us">via GIPHY</a></p>
+
 > Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. - Dr. Ian Malcolm
 
 Many folks out there, including some of the official information, see Azure Functions as a convenient way to quickly deploy a simple API. And that's somewhat correct, and often perfectly fine for a lot cases
