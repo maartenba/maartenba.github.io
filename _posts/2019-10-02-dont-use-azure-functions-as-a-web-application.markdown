@@ -27,7 +27,7 @@ Azure Functions, and serverless in general, are not a web API-building-platform 
 
 Based on various triggers, such as queues, storage, events coming from another service, they set logic in motion. In that sense, using an HTTP trigger does not mean you are building a full-blown web API. The `HttpTrigger` is one of many triggers that provides an incoming message to your function. An `HttpRequestMessage`, with lots of properties such as headers, query string parameters and so on.
 
-At its core, that `HttpRequestMessage` is not different from handling a `BlobUpdatedEvent` from storage. Granted, the latter is a less complex message, but they are, at heart, the same. The only difference is that they seem like an explicit call to an endpoint.
+At its core, that `HttpRequestMessage` is not different from handling a `BlobUpdatedEvent` from storage. Granted, the latter is a less complex message, but they are the same. The only difference is that they look like an explicit call to an endpoint.
 
 Will I yell at you when you use Azure Functions and HTTP triggers to build a simple API? Absolutely not. It's perfectly fine to handle a couple of events that may originate from your Vue, React or Angular front-end.
 
