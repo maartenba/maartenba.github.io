@@ -11,7 +11,7 @@ author: Maarten Balliauw
 
 I know, I know. That title is probably a bit too harsh and opinionated. But it got your attention, right?
 
-A friend of mine this week asked me whether they could use middleware in their HTTP-triggered Azure Functions, ideally even the same ones they use in ASP.NET Core applications. After all, the Azure Functions SDK comes with HTTP triggers that seem to use the same infrastructure, right?
+A friend of mine this week asked me whether they could use middleware in their HTTP-triggered Azure Functions, ideally even the same ones they use in ASP.NET Core applications. After all, the SDK comes with HTTP triggers that seem to use the same infrastructure, right?
 
 My immediate response was *"whyyyyyy?!?"*. And in this blog post, I'll try to explain.
 
@@ -27,7 +27,7 @@ Azure Functions, and serverless in general, are not a web API-building-platform 
 
 Based on various triggers, such as queues, storage, events coming from another service, they set logic in motion. In that sense, using an HTTP trigger does not mean you are building a full-blown web API. The `HttpTrigger` is one of many triggers that provides an incoming message to your function. An `HttpRequestMessage`, with lots of properties such as headers, query string parameters and so on.
 
-At its core, that `HttpRequestMessage` is not different from handling a `BlobUpdatedEvent` from storage. Granted, the latter is a less complex message, but they are, at heart, the same.
+At its core, that `HttpRequestMessage` is not different from handling a `BlobUpdatedEvent` from storage. Granted, the latter is a less complex message, but they are, at heart, the same. The only difference is that they seem like an explicit call to an endpoint.
 
 Will I yell at you when you use Azure Functions and HTTP triggers to build a simple API? Absolutely not. It's perfectly fine to handle a couple of events that may originate from your Vue, React or Angular front-end.
 
