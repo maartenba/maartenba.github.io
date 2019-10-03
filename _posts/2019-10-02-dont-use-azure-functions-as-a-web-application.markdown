@@ -23,7 +23,7 @@ Many folks out there, including some of the official information, see Azure Func
 
 Except, if you need full-blown middleware and the options the ASP.NET Core web pipeline offers, maybe... Well, maybe ASP.NET Core is the choice for those.
 
-Azure Functions, and serverless in general, are not a web API-building-platform as such. A function gets triggered and receives input, runs some logic, and provides output. Functions can be chained into a pipeline that passes around messages. They can scale based on capacity needed to handle those incoming messages. And that, I think, is the key.
+Azure Functions are not a web API-building-platform as such. A function gets triggered and receives input, runs some logic, and provides output. Functions can be chained into a pipeline that passes around messages. They can scale based on capacity needed to handle those incoming messages. And that, I think, is the key.
 
 **Azure Functions provide a reactive orchestrator.** They handle messages.
 
