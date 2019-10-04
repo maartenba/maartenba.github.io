@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-09-24 01:39:12 +0200
+date: 2019-10-02 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -17,11 +17,13 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 ## Upcoming talks and conferences
 
 * October 2019
-  * [GoTech World 2019](https://gotech.world/), Bucharest, Romania
   * JetBrains .NET Night Sydney, Sydney, Australia
   * [NDC Sydney](https://www.ndcsydney.com/), Sydney, Australia
   * JetBrains Meetup Melbourne, Melbourne, Australia
   * JetBrains .NET Night Brisbane, Brisbane, Australia
+* November 2019
+  * JetBrains .NET Night, Paris, France
+  * JetBrains .NET Night, Istanbul, Turkey
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
@@ -29,6 +31,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2019-10-3 | Indexing and searching NuGet.org with Azure Functions and Search | GoTech World						 | Romania - Bucharest | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  |
 | 2019-9-25 | Indexing and searching NuGet.org with Azure Functions | .NET Conf 2019 | Online | [download](https://www.slideshare.net/maartenba/net-conf-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-8-30 | Indexing and searching NuGet.org with Azure Functions and Search | CloudBurst 2019 | Sweden - Stockholm | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-8-28 | Indexing and searching NuGet.org with Azure Functions and Search | CloudBurst @ FooCafe | Sweden - Malmo | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
