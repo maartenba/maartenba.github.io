@@ -1,0 +1,5 @@
+id: 81f0a243
+date: 2019-10-07T18:13:00.2104737Z
+name: thargenediad
+avatar: https://secure.gravatar.com/avatar/f328e1e490283cfc22f41c819cb18efd?s=80&r=pg
+message: Disregard.  I added a SchedulerHostedService.Initialize() method and an isInitialized flag, along with logic which will check the flag and initialize the SchedulerHostedService (if needed) without actually running the task.
