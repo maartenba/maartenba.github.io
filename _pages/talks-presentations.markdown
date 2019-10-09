@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-10-02 01:39:12 +0200
+date: 2019-10-11 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,11 +16,6 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* October 2019
-  * JetBrains .NET Night Sydney, Sydney, Australia
-  * [NDC Sydney](https://www.ndcsydney.com/), Sydney, Australia
-  * JetBrains Meetup Melbourne, Melbourne, Australia
-  * JetBrains .NET Night Brisbane, Brisbane, Australia
 * November 2019
   * JetBrains .NET Night, Paris, France
   * JetBrains .NET Night, Istanbul, Turkey
@@ -31,7 +26,11 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
-| 2019-10-3 | Indexing and searching NuGet.org with Azure Functions and Search | GoTech World						 | Romania - Bucharest | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  |
+| 2019-10-22 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Night Brisbane | Australia - Brisbane | [download](https://www.slideshare.net/maartenba/jetbrains-australia-2019-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
+| 2019-10-21 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Meetup Melbourne | Australia - Melbourne | [download](https://www.slideshare.net/maartenba/jetbrains-australia-2019-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
+| 2019-10-17 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Sydney 2019 | Australia - Sydney | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) |  | 
+| 2019-10-15 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Night Sydney | Australia - Sydney | [download](https://www.slideshare.net/maartenba/jetbrains-australia-2019-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
+| 2019-10-3 | Indexing and searching NuGet.org with Azure Functions and Search | GoTech World | Romania - Bucharest | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  |
 | 2019-9-25 | Indexing and searching NuGet.org with Azure Functions | .NET Conf 2019 | Online | [download](https://www.slideshare.net/maartenba/net-conf-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-8-30 | Indexing and searching NuGet.org with Azure Functions and Search | CloudBurst 2019 | Sweden - Stockholm | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2019-8-28 | Indexing and searching NuGet.org with Azure Functions and Search | CloudBurst @ FooCafe | Sweden - Malmo | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
