@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How does the ASP.NET Core SPA development experience work?"
+title: "How does the ASP.NET Core SPA development experience work with React, Angular and VueJS?"
 date: 2019-11-13 03:44:05 +0100
 comments: true
 published: true
