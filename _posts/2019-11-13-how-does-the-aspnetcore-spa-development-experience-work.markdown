@@ -19,7 +19,7 @@ So when [Paul Everitt](https://twitter.com/paulweveritt) and myself were prepari
 
 Before we dive into how the development and release side of things work, let's first see what a typical solution and project looks like. I've created a new ASP.NET + React project in [Rider](https://www.jetbrains.com/rider), which uses `dotnet new react` under the hood.
 
-<img src="../images/2019/11/aspnetcore-react-in-jetbrains-rider.png" width="360" alt="ASP.NET Core + React in JetBrains Rider" />
+<img src="/images/2019/11/aspnetcore-react-in-jetbrains-rider.png" width="360" alt="ASP.NET Core + React in JetBrains Rider" />
 
 The project essentially contains two applications:
 
