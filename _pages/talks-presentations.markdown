@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-11-14 01:39:12 +0200
+date: 2019-12-05 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -15,10 +15,6 @@ This page contains links and short information on the talks that I have (co-)pre
 Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html).
 
 ## Upcoming talks and conferences
-
-* November 2019
-  * JetBrains .NET Night, Paris, France
-  * JetBrains .NET Night, Istanbul, Turkey
 * January 2020
   * [IglooConf](https://www.iglooconf.fi), Helsinki, Finland
 * February 2020
@@ -33,7 +29,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
-| 2019-10-22 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Night Brisbane | Australia - Brisbane | [download](https://www.slideshare.net/maartenba/jetbrains-australia-2019-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
+| 2019-10-22 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Night Brisbane | Australia - Brisbane | [download](https://www.slideshare.net/maartenba/jetbrains-australia-2019-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
 | 2019-10-21 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Meetup Melbourne | Australia - Melbourne | [download](https://www.slideshare.net/maartenba/jetbrains-australia-2019-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
 | 2019-10-17 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Sydney 2019 | Australia - Sydney | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) |  | 
 | 2019-10-15 | Exploring .NET’s memory management – a trip down memory lane | JetBrains Night Sydney | Australia - Sydney | [download](https://www.slideshare.net/maartenba/jetbrains-australia-2019-exploring-nets-memory-management-a-trip-down-memory-lane) |  | 
