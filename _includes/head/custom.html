@@ -1,42 +1,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-
 <script>
-window['ga-disable-{{ site.analytics.google.tracking_id }}'] = false;
-
-var trackPageView = function(consentGiven) {
-  window['ga-disable-{{ site.analytics.google.tracking_id }}'] = !consentGiven;
-  if (consentGiven) {
-    ga('create', '{{ site.analytics.google.tracking_id }}', 'auto');
-    ga('send', 'pageview');
-  }
-};
-
-window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-    "palette": { "popup": { "background": "#f2f3f3", "text": "#4a4f53" },
-      "button": { "background": "#66a2bc", "text": "#ffffff" }
-    },
-    "theme": "edgeless",
-    "position": "bottom-right",
-    "type": "opt-out",
-    "content": {
-      "message": "This website uses cookies to ensure you get the best experience on our website. Some are really needed, some are not essential for this site to work.",
-      "dismiss": "Accept non-essential cookies",
-      "deny": "Deny cookies",
-      "href": "https://cookiesandyou.com"
-    },
-    onInitialise: function (status) {
-      trackPageView(this.options.type != 'opt-out' || this.hasConsented());
-	},
-    onStatusChange: function(status, chosenBefore) {
-      trackPageView(this.options.type != 'opt-out' || this.hasConsented());
-	},
-    onRevokeChoice: function() {
-      trackPageView(this.options.type != 'opt-out');
-	}
-  })
-});
+  ga('create', '{{ site.analytics.google.tracking_id }}', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
 </script>
