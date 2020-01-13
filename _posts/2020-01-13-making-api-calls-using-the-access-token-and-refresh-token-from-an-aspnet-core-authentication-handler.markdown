@@ -35,7 +35,7 @@ This should look very familiar if you are building an ASP.NET Core application t
 
 These authentication handlers will typically do the following:
 
-* Redirect to a OpenIdConnect or OAuth2 consent page, where you will grant the application permission to authenticate and maybe access some resources on your behalf, for example with Space or Azuer AD.
+* Redirect to a OpenIdConnect or OAuth2 consent page, where you will grant the application permission to authenticate and maybe access some resources on your behalf, for example with Space or Azure AD.
 * When access is granted, get an access token and an optional refresh token to use for further authenticated communication with the API, such as Space's team directory or Microsoft Graph.
 * Create an identity and sign you in to your application.
 
