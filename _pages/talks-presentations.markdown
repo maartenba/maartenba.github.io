@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2019-12-05 01:39:12 +0200
+date: 2020-01-08 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -19,9 +19,13 @@ Attended a talk and looking for demo material or thought of a question? Don't he
   * [IglooConf](https://www.iglooconf.fi), Helsinki, Finland
 * February 2020
   * [Swetugg](https://swetugg.se/sthlm-2020), Stockholm, Sweden
+  * [WAZUG](https://www.wazug.nl), Netherlands
   * [Confoo](https://www.confoo.ca), Montreal, Canada
 * April 2020
   * [Voxxed Days Thessaloniki](https://voxxeddays.com/thessaloniki/), Thessaloniki, Greece
+  * .NET meetups, Netherlands
+* May 2020
+  * [NTKonferenca](https://www.ntk.si), Portoroz, Slovenia
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
