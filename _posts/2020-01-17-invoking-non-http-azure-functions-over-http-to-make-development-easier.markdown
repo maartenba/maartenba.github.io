@@ -39,6 +39,8 @@ This will then trigger our function where we can process that payload:
 
 ![Invoke Azure Function with payload](/images/2020/01/azure-functions-invocation-from-rider-with-payload.png)
 
+*Tip: When editing the HTTP fragment in Rider, use Alt+Enter and "edit JSON text fragment" to make escaping the JSON payload easier.
+
 Having the ability to trigger functions that way makes the development flow much smoother! Check [the Azure docs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#passing-test-data-to-a-function) for more background info.
 
 Enjoy!
