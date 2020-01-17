@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Invoking non-HTTP Azure Functions over HTTP to make development easier"
-date: 2020-01-20 03:44:05 +0100
+date: 2020-01-17 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
