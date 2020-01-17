@@ -9,11 +9,11 @@ tags: ["General", "ICT", "Web", ".NET", "Azure", "Functions"]
 author: Maarten Balliauw
 ---
 
-Last week, I was presenting at [IglooConf](https://www.iglooconf.fi) ([Indexing and searching NuGet org with Azure Functions and Search](https://www.youtube.com/watch?v=ZxH133cyns8)). During one of the demos, I casually used a feature we shipped with the latest [Azure Toolkit for JetBrains Rider](https://plugins.jetbrains.com/plugin/11220-azure-toolkit-for-rider): when the Azure Functions host is running on a development machine, Rider lets us trigger functions from the gutter by generating an HTTP request for it.
+This week, I was presenting at [IglooConf](https://www.iglooconf.fi) ([Indexing and searching NuGet org with Azure Functions and Search](https://www.youtube.com/watch?v=ZxH133cyns8)). During one of the demos, I casually used a feature we shipped with the latest [Azure Toolkit for JetBrains Rider](https://plugins.jetbrains.com/plugin/11220-azure-toolkit-for-rider): when the Azure Functions host is running on a development machine, Rider lets us trigger functions from the gutter by generating an HTTP request for it.
 
 ![Trigger Azure Functions from Rider](/images/2020/01/trigger-azure-functions-from-rider.png)
 
-Azure Functions can be triggered over HTTP, regardless of whether they are using an HTTP trigger or not. For HTTP-triggered functions, there's of course an HTTP endpoint we can call, but the runtime also provides an endpoint for non-HTTP-triggered functions!
+Chatting with some attendees, not a lot of people are aware this is possible. During development, **Azure Functions can be triggered over HTTP, regardless of whether they are using an HTTP trigger or not.** For HTTP-triggered functions, there's of course an HTTP endpoint we can call, but the runtime also provides an endpoint for non-HTTP-triggered functions!
 
 So instead of having to change the schedule expression on a `TimerTrigger` to see our function get invoked during development, we can invoke it over HTTP, on demand.
 
