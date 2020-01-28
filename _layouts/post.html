@@ -49,11 +49,9 @@ layout: default
         {% endif %}
       </header>
       {% endunless %}
-
       <section class="page__content" itemprop="text">
-        {{ content }}
-        {% if page.link %}<div><a href="{{ page.link }}"
-            class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
+       {{ content }}
+        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
         <!-- sl360 ad banner start -->
         <div class="sl360-ad" style="margin:10px 0;">
           <a
@@ -64,7 +62,6 @@ layout: default
         </div>
         <!-- sl360 ad banner end -->
       </section>
-
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
         <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
