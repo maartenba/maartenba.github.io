@@ -6,7 +6,7 @@ a:focus{outline:thin dotted #f89406;outline:5px auto #f89406;outline-offset:-2px
 .ad { text-align: center; margin-bottom: 20px; }
  
 @media (max-width: 800px) {
-  .ad-left { display: none; }
+  .ad-left, .ad-top { display: none; }
 }
 
 div#comments h3#comment-count, div#comments h2 {
