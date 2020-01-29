@@ -10,4 +10,4 @@ message: >-
 
 
 
-  Don't shoehorn a full-blown API into functions. But the small set of API's is probably fine.
+  Don't shoehorn a full-blown API into functions. But a small set of API's is probably fine. In fact, this comment was posted through such small API hosted as a function.
