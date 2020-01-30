@@ -157,6 +157,9 @@ public override ApiFieldType Read(ref Utf8JsonReader reader, Type typeToConvert,
 {
     // Check for null values
     if (reader.TokenType == JsonTokenType.Null) return null;
+    
+    // Copy the current state from reader (it's a struct)
+    var readerAtStart = reader;
 
     // Read the `className` from our JSON document
     using var jsonDocument = JsonDocument.ParseValue(ref reader);
@@ -168,7 +171,7 @@ public override ApiFieldType Read(ref Utf8JsonReader reader, Type typeToConvert,
     if (!string.IsNullOrEmpty(className) && TypeMap.TryGetValue(className, out var targetType))
     {
         // Deserialize it
-        return JsonSerializer.Deserialize(jsonObject.GetRawText(), targetType, options) as ApiFieldType;
+        return JsonSerializer.Deserialize(ref readerAtStart, targetType, options) as ApiFieldType;
     }
     
     throw new NotSupportedException($"{className ?? "<unknown>"} can not be deserialized");
@@ -178,10 +181,12 @@ public override ApiFieldType Read(ref Utf8JsonReader reader, Type typeToConvert,
 As I mentioned, the example in the Microsoft docs is too complex for our scenario. We have type information, and the default JSON (de)serializer can deserialize objects for us. So, instead of manually deserializing every property, we can call into the `JsonSerializer.Deserialize()` method:
 
 ```
-return JsonSerializer.Deserialize(jsonObject.GetRawText(), targetType, options) as ApiFieldType;
+return JsonSerializer.Deserialize(ref readerAtStart, targetType, options) as ApiFieldType;
 ```
 
-That's it, really.
+Now, you may be wondering why I'm using `readerAtStart` instead of `reader`... The `Utf8JsonReader` is consumed at some point: `JsonDocument.ParseValue(ref reader)` will change its inner state.
+
+What's nice is that `Utf8JsonReader` is a struct (allocated on the stack), so assigning it to a new variable essentially copies its state at that point. We will be able to deserialize the entire JSON object from that copy.
 
 ## Testing a custom `JsonConverter`
 
