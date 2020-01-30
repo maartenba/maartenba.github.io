@@ -1,0 +1,11 @@
+id: 0602d866
+date: 2020-01-30T13:48:41.1934566Z
+name: Maarten Balliauw
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >-
+  Actually: yes!
+
+
+
+  `return JsonSerializer.Deserialize(ref readerAtStart, targetType, options) as ApiFieldType;` would be the way to go, updating the blog post with some improvements...
