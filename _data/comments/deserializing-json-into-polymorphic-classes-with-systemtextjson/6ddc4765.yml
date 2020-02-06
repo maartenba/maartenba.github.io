@@ -1,0 +1,11 @@
+id: 6ebd5791
+date: 2020-01-29T15:06:13.0866695Z
+name: Rabo
+avatar: https://secure.gravatar.com/avatar/03fcab60d8eecccfbd548518f3caae19?s=80&r=pg
+message: >+
+  Is there any way to do the inner deserialization without calling GetRawText and allocating a (potentially large) string?
+
+
+
+  return JsonSerializer.Deserialize(jsonObject.GetRawText(), targetType, options) as ApiFieldType;
+

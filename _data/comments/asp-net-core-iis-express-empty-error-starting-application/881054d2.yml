@@ -1,0 +1,5 @@
+id: 888549fc
+date: 2020-01-31T03:32:42.2930538Z
+name: Aaron
+avatar: https://secure.gravatar.com/avatar/9a06cd86a6b199c7418bd4e589809b8e?s=80&r=pg
+message: '@Vincent If you receive 502 error message, you might try to see this article https://windowswebhostingreview.com/asp-net-core-hosting-3-simple-steps-to-fix-502-5-error-in-asp-net-core/. If you read the tutorial above correctly, it should be no problem and your .net core will work fine without any issue'
