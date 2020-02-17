@@ -1,0 +1,15 @@
+id: 5ea6eb27
+date: 2020-02-17T17:31:35.5282499Z
+name: NickE
+avatar: https://secure.gravatar.com/avatar/7750145d5dacf7b67ce3ddbc45ee841d?s=80&r=pg
+url: www.xcellbio.com
+message: >-
+  Hello.  I tried your example, but had to upgrade to AZURE SDK 2.9.  I then get the error: Severity	Code	Description	Project	File	Line	Suppression State
+
+  Error		A numeric comparison was attempted on "$(TempTargetOSFamily)" that evaluates to "" instead of a number, in condition " '$(TempTargetOSFamily)' < '7' Or ( @(WorkerRoleReferences) != '' And '%(WorkerRoleReferences.ProjectName)' == '$(RoleProjectName)' And '$(RoleTargetFrameworkMonikerIsValid)' != 'True')".	EchoCloud	C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VisualStudio\v16.0\Windows Azure Tools\2.9\Microsoft.WindowsAzure.targets	2182	
+
+
+
+
+
+  Any ideas/suggestions?
