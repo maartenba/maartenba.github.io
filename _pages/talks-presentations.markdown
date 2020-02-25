@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-02-24 01:39:12 +0200
+date: 2020-02-25 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,10 +16,9 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* February 2020
-  * [Confoo](https://www.confoo.ca), Montreal, Canada
 * April 2020
   * [Voxxed Days Thessaloniki](https://voxxeddays.com/thessaloniki/), Thessaloniki, Greece
+  * .NET FW Days, Kiev, Ukraine
   * .NET meetups, Netherlands
 * May 2020
   * [NTKonferenca](https://www.ntk.si), Portoroz, Slovenia
@@ -32,6 +31,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2020-2-28 | What is going on - Application diagnostics on Azure | ConFoo 2020 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-techdays-finland) |  | 
+| 2020-2-26 | Indexing and searching NuGet.org with Azure Functions and Search | ConFoo 2020 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2020-2-6 | Indexing and searching NuGet.org with Azure Functions and Search | WAZUG user group | Netherlands - Rotterdam | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2020-2-4 | Become a productive .NET developer with JetBrains Rider | SWETUGG | Sweden - Stockholm |  |  | 
 | 2020-1-16 | Indexing and searching NuGet.org with Azure Functions and Search | IglooConf 2020 | Finland - Helsinki | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
