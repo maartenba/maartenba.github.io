@@ -1,0 +1,23 @@
+id: a069b24c
+date: 2020-03-06T12:40:34.0088071Z
+name: Maarten Balliauw
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >-
+  I'm perfectly fine with using Azure Functions and HTTP triggers to build a simple API underpinning your Vue, React or Angular front-end.
+
+
+
+  However, I've seen projects where people are shoehorning full-blown ASP.NET Core into Azure Functions. If you need those, maybe just using them directly will be better and save headaches in the longer run.
+
+
+
+  Example I've come across recently was a project that had 600 functions in one function app, doing all kinds of middleware things and essentially hosting ASP.NET Core. Hell to maintain, as everything was linked together by REST calls to have one function call another one. All functions seemed to belong together, and seemed a much better fit for a traditional ASP.NET Core app in terms of maintainability.
+
+
+
+  "But microservices! We can scale functions independently!" Great. But each deployment of that 600-function-app would bring all functions down and start all of them again. What's the benefit of using Azure Functions then?
+
+
+
+  In summary: this post is not about NOT using Azure Functions for HTTP API's. It's about not just jumping on them for applications that would be better suited to be built with other technologies. Or as with many things: "it depends, use the right tool for the right job". And if the right tool is Azure Functions, by all means go for it.
