@@ -101,4 +101,8 @@ From the screenshot, the HTTP body and authorization header look a bit more clea
 
 ## We're done!
 
-That's it, really! We can now save our Azure LogicApp and wait for tweets to come in.
+That's it, really! We can now save our Azure LogicApp and wait for tweets to come in... and there they are! [The Tweet announcing this blog post](https://twitter.com/maartenballiauw/status/1236918673018884097) already popped up in our chat.
+
+![Announcing this blog post on Twitter... in Space!](/images/2020/03/blog-post-tweet-in-space.png)
+
+Enjoy!
