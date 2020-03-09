@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-02-25 01:39:12 +0200
+date: 2020-03-09 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,14 +16,11 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* April 2020
-  * [Voxxed Days Thessaloniki](https://voxxeddays.com/thessaloniki/), Thessaloniki, Greece
-  * .NET FW Days, Kiev, Ukraine
-  * .NET meetups, Netherlands
 * May 2020
   * [NTKonferenca](https://www.ntk.si), Portoroz, Slovenia
-  * Above Clouds conference, Zagreb, Croatia
   * Riga Dev Days, Riga, Latvia
+* June 2020
+  * [NDC Oslo](https://www.ndcoslo.com), Oslo, Norway
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
