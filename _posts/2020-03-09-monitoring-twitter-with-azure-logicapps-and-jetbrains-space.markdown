@@ -19,7 +19,7 @@ But not everyone is equally active on Twitter! I don't know [where I fit](https:
 
 From this chat, team members can navigate to the tweet directly and chime in. We can also mention specific team members and ask for their expertise on a given subject, so that the first responder is very often the developer working on a given feature or the person with the broadest knowledge about the subject at hand.
 
-You're probably not here to read about our Twitter habits, though. My guess is it was the title... **Monitoring Twitter with Azure LogicApps and [JetBrains Space](https://www.jetbrains.com/space)** - that's also a big spoiler on the tools we use to make our Twitter workflow happen. So let's cut to chase and see **how to set up an Azure LogicApp that sends messages to Space**.
+You're probably not here to read about our Twitter habits, though. My guess is it was the title... **Monitoring Twitter with Azure LogicApps and [JetBrains Space](https://www.jetbrains.com/space)** - that's also a big spoiler on the tools we use to make our Twitter workflow happen. So let's cut to chase and see **how to set up an Azure LogicApp that sends messages to Space**. This time for the Space team and [@JetBrains_Space](https://twitter.com/jetbrains_space) on Twitter.
 
 ## Prerequisites
 
