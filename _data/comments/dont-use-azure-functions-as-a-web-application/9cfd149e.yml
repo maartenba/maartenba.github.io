@@ -1,0 +1,15 @@
+id: 9dc9e649
+date: 2020-03-26T19:31:34.2970940Z
+name: Maarten Balliauw
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >-
+  @Homer It is what it is. Let me reverse your comment: what would be a compelling reason to use HTTP-triggered functions for a full-blown API surface?
+
+
+
+  The answer to that question could be describing a scenario where the choice for HTTP-triggered functions makes perfect sense to build a full-blown API. And that would mean there was thought put in, and there was a compelling reason. If there's tremendous value, whether on the technological side or the process side, it means you've considered alternatives and weighed options. Go for it, in such case!
+
+
+
+  Open to examples on either side of that spectrum, it could only help those who land here.
