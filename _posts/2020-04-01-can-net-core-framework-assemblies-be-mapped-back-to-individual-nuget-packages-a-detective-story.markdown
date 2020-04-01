@@ -118,6 +118,6 @@ Not really. The file only describes which packages are overridden by the framewo
 
 This is something [reverse package search](https://blog.maartenballiauw.be/post/2019/07/30/indexing-searching-nuget-with-azure-functions-and-search.html) could perhaps help with, but it looks like we'll need to investigate more.
 
-**Conclusion: There does not seem to be a reliable source to correlate the framework's implicit assembly reference with a NuGet package.** If you do know if such a file exists, let me know!
+**Conclusion: There does not seem to be a reliable source to correlate the framework's implicit assembly reference with a NuGet package.** If you do know if such source exists, let me know!
 
 Stay safe!
