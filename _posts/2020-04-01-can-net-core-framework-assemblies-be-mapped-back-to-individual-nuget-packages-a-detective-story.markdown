@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Can .NET Core Framework Assemblies be Mapped back to Individual NuGet Packages - A Detective Story"
+title: "Can .NET Core Framework Assemblies be Mapped back to Individual NuGet Packages? A Detective Story"
 date: 2020-04-01 03:44:05 +0100
 comments: true
 published: true
