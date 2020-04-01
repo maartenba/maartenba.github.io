@@ -120,4 +120,14 @@ This is something [reverse package search](https://blog.maartenballiauw.be/post/
 
 **Conclusion: There does not seem to be a reliable source to correlate the framework's implicit assembly reference with a NuGet package.** If you do know if such source exists, let me know!
 
+## But what if...
+
+This is not a happy ending! At least, not for covering the case where that quick fix fails. But what if...
+
+**...what if an existing feature could be leveraged to power that quick fix' functionality?**
+
+Rider indexes packages that are located in the global NuGet packages folder on your system. So in our example, if the `Microsoft.Extensions.DependencyInjection.Abstractions` package with the correct version would be in our NuGet cache, ReSharper and Rider will index it and make that quick fix work.
+
+The glue, thus, could be to automatically download packages from `PackageOverrides.txt` to disk. Who knows, this might show up in a future version of the IDE's!
+
 Stay safe!
