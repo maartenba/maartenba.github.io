@@ -82,7 +82,7 @@ We can also see frameworks that are referenced in our web project (`Microsoft.As
 
 **Wait... assembly references?**
 
-When ~~Project K~~ ASP.NET Core just came about, the idea would be that a project could reference a tree of NuGet packages. Since then, the .NET folks have reworked this a bit and are now referencing assemblies instead when they are part of an SDK or Framework. These assemblies are part of the SDK you install to your machine anyway, so why not use them instead of downloading them? There are probably other advantages that sparked this rework, but let's not get nerd sniped into figuring that out while in another nerd snipe. This is not the movie [Inception](https://www.imdb.com/title/tt1375666/)!
+When ~~Project K~~ ASP.NET Core just came about, the idea was be that a project could reference a tree of NuGet packages. Since then, the .NET folks have reworked this a bit and are now referencing assemblies instead when they are part of an SDK or Framework. These assemblies are part of the SDK you install to your machine anyway, so why not use them instead of downloading them? There are probably other advantages that sparked this rework, but let's not get nerd sniped into figuring that out while in another nerd snipe. This is not the movie [Inception](https://www.imdb.com/title/tt1375666/)!
 
 **Conclusion: The fact that our ASP.NET Core SDK references a set of assemblies means that the IDE also sees that set of assemblies, and hence, references an assembly when invoking that quick fix!**
 
