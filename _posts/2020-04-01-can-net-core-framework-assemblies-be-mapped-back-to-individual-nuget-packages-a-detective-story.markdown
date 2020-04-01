@@ -70,7 +70,7 @@ In Rider (well, the [2020.1 EAP](https://www.jetbrains.com/rider/eap/)), we can 
 Following the SDK reference, we can see that the `Microsoft.NET.Sdk.Web` SDK itself references four other SDKs:
 
 * `Microsoft.NET.Sdk` - General .NET Core things
-* `Microsoft.NET.Sdk.Razor` - Razor, which always nice in a web project
+* `Microsoft.NET.Sdk.Razor` - Razor, which is always nice to have in a web project
 * `Microsoft.NET.Sdk.Web.ProjectSystem` - The project system that makes development with ASP.NET Core work properly
 * `Microsoft.NET.Sdk.Publish` - Publishing targets that MSBuild can use when publishing the web project
 
