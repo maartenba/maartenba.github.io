@@ -92,7 +92,7 @@ A good nerd snipe goes beyond! If we're investigating the *why*, let's maybe als
 
 We ended the last section with the conclusion that .NET Core's SDK/project system uses assembly references. Circling back to `IServiceCollection`, that type lives in the `Microsoft.Extensions.DependencyInjection.Abstractions.dll` assembly that is implicitly referenced. But also in the `Microsoft.Extensions.DependencyInjection.Abstractions` package on NuGet!
 
-Why are there all these packages smaller NuGet packages out there that seem to duplicate the framework assemblies?
+Why are there all these smaller NuGet packages out there that seem to duplicate the framework assemblies?
 
 Your favorite libraries may be using some of those, and it's probably better for them to reference just the packages they require instead of everything else out there. If my open source library just needs `IServiceCollection`, I would not want to reference "all of ASP.NET Core", just that `Microsoft.Extensions.DependencyInjection.Abstractions` package.
 
@@ -114,7 +114,7 @@ Microsoft.Extensions.DependencyInjection|3.1.0
 
 Cool! That's it, right? Can't the tooling use this to know which package to reference in that quick fix?
 
-Not really. The file only describes which packages are overridden by the framework/SDK, but not which assemblies are containedi n which package. In other words: the quick fix still has no correlation between the type (for which we know the assembly), and the package.
+Not really. The file only describes which packages are overridden by the framework/SDK, but not which assemblies are contained in which package. In other words: the quick fix still has no correlation between the type (for which we know the assembly), and the package.
 
 This is something [reverse package search](https://blog.maartenballiauw.be/post/2019/07/30/indexing-searching-nuget-with-azure-functions-and-search.html) could perhaps help with, but it looks like we'll need to investigate more.
 
