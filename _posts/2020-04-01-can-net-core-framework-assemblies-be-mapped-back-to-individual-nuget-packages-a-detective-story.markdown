@@ -9,9 +9,9 @@ tags: ["General", "ICT", ".NET", "Tooling"]
 author: Maarten Balliauw
 ---
 
-My friend and colleague [Matt Ellis](https://twitter.com/citizenmatt/) has this habit of [nerd sniping](https://xkcd.com/356/) me. Today, he asked whether we could have a quick look at an issue together.
+My friend and colleague [Matt Ellis](https://twitter.com/citizenmatt/) has this habit of [nerd sniping](https://xkcd.com/356/) me. Sometimes intentional, sometimes accidental. Today, he asked whether we could have a quick look at an issue together, which ended up being a nerd snipe of the latter category.
 
-As a result of today's nerd snipe, here's a blog post about how the new .NET project format references framework assemblies, and how it seems to be impossible to map those back to individual NuGet packages. Buckle up, sit back, and follow along!
+Here's a blog post about how the new .NET project format references framework assemblies, and how it seems to be impossible to map those back to individual NuGet packages. Buckle up, sit back, and follow along!
 
 ## Developer Tools and Automatically Referencing Known NuGet Packages
 
