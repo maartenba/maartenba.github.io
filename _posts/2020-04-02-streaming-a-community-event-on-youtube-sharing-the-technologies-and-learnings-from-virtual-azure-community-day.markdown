@@ -56,12 +56,14 @@ Now what?
 
 The second attempt involved setting up a virtual machine in [Azure](https://www.azure.com/), installing OBS Studio, and then capturing a browser window in which a Google Meet would be used to loop in speakers & their screen share.
 
-In OBS Studio, I set up a scene (more on all of this later) hat captured the browser's video and audio, and tried streaming it to YouTube. Let's say it worked, but it was not ideal:
+In OBS Studio, I set up a scene (more on all of this later) that captured the browser's video and audio, and tried streaming it to YouTube. Let's say it worked, but it was not ideal:
 
 * Audio seemed to have varied quality over time. Sometimes it would be good, sometimes it would be like a very old landline phone.
 * Stream quality was only 720p (1280x720 pixels) because that's what Google Meet does, and due to the slightly lossy encoding of both Google Meet and OBS Studio, code on screen would not be readable.
 
-The above, combined with the fact that this was on a 6 CPU/56 GB RAM/NVidia GPU coming in at +1000 EUR per month which still ran at 90% of its capacity, this seemed not the avenue to pursue. Now what?
+The above, combined with the fact that this was on a 6 CPU/56 GB RAM/NVidia GPU coming in at +1000 EUR per month which still ran at 90% of its capacity, this seemed not the avenue to pursue.
+
+Now what?
 
 ### Attempt 3: A bigger VM!
 
@@ -81,9 +83,9 @@ After getting some input from the various other user groups and organizers invol
 
 Testing that setup, it seemed Henk was on to something. And in the end, it's roughly what all the 4 VACD tracks used to stream this event out.
 
-## Before the event: Setting up OBS Studio, Skype, and an Azure Virtual Machine
+## Before the event: Setting up OBS Studio, Skype and an Azure Virtual Machine
 
-After our exploration, thanks to Henk, we landed on a [feasible setup for streaming a community event with OBS Studio, Skype, and an Azure Virtual Machine](https://www.henkboelman.com/articles/online-meetups-with-obs-and-skype/).
+After our exploration, thanks to Henk, we landed on a [feasible setup for streaming a community event with OBS Studio, Skype and an Azure Virtual Machine](https://www.henkboelman.com/articles/online-meetups-with-obs-and-skype/).
 
 I'll do a TL;DR of the setup, more details in the blog post that I already linked a number of times.
 
