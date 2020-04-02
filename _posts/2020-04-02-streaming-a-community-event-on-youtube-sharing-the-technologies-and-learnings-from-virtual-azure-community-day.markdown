@@ -123,7 +123,7 @@ Accounts needed:
 
 Hosts and speakers will need to install Skype (on Windows, make sure to use Skype for Windows, and not the Windows Store app!)
 
-> *Note: We first created pooled Skype accounts on new Microsoft Accounts. Unfortunately those seem to get blocked quickly after a couple of sign-ins from different locations, which we obviously encountered. If you plan on using this setup, create the accounts a couple of days before your event, as they might get locked after 24 hours. Unlocking is possible, but there may be lockout periods of 24h involved, so you will want to account for that!*
+> *Note: We first created pooled Skype accounts on new Microsoft Accounts. Unfortunately those seem to get blocked quickly after a couple of sign-ins from different locations, which we obviously encountered. If you plan on using this setup, create the accounts a couple of days before your event, as they might get locked after 24 hours. Unlocking is possible, but there may be lockout periods of 24h involved, so you'll want to account for that!*
 
 ### Connecting to your Azure VM
 
@@ -133,7 +133,7 @@ First: remote audio. Since the Skype instance in our VM will need some form of a
 
 ![Remote desktop connection audio settings](/images/2020/04/rdp-remote-audio.png)
 
-This is merely a workaround to have a virtual audio driver loaded on the VM. We now also created an annoying situation, where we could inflict an audio feedback loop between the Skype that will run on our machine & the one running remotely! To fix that, on you local machine, mute the VM's audio.
+This is merely a workaround to have a virtual audio driver loaded on the VM. We now also created an annoying situation, where we could inflict an audio feedback loop between the Skype that will run on our machine & the one running remotely! To fix that, on your local machine, mute the VM's audio.
 
 ![Mute the VM's RDP audio - avoid audio feedback](/images/2020/04/rdp-ensure-no-audio-feedback.png)
 
@@ -147,7 +147,7 @@ For our stream, we decided to create 4 scenes in OBS Studio:
 
 * a logo image with no audio to display at the start of the event;
 * an intro where we would have two host webcams + speaker webcam + audio for all;
-* a session where with speaker webcam and screen share + audio;
+* a session with speaker webcam and screen share + audio;
 * another logo to show in between sessions.
 
 Henk has gone out of his way to create a couple of backgrounds that we would use in the stream. On those backgrounds, he created some spots where the speaker webcam, host webcam, screen share, etc. would become visible. To give you an idea:
@@ -214,7 +214,7 @@ In theory, we are now all set to start the virtual event. Click "start streaming
 
 If you want to go live on multiple channels at once, check a service like [Restream](https://restream.io/). This lets you add Twitch/Facebook/Twitter/... as secondary targets of your stream.
 
-> *Tip: I **highly recommend doing a few test streams**. You can create these on YouTube and make them unlisted or private. Test streams will hep build confidence and smooth out kinks. Don't use the "real" event that is already scheduled, create new test events and use their stream keys.*
+> *Tip: I **highly recommend doing a few test streams**. You can create these on YouTube and make them unlisted or private. Test streams will help build confidence and smooth out kinks. Don't use the "real" event that is already scheduled, create new test events and use their stream keys.*
 >
 > *I want to thank my colleagues to help me test this setup with very interesting streams discussing taco's vs. burrito's, a session on how Gatsby is both amazing and awful, a rant on random things, and more. Those videos have all been deleted, but they very much helped build experience. Thanks, all!*
 
@@ -226,7 +226,7 @@ D-Day for [Virtual Azure Community Day](https://azureday.community/) was March 3
 
 Make sure the audience knows where to go! Tweet the event's video URL, e-mail it, promote, promote, promote!
 
-Inform hosts and speakers on how the can connect into the Skype meeting that we will broadcast. We did this one day before the event. Since we pulled this off in less than 14 days, so one day before the event is not that bad I guess...
+Inform hosts and speakers on how the can connect into the Skype meeting that we will broadcast. We did this one day before the event. Since we pulled this off in less than 14 days, so one day before the event is not that bad, I guess...
 
 We informed hosts and speakers by sending meeting invites for their session slot. Here's the template of what our invite looked like:
 
@@ -282,7 +282,7 @@ All of that succeeded, so we discussed who would be introducing which speaker. O
 2. Set OBS Studio in Studio Mode.
 3. Start streaming in OBS Studio.
 4. Dial in the hosts and first speaker.
-5. 5 minutes before the event, click **GO LIVE** in YouTube. The stream is now up, and switching a scene in OBS Studio will be visible (but that's what we're after, right!)
+5. Five minutes before the event, click **GO LIVE** in YouTube. The stream is now up, and switching a scene in OBS Studio will be visible (but that's what we're after, right!)
 
 ### Event Start and During the Event
 
@@ -385,7 +385,7 @@ Luckily, there is a setting in OBS Studio where we can fix this one on the fly: 
 
 We've done this twice throughout the day, and managed to make this work for most speakers.
 
-> *Tip: Speaking of bounding boxes, [read this Skype FAQ](https://support.skype.com/en/faq/FA34853/what-is-skype-for-content-creators) to make sure Skype webcam video streams are sized correctly!. *
+> *Tip: Speaking of bounding boxes, [read this Skype FAQ](https://support.skype.com/en/faq/FA34853/what-is-skype-for-content-creators) to make sure Skype webcam video streams are sized correctly! *
 
 ### Do I Need that Azure VM or can I Stream from my Laptop/Desktop?
 
@@ -429,7 +429,7 @@ The protocol that powers all live streaming platforms out there is the [Real-Tim
 Some solutions out there:
 
 * [Zoom](https://zoom.us/), in its paid plans, lets you publish a meeting to an RTMP stream. This might be an easy solution to stream a virtual event or meetup. There are many rumours out there around Zoom privacy & security issues, so *use your own judgement*.
-* [Jitsi Meet](https://meet.jit.si/), based on the open source [Jitsi.org](https://meet.jit.si/) has an RTMP sink as well, from a Teams/Google Meet/...-like interface. Looks like an interesting alternative to Zoom.
+* [Jitsi Meet](https://meet.jit.si/), based on the open source [Jitsi.org](https://meet.jit.si/), Jitsi Meet has an RTMP sink as well, from a Teams/Google Meet/...-like interface. Looks like an interesting alternative to Zoom.
 * [StreamYard (affiliate link)](https://streamyard.com?pal=5957151634227200) / [StreamYard (plain link)](https://streamyard.com/) seems similar to what Google Hangouts on Air once was. Join a meeting with up to 10 people, have a virtual camera person, and stream to an RTMP service. Free (with their logo overlay) or at US $20 per month if you don't want their logo displayed, it's also less expensive than the Azure VM we have been using here - provided you run at least one event per month. One downside seems to be it's a 720p stream (1280x720 pixels), which for screen sharing seems a bit less ideal. But that might not be an issue for you, so go try it out.
 
 Google Meet, as well as Microsoft Teams, have their own streaming services as well. I have tried Google Meet, and that one needs authentication in your organization for those who want to view. Teams has something similar, with similar constraints.
