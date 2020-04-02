@@ -13,7 +13,7 @@ Earlier this week, [our Belgian Azure User Group](https://www.azug.be/) has been
 
 Many have asked how we have done the YouTube streaming, and that's what I want to share in this blog post, together with our learnings and things we would do different for future events.
 
-Before I start, a **big thank you goes to [Henk Boelman](https://www.henkboelman.com/)**, who has done most (if not all) of the initial technical investigations and [shared those on his blog](https://www.henkboelman.com/articles/online-meetups-with-obs-and-skype/). In fact, part of this blog post will be a rehash of parts of his blog post, so [do check it out](https://www.henkboelman.com/articles/online-meetups-with-obs-and-skype/). Also, thank you Nick Trogh & many others in making this event reality on such short notice.
+Before I start, a **big thank you goes to [Henk Boelman](https://www.henkboelman.com/)**, who has done most (if not all) of the initial technical investigations and [shared those on his blog](https://www.henkboelman.com/articles/online-meetups-with-obs-and-skype/). In fact, part of this blog post will be a rehash of parts of his blog post, so [do check it out](https://www.henkboelman.com/articles/online-meetups-with-obs-and-skype/). Also, thank you Nick Trogh, Floor Drees, Sjoukje Zaal, Suzanne Daniels & many others in making this event reality on such short notice.
 
 {% include toc %}
 
