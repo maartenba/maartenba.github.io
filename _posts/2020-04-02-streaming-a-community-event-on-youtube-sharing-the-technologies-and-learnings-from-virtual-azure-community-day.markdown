@@ -83,9 +83,9 @@ After getting some input from the various other user groups and organizers invol
 
 Testing that setup, it seemed Henk was on to something. And in the end, it's roughly what all the 4 VACD tracks used to stream this event out.
 
-## Before the event: Setting up OBS Studio, Skype and an Azure Virtual Machine
+## Before the event: Setting up OBS Studio, Skype, and an Azure Virtual Machine
 
-After our exploration, thanks to Henk, we landed on a [feasible setup for streaming a community event with OBS Studio, Skype and an Azure Virtual Machine](https://www.henkboelman.com/articles/online-meetups-with-obs-and-skype/).
+After our exploration, thanks to Henk, we landed on a [feasible setup for streaming a community event with OBS Studio, Skype, and an Azure Virtual Machine](https://www.henkboelman.com/articles/online-meetups-with-obs-and-skype/).
 
 I'll do a TL;DR of the setup, more details in the blog post that I already linked a number of times.
 
@@ -385,7 +385,7 @@ Luckily, there is a setting in OBS Studio where we can fix this one on the fly: 
 
 We've done this twice throughout the day, and managed to make this work for most speakers.
 
-> *Tip: Speaking of bounding boxes, [read this Skype FAQ](https://support.skype.com/en/faq/FA34853/what-is-skype-for-content-creators) to make sure Skype webcam video streams are sized correctly! *
+> *Tip: Speaking of bounding boxes, [read this Skype FAQ](https://support.skype.com/en/faq/FA34853/what-is-skype-for-content-creators) to make sure Skype webcam video streams are sized correctly!*
 
 ### Do I Need that Azure VM or can I Stream from my Laptop/Desktop?
 
@@ -429,7 +429,7 @@ The protocol that powers all live streaming platforms out there is the [Real-Tim
 Some solutions out there:
 
 * [Zoom](https://zoom.us/), in its paid plans, lets you publish a meeting to an RTMP stream. This might be an easy solution to stream a virtual event or meetup. There are many rumours out there around Zoom privacy & security issues, so *use your own judgement*.
-* [Jitsi Meet](https://meet.jit.si/), based on the open source [Jitsi.org](https://meet.jit.si/), Jitsi Meet has an RTMP sink as well, from a Teams/Google Meet/...-like interface. Looks like an interesting alternative to Zoom.
+* [Jitsi Meet](https://meet.jit.si/), based on the open source [Jitsi.org](https://meet.jit.si/) has an RTMP sink as well, from a Teams/Google Meet/...-like interface. Looks like an interesting alternative to Zoom.
 * [StreamYard (affiliate link)](https://streamyard.com?pal=5957151634227200) / [StreamYard (plain link)](https://streamyard.com/) seems similar to what Google Hangouts on Air once was. Join a meeting with up to 10 people, have a virtual camera person, and stream to an RTMP service. Free (with their logo overlay) or at US $20 per month if you don't want their logo displayed, it's also less expensive than the Azure VM we have been using here - provided you run at least one event per month. One downside seems to be it's a 720p stream (1280x720 pixels), which for screen sharing seems a bit less ideal. But that might not be an issue for you, so go try it out.
 
 Google Meet, as well as Microsoft Teams, have their own streaming services as well. I have tried Google Meet, and that one needs authentication in your organization for those who want to view. Teams has something similar, with similar constraints.
