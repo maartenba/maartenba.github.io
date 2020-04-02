@@ -40,7 +40,7 @@ How would you go about meeting these requirements? Let's look at our attempts!
 
 When I started asking around, many folks who are streaming to Twitch, YouTube and the likes mentioned "[OBS Studio](https://obsproject.com/) is the answer", however not many seemed to be able to come up with a good way of satisfying the above list of requirements.
 
-Following the advice of the many, I experimented with [OBS Studio](https://obsproject.com/), [StreamLabs OBS](https://streamlabs.com/), and [XSplit Broadcaster](https://www.xsplit.com/). And in all fairness: I was able to stream my own screen and webcam out to YouTube without too much effort! There are god getting started guides out there for all of these.
+Following the advice of the many, I experimented with [OBS Studio](https://obsproject.com/), [StreamLabs OBS](https://streamlabs.com/), and [XSplit Broadcaster](https://www.xsplit.com/). And in all fairness: I was able to stream my own screen and webcam out to YouTube without too much effort! There are good getting started guides out there for all of these.
 
 Unfortunately, things started to break down quickly... My laptop runs a native 4k resolution (3840x2160 pixels) that have to be downscaled to Full HD (1920x1080 pixels). And my webcam does the same! That's great because in its native resolution you can count my beard hairs, but not so great because my laptop would have to downscale those two inputs, then mix in the audio, and then push it out to YouTube.
 
