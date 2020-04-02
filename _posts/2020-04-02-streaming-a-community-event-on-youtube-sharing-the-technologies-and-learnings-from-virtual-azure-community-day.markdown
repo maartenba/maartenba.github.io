@@ -97,8 +97,7 @@ We would use an Azure VM ([Azure Standard_NV12 series](https://docs.microsoft.co
 
 * Windows 10 ([install GPU drivers on the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/hpccompute-gpu-windows))
 * OBS Studio ([download](https://obsproject.com/download))
-* Skype ([download](https://www.skype.com/en/get-skype/)) with [NDI](https://www.ndi.tv/) enabled\
-  (Settings \| Calling \| Advanced \| Allow NDI usage)
+* Skype ([download](https://www.skype.com/en/get-skype/)) with [NDI](https://www.ndi.tv/) enabled (Settings \| Calling \| Advanced \| Allow NDI usage)
 * The NDI runtime ([download](http://new.tk/NDIRedistV4))
 * NDI support for OBS Studio ([download](https://github.com/Palakis/obs-ndi/releases))
 
