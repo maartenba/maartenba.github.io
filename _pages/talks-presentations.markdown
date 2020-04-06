@@ -25,7 +25,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
-| 2020-4-18 | Indexing and searching NuGet.org with Azure Functions and Search | .NET fwdays'20 online conference | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) | 
+| 2020-4-18 | Indexing and searching NuGet.org with Azure Functions and Search | .NET fwdays'20 online conference | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/J3xf2KjMyCE) | 
 | 2020-2-28 | What is going on - Application diagnostics on Azure | ConFoo 2020 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-techdays-finland) |  | 
 | 2020-2-26 | Indexing and searching NuGet.org with Azure Functions and Search | ConFoo 2020 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
 | 2020-2-6 | Indexing and searching NuGet.org with Azure Functions and Search | WAZUG user group | Netherlands - Rotterdam | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
