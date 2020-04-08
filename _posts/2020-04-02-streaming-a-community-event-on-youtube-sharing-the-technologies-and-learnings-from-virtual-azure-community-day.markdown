@@ -366,6 +366,8 @@ We were streaming in 16:9, which means ideally speakers would be using any of th
 * 2560x1600
 * 3840x2160
 * 1280x720 (not recommended because lower than the outgoing stream - quality is nice to have!)
+* 1366x768
+* 1600x900
 
 And then, **a speaker with a 16:10 desktop resolution joins**!
 
