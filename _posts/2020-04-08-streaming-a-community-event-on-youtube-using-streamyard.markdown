@@ -94,7 +94,7 @@ A lot of the conclusions from [that previous post](/post/2020/04/02/streaming-a-
 
 In no particular order...
 
-**StreamYard is super easy to use!** Have speakers join with their browser, and go live.
+**StreamYard is super easy to use!** Have speakers join with their browser, and go live. No need for a beefy cloud machine to run OBS Studio, just open your browser & be done.
 
 **Scene customization is a bit limited compared to OBS Studio**, but I personally don't think this is a big issue. Unless every streamer uses StreamYard & the same scenes, it all looks interesting enough if you add a custom background & brand color.
 
