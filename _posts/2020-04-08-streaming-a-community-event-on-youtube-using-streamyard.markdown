@@ -79,7 +79,6 @@ Between the two sessions, we had a break. We put up a still slide, and removed e
 
 For future live streams, we may keep talking during the session switch and not make it a real "break". Yes, attendees may want a quick break, but those who stay around have a still image for a while.
 
-
 ### Questions and Comments
 
 One thing StreamYard does really well, is aggregating questions & comments. We were streaming on YouTube and Facebook, and their UI showed questions, comments, and remarks from all channels. We could even show them on screen, to engage both audience & speaker!
@@ -95,6 +94,8 @@ A lot of the conclusions from [that previous post](/post/2020/04/02/streaming-a-
 In no particular order...
 
 **StreamYard is super easy to use!** Have speakers join with their browser, and go live. No need for a beefy cloud machine to run OBS Studio, just open your browser & be done.
+
+**Go live and stream delays are something to be aware of.** There is a ~10 second delay between speaking and your voice being heard on YouTube. If you ask people and expect a response in chat, be wary of this delay (and a potential typing delay). There is also a lag between starting the stream in StreamYard, and when it is actually live on YouTube. This can catch you out if you start speaking too soon after going live in StreamYard. Wait 5 seconds after going live before you start speaking, and be aware that stopping the stream also has a bit of a delay. Don't go swearing immediately after ending the stream, there is a chance it will still be live.
 
 **Scene customization is a bit limited compared to OBS Studio**, but I personally don't think this is a big issue. Unless every streamer uses StreamYard & the same scenes, it all looks interesting enough if you add a custom background & brand color.
 
