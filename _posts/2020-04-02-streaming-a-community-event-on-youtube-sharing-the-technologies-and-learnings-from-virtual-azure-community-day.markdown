@@ -434,6 +434,8 @@ Some solutions out there:
 * [Jitsi Meet](https://meet.jit.si/), based on the open source [Jitsi.org](https://meet.jit.si/), has an RTMP sink as well, from a Teams/Google Meet/...-like interface. Looks like an interesting alternative to Zoom.
 * [StreamYard (affiliate link)](https://streamyard.com?pal=5957151634227200) / [StreamYard (plain link)](https://streamyard.com/) seems similar to what Google Hangouts on Air once was. Join a meeting with up to 10 people, have a virtual camera person, and stream to an RTMP service. Free (with their logo overlay) or at US $20 per month if you don't want their logo displayed, it's also less expensive than the Azure VM we have been using here - provided you run at least one event per month. One downside seems to be it's a 720p stream (1280x720 pixels), which for screen sharing seems a bit less ideal. But that might not be an issue for you, so go try it out.
 
+**Edit - 2020-04-08:** We've now also [played with StreamYard, read more about it here](/post/2020/04/08/streaming-a-community-event-on-youtube-using-streamyard.html).
+
 Google Meet, as well as Microsoft Teams, have their own streaming services as well. I have tried Google Meet, and that one needs authentication in your organization for those who want to view. Teams has something similar, with similar constraints.
 
 If you want to code a new service, explore the world of WebRTC (the technology backing most browser-based online meeting systems). Create your own virtual meeting space, host a headless browser that uses FFMpeg to push RTMP streams, and write a huge blog post about those adventures!
