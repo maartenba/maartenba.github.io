@@ -33,8 +33,8 @@ At its core, that `HttpRequestMessage` is not different from handling a `BlobUpd
 
 **Functions should do one thing** (or realistically, as few things as possible).
 
-Will I yell at you when you use Azure Functions and HTTP triggers to build a simple API? Absolutely not. It's perfectly fine to handle a couple of events that may originate from your Vue, React or Angular front-end.
+Using Azure Functions and HTTP triggers to build a simple API? Go for it! It's perfectly fine to handle a couple of events that may originate from your Vue, React or Angular front-end.
 
-Will I yell at you if you try to shoehorn proper ASP.NET Core into Azure Functions? Yes. If you need the full ASP.NET Core stack for the job, why not use it? If you need only parts, put API management, CloudFlare or nginx in front of your HTTP-triggered function.
+Shoehorning a full ASP.NET Core into Azure Functions? Well, if you need the full ASP.NET Core stack for the job, why not use it? If you need only parts, put API management, CloudFlare or nginx in front of your HTTP-triggered function.
 
 HTTP is just another type of message that triggers your function logic.
