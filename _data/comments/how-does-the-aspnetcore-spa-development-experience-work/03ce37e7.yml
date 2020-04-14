@@ -1,0 +1,5 @@
+id: 045cf1df
+date: 2020-04-10T23:24:03.5357194Z
+name: ' Mahabubul Hasan'
+avatar: https://secure.gravatar.com/avatar/e33f6e02e09c1673dcfeeac86d9b23a8?s=80&r=pg
+message: Very nicely explained. I still have one question though when in development mode where it places the generated /static/bundle.js file? After publishing i can see it right in the build directory but during "run without debug" it's nothing in there inside the clientApp, yet it works? can you please shed some light on this? Thanks.
