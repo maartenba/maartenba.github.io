@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building an ASP.NET Core Tag Helper to Show/Hide UI Elements based on Authorization"
-date: 2020-04-XX 03:44:05 +0100
+date: 2020-04-14 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
