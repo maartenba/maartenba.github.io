@@ -1,0 +1,6 @@
+id: dfc2946a
+date: 2020-04-14T05:48:09.1353298Z
+name: Maarten Balliauw
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: During development, the `npm start` command is proxied, which is the "development server" of the client application. As far as I know, it serves things from memory (and not from disk).
