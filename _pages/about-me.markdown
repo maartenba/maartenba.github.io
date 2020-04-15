@@ -12,18 +12,18 @@ redirect_from:
 ## TL;DR
 
 <a href="/images/avatars/maarten-2018-400x400.jpg"><img width="200" height="200" title="maarten-400x400" align="right" style="border: 0px currentColor; border-image: none; padding-top: 0px; padding-right: 0px; padding-left: 0px; float: right; display: inline; background-image: none;" alt="maarten-400x400" src="/images/avatars/maarten-2018-800x800.jpg" border="0"></a>
- 
-* **Name:** Maarten Balliauw  
+
+* **Name:** Maarten Balliauw
 * **Age:** `DateTime.UtcNow.Year - 1983`
-* **Gender:** male  
+* **Gender:** male
 * **Occupation:**
 	* Frequent [speaker at various events](/talks-presentations.html) worldwide
-	* Developer Advocate at [JetBrains](https://www.jetbrains.com)
-	* Former founder and owner of [MyGet](https://www.myget.org)
-	* Developer, mentor, ... on your team, [contact me](mailto:maarten@maartenballiauw.be) or [find out more](/hire-me.html)
-* **Location:** [Antwerp](https://en.wikipedia.org/wiki/Antwerp), [Belgium](https://en.wikipedia.org/wiki/Belgium)
+	* Developer Advocate at [JetBrains](https://www.jetbrains.com/)
+	* Founder and owner of [SpeakerTravel](https://www.speaker.travel/)
+	* Former founder and owner of [MyGet](https://www.myget.org/)
+* **Location:** [Antwerp](https://en.wikipedia.org/wiki/Antwerp/), [Belgium](https://en.wikipedia.org/wiki/Belgium)
 * **Favourite beer:** [Westmalle Tripel](https://www.trappistwestmalle.be/en/page/tripel.aspx), [Rochefort 10](https://en.wikipedia.org/wiki/Brasserie_de_Rochefort), [La Chouffe (Achouffe)](https://en.wikipedia.org/wiki/Brasserie_d%27Achouffe)
-* **Quote:** "A developer is a machine that converts coffee into code" 
+* **Quote:** "A developer is a machine that converts coffee into code"
 
 ## Contact details
 
