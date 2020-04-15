@@ -55,6 +55,11 @@
 {% endif %}
 
 {% assign page_large_image = page.header.og_image | default: page.header.overlay_image | default: page.header.image %}
+
+{% assign expectedCardFile = page.path | replace: "_posts", "images/cards" | prepend: '/' | append: '.png' %}
+{% assign actualCardFile = site.static_files | where: "path", expectedCardFile | first %}
+{% if actualCardFile %}{% assign page_large_image = expectedCardFile %}{% endif %}
+
 {% unless page_large_image contains '://' %}
 {% assign page_large_image = page_large_image | absolute_url %}
 {% endunless %}
