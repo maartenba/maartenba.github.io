@@ -19,7 +19,7 @@ teaser                   : # filename of teaser fallback teaser image placed in 
 words_per_minute         : 200
 comments:
   provider               : "custom" # false (default), "disqus", "discourse", "facebook", "google-plus", custom"
-  receiver               : "https://maartenballiauw-blog.azurewebsites.net/api/PostComment" # "http://localhost:7071/api/PostComment"
+  receiver               : "https://maartenballiauwblog.azurewebsites.net/api/PostComment" # "http://localhost:7071/api/PostComment"
   disqus:
     shortname            : # "maartenballiauwblog"
   discourse:
