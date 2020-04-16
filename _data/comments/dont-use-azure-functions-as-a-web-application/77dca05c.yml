@@ -1,0 +1,7 @@
+id: 7886cb3c
+date: 2020-04-16T05:04:29.6978664Z
+name: The Algorist
+email: 
+avatar: https://secure.gravatar.com/avatar/184300bbd1164ecaf90a4bed78b2ad0c?s=80&r=pg
+url: 
+message: "What I am reading is this: \"Don't create a monolithic azure function group that does everything.\" I would hope that no one is doing that, but I know people are doing that because I've seen it. I'm not certain that I see a compelling reason, in this article, as to why you shouldn't do that except it is against best practices. It may sound dirty, but I almost feel like it is reasonable to say that moving an api from a ASP.Net core web api to an azure function is a step in the right direction because it allows you to run your code in a serverless environment. \r\n\r\nThanks for the article."
