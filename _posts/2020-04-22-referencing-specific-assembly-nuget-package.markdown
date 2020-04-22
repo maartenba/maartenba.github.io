@@ -54,7 +54,7 @@ There's an interesting section in the [NuGet documentation on `PackageReference`
 >
 > To bridge that gap, NuGet introduced a property that points to the location from which the package will be consumed.
 
-In other words, if we add the `GeneratePathProperty="true"` attribute to the `PackageReference` element in our ``.csproj` file, we can then access the path to that package reference using a `$(PkgPackage_Id)` variable (where `Package_Id` is the package id, where dots are replaced with underscores).
+In other words, if we add the `GeneratePathProperty="true"` attribute to the `PackageReference` element in our `.csproj` file, we can then access the path to that package reference using a `$(PkgPackage_Id)` variable (where `Package_Id` is the package id, where dots are replaced with underscores).
 
 Additionally, we can tweak what has to happen with our pakage on restore. We can [control the asset behaviour](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#controlling-dependency-assets), and essentially tell NuGet to restore the package, but not reference it at all. Adding these attributes to our `PackageReference` element will do just that: ensure the package is downloaded, and not referenced:
 
