@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-04-18 01:39:12 +0200
+date: 2020-04-29 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -25,6 +25,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2020-4-28 | Microservices for building an IDE - The innards of JetBrains Rider | VISUG, .NET Amsterdam, Dutch .NET | Online | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) | [view](https://youtu.be/Vsnx9rVHUe4) | 
 | 2020-4-18 | Indexing and searching NuGet.org with Azure Functions and Search | .NET fwdays'20 online conference | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) | 
 | 2020-2-28 | What is going on - Application diagnostics on Azure | ConFoo 2020 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-techdays-finland) |  | 
 | 2020-2-26 | Indexing and searching NuGet.org with Azure Functions and Search | ConFoo 2020 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/cloudburst-2019-indexing-and-searching-nugetorg-with-azure-functions-and-search) |  | 
