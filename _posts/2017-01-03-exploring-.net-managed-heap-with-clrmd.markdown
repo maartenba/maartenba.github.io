@@ -13,6 +13,12 @@ Since my posts on [making code allocate less memory](/post/2016/10/19/making-net
 
 So what is ClrMD? ClrMD is the short name for the [Microsoft.Diagnostics.Runtime](http://www.nuget.org/packages/Microsoft.Diagnostics.Runtime) package which lets us inspect a crash dump or attach to a live process and perform all sorts of queries against the runtime. For example walking the heap (which we'll do later), inspecting the finalizer queue, and more.
 
+In this series:
+
+* [Making .NET code less allocatey - Allocations and the Garbage Collector](https://blog.maartenballiauw.be/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html)
+* [Exploring .NET managed heap with ClrMD](https://blog.maartenballiauw.be/post/2017/01/03/exploring-.net-managed-heap-with-clrmd.html)
+* [Exploring memory allocation and strings](https://blog.maartenballiauw.be/post/2016/11/15/exploring-memory-allocation-and-strings.html)
+
 ## Getting started
 
 To get started with ClrMD, create a new Console Application and [`Install-Package Microsoft.Diagnostics.Runtime`](http://www.nuget.org/packages/Microsoft.Diagnostics.Runtime). Once we have that, we can start making use of ClrMD's `DataTarget` class to work with either a dump file or by attaching to a running process.
