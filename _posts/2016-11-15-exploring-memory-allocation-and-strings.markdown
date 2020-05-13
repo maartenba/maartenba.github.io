@@ -13,6 +13,12 @@ A while back, I wrote about [making code allocate less memory](https://blog.maar
 
 Strings are objects like any other object and follow the same rules. In this post, we will look at how they behave in terms of memory allocation. Let's see what that means.
 
+In this series:
+
+* [Making .NET code less allocatey - Allocations and the Garbage Collector](https://blog.maartenballiauw.be/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html)
+* [Exploring .NET managed heap with ClrMD](https://blog.maartenballiauw.be/post/2017/01/03/exploring-.net-managed-heap-with-clrmd.html)
+* [Exploring memory allocation and strings](https://blog.maartenballiauw.be/post/2016/11/15/exploring-memory-allocation-and-strings.html)
+
 ## Strings are objects
 
 When writing code in C#, sometimes it almost looks as if a string is a value type. They look immutable: re-assigning a string just replaces the value we are working with. We write code with `string`, we can compare strings using `==` knowing it compares the value of the string and not the reference, ... But don't be fooled! There's quite some magic happening to make strings easy to work with, but they are in fact objects.
