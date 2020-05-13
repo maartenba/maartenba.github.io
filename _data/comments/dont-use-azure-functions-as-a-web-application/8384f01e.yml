@@ -1,0 +1,12 @@
+id: 843dd54b
+date: 2020-05-13T09:12:35.2980205Z
+name: Maarten Balliauw
+email: 
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >-
+  It all depends. Generally speaking, functions are perfect for event-driven work. Such event can be a blob being created, a message on a queue, a timer that fires, and yes, even an incoming HTTP request.
+
+
+
+  If you need the full-blown ASP.NET Core feature set, then it starts getting murky. It's possible to use many of those features in Azure Functions, but then the question is whether it's the best fit for those cases. It can be, but this is where I wanted to go with this post: use your judgement, ideally based on experimentation or experience, and not blindly pick functions for these. They can be a good fit still, but the keyword(s) are "use your judgement".
