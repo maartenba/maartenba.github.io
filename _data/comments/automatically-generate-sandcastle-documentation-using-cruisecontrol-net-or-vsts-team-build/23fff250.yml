@@ -1,0 +1,12 @@
+id: 4c1222f6
+date: 2020-05-19T15:41:46.7957346Z
+name: Kishor
+email: 
+avatar: https://secure.gravatar.com/avatar/95db89c5d179e202406f1ee36aa04768?s=80&r=pg
+url: 
+message: >-
+  Thank you for the informative article, I have a situation which is kind of similar. Is there a way to automate the sandcastle document generation in the build and release pipeline in azure devops.
+
+  I am struggling to find a solution to plug in sandcastle documentation on azure pipeline.
+
+  Can you please let me know if there is a way to do it?
