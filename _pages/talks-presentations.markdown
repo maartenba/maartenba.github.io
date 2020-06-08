@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-04-29 01:39:12 +0200
+date: 2020-06-12 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,15 +16,15 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-* June 2020
-  * [NDC Oslo](https://www.ndcoslo.com), Oslo, Norway
-
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
 ## Past talks and conferences
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2020-6-12 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Oslo 2020 | Online  | [download](https://www.slideshare.net/maartenba/microservices-for-building-an-ide-the-innards-of-jetbrains-rider-ndc-oslo-2020) |  | 
+| 2020-5-26 | A lap around Space | Linuxing London User Group | Online  |  |  | 
+| 2020-5-19 | An Exploration of Space | JetBrains Webinar | Online  |  |  | 
 | 2020-4-28 | Microservices for building an IDE - The innards of JetBrains Rider | VISUG, .NET Amsterdam, Dutch .NET | Online | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) | [view](https://youtu.be/Vsnx9rVHUe4) | 
 | 2020-4-18 | Indexing and searching NuGet.org with Azure Functions and Search | .NET fwdays'20 online conference | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) | 
 | 2020-2-28 | What is going on - Application diagnostics on Azure | ConFoo 2020 | Canada - Montreal | [download](https://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-techdays-finland) |  | 
