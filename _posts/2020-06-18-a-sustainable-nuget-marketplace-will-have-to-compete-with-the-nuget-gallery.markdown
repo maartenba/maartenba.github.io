@@ -381,7 +381,7 @@ project](https://petabridge.com/services/) by making it a business.
 
 Whoever builds it out, whether Aaron and Petabridge or other parties, they will have to compete with the NuGet
 gallery from day one. Doing so will matter more for sustainability of a NuGet marketplace as a whole,
-than supporting 50 different subscription schemes. While that also matters, trust and sustainability are
-key in this story.
+than supporting 50 different subscription schemes. Trust and sustainability of the marketplace are key in this
+story.
 
 Thanks, Aaron, for being the one who started building this out.
