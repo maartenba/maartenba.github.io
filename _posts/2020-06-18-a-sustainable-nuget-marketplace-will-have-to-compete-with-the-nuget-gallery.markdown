@@ -150,8 +150,8 @@ Contract templates and guidance, again, may be of help here.
 The legal aspect will be a bit like what the open source foundations offer:
 help with protecting producers and consumers.
 
-There is one additional aspect a NuGet marketplace will have to help with, and that is preventing abuse and
-having clear rules. What if I have an MIT-licensed project, and someone sells it with a dual license on this
+There is one additional aspect a NuGet marketplace will have to help with: establishing rules and preventing
+their abuse. What if I have an MIT-licensed project, and someone sells it with a dual license on this
 marketplace?
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It will be perfectly legal and valid for someone to sell your MIT licence code. You expressly permitted that.</p>&mdash; Damian Hickey (@randompunter) <a href="https://twitter.com/randompunter/status/1273173878752370688?ref_src=twsrc%5Etfw">June 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -190,7 +190,7 @@ A NuGet marketplace will need to support various purchasing options. Some exampl
 
 * Trial versions (30 days of usage)
 * Subscriptions (containing one or multiple packages)
-* Licenses with # seats, dieally also where enterprises can manage who can consume packages
+* Licenses with # seats, ideally also where enterprises can manage who can consume packages
 * Perpetual licenses
 * Licenses that are valid for major versions of a package only, etc.
 
@@ -206,7 +206,7 @@ When there are 4 core contributors, who gets the proceeds? This is one a NuGet m
 by requiring all core contributors to link their account, and get an even portion of proceeds. Or not, because
 this will be different for each project.
 
-In short: there will have to at least be guidance, but ideally also a solution, to ensure that issues over this
+In short: there will have to be guidance at least, but ideally also a solution to ensure that issues over this
 topic do not erode sustainability and trust consumers will put in the marketplace.
 
 ### For third parties: can they sell value added services?
@@ -223,7 +223,7 @@ and find those services.
 
 As a producer, I will want to know who is using packages. How many downloads are there? What's the revenue our project is making?
 
-As a consumer, I want to know who I'm purchasing from. I'll want invoices, reports on who of my staff are using which licenses, ...
+As a consumer, I want to know who I'm purchasing from. I want invoices, reports on who of my staff are using which licenses, ...
 
 ### For producers and consumers: a solid platform
 
@@ -233,7 +233,7 @@ as a solid platform, from a technical point of view, UX point of view, and the a
 services. A Minimum Viable Product (MVP) approach may help in building this solid platform with laser focus.
 
 Speaking from experience building out [MyGet](https://www.myget.org/) in the past, this NuGet marketplace
-will get hammered by users. NuGet attempts to retrieve every package intalled from every configured feed,
+will get hammered by users. NuGet attempts to retrieve every package installed from every configured feed,
 so expect to serve up a lot of 404 not found responses. These, too, will require a solid platform.
 
 A solid platform also means ease of use, and ease of discovery. One thing that could help here is providing
