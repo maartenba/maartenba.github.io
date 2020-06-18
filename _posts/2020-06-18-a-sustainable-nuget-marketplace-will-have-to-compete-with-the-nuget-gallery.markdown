@@ -144,7 +144,7 @@ look like?
 Paid add-on packages may be open or closed source, but they will still need a license. A NuGet marketplace
 will require templates and guidance.
 
-As Aaron mentioned in one of his tweets:
+As Aaron mentioned when I showed him a preview of this blog post:
 
 > There must be standard commercial licenses - because the people buying them will also need to trust that
 > those license agreements won't come back to haunt them down the road.
