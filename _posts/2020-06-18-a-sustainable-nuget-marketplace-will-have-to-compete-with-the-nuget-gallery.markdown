@@ -55,7 +55,7 @@ Let's look at how we can answer these...
 
 ### Open source foundations / .NET Foundation
 
-One attemp to fix some bullets from that list is in open source foundations, like [.NET Foundation](https://dotnetfoundation.org/).
+One attempt to fix some bullets from that list is in open source foundations, like [.NET Foundation](https://dotnetfoundation.org/).
 From [their FAQ](https://dotnetfoundation.org/about/faq):
 
 > We help projects stay focused on producing high-quality software without the legal and administrative
@@ -64,7 +64,7 @@ From [their FAQ](https://dotnetfoundation.org/about/faq):
 Great! If we all move our projects under the .NET Foundation, our company-users can be reasonably sure
 there is a good license in place, and projects get some help with certificates, legal, administration and so on.
 
-Essentially, these foundations try to solve adoption open source by other companies, and in some aspect
+Essentially, these foundations try to solve adoption of open source by other companies, and in some aspect
 provide a means of picking up a project when core contributors left. There have not been such cases as far
 as I know, so this may even turn out not to be the case.
 
@@ -73,10 +73,9 @@ Bottom line: does this solve the core question? How can we ensure core contribut
 ### Sponsorship
 
 In an earlier post, Aaron described that [creating sustainable open source projects will have to be done by treating them like proper businesses](https://www.aaronstannard.com/sustainable-open-source-software/).
-He makes the point that, by treating an open source project as a business, incentives for both
-sides - contributors building, companies adopting - come as a package deal. Commercial licenses help support
-the project, and help build trust with users. Adding support packages on top helps support the project,
-and builds trust with users.
+He makes the point that  an open source project has to be treated as a business. Incentives contributors and consumers
+come as a package deal. Commercial licenses help support the project, and help build trust with users.
+Adding support packages on top helps support the project, and builds trust with users.
 
 This is where many projects think *sponsorship* comes in. Many open source contributors today have
 a [Patreon](https://www.patreon.com/) link, or have enabled [GitHub Sponsors](https://github.com/sponsors).
