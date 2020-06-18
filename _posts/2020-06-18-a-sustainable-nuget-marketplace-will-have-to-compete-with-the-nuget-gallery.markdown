@@ -276,7 +276,7 @@ a portion will start using it because ease of use, one point of contact/sales, a
 
 ### Getting open source projects on board
 
-This NuGet marketplace will help in making open source sustainable, so it will need open souce producers to
+This NuGet marketplace will help in making open source sustainable, so it will need open source producers to
 provide their packages here. I think many will do so, but there's an issue that comes to mind...
 
 How will consumers find this NuGet marketplace, and thus, these producers?
@@ -322,8 +322,9 @@ in sustainable .NET open source.
 
 ## Conclusion
 
-If all of these criteria (and probably more) are met, this could solve open source sustainability. A solid,
-trustworthy platform for consumers and producers, solving legal and business issues.
+If all of these criteria (and probably more) are met, a NuGet marketplace can be a huge step towards
+open source sustainability. A solid, trustworthy platform for consumers and producers, solving legal
+and business issues.
 
 As Aaron concluded, there are a lot of things to consider:
 
