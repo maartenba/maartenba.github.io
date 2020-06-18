@@ -291,12 +291,12 @@ Right now, there is one preconfigured feed on every .NET developer's machine: Nu
 in the current world, but not for this NuGet marketplace. People have to configure its feed in their environment.
 What's the incentive to do that?
 
-### NuGet.org must become less valuable
+### NuGet.org is too good to switch away from
 
 The only incentive as a consumer I see, is being forced to start using a NuGet marketplace.
 And that can only be done when NuGet.org becomes less valuable. If all of the open source packages I use,
 whether free or paid, are on this NuGet marketplace, I will configure the feed to consume them. If NuGet.org keeps
-giving me Automapper, Autofac, IdentityServer and all that, why will I bother with this NuGet marketplace as a consumer?
+giving me Automapper, Autofac, IdentityServer and all that, why should I bother with this NuGet marketplace as a consumer?
 
 A NuGet marketplace will have to provide free open source packages as well. Much like in the JVM world folks
 are using both [Maven Central](https://search.maven.org/) and [JCenter](https://bintray.com/bintray/jcenter)
