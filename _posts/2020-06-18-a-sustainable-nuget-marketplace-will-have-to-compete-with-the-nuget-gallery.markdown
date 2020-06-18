@@ -346,6 +346,12 @@ are using both [Maven Central](https://search.maven.org/) and [JCenter](https://
 for their projects, instead of just one central gallery. In the .NET world, we will have to move to a future
 of multiple authoritative package registries, instead of just one.
 
+*Edit: Dave Glick posted a great analogy on Twitter, comparing this argument with video games and consoles.
+A NuGet marketplace will need some good exclusives, and make sure some of the popular ones that were previously
+available on NuGet.org will now be available only on this marketplace.*
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Ah gotcha, so competition isn’t so much about replicating functionality as it is a driver for adoption by creating packages exclusivity on the alternative, which drives/forces use - and without which the marketplace wouldn’t thrive. Not unlike the console wars and exclusive games</p>&mdash; Dave Glick 😷 (@daveaglick) <a href="https://twitter.com/daveaglick/status/1273648829104095232?ref_src=twsrc%5Etfw">June 18, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ### Competition will come anyway
 
 Microsoft is in the money-making business, and that's good. They also own [NuGet.org](https://www.nuget.org/),
