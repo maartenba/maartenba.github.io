@@ -363,6 +363,10 @@ The alternative is not competing head-on, which will mean we end up in a fragmen
 marketplace itself as a business may not be sustainable, and ultimately, hurt producer and consumer trust
 in sustainable .NET open source.
 
+*Edit: this is by no means meant to be a kick in the gut. It will happen, which can be fine,
+but having fragmentation in such marketplaces would hurt the mission of supporting OSS sustainability.
+A NuGet marketplace will have to go big to drive that mission home.*
+
 ## Conclusion
 
 If all of these criteria (and probably more) are met, a NuGet marketplace can be a huge step towards
