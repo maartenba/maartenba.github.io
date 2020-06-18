@@ -138,19 +138,19 @@ Open source projects can still be open source, but sell additional services. The
 * Consulting services
 
 Dual-licensing will require a set of templates that projects can work with.
-If the project uses Apache-2, MIT, GPL, or other open source licenses, what would a commercial dual-license
+If the project uses Apache-2, MIT, GPL, or other open source licenses, what will a commercial dual-license
 look like?
 
-Paid add-on packages may be open or closed source, but they will still need a license. The NuGet marketplace
+Paid add-on packages may be open or closed source, but they will still need a license. A NuGet marketplace
 will require templates and guidance.
 
-Support services and consulting services are harder. How would a NuGet marketplace assist with these?
+Support services and consulting services are harder. How will a NuGet marketplace assist with these?
 Contract templates and guidance, again, may be of help here.
 
-The legal aspect would be a bit like what the open source foundations offer:
+The legal aspect will be a bit like what the open source foundations offer:
 help with protecting producers and consumers.
 
-There is one additional aspect the NuGet marketplace will have to help with, and that is preventing abuse and
+There is one additional aspect a NuGet marketplace will have to help with, and that is preventing abuse and
 having clear rules. What if I have an MIT-licensed project, and someone sells it with a dual license on this
 marketplace?
 
@@ -160,7 +160,7 @@ Morally, this is "not done", but legally, this may happen. The marketplace will 
 rules and guidance on how to go about this. We want sustainability!
 
 Another similarity with open source foundations is in the legality of purchasing packages.
-The NuGet marketplace will have to make sure consumers who purchase here can trust their purchase is legal
+A NuGet marketplace will have to make sure consumers who purchase here can trust their purchase is legal
 and they can use the package without issue, now and in the future.
 
 Others are GDPR (as a consumer, is my personal data safe?), and probably some more. Feel free to add them
@@ -170,23 +170,23 @@ in the comments and I will update the post.
 
 Before we can sell packages, what's the legal status of an open source project? Is it a company? A non-profit?
 
-The NuGet marketplace will probably be the legal entity where consumers purchase packages from.
-Much like how [Fastspring](https://www.fastspring.com/) acts as a reseller, the NuGet marketplace will have to
+A NuGet marketplace will probably be the legal entity where consumers purchase packages from.
+Much like how [Fastspring](https://www.fastspring.com/) acts as a reseller, a NuGet marketplace will have to
 do this as well.
 
-The NuGet marketplace will have to act as a reseller, for several reasons:
+A NuGet marketplace will have to act as a reseller, for several reasons:
 
 * Consumers purchase from one legal entity, with one contract.
 * Consumers can have e.g. a subscription that includes paid-for open source from multiple vendors, without dealing with all of them separately.
 * Consumers will be in several locations - the marketplace will have to accomodate for Value Added Tax (VAT), the EU VAT MOSS, and all that.
 
-If we want to make the step to sustainable open source, the NuGet marketplace will have to help
+If we want to make the step to sustainable open source, a NuGet marketplace will have to help
 projects in doing so. Not simply by having a downloadable binary with a paywall, but by helping them out
 with being a business.
 
 ### For producers and consumers: flexible licensing and purchasing options
 
-The NuGet marketplace will need to support various purchasing options. Some examples:
+A NuGet marketplace will need to support various purchasing options. Some examples:
 
 * Trial versions (30 days of usage)
 * Subscriptions (containing one or multiple packages)
@@ -202,7 +202,7 @@ Since many open source projects don't have a legal entity, where do funds go? As
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I think the stickier topic is how are funds appropriated to contributors. At some point these projects grow passed their creators.</p>&mdash; Khalid (@buhakmeh) <a href="https://twitter.com/buhakmeh/status/1273220645346856960?ref_src=twsrc%5Etfw">June 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-When there are 4 core contributors, who gets the proceeds? This is one the NuGet marketplace could solve
+When there are 4 core contributors, who gets the proceeds? This is one a NuGet marketplace could solve
 by requiring all core contributors to link their account, and get an even portion of proceeds. Or not, because
 this will be different for each project.
 
@@ -240,7 +240,7 @@ A solid platform also means ease of use, and ease of discovery. One thing that c
 credential providers for [Visual Studio](https://docs.microsoft.com/en-us/nuget/reference/extensibility/nuget-credential-providers-for-visual-studio) and [JetBrains Rider](https://blog.jetbrains.com/dotnet/2018/03/06/credential-providers-private-nuget-feeds-rider-2018-1-eap/).
 By extension, maybe also for the .NET command line tools. These will prompt the user to authenticate, and are an in-IDE
 experience where payment detail updates and all that can be arranged. Discovery is key, and maybe bringing
-some part of what this NuGet marketplace would offer in its web application into the IDE may help.
+some part of what this NuGet marketplace will offer in its web application into the IDE may help.
 
 ## A marketplace has two sides - getting traction
 
@@ -257,22 +257,22 @@ at this solution? I think the answer is in all of the topics above, where ease o
 single point of contact come to mind.
 
 Getting support from IDE vendors may help as well, helping awareness. Ultimately, convincing consumers
-will require producers. So how would this NuGet marketplace get producers?
+will require producers. So how will this NuGet marketplace get producers?
 
 ### Getting the component vendors on board
 
 There are commercial compnent vendors out there - think [Telerik](https://www.telerik.com), [DevExpress](https://www.devexpress.com/), and many more.
 
-A large number of companies are using these components, and getting them on the NuGet marketplace will
-help in convincing folks to configure the NuGet marketplace feed and start consuming packages.
+A large number of companies are using these components, and getting them on a NuGet marketplace will
+help in convincing folks to configure a NuGet marketplace feed and start consuming packages.
 
 These component vendors usually already have their own feed and are distributing components as packages,
-so this is gogn to be mostly about convincing them to publish here as well.
+so this is going to be mostly about convincing them to publish here as well.
 
 These component vendors usually already have their own storefront, purchase agreement, license agreement, and so on.
-How would that integrate with this NuGet marketplace?
+How will that integrate with this NuGet marketplace?
 
-Regardless of these issues, if consumers can get their components through the NuGet marketplace, at least
+Regardless of these issues, if consumers can get their components through a NuGet marketplace, at least
 a portion will start using it because ease of use, one point of contact/sales, and all that.
 
 ### Getting open source projects on board
@@ -294,12 +294,12 @@ What's the incentive to do that?
 
 ### NuGet.org must become less valuable
 
-The only incentive as a consumer I see, is being forced to start using the NuGet marketplace.
+The only incentive as a consumer I see, is being forced to start using a NuGet marketplace.
 And that can only be done when NuGet.org becomes less valuable. If all of the open source packages I use,
 whether free or paid, are on this NuGet marketplace, I will configure the feed to consume them. If NuGet.org keeps
-giving me Automapper, Autofac, IdentityServer and all that, why would I bother with this NuGet marketplace as a consumer?
+giving me Automapper, Autofac, IdentityServer and all that, why will I bother with this NuGet marketplace as a consumer?
 
-The NuGet marketplace will have to provide free open source packages as well. Much like in the JVM world folks
+A NuGet marketplace will have to provide free open source packages as well. Much like in the JVM world folks
 are using both [Maven Central](https://search.maven.org/) and [JCenter](https://bintray.com/bintray/jcenter)
 for their projects, instead of just one central gallery. In the .NET world, we will have to move to a future
 of multiple authoritative package registries, instead of just one.
@@ -332,9 +332,10 @@ As Aaron concluded, there are a lot of things to consider:
 
 I have no idea yet what [sdkbin](https://sdkbin.com) will look like, and whether all of the above will be accounted for.
 What I do know is that his and Petabridge's drive and passion for .NET open source are a guarantee that this project will
-be delivered, in one form or another. Thanks, Aaron, for being the one who started building this out.
+be delivered, in one form or another. Especially given their track record in making [Akka.NET a sustainable open source
+project](https://petabridge.com/services/) by making it a business. Thanks, Aaron, for being the one who started building this out.
 
 Whoever builds it out, whether Aaron and Petabridge or other parties, they will have to compete with the NuGet
-gallery from day one. Doing so will matter more for sustainability of the NuGet marketplace as a whole,
+gallery from day one. Doing so will matter more for sustainability of a NuGet marketplace as a whole,
 than supporting 50 different subscription schemes. While that also matters, trust and sustainability are
 key in this story.
