@@ -12,8 +12,8 @@ author: Maarten Balliauw
 Yesterday, [Aaron Stannard](https://twitter.com/Aaronontheweb) posted some **awesome news for the .NET community:
 the [introduction of sdkbin](https://www.aaronstannard.com/sdkbin-marketplace/)**. Sdkbin is targeted at solving
 the OSS sustainability problem by automating the majority of the sales, fulfillment, licensing, and accounting
-needed to sell libraries, frameworks, and support plans. **It's (roughly speaking) [the NuGet.org gallery](https://www.nuget.org/) plus
-an App Store.**
+needed to sell libraries, frameworks, and support plans. **It's (roughly speaking) an App Store, delivered as a
+NuGet feed.**
 
 In this post, I wanted to **contribute some of my own thoughts** in this area, and end with a section about
 why sdkbin (or any solution in this space) **will have to compete head-on with NuGet.org**.
@@ -208,6 +208,30 @@ this will be different for each project.
 
 In short: there will have to be guidance at least, but ideally also a solution to ensure that issues over this
 topic do not erode sustainability and trust consumers will put in the marketplace.
+
+### Intermezzo: "App Stores" live and die by their policies
+
+In the legal part, I used the example of an MIT-licensed package being sold by a third-party. In the previous
+section, we touched on curation and making sure there is at least guidance and policies around conflicts.
+
+Guidance and policies will be super important for a NuGet marketplace. A NuGet marketplace has to help producers
+and consumers here, and make it crystal clear what may happen with edge cases.
+
+Something like [@DHH](https://twitter.com/DHH)'s story would be bad for an emerging NuGet marketplace:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Wow. I&#39;m literally stunned. Apple just doubled down on their rejection of HEY&#39;s ability to provide bug fixes and new features, unless we submit to their outrageous demand of 15-30% of our revenue. Even worse: We&#39;re told that unless we comply, they&#39;ll REMOVE THE APP.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/1272968382329942017?ref_src=twsrc%5Etfw">June 16, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Policies matter, and enforcing them properly is equally important.
+
+Another aspect is in curating what is made available on a NuGet marketplace. Is every package allowed? Or is there
+a vetting process to filter out low quality or infringements?
+
+We all know how the Windows 8 Store went down... There was a race to the bottom, where everyone was encouraged
+to publish low quality, inexpensive apps into the store to "hit the right number of apps".
+Turns out app quality mattered after all, and even today with the Windows 10 Store, that perception of
+quality is not where it could have been.
+
+In short, a NuGet marketplace will have to think about vetting and curation, and where it applies.
 
 ### For third parties: can they sell value added services?
 
