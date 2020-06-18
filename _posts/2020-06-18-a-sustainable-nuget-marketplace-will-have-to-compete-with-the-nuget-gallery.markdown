@@ -239,14 +239,13 @@ so expect to serve up a lot of 404 not found responses. These, too, will require
 A solid platform also means ease of use, and ease of discovery. One thing that could help here is providing
 credential providers for [Visual Studio](https://docs.microsoft.com/en-us/nuget/reference/extensibility/nuget-credential-providers-for-visual-studio) and [JetBrains Rider](https://blog.jetbrains.com/dotnet/2018/03/06/credential-providers-private-nuget-feeds-rider-2018-1-eap/).
 By extension, maybe also for the .NET command line tools. These will prompt the user to authenticate, and are an in-IDE
-experience where payment detail updates and all that can be arranged. Discovery is key, and maybe bringing
-some part of what this NuGet marketplace will offer in its web application into the IDE may help.
+experience where payment detail updates and all that can be arranged. Discovery is key, and bringing
+part of what this NuGet marketplace will offer in its web application into the IDE may help.
 
 ## A marketplace has two sides - getting traction
 
-While on Twitter I've seen may folks focus on the producer side, that is not enough. Marketplaces have two sides,
-producers and consumers. If a NuGet marketplace comes about, it will have to accommodate both, and probably
-subsidize one side for a while until traction happens.
+Marketplaces have two sides, producers and consumers. If a NuGet marketplace comes about, it will have
+to accommodate both, and probably subsidize one side for a while until traction takes over.
 
 So how can this NuGet marketplace get traction? There are a few things that can be considered.
 
