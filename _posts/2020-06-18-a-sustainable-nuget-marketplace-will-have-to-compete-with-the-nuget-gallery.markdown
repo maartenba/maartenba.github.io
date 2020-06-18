@@ -12,7 +12,7 @@ author: Maarten Balliauw
 Yesterday, [Aaron Stannard](https://twitter.com/Aaronontheweb) posted some **awesome news for the .NET community:
 the [introduction of sdkbin](https://www.aaronstannard.com/sdkbin-marketplace/)**. Sdkbin is targeted at solving
 the OSS sustainability problem by automating the majority of the sales, fulfillment, licensing, and accounting
-needed to sell libraries, frameworks, and support plans. **It's [the NuGet gallery](https://www.nuget.org/) plus
+needed to sell libraries, frameworks, and support plans. **It's (roughly speaking) [the NuGet gallery](https://www.nuget.org/) plus
 an App Store.**
 
 In this post, I wanted to **contribute some of my own thoughts** in this area, and end with a section about
