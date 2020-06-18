@@ -201,7 +201,9 @@ A NuGet marketplace will need to support various purchasing options. Some exampl
 * Perpetual licenses
 * Licenses that are valid for major versions of a package only, etc.
 
-And as a consumer, can we pay by credit card only? Raise a purchase order and have NET90 payment terms?
+And as a consumer, can we pay by credit card only? Can we raise a purchase order and have NET90 payment terms?
+Not for a $49 purchase, probably, but a marketplace that is out to help open source sustainability will have
+to accommodate the bigger customers with lengthier processes, and take that out of the open source maintaner's hands.
 
 ### For producers: where does the money go?
 
@@ -210,11 +212,13 @@ Since many open source projects don't have a legal entity, where do funds go? As
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I think the stickier topic is how are funds appropriated to contributors. At some point these projects grow passed their creators.</p>&mdash; Khalid (@buhakmeh) <a href="https://twitter.com/buhakmeh/status/1273220645346856960?ref_src=twsrc%5Etfw">June 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 When there are 4 core contributors, who gets the proceeds? This is one a NuGet marketplace could solve
-by requiring all core contributors to link their account, and get an even portion of proceeds. Or not, because
-this will be different for each project.
+by requiring all core contributors to link their account, and get an even portion of proceeds. But maybe a
+marketplace should *not* try to solve this, because this will be different for each project. Let them figure
+it out among themselves.
 
-In short: there will have to be guidance at least, but ideally also a solution to ensure that issues over this
-topic do not erode sustainability and trust consumers will put in the marketplace.
+There will have to be guidance at least, around how to do this and how to resolve disputes. Issues over this
+topic may erode sustainability and the trust consumers will put in the marketplace, so it is one to take into
+account somehow.
 
 ### Intermezzo: "App Stores" live and die by their policies
 
@@ -319,6 +323,12 @@ So how to go about this?
 
 ## Compete head-on with the NuGet.org gallery
 
+As we have seen so far, there are many, many considerations for building out a NuGet marketplace that thrives,
+and makes open source thrive. This means it will need producers and consumers. We've seen there are ways to
+grow both sides of the marketplace, but there's one that I have omitted up until now.
+
+**A NuGet marketplace will have to compete with the NuGet.org gallery.**
+
 Right now, there is one preconfigured feed on every .NET developer's machine: NuGet.org. That's a huge advantage
 in the current world, but not for this NuGet marketplace. People have to configure its feed in their environment.
 What's the incentive to do that?
@@ -342,7 +352,7 @@ Microsoft is in the money-making business, and that's good. They also own [NuGet
 and proves there is value, the above platforms will come with their own marketplace. This is a given,
 it will happen.
 
-Having a competitior in the NuGet marketplace space means we're going back to fragmentation, and moving away
+Having a competitor in the NuGet marketplace space means we're going back to fragmentation, and moving away
 from the single point of contact/sales, open source and dual-licensed open source being in a central place,
 and all that. What this will mean for the ecosystem, I can't tell. But since it will happen anyway, I would
 like to see the first NuGet marketplace to compete head-on, and aggressively become the place where open source
