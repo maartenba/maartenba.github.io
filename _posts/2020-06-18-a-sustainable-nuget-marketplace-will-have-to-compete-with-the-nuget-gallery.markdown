@@ -260,7 +260,7 @@ will require producers. So how will this NuGet marketplace get producers?
 
 ### Getting the component vendors on board
 
-There are commercial compnent vendors out there - think [Telerik](https://www.telerik.com), [DevExpress](https://www.devexpress.com/), and many more.
+There are commercial component vendors out there - think [Telerik](https://www.telerik.com), [DevExpress](https://www.devexpress.com/), and many more.
 
 A large number of companies are using these components, and getting them on a NuGet marketplace will
 help in convincing folks to configure a NuGet marketplace feed and start consuming packages.
