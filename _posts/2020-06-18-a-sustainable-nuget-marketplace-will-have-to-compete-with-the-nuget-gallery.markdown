@@ -90,9 +90,9 @@ used widely by folks pushing Prometheus metrics into Azure Monitor.
 $5, $10, up to $500 per month. There's also a progress bar at the top, that tells me he's 30% on his way to
 $50/month. That's a whopping $15 per month on the way to becoming a business!
 
-You may not be using this project, but I know many are. How many have sponsored Tom? Very few. Now, I know Tom
-has [Walmart labs](https://www.walmartlabs.com/) as a big user, and I know he works with them, they contribute,
-and at least contribute their time towards his project, but that was arranged on the side. Not through a GitHub
+You may not be using this project, but I know many are. How many are sponsoring Tom for his efforts? Very few.
+Now, I know Tom has [Walmart labs](https://www.walmartlabs.com/) as a big user, and I learned they contribute
+at least some of their time towards his project, but that was arranged on the side. Not through a GitHub
 sponsors button.
 
 Sponsorships are not going to cut it. I honestly hope they do, but I don't think they will be the way to
