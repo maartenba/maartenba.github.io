@@ -33,7 +33,9 @@ This is where sustainability comes in. How can core contributors sustain their i
 promoting it and getting others to use it, responding to bug reports, and all other things involved? What's their incentive for working
 for free? This often starts with trying to build name and reputation, but that wears off. Their interest may fade over time.
 
-How can they get others involved and interested? How can they prevent burning out? Things happen, where the
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Wanted!<br><br>10x rockstar developer 🔥<br><br>Responsibilities include:<br>* Merging PRs immediately<br>* Making new features on demand<br>* Fixing bugs right now<br><br>Compensation:<br>* Stars<br>* +1&#39;s<br>* Threats, general and specific<br>* Public shaming<br><br>Apply at OSS Inc today</p>&mdash; Ryan Chenkie (@ryanchenkie) <a href="https://twitter.com/ryanchenkie/status/1067801413974032385?ref_src=twsrc%5Etfw">November 28, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+How can open source contributors involve and interest others? How can they prevent burning out? Things happen, where the
 project is no longer being maintained. Their users are disappointed and have to replace project A with project B.
 
 Users expect project A to always work. They adopted it, spent time integrating it in their solutions. They expect the
