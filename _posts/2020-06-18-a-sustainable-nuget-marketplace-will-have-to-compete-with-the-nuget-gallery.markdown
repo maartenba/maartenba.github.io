@@ -141,7 +141,7 @@ Dual-licensing will require a set of templates that projects can work with.
 If the project uses Apache-2, MIT, GPL, or other open source licenses, what would a commercial dual-license
 look like?
 
-Paid add-on packages may be open or closed source, but they will still nee a license. The NuGet marketplace
+Paid add-on packages may be open or closed source, but they will still need a license. The NuGet marketplace
 will require templates and guidance.
 
 Support services and consulting services are harder. How would a NuGet marketplace assist with these?
