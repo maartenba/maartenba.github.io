@@ -12,7 +12,7 @@ author: Maarten Balliauw
 Yesterday, [Aaron Stannard](https://twitter.com/Aaronontheweb) posted some **awesome news for the .NET community:
 the [introduction of sdkbin](https://www.aaronstannard.com/sdkbin-marketplace/)**. Sdkbin is targeted at solving
 the OSS sustainability problem by automating the majority of the sales, fulfillment, licensing, and accounting
-needed to sell libraries, frameworks, and support plans. **It's (roughly speaking) [the NuGet gallery](https://www.nuget.org/) plus
+needed to sell libraries, frameworks, and support plans. **It's (roughly speaking) [the NuGet.org gallery](https://www.nuget.org/) plus
 an App Store.**
 
 In this post, I wanted to **contribute some of my own thoughts** in this area, and end with a section about
@@ -75,7 +75,7 @@ Bottom line: does this solve the core question? How can we ensure core contribut
 ### Sponsorship
 
 In an earlier post, Aaron described that [creating sustainable open source projects will have to be done by treating them like proper businesses](https://www.aaronstannard.com/sustainable-open-source-software/).
-He makes the point that  an open source project has to be treated as a business. Incentives contributors and consumers
+He makes the point that an open source project has to be treated as a business. Contributors and consumers
 come as a package deal. Commercial licenses help support the project, and help build trust with users.
 Adding support packages on top helps support the project, and builds trust with users.
 
