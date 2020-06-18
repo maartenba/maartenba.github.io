@@ -10,13 +10,13 @@ author: Maarten Balliauw
 ---
 
 Yesterday, [Aaron Stannard](https://twitter.com/Aaronontheweb) posted some **awesome news for the .NET community:
-the [introduction of sdkbin](https://www.aaronstannard.com/sdkbin-marketplace/)**. Sdkbin is targeted at solving
+the [introduction of Sdkbin](https://www.aaronstannard.com/sdkbin-marketplace/)**. Sdkbin is targeted at solving
 the OSS sustainability problem by automating the majority of the sales, fulfillment, licensing, and accounting
 needed to sell libraries, frameworks, and support plans. **It's (roughly speaking) an App Store, delivered as a
 NuGet feed.**
 
 In this post, I wanted to **contribute some of my own thoughts** in this area, and end with a section about
-why sdkbin (or any solution in this space) **will have to compete head-on with NuGet.org**.
+why Sdkbin (or any solution in this space) **will have to compete head-on with NuGet.org**.
 
 Before we grab our pitchforks, let's start with some thoughts.
 
@@ -144,6 +144,13 @@ look like?
 Paid add-on packages may be open or closed source, but they will still need a license. A NuGet marketplace
 will require templates and guidance.
 
+As Aaron mentioned in one of his tweets:
+
+> There must be standard commercial licenses - because the people buying them will also need to trust that
+> those license agreements won't come back to haunt them down the road.
+> One of the big incentives for adopting OSS right now is the fact that most licenses are permissive
+> - a hurdle we're going to have to overcome is making less permissive, proprietary licenses more palatable.
+
 Support services and consulting services are harder. How will a NuGet marketplace assist with these?
 Contract templates and guidance, again, may be of help here.
 
@@ -171,10 +178,10 @@ in the comments and I will update the post.
 Before we can sell packages, what's the legal status of an open source project? Is it a company? A non-profit?
 
 A NuGet marketplace will probably be the legal entity where consumers purchase packages from.
-Much like how [Fastspring](https://www.fastspring.com/) acts as a reseller, a NuGet marketplace will have to
+Much like how [Fastspring](https://www.fastspring.com/) acts as a reseller ("Merchant of Record"), a NuGet marketplace will have to
 do this as well.
 
-A NuGet marketplace will have to act as a reseller, for several reasons:
+A NuGet marketplace will have to act as a Merchant of Record, for several reasons:
 
 * Consumers purchase from one legal entity, with one contract.
 * Consumers can have e.g. a subscription that includes paid-for open source from multiple vendors, without dealing with all of them separately.
@@ -224,7 +231,8 @@ Something like [@DHH](https://twitter.com/DHH)'s story would be bad for an emerg
 Policies matter, and enforcing them properly is equally important.
 
 Another aspect is in curating what is made available on a NuGet marketplace. Is every package allowed? Or is there
-a vetting process to filter out low quality or infringements?
+a vetting process to filter out low quality or infringements? Or should there be a barrier of entry, such as an
+onboarding fee for producers to be able to start publishing on a NuGet marketplace?
 
 We all know how the Windows 8 Store went down... There was a race to the bottom, where everyone was encouraged
 to publish low quality, inexpensive apps into the store to "hit the right number of apps".
@@ -354,7 +362,7 @@ As Aaron concluded, there are a lot of things to consider:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">This was one of the things the discussion yesterday made clear to me.<br><br>20% of the costs of this venture = actually delivering packages to customers<br>40% of the cost = dealing with accounting / tax / payments<br>40% of the cost = having to train / educate the market to transition</p>&mdash; Aaron Stannard (@Aaronontheweb) <a href="https://twitter.com/Aaronontheweb/status/1273250663900864516?ref_src=twsrc%5Etfw">June 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I have no idea yet what [sdkbin](https://sdkbin.com) will look like, and whether all of the above will be accounted for.
+I have no idea yet what [Sdkbin](https://sdkbin.com) will look like, and whether all of the above will be accounted for.
 What I do know is that his and Petabridge's drive and passion for .NET open source are a guarantee that this project will
 be delivered, in one form or another. Especially given their track record in making [Akka.NET a sustainable open source
 project](https://petabridge.com/services/) by making it a business.
