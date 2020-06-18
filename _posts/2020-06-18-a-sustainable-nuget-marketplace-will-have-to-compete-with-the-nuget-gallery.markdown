@@ -31,8 +31,10 @@ It will be useful for others, so let's publish a NuGet package and open source a
 
 This is where sustainability comes in. How can core contributors sustain their interest in keeping the project going,
 promoting it and getting others to use it, responding to bug reports, and all other things involved? What's their incentive for working
-for free? They may burn out. Their interest may fade over time. Things happen, where the project is no longer
-being maintained. Their users are disappointed and have to replace project A with project B.
+for free? This often starts with trying to build name and reputation, but that wears off. Their interest may fade over time.
+
+How can they get others involved and interested? How can they prevent burning out? Things happen, where the
+project is no longer being maintained. Their users are disappointed and have to replace project A with project B.
 
 Users expect project A to always work. They adopted it, spent time integrating it in their solutions. They expect the
 authors to always be there to tackle questions and issues. And that is understandable. These users are often
@@ -63,9 +65,10 @@ Great! If we all move our projects under the .NET Foundation, our company-users 
 there is a good license in place, and projects get some help with certificates, legal, administration and so on.
 
 Essentially, these foundations try to solve adoption open source by other companies, and in some aspect
-provide a means of picking up a project when core contributors left.
+provide a means of picking up a project when core contributors left. There have not been such cases as far
+as I know, so this may even turn out not to be the case.
 
-But does this solve the core question? How can we ensure core contributors remain interested?
+Bottom line: does this solve the core question? How can we ensure core contributors remain interested?
 
 ### Sponsorship
 
@@ -327,5 +330,5 @@ be delivered, in one form or another. Thanks, Aaron, for being the one who start
 
 Whoever builds it out, whether Aaron and Petabridge or other parties, they will have to compete with the NuGet
 gallery. Take this into account early on, as doing so will matter more for sustainability of the NuGet marketplace
-as a whole, than supporting 50 different subscription schemes. It also matters, but trust and sustainability are
+as a whole, than supporting 50 different subscription schemes. That also matters, but trust and sustainability are
 key in this story.
