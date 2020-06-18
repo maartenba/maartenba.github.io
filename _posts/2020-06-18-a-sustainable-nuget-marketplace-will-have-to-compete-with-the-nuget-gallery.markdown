@@ -103,9 +103,14 @@ So what can solve the sustainability issue?
 ## Another solution: a NuGet marketplace
 
 Looking at foundations and sponsorships, there are a few things that make these solutions suboptimal for producers
-and consumers. As a producer, you have to tell potential consumers that there are paid options. There is a sponsor
-button The foundation lawyers checked things, it's safe to use. As a consumer, you have to be aware of these options,
-but they are not represented in our de-facto way of acquiring open source in our applications: NuGet.
+and consumers.
+
+Producers will have to make consumers aware that there are paid options. They have to direct them to the sponsor button,
+and can say the open source foundation lawyers approve of the license.
+
+As a consumer, you have to be aware of these options, and actively search for them. They are not "in your face"
+in our IDE, where we consume most open source through the NuGet client. Which means consumers often have no idea
+there is a sponsor button.
 
 This is where https://sdkbin.com, and https://bytepack.io, and others come in. In fact, our community has been
 dreaming this up for a long, long time.
