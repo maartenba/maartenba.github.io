@@ -328,6 +328,6 @@ What I do know is that his and Petabridge's drive and passion for .NET open sour
 be delivered, in one form or another. Thanks, Aaron, for being the one who started building this out.
 
 Whoever builds it out, whether Aaron and Petabridge or other parties, they will have to compete with the NuGet
-gallery. Take this into account early on, as doing so will matter more for sustainability of the NuGet marketplace
-as a whole, than supporting 50 different subscription schemes. That also matters, but trust and sustainability are
+gallery from day one. Doing so will matter more for sustainability of the NuGet marketplace as a whole,
+than supporting 50 different subscription schemes. While that also matters, trust and sustainability are
 key in this story.
