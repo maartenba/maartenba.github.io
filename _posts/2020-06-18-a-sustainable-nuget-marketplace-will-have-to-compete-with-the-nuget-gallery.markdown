@@ -289,7 +289,8 @@ So how can this NuGet marketplace get traction? There are a few things that can 
 
 The marketplace will need consumers, and folks with credit cards and purchase orders. What's their incentive to look
 at this solution? I think the answer is in all of the topics above, where ease of use, legal and purchasing,
-single point of contact come to mind.
+single point of contact come to mind. Making it easy for consumers to budget their spend, wihout having to revisit
+this for every package or license they decide to purchase.
 
 Getting support from IDE vendors may help as well, helping awareness. Ultimately, convincing consumers
 will require producers. So how will this NuGet marketplace get producers?
