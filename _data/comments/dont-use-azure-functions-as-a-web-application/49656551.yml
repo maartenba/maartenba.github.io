@@ -1,0 +1,7 @@
+id: 4a310263
+date: 2020-06-26T20:36:31.9102262Z
+name: Man Singh
+email: 
+avatar: https://secure.gravatar.com/avatar/fd1c7545e69d8f0e2226e4b7d55cb35a?s=80&r=pg
+url: 
+message: If you are thinking of using Azure Functions purely to save costs using a consumption plan, please be aware you will lose features such as VNET integration, which is only possible in premium plan.
