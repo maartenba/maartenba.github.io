@@ -9,6 +9,8 @@ tags: ["General", "ICT", ".NET", "NuGet"]
 author: Maarten Balliauw
 ---
 
+{% include toc %}
+
 Yesterday, [Aaron Stannard](https://twitter.com/Aaronontheweb) posted some **awesome news for the .NET community:
 the [introduction of Sdkbin](https://www.aaronstannard.com/sdkbin-marketplace/)**. Sdkbin is targeted at solving
 the OSS sustainability problem by automating the majority of the sales, fulfillment, licensing, and accounting
@@ -19,8 +21,6 @@ In this post, I wanted to **contribute some of my own thoughts** in this area, a
 why Sdkbin (or any solution in this space) **will have to compete head-on with NuGet.org**.
 
 Let's start with some thoughts on open source susainability.
-
-{% include toc %}
 
 ## Why open source sustainability matters
 
