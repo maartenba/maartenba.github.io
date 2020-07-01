@@ -18,7 +18,9 @@ NuGet feed.**
 In this post, I wanted to **contribute some of my own thoughts** in this area, and end with a section about
 why Sdkbin (or any solution in this space) **will have to compete head-on with NuGet.org**.
 
-Before we grab our pitchforks, let's start with some thoughts.
+Let's start with some thoughts on open source susainability.
+
+{% include toc %}
 
 ## Why open source sustainability matters
 
