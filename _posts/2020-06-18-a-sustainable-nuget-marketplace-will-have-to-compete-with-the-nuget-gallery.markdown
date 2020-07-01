@@ -15,12 +15,14 @@ the OSS sustainability problem by automating the majority of the sales, fulfillm
 needed to sell libraries, frameworks, and support plans. **It's (roughly speaking) an App Store, delivered as a
 NuGet feed.**
 
+This seems like a great idea, and most of all, a needed idea.
+
 {% include toc %}
 
 In this post, I wanted to **contribute some of my own thoughts** in this area, and end with a section about
 why Sdkbin (or any solution in this space) **will have to compete head-on with NuGet.org**.
 
-Let's start with some thoughts on open source susainability, because that is where his entire story starts. Here goes!
+Let's start with some thoughts on open source sustainability, because that is where this story starts...
 
 ## Why open source sustainability matters
 
