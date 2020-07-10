@@ -25,9 +25,17 @@ layout: default
 
     <div class="page__inner-wrap">
       {% unless page.header.overlay_color or page.header.overlay_image %}
-        <div class="ad" data-type="ad" data-publisher="lqm.maartenballiauw.site" data-format="728x90" data-zone="top" ></div>
-		
-		<header>
+        <!-- sl360 ad banner start -->
+        <div class="sl360-ad" style="margin-top: 10px; margin-right: 0; margin-left: 0; margin-bottom: 20px;">
+          <a href="https://portal.serverless360.com/OnBoarding/Register?utm_source=maarten-blog&utm_medium=blog-top-cta">
+            <img src="https://www.serverless360.com/wp-content/uploads/2020/01/sl360-blog-cta-2.png" alt="serverless360" />
+          </a>
+        </div>
+        <!-- sl360 ad banner end -->
+
+        <!--<div class="ad" data-type="ad" data-publisher="lqm.maartenballiauw.site" data-format="728x90" data-zone="top" ></div>-->
+
+		    <header>
           {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
           {% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
@@ -43,12 +51,14 @@ layout: default
       <section class="page__content" itemprop="text">
 		{{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
-		
+
+        <!-- sl360 ad banner start -->
         <div class="sl360-ad" style="margin:10px 0;">
           <a href="https://portal.serverless360.com/OnBoarding/Register?utm_source=maarten-blog&utm_medium=blog-bottom-cta">
           <img src="https://www.serverless360.com/wp-content/uploads/2020/01/sl360-blog-cta-2.png" alt="serverless360" />
           </a>
         </div>
+        <!-- sl360 ad banner end -->
       </section>
 
       <footer class="page__meta">
