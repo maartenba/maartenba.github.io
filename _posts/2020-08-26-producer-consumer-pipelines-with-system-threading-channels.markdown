@@ -249,7 +249,7 @@ We're done, right? Well, yes and no...
 After writing a few pipelines of producers/consumers, the channel setup, writing, completion, ... becomes cumbersome rather quickly.
 
 This is where [`Open.ChannelExtensions`](https://github.com/Open-NET-Libraries/Open.ChannelExtensions) comes in. It helps simplify
-working with `System.Threading.Channels`. It can read from and write to channels, pipe channels nto other channels, filter, batch, join, and more.
+working with `System.Threading.Channels`. It can read from and write to channels, pipe channels into other channels, filter, batch, join, and more.
 
 The entire pipeline we created above could be rewritten using `Open.ChannelExtensions`:
 
