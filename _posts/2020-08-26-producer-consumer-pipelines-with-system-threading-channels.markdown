@@ -57,7 +57,8 @@ foreach (var postPath in postPaths)
 
     var cardImage = await generator.CreateImageAsync(frontMatter);
 
-    await generator.SaveImageAsync(cardImage, Path.GetFileNameWithoutExtension(postPath) + ".png");
+    await generator.SaveImageAsync(
+        cardImage, Path.GetFileNameWithoutExtension(postPath) + ".png");
 }
 ```
 
@@ -102,7 +103,8 @@ foreach (var postPath in postPaths)
 
         var cardImage = await generator.CreateImageAsync(frontMatter);
 
-        await generator.SaveImageAsync(cardImage, Path.GetFileNameWithoutExtension(postPath) + ".png");
+        await generator.SaveImageAsync(
+            cardImage, Path.GetFileNameWithoutExtension(postPath) + ".png");
     }).Invoke());
 }
 await Task.WhenAll(tasks);
@@ -196,7 +198,8 @@ creating channels. A channel usually comes in the form of `Channel<T>`, a data s
 Here's how we can create a channel for our first producer/consumer pair, the one that gives us a stream of blog post paths:
 
 ```csharp
-var postPathsChannel = Channel.CreateUnbounded<string>(new UnboundedChannelOptions() { SingleReader = false, SingleWriter = true });
+var postPathsChannel = Channel.CreateUnbounded<string>(
+    new UnboundedChannelOptions() { SingleReader = false, SingleWriter = true });
 
 var postPaths = Directory.GetFiles(Constants.PostsDirectory);
 foreach (var postPath in postPaths)
@@ -281,7 +284,8 @@ await Channel
     .ReadAllAsync(async tuple =>
     {
         var (postPath, _, cardImage) = tuple;
-        await generator.SaveImageAsync(cardImage, Path.GetFileName(postPath) + ".png");
+        await generator.SaveImageAsync(
+            cardImage, Path.GetFileName(postPath) + ".png");
     });
 ```
 
