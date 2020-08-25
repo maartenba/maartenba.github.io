@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Producer/consumer pipelines with System.Threading.Channels"
-date: 2020-08-25 03:44:05 +0100
+date: 2020-08-26 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
