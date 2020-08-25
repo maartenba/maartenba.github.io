@@ -14,9 +14,6 @@ Last week, I came across the following question: "Is there an async producer/con
 Why yes, there is! Using `System.Threading.Channels`, we can create producer/consumer pairs,
 and we can even chain them together in a pipeline.
 
-Many people seem to know about `System.Threading.Channels`, including the person who asked the original question.
-The interesting thing is that few think of it when they might need it.
-
 In this post, I will try to explain some concurrency, producer/consumer and `System.Threading.Channels`
 concepts using a practical example, to refresh our collective memories.
 
