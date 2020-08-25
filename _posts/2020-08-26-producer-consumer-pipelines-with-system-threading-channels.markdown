@@ -9,7 +9,7 @@ tags: ["General", "ICT", ".NET", ".NET Core", "Threading", "Performance"]
 author: Maarten Balliauw
 ---
 
-Last week, I came across the following question: "Is there an async producer consumer collection these days in .NET?"
+Last week, I came across the following question: "Is there an async producer/consumer collection these days in .NET?"
 
 Why yes, there is! Using `System.Threading.Channels`, we can create producer/consumer pairs,
 and we can even chain them together in a pipeline.
