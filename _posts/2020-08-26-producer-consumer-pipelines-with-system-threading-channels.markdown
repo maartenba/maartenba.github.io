@@ -191,7 +191,7 @@ It also provides bounded and unbounded "channels" (the name that is used for our
 > Note: `System.Threading.Channels` is always available in .NET Core. For .NET Framework, install the [`System.Threading.Channels`](https://www.nuget.org/packages/System.Threading.Channels) package if you want to use it.
 
 The `System.Threading.Channels` namespace contains a static `Channel` class that gives us several factory methods for
-creating channels. A channel usually coms in the form of `Channel<T>`, a data structure that supports reading and writing.
+creating channels. A channel usually comes in the form of `Channel<T>`, a data structure that supports reading and writing.
 
 Here's how we can create a channel for our first producer/consumer pair, the one that gives us a stream of blog post paths:
 
