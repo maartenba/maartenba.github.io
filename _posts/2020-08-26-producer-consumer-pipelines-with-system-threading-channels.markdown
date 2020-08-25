@@ -270,7 +270,7 @@ await Channel
     .Filter(tuple => tuple.Item2 != null)
     .PipeAsync(
         maxConcurrency: 10,
-        capacity: 10,
+        capacity: 20,
         transform: async tuple =>
         {
             var (postPath, frontMatter) = tuple;
@@ -295,7 +295,7 @@ Not quite as short as our procedural version, but there are some nice things we 
 
 ## Conclusion
 
-The original, procedural version of our code took 45 seconds to execute. The channels version takes 22 seconds. So what changed?
+The original, procedural version of our code took 45 seconds to execute. The channels version takes 16 seconds. So what changed?
 
 Using `System.Threading.Channels`, we ensure concurrency of different kinds of workloads:
 
