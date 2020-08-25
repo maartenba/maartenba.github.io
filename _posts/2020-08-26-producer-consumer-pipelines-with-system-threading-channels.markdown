@@ -307,8 +307,7 @@ the task scheduler in .NET to shuffle our tasks around. The default `ThreadPoolT
 and thus, run our code in parallel, but that's an implementation detail. We are merely splitting our application's workload,
 so it can wait for I/O and consume CPU at the same time.
 
-Bounded and unbounded channels exist, and can help us control how many messages fit on our channel, to make sure we don't
-exhaust memory.
+**Bounded and unbounded channels exist and can help us control how many messages fit on our channel, to make sure we don't exhaust memory.**
 
 `System.Threading.Channels` does not help with chaining channels and creating pipelines from them, we need to create
 those ourselves. The [`Open.ChannelExtensions`](https://github.com/Open-NET-Libraries/Open.ChannelExtensions) helps here
