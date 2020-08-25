@@ -235,7 +235,7 @@ A couple of things to unwrap...
 
 * While `postPathsChannel` has not been completed, we `TryRead()` messages.
 * If a message is present, we process the front matter. The processed front matter is then posted to the next channel, `frontMatterChannel`.
-* The `frontMatterChannel` channel is a bounded one. If there are 10 messages in there, `WriteAsync()` will wait until capacity is available.
+* The `frontMatterChannel` channel is a bounded one. If there are 10 messages in there, the `Task` returned by `WriteAsync()`, by default, will not complete until capacity is available. Since we are using `await`, this will essentially "wait" for capacity, while other tasks in our program can run.
 * Similar to our previous producer, we `TryComplete()` the `frontMatterChannel` to let the next consumer know there will not be new data coming.
 
 For every step, we'll do something like the above. There are some good [examples of producer/consumer patterns](https://github.com/dotnet/corefxlab/blob/31d98a89d2e38f786303bf1e9f8ba4cf5b203b0f/src/System.Threading.Tasks.Channels/README.md#example-producerconsumer-patterns) in the .NET Core GitHub repo.
@@ -301,9 +301,10 @@ Using `System.Threading.Channels`, we ensure concurrency of different kinds of w
 * `ReadFrontMatterAsync()` is I/O-bound (reading from disk), and mostly waits for the filesystem
 * `CreateImageAsync()` is CPU-bound (generating an image and calculating stuff), and requires memory and CPU cycles
 
-Concurrent execution does not necessarily mean parallelism! We're not using multiple threads here.
-We're shuffling tasks (using `async`/`await` and channels) in a more optimal way for our workload,
-so our application can wait for I/O and consume CPU at the same time.
+Concurrent execution does not necessarily mean parallelism! We're using `async`/`await` and channels to make it easier for
+the task scheduler in .NET to shuffle our tasks around. The default `ThreadPoolTaskScheduler` will use threadpool threads,
+and thus, run our code in parallel, but that's an implementation detail. We are merely splitting our application's workload,
+so it can wait for I/O and consume CPU at the same time.
 
 Bounded and unbounded channels exist, and can help us control how many messages fit on our channel, to make sure we don't
 exhaust memory.
