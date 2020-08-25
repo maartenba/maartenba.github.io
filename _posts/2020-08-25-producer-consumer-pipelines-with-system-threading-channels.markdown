@@ -240,6 +240,8 @@ A couple of things to unwrap...
 
 For every step, we'll do something like the above. There are some good [examples of producer/consumer patterns](https://github.com/dotnet/corefxlab/blob/31d98a89d2e38f786303bf1e9f8ba4cf5b203b0f/src/System.Threading.Tasks.Channels/README.md#example-producerconsumer-patterns) in the .NET Core GitHub repo.
 
+If you want to have a look at the full implementation, [it's available on GitHub](https://github.com/maartenba/ChannelsExample).
+
 We're done, right? Well, yes and no...
 
 ## Hello, `Open.ChannelExtensions`!
