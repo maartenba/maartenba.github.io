@@ -82,7 +82,7 @@ Here's what the Parallel Stacks (in [Rider](https://www.jetbrains.com/rider/)) s
 
 ![Parallel Stacks showing tasks are not scheduled concurrently](/images/2020/08/not-concurrent-parallel-stacks.png)
 
-In frameworks like ASP.NET Core, the framework itself schedules our controllers, pages, actions and whatnot, concurrently.
+In frameworks like ASP.NET Core, the framework itself schedules elements of the request pipeline concurrently.
 In this example, it looks like we're on our own...
 
 What can we do to run these tasks concurrently? One approach could be to schedule our tasks like this:
