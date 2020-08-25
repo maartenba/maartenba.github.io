@@ -74,8 +74,8 @@ is CPU-bound (generating an image and calculating stuff).
 Ideally, we would run these tasks concurrently so that while we're waiting for the filesystem to give us back data, we can
 run the necessary calculations to generate an image.
 
-Remember when everyone told you to use `async`/`await` so code could run concurrently? That's still good advice, except
-you don't get concurrency automatically. Even though the example above is using `await ...`, there will always be just
+Remember when everyone told you to use `async`/`await` so code could run concurrently? **That's still good advice, except
+you don't get concurrency automatically**. Even though the example above is using `await ...`, there will always be just
 one task that is scheduled to execute.
 
 Here's what the Parallel Stacks (in [Rider](https://www.jetbrains.com/rider/)) show when we pause on a breakpoint in `SaveImageAsync()`:
