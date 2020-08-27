@@ -63,6 +63,9 @@ layout: default
         {% elsif page.date %}
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
         {% endif %}
+		{% if page.path %}
+		  <p class="page__date">{% include edit-on-github.html %}</p>
+		{% endif %}
       </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}

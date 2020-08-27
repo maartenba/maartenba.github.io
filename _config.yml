@@ -132,6 +132,7 @@ exclude:
   - package.json
   - Rakefile
   - README
+  - runlocal.bat
   - tmp
 keep_files:
   - .git
