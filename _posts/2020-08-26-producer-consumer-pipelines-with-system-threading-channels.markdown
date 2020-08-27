@@ -153,7 +153,7 @@ To communicate between steps in our pipeline, we could use a `Queue` or another 
 But when multiple threads and tasks are involved, we will run into concurrency issues pretty fast.
 When adding data to the collection, we may need to lock it. When reading data from it, we may need to do so, too.
 
-Such construct could look like this: (courtesy of [Stephen Taub in "An Introduction to System.Threading.Channels"](https://devblogs.microsoft.com/dotnet/an-introduction-to-system-threading-channels/))
+Such construct could look like this: (courtesy of [Stephen Toub in "An Introduction to System.Threading.Channels"](https://devblogs.microsoft.com/dotnet/an-introduction-to-system-threading-channels/))
 
 ```csharp
 public class QueueLikeConstruct<T>
@@ -317,7 +317,7 @@ by providing extensions on top of `System.Threading.Channels`.
 
 While I only covered some concepts, there's much more to explore in the realm of channels and pipelines!
 
-* [An Introduction to System.Threading.Channels (Stephen Taub)](https://devblogs.microsoft.com/dotnet/an-introduction-to-system-threading-channels/#what-is-a-channel)
+* [An Introduction to System.Threading.Channels (Stephen Toub)](https://devblogs.microsoft.com/dotnet/an-introduction-to-system-threading-channels/#what-is-a-channel)
 * [An Introduction to System.Threading.Channels (Steve Gordon)](https://www.stevejgordon.co.uk/an-introduction-to-system-threading-channels)
 * [C# Channels - Publish / Subscribe Workflows (Denis Kyashif)](https://deniskyashif.com/2019/12/08/csharp-channels-part-1/)
 * [C# Channels - Timeout and Cancellation (Denis Kyashif)](https://deniskyashif.com/2019/12/11/csharp-channels-part-2/)
