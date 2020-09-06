@@ -1,0 +1,7 @@
+id: aa3f5f6c
+date: 2020-09-06T03:13:47.4380882Z
+name: Manish Jain
+email: 
+avatar: https://secure.gravatar.com/avatar/99b300573b8196422a574d226e8ad3f7?s=80&r=pg
+url: 
+message: "I agree with the article. @Dan Mc and @Homer If you are looking for a reason to NOT use Azure functions (AF) in HTTP/Web scenarios where client's are constantly hitting the APIs: One simple word: cold start (in non premium plans). If AF is not 'always on' then clients would be waiting forever to boot up and run the function. This is not practical for many applications. It's not right for companies to advertise/mislead 'serverless' buzzword for everything. If you are using AF with premium plan/always on then its not truly a serverless function rather than twisted Web API. In this case you are paying the same for hosting AF (as Web API) then why not use Web API that is more feature rich."
