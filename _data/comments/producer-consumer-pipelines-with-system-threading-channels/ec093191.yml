@@ -1,0 +1,10 @@
+id: ee72f5aa
+date: 2020-09-06T14:23:54.7320749Z
+name: Daniel Blendea
+email: 
+avatar: https://secure.gravatar.com/avatar/c78041a1003b8b8f7d27c800723954e9?s=80&r=pg
+url: 
+message: >-
+  I wanted to see if I can create a simpler solution using Akka.NET actors, so I made this https://github.com/bdaniel7/AkkaNetThumbnailGenerator. It reuses the code from ThumbnailGenerator.
+
+  I only borrowed the post files.
