@@ -1,0 +1,7 @@
+id: 0eb8989d
+date: 2020-09-21T15:09:08.3833564Z
+name: Nick
+email: 
+avatar: https://secure.gravatar.com/avatar/c384cd59c71c06a2201ac05cac5a490c?s=80&r=pg
+url: 
+message: "Great Code.\r\n\r\nIt would be super good to have an automated check for @Html.AntiForgeryToken() as well.  \r\n\r\nMVC has better support for faking out the Request and Response objects such that the page can be loaded up in a test and checked.  \r\n\r\nThe tests do run slower and perhaps a little more fragile but worth the analysis to examine the tradeoff."
