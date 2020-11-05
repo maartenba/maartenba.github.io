@@ -27,7 +27,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 | --- | --- | --- | --- | --- | --- |
 | 2020-10-15 | Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | NDC Sydney 2020 | Online | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) |  | 
 | 2020-9-30 | Building a friendly .NET SDK to connect to Space | Quicken TechCon 2020 | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
-| 2020-6-12 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Oslo 2020 | Online | [download](https://www.slideshare.net/maartenba/microservices-for-building-an-ide-the-innards-of-jetbrains-rider-ndc-oslo-2020) |  | 
+| 2020-6-12 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Oslo 2020 | Online | [download](https://www.slideshare.net/maartenba/microservices-for-building-an-ide-the-innards-of-jetbrains-rider-ndc-oslo-2020) | [view](https://www.youtube.com/watch?v=4dzpIjyb9mM) | 
 | 2020-5-26 | A lap around Space | Linuxing London User Group | Online |  |  | 
 | 2020-5-19 | An Exploration of Space | JetBrains Webinar | Online |  |  | 
 | 2020-4-28 | Microservices for building an IDE - The innards of JetBrains Rider | VISUG, .NET Amsterdam, Dutch .NET | Online | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) | [view](https://youtu.be/Vsnx9rVHUe4) | 
