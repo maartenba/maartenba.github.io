@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-10-15 01:39:12 +0200
+date: 2020-11-30 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -16,15 +16,14 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 ## Upcoming talks and conferences
 
-December 2020
-* DotNext, Moscow (virtual)
-
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
 ## Past talks and conferences
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2020-12-2 | Building and generating a .NET client for a large API | DotNext Moscow Online | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
+| 2020-11-30 | Warp-speed your startup with Space | Startup Istanbul | Online |  |  | 
 | 2020-10-15 | Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | NDC Sydney 2020 | Online | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) |  | 
 | 2020-9-30 | Building a friendly .NET SDK to connect to Space | Quicken TechCon 2020 | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
 | 2020-6-12 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Oslo 2020 | Online | [download](https://www.slideshare.net/maartenba/microservices-for-building-an-ide-the-innards-of-jetbrains-rider-ndc-oslo-2020) | [view](https://www.youtube.com/watch?v=4dzpIjyb9mM) | 
