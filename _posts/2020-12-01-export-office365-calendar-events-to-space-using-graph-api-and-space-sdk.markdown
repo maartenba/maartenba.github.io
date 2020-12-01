@@ -309,11 +309,3 @@ Done! Gone are the meetings that are booked in my work calendar while I have a p
 This particular example may or may not be what you are after. I hope you can take away some pointers about how to consume your calendar using Microsoft Graph, how to use the JetBrains Space SDK, and how you can use automation there to run tasks on a schedule.
 
 Enjoy!
-
-## Addendum: Space Automation and DependsOn
-
-As a developer, very often you can automate this type of processes. And very often, you have different ways to do this. After publishing a draft of this blog post, a colleague approached me and mentioned Space Automation can do all of this without the need for custom .NET code!
-
-Using the `@DependsOn()` annotation in `.space.kts`, you could load the Java-based Microsoft Graph libraries and run the entire synchronization there, similar to [this example that uses the SlackAPI in automation](https://www.jetbrains.com/help/space/slack.html).
-
-Definitely need to look into that!
