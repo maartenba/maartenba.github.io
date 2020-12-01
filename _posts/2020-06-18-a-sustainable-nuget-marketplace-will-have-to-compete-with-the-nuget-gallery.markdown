@@ -15,7 +15,7 @@ the OSS sustainability problem by automating the majority of the sales, fulfillm
 needed to sell libraries, frameworks, and support plans. **It's (roughly speaking) an App Store, delivered as a
 NuGet feed.**
 
-This seems like a great idea, and most of all, a needed idea.
+This seems like a great idea, and most of all, one that is needed.
 
 {% include toc %}
 
