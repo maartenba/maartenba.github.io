@@ -468,7 +468,7 @@ public static class BatchEnumerator
         while (batch.HasNext())
         {
             if (cancellationToken.IsCancellationRequested) yield break;
-            batch = await batchResponse(batch.Next, cancellationToken);
+            batch = await batchResponse();
             yield return batch;
         }
     }
