@@ -285,6 +285,23 @@ public static class ApiDtoExtensions
 
 In reality, all of these are essentially still utility methods. By making them extension methods, they just became more straightforward to use. Whether the code generator uses an enumeration or a DTO, both types now have a `.ToCSharpClassName()` method that will return a clean, compilable C# class name.
 
+## About C# Source Generators...
+
+The .NET SDK for Space right now is a [Console application](https://github.com/JetBrains/space-dotnet-sdk/tree/main/src/JetBrains.Space.Generator). If you want, you can run it [against your own Space organization](https://github.com/JetBrains/space-dotnet-sdk/blob/main/docs/generate-client.md).
+
+With .NET 5, Microsoft introduced [C# source generators](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/). In essence, these are Roslyn analyzers that allow you to inject code into your compiled assembly. So why not use source generators to generate the .NET SDK for Space?
+
+Well actually... [There is a branch where we implemented this](https://github.com/JetBrains/space-dotnet-sdk/tree/mb-dotnet-srcgen). There's [this commit](https://github.com/JetBrains/space-dotnet-sdk/commit/474156882a044814d540920b774f505127cd614e), which removes all previously generated code, and [implements a source gnerator](https://github.com/JetBrains/space-dotnet-sdk/commit/474156882a044814d540920b774f505127cd614e#diff-52af5eb8755eddf9aaa94f9b5b2e46d5896fc0b732352d774023c60ba7741224).
+
+There are some current downsides to adopting source generators for the .NET SDK for Space:
+* They are hard to debug. Yes, you can add a `Debugger.Launch()` to attach a debugger when the source generator runs. But it might run for every key you type in your code, so that will give you a lot of debugger prompts.
+* It's hard to inspect generated output. You can add `<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>` to your project to emit all generated files to the `obj` folder. But sources aren't cleaned up there, so you might up with leftover generated code from a previous run. A "clean" before build does wonders, but it's not very practical. And yes, you can do this as an MSBuild target, but sometimes you don't want to remove generated code just yet, to be able to compare different runs.
+* From all example C# Source Generators out there, it is evident they are designed to generate code based on other code changes. Just like regular analyzers, they run when code is changed. For the .NET SDK for Space, we really want to be able to run code generation on demand - without having to type-then-remove-a-character to run code generation.
+
+This branch might evolve, or might be removed at some point. It will be used as a playground to see if we could use source generators. Especially with on-premises Space coming at some point, it might be more interesting for us to ship the .NET SDK for Space without generated code, and always generate it on-the-fly for *your* Space version.
+
+In short: C# source generators seems promising, but they need some further exploration. In cae you are interested, there are some [great examples of C# source generators](https://github.com/amis92/csharp-source-generators) out there!
+
 ## About `System.Text.Json` in the SDK...
 
 The luxury of doing greenfield development, is that you get to choose the tools you use.
