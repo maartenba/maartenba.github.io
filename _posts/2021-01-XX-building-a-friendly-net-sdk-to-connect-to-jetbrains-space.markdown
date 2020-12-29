@@ -580,7 +580,7 @@ public class CateringWebHookHandler : SpaceWebHookHandler
 }
 ```
 
-There are many more examples of focus on developer experience in the .NET SDK for Space, but since we've crossed 3500 words let's wrap up here...
+There are many more examples of this focus on developer experience in the .NET SDK for Space, but since we've crossed 3500 words let's wrap up here...
 
 ## Conclusion
 
