@@ -462,7 +462,7 @@ public static class BatchEnumerator
     public static async IAsyncEnumerable<Batch<T>> AllPages<T>(RetrieveBatch<T> batchResponse)
     {
         if (cancellationToken.IsCancellationRequested) yield break;
-        var batch = await batchResponse(initialSkip, cancellationToken);
+        var batch = await batchResponse();
         yield return batch;
 
         while (batch.HasNext())
