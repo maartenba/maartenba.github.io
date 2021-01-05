@@ -300,7 +300,7 @@ There are some current downsides to adopting source generators for the .NET SDK 
 
 This branch might evolve, or might be removed at some point. It will be used as a playground to see if we could use source generators. Especially with on-premises Space coming at some point, it might be more interesting for us to ship the .NET SDK for Space without generated code, and always generate it on-the-fly for *your* Space version.
 
-In short: C# source generators seems promising, but they need some further exploration. In cae you are interested, there are some [great examples of C# source generators](https://github.com/amis92/csharp-source-generators) out there!
+In short: C# source generators seem promising, but they need some further exploration. In case you are interested, there are some [great examples of C# source generators](https://github.com/amis92/csharp-source-generators) out there!
 
 ## About `System.Text.Json` in the SDK...
 
