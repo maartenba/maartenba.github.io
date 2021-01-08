@@ -1,0 +1,7 @@
+id: 57c03a28
+date: 2021-01-08T13:56:29.2101439Z
+name: plebann
+email: 
+avatar: https://secure.gravatar.com/avatar/404d2e375f12244ee172795f8dc640fe?s=80&r=pg
+url: 
+message: "Maybe you happen to know how to pass multiple parameters?\r\nFunction I'm trying to post looks like:\r\n[FunctionName(\"MyFunction\")]\r\n        public async Task Run(\r\n            [ServiceBusTrigger(\"%triggerName%\", Connection = \"connectionString\")] \r\n            string myQueueItem, \r\n            string myField1, \r\n            string myFIeld2,\r\n            ILogger log)\r\n        {\r\n\r\nAnd I have no idea how to pass parameter other than myQueueItem"
