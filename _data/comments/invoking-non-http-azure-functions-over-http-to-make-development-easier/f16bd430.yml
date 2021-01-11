@@ -1,0 +1,34 @@
+id: f1db40a5
+date: 2021-01-11T08:41:49.2831047Z
+name: Maarten Balliauw
+email: 
+avatar: https://secure.gravatar.com/avatar/f62ebe822f6b351538e68cb2bbadefe9?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >-
+  Not sure about service bus. Looking at https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus-trigger?tabs=csharp, and more specifically the Python example, https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus-trigger?tabs=python, I think you may need to invoke the function with something similar to:
+
+
+
+  ```
+
+  POST http://localhost:7071/admin/functions/ExampleQueue
+
+  Content-Type: application/json
+
+
+
+  {
+
+      "input": "{ \"message_id\": \"guid\", \"body\": \"message contents base64 encoded\", ... }"
+
+  }
+
+  ```
+
+
+
+  That input JSON will need the properties and values as defined on https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus-trigger?tabs=javascript#message-metadata
+
+
+
+  Again, haven’t tried service bus yet so this will need further investigation :-) But I hope these pointers can help.
