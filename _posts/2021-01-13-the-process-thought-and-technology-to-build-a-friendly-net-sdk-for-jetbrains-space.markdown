@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Building a friendly .NET SDK to connect to JetBrains Space"
-date: 2021-01-XX 03:44:05 +0100
+title: "The process, thought and technology to build a friendly .NET SDK for JetBrains Space"
+date: 2021-01-13 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
