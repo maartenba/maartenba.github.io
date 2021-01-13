@@ -11,9 +11,32 @@ author: Maarten Balliauw
 
 Early December 2020, we released [JetBrains Space](https://www.jetbrains.com/space/). Along with it, we built a [Kotlin SDK](https://github.com/JetBrains/space-kotlin-sdk) and a [.NET SDK](https://github.com/JetBrains/space-dotnet-sdk). In this post, I want to walk you through the process of building that .NET SDK.
 
-{% include toc %}
+This is another half-book blog post, so I've included a table of contents for you to jump to the parts you may be interested in. I've tried my best to build up the story, so of course, reading this post in full is highly appreciated.
 
-This is another half-book blog post, so I've included a table of contents for you to jump to the parts you're interested in. I've tried my best to build up the story, so of course, reading this post in full is highly appreciated.
+-   [What is JetBrains Space?](#what-is-jetbrains-space)
+-   [Out-of-the-box Integrations vs. Extensibility](#out-of-the-box-integrations-vs-extensibility)
+-   [The Space HTTP API](#the-space-http-api)
+    -   [Shaping API responses](#shaping-api-responses)
+-   [Hello, .NET! 👋](#hello-net-)
+-   [How do you start?](#how-do-you-start)
+    -   [Buidling the SDK by hand?](#building-the-sdk-by-hand)
+    -   [Using OpenAPI?](#using-openapi)
+    -   [Using the Space API model!](#using-the-space-api-model)
+-   [Generating code based on the Space API model](#generating-code-based-on-the-space-api-model)
+    -   [CodeDOM/Roslyn/Expression trees/StringBuilder/...](#codedomroslynexpression-treesstringbuilder)
+    -   [Strings all the way!](#strings-all-the-way)
+    -   [Extension methods everywhere!](#extension-methods-everywhere)
+-   [About C# source generators...](#about-c-source-generators)
+-   [About `System.Text.Json` in the SDK...](#about-systemtextjson-in-the-sdk)
+-   [Development experience](#development-experience)
+    -   [Discoverability](#discoverability)
+    -   [Remember `$fields`?](#remember-fields)
+    -   [What if you don't remember `$fields`?](#what-if-you-dont-remember-fields)
+    -   [Batches and `IAsyncEnumerable`](#batches-and-iasyncenumerable)
+    -   [Request bodies are flattened](#request-bodies-are-flattened)
+    -   [Factory methods for inheritorcs](#factory-methods-for-inheritors)
+    -   [More!](#more)
+-   [Conclusion](#conclusion)
 
 Let's start with the basics...
 
