@@ -23,7 +23,7 @@ I'll try to keep it short... Space is an Integrated Team environment. It's a tea
 
 There's much more to it than that, and I encourage you to have a look at the demo to get an idea about what it helps you with:
 
-<iframe width="300" height="169" src="https://www.youtube-nocookie.com/embed/7-UNfbEjcNM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7-UNfbEjcNM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 The TL;DR: it's *huge*! You don't have to integrate 10 third-party apps together using webhooks, it's all there. Space integrates and combines many types of tools for various teams in your organization, out of the box.
