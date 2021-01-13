@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The process, thought and technology to build a friendly .NET SDK for JetBrains Space"
+title: "The process, thought and technology behind building a friendly .NET SDK for JetBrains Space"
 date: 2021-01-13 03:44:05 +0100
 comments: true
 published: true
