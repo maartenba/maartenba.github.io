@@ -19,7 +19,7 @@ This is another half-book blog post, so I've included a table of contents for yo
     -   [Shaping API responses](#shaping-api-responses)
 -   [Hello, .NET! 👋](#hello-net-)
 -   [How do you start?](#how-do-you-start)
-    -   [Buidling the SDK by hand?](#building-the-sdk-by-hand)
+    -   [Building the SDK by hand?](#building-the-sdk-by-hand)
     -   [Using OpenAPI?](#using-openapi)
     -   [Using the Space API model!](#using-the-space-api-model)
 -   [Generating code based on the Space API model](#generating-code-based-on-the-space-api-model)
@@ -34,7 +34,7 @@ This is another half-book blog post, so I've included a table of contents for yo
     -   [What if you don't remember `$fields`?](#what-if-you-dont-remember-fields)
     -   [Batches and `IAsyncEnumerable`](#batches-and-iasyncenumerable)
     -   [Request bodies are flattened](#request-bodies-are-flattened)
-    -   [Factory methods for inheritorcs](#factory-methods-for-inheritors)
+    -   [Factory methods for inheritors](#factory-methods-for-inheritors)
     -   [More!](#more)
 -   [Conclusion](#conclusion)
 
@@ -245,7 +245,7 @@ It would be quite hardcore to generate code in Intermediate Language (IL), and u
 
 Using a code model seems tempting. Using [CodeDOM](https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/how-to-create-a-class-using-codedom), [Expression Trees (article by Alexey Golub)](https://tyrrrz.me/blog/expression-trees), or using [Roslyn](https://docs.microsoft.com/en-us/archive/msdn-magazine/2017/may/net-core-cross-platform-code-generation-with-roslyn-and-net-core).
 
-There's also template-based code generation, which works like static website generation. You compile templatest hat may reference other templates, and in the end, a string comes out. This is the approach [NSwag uses](https://github.com/RicoSuter/NSwag/tree/master/src/NSwag.CodeGeneration.CSharp/Templates), based on the [liquid](https://github.com/Shopify/liquid) template syntax. You could use [Razor](https://github.com/RazorGenerator/RazorGenerator) here, too.
+There's also template-based code generation, which works like static website generation. You compile templates that may reference other templates, and in the end, a string comes out. This is the approach [NSwag uses](https://github.com/RicoSuter/NSwag/tree/master/src/NSwag.CodeGeneration.CSharp/Templates), based on the [liquid](https://github.com/Shopify/liquid) template syntax. You could use [Razor](https://github.com/RazorGenerator/RazorGenerator) here, too.
 
 The last option is what we used earlier: using `StringBuilder` to write code using strings.
 
@@ -315,7 +315,7 @@ The .NET SDK for Space right now is a [Console application](https://github.com/J
 
 With .NET 5, Microsoft introduced [C# source generators](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/). In essence, these are Roslyn analyzers that allow you to inject code into your compiled assembly. So why not use source generators to generate the .NET SDK for Space?
 
-Well actually... [There is a branch where we implemented this](https://github.com/JetBrains/space-dotnet-sdk/tree/mb-dotnet-srcgen). There's [this commit](https://github.com/JetBrains/space-dotnet-sdk/commit/474156882a044814d540920b774f505127cd614e), which removes all previously generated code, and [implements a source gnerator](https://github.com/JetBrains/space-dotnet-sdk/commit/474156882a044814d540920b774f505127cd614e#diff-52af5eb8755eddf9aaa94f9b5b2e46d5896fc0b732352d774023c60ba7741224).
+Well actually... [There is a branch where we implemented this](https://github.com/JetBrains/space-dotnet-sdk/tree/mb-dotnet-srcgen). There's [this commit](https://github.com/JetBrains/space-dotnet-sdk/commit/474156882a044814d540920b774f505127cd614e), which removes all previously generated code, and [implements a source generator](https://github.com/JetBrains/space-dotnet-sdk/commit/474156882a044814d540920b774f505127cd614e#diff-52af5eb8755eddf9aaa94f9b5b2e46d5896fc0b732352d774023c60ba7741224).
 
 There are some current downsides to adopting source generators for the .NET SDK for Space:
 * They are hard to debug. Yes, you can add a `Debugger.Launch()` to attach a debugger when the source generator runs. But it might run for every key you type in your code, so that will give you a lot of debugger prompts.
