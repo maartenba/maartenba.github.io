@@ -582,11 +582,11 @@ If you're using ASP.NET Core and want to use Space as an authentication provider
 Space supports building interactive applications, and we've added [experimental API's for those in the SDK](https://github.com/JetBrains/space-dotnet-sdk#space-applications-webhooks-experimental). Technically this is an abstraction built on top of a web API controller, but it again provides good developer experience. Here's an "echo" chat bot:
 
 ```csharp
-public class CateringWebHookHandler : SpaceWebHookHandler
+public class EchoWebHookHandler : SpaceWebHookHandler
 {
     private readonly ChatClient _chatClient;
 
-    public CateringWebHookHandler(ChatClient chatClient)
+    public EchoWebHookHandler(ChatClient chatClient)
     {
         _chatClient = chatClient;
     }
@@ -610,6 +610,6 @@ There are many more examples of this focus on developer experience in the .NET S
 
 In this post, I wanted to dive into some considerations we had to make while building the .NET SDK for Space, with enough technical pointers and resources so you can go and explore the wonderful world of JetBrains Space, code generation, `System.text.Json` and more.
 
-If you have any questions, feel free to use the comments below or reach out on Twitter. More than happy to dive into more detail on some of these topics, but expect more words in that case, too :-)
+If you have any questions, feel free to use the comments below or reach out on Twitter. More than happy to dive into more detail on some of these topics.
 
 See you next time!
