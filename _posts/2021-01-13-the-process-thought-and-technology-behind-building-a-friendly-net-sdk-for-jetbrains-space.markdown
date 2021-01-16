@@ -262,12 +262,14 @@ public string FirstName { get; set; }
 If you were building a code generator, which of these two approaches would you prefer?
 
 String based:
+
 ```csharp
 builder.AppendLine(
     $"public {subject.Type.ToCSharpType()} {subject.ToCSharpPropertyName()} {{ get; set; }}");
 ```
 
 Roslyn based:
+
 ```csharp
 var propertyDeclaration = SyntaxFactory.PropertyDeclaration(
     SyntaxFactory.ParseTypeName(subject.Type.ToCSharpType()), subject.ToCSharpPropertyName())
