@@ -18,9 +18,8 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
-* January 2021
-  * .NET to the Core user group
 * February 2021
+  * .NET to the Core user group
   * Azure Saturday Belgrade
   * CodeOps India
   * ConFoo Montreal
