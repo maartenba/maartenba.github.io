@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-11-30 01:39:12 +0200
+date: 2020-03-01 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -18,16 +18,15 @@ Attended a talk and looking for demo material or thought of a question? Don't he
 
 If you want me to deliver a talk at your user group or conference, feel free to [reach out](/about-me.html). Some of the sessions I can give [are available from my Sessionize.com profile](https://sessionize.com/maartenba/), but I'll be happy to provide you with other session proposals if preferred.
 
-* February 2021
-  * .NET to the Core user group
-  * Azure Saturday Belgrade
-  * CodeOps India
-  * ConFoo Montreal
-
 ## Past talks and conferences
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2021-2-24 | Keynote - Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | ConFoo Montreal | Online | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) |  | 
+| 2021-2-23 | Building a friendly .NET SDK to connect to Space | .NET to the Core meetup | Online  | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
+| 2021-2-20 | An exploration of Space | CodeOps India | Online  |  | [view](https://www.youtube.com/watch?v=nA_v5ckd4gM&feature=youtu.be) | 
+| 2021-2-20 | Indexing and searching NuGet.org with Azure Functions and Search | Azure Saturday Belgrade | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) | 
+
 | 2020-12-2 | Building and generating a .NET client for a large API | DotNext Moscow Online | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
 | 2020-11-30 | Warp-speed your startup with Space | Startup Istanbul | Online |  |  | 
 | 2020-10-15 | Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | NDC Sydney 2020 | Online | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) |  | 
