@@ -41,7 +41,7 @@
 .ad { text-align: center; margin-bottom: 20px; }
 
 @media (max-width: 800px) {
-  .ad-left, .ad-top { display: none; }
+  .ad-left, .ad-top { display: none !important; }
 }
 
 a.edit__github { text-decoration: none; }
