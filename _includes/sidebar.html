@@ -15,21 +15,13 @@
         alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
       {% endif %}
       {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
-      {% if s.text %}{{ s.text | markdownify }}{% endif %}
+      {% if s.text %}<small>{{ s.text | markdownify }}</small>{% endif %}
     {% endfor %}
     {% if page.sidebar.nav %}
       {% include nav_list nav=page.sidebar.nav %}
     {% endif %}
   {% endif %}
 
-    <!-- sl360 ad banner start -->
-    <!--<div class="sl360-ad ad-left" style="margin: 10px 0;">
-      <a href="https://portal.serverless360.com/OnBoarding/Register?utm_source=maarten-blog&utm_medium=left-sidebar">
-      <img src="https://www.serverless360.com/wp-content/uploads/2020/02/sl360-left-sidebar-3.png" alt="serverless360" />
-      </a>
-    </div>-->
-    <!-- sl360 ad banner end -->
-
-    <div class="ad ad-left" data-type="ad" data-publisher="lqm.maartenballiauw.site" data-format="160x600" data-zone="side" ></div>
+    <div class="ad ad-left" data-ea-publisher="blog-maartenballiauw-be" data-ea-type="image"></div>
   </div>
 {% endif %}
