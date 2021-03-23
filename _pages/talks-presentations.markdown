@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-03-01 01:39:12 +0200
+date: 2020-03-23 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -22,6 +22,9 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2021-3-24 | Building a friendly Kotlin SDK to connect to Space | WeAreDevelopers Live | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-kotlin-sdk-to-connect-to-jetbrains-space) |  | 
+| 2021-3-23 | Building a friendly .NET SDK to connect to Space | VISUG meetup | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
+![image](https://user-images.githubusercontent.com/485230/112141526-ac4db200-8bd5-11eb-88da-bc11c472885c.png)
 | 2021-2-24 | Keynote - Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | ConFoo Montreal | Online | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) |  | 
 | 2021-2-23 | Building a friendly .NET SDK to connect to Space | .NET to the Core meetup | Online  | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
 | 2021-2-20 | An exploration of Space | CodeOps India | Online  |  | [view](https://www.youtube.com/watch?v=nA_v5ckd4gM&feature=youtu.be) | 
