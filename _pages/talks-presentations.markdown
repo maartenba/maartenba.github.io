@@ -23,16 +23,13 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
 | 2021-4-20 | Masterclass - JetBrains Space | Collision 2021 | Online |  | [view](https://www.youtube.com/watch?v=mNfqbUixE7c&feature=youtu.be) | 
-| 2021-3-31 | Microservices for building an IDE - The innards of JetBrains Rider | .NET Zuid | Online | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) | [view](https://youtu.be/Vsnx9rVHUe4) | 
-![image](https://user-images.githubusercontent.com/485230/113147765-6a55e900-9231-11eb-9112-18e322fc6591.png)
+| 2021-3-31 | Microservices for building an IDE - The innards of JetBrains Rider | .NET Zuid | Online | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) | [view](https://youtu.be/Vsnx9rVHUe4) |
 | 2021-3-24 | Building a friendly Kotlin SDK to connect to Space | WeAreDevelopers Live | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-kotlin-sdk-to-connect-to-jetbrains-space) |  | 
-| 2021-3-23 | Building a friendly .NET SDK to connect to Space | VISUG meetup | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
-![image](https://user-images.githubusercontent.com/485230/112141526-ac4db200-8bd5-11eb-88da-bc11c472885c.png)
+| 2021-3-23 | Building a friendly .NET SDK to connect to Space | VISUG meetup | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  |
 | 2021-2-24 | Keynote - Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | ConFoo Montreal | Online | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) |  | 
 | 2021-2-23 | Building a friendly .NET SDK to connect to Space | .NET to the Core meetup | Online  | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
 | 2021-2-20 | An exploration of Space | CodeOps India | Online  |  | [view](https://www.youtube.com/watch?v=nA_v5ckd4gM&feature=youtu.be) | 
 | 2021-2-20 | Indexing and searching NuGet.org with Azure Functions and Search | Azure Saturday Belgrade | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) | 
-
 | 2020-12-2 | Building and generating a .NET client for a large API | DotNext Moscow Online | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-net-sdk-to-connect-to-space) |  | 
 | 2020-11-30 | Warp-speed your startup with Space | Startup Istanbul | Online |  |  | 
 | 2020-10-15 | Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | NDC Sydney 2020 | Online | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) |  | 
