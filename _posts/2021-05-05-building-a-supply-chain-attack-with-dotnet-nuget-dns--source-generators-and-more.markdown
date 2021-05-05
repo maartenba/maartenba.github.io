@@ -275,7 +275,9 @@ Ideally, somewhere in that supply chain, quality assurance steps in and discover
 That's also true for software development. We have a lot of great framework and language features that can be used to provide value, and that can be messed with, as we've seen in this post.
 So also in software development, somewhere in our supply chain, we want to have some quality control to prevent these things from happening.
 
-That supply chain is you, your team, your IT folks, your hosting or cloud provider, package repositories themselves, and more. Everyone in the chain should be aware -- it's the [Swiss Cheese model](https://en.wikipedia.org/wiki/Swiss_cheese_model) of dependency management!
+*"But NuGet should prevent this from happening!"* There's only so much they can do. I assume they scan packages for virus signatures and other known malware, but I managed to [upload the package from this blog post](https://www.nuget.org/packages/MaartenBalliauw.StringExtensions/) without any issue (no worries, it's deleted now). It's hard to automatically scan packages and flag them for making a DNS request. That said, perhaps a check for `ModuleInitializer` could be added, but then again, you can do similar things with MSBuild...
+
+The supply chain is you, your team, your IT folks, your hosting or cloud provider, package repositories themselves, and more. Everyone in the chain should be aware -- it's the [Swiss Cheese model](https://en.wikipedia.org/wiki/Swiss_cheese_model) of dependency management!
 
 Off the top of my head, here are some things to take into account:
 
