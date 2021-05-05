@@ -62,7 +62,7 @@ So ideally, the attacker will try to hide the actual attack as much as possible!
 Back to `MaartenBalliauw.StringExtensions`. Next to the valuable bits, there is another class in the package...
 One that you may not immediately see, as I tried to hide it in another namespace: `System.Security.Policy.Discovery.PolicyDiscoveryManager`.
 
-Do you feel alarmed by that `System.Security.Policy.Discovery.PolicyDiscoveryManager` class? I don't think so, it's deep enough in one of those `System` namespaces that nobody will care about it. And even if you do stumble upon it, the name says `Policy`, `Discovery`, Manager` -- it's all trustworthy, this looks like .NET!
+Do you feel alarmed by that `System.Security.Policy.Discovery.PolicyDiscoveryManager` class? I don't think so, it's deep enough in one of those `System` namespaces that nobody will care about it. And even if you do stumble upon it, the name says `Policy`, `Discovery`, `Manager` -- it's all trustworthy, this looks like .NET!
 
 The `PolicyDiscoveryManager` class looks like this:
 
