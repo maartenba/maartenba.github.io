@@ -285,6 +285,7 @@ Off the top of my head, here are some things to take into account:
 * If your software makes unwanted DNS or HTTP requests, maybe your IT folks can catch that and report something is off.
 * The NuGet folks have been working on [best practices for a secure software supply chain](https://docs.microsoft.com/en-us/nuget/concepts/security-best-practices), where they give good advice on some things you may want to be aware of.
 * Be aware of [dependency confusion](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610), and [take measures to prevent it](https://azure.microsoft.com/en-gb/resources/3-ways-to-mitigate-risk-using-private-package-feeds/). There are many private feed vendors out there, use them!
+* Read through some recommendations [by the Linux Foundation](https://www.linuxfoundation.org/wp-content/uploads/oss_supply_chain_security.pdf).
 * Look into static analysis tools, and vendors like [WhiteSource](https://www.whitesourcesoftware.com/) and [Snyk](https://snyk.io/) to vet dependencies.
 * Don't fear source generators and all that - they have more upsides than downsides! [Here's a collection of useful source generators](https://github.com/amis92/csharp-source-generators).
 
