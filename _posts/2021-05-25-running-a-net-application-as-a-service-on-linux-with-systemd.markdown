@@ -110,7 +110,7 @@ Time to unwrap!
 * We're subscribing to some events exposed by the `DnsServer`, so that we can look at logs of requests coming in, and see whenever something goes wrong.
 * Finally, we start listening for incoming requests.
 
-I'm using `Task.WhenAny` here to start the DNS server itself. The reason for that is the `ExecuteAsync` is passed a `CancellationToken`, and we want to be able to shut down our service when cancellation is requested.
+The `ExecuteAsync` is passed a `CancellationToken`, which will be use when Systemd requests our service to terminate. Since the `DNS` library itself does not have support for `CancellationToken`, I'm using `Task.WhenAny` here to start the DNS server, so we are able to shut down our service when cancellation is requested.
 
 The server itself will listen on the port that is defined in configuration, and when that is not present, defaults to `53531`.
 
