@@ -125,7 +125,7 @@ Using a timestamp as a cursor, and traversing some JSON... That seems easy enoug
 
 The `NuGet.Services.Metadata.Catalog` package comes with a `CatalogProcessor` class which reads the catalog between a start and end timestamp, and allows plugging in an `ICatalogLeafProcessor` that we can implement:
 
-```  
+```
 Task<bool> ProcessPackageDetailsAsync(PackageDetailsCatalogLeaf leaf);
 Task<bool> ProcessPackageDeleteAsync(PackageDeleteCatalogLeaf leaf);
 ```
@@ -145,8 +145,8 @@ class Program
         var cursor = new InMemoryCursor(null);
 
         var processor = new BatchCatalogProcessor(
-            cursor, 
-            new CatalogClient(httpClient, new NullLogger<CatalogClient>()), 
+            cursor,
+            new CatalogClient(httpClient, new NullLogger<CatalogClient>()),
             new DelegatingCatalogLeafProcessor(
                 added =>
                 {
@@ -164,7 +164,7 @@ class Program
             {
                 MinCommitTimestamp = DateTimeOffset.MinValue,
                 ServiceIndexUrl = "https://api.nuget.org/v3/index.json"
-            }, 
+            },
             new NullLogger<BatchCatalogProcessor>());
 
         await processor.ProcessAsync(CancellationToken.None);
@@ -255,8 +255,8 @@ public static async Task Run(
     var cursor = new InMemoryCursor(timer.ScheduleStatus?.Last ?? DateTimeOffset.UtcNow);
 
     var processor = new CatalogProcessor(
-        cursor, 
-        new CatalogClient(HttpClient, new NullLogger<CatalogClient>()), 
+        cursor,
+        new CatalogClient(HttpClient, new NullLogger<CatalogClient>()),
         new DelegatingCatalogLeafProcessor(
             added =>
             {
@@ -276,7 +276,7 @@ public static async Task Run(
             deleted =>
             {
                 queueCollector.Add(PackageOperation.ForDelete(
-                    deleted.PackageId, 
+                    deleted.PackageId,
                     deleted.PackageVersion,
                     deleted.ParsePackageVersion().ToNormalizedString()));
 
@@ -287,7 +287,7 @@ public static async Task Run(
             MinCommitTimestamp = timer.ScheduleStatus?.Last ?? DateTimeOffset.UtcNow,
             MaxCommitTimestamp = timer.ScheduleStatus?.Next ?? DateTimeOffset.UtcNow,
             ServiceIndexUrl = "https://api.nuget.org/v3/index.json"
-        }, 
+        },
         new NullLogger<CatalogProcessor>());
 
     await processor.ProcessAsync(CancellationToken.None);
@@ -373,7 +373,7 @@ Important to note here is that we have to specify that this attribute serves as 
 
 Now that's not enough. Will it be a trigger binding? Input? Output? We'll have to tell the runtime, by doing two things:
 
-* Implement `IExtensionConfigProvider` to tel the runtime that we're extending default functionality
+* Implement `IExtensionConfigProvider` to tell the runtime that we're extending default functionality
 * Register our extension so the runtime picks it up
 
 That first one is easy. We can register our extension using a class like this:
@@ -434,7 +434,7 @@ _processor = new BatchCatalogProcessor(
     loggerFactory.CreateLogger<BatchCatalogProcessor>());
 ```
 
-We have our `BatchCatalogProcessor` which traverses the NuGet catalog and calls the `PackageAdded`/`PackageDeleted` function, roughly like we did before. It uses a `CloudBlobCursor` to keep track of the last timestamp that was processed. 
+We have our `BatchCatalogProcessor` which traverses the NuGet catalog and calls the `PackageAdded`/`PackageDeleted` function, roughly like we did before. It uses a `CloudBlobCursor` to keep track of the last timestamp that was processed.
 
 The processor is started when our listener starts. Nothing special: we execute it, and if/when it returns we pause for 5 seconds and start again.
 
@@ -460,9 +460,9 @@ async Task<bool> PackageAdded(PackageDetailsCatalogLeaf added)
     await executor.TryExecuteAsync(new TriggeredFunctionData
     {
         TriggerValue = PackageOperation.ForAdd(
-            added.PackageId, 
+            added.PackageId,
             added.PackageVersion,
-            added.VerbatimVersion, 
+            added.VerbatimVersion,
             packageVersion.ToNormalizedString(),
             added.Published,
             GeneratePackageUrl(added.PackageId, packageVersion),
@@ -549,7 +549,7 @@ Enough with the downloading, let's do what we were initially aiming to do: index
 
 Before we dive into the Azure Functions part, let's take a step back and think about what data we need from packages, and how we will get that data. We will need the package id and version, the package binary, and for every assembly in that binary we want to grab a list of all public type names and namespaces.
 
-So... Shall we do an assembly load and reflect over it? Rather not. Loading every single assembly published on NuGet into our runtime would be a nightmare and a generally bad idea for multiple reasons. Luckily for us, there is a better option! 
+So... Shall we do an assembly load and reflect over it? Rather not. Loading every single assembly published on NuGet into our runtime would be a nightmare and a generally bad idea for multiple reasons. Luckily for us, there is a better option!
 
 ### System.Reflection.Metadata
 
