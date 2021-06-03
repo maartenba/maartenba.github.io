@@ -1,0 +1,7 @@
+id: 93db1479
+date: 2021-06-03T00:42:14.3282007Z
+name: Sol F
+email: 
+avatar: https://secure.gravatar.com/avatar/62daf5655c12e43e66ed978f83eb5f8e?s=80&r=pg
+url: 
+message: "Would anyone know if it is possible to change the header before the call to the Token endpoint?\r\nI am trying to authenticate with a provider that requires that the request for the Token contain the {client_id:client_secret} in the Authorization Basic Header.\r\n\r\nIn my starup.cs ConfigurationServices, I have an AddOAuth with all the required parameters, but the flow fails when in tries to request information on the TokenEndpoint.\r\n\r\nOauthOptions.Events does not provide an event before the Token is requested. \r\nI also cannot find a way to change the header for any outgoing request from my ASP NET Core service."
