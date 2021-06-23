@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-05-26 01:39:12 +0200
+date: 2020-06-23 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -22,7 +22,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
-| 2021-5-26 | Indexing and searching NuGet.org with Azure Functions and Search | DevSum | Online  | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) |
+| 2021-6-23 | Become a productive .NET developer with JetBrains Rider | Team R-IT Netherlands | Online |  |  | 
+| 2021-5-26 | Indexing and searching NuGet.org with Azure Functions and Search | DevSum | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) |
 | 2021-4-20 | Masterclass - JetBrains Space | Collision 2021 | Online |  | [view](https://www.youtube.com/watch?v=mNfqbUixE7c&feature=youtu.be) | 
 | 2021-3-31 | Microservices for building an IDE - The innards of JetBrains Rider | .NET Zuid | Online | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) | [view](https://youtu.be/Vsnx9rVHUe4) |
 | 2021-3-24 | Building a friendly Kotlin SDK to connect to Space | WeAreDevelopers Live | Online | [download](https://www.slideshare.net/maartenba/building-a-friendly-kotlin-sdk-to-connect-to-jetbrains-space) |  | 
