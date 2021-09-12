@@ -1,0 +1,12 @@
+id: 507d1e21
+date: 2021-09-12T09:39:13.5041398Z
+name: Paolo
+email: 
+avatar: https://secure.gravatar.com/avatar/1631f840a2c0fd49965f7002adc09597?s=80&r=pg
+url: 
+message: >-
+  Enlightening article.
+
+  how would you configure ChannelExtensions for one fast producer and several slow consumers?
+
+  In your example if you only had ReadFrontMatterAsync () and CreateImageAsync () (skip to save image) the last operation would have been a ReadAll but with different consumers?
