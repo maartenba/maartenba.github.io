@@ -1,0 +1,7 @@
+id: 1114f308
+date: 2021-10-18T16:33:45.6739257Z
+name: Steve
+email: 
+avatar: https://secure.gravatar.com/avatar/a8cf364f0a982bc4f70c67a292df05f1?s=80&r=pg
+url: 
+message: Do you know what needs to be changed to allow this to work with HttpSys hosting using UrlPrefixes?  This template seems to fail when using this hosting method.
