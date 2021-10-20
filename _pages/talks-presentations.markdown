@@ -22,6 +22,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2021-10-20 | An exploration of Space | OpenSlava | Online |  | [view](https://www.youtube.com/watch?v=mNfqbUixE7c&feature=youtu.be) | 
+![image](https://user-images.githubusercontent.com/485230/138044379-280603c5-f721-44a2-8ab8-5bcc581364ba.png)
 | 2021-6-23 | Become a productive .NET developer with JetBrains Rider | Team R-IT Netherlands | Online |  |  | 
 | 2021-5-26 | Indexing and searching NuGet.org with Azure Functions and Search | DevSum | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) |
 | 2021-4-20 | Masterclass - JetBrains Space | Collision 2021 | Online |  | [view](https://www.youtube.com/watch?v=mNfqbUixE7c&feature=youtu.be) | 
