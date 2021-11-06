@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TODO come up with a title"
+title: "A journey towards SpeakerTravel - Building a service from scratch"
 date: 2021-11-08 03:44:05 +0100
 comments: true
 published: true
@@ -11,7 +11,7 @@ author: Maarten Balliauw
 
 For close to two years now, I've had [SpeakerTravel](https://speaker.travel/) up & running. It's a tool that helps conference organizers to book flights for speakers. You invite speakers, they pick their flight of choice (within a budget the organizer can specify), and the organizer can then approve and book the flight with a single click.
 
-In this post, I want to go a bit into the process of building this tool. Why I started it, how it works, a look at it from the business side, and maybe a follow-up post that covers any questions you may have after reading.
+In this post, I want to go a bit into the process of building this tool. Why I started it in the first place, how it works, a look at it from the business side, and maybe a follow-up post that covers any questions you may have after reading.
 
 {% include toc %}
 
@@ -48,7 +48,7 @@ Book flights via any website, and you'll go through these steps. There's a reaso
 
 * The flight inventory is really a big database with all seats on all (or at least, many) airlines. As far as I could find, airlines populate this database a coule of times a year. It does not contain prices, just seats and conditions to book seats.
 * Pricing checks a given seat with the airline (or other party in between). Requesting a price means the airline can give an actual price for a seat. They can also track interest in a specific seat/group of seats, and price accordingly.
-* Booking reserves the seat, and removes that seat from the big flight inventory database. If no tickets have been issued after a couple of hours, the seat is made available again.
+* Booking reserves the seat, and removes that seat from the big flight inventory database. Ideally, booking has to happen soon after pricing. If no tickets have been issued after a couple of hours, the seat is made available again.
 * Issuing tickets confirms the seat, and gives you the actual ticket that can be used to board a plane. Having these two steps separate means that in between, a booking website can ask you for payment, and only when that is confirmed, issue tickets.
 
 So in short, I needed something that could perform all of these steps somehow. More research!
@@ -126,7 +126,7 @@ Before diving into the deep and coughing up that certification fee (and building
 
 For flight booking, **C**ontrol is never going to be the case. Someone is flying the airplane, someone handles booking. There are parties in between you and that flight, and there's no way around that. From my research, I knew if really needed I could find another OTA or GDS, and go with that, so I felt there was just enough control to give this aspect a green checkmark.
 
-**E**ntry was steep enough: that certification fee, research, building the app. Something everyone could overcome, but definitely not something anyone would do. As an added bonus, I had to figure out some tricks to find the same flight twice (once by the speaker making the search, once by the conference organizer to confirm booking), which requires some proper magic to get right. So **E**ntry? Check!
+**E**ntry was steep enough: that certification fee, research, building the app. Something everyone could overcome, but definitely not something everyone would do. As an added bonus, I had to figure out some tricks to find the same flight twice: once by the speaker making the search, once by the conference organizer to confirm booking. Pricing and booking have to be close together, but for SpeakerTravel there could even be a few days between both parties doing this. In any case, it requires some proper magic to get thi right and fine the same (or a very comparable) seat. So **E**ntry? Check!
 
 The **N**eed aspect was easy. There are lots of conferences out there that are probably going through the same pain with booking flights. Check!
 
