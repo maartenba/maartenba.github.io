@@ -5,7 +5,7 @@ date: 2021-11-08 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", ".NET", "Travel"", "Startup"]
+tags: ["General", ".NET", "Travel"", "Startup", "Conferences"]
 author: Maarten Balliauw
 ---
 
@@ -169,7 +169,7 @@ Since I'd already built some API integration with AllMyles in C#, at least part 
 
 So I went with an ASP.NET Core backend, [IdentityServer](https://duendesoftware.com/), and [React](https://reactjs.org/).
 
-About an hour of cursing on a simple "Hello, World" later, React was replaced with [Vue.js](https://vuejs.org/) which seemed easier to get started with. I did have to replicate the [ASP.NET Core SPA development experience](https://blog.maartenballiauw.be/post/2019/11/13/how-does-the-aspnetcore-spa-development-experience-work.html) to support Vue.js, but that was fun to do and write about.
+About an hour of cursing on a simple "Hello, World" later, React was replaced with [Vue.js](https://vuejs.org/) which seemed easier to get started with. I did have to replicate the [ASP.NET Core SPA development experience (blog post)](https://blog.maartenballiauw.be/post/2019/11/13/how-does-the-aspnetcore-spa-development-experience-work.html) to support Vue.js, but that was fun to do and write about.
 
 What wasn't fun though, was the slow-going. New to Vue.js, a lot of things went very slow while building. After 2 weeks of spending evenings on just a login that worked smoothly, I started wondering...
 
@@ -184,6 +184,8 @@ This time, I started with an ASP.NET MVC Core project. Individual user accounts 
 A few hours into development, I had the login/register/manage account pages customized. The layout page was converted to load a [Bootswatch UI theme](https://bootswatch.com/) (on top of [Bootstrap](https://getbootstrap.com/)), and was starting to get into building the flows of inviting speakers, searching flights (with 100% made up data), approving and rejecting flights, and all that. This was finished in a week or 6 and then another few weeks to properly integrate with AllMyles' staging environment.
 
 While developing the app, a lot of new ideas and improvements popped up. I tried to be ruthless in asking myself *"do I really need this for version 1?"*, and log anything else in the issue tracker and pick it up in the future. This definitely helped with productivity.
+
+Some fun was had implementing [tag helpers to show/hide HTML elements (blog post)](https://blog.maartenballiauw.be/post/2020/04/14/building-an-aspnet-core-tag-helper-to-show-hide-ui-elements-based-on-authorization.html), which realy works well to make certain parts of the UI available based on user permissions and roles.
 
 The first version was ready near the end of August 2019, including a basic [product website](https://speaker,travel/) that is powered by a very simple Markdown-to-HTML script that seems to work well.
 
