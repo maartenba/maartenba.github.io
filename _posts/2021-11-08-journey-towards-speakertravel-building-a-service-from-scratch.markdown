@@ -126,7 +126,7 @@ Before diving into the deep and coughing up that certification fee (and building
 
 For flight booking, **C**ontrol is never going to be the case. Someone is flying the airplane, someone handles booking. There are parties in between you and that flight, and there's no way around that. From my research, I knew if really needed I could find another OTA or GDS, and go with that, so I felt there was just enough control to give this aspect a green checkmark.
 
-**E**ntry was steep enough: that certification fee, research, building the app. Something everyone could overcome, but definitely not something everyone would do. As an added bonus, I had to figure out some tricks to find the same flight twice: once by the speaker making the search, once by the conference organizer to confirm booking. Pricing and booking have to be close together, but for SpeakerTravel there could even be a few days between both parties doing this. In any case, it requires some proper magic to get thi right and fine the same (or a very comparable) seat. So **E**ntry? Check!
+**E**ntry was steep enough: that certification fee, research, building the app. Something everyone could overcome, but definitely not something everyone would do. As an added bonus, I had to figure out some tricks to find the same flight twice: once by the speaker making the search, once by the conference organizer to confirm booking. Pricing and booking have to be close together (as in, 20-30 minutes), but for SpeakerTravel there could even be a few days between both parties doing this. In any case, it requires some proper magic to get this right and fine the same (or a very comparable) seat. So **E**ntry? Check!
 
 The **N**eed aspect was easy. There are lots of conferences out there that are probably going through the same pain with booking flights. Check!
 
@@ -212,6 +212,8 @@ For every traveler, the system keeps a `TravelerStatus` history, which represent
 The `TravelerStatus` history is evaluated for every traveler, and the system takes these into account. In fact, they are somewhat visible in the application UI as well (though some of these state transitions are combined for UX purposes).
 
 When a `Traveler` requests a booking, some PII is stored. Passenger name, birth date, and whatever the airline requires to book a given seat. This data is stored as a JSON blob - the fields are dynamic and may differ depending on the airline. This data is always destroyed after tickets are issues, the booking request was rejected, or when the booking was still waiting for approval but the event has concluded 10 days ago.
+
+For flight search and booking, the domain model is a 1:1 copy of what AllMyles has in their API. Looking at other APIs, it's roughly the standard model in the world of flights. A `Search` returns one or more `SearchResult`s. Each of those has one or more `Combination`s, typically flights that have the same conditions and price, but different times. E.g. a shuttle flight from Brussels to Frankfurt may return 3 combinations here - same price, and conditions, just 3 different times during the day. A `Combination` can also have upgrade and baggage option. The booking itself is essentially makign a call that passes a given `Combination` identifier (and what options are selected on top).
 
 ### Ready for take-off!
 
