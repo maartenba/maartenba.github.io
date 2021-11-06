@@ -194,10 +194,12 @@ The [application itself](https://app.speaker.travel/) was built and deployed on 
 * ASP.NET Core MVC + Razor pages for the scaffolded identity area, on .NET Core 2.1
 * Bootstrap and Bootswatch for UI
 * A sprinkle of jQuery
+* [Hangfire](https://www.hangfire.io/) for background jobs (the actual bookingm, sending e-mails, anything that's async/retryable)
 * SQL Server LocalDb for development, Azure SQL Database for production
 * Azure Web Apps for the app and product website
 * Private GitHub repository
 * Azure DevOps to build and deploy
+* SendGrid for sending e-mails
 
 Overall, this was and is a very familiar stack for me, and as a result a stack in which I was immediately productive. Server-side rendering is fine 😉 And .NET is truly great!
 
@@ -244,9 +246,11 @@ Today's tech stack:
 * ASP.NET Core MVC + Razor pages for the scaffolded identity area, on .NET 6.0 RC2
 * Bootstrap and Bootswatch
 * A sprinkle of jQuery (that I want to replace with [HTMX](https://htmx.org/))
+* [Hangfire](https://www.hangfire.io/) for background jobs (the actual bookingm, sending e-mails, anything that's async/retryable)
 * SQL Server LocalDb for development, Azure SQL Database for production
 * Product website and application are Docker images now, deployed to Azure Web Apps for Containers
 * [JetBrains Space](https://www.jetbrains.com/space/) for Git, CI/CD, and container registry
+* [Mailjet](https://www.mailjet.com/) for sending out e-mails. Smaller company, better support.
 
 > **Note:** If you're interested in seeing CI/CD with Space, check [this Twitter thread](https://twitter.com/maartenballiauw/status/1440228410668716035/).
 
