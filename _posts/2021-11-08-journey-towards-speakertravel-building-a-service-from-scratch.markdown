@@ -5,7 +5,7 @@ date: 2021-11-08 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", ".NET", "Travel"", "Startup", "Conferences"]
+tags: ["General", ".NET", "Travel", "Startup", "Conferences"]
 author: Maarten Balliauw
 ---
 
