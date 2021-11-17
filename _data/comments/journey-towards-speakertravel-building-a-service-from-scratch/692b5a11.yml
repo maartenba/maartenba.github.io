@@ -1,0 +1,36 @@
+id: 7a918c3d
+date: 2021-11-17T13:31:03.3497589Z
+name: Maarten Balliauw
+email: 
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >-
+  Thanks!
+
+
+
+  The Markdown-to-HTML generator is homegrown, and essentially a Gulp file that takes one folder, runs Nunjucks to convert the markdown, and dumps files in the web directory. Will see if I can do anything interesting around it, but this is the gist:
+
+
+
+  ```
+
+  function static_main() {
+
+      return gulp.src([
+
+              './content/static/**/*.md',
+
+              './content/static/**/*.html'
+
+          ])
+
+          .pipe(gulpGrayMatter({ }))
+
+          .pipe(nunjucks({ path: './content/templates', ext: '.html', manageEnv: manageNunjucksEnvironment }))
+
+          .pipe(gulp.dest('./wwwroot'));
+
+  }
+
+  ```
