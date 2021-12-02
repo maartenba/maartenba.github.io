@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2020-06-23 01:39:12 +0200
+date: 2020-12-02 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -22,6 +22,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2021-12-2 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Oslo 2021 | Norway - Oslo | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) |  | 
+| 2021-12-1 | Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | NDC Oslo 2021 | Norway - Oslo | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) |  |
 | 2021-10-20 | An exploration of Space | OpenSlava | Online |  | [view](https://www.youtube.com/watch?v=mNfqbUixE7c&feature=youtu.be) |
 | 2021-6-23 | Become a productive .NET developer with JetBrains Rider | Team R-IT Netherlands | Online |  |  | 
 | 2021-5-26 | Indexing and searching NuGet.org with Azure Functions and Search | DevSum | Online | [download](https://www.slideshare.net/maartenba/indexing-and-searching-nugetorg-with-azure-functions-and-search-net-fwdays20-online-conference) | [view](https://youtu.be/-zJoP2qPgTg) |
