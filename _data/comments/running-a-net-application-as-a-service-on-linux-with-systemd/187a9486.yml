@@ -1,0 +1,16 @@
+id: 195f1eec
+date: 2022-02-05T10:08:06.4203800Z
+name: Andrea B.
+email: 
+avatar: https://secure.gravatar.com/avatar/ea4cca777d992e62952c1d29cfdf6fd1?s=80&r=pg
+url: 
+message: >-
+  Hi Maarten.
+
+  thank you for your post.
+
+  I've always used dotnet core 3.1 console applications in Linux without the Microsoft.Extensions integration but only with systemd and journal.
+
+  So, what is the benefit or difference using the Microsoft Extensions?
+
+  Thank you.
