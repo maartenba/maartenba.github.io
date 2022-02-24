@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2022-02-02 01:39:12 +0200
+date: 2022-02-24 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -22,6 +22,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2022-2-24 | Get the maximum out of Minimal APIs with ASP.NET Core | ConFoo Montreal 2022 | Online |  |  | 
 | 2021-12-2 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Oslo 2021 | Norway - Oslo | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) |  | 
 | 2021-12-1 | Nerd sniping myself into a rabbit hole... Streaming online audio to a Sonos speaker | NDC Oslo 2021 | Norway - Oslo | [download](https://www.slideshare.net/maartenba/nerd-sniping-myself-into-a-rabbit-hole-streaming-online-audio-to-a-sonos-speaker) | [view](https://www.youtube.com/watch?v=YYtWTXlPTa0) |
 | 2021-10-20 | An exploration of Space | OpenSlava | Online |  | [view](https://www.youtube.com/watch?v=mNfqbUixE7c&feature=youtu.be) |
