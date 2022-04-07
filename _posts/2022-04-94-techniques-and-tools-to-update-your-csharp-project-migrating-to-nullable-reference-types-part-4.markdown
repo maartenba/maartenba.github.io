@@ -206,7 +206,15 @@ The original `[CanBeNull]` annotation can be removed, and converted to `string? 
 
 ![Use type annotation syntax](/images/2022/04/use-type-annotation-syntax.png)
 
-> **Tip:** You can run these quick fixes on your entire file, project or solution if you don't want to go through all these occurrences.
+If you're using the 2022.1 version of ReSharper or JetBrains Rider, there is a new **Migrate to #nullable enable** quick fix that does a few things at once:
+* It inserts all `[NotNull]` and `[CanBeNull]` attributes inherited from base members such as implemented interfaces.
+  JetBrains annotations can be inherited (unlike C#'s annotations), so they are pulled in.
+* It infers annotations, by looking at your code's branches. Are you returning `null`? A nullable return type will be inferred.
+* It converts all JetBrains Annotations in th current file to C# annotations.
+
+![Migrate to #nullable enable](/images/2022/04/migrate-to-nullable-enable.png)
+
+> **Tip:** You can run most of these quick fixes on your entire file, project or solution in one go.
 
 ## Determine nullability based on `null` checks
 
