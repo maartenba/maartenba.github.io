@@ -34,8 +34,6 @@ Regardless of the setting you choose at the project level, you'll be in the mode
 There is no silver bullet.
 There are, however, some techniques and tools that will help you reach the end goal of having a fully annotated codebase.
 
-TODO MAYBE THERE IS
-
 ## Start at the edges and work inwards
 
 Where to begin? What worked well for me on various code bases, was to start at the edges.
