@@ -9,13 +9,16 @@ tags: ["General", ".NET", "Nullability"]
 author: Maarten Balliauw
 ---
 
-In the [previous post](TODO), we saw that with nullable reference types enabled, you get better static flow analysis when working on your code.
+In the [previous post](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html), we saw that with nullable reference types enabled, you get better static flow analysis when working on your code.
 While nullable reference types don't give you runtime safety, the design-time and compile-time help is priceless!
 
 In this post, we'll look at some internals of how C# nullable reference types work, and how the C# compiler and IDE use the nullable annotation context.
 
 In this series:
-* TODO
+* [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)
+* [Internals of C# nullable reference types](TODO) (this post)
+* Annotating your C# code (soon!)
+* Techniques and tools to update your project (soon!)
 
 ## Under the hood - Intermediate Language (IL)
 
