@@ -1,10 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Jekyll - Shell" type="docker-deploy" factoryName="docker-image" server-name="Docker">
+  <configuration default="false" name="Jekyll - Run" type="docker-deploy" factoryName="docker-image" server-name="Docker">
     <deployment type="docker-image">
       <settings>
         <option name="imageTag" value="starefossen/github-pages:latest" />
         <option name="containerName" value="jekyll-blog" />
-        <option name="entrypoint" value="/bin/sh" />
         <option name="portBindings">
           <list>
             <DockerPortBindingImpl>
@@ -13,7 +12,7 @@
             </DockerPortBindingImpl>
           </list>
         </option>
-        <option name="commandLineOptions" value="--rm -it" />
+        <option name="commandLineOptions" value="" />
         <option name="volumeBindings">
           <list>
             <DockerVolumeBindingImpl>
