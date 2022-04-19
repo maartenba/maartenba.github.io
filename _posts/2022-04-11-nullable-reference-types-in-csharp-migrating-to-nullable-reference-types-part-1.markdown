@@ -21,8 +21,8 @@ Throughout a series of blog posts, we'll learn more about C# nullability,
 and cover some techniques and approaches that worked for me when migrating an existing codebase to using nullable reference types.
 
 In this series:
-* Nullable reference types in C#
-* Internals of C# nullable reference types (soon!)
+* [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html) (this post)
+* [Internals of C# nullable reference types](TODO)
 * Annotating your C# code (soon!)
 * Techniques and tools to update your project (soon!)
 
@@ -214,4 +214,4 @@ Variable annotations can be used to explicitly declare the intended null-state f
 
 Nullable reference types don't give you runtime safety when it comes to nullability, but design-time and compile-time help is great to have!
 
-In the next post, we'll look at some internals and the nullable annotation context.
+In the [next post](TODO), we'll look at some internals and the nullable annotation context.
