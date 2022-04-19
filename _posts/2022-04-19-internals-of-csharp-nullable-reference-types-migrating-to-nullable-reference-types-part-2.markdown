@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Internals of C# nullable reference types - Migrating to nullable reference types - Part 2"
-date: 2022-04-08 03:44:05 +0100
+date: 2022-04-19 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
