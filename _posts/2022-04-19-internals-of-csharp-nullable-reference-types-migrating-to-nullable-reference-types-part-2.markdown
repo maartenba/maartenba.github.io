@@ -16,7 +16,7 @@ In this post, we'll look at some internals of how C# nullable reference types wo
 
 In this series:
 * [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)
-* Internals of C# nullable reference types (this post)
+* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html) (this post)
 * Annotating your C# code (soon!)
 * Techniques and tools to update your project (soon!)
 
