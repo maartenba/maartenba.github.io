@@ -214,4 +214,4 @@ Variable annotations can be used to explicitly declare the intended null-state f
 
 Nullable reference types don't give you runtime safety when it comes to nullability, but design-time and compile-time help is great to have!
 
-In the [next post](TODO), we'll look at some internals and the nullable annotation context.
+In the [next post](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html), we'll look at some internals and the nullable annotation context.
