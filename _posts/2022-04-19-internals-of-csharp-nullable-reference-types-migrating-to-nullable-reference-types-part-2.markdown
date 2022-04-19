@@ -242,8 +242,8 @@ It will make your project safer in terms of nullability, but unless you change t
 > To make sure you and your fellow developers address these warnings, you can treat these nullable warnings as errors.
 > Set the following two properties in your project file:
 > ```xml
-> &lt;Nullable&gt;warnings&lt;/Nullable&gt;
-> &lt;WarningsAsErrors&gt;Nullable&lt;/WarningsAsErrors&gt;
+> <Nullable>warnings</Nullable>
+> <WarningsAsErrors>Nullable</WarningsAsErrors>
 > ```
 
 #### `annotations` as the default
