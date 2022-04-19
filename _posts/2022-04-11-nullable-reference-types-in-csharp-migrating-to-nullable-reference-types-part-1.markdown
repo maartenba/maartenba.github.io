@@ -22,7 +22,7 @@ and cover some techniques and approaches that worked for me when migrating an ex
 
 In this series:
 * [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html) (this post)
-* [Internals of C# nullable reference types](TODO)
+* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html)
 * Annotating your C# code (soon!)
 * Techniques and tools to update your project (soon!)
 

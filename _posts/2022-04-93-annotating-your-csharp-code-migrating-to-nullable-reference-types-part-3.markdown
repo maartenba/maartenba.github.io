@@ -9,13 +9,16 @@ tags: ["General", ".NET", "Nullability"]
 author: Maarten Balliauw
 ---
 
-In the [previous post](TODO), we looked at some internals of C# nullable reference types, and the nullable annotation context.
+In the [previous post](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html), we looked at some internals of C# nullable reference types, and the nullable annotation context.
 
 Today, let's look at the many options for annotating your code and various ways to help the flow analysis understand your code.
 As a result, you (and anyone consuming your libraries) will get better and more reliable hints from the IDE and the C# compiler.
 
 In this series:
-* TODO
+* [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)
+* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html)
+* Annotating your C# code (this post)
+* Techniques and tools to update your project (soon!)
 
 ## The need for more fine-grained annotations
 
@@ -378,17 +381,6 @@ public string Reverse(string original)
 ```
 
 Nothing stops you from calling `Reverse(null)`. To guard against `null` at runtime, you'll need to check for `null` and throw `ArgumentNullException` (or circumvent the `null` value in another way).
-
-> **Tip:** .NET 7 and C# 11 are adding a new operator, `!!`, which generates the `null` check for you.
-> You'll be able to rewrite the `Reverse()` method and check the value of `original` for `null` by appending the `!!` operator.
-> ```csharp
-> #nullable enable
->
-> public string Reverse(string original!!)
-> {
->     return new string(original.Reverse().ToArray());
-> }
-> ```
 
 In summary, even with nullable reference types enabled, you still need to do `null` checks on untrusted and/or external input.
 
