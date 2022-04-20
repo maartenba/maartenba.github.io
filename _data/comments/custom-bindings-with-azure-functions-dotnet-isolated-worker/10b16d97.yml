@@ -1,0 +1,33 @@
+id: 1219551c
+date: 2022-04-20T01:41:03.1683896Z
+name: CajunCoding
+email: 
+avatar: https://secure.gravatar.com/avatar/e2988cfb7711aa39a3aeb4406c7b2576?s=80&r=pg
+url: https://www.cajuncoding.com/
+message: >+
+  It’s useful to share to everyone that even as of Az Func v4, ONLY string data types are supported for bindings in the isolated process!
+
+
+
+  TL;DR:
+
+  Great Blog post and very helpful as there is still zero documentation on using custom bindings in the isolated process model…
+
+
+
+  Unfortunately I burned way too many hours getting my binding developed, registered, and running only to then get runtime errors that my type cannot be bound to type String.
+
+
+
+  When following the new rabbit hole I found buried in the docs for existing bindings (eg the BlobStorage) when you look at the examples/samples it states that ONLY string data types are supported for bindings in the isolated process…
+
+
+
+  https://docs.microsoft.com/bs-latn-ba/azure/azure-functions/functions-bindings-storage-blob-input?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#usage
+
+
+
+
+
+
+
