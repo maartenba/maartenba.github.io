@@ -1,0 +1,12 @@
+id: bef99670
+date: 2022-04-22T05:24:16.8865501Z
+name: Maarten Balliauw
+email: 
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >-
+  @Luiz everything from 3.1 and especially 5.0 and up is mostly annotated. ASP.NET has good annotations, and EF Core even uses them to determine database properties (I'll talk about that in part 4, as it has pros and cons)
+
+
+
+  You can gradually start adopting it in your own code if you're on any of the newer framework versions.
