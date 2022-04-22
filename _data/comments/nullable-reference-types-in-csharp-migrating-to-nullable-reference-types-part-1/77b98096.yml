@@ -1,0 +1,7 @@
+id: 78234f0c
+date: 2022-04-19T20:18:27.9281071Z
+name: Luiz Bicalho
+email: 
+avatar: https://secure.gravatar.com/avatar/6673c5d48af60dd93f0f1058ca3b0b03?s=80&r=pg
+url: 
+message: Very good topic, my biggest problem to implement this is that I'm not sure how to work on a null reference enabled code if I use other libraries that aren't enabled yet, I mean, aspnet core is not enabled yet, I think that EF core isn't either
