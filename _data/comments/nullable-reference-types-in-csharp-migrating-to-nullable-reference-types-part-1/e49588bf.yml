@@ -1,0 +1,7 @@
+id: e5f5ac32
+date: 2022-04-25T13:18:20.4240732Z
+name: Luiz Bicalho
+email: 
+avatar: https://secure.gravatar.com/avatar/6673c5d48af60dd93f0f1058ca3b0b03?s=80&r=pg
+url: 
+message: Thanks @Maarten, last time I looked the ASP.NET Identity core https://www.nuget.org/packages/Microsoft.AspNet.Identity.Core/ wasn't updated yet, and I use it in my libraries.
