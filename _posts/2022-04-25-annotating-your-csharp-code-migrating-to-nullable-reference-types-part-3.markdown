@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Annotating your C# code - Migrating to nullable reference types - Part 3"
-date: 2022-04-08 03:44:05 +0100
+date: 2022-04-25 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
