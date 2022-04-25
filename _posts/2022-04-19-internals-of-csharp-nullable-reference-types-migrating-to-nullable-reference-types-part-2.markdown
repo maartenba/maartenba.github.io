@@ -17,7 +17,7 @@ In this post, we'll look at some internals of how C# nullable reference types wo
 In this series:
 * [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)
 * [Internals of C# nullable reference types](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html) (this post)
-* Annotating your C# code (soon!)
+* [Annotating your C# code](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html)
 * Techniques and tools to update your project (soon!)
 
 ## Under the hood - Intermediate Language (IL)
@@ -261,4 +261,4 @@ The compiler generates `NullableContextAttribute` and `NullableAttribute` usages
 
 The metadata added by the compiler is used in various ways, depending on the nullable annotation context you specify in your project or separate files.
 
-In the next post, we'll look beyond `?` and cover the many options for annotating your code and helping out flow analysis to give you better and more reliable results.
+In the [next post](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html), we'll look beyond `?` and cover the many options for annotating your code and helping out flow analysis to give you better and more reliable results.
