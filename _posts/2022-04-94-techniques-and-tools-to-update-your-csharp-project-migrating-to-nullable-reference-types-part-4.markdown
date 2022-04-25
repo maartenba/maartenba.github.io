@@ -9,16 +9,19 @@ tags: ["General", ".NET", "Nullability"]
 author: Maarten Balliauw
 ---
 
-Previously, [we saw how you can help the compiler's flow analysis understand your code](TODO), by annotating your code for nullability.
+Previously, [we saw how you can help the compiler's flow analysis understand your code](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html), by annotating your code for nullability.
 
 In this final post of our series, we'll have a look at the techniques and tools that are available to migrate to using nullable reference types in an existing code base.
 
 In this series:
-* TODO
+* [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)
+* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html)
+* [Annotating your C# code](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html)
+* Techniques and tools to update your project (this post)
 
 ## Pick your approach: there is no silver bullet
 
-As we have seen in [a previous post](TODO Which nullable annotation context should you use?),
+As we have seen in [a previous post](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html#which-nullable-annotation-context-should-you-use),
 it can be an overwhelming experience to go all-in and enable the nullable annotation context for all projects in your solution.
 
 Generally speaking, it's a good idea to fully enable the nullable annotation context for new projects.
@@ -175,7 +178,7 @@ Note that it's also possible to do the inverse, and analyze where the value from
 
 ## JetBrains Annotations to C# nullable annotations
 
-In a [previous post](TODO), we discussed JetBrains Annotations already.
+In a [previous post](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html#jetbrains-annotations), we discussed JetBrains Annotations already.
 If you're working on a project where these annotations were already in use before C# introduced nullable reference types, you are in luck when migrating to C#'s version!
 
 When you enable the nullable context, ReSharper and JetBrains Rider will help you with the migration.
