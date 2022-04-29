@@ -1,0 +1,16 @@
+id: 6093301d
+date: 2022-04-29T07:16:53.8818214Z
+name: Maarten Balliauw
+email: 
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >-
+  Thanks Ben!
+
+
+
+  > Do you think it is also a good policy to mark these untrusted input parameters as explicitly nullable? This will ensure that the compiler warns me if I modify the code later and accidentally remove the null check.
+
+
+
+  That's a tough one to answer. It's really about communicating the interface of the method to consumers of that method. If you don't expect `null`, I'd personally define the parameter as non-nullable (and still do the null check inside the method if it's public/potentially consumed by other projects that may or may not have annotations enabled). Annotating it as nullable sets the wrong expectation to consuming code - you want that code to ideally never hand your method a null reference.
