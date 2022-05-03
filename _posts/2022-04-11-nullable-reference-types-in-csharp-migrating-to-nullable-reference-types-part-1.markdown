@@ -13,7 +13,7 @@ The C# nullability features introduced in C#8 help you minimize the likelihood o
 Nullability syntax and annotations give hints on whether a type can be nullable or not.
 Better static analysis is available to catch unhandled nulls while developing your code. What's not to like?
 
-Introducing explicit nullability into an existing code bases is quite an effort. There's much more to it than just
+Introducing explicit nullability into an existing code base is quite an effort. There's much more to it than just
 sprinkling some `?` and `!` throughout your code. It's not a silver bullet either: you'll still need to check
 non-nullable variables for `null`.
 
@@ -24,7 +24,7 @@ In this series:
 * [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html) (this post)
 * [Internals of C# nullable reference types](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html)
 * [Annotating your C# code](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html)
-* Techniques and tools to update your project (soon!)
+* [Techniques and tools to update your project](https://blog.maartenballiauw.be/post/2022/05/03/techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4.html)
 
 Let's start at the beginning.
 
