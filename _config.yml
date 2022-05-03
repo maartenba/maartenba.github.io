@@ -249,3 +249,6 @@ defaults:
       author_profile: true
       header:
         image: splash/1.jpg
+
+feed:
+  posts_limit: 20
