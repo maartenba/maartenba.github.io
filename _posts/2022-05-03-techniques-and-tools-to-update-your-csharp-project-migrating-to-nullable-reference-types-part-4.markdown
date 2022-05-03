@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Techniques and tools to update your C# project - Migrating to nullable reference types - Part 4"
-date: 2022-04-08 03:44:05 +0100
+date: 2022-05-03 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
