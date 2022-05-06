@@ -1,0 +1,28 @@
+id: 4270bc0b
+date: 2022-05-05T12:09:18.6397122Z
+name: Ken Bonny
+email: 
+avatar: https://secure.gravatar.com/avatar/039f1ef084bfa6111ea0f6dc43b08219?s=80&r=pg
+url: https://kenbonny.net/
+message: >-
+  I use a little pattern to make my code more descriptive. I use this mostly when dealing with multiple checks (isFound && valueAboveThreshold && ...). It goes a bit like this:
+
+
+
+  ```
+
+  var order = GetOrder(id);
+
+  var orderNotFound = order is null;
+
+  if (orderNotFound)
+
+      return;
+
+  ...
+
+  ```
+
+
+
+  Rider/R# don't see the guard against the null value. How do I solve this.
