@@ -1,0 +1,17 @@
+id: 6e94eb1d
+date: 2022-05-06T05:36:32.5769599Z
+name: Maarten Balliauw
+email: 
+avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
+url: https://blog.maartenballiauw.be/
+message: >+
+  Good question, Ken!
+
+
+
+  If you look at compiler output, you'll probably find a `[CS8602] Dereference of a possibly null reference` at the location you are dereferencing the `order`.
+
+
+
+  This is one of those cases where R#/Rider have to agree with the compiler. If R#/Rider would say this is okay, but you get the compiler to say otherwise, what's the best answer? I would argue the C# compiler, as that is ultimately the tool that converts your code into something executable.
+
