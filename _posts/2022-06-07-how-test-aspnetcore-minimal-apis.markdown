@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to test ASP.NET Core Minimal APIs"
-date: 2022-06-04 03:44:05 +0100
+date: 2022-06-07 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
