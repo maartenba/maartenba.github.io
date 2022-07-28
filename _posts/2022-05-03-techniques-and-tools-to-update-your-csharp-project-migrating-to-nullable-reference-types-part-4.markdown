@@ -211,7 +211,7 @@ If you're using the 2022.1 version of ReSharper or JetBrains Rider, there is a n
 * It inserts all `[NotNull]` and `[CanBeNull]` attributes inherited from base members such as implemented interfaces.
   JetBrains annotations can be inherited (unlike C#'s annotations), so they are pulled in.
 * It infers annotations, by looking at your code's branches. Are you returning `null`? A nullable return type will be inferred.
-* It converts all JetBrains Annotations in th current file to C# annotations.
+* It converts all JetBrains Annotations in the current file to C# annotations.
 
 ![Migrate to #nullable enable](/images/2022/04/migrate-to-nullable-enable.png)
 
