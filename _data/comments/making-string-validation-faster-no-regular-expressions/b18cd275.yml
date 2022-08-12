@@ -1,0 +1,24 @@
+id: b26a70b7
+date: 2022-08-07T23:50:09.1735760Z
+name: Prométhée
+email: 
+avatar: https://secure.gravatar.com/avatar/afb383ef645e727a479b7a1262a0f6c6?s=80&r=pg
+url: 
+message: >-
+  Hello,
+
+
+
+  Since your (interesting) article, there have been major improvements on .NET C# RegEx engine through .NET 5 & (recently) .NET 7:
+
+  https://devblogs.microsoft.com/dotnet/regex-performance-improvements-in-net-5/
+
+  https://devblogs.microsoft.com/dotnet/regular-expression-improvements-in-dotnet-7/
+
+
+
+  There are some techniques related to the length of the string, to ASCII-limited area, to avoiding useless backtracking, etc.
+
+
+
+  With these improvements, your baseline code (possibly adapted for using source generator) might compete with your custom code.
