@@ -366,6 +366,47 @@ public class Orders : Controller
 
 You'll find this works similar to authorization and authorization policies.
 
+## ASP.NET Core rate limiting with YARP proxy
+
+In your application, you may be using [YARP](https://microsoft.github.io/reverse-proxy/), to build a reverse proxy gateway sitting in front of various backend applications. For example, you may run YARP to listen on `example.org`, and have it proxy all requests going to this domain while mapping `/api` and `/docs` to different web apps running on diffreent servers.
+
+In such scenario, rate limiting will also be useful. You could rate limit each application separately, or apply rate limiting in the YARP proxy. Given both YARP and ASP.NET Core rate limiting are middlewares, they play well together.
+
+As an example, here's a YARP proxy that applies a global rate limit of 10 requests per minute, partitioned by host header:
+
+```csharp
+using System.Threading.RateLimiting;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = 429;
+    options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: httpContext.Request.Headers.Host.ToString(),
+            factory: partition => new FixedWindowRateLimiterOptions
+            {
+                AutoReplenishment = true,
+                PermitLimit = 10,
+                QueueLimit = 0,
+                Window = TimeSpan.FromMinutes(1)
+            }));
+});
+
+builder.Services.AddReverseProxy()
+    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
+
+var app = builder.Build();
+app.UseRateLimiter();
+app.MapReverseProxy();
+app.Run();
+```
+
+Just like with ASP.NET Core Minimal API and MVC apps, you can use the `AddRateLimiter()` extension method to configure rate limits, and `AddReverseProxy()` to register the YARP configuration.
+
+To then register the configured middlewares in your application, use the `UseRateLimiter()` and `MapReverseProxy()` can be used.
+
 ## Wrapping up
 
 By limiting the number of requests that can be made to your application, you can reduce the load on your server and have more fair usage of resources among your users.
