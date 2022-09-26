@@ -49,7 +49,7 @@ You, your team, or external factors may behave in ways you did not expect.
 That profile picture upload that usually gets small images uploaded? Guaranteed someone will try to upload a 500MB picture of the universe at some point.
 
 When you build an application, there's a very real chance that you don't know how it will be used, and what potential abuse may look like.
-You are sharing CPU, memory and database usage among your users, One bad actor, whether intentional or accidental, can break or make your application slow, spoiling the experience for other users.
+You are sharing CPU, memory and database usage among your users. One bad actor, whether intentional or accidental, can break or make your application slow, spoiling the experience for other users.
 
 ### What is rate limiting?
 
@@ -72,7 +72,7 @@ With *everything*, I mean every endpoint that uses resources that could slow dow
 
 Typically, you'll want to rate limit endpoints that make use of the CPU, memory, disk I/O, the database, external APIs, and the likes.
 
-Huh. That does mean everything! You'll want to prevent resource exhaustion, and make usage of shared resources more fair to all your users.
+Huh. That does mean everything, even your internal (health) endpoints! You'll want to prevent resource exhaustion, and make usage of shared resources more fair to all your users.
 
 ### Naive rate limiting
 
@@ -264,7 +264,7 @@ Measurement brings knowledge! A good approach to decide on sensible limits is to
 * Implement rate limiting, but don't block requests yet. When a limit is hit, log it. This will let you fine-tune the numbers.
 * Iterate on measurements and logs, and when you are certain you know what the limit should be, start enforcing it.
 
-As an extra tip, make suer to constantly monitor rate limiting events, and adjust when needed.
+As an extra tip, make sure to constantly monitor rate limiting events, and adjust when needed.
 Perhaps a newer version of your mobile app makes more requests to your API, and this is expected traffic.
 
 Too strict limits will annoy your users. Remember, you don't want to police the number of requests.
