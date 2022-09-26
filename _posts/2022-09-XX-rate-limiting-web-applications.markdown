@@ -243,7 +243,7 @@ Now that we have seen the basic concepts of rate limiting, let's have a look at 
 
 ### Which resources to rate limit?
 
-Deciding on which resources to rate limit is easy. here's a quote from a famous blog author:
+Deciding which resources to rate limit is easy. Here's a quote from a famous blog author:
 
 > *Rate limit everything.*<br/>
 > *– Maarten Balliauw*
@@ -253,7 +253,7 @@ Much like a time-sharing vacation property, you don't want your guests to be hin
 and ideally come up with a fair model that allows everyone to use the vacation property in a fair way.
 
 Rate limiting should be applied to every endpoint that uses resources that could slow down or break your application when exhausted or stressed.
-Given every request uses at least the CPU and memory of your server, and potentially also disk I/O, the database, external APIs and more, you;ll want to apply rate limiting to every endpoint.
+Given every request uses at least the CPU and memory of your server, and potentially also disk I/O, the database, external APIs and more, you'll want to apply rate limiting to every endpoint.
 
 ### What are sensible limits?
 
