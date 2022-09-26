@@ -35,7 +35,7 @@ Before we dive into the details, let's start with an introduction about why you 
 
 Let's say you are building a web API that lets you store todo items.
 Nice and simple: a `GET /api/todos` that returns a list of todo items, and a `POST /api/todos` and `PUT /api/todos/{id}` that let you create and update a specific todo item.
-What could possibly go wrong with using these two endpoints?
+What could possibly go wrong with using these three endpoints?
 
 Off the top of my head:
 * The mobile app another team is building accidentally causes an infinite loop that keeps calling `POST`, and tries to create a new todo item 10.000 times over the course of a few seconds before it crashes. That's a lot of todo items in the database that should not be there.
