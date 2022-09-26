@@ -39,6 +39,7 @@ What could possibly go wrong with using these two endpoints?
 
 Off the top of my head:
 * The mobile app another team is building accidentally causes an infinite loop that keeps calling `POST`, and tries to create a new todo item 10.000 times over the course of a few seconds before it crashes. That's a lot of todo items in the database that should not be there.
+* You depend on an external system that throttles you for a number of requests. Frequent requests from one user to your API result in reaching that external limit, making your API unavailable for all your users.
 * Someone is brute-forcing the `GET` method, trying to get todo items for all your users. You have security in place, so they will never get in without valid credentials, but your database has to run a query to check credentials 10 times per second. That's rough on this small 0.5 vCPU database instance that seemed good on paper.
 * An aggressive search engine spider accidentally adding 20.000 items into a shopping cart that is stored in memory.
 
