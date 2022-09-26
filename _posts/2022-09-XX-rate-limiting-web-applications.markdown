@@ -34,7 +34,7 @@ Before we dive into the details, let's start with an introduction about why you 
 ### Why rate limiting?
 
 Let's say you are building a web API that lets you store todo items.
-Nice and simple: a `GET /api/todos` that returns a list of todo items, and a `POST /api/todos` that let you create and update a specific todo item.
+Nice and simple: a `GET /api/todos` that returns a list of todo items, and a `POST /api/todos` and `PUT /api/todos/{id}` that let you create and update a specific todo item.
 What could possibly go wrong with using these two endpoints?
 
 Off the top of my head:
