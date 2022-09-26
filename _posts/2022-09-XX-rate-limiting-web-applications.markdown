@@ -269,7 +269,7 @@ Perhaps a newer version of your mobile app makes more requests to your API, and 
 
 Too strict limits will annoy your users. Remember, you don't want to police the number of requests.
 You want fair usage of resources. You don't call the police when two toddlers fight over a toy.
-If they both need the toy, maybe it's fine to have multiple toys, so they don't have to fight over it.
+If they both need the toy, maybe it's fine to have multiple toys or have them play at different times, so they don't have to fight over it.
 
 ### Will you allow bursts or not?
 
@@ -327,6 +327,8 @@ Good candidates to have different rate limits in place:
   * Counter point: there are aggressive crawlers, and you also don't want them to get in the way of your users. There are some `robots.txt` entries many spiders respect, but a rate limit could be needed.
 * "Datacenter IP ranges" - If you have a mobile app targeted at consumers, does traffic coming from AWS, Azure and other big hosters make sense? If you expect mostly "residential" and mobile traffic, perhaps you can reduce automated traffic from other sources with a more strict rate limit. There's a list of [datacenter IP ranges](https://github.com/client9/ipcat) that you can use for this.
   * Counter point: VPN providers out there are often going to be in these IP ranges. Legitimate users may use datacenter IP addresses in those cases. Also at the time of writing, my dad's Starlink subscription runs over what looks like a Google Compute Engine IP address.
+
+An additional exception could be certain groups of customers. If your API is your product, it could be part of your business model to allow e.g. users of your "premium plan" to have different limits.
 
 Also here, measuring will help you make an informed decision. If you see excess traffic from web crawlers, a tighter rate limit may be needed. If you see your support folks unable to help users, maybe a less strict rate limit for them makes more sense.
 
@@ -445,7 +447,7 @@ Applications change, usage patterns change, and as such, rate limits will also n
 Perhaps your rules are too strict and hurting your users more than your application resources.
 Perhaps the latest deployment introduced a bug that is making excess calls to an API, and this needs to be fixed?
 
-Keep an eye on your rate limiting, keep track of who gets rate limited, when and why.
+Keep an eye on your rate limiting, keep track of who gets rate limited, when and why. Use custom metrics to build dashboards on # of rate limiting actions kicking in to help during incident troubleshooting.
 
 Also make sure you can adapt quickly if needed, by having circuit breakers in place.
 If with a new deployment all of your users experience rate limiting for some reason, having an emergency switch to just turn off rate limits will be welcome.
