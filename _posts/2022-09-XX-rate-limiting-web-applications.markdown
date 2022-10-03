@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Rate limiting in web applications - Concepts and approaches"
-date: 2022-08-XX 03:44:05 +0100
+date: 2022-10-03 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
@@ -19,7 +19,9 @@ Crazy usage patterns resulting in more requests than expected, request bursts wh
 These unexpected requests all pose a potential threat to the health of your web application and may impact other users or the service as a whole.
 Ideally, you want to put a bouncer at the door to do some filtering: limit the number of requests over a given timespan, limiting bandwidth, ...
 
-In this post, let's explore the simple yet wide realm of rate limiting.
+Last week, I covered [how to use the ASP.NET Core rate limiting middleware in .NET 7](https://blog.maartenballiauw.be/post/2022/09/26/aspnet-core-rate-limiting-middleware.html).
+
+In this post, let's take a step back and explore the simple yet wide realm of rate limiting.
 We'll go over how to decide which resources to limit, what these limits should be, and where to enforce these limits.
 
 As a (mostly) .NET developer myself, I'll use some examples and link some resources that use ASP.NET Core.
