@@ -389,6 +389,8 @@ This is of course not mandatory, but if you're offering an API to your users, it
 > Other services return a `503` ([Service unavailable](https://httpstatusdogs.com/503-service-unavailable)), and others return a `429` status code ([Too Many Requests](https://httpstatusdogs.com/429-too-many-requests)).
 >
 > There's no strict rule here, but it does look like many services out there follow a convention of using `429 Too Many Requests`.
+>
+> Regarding the specific headers being returned, an IETF draft "[RateLimit Fields for HTTP](https://www.ietf.org/archive/id/draft-ietf-httpapi-ratelimit-headers-05.html)" is in the works.
 
 ### Where to store rate limit data and counters?
 
