@@ -37,16 +37,16 @@ Regardless of the setting you choose at the project level, you'll be in the mode
 There is no silver bullet.
 There are, however, some techniques and tools that will help you reach the end goal of having a fully annotated codebase.
 
-## Start at the edges and work inwards
+## Start at the center and work outwards
 
-Where to begin? What worked well for me on various code bases, was to start at the edges.
+Where to begin? What worked well for me on various code bases, was to start at the center.
 
 Try and find the classes in your project that have zero dependencies on other reference types, apart from some strings.
 Data Transfer Objects (DTOs) / Plain-Old CLR Objects (POCOs) almost always fall under this category.
 
 DTOs/POCOs are often used in many places throughout your project.
 Updating nullability for these classes means that nullability flows through the rest of your projects, and makes usages more reliable project-wide.
-So even if annotating one property at the edge seems like a small thing to do, it will flow through and be meaningful in the bigger picture.
+So even if annotating one property seems like a small thing to do, it will flow through and be meaningful in the bigger picture.
 
 Here's an example:
 
