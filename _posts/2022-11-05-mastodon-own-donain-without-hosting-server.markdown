@@ -26,7 +26,7 @@ However, there is one thing I _would_ like my own server for: **discoverability*
 Much like with e-mail, I want folks to have an easy address to find me, and one that I can keep giving out to everyone even if later I switch to a different Mastodon server.
 A bit like e-mail forwarding to your ISP's e-mail service.
 
-The good news is: **you can use your own domain** and use it to tell folks the actual address to your account.
+The good news is: **you can use your own domain** and share it with other folks. It will link to your actual account.
 
 Go on, try it. Search for `@maarten@balliauw.be`, and you will find my `@maartenballiauw@mastodon.social`.
 
