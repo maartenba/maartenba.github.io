@@ -78,7 +78,7 @@ GET https://mastodon.online/.well-known/webfinger?resource=acct:maartenballiauw@
 
 Sweet!
 
-The next thing I tried was simply copy-pasting this JSON output to my own server under `.well-known./webfinger`, and things magically started working.
+The next thing I tried was simply copy-pasting this JSON output to my own server under `.well-known/webfinger`, and things magically started working.
 
 In other words, if you want to be discovered on Mastodon using your own domain, you can do so by copying the contents of `https://<your mastodon server>/.well-known/webfinger?resource=acct:<your account>@<your mastodon server>` to `https://<your domain>/.well-known/webfinger`.
 
