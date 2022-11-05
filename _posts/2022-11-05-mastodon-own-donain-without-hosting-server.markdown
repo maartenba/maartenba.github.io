@@ -93,3 +93,5 @@ Over the past days, there were a couple of tools I found very useful in finding 
 * [Fedifinder](https://fedifinder.glitch.me/) and [Debirdify](https://pruvisto.org/debirdify/) scan Twitter accounts and checks if there is a Mastodon account in their profile data.
 
 Good luck! And give `@maarten@balliauw.be` a follow if you make the jump to Mastodon.
+
+**Edit:** Seems [there is a GitHub issue which requests custom domains](https://github.com/mastodon/mastodon/issues/2668) as well.
