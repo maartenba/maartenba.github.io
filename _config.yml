@@ -10,7 +10,7 @@ locale                   : "en"
 title                    : "Maarten Balliauw {blog}"
 title_separator          : "-"
 name                     : "Maarten Balliauw {blog}"
-description              : "Web development, NuGet, Microsoft Azure, PHP, ..."
+description              : "Web development, .NET, C#, NuGet, Azure, ..."
 url                      : "https://blog.maartenballiauw.be"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :

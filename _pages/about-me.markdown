@@ -32,8 +32,7 @@ Thanks for wanting to contact me! Whether you have a question, you would like to
 * **Email:** [maarten@maartenballiauw.be](mailto:maarten@maartenballiauw.be)
 * **Twitter:** [@maartenballiauw](https://twitter.com/maartenballiauw)
 * **GitHub:** [maartenba](https://github.com/maartenba)
-* **StackOverflow Careers Developer CV:** [view my CV](https://stackoverflow.com/cv/maartenballiauw)
-* **LinkedIN:** [public profile](https://www.linkedin.com/in/maartenballiauw)
+* **LinkedIn:** [public profile](https://www.linkedin.com/in/maartenballiauw)
 * **About me:** [about.me profile](https://about.me/maartenballiauw)
 
 ## Bio
