@@ -91,7 +91,10 @@ Over the past days, there were a couple of tools I found very useful in finding 
 
 * [Twitodon](https://twitodon.com/) learns about which Twitter account matches a Mastodon account, from folks using this service.
 * [Fedifinder](https://fedifinder.glitch.me/) and [Debirdify](https://pruvisto.org/debirdify/) scan Twitter accounts and checks if there is a Mastodon account in their profile data.
+* 
+Do make sure to add your Mastodon address somewhere on your Twitter profile as well.
 
 Good luck! And give `@maarten@balliauw.be` a follow if you make the jump to Mastodon.
 
 **Edit:** Seems [there is a GitHub issue which requests custom domains](https://github.com/mastodon/mastodon/issues/2668) as well.
+**Edit (15 Nov 2022):** Folks have been using the approach of serving up webfinger on a different domain through proxy setups, as well as HTTP redirects.
