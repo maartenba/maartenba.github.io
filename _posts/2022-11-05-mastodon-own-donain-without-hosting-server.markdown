@@ -98,3 +98,4 @@ Good luck! And give `@maarten@balliauw.be` a follow if you make the jump to Mast
 
 **Edit:** Seems [there is a GitHub issue which requests custom domains](https://github.com/mastodon/mastodon/issues/2668) as well.
 **Edit (15 Nov 2022):** Folks have been using the approach of serving up webfinger on a different domain through proxy setups, as well as HTTP redirects.
+**Edit (16 Nov 2022):** Jeff Handley [shared a PR demonstrating how to apply this to a Jekyll website](https://github.com/jeffhandley/jeffhandley.github.io/commit/cc1a82d384e1791e3b55b5e0a1fa16058d98ba99).
