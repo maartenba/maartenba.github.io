@@ -31,6 +31,7 @@ Thanks for wanting to contact me! Whether you have a question, you would like to
 
 * **Email:** [maarten@maartenballiauw.be](mailto:maarten@maartenballiauw.be)
 * **Twitter:** [@maartenballiauw](https://twitter.com/maartenballiauw)
+* **Mastodon:** [@maartenballiauw@mastodon.online](https://mastodon.online/@maartenballiauw)
 * **GitHub:** [maartenba](https://github.com/maartenba)
 * **LinkedIn:** [public profile](https://www.linkedin.com/in/maartenballiauw)
 * **About me:** [about.me profile](https://about.me/maartenballiauw)
