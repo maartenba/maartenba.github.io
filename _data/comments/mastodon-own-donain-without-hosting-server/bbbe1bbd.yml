@@ -1,0 +1,7 @@
+id: bcb44477
+date: 2022-12-03T20:23:59.2879391Z
+name: Ryan
+email: 
+avatar: https://secure.gravatar.com/avatar/c6ea7977e84b31e50bdd59f54372ab20?s=80&r=pg
+url: https://www.ryancheleye.com/
+message: "Hi Maarten,\r\n\r\nThis is really helpful, but I worked through this (with my Pelican site) but it doesn't appear to be working as expected. I'm not sure if there's an extra step that's not documented above.\r\n\r\nIf you run `curl https://ryancheley.com/.well-known/webfinger` you get the same output as `curl https://mastodon.social/.well-known/webfinger\\?resource\\=acct:ryancheley@mastodon.social` but it doesn't look like I can search for my domain or me on my domain \U0001F614\r\n\r\nI'm also not finding any users when searching for `@maarten@balliauw.be` on my mastodon instance (but I **DO** find you when searching for `@maartenballiauw@mastodon.social`\r\n\r\nNot sure if I'm doing something wrong OR if this doesn't work any longer \U0001F937‍♂️"
