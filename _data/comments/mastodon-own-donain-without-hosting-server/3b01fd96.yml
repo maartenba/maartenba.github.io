@@ -1,0 +1,7 @@
+id: 3c0f91ad
+date: 2022-12-03T23:57:06.8208150Z
+name: TedT
+email: 
+avatar: https://secure.gravatar.com/avatar/a76b4d6291cecb3a738896a971bfb903?s=80&r=pg
+url: https://tedt.org/
+message: When I do a search for @maarten@balliauw.be on Mastodon I get a 503 SSL error.  I have used https://github.com/TedTschopp/webfinger-cloudflare-worker with my GitHub Pages / Jekyll deployment for TedT.org. No SSL issues. 
