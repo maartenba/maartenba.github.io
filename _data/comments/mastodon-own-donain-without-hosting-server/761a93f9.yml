@@ -1,0 +1,7 @@
+id: 7887ea8f
+date: 2022-12-05T18:00:00.5296155Z
+name: Scott DeToffol
+email: 
+avatar: https://secure.gravatar.com/avatar/6e907b84a882bf57a37c4cb6a2876ee3?s=80&r=pg
+url: http://detoffol.com/
+message: "Thanks for the tip, but I'm unable to get the following error: https://webfinger.net/lookup/?resource=https%3A%2F%2Fdetoffol.com \r\n\r\n\"Error getting JRD: invalid content-type: \"\r\n\r\nAny ideas?\r\n\r\nhttps://detoffol.com/.well-known/webfinger\r\n"
