@@ -1,0 +1,20 @@
+id: a5b38ead
+date: 2022-11-25T03:55:00.8374773Z
+name: luciano ratamero
+email: 
+avatar: https://secure.gravatar.com/avatar/64874ec2cd1bb4bb2eb23d3e12d16622?s=80&r=pg
+url: ratamero.com
+message: >-
+  hey, thanks for the post!
+
+  unfortunately, I tried it on my domain and it didn't work, even with webfinger [dot] net showing the correct data for my user@domain .
+
+
+
+  so I tried to find you on mastodon with the username you described on the post, and I couldn't find you as well. I tried with the usernames of a couple of different people (all of them pointing to this post as an inspiration), and none of them appeared too o_o
+
+
+
+  I'm not sure if this is working anymore (maybe something related to mastodon v4?)
+
+  any ideas on what could be going wrong? if you need help debugging, please ping me!
