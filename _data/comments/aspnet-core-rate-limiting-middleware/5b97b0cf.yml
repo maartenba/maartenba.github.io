@@ -1,0 +1,7 @@
+id: 5c5622b0
+date: 2022-12-17T11:25:20.5151489Z
+name: Nuri Yilmaz
+email: 
+avatar: https://secure.gravatar.com/avatar/f1325147aa4e8ac6cedb0f677d512f4a?s=80&r=pg
+url: 
+message: "I see that enginer tought that always posible to resolve client IP (ResolveClientIpAddress). How about service use delivery network as cloudflare etc. Our service will get same IP for many different clients.\r\nIts not useful solution, they must change ıt msay be more detailed request types, middleware will decide to counting or not... "
