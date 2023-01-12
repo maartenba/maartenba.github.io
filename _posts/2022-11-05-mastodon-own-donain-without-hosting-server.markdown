@@ -91,12 +91,15 @@ Over the past days, there were a couple of tools I found very useful in finding 
 
 * [Twitodon](https://twitodon.com/) learns about which Twitter account matches a Mastodon account, from folks using this service.
 * [Fedifinder](https://fedifinder.glitch.me/) and [Debirdify](https://pruvisto.org/debirdify/) scan Twitter accounts and checks if there is a Mastodon account in their profile data.
-* 
+*
 Do make sure to add your Mastodon address somewhere on your Twitter profile as well.
 
 Good luck! And give `@maarten@balliauw.be` a follow if you make the jump to Mastodon.
 
 **Edit:** Seems [there is a GitHub issue which requests custom domains](https://github.com/mastodon/mastodon/issues/2668) as well.
+
 **Edit (15 Nov 2022):** Folks have been using the approach of serving up webfinger on a different domain through proxy setups, e.g. using CloudFlare.
+
 **Edit (16 Nov 2022):** Jeff Handley [shared a PR demonstrating how to apply this to a Jekyll website](https://github.com/jeffhandley/jeffhandley.github.io/commit/cc1a82d384e1791e3b55b5e0a1fa16058d98ba99).
+
 **Edit (8 Dec 2022):** In search, it looks like the custom alias is only found **when logged in to the server**. Searching for the alias while not logged in may not return a result.
