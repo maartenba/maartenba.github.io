@@ -5,7 +5,7 @@ date: 2022-06-07 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", ".NET", "Testing"]
+tags: ["General", ".NET", "dotnet", "Testing"]
 author: Maarten Balliauw
 canonical_url: https://www.twilio.com/blog/test-aspnetcore-minimal-apis
 ---

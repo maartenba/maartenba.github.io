@@ -5,7 +5,7 @@ date: 2020-08-26 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", ".NET", ".NET Core", "Threading", "Performance"]
+tags: ["General", "ICT", ".NET", "dotnet", ".NET Core", "Threading", "Performance"]
 author: Maarten Balliauw
 ---
 

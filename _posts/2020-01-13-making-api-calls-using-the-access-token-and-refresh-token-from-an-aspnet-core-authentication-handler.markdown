@@ -5,7 +5,7 @@ date: 2020-01-13 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", "Web", ".NET", "ASP.NET Core", "ASP.NET", "Authentication"]
+tags: ["General", "ICT", "Web", ".NET", "dotnet", "ASP.NET Core", "ASP.NET", "Authentication"]
 author: Maarten Balliauw
 ---
 
@@ -87,20 +87,20 @@ To get my profile info using the Space client library I am developing, I could u
 public async Task OnGet()
 {
     var authenticationInfo = await HttpContext.AuthenticateAsync();
-    
+
     var authenticationTokens = new AuthenticationTokens(
         authenticationInfo.Properties.GetTokenValue("access_token"),
         authenticationInfo.Properties.GetTokenValue("refresh_token"),
         DateTimeOffset.Parse(authenticationInfo.Properties.GetTokenValue("expires_at")));
-    
+
     var connection = new RefreshTokenConnection(
-        _configuration["Space:BaseUrl"], 
+        _configuration["Space:BaseUrl"],
         _configuration["Space:ClientId"],
         _configuration["Space:ClientSecret"],
         authenticationTokens);
-    
+
     var teamDirectoryClient = new TeamDirectoryClient(connection);
-    
+
     Model = await teamDirectoryClient.ProfilesGetMe();
 
     authenticationInfo.Properties.UpdateTokenValue(

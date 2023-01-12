@@ -5,7 +5,7 @@ date: 2020-04-01 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", ".NET", "Tooling"]
+tags: ["General", "ICT", ".NET", "dotnet", "Tooling"]
 author: Maarten Balliauw
 ---
 

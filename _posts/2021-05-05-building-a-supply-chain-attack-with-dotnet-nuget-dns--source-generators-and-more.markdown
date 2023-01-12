@@ -5,7 +5,7 @@ date: 2021-05-05 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", ".NET", "Security", "NuGet"]
+tags: ["General", "ICT", ".NET", "dotnet", "Security", "NuGet"]
 author: Maarten Balliauw
 ---
 

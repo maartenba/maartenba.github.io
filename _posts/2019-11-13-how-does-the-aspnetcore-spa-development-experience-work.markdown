@@ -5,7 +5,7 @@ date: 2019-11-13 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", "Web", ".NET", "SPA", "JavaScript"]
+tags: ["General", "ICT", "Web", ".NET", "dotnet", "SPA", "JavaScript"]
 author: Maarten Balliauw
 ---
 
@@ -57,7 +57,7 @@ More interesting for the development environment is `Configure`. Note I've remov
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     // ...
-    
+
     app.UseSpaStaticFiles();
 
     /// ...
@@ -101,17 +101,17 @@ One more thing to note: the project file for our application contains some guard
 Before build (`BeforeTargets="Build"`), we check whether we're in Debug mode and whether `node_modules` exists. If not, we try running `node --version` to see if node is installed, and then `npm install` to ensure all dependencies are there.
 
 ```xml
-<Target Name="DebugEnsureNodeEnv"  
-    BeforeTargets="Build"  
+<Target Name="DebugEnsureNodeEnv"
+    BeforeTargets="Build"
     Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
         <Output TaskParameter="ExitCode" PropertyName="ErrorCode"/>
     </Exec>
-    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build  
-        and run this project. To continue, please install Node.js from https://nodejs.org/,  
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build
+        and run this project. To continue, please install Node.js from https://nodejs.org/,
         and then restart your command prompt or IDE."/>
-    <Message Importance="high" Text="Restoring dependencies using 'npm'.  
+    <Message Importance="high" Text="Restoring dependencies using 'npm'.
         This may take several minutes..."/>
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm install"/>
 </Target>

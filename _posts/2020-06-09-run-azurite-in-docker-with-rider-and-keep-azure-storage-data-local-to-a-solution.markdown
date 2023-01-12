@@ -5,7 +5,7 @@ date: 2020-06-08 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", ".NET", "Azure", "Rider"]
+tags: ["General", "ICT", ".NET", "dotnet", "Azure", "Rider"]
 author: Maarten Balliauw
 ---
 

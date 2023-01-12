@@ -5,7 +5,7 @@ date: 2021-05-25 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", ".NET", "Infrastructure"]
+tags: ["General", "ICT", ".NET", "dotnet", "Infrastructure"]
 author: Maarten Balliauw
 ---
 

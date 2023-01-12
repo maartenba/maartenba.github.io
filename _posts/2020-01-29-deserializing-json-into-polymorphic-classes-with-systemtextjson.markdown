@@ -5,7 +5,7 @@ date: 2020-01-29 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", "Web", ".NET", "JSON"]
+tags: ["General", "ICT", "Web", ".NET", "dotnet", "JSON"]
 author: Maarten Balliauw
 ---
 
@@ -66,14 +66,14 @@ public class ApiEndpoint
 {
     [JsonPropertyName("method")]
     public ApiMethod Method { get; set; }
-    
+
     [JsonPropertyName("path")]
     public string Path { get; set; }
-    
+
     [JsonPropertyName("responseBody")]
     [JsonConverter(typeof(ApiFieldTypeConverter))]
     public ApiFieldType? ResponseBody { get; set; }
-    
+
     // ...
 }
 ```
@@ -157,7 +157,7 @@ public override ApiFieldType Read(ref Utf8JsonReader reader, Type typeToConvert,
 {
     // Check for null values
     if (reader.TokenType == JsonTokenType.Null) return null;
-    
+
     // Copy the current state from reader (it's a struct)
     var readerAtStart = reader;
 
@@ -166,14 +166,14 @@ public override ApiFieldType Read(ref Utf8JsonReader reader, Type typeToConvert,
     var jsonObject = jsonDocument.RootElement;
 
     var className = jsonObject.GetStringValue("className");
-    
+
     // See if that class can be deserialized or not
     if (!string.IsNullOrEmpty(className) && TypeMap.TryGetValue(className, out var targetType))
     {
         // Deserialize it
         return JsonSerializer.Deserialize(ref readerAtStart, targetType, options) as ApiFieldType;
     }
-    
+
     throw new NotSupportedException($"{className ?? "<unknown>"} can not be deserialized");
 }
 ```
@@ -199,7 +199,7 @@ public void ReadKnownValuesTests()
     // Arrange
     var json = "{\"className\":\"HA_Type.Primitive\",\"primitive\":\"String\",\"nullable\":true,\"optional\":false}";
     var target = new ApiFieldTypeConverter();
-    
+
     // Act
     ApiFieldType result = null;
     var utf8JsonBytes = Encoding.UTF8.GetBytes(json);
@@ -208,10 +208,10 @@ public void ReadKnownValuesTests()
     {
         result = target.Read(ref reader, typeof(ApiFieldType), new JsonSerializerOptions());
     }
-        
+
     // Assert
     Assert.IsType<ApiFieldType.Primitive>(result);
-    
+
     var primitiveResult = result as ApiFieldType.Primitive;
     Assert.Equal("String", primitiveResult?.Type);
     Assert.True(primitiveResult?.Nullable);

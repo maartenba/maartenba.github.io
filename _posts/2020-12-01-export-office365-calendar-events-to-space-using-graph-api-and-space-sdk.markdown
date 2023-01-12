@@ -5,7 +5,7 @@ date: 2020-12-01 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", ".NET", ".NET Core"]
+tags: ["General", "ICT", ".NET", "dotnet", ".NET Core"]
 author: Maarten Balliauw
 ---
 

@@ -5,7 +5,7 @@ date: 2022-04-19 03:44:05 +0100
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", ".NET", "Nullability"]
+tags: ["General", ".NET", "dotnet", "Nullability"]
 author: Maarten Balliauw
 ---
 
