@@ -17,7 +17,7 @@ The issue is this: you'll typically have several Data Transfer Objects (DTO)/Pla
 You know for sure the data will be there after deserializing, so you declare these properties as non-nullable.
 Yet, the compiler (and IDE) insist on you either making it a nullable property or initializing the property.
 
-![Non-nullable property is uninitialized. Consider declaring the property as nullable.](../images/2023/01/warning-consider-declaring-the-property-as-nullable.png)
+![Non-nullable property is uninitialized. Consider declaring the property as nullable.](/images/2023/01/warning-consider-declaring-the-property-as-nullable.png)
 
 How to go about that? There are several options, each with their own advantages and caveats.  Let's have a look.
 
