@@ -176,11 +176,11 @@ That's pretty much it. The chat session in the `session` variable is prompted us
 
 You want to see this in action, right? Here's the "Homer Simpson chat" in action:
 
-![Homer Simpson local large language model](../images/2023/06/homer-simpson-as-large-language-model.png)
+![Homer Simpson local large language model](/images/2023/06/homer-simpson-as-large-language-model.png)
 
 The more useful "C# pair programmer chat":
 
-![Helpful C# programming bot large language model](../images/2023/06/llamasharp-pair-programing-chatbot.png)
+![Helpful C# programming bot large language model](/images/2023/06/llamasharp-pair-programing-chatbot.png)
 
 Pretty nice, no?
 
