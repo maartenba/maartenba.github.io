@@ -70,7 +70,7 @@ It provides a nice mix between accuracy and speed of inference, which matters si
 There are [a number of more accurate models](https://huggingface.co/TheBloke/wizardLM-7B-GGML) (or faster, less accurate models), so do experiment a bit with what works best.
 In any case, make sure you have 2.8 GB to 8 GB of disk space for the variants of this model, and up to 10 GB of memory.
 
-## 2. Create a console application and install LLamaSharp
+### 2. Create a console application and install LLamaSharp
 
 Using your favorite IDE, create a new console application and copy in the model you have just downloaded.
 Next, install the `LLamaSharp` and `LLamaSharp.Backend.Cpu` packages. If you have a Cuda GPU, you can also use the Cuda backend packages.
@@ -81,7 +81,7 @@ Here's our project to start with:
 
 With that in place, we can start creating our own chat bot that runs locally and does not need OpenAI to run.
 
-## 3. Initializing the LLaMA model and creating a chat session
+### 3. Initializing the LLaMA model and creating a chat session
 
 In `Program.cs`, start with the following snippet of code to load the model that we just downloaded:
 
