@@ -1,0 +1,7 @@
+id: b107dedf
+date: 2023-06-30T16:34:27.3269221Z
+name: Leon
+email: 
+avatar: https://secure.gravatar.com/avatar/4d4ba3cdb48c0243cbf711fde02a5bad?s=80&r=pg
+url: 
+message: Hi Maarten, sorry bothering you twice :-) but I found the cause of not always getting output. I am using the LLamaSharp.Backend.Cpu package and I was using the Any CPU build setting. But now since I changed it to x64 it all works fine and get responses all the time.
