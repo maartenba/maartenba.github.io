@@ -1,0 +1,10 @@
+id: 80988f68
+date: 2023-06-30T15:43:33.7515049Z
+name: Leon
+email: 
+avatar: https://secure.gravatar.com/avatar/4d4ba3cdb48c0243cbf711fde02a5bad?s=80&r=pg
+url: 
+message: >-
+  Hello Maarten, thank you for this helpful article!
+
+  When I run the code (with model wizardLM-7B.ggmlv3.q5_1.bin) the ChatSession responds, but not always. Using the same question/prompt results in an answer half of the times, the other times the result from Chat is empty (and no exception either). Do you know what may be the cause of this?
