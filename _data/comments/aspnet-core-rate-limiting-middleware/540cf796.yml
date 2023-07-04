@@ -1,0 +1,7 @@
+id: 5573c759
+date: 2023-06-30T07:12:19.0389589Z
+name: --
+email: 
+avatar: https://secure.gravatar.com/avatar/214c4296dac2ec27e371854ae6c397ad?s=80&r=pg
+url: 
+message: The IP addresses of the clients are not static, and each IP address can make a maximum of 100 requests in 10 minutes. Additionally, all clients combined can make a maximum of 1000 requests in 10 minutes. When implementing such a rate limit, what do you think is the most appropriate way? Thank you.
