@@ -59,16 +59,17 @@
 {% endif %}
 
 {% assign page_large_image = page.header.og_image | default: page.header.overlay_image | default: page.header.image %}
-
+<meta property="debug:page_large_image" content="{{ page_large_image }}">
 {% assign expectedCardFile = page.path | replace: "_posts", "images/cards" | prepend: '/' | append: '.png' %}
 {% assign actualCardFile = site.static_files | where: "path", expectedCardFile | first %}
 {% if actualCardFile %}{% assign page_large_image = expectedCardFile %}{% endif %}
-
+<meta property="debug:expectedCardFile" content="{{ expectedCardFile }}">
+<meta property="debug:actualCardFile" content="{{ actualCardFile }}">
 {% unless page_large_image contains '://' %}
 {% assign page_large_image = page_large_image | absolute_url %}
 {% endunless %}
 {% assign page_large_image = page_large_image | escape %}
-
+<meta property="debug:page_large_image_updated" content="{{ page_large_image }}">
 {% assign page_teaser_image = page.header.teaser | default: site.og_image %}
 {% unless page_teaser_image contains '://' %}
 {% assign page_teaser_image = page_teaser_image | absolute_url %}
@@ -136,7 +137,7 @@
     "@context": "http://schema.org",
     "@type": "Organization",
     "url": {{ seo_url | jsonify }},
-  "logo": {{ site_og_image | jsonify }}
+    "logo": {{ site_og_image | jsonify }}
   }
 </script>
 {% endif %}
