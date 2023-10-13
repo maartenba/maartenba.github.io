@@ -1,0 +1,10 @@
+id: caf2d993
+date: 2023-10-13T19:49:41.2457404Z
+name: briandunnington
+email: 
+avatar: https://secure.gravatar.com/avatar/251171a6643a794e05827f88601918df?s=80&r=pg
+url: https://github.com/briandunnington
+message: >+
+  I know this post is a couple of years old, but it helped us create an extension to solve an AppInsights logging issue we were encountering. Thanks for sharing your research on how things work behind the scenes
+
+  https://github.com/briandunnington/AzureFunctionsIsolatedHttpTelemetry
