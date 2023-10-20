@@ -22,6 +22,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2023-10-19 | Bringing C# nullability into existing code - dammit is not the answer! | NDC Porto 2023 | Portugal - Porto |  |  |
 | 2022-10-11 | Bringing C# nullability into existing code - dammit is not the answer! | Techorama NL 2022 | Netherlands - Utrecht |  |  |
 | 2022-2-24 | Get the maximum out of Minimal APIs with ASP.NET Core | ConFoo Montreal 2022 | Online |  |  |
 | 2021-12-2 | Microservices for building an IDE - The innards of JetBrains Rider | NDC Oslo 2021 | Norway - Oslo | [download](https://www.slideshare.net/maartenba/ndc-sydney-2019-microservices-for-building-an-ide-the-innards-of-jetbrains-rider) |  |
