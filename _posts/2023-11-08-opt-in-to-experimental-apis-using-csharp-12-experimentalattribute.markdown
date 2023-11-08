@@ -81,7 +81,7 @@ Nice!
 What's funny is that I mentioned this approach earlier this week to a colleague of mine, except that until now I have always been using the [`ObsoleteAttribute`](https://learn.microsoft.com/en-us/dotnet/api/system.obsoleteattribute) for this purpose.
 
 While using the `ObsoleteAttribute` by default is only shown as a warning, it will at least be visible in the build log as such.
-Since .NET6 you can also add a diagnostic ID to the attribute, giving folks the opportunity to suppress the message if they are oay using this experimental API.
+Since .NET6 you can also add a diagnostic ID to the attribute, giving folks the opportunity to suppress the message if they are okay using this experimental API.
 For reference, here's an example:
 
 ```csharp
