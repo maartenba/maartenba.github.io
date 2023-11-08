@@ -89,6 +89,8 @@ For reference, here's an example:
 public static IEndpointConventionBuilder MapSpaceAttachmentProxy(this IEndpointRouteBuilder endpoints, string path)
 ```
 
+**Edit:** [Simon Cropp](https://mastodon.online/@simoncropp@hachyderm.io/111374391779034564) mentioned his [Polyfill project](https://github.com/SimonCropp/Polyfill/pull/102) to alsbo be able to use the `ExperimentalAttribute` with older framework/language versions. Check it out!
+
 ## Closing thoughts
 
 While not as smooth as the [API opt-in feature in Kotlin](https://kotlinlang.org/docs/opt-in-requirements.html), I like that C#12 now introduces a way to inform users that an API is experimental, and let them explicitly opt-in to its use (by suppressing the error).
