@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Opt-in to experimental APIs using C#12 ExperimentalAttribute"
+title: "Provide opt-in to experimental APIs using C#12 ExperimentalAttribute"
 date: 2023-11-08 03:44:05 +0100
 comments: true
 published: true
