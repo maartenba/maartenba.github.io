@@ -22,6 +22,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides** | **Recording** |
 | --- | --- | --- | --- | --- | --- |
+| 2023-11-23 | Microservices for building an IDE - The innards of JetBrains Rider | Update Conference 2023 | Czech Republic - Prague |  |  | 
 | 2023-10-19 | Bringing C# nullability into existing code - dammit is not the answer! | NDC Porto 2023 | Portugal - Porto |  |  |
 | 2023-8-22 | ASP.NET Core Minimal APIs on AWS Lambda | AWS .NET Enterprise Developer Day | Online |  |  |
 | 2022-10-11 | Bringing C# nullability into existing code - dammit is not the answer! | Techorama NL 2022 | Netherlands - Utrecht |  |  |
