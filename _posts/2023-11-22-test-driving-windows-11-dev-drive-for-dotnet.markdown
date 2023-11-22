@@ -47,7 +47,7 @@ With that out of the way, I sealed my laptop again, powered it on, and Windows f
 
 ## Setting up a Dev Drive
 
-Whether you choose a physical or virtual disk for your Dev Drive, you'll need to dive into the Windows Settings. Navigate to **System | Storage | Advanced Storage Settings | Disks & volumes**, and click **Create Dev Drive**.
+Whether you choose a physical or virtual disk for your Dev Drive, you'll need to dive into the Windows Settings. Navigate to **System \| Storage \| Advanced Storage Settings \| Disks & volumes**, and click **Create Dev Drive**.
 
 ![Create Dev Drive in Windows settings](/images/2023/11/create-dev-drive.png)
 
