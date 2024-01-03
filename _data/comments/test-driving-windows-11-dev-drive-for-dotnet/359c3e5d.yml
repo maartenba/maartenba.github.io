@@ -1,0 +1,55 @@
+id: 485d4229
+date: 2024-01-03T08:43:57.5442676Z
+name: Andreas Gullberg Larsen
+email: 
+avatar: https://secure.gravatar.com/avatar/4166c32037bc43de02f2322e59320b4a?s=80&r=pg
+url: 
+message: >-
+  A follow up, I had to explicitly exclude my DevDrive from anti-virus scans to get improved results.
+
+
+  This is despite "Virus & Threat Protection - Dev Drive Protection" saying "Performance mode is on to reduce the impact of security scans of your Dev Drive volumes." Seems like a bug maybe, but I can't toggle it on/off either.
+
+
+  New test results:
+
+  - Lenovo laptop running Win11 Pro 23H2
+
+  - Bitlocker enabled for both NTFS and DevDrive volumes
+
+  - DevDrive partition (not a virtual disk, VHD/VHDX)
+
+  - Power profile "Best performance", plugged in to power
+
+  - i9-12900HX CPU, 64 GB memory
+
+
+  The disk is probably not the fastest around, so in a way this may help DevDrive shine.
+
+
+  | NTFS w/exclude AV | DevDrive | DevDrive w/exclude AV |
+
+  | ----------------- | -------- | --------------------- |
+
+  | 31.8              | 33.7     | 14.6                  |
+
+  | 17.8              | 32.7     | 14.7                  |
+
+  | 16.1              | 32.8     | 14.3                  |
+
+  | 15.9              | 32.9     | 14.2                  |
+
+  | 17                | 31.7     | 14.9                  |
+
+
+  NTFS w/exclude AV: 19.72s average
+
+  DevDrive: 32.76s average
+
+  DevDrive w/exclude AV: 14.54s average (26% faster than NTFS)
+
+
+
+  I'm happy to see an improvement at least and I'd say fairly significant and also consistent.
+
+  I'd like to see anti-virus working as advertised, maybe this is fixed in a future update.
