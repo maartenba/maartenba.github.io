@@ -26,4 +26,4 @@ In this talk, we'll see some techniques and approaches that worked for me, and e
 
 ## Slides
 
-[Slides of the presentation](https://www.slideshare.net/secret/lFAk5PLSyPUFyS)
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/lFAk5PLSyPUFyS" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/slideshows/bringing-nullability-into-existing-code-dammit-is-not-the-answerpptx/266340216" title="Bringing nullability into existing code - dammit is not the answer.pptx" target="_blank">Bringing nullability into existing code - dammit is not the answer.pptx</a> </strong> from <strong><a href="https://www.slideshare.net/maartenba" target="_blank">Maarten Balliauw</a></strong> </div>
