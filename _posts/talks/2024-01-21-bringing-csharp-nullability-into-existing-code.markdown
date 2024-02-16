@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talk - Bringing C# nullability into existing code"
-date: 2024-02-21 00:00:01 +0100
+date: 2024-01-21 00:00:01 +0100
 comments: true
 published: true
 categories: ["talk"]
