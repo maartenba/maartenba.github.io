@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2023-10-11 01:39:12 +0200
+date: 2024-04-30 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -22,6 +22,9 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides**                                                                                                                                      | **Recording** |
 | --- | --- | --- | --- |-------------------------------------------------------------------------------------------------------------------------------------------------| -- |
+| 2024-4-29 | Bringing C# nullability into existing code - dammit is not the answer! | .NET Zentralschweiz User Group | Switzerland - Luzern | [download](https://www.slideshare.net/slideshows/bringing-nullability-into-existing-code-dammit-is-not-the-answerpptx/266340216) |  | 
+| 2024-4-19 | Microservices for building an IDE - The innards of JetBrains Rider | dotnetdays | Romania - Iasi |  |  | 
+| 2024-4-6 | Debugging in .NET | Warsaw IT Days 24 | Poland - Warsaw | [download](https://www.slideshare.net/slideshows/bringing-nullability-into-existing-code-dammit-is-not-the-answerpptx/266340216) |  | 
 | 2024-2-22 | Debugging in .NET | ConFoo 2024 | Canada - Montreal | [download](https://www.slideshare.net/slideshows/bringing-nullability-into-existing-code-dammit-is-not-the-answerpptx/266340216)                | |
 | 2024-2-21 | Bringing C# nullability into existing code - dammit is not the answer! | ConFoo 2024 | Canada - Montreal | [download](https://www.slideshare.net/slideshows/bringing-nullability-into-existing-code-dammit-is-not-the-answerpptx/266340216)               | |
 | 2023-11-23 | Microservices for building an IDE - The innards of JetBrains Rider | Update Conference 2023 | Czech Republic - Prague |                                                                                                                                                 |  |
