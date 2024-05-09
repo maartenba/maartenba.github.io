@@ -1,0 +1,7 @@
+id: d738edbd
+date: 2024-05-09T19:51:47.1604276Z
+name: Gajo
+email: 
+avatar: https://secure.gravatar.com/avatar/2c90bacdda853bceb24305201cf60762?s=80&r=pg
+url: 
+message: 'Indeed, as Mike Towill mentioned, the HTTP Host header is the server domain. I was considering the Origin header, but it can be null in certain situations: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin.'
