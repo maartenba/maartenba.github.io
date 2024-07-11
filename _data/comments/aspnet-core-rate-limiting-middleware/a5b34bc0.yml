@@ -1,0 +1,31 @@
+id: b6ac7ad4
+date: 2024-07-11T13:01:22.4573586Z
+name: Robert te Kaat
+email: 
+avatar: https://secure.gravatar.com/avatar/94bd530b5e0b3da1434a7c583afbf398?s=80&r=pg
+url: www.docati.com
+message: >+
+  I tried to limit concurrency to a single request for a certain MVC controller method. However, it keeps accepting a few requests, which are then executed one-by-one. So it seems this WaitAsync uses a too long timeout for my preference. This is my policy:
+
+
+  services.AddRateLimiter(options =>
+
+  {
+      options.RejectionStatusCode = 429;
+      options.OnRejected = (ctx, ct) =>
+      {
+          ctx.HttpContext.Response.Headers.Append("Retry-After", "60");
+          return ValueTask.CompletedTask;
+      };
+      options.AddPolicy<string>(policyName: Config.ConcurrencyPolicy_Limit_1, (ctx) =>
+      {
+          // One concurrency limiter per customer
+          var customerCode = ctx.RequestServices.GetRequiredService<CustomerContext>().CustomerIdentifier ?? string.Empty;
+
+          return new RateLimitPartition<string>(customerCode, s => new ConcurrencyLimiter(new ConcurrencyLimiterOptions()
+          {
+              PermitLimit = 1,
+              QueueLimit = 0 // Immediate rejection
+          }));
+      });
+  });
