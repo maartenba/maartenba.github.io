@@ -18,7 +18,7 @@ redirect_from:
 * **Gender:** male
 * **Occupation:**
 	* Frequent [speaker at various events](/talks-presentations.html) worldwide
-	* Developer Advocate at [JetBrains](https://www.jetbrains.com/)
+	* Head of Developer Advocacy at [JetBrains](https://www.jetbrains.com/)
 	* Founder and owner of [SpeakerTravel](https://www.speaker.travel/)
 	* Former founder and owner of [MyGet](https://www.myget.org/)
 * **Location:** [Antwerp](https://en.wikipedia.org/wiki/Antwerp/), [Belgium](https://en.wikipedia.org/wiki/Belgium)
@@ -38,7 +38,7 @@ Thanks for wanting to contact me! Whether you have a question, you would like to
 
 ## Bio
 
-Maarten Balliauw loves building web and cloud apps. His main interests are in .NET web technologies, C#, Microsoft Azure and application performance. He is Developer Advocate at JetBrains, creator of [SpeakerTravel](https://www.speaker.travel/), and formerly founded [MyGet](https://www.myget.org/). He's an ASP Insider and former Microsoft MVP. Maarten is a frequent speaker at various national and international events and organizes [Azure User Group](https://www.azug.be) events in Belgium. In his free time, he brews his own beer. Maarten's blog can be found at [https://blog.maartenballiauw.be](https://blog.maartenballiauw.be).
+Maarten Balliauw loves building web and cloud apps. His main interests are in .NET web technologies, C#, Microsoft Azure and application performance. He is Head of Developer Advocacy at JetBrains, creator of [SpeakerTravel](https://www.speaker.travel/), and formerly founded [MyGet](https://www.myget.org/). He's an ASP Insider and former Microsoft MVP. Maarten is a frequent speaker at various national and international events and organizes [Azure User Group](https://www.azug.be) events in Belgium. In his free time, he brews his own beer. Maarten's blog can be found at [https://blog.maartenballiauw.be](https://blog.maartenballiauw.be).
 
 * Blog: [https://blog.maartenballiauw.be](https://blog.maartenballiauw.be)
 * Previous talks and presentations: [full list of talks](/talks-presentations.html)
