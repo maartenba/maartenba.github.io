@@ -1,0 +1,11 @@
+id: 3cf2632a
+date: 2024-09-26T18:24:31.8373015Z
+name: Vye
+email: 
+avatar: https://secure.gravatar.com/avatar/f7ac21f152c875a5d308328337adbf93?s=80&r=pg
+url: vyechi.com
+message: >-
+  Hi, do you have an example of it working for npm run build-prod with hashing? 
+
+
+  Error (directory) ",,,-client\scripts.js" because it was not found. (Error MSB3030)
