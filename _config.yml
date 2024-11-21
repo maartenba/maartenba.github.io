@@ -52,10 +52,10 @@ social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
-    - "https://twitter.com/maartenballiauw"
+    - "https://x.com/maartenballiauw"
+    - "https://bsky.app/profile/maartenballiauw.be"
+    - "https://mastodon.online/@maartenballiauw"
     - "https://www.linkedin.com/in/maartenballiauw"
-    - "https://about.me/maartenballiauw"
-    - "http://stackoverflow.com/cv/maartenballiauw"
 
 # Analytics
 analytics:
@@ -72,7 +72,7 @@ google_ad_slot           :
 author:
   name             : "Maarten Balliauw"
   avatar           : "bio-photo.jpg"
-  bio              : "Loves web and HTTP, C#, Kotlin, Azure and application performance. Head of Developer Advocacy at <a href=\"https://www.jetbrains.com\">JetBrains</a>. Frequent speaker at and organizer of various community events. Likes brewing his own beer."
+  bio              : "Loves web and HTTP, C#, Kotlin, Azure and application performance. Head of Customer Success at <a href=\"https://www.duendesoftware.com\">Duende Software</a>. Frequent speaker at and organizer of various community events. Likes brewing his own beer."
   location         : "Antwerp, Belgium"
   email            :
   uri              :
@@ -89,6 +89,7 @@ author:
   lastfm           :
   linkedin         : "maartenballiauw"
   mastodon         : "https://mastodon.online/@maartenballiauw"
+  bluesky          : "https://bsky.app/profile/maartenballiauw.be"
   pinterest        :
   soundcloud       :
   stackoverflow    :
