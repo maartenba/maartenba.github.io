@@ -9,7 +9,7 @@ tags: ["General", "personal"]
 author: Maarten Balliauw
 ---
 
-At the start of 2025, I will be joining [Duende Software](https://www.duendesoftware.com/) to help drive customer success and advocate for IdentityServer and other tools and frameworks built by the company.
+At the start of 2025, I will be joining [Duende Software](https://duendesoftware.com/) to help drive customer success and advocate for IdentityServer and other tools and frameworks built by the company.
 
 For close to 12 years, I have been working at [JetBrains](https://www.jetbrains.com/) as a Developer Advocate. Mainly for .NET, but also for other fantastic developer tools.
 In recent years, I have grown to lead the .NET Advocacy team, and later head the whole Developer Advocacy team at JetBrains.
