@@ -1,0 +1,12 @@
+id: 34da5973
+date: 2024-11-27T15:13:23.0801824Z
+name: The fish
+email: 
+avatar: https://secure.gravatar.com/avatar/9a19a6e51da2cebb5395ae507d16e082?s=80&r=pg
+url: 
+message: >-
+  I got no speed improvements when building with unity build and massive precompiled headers for c++. However when disabling those the Dev Drive was actually slightly slower to compile than NTFS.
+
+  Both measurements done on folders with MS defender exclusions and I tested against proper Dev Drive partition.
+
+  Fast NVME drives if that matters.
