@@ -46,6 +46,9 @@
       {% if author.linkedin %}
       <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
       {% endif %}
+      {% if author.bluesky %}
+      <li><a rel="me" href="{{ author.bluesky }}"><i class="fa fa-fw fa-chain" aria-hidden="true"></i> Bluesky</a></li>
+      {% endif %}
       {% if author.mastodon %}
       <li><a rel="me" href="{{ author.mastodon }}"><i class="fa fa-fw fa-chain" aria-hidden="true"></i> Mastodon</a></li>
       {% endif %}
