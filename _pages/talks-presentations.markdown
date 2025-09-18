@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Talks & Presentations"
-date: 2025-06-12 01:39:12 +0200
+date: 2025-09-12 01:39:12 +0200
 comments: false
 author: Maarten Balliauw
 sitemap: false
@@ -22,6 +22,9 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date** | **Title** | **Event** | **Where** | **Slides**                                                                                                                                      | **Recording** |
 | --- | --- | --- | --- |-------------------------------------------------------------------------------------------------------------------------------------------------| -- |
+| 2025-10-29 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | Techorama NL 2025 | Netherlands - Utrecht |  |  | 
+| 2025-10-11 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | Azure Dev Fest | Portugal - Lisbon |  |  | 
+| 2025-9-11 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | NDC Copenhagen 2025 | Denmark - Copenhagen |  |  | 
 | 2025-6-12 | Bringing C# nullability into existing code - dammit is not the answer! | DevSum 2025 | Sweden - Stockholm | [download](https://www.slideshare.net/slideshows/bringing-nullability-into-existing-code-dammit-is-not-the-answerpptx/266340216) |  | 
 | 2024-2-27 | How .NET manages memory - a trip down memory lane | Confoo 2025 | Canada - Montreal |  |  | 
 | 2025-2-26 | HTMX and ASP.NET Core - I don’t know how to React | Confoo 2025 | Canada - Montreal |  |  | 
