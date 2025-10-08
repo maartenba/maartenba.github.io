@@ -23,7 +23,9 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 | **Date** | **Title** | **Event** | **Where** | **Slides**                                                                                                                                      | **Recording** |
 | --- | --- | --- | --- |-------------------------------------------------------------------------------------------------------------------------------------------------| -- |
 | 2025-10-29 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | Techorama NL 2025 | Netherlands - Utrecht |  |  | 
+| 2025-10-12 | HTMX and ASP.NET Core - I don’t know how to React | Azure Dev Fest | Portugal - Lisbon |  |  | 
 | 2025-10-11 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | Azure Dev Fest | Portugal - Lisbon |  |  | 
+| 2025-10-8 | Bringing C# nullability into existing code - dammit is not the answer! | JetBrains .NET Days Online 2025 | Online |  |  | 
 | 2025-9-11 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | NDC Copenhagen 2025 | Denmark - Copenhagen |  |  | 
 | 2025-6-12 | Bringing C# nullability into existing code - dammit is not the answer! | DevSum 2025 | Sweden - Stockholm | [download](https://www.slideshare.net/slideshows/bringing-nullability-into-existing-code-dammit-is-not-the-answerpptx/266340216) |  | 
 | 2024-2-27 | How .NET manages memory - a trip down memory lane | Confoo 2025 | Canada - Montreal |  |  | 
