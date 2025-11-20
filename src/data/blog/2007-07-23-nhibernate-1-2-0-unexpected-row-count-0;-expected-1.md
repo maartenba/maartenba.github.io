@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["CSharp", "General", "Software"]
-alias: ["/post/2007/07/23/nhibernate-1-2-0-unexpected-row-count-0;-expected-1.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2007/07/23/nhibernate-1-2-0-unexpected-row-count-0;-expected-1.aspx.html
- - /post/2007/07/23/nhibernate-1-2-0-unexpected-row-count-0;-expected-1.aspx.html
 ---
 <p>
 Great... I&#39;ve been working with NHibernate and MySQL for a while now, without having any strange problems. For a project I&#39;m working on, I&#39;m using SqlClient instead of MySQL now, and strangeness occurs. When I try to Flush() a NHibernate session, here&#39;s what is thrown:

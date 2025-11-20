@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "General", "Azure Database"]
-alias: ["/post/2010/07/23/Manage-your-SQL-Azure-database-from-your-browser.aspx", "/post/2010/07/23/manage-your-sql-azure-database-from-your-browser.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/07/23/Manage-your-SQL-Azure-database-from-your-browser.aspx.html
- - /post/2010/07/23/manage-your-sql-azure-database-from-your-browser.aspx.html
 ---
 <p>Yesterday, I noticed on Twitter that the <a href="http://www.sqlazurelabs.com/houston.aspx" target="_blank">SQL Azure - Project &ldquo;Houston&rdquo; CTP 1</a> has been released online. For those who do not know Houston, this is a lightweight and easy to use database management tool for SQL Azure databases built in Silverlight. Translation: you can now easily manage your SQL Azure database using any browser. It&rsquo;s not a replacement for SSMS, but it&rsquo;s a viable, quick solution into connecting to your cloudy database.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/07/23/Manage-your-SQL-Azure-database-from-your-browser.aspx&amp;title=Manage your SQL Azure database from your browser"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/07/23/Manage-your-SQL-Azure-database-from-your-browser.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

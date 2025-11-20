@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["General", "OpenXML", "PHP", "Zend Framework"]
-alias: ["/post/2008/02/01/Indexing-Word-2007-(docx)-files-with-Zend_Search_Lucene.aspx", "/post/2008/02/01/indexing-word-2007-(docx)-files-with-zend_search_lucene.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/02/01/Indexing-Word-2007-(docx)-files-with-Zend_Search_Lucene.aspx.html
- - /post/2008/02/01/indexing-word-2007-(docx)-files-with-zend_search_lucene.aspx.html
 ---
 <p>You may have noticed Microsoft released their <a href="http://www.microsoft.com/enterprisesearch/serverproducts/searchserverexpress/download.aspx" target="_blank">Search Server 2008</a> a few weeks ago. Search Server delivers search capabilities to your organization quickly and easily. The PHP world currently does not have a full-featured solution like Search Server, but there's a building block which could be used to create something similar: <a href="http://framework.zend.com/" target="_blank">Zend Framework</a>'s PHP port of <a href="http://lucene.apache.org/" target="_blank">Lucene</a>. There is also a <a href="http://incubator.apache.org/lucene.net/" target="_blank">.NET port of Lucene</a> available.</p>
 <p>Lucene basically is an indexing and search technology, providing an easy-to-use API to create any type of application that has to do with indexing and searching. If you provide the right methods to extract data from any type of document, Lucene can index it. There are various indexer examples available for different file formats (<a href="http://www.kapustabrothers.com/2008/01/20/indexing-pdf-documents-with-zend_search_lucene/" target="_blank">PDF</a>, <a href="http://www.phpriot.com/articles/zend-search-lucene" target="_blank">HTML</a>, <a href="http://devzone.zend.com/node/view/id/91" target="_blank">RSS</a>, ...), but none for Word 2007 (docx) files. Sounds like a challenge!</p>

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "PHP", "Projects", "Software", "Webfarm"]
-alias: ["/post/2011/08/02/A-client-side-Glimpse-to-your-PHP-application.aspx", "/post/2011/08/02/a-client-side-glimpse-to-your-php-application.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/08/02/A-client-side-Glimpse-to-your-PHP-application.aspx.html
- - /post/2011/08/02/a-client-side-glimpse-to-your-php-application.aspx.html
 ---
 <p><a href="http://getglimpse.com/"><img style="background-image: none; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="Glimpse for PHP" src="/images/logo.png" border="0" alt="Glimpse for PHP" width="240" height="100" align="right" /></a>A few months ago, the .NET world was surprised with a magnificent tool called &ldquo;<a href="http://getglimpse.com/" target="_blank">Glimpse</a>&rdquo;. Today I&rsquo;m pleased to release <a href="https://github.com/Glimpse/Glimpse.PHP" target="_blank">a first draft of a PHP version for Glimpse</a>! Now what is this Glimpse thing&hellip; Well: "what Firebug is for the client, Glimpse does for the server... in other words, a client side Glimpse into whats going on in your server."</p>
 <p>For a quick demonstration of what this means, check the video at <a title="http://getglimpse.com/" href="http://getglimpse.com/">http://getglimpse.com/</a>. Yes, it&rsquo;s a .NET based video but the idea behind Glimpse for PHP is the same. And if you do need a PHP-based one, check <a href="http://screenr.com/27ds">http://screenr.com/27ds</a> (warning: unedited :-))</p>

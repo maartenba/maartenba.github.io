@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Book review", "Books", "CSharp", "General", "jQuery", "MVC", "Personal", "Publications", "Testing"]
-alias: ["/post/2009/02/17/Announcing-my-book-ASPNET-MVC-10-Quickly.aspx", "/post/2009/02/17/announcing-my-book-aspnet-mvc-10-quickly.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/02/17/Announcing-my-book-ASPNET-MVC-10-Quickly.aspx.html
- - /post/2009/02/17/announcing-my-book-aspnet-mvc-10-quickly.aspx.html
 ---
 <p>
 <a href="https://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book" target="_blank"><img style="display: inline; margin: 5px 0px 5px 5px; border-width: 0px" src="/images/WindowsLiveWriter/AnnouncingmybookASP.NETMVC1.0Quickly_D7E4/184719754X_9c5c7835-7f2b-41b1-a4b4-43be5f7704d7.jpg" border="0" alt="ASP.NET MVC 1.0 Quickly" title="ASP.NET MVC 1.0 Quickly" width="222" height="263" align="right" /></a> It&rsquo;s been quite a job, but there it is: Packt just <a href="https://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book" target="_blank">announced my very first book</a> on their site. It is titled &ldquo;<a href="https://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book" target="_blank">ASP.NET MVC 1.0 Quickly</a>&rdquo;, covering all aspects ASP.NET MVC offers in a to-the-point manner with hands-on examples. The book walks through the main concepts of the MVC framework to help existing ASP.NET developers to move on to a higher level. It includes clear instructions and lots of code examples. It takes a simple approach, thereby allowing you to work with all facets of web application development. Some keywords: Model-view-controller, ASP.NET MVC architecture and components, unit testing, mocking, AJAX using MS Ajax and jQuery, reference application and resources.

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "Debugging", "General", "Testing"]
-alias: ["/post/2008/02/12/Data-Driven-Testing-in-Visual-Studio-2008-Part-1.aspx", "/post/2008/02/12/data-driven-testing-in-visual-studio-2008-part-1.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/02/12/Data-Driven-Testing-in-Visual-Studio-2008-Part-1.aspx.html
- - /post/2008/02/12/data-driven-testing-in-visual-studio-2008-part-1.aspx.html
 ---
 <p>
 Last week, I blogged about <a href="/post/2008/02/code-performance-analysis-in-visual-studio-2008.aspx" target="_blank">code performance analysis in visual studio 2008</a>. since that topic provoked <a href="/post/2008/02/code-performance-analysis-in-visual-studio-2008.aspx#comment" target="_blank">lots of comments</a> (thank you <a href="http://www.bartonline.be" target="_blank">Bart</a> for associating &quot;hotpaths&quot; with &quot;hotpants&quot;), thought about doing another post on code quality in .NET. 

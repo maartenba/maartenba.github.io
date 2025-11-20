@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MEF", "MVC", "Personal", "Software", "Source control"]
-alias: ["/post/2011/05/18/Microsoft-NET-Framework-4-Platform-Update-1-KB2478063-Service-Pack-5-Feature-Set-31-R2-November-Edition-RTW.aspx", "/post/2011/05/18/microsoft-net-framework-4-platform-update-1-kb2478063-service-pack-5-feature-set-31-r2-november-edition-rtw.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/05/18/Microsoft-NET-Framework-4-Platform-Update-1-KB2478063-Service-Pack-5-Feature-Set-31-R2-November-Edition-RTW.aspx.html
- - /post/2011/05/18/microsoft-net-framework-4-platform-update-1-kb2478063-service-pack-5-feature-set-31-r2-november-edition-rtw.aspx.html
 ---
 <p>As you can see, a new .NET Framework version just came out. Read about it at <a title="http://blogs.msdn.com/b/endpoint/archive/2011/04/18/microsoft-net-framework-4-platform-update-1.aspx" href="http://blogs.msdn.com/b/endpoint/archive/2011/04/18/microsoft-net-framework-4-platform-update-1.aspx">http://blogs.msdn.com/b/endpoint/archive/2011/04/18/microsoft-net-framework-4-platform-update-1.aspx</a>. Now why does my title not match with the title from the blog post I referenced? Well&hellip; How is this going to help people?</p>
 <p>For those who don&rsquo;t see the problem, let me explain&hellip; If we get new people on board that are not yet proficient enough in .NET, they all struggle with some concepts. Concepts like: service packs for a development framework. Or better: client profile stuff! Stuff that breaks their code because stuff is missing in there! I feel like this is going the Java road where every version has a billion updates associated with it. That&rsquo;s not where we want to go, right? The Java side?</p>

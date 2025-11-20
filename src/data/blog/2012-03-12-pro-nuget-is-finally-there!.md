@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Books", "CSharp", "General", "NuGet", "Projects", "Publications", "Source control"]
-alias: ["/post/2012/03/12/Pro-NuGet-is-finally-there!.aspx", "/post/2012/03/12/pro-nuget-is-finally-there!.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2012/03/12/Pro-NuGet-is-finally-there!.aspx.html
- - /post/2012/03/12/pro-nuget-is-finally-there!.aspx.html
 ---
 <p>Short version: <span style="font-family: Courier New;">Install-Package ProNuget</span> or <a href="http://amzn.to/pronuget">http://amzn.to/pronuget</a></p>
 <p><a href="http://amzn.to/pronuget"><img style="background-image: none; margin: 5px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="Pro NuGet - Continuous integration Package Restore" src="/images/image_170.png" border="0" alt="Pro NuGet - Continuous integration Package Restore" width="186" height="244" align="right" /></a>It&rsquo;s been a while since I wrote my <a href="/post/2009/02/17/Announcing-my-book-ASPNET-MVC-10-Quickly.aspx.html">first book</a>. After I&rsquo;ve been telling that writing a book is horrendous (try writing a chapter per week after your office hours&hellip;) and that I would never write on again, my partner-in-crime <a href="http://www.xavierdecoster.com">Xavier Decoster</a> and I had the same idea at the same time: what about a book on NuGet? So here it is: <a href="http://amzn.to/pronuget">Pro NuGet</a> is fresh off the presses (or on Kindle).</p>

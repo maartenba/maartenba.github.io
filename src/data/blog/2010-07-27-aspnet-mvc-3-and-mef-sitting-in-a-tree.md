@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MEF", "MVC"]
-alias: ["/post/2010/07/27/ASPNET-MVC-3-and-MEF-sitting-in-a-tree.aspx", "/post/2010/07/27/aspnet-mvc-3-and-mef-sitting-in-a-tree.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/07/27/ASPNET-MVC-3-and-MEF-sitting-in-a-tree.aspx.html
- - /post/2010/07/27/aspnet-mvc-3-and-mef-sitting-in-a-tree.aspx.html
 ---
 <p>As I stated in a previous blog post: ASP.NET MVC 3 preview 1 has been released! I talked about some of the new features and promised to do a blog post in the dependency injection part. In this post, I'll show you how to use that together with MEF.</p>
 <p>Download my sample code: <a href="/files/2010/7/Mvc3WithMEF.zip">Mvc3WithMEF.zip (256.21 kb)</a></p>

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVP", "Personal", "Azure Database"]
-alias: ["/post/2012/07/01/Fourth-year-as-an-MVP-second-year-for-Windows-Azure.aspx", "/post/2012/07/01/fourth-year-as-an-mvp-second-year-for-windows-azure.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2012/07/01/Fourth-year-as-an-MVP-second-year-for-Windows-Azure.aspx.html
- - /post/2012/07/01/fourth-year-as-an-mvp-second-year-for-windows-azure.aspx.html
 ---
 <p><a href="http://mvp.microsoft.com/en-US/findanmvp/Pages/profile.aspx?MVPID=4189ebb3-33ef-4ffa-81ab-ef7035fbe019"><img style="margin: 0px 0px 5px 5px; display: inline; float: right;" src="/pics/mvp.gif" border="0" alt="View Maarten Balliauw's MVP profile" align="right" /></a>Woohoo! I just received the great mail I expect yearly on the first of July:</p>
 

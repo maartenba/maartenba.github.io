@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["General", "Offtopic", "Personal"]
-alias: ["/post/2011/12/15/Predictions-for-the-future.aspx", "/post/2011/12/15/predictions-for-the-future.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/12/15/Predictions-for-the-future.aspx.html
- - /post/2011/12/15/predictions-for-the-future.aspx.html
 ---
 <p>It&rsquo;s almost the end of 2011. Typically a time where bloggers start to write about their past year and what they&rsquo;ll do in the next. A time where the Forrester, Gartner and McKinsey-alikes make predictions about next year. I know, normally I blog about technology in its technological sense, but today I feel like blogging about my vision on the future. Not 2012, but the future. And the present. Here&rsquo;s my story in which I try to capture todays world and how this will influence technology.</p>
 <h2>The world in which we work</h2>

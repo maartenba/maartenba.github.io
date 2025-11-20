@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
-alias: ["/post/2011/01/21/Writing-an-Orchard-widget-LatestTwitter.aspx", "/post/2011/01/21/writing-an-orchard-widget-latesttwitter.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/01/21/Writing-an-Orchard-widget-LatestTwitter.aspx.html
- - /post/2011/01/21/writing-an-orchard-widget-latesttwitter.aspx.html
 ---
 <p>Last week, Microsoft released <a href="http://www.orchardproject.net/">Orchard</a>, a new modular CMS system built on ASP.NET MVC and a lot of other, open source libraries available. I will not dive into the CMS itself, but after fiddling around with it I found a lot of things missing: there are only 40 modules and widgets available at the moment and the only way to have a more rich ecosystem of modules is: contributing!</p>
 <p>And that&rsquo;s what I did. Feel the need to add a list of recent tweets by a certain user to your Orchard website? Try my <a href="http://www.orchardproject.net/gallery/Packages/Search?packageType=Modules&amp;searchCategory=All+Categories&amp;searchTerm=latesttwitter" target="_blank">LatestTwitter</a> widget. Here&rsquo;s a screenshot of the widget in action:</p>

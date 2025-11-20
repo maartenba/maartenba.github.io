@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
-alias: ["/post/2010/01/11/Ordering-fields-in-ASPNET-MVC-2-templated-helpers.aspx", "/post/2010/01/11/ordering-fields-in-aspnet-mvc-2-templated-helpers.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/01/11/Ordering-fields-in-ASPNET-MVC-2-templated-helpers.aspx.html
- - /post/2010/01/11/ordering-fields-in-aspnet-mvc-2-templated-helpers.aspx.html
 ---
 <p>Ever worked with the templated helpers provided by ASP.NET MVC 2? Templated helpers provide a way to automatically build UI based on a data model that is marked with attributes defined in the<em> System.ComponentModel.DataAnnotations </em>namespace. For example, a property in the model can be decorated with the attribute<em> [DisplayFormat(DataFormatString = "{0:c}")]</em>, and the templated helpers will always render this field formatted as currency.</p>
 <p>If you have worked with templated helpers, you must agree: they can be useful! There&rsquo;s one thing which is impossible in the current version: ordering fields.</p>

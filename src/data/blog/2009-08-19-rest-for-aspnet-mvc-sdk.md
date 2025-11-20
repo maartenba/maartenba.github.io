@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
-alias: ["/post/2009/08/19/REST-for-ASPNET-MVC-SDK.aspx", "/post/2009/08/19/rest-for-aspnet-mvc-sdk.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/08/19/REST-for-ASPNET-MVC-SDK.aspx.html
- - /post/2009/08/19/rest-for-aspnet-mvc-sdk.aspx.html
 ---
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="REST - Representational State Transfer" src="/images/image_7.png" border="0" alt="REST - Representational State Transfer" width="213" height="213" align="right" /> Earlier this week, <a href="http://www.haacked.com/archive/2009/08/17/rest-for-mvc.aspx" target="_blank">Phil Haack</a> did a post on the newly released <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx.html?ReleaseId=24471#DownloadId=79561" target="_blank">REST for ASP.NET MVC SDK</a>. I had the feeling though that this post did not really get the attention it deserved. I do not have the idea my blog gets more visitors than Phil&rsquo;s, but I&rsquo;ll try to give the SDK some more attention by blogging an example. But first things first&hellip;</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/19/REST-for-ASPNET-MVC-SDK.aspx&amp;title=REST for ASP.NET MVC SDK"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/19/REST-for-ASPNET-MVC-SDK.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

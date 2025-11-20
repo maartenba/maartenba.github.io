@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "Publications", "Azure Database", "Software"]
-alias: ["/post/2010/10/07/Cost-Architecting-for-Windows-Azure.aspx", "/post/2010/10/07/cost-architecting-for-windows-azure.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/10/07/Cost-Architecting-for-Windows-Azure.aspx.html
- - /post/2010/10/07/cost-architecting-for-windows-azure.aspx.html
 ---
 <p><a href="http://technet.microsoft.com/en-us/magazine/gg213848.aspx"><img style="background-image: none; border-right-width: 0px; margin: 0px 0px 0px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Cost architecting for Windows Azure" border="0" alt="Cost architecting for Windows Azure" align="right" src="/images/Cost%20architecting%20for%20Windows%20Azure.png" width="204" height="180" /></a>Just wanted to do a quick plug to an article I’ve written for <a href="http://technet.microsoft.com/en-us/magazine/d0f2f042-c659-4160-b330-2c2bec78c04e.aspx">TechNet Magazine</a>: <a href="http://technet.microsoft.com/en-us/magazine/gg213848.aspx">Windows Azure: Cost Architecting for Windows Azure</a>.</p>  
 

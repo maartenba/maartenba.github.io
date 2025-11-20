@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Book review", "Books", "CSharp", "General"]
-alias: ["/post/2008/12/24/Book-review-ASPNET-35-Application-Architecture-and-Design.aspx", "/post/2008/12/24/book-review-aspnet-35-application-architecture-and-design.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/12/24/Book-review-ASPNET-35-Application-Architecture-and-Design.aspx.html
- - /post/2008/12/24/book-review-aspnet-35-application-architecture-and-design.aspx.html
 ---
 <p>
 <a href="http://www.amazon.com/gp/product/1847195504?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1847195504" target="_blank"><img style="display: inline; margin: 5px 0px; width: 130px; height: 213px; border: 0px" src="/images/WindowsLiveWriter/Bookre.5ApplicationArchitectureandDesign_9740/image_3.png" border="0" alt="image" title="image" hspace="5" vspace="5" width="130" height="213" align="right" /></a> The people at <a href="http://www.packtpub.com/" target="_blank">Packt</a> asked it <a href="/post/2008/01/29/Books-I-recently-read.aspx" target="_blank">again</a>: &ldquo;Do you want to review this book?&rdquo; Sure I do! The book I&rsquo;m reviewing this time is <a href="http://www.amazon.com/gp/product/1847195504?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1847195504" target="_blank">ASP.NET 3.5 Application Architecture and Design</a>, written by <a href="http://www.vivekthakur.com/" target="_blank">Vivek Thakur</a>. 

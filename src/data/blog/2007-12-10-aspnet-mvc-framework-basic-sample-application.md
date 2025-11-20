@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Personal", "Projects", "MVC"]
-alias: ["/post/2007/12/10/ASPNET-MVC-Framework-Basic-sample-application.aspx", "/post/2007/12/10/aspnet-mvc-framework-basic-sample-application.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2007/12/10/ASPNET-MVC-Framework-Basic-sample-application.aspx.html
- - /post/2007/12/10/aspnet-mvc-framework-basic-sample-application.aspx.html
 ---
 <p>
 <img style="width: 222px; height: 497px" src="/images/visualstudiomvcframework.jpg" border="1" alt="ASP.NET MVC Framework" title="ASP.NET MVC Framework" hspace="5" vspace="5" width="222" height="497" align="right" />You <a href="/post/2007/11/aspnet-mvc-framework-preview-to-be-released-next-week.aspx" target="_blank">might</a> <a href="/post/2007/12/aspnet-35-extensions-ctp-preview-released.aspx" target="_blank">have</a> noticed that I&#39;m quite enhousiast about the new ASP.NET MVC framework. 

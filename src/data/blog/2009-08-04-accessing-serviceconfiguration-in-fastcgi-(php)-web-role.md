@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "General", "PHP"]
-alias: ["/post/2009/08/04/Accessing-ServiceConfiguration-in-FastCGI-(PHP)-web-role.aspx", "/post/2009/08/04/accessing-serviceconfiguration-in-fastcgi-(php)-web-role.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/08/04/Accessing-ServiceConfiguration-in-FastCGI-(PHP)-web-role.aspx.html
- - /post/2009/08/04/accessing-serviceconfiguration-in-fastcgi-(php)-web-role.aspx.html
 ---
 <p>While working on a sample PHP application hosted on Windows Azure, I found that it is nearly impossible to retrieve information from the Windows Azure ServiceConfiguration.cscfg file. Also, it is impossible to write log messages to the Windows Azure Web Role. Well, both are not 100% impossible: you can imagine dirty hacks where you let a ASP.NET page do something from PHP and stuff like that. But how about a clean solution? How about&hellip; A PHP extension module?</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/04/Accessing-ServiceConfiguration-in-FastCGI-(PHP)-web-role.aspx&amp;title=Accessing ServiceConfiguration in FastCGI (PHP) web role"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/04/Accessing-ServiceConfiguration-in-FastCGI-(PHP)-web-role.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

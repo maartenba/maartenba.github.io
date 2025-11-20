@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Projects"]
-alias: ["/post/2009/07/02/How-we-built-TwitterMaticnet-Part-3-Store-data-in-the-cloud.aspx", "/post/2009/07/02/how-we-built-twittermaticnet-part-3-store-data-in-the-cloud.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/07/02/How-we-built-TwitterMaticnet-Part-3-Store-data-in-the-cloud.aspx.html
- - /post/2009/07/02/how-we-built-twittermaticnet-part-3-store-data-in-the-cloud.aspx.html
 ---
 <p><em><a href="http://www.twittermatic.net/" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic - Schedule your Twitter updates" src="/images/twittermatic10.png" border="0" alt="TwitterMatic - Schedule your Twitter updates" width="204" height="219" align="right" /></a> &ldquo;After setting up his workplace, knight Maarten The Brave Coffeedrinker thought of something else: if a farmer wants to keep a lot of hay, he needs a barn, right? Since the cloudy application would also need to keep things that can be used by the digital villagers, our knight needs a barn in the clouds. Looking at the azure sky, an idea popped into the knight&rsquo;s head: why not use Windows Azure storage service? It&rsquo;s a barn that&rsquo;s always there, a barn that can catch fire and will still have its stored items located in a second barn (and a third). Knight Maarten The Brave Coffeedrinker jumped on his horse and went on a quest, a quest in the clouds.</em><em>&rdquo;</em></p>
 <p>This post is part of a series on how we built <a href="http://www.twittermatic.net/" target="_blank">TwitterMatic.net</a>. Other parts:</p>

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "JavaScript", "MVC"]
-alias: ["/post/2011/01/13/ASPNET-MVC-and-jQuery-Mobile.aspx", "/post/2011/01/13/aspnet-mvc-and-jquery-mobile.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/01/13/ASPNET-MVC-and-jQuery-Mobile.aspx.html
- - /post/2011/01/13/aspnet-mvc-and-jquery-mobile.aspx.html
 ---
 <p><a href="/images/image_96.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="jQuery Mobile" src="/images/image_thumb_66.png" border="0" alt="jQuery Mobile" width="240" height="200" align="right" /></a>With the release of Windows Phone 7 last year, I&rsquo;m really interested in mobile applications. Why? Well, developing for Windows Phone 7 did not require me to learn new things. I can use my current skill set and build cool apps for that platform. But what about the other platforms? If you look at all platforms from a web developer perspective, there&rsquo;s one library that also allows you to use your existing skill set: <a href="http://jquerymobile.com/">jQuery Mobile</a>.</p>
 <p>Know HTML? Know jQuery? Know *any* web development language like PHP, RoR or ASP.NET (MVC)? Go ahead and build great looking mobile web apps!</p>

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
-alias: ["/post/2011/09/08/ASPNET-MVC-dynamic-view-sections.aspx", "/post/2011/09/08/aspnet-mvc-dynamic-view-sections.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/09/08/ASPNET-MVC-dynamic-view-sections.aspx.html
- - /post/2011/09/08/aspnet-mvc-dynamic-view-sections.aspx.html
 ---
 <p>Earlier today, a colleague of mine asked for advice on how he could create a &ldquo;dynamic&rdquo; view. To elaborate, he wanted to create a change settings page on which various sections would be rendered based on which plugins are loaded in the application.</p>
 <p>Intrigued by the question and having no clue on how to do this, I quickly hacked together a <em>SettingsViewModel</em>, to which he could add all section view models no matter what type they are:</p>

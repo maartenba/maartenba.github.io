@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "Debugging", "General", "MEF", "MVC", "Personal"]
-alias: ["/post/2009/06/17/Revised-ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx", "/post/2009/06/17/revised-aspnet-mvc-and-the-managed-extensibility-framework-(mef).aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/06/17/Revised-ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx.html
- - /post/2009/06/17/revised-aspnet-mvc-and-the-managed-extensibility-framework-(mef).aspx.html
 ---
 <p>A while ago, I did a <a href="/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx" target="_blank">blog post on combining ASP.NET MVC and MEF (Managed Extensibility Framework)</a>, making it possible to &ldquo;plug&rdquo; controllers and views into your application as a module. I received a lot of positive feedback as well as a hard question from <a href="http://www.danswatik.com/" target="_blank">Dan Swatik</a> who was experiencing a Server Error with this approach&hellip; Here&rsquo;s a better approach to ASP.NET MVC and MEF.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/06/17/Revised-ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx&amp;title=Revised: ASP.NET MVC and the Managed Extensibility Framework (MEF)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/06/17/Revised-ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

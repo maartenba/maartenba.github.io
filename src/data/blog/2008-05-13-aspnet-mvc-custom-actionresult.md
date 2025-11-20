@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Personal", "Software"]
-alias: ["/post/2008/05/13/ASPNET-MVC-custom-ActionResult.aspx", "/post/2008/05/13/aspnet-mvc-custom-actionresult.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/05/13/ASPNET-MVC-custom-ActionResult.aspx.html
- - /post/2008/05/13/aspnet-mvc-custom-actionresult.aspx.html
 ---
 <p>
 The ASP.NET MVC framework introduces the concept of returning an <em>ActionResult</em> in <em>Controller</em>s since the &quot;preview preview&quot; <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640" target="_blank">release on CodePlex</a>. The purpose of this concept is to return a generic <em>ActionResult</em> object for each <em>Controller</em> method, allowing different child classes returning different results. 

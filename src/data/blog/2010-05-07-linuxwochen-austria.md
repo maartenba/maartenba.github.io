@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "Events", "General", "PHP", "Presentations", "Zend Framework"]
-alias: ["/post/2010/05/07/Linuxwochen-Austria.aspx", "/post/2010/05/07/linuxwochen-austria.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/05/07/Linuxwochen-Austria.aspx.html
- - /post/2010/05/07/linuxwochen-austria.aspx.html
 ---
 <p>As part of my global domination plans, I this week visited <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=nl&amp;geocode=&amp;q=Vienna,+Austria&amp;sll=37.0625,-95.677068&amp;sspn=42.581364,68.466797&amp;ie=UTF8&amp;hq=&amp;hnear=Wenen,+Oostenrijk&amp;t=h&amp;z=11" target="_blank">Vienna, Austria</a> for a session at <a href="http://www.linuxwochen.at" target="_blank">Linuxwochen</a> around PHP on Windows.</p>
 <h2>PHP on Windows</h2>

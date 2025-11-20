@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "Hardware"]
-alias: ["/post/2010/12/24/The-quickest-way-to-a-VPN-Windows-Azure-Connect.aspx", "/post/2010/12/24/the-quickest-way-to-a-vpn-windows-azure-connect.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/12/24/The-quickest-way-to-a-VPN-Windows-Azure-Connect.aspx.html
- - /post/2010/12/24/the-quickest-way-to-a-vpn-windows-azure-connect.aspx.html
 ---
 <p><a href="/images/1_1.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="Windows Azure Connect endpoint installer" src="/images/1_thumb_1.png" border="0" alt="Windows Azure Connect endpoint installer" width="244" height="192" align="right" /></a>First of all: Merry Christmas in advance! But to be honest, I already have my Christmas present&hellip; I&rsquo;ll give you a little story first as it&rsquo;s winter, dark outside and stories are better when it&rsquo;s winter and you are reading this post n front of your fireplace. Last week, I received the beta invite for <a href="http://www.microsoft.com/windowsazure/virtualnetwork/default.aspx" target="_blank">Windows Azure Connect</a>, a simple and easy-to-manage mechanism to setup IP-based network connectivity between on-premises and Windows Azure resources. Being targeted at interconnecting Windows Azure instances to your local network, it also contains a feature that allows interconnecting endpoints. Interesting!</p>
 <p>Now why would that be interesting&hellip; Well, I recently moved into my own house, having lived with my parents since birth, now 27 years ago. During that time, I bought a <a href="http://www.microsoft.com/windows/products/winfamily/windowshomeserver/default.mspx" target="_blank">Windows Home Server</a> that was living happily in our home network and making backups of my PC, my work laptop, my father&rsquo;s PC and laptop and my brother&rsquo;s laptop. Oh right, and my virtual server hosting this blog and some other sites. Now what on earth does this have to do with Windows Azure Connect? Well, more then you may think&hellip;</p>

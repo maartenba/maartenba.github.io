@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["CSharp", "General"]
-alias: ["/post/2007/08/28/automatically-generate-sandcastle-documentation-using-cruisecontrol-net-or-vsts-team-build.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2007/08/28/automatically-generate-sandcastle-documentation-using-cruisecontrol-net-or-vsts-team-build.aspx.html
- - /post/2007/08/28/automatically-generate-sandcastle-documentation-using-cruisecontrol-net-or-vsts-team-build.aspx.html
 ---
 <p>
 Earlier this week, I was playing around with SandCastle, and found that the <a href="http://www.codeplex.com/SHFB" target="_blank">SandCastle Help File Builder</a> (SHFB) was a great tool to quickly create <a href="http://msdn2.microsoft.com/en-us/vstudio/bb608422.aspx" target="_blank">SandCastle</a> documentation. No more XML writing, just a few clicks and documentation is compiled into a HTML Help file or as a MSDN-style website.

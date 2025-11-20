@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["General", "PHP"]
-alias: ["/post/2008/04/16/Zend-Studio-Teamprise-PHP-development-with-Team-Foundation-Server.aspx", "/post/2008/04/16/zend-studio-teamprise-php-development-with-team-foundation-server.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/04/16/Zend-Studio-Teamprise-PHP-development-with-Team-Foundation-Server.aspx.html
- - /post/2008/04/16/zend-studio-teamprise-php-development-with-team-foundation-server.aspx.html
 ---
 <p>
 Ever since I started developing <a href="http://www.phpexcel.net" target="_blank">PHPExcel</a>, I noticed this option of connecting to CodePlex&#39;s Team Foundation Server using <a href="http://www.teamprise.com/" target="_blank">Teamprise for Eclipse</a> (free CodePlex license <a href="http://www.codeplex.com/CodePlex/Wiki/View.aspx?title=Obtaining%20the%20Teamprise%20Client" target="_blank">here</a>). Back in the days, I was developing using Zend Studio 4, but I recently upgraded to <a href="http://www.codeplex.com/CodePlex/Wiki/View.aspx?title=Obtaining%20the%20Teamprise%20Client" target="_blank">Zend Studio 6 for Eclipse</a>.

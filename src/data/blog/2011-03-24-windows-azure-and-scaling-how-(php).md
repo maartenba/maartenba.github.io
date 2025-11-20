@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "PHP", "Scalability", "Webfarm"]
-alias: ["/post/2011/03/24/Windows-Azure-and-scaling-how-(PHP).aspx", "/post/2011/03/24/windows-azure-and-scaling-how-(php).aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/03/24/Windows-Azure-and-scaling-how-(PHP).aspx.html
- - /post/2011/03/24/windows-azure-and-scaling-how-(php).aspx.html
 ---
 <p>One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:</p>
 <ul>

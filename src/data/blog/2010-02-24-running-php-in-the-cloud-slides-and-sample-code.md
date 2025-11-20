@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "Events", "General", "PHP", "Presentations", "Azure Database"]
-alias: ["/post/2010/02/24/Running-PHP-in-the-Cloud-slides-and-sample-code.aspx", "/post/2010/02/24/running-php-in-the-cloud-slides-and-sample-code.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/02/24/Running-PHP-in-the-Cloud-slides-and-sample-code.aspx.html
- - /post/2010/02/24/running-php-in-the-cloud-slides-and-sample-code.aspx.html
 ---
 <p>Just got back from London where I did a fun talk on PHP and Windows Azure yesterday evening. It was the first time I did a presentation after three beers, but I think it went allright. As promised, here's the slide deck and sample code (<a href="/files/2010/2/ImageCloud.rar">ImageCloud.rar (5.00 mb)</a>).</p>
 

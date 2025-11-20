@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects"]
-alias: ["/post/2010/08/03/MvcSiteMapProvider-210-released!.aspx", "/post/2010/08/03/mvcsitemapprovider-210-released!.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/08/03/MvcSiteMapProvider-210-released!.aspx.html
- - /post/2010/08/03/mvcsitemapprovider-210-released!.aspx.html
 ---
 <p><a href="/images/MvcSiteMapProvider.png"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="MvcSiteMapProvider" src="/images/MvcSiteMapProvider_thumb.png" border="0" alt="MvcSiteMapProvider" width="241" height="54" align="right" /></a> The release for <a href="http://mvcsitemap.codeplex.com/releases/view/49491" target="_blank">MvcSiteMapProvider 2.1.0</a> has just been posted on CodePlex. MvcSiteMapProvider is, as the name implies, an ASP.NET MVC SiteMapProvider implementation for the ASP.NET MVC framework. Targeted at ASP.NET MVC 2, it provides sitemap XML functionality and interoperability with the classic ASP.NET sitemap controls, like the SiteMapPath control for rendering breadcrumbs and the Menu control.</p>
 <p>Next to a brand new logo, the component has been patched up with several bugfixes, the <a href="http://mvcsitemap.codeplex.com/wikipage?title=Advanced%20node%20visibility&amp;referringTitle=Home" target="_blank">visibility attribute is back (in a slightly cooler reincarnation)</a> and a number of new extension points have been introduced. Let&rsquo;s give you a quick overview&hellip;</p>

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Books", "CSharp", "General", "MVC", "Personal", "Publications"]
-alias: ["/post/2009/03/19/Sample-chapter-from-ASPNET-MVC-10-Quickly.aspx", "/post/2009/03/19/sample-chapter-from-aspnet-mvc-10-quickly.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/03/19/Sample-chapter-from-ASPNET-MVC-10-Quickly.aspx.html
- - /post/2009/03/19/sample-chapter-from-aspnet-mvc-10-quickly.aspx.html
 ---
 <p>
 <a href="http://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book" target="_blank"><img style="display: inline; margin: 5px 5px 5px 0px; border: 0px" src="/images/WindowsLiveWriter/SamplechapterfromASP.NETMVC1.0Quickly_9D27/image_5901a146-a266-4df7-ba3d-09cbd5073314.png" border="0" alt="image" title="image" width="109" height="133" align="left" /></a> Here&rsquo;s a shameless, commercial blogpost&hellip; With <a href="/post/2009/03/18/ASPNET-MVC-10-has-been-released!.aspx" target="_blank">yesterday&rsquo;s 1.0 release of the ASP.NET MVC framework</a>, I&rsquo;m sure the following sample chapter from my book <a href="http://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book" target="_blank">ASP.NET MVC 1.0 Quickly</a> will be of use for people starting ASP.NET MVC development: <a href="http://www.packtpub.com/files/asp-net-mvc-1-0-quickly-sample-chapter-2-your-first-asp-net-mvc-application.pdf" target="_blank">Your first ASP.NET MVC application</a>.

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Book review", "Books", "CSharp", "General"]
-alias: ["/post/2009/01/14/Book-review-ASPNET-35-Social-Networking.aspx", "/post/2009/01/14/book-review-aspnet-35-social-networking.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/01/14/Book-review-ASPNET-35-Social-Networking.aspx.html
- - /post/2009/01/14/book-review-aspnet-35-social-networking.aspx.html
 ---
 <p>
 <a href="http://www.packtpub.com/expert-guide-for-social-networking-with-asp-.net-3.5/book/mid/100309de0ecq" target="_blank"><img style="display: inline; margin: 5px; border: 0px" src="/images/WindowsLiveWriter/BookreviewASP.NET3.5SocialNetworking_D0DD/image_8dd93bf1-f374-4ab5-8c20-8a39ae7f4f54.png" border="0" alt="image" title="image" width="162" height="267" align="left" /></a> Last week, I found <a href="/post/2008/12/24/Book-review-ASPNET-35-Application-Architecture-and-Design.aspx" target="_blank">another book</a> from <a href="http://www.packtpub.com/" target="_blank">Packt</a> in my letterbox. This time, the title is <a href="http://www.packtpub.com/expert-guide-for-social-networking-with-asp-.net-3.5/book/mid/100309de0ecq" target="_blank">ASP.NET 3.5 Social Networking</a>, written by <a href="http://www.andrewsiemer.com/" target="_blank">Andrew Siemer</a>. 

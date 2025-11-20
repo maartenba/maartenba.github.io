@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "NuGet", "Scalability", "Source control", "Webfarm"]
-alias: ["/post/2012/06/07/Use-NuGet-Package-Restore-to-avoid-pushing-assemblies-to-Windows-Azure-Websites.aspx", "/post/2012/06/07/use-nuget-package-restore-to-avoid-pushing-assemblies-to-windows-azure-websites.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2012/06/07/Use-NuGet-Package-Restore-to-avoid-pushing-assemblies-to-Windows-Azure-Websites.aspx.html
- - /post/2012/06/07/use-nuget-package-restore-to-avoid-pushing-assemblies-to-windows-azure-websites.aspx.html
 ---
 <p>Windows Azure Websites allows you to publish a web site in ASP.NET, PHP, Node, &hellip; to Windows Azure by simply pushing your source code to a TFS or Git repository. But how does Windows Azure Websites manage dependencies? Do you have to check-in your assemblies and NuGet packages into source control? How about no&hellip;</p>
 <p>NuGet 1.6 shipped with a great feature called <a href="http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages">NuGet Package Restore</a>. This feature lets you use NuGet packages without adding them to your source code repository. When your solution is built by Visual Studio (or MSBuild, which is used in Windows Azure Websites), a build target calls nuget.exe to make sure any missing packages are automatically fetched and installed before the code is compiled. This helps you keep your source repo small by keeping large packages out of version control.</p>

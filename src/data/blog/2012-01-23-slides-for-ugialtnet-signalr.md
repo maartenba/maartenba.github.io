@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: []
-alias: ["/post/2012/01/23/Slides-for-UGIALTNET-SignalR.aspx", "/post/2012/01/23/slides-for-ugialtnet-signalr.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2012/01/23/Slides-for-UGIALTNET-SignalR.aspx.html
- - /post/2012/01/23/slides-for-ugialtnet-signalr.aspx.html
 ---
 <p>Except for having a bad, bad experience using EasyJet on the way towards Milan, <a href="http://www.ugialt.net">UGIALT.NET</a> was a blast! Here's the slide deck and sample code for my session on SignalR.</p>
 <p><em>Abstract: "SignalR. Code, not toothpaste. (or: Using SignalR for realtime client/server communication) Today&rsquo;s users are interested in a rich experience where the terms client and server don&rsquo;t mean a thing. They expect real-time action between both, no matter if the technology used is HTML5 websockets or something else. This session will cover SignalR and show you how it can be used to communicate in real time between the client and server, using HTML5 or not. Combine SignalR with ASP.NET MVC, jQuery and perhaps a sprinkle of Windows Azure and you&rsquo;ll have an interesting, reliable and fast stack to build your real-time client-server and server-client communications. Join me on this journey between web, cloud and user. No toothpaste. Just code."</em></p>

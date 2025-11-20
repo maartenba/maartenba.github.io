@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MEF", "MVC"]
-alias: ["/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx", "/post/2009/04/21/aspnet-mvc-and-the-managed-extensibility-framework-(mef).aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx.html
- - /post/2009/04/21/aspnet-mvc-and-the-managed-extensibility-framework-(mef).aspx.html
 ---
 <p>Microsoft&rsquo;s Managed Extensibility Framework (MEF) is a .NET library (released on <a href="http://mef.codeplex.com/" target="_blank">CodePlex</a>) that enables greater re-use of application components. You can do this by dynamically composing your application based on a set of classes and methods that can be combined at runtime. Think of it like building an appliation that can host plugins, which in turn can also be composed of different plugins. Since examples say a thousand times more than text, let&rsquo;s go ahead with a sample leveraging MEF in an ASP.NET MVC web application.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx&amp;title=ASP.NET MVC and the Managed Extensibility Framework (MEF)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

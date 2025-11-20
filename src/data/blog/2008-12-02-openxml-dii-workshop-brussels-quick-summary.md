@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Events", "General", "OpenXML", "PHP", "Presentations", "Software"]
-alias: ["/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx", "/post/2008/12/02/openxml-dii-workshop-brussels-quick-summary.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx.html
- - /post/2008/12/02/openxml-dii-workshop-brussels-quick-summary.aspx.html
 ---
 <p>
 A few days ago, I wrote I was doing a presentation on the <a href="/post/2008/11/28/presenting-at-the-openxml-dii-workshop-brussels.aspx" target="_blank">DII workshop in Brussels together with Julien Chable</a>. Apart from heavy traffic from Antwerp to Brussels (80km, almost 3 hours... *sigh*), I think the DII workshop was quite succesful! Lots of news around OpenXML and Office, lots of interesting ideas from other community members. It was also great to meet some people who I&#39;ve been mailing with for 2 years in person. 

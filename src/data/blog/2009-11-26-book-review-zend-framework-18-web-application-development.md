@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Book review", "Books", "General", "PHP", "Zend Framework"]
-alias: ["/post/2009/11/26/Book-review-Zend-Framework-18-Web-Application-Development.aspx", "/post/2009/11/26/book-review-zend-framework-18-web-application-development.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/11/26/Book-review-Zend-Framework-18-Web-Application-Development.aspx.html
- - /post/2009/11/26/book-review-zend-framework-18-web-application-development.aspx.html
 ---
 <p><a href="http://www.packtpub.com/zend-framework-1-8-web-application-development/book" target="_blank"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px; display: inline; border-top: 0px; border-right: 0px" title="Zend Framework 1.8 Web Application Development" src="/images/image_22.png" border="0" alt="Zend Framework 1.8 Web Application Development" width="122" height="201" align="right" /></a> My book shelf is starting to look a lot like the warehouse of <a href="http://www.packtpub.com" target="_blank">Packt Publishing</a>: I&rsquo;ve received yet another book from them. Different from all previous reviews I did: this one is a PHP book, titled &ldquo;<a href="http://www.packtpub.com/zend-framework-1-8-web-application-development/book" target="_blank">Zend Framework 1.8 Web Application Development</a>&rdquo; by <a href="http://thepopeisdead.com/" target="_blank">Keith Pope</a>.</p>
 <p>A chapter overview:</p>

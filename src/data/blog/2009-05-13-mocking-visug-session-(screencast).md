@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["CSharp", "General", "Presentations", "Screencasts", "Software", "Testing"]
-alias: ["/post/2009/05/13/Mocking-VISUG-session-(screencast).aspx", "/post/2009/05/13/mocking-visug-session-(screencast).aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/05/13/Mocking-VISUG-session-(screencast).aspx.html
- - /post/2009/05/13/mocking-visug-session-(screencast).aspx.html
 ---
 <p>A new screencast has just been uploaded to the <a href="http://www.microsoft.com/belux/MSDN/nl/chopsticks/default.aspx?id=1093" target="_blank">MSDN Belgium Chopsticks</a> page. Don't forget to rate the video!</p>
 <h2>Mocking - VISUG session (screencast)</h2>

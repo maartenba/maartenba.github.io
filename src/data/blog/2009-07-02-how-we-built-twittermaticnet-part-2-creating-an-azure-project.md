@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Projects"]
-alias: ["/post/2009/07/02/How-we-built-TwitterMaticnet-Part-2-Creating-an-Azure-project.aspx", "/post/2009/07/02/how-we-built-twittermaticnet-part-2-creating-an-azure-project.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/07/02/How-we-built-TwitterMaticnet-Part-2-Creating-an-Azure-project.aspx.html
- - /post/2009/07/02/how-we-built-twittermaticnet-part-2-creating-an-azure-project.aspx.html
 ---
 <p><em><a href="http://www.twittermatic.net/" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic - Schedule your Twitter updates" src="/images/twittermatic.png" border="0" alt="TwitterMatic - Schedule your Twitter updates" width="204" height="219" align="right" /></a> &ldquo;Knight Maarten The Brave Coffeedrinker was about to start working on his </em><a href="http://www.twittermatic.net" target="_blank"><em>TwitterMatic</em></a><em> application, named after the great god of social networking, </em><a href="http://www.twitter.com" target="_blank"><em>Twitter</em></a><em>. Before he could start working, he first needed the right tools. He downloaded the </em><a href="http://www.microsoft.com/downloads/details.aspx.html?familyid=11B451C4-7A7B-4537-A769-E1D157BAD8C6&amp;displaylang=en" target="_blank"><em>Windows Azure SDK</em></a><em>, a set of tools recommended by the smith (or was it the carpenter?) of the digital village. Our knight&rsquo;s work shack was soon ready to start working. The table on which the application would be crafted, was still empty. Time for action, the knight thought. And he started working.&rdquo;</em></p>
 <p>This post is part of a series on how we built <a href="http://www.twittermatic.net/" target="_blank">TwitterMatic.net</a>. Other parts:</p>

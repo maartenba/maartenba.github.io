@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Events", "General", "PHP"]
-alias: ["/post/2010/02/17/Jump-in!-camp-Call-for-participants.aspx", "/post/2010/02/17/jump-in!-camp-call-for-participants.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/02/17/Jump-in!-camp-Call-for-participants.aspx.html
- - /post/2010/02/17/jump-in!-camp-call-for-participants.aspx.html
 ---
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="Jump In! Camp" src="/images/image_41.png" border="0" alt="Jump In! Camp" width="252" height="181" align="right" /> I just got the following invitation from Microsoft, and would like to encourage&nbsp; you to participate as well if you are interested in bot PHP and the Microsoft worlds.</p>
 

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "JavaScript", "jQuery", "MVC", "NuGet", "Projects", "Scalability", "Silverlight"]
-alias: ["/post/2011/12/06/Using-SignalR-to-broadcast-a-slide-deck.aspx", "/post/2011/12/06/using-signalr-to-broadcast-a-slide-deck.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/12/06/Using-SignalR-to-broadcast-a-slide-deck.aspx.html
- - /post/2011/12/06/using-signalr-to-broadcast-a-slide-deck.aspx.html
 ---
 <p><a href="/images/image_157.png"><img style="background-image: none; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border-width: 0px;" title="image" src="/images/image_thumb_124.png" border="0" alt="image" width="244" height="202" align="right" /></a>Last week, I&rsquo;ve discussed <a href="/post/2011/11/29/Techniques-for-real-time-client-server-communication.aspx">Techniques for real-time client-server communication on the web (SignalR to the rescue)</a>. We&rsquo;ve seen that when building web applications, you often face the fact that HTTP, the foundation of the web, is a request/response protocol. A client issues a request, a server handles this request and sends back a response. All the time, with no relation between the first request and subsequent requests. Also, since it&rsquo;s request-based, there is no way to send messages from the server to the client without having the client create a request first.</p>
 <p>We&rsquo;ve had a look at how to tackle this problem: using Ajax polling, Long polling an WebSockets. the conclusion was that each of these solutions has it pros and cons. <a href="https://github.com/SignalR/SignalR">SignalR</a>, an open source project led by some Microsoft developers, is an ASP.NET library which leverages the three techniques described before to create a seamless experience between client and server.</p>

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "jQuery", "MVC", "NuGet", "Presentations"]
-alias: ["/post/2012/02/16/Slides-for-TechDays-Belgium-2012-SignalR.aspx", "/post/2012/02/16/slides-for-techdays-belgium-2012-signalr.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2012/02/16/Slides-for-TechDays-Belgium-2012-SignalR.aspx.html
- - /post/2012/02/16/slides-for-techdays-belgium-2012-signalr.aspx.html
 ---
 <p>It was the last session on the last day of TechDays 2012 so I was expecting almost nobody to show up. Still, a packed room came to have a look at how to make the web realtime using SignalR. Thanks for joining and for being very cooperative during the demos!</p>
 <p>As promised, here are the slides. You can also find the demo code here: <a href="/files/2012/2/SignalR.+Code%2c+not+toothpaste+-+TechDays+Belgium+2012.zip">SignalR. Code, not toothpaste - TechDays Belgium 2012.zip (2.74 mb)</a></p>

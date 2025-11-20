@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "NuGet", "Personal", "Projects", "Software"]
-alias: ["/post/2013/03/18/NuGet-Package-Source-Discovery.aspx", "/post/2013/03/18/nuget-package-source-discovery.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2013/03/18/NuGet-Package-Source-Discovery.aspx.html
- - /post/2013/03/18/nuget-package-source-discovery.aspx.html
 ---
 <p>It&rsquo;s already been 2 years since <a href="http://www.nuget.org">NuGet</a> was introduced. This.NET package manager features the concept of feeds, or &ldquo;package sources&rdquo;, on which packages containing .NET libraries and tools can be hosted. In fact, support for feeds inspired us to build <a href="http://www.myget.org">www.myget.org</a>. While not all people are aware of this, Microsoft started out with two feeds as well: one for <a href="http://www.nuget.org">www.nuget.org</a>, the other one for the Orchard CMS.</p>
 <p>More and more feeds are being created daily, both by Microsoft as well as others. Here&rsquo;s a list of feeds Microsoft has that I know of (there are probably more):</p>

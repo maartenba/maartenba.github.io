@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "Projects"]
-alias: ["/post/2010/03/15/Using-FTP-to-access-Windows-Azure-Blob-Storage.aspx", "/post/2010/03/15/using-ftp-to-access-windows-azure-blob-storage.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/03/15/Using-FTP-to-access-Windows-Azure-Blob-Storage.aspx.html
- - /post/2010/03/15/using-ftp-to-access-windows-azure-blob-storage.aspx.html
 ---
 <p>A while ago, I did a blog post on <a href="/post/2010/01/17/creating-an-external-facing-azure-worker-role-endpoint.aspx">creating an external facing Azure Worker Role endpoint</a>, listening for incoming TCP connections. After doing that post, I had the idea of building a Windows Azure FTP server that served as a bridge to blob storage. Lack of time, other things to do, you name it: I did not work on that idea. Until now, that is.</p>
 <p>Being a lazy developer, I did not start from scratch: writing an FTP server may be something that has been done before, and yes: &ldquo;Binging&rdquo; for &ldquo; Csharp FTP server&rdquo; led me to this article on <a href="http://www.codeguru.com/csharp/csharp/cs_network/sockets/article.php/c7409" target="_blank">CodeGuru.com</a>. Luckily, the author of the article had the idea of abstraction in mind: he did not build his software on top of a real file system, no, he did an abstraction. This would mean I would only have to host this thing in a worker role somehow and add some classes working with blobs and not with files. Cool!</p>

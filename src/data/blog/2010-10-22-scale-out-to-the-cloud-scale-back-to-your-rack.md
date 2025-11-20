@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "PHP", "Scalability", "Webfarm"]
-alias: ["/post/2010/10/22/Scale-out-to-the-cloud-scale-back-to-your-rack.aspx", "/post/2010/10/22/scale-out-to-the-cloud-scale-back-to-your-rack.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/10/22/Scale-out-to-the-cloud-scale-back-to-your-rack.aspx.html
- - /post/2010/10/22/scale-out-to-the-cloud-scale-back-to-your-rack.aspx.html
 ---
 <p>That is a bad blog post title, really! If <a href="http://blog.smarx.com" target="_blank">Steve</a> and <a href="http://dunnry.com/blog/" target="_blank">Ryan</a> have this post in the <a href="http://channel9.msdn.com/shows/Cloud+Cover" target="_blank">Cloud Cover show</a> news I bet they will make fun of the title. Anyway&hellip;</p>
 <p>Imagine you have an application running in your own datacenter. Everything works smoothly, except for some capacity spikes now and then. Someone has asked you for doing something about it with low budget. Not enough budget for new hardware, and frankly new hardware would be ridiculous to just ensure capacity for a few hours each month.</p>

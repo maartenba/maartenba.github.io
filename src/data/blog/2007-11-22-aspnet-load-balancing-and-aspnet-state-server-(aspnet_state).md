@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Webfarm"]
-alias: ["/post/2007/11/22/ASPNET-load-balancing-and-ASPNET-state-server-(aspnet_state).aspx", "/post/2007/11/22/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2007/11/22/ASPNET-load-balancing-and-ASPNET-state-server-(aspnet_state).aspx.html
- - /post/2007/11/22/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx.html
 ---
 <p>
 At one of our clients, we used to have only one server for ASP.NET applications (including web services). Since this machine is actually business-critical and load is constantly growing, the need for a second machine is higher than ever. 

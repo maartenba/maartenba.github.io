@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "NuGet", "Personal", "Projects", "Software", "Source control"]
-alias: ["/post/2011/09/28/Setting-up-a-NuGet-repository-in-seconds-MyGet-public-feeds.aspx", "/post/2011/09/28/setting-up-a-nuget-repository-in-seconds-myget-public-feeds.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/09/28/Setting-up-a-NuGet-repository-in-seconds-MyGet-public-feeds.aspx.html
- - /post/2011/09/28/setting-up-a-nuget-repository-in-seconds-myget-public-feeds.aspx.html
 ---
 <!-- {EAV_BLOG_VER:eb87d9403f2dec17} -->
 <p>A few months ago, my colleague <a href="http://www.xavierdecoster.com" target="_blank">Xavier Decoster</a> and I <a href="/post/2011/05/31/Creating-your-own-private-NuGet-feed-myget.aspx" target="_blank">introduced</a> MyGet as a tool where you can create your own, private NuGet feeds. A couple of weeks later we introduced some options to <a href="/post/2011/06/29/Delegate-feed-privileges-to-other-users-on-MyGet.aspx" target="_blank">delegate feed privileges</a> to other <a href="http://www.myget.org" target="_blank">MyGet</a> users allowing you to make another MyGet user &ldquo;co-admin&rdquo; or &ldquo;contributor&rdquo; to a feed. Since then we&rsquo;ve expanded our view on the NuGet ecosystem and moved MyGet from a solution to create your private feeds to a service that allows you to set up a NuGet feed, whether private or public.</p>

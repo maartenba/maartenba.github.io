@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Software"]
-alias: ["/post/2007/11/30/ASPNET-MVC-framework-preview-to-be-released-next-week.aspx", "/post/2007/11/30/aspnet-mvc-framework-preview-to-be-released-next-week.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2007/11/30/ASPNET-MVC-framework-preview-to-be-released-next-week.aspx.html
- - /post/2007/11/30/aspnet-mvc-framework-preview-to-be-released-next-week.aspx.html
 ---
 <p>
 Half the world has been focussing on the release of the new Visual Studio 2008 and .NET 3.5 last week. That is good, as .NET 3.5 offers lots of nice new features and improvements. In the blogosphere, I haven&#39;t read much about an extension I&#39;ve been waiting for anxiously: the new ASP.NET MVC framework.

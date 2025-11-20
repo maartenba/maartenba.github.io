@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "WebAPI"]
-alias: ["/post/2013/03/08/Custom-media-types-for-ASPNET-Web-API-versioning.aspx", "/post/2013/03/08/custom-media-types-for-aspnet-web-api-versioning.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2013/03/08/Custom-media-types-for-ASPNET-Web-API-versioning.aspx.html
- - /post/2013/03/08/custom-media-types-for-aspnet-web-api-versioning.aspx.html
 ---
 <p>There is a raging discussion on the interwebs on whether to version API&rsquo;s by using their URL or by using a custom media type. Some argue that doing it in the URL breaks REST (since a different URL is a different resource while versions don&rsquo;t necessarily mean a new resource is available). While I still feel good about both approaches, I guess it depends on the domain you are working with.</p>
 <p>But that is not the topic of this talk. I recently found a <a href="http://aspnet.codeplex.com/SourceControl/changeset/view/0e68a22781fd#Samples/WebApi/NamespaceControllerSelector/ReadMe.txt">sample on CodePlex providing support for routing versioned URL&rsquo;s</a> to different namespaces. In short, it maps <em>/api/v1/values</em> to <em>MyApp.V1.Controllers</em> and /<em>api/v2/values</em> to <em>MyApp.V2.Controllers</em>. Great! But that only supports the URL-versioning side of the discussion. Let&rsquo;s implement this sample and build ASP.NET Web API support for versioning an API using custom media types&hellip;</p>

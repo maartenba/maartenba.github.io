@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "Events", "General", "MEF", "Presentations", "Screencasts"]
-alias: ["/post/2011/04/14/Slides-for-my-talk-at-MIX11-Fun-with-ASPNET-MVC-3-MEF-and-NuGet.aspx", "/post/2011/04/14/slides-for-my-talk-at-mix11-fun-with-aspnet-mvc-3-mef-and-nuget.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/04/14/Slides-for-my-talk-at-MIX11-Fun-with-ASPNET-MVC-3-MEF-and-NuGet.aspx.html
- - /post/2011/04/14/slides-for-my-talk-at-mix11-fun-with-aspnet-mvc-3-mef-and-nuget.aspx.html
 ---
 <p>As promised, here are the slides and demo code for my talk "Fun with ASP.NET MVC 3, MEF and NuGet" I presented at MIX in Las Vegas.</p>
 <p>Abstract: <em>"So you have a team of developers&hellip; And a nice architecture to build on&hellip; How about making that architecture easy for everyone and getting developers up to speed quickly? Learn all about integrating the managed extensibility framework (MEF) and ASP.NET MVC with some NuGet sauce for creating loosely coupled, easy to use architectures that anyone can grasp."</em></p>

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["General", "OpenXML", "PHP"]
-alias: ["/post/2007/11/19/PHP-and-OpenXML-New-API-project.aspx", "/post/2007/11/19/php-and-openxml-new-api-project.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2007/11/19/PHP-and-OpenXML-New-API-project.aspx.html
- - /post/2007/11/19/php-and-openxml-new-api-project.aspx.html
 ---
 <p>
 <img style="width: 104px; height: 103px" src="/images/office2007logo.png" border="0" alt="" hspace="5" vspace="5" width="104" height="103" align="right" />It&#39;s been a while since I posted something related to PHP and OpenXML, but I fixed that glitch in this blog post. 

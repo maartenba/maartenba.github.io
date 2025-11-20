@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Events", "General", "OpenXML", "PHP", "Projects"]
-alias: ["/post/2009/05/18/Document-Interoperability-Workshop-London-May-18-2009.aspx", "/post/2009/05/18/document-interoperability-workshop-london-may-18-2009.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/05/18/Document-Interoperability-Workshop-London-May-18-2009.aspx.html
- - /post/2009/05/18/document-interoperability-workshop-london-may-18-2009.aspx.html
 ---
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 5px 5px 0px; display: inline; border-top: 0px; border-right: 0px" title="Microsoft building London, Cardinal Place" src="/images/Cardinalplace.jpg" border="0" alt="Microsoft building London, Cardinal Place" width="212" height="268" align="left" /> After a pleasant flight with <a href="http://www.flyvlm.com" target="_blank">VLM airlines</a> (Antwerp &ndash; London City), traveling under half of the city of London, I arrived at the Microsoft offices in Victoria for their third (?) DII workshop, of which I attended <a href="/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx" target="_blank">a previous one</a> in Brussels last year.</p>
 <p>If you are wondering: &ldquo;What are you doing there???&rdquo;, here&rsquo;s a short intro. I&rsquo;ve been working on Microsoft interop projects for quite a few years now, like <a href="http://wwww.phpexcel.net" target="_blank">PHPExcel</a>, <a href="http://www.phppowerpoint.net" target="_blank">PHPPowerPoint</a>, <a href="http://www.phplinq.net" target="_blank">PHPLinq</a>, <a href="http://phpazure.codeplex.com/" target="_blank">PHPAzure</a>, &hellip; When working on PHPExcel and PHPPowerpoint, I hit the term &ldquo;document interoperability&rdquo; quite a lot. OpenXML (the underlying file format) is well documented, but there is some work on making sure the generated document by any of those tools is fully compatible with the standard. And that&rsquo;s what these DII workshops are all about.</p>

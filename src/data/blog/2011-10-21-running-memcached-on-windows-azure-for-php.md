@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "General", "PHP", "Scalability", "Software", "Webfarm"]
-alias: ["/post/2011/10/21/Running-Memcached-on-Windows-Azure-for-PHP.aspx", "/post/2011/10/21/running-memcached-on-windows-azure-for-php.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2011/10/21/Running-Memcached-on-Windows-Azure-for-PHP.aspx.html
- - /post/2011/10/21/running-memcached-on-windows-azure-for-php.aspx.html
 ---
 <p>After three conferences in two weeks with a lot of &ldquo;airport time&rdquo;, which typically converts into &ldquo;let&rsquo;s code!&rdquo; time, I think I may have tackled a commonly requested Windows Azure feature for PHP developers. Some sort of distributed caching is always a great thing to have when building scalable services and applications. While Windows Azure offers a distributed caching layer under the form of the <a href="http://www.microsoft.com/windowsazure/features/caching/" target="_blank">Windows Azure Caching</a>, that components currently lacks support for non-.NET technologies. I&rsquo;ve heard there&rsquo;s work being done there, but that&rsquo;s not very interesting if you are building your app today. This blog post will show you how to modify a Windows Azure deployment to run and use <a href="http://memcached.org/" target="_blank">Memcached</a> in the easiest possible manner.</p>
 <p><em>Note: this post focuses on PHP but can also be used to setup Memcached on Windows Azure for NodeJS, Java, Ruby, Python, &hellip;</em></p>

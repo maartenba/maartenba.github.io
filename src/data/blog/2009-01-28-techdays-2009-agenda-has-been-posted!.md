@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Events", "General"]
-alias: ["/post/2009/01/28/TechDays-2009-agenda-has-been-posted!.aspx", "/post/2009/01/28/techdays-2009-agenda-has-been-posted!.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/01/28/TechDays-2009-agenda-has-been-posted!.aspx.html
- - /post/2009/01/28/techdays-2009-agenda-has-been-posted!.aspx.html
 ---
 <p>
 Just a quick note: the <a href="http://www.microsoft.com/belux/techdays/developers.aspx" target="_blank">Belgian TechDays 2009 agenda</a> has been published. You can find it on the <a href="http://www.microsoft.com/belux/techdays/" target="_blank">TechDays website</a>. Also, Katrien has posted some more details on the agenda on <a href="http://blogs.msdn.com/katriend/archive/2009/01/27/techdays-2009-more-confirmed-sessions.aspx" target="_blank">her blog</a>.

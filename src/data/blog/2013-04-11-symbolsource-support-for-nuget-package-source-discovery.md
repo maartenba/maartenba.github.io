@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "NuGet"]
-alias: ["/post/2013/04/11/SymbolSource-support-for-NuGet-Package-Source-Discovery.aspx", "/post/2013/04/11/symbolsource-support-for-nuget-package-source-discovery.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2013/04/11/SymbolSource-support-for-NuGet-Package-Source-Discovery.aspx.html
- - /post/2013/04/11/symbolsource-support-for-nuget-package-source-discovery.aspx.html
 ---
 <p>A couple of weeks, I told you about <a href="/post/2013/03/18/NuGet-Package-Source-Discovery.aspx">NuGet Package Source Discovery</a>. In short, it allows you to add some meta information to your website and use your website as a discovery document for NuGet feeds. And thanks to a <a href="https://github.com/myget/PackageSourceDiscovery">contribution to the spec</a> by Marcin from <a href="http://www.SymbolSource.org">SymbolSource.org</a>, Package Source Discovery (PSD) now supports configuring Visual Studio for consuming symbols as well. Nifty!</p>  <h2>An example</h2>  <p>Let’s go with an example. If we discover packages from my blog, some feeds will be added to NuGet in Visual Studio.</p>  <div id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:e2cc493b-41b5-48ff-b07f-47eb7e68b5c4" class="wlWriterEditableSmartContent" style="float: none; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px"><pre style=" width: 687px; height: 42px;background-color:White;overflow: auto;"><div><!--
 

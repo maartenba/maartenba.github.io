@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "PHP", "Presentations", "Silverlight", "Azure Database", "Zend Framework"]
-alias: ["/post/2010/04/22/TechDays-2010-Portugal-slides-and-demo-code.aspx", "/post/2010/04/22/techdays-2010-portugal-slides-and-demo-code.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/04/22/TechDays-2010-Portugal-slides-and-demo-code.aspx.html
- - /post/2010/04/22/techdays-2010-portugal-slides-and-demo-code.aspx.html
 ---
 <p>First of all: thank you for attending the sessions <a href="http://blog.kevindockx.com/" target="_blank">Kevin Dockx</a> and I gave at <a href="http://www.techdays.com" target="_blank">TechDays 2010 Portugal</a>! A wonder we made it there with all the ash clouds and volcanic interference based in Iceland.</p>  <h2>Just Another Wordpress Weblog, But More Cloudy</h2>  <p>Abstract: “While working together with Microsoft on the Windows Azure SDK for PHP, we found that we needed an popular example application hosted on Microsoft’s Windows Azure. Wordpress was an obvious choice, but not an obvious task. Learn more about Windows Azure, the PHP SDK that we developed, SQL Azure and about the problems we faced porting an existing PHP application to Windows Azure.”</p>  
 

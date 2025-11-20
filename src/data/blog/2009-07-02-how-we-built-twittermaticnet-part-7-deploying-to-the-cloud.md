@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: []
-alias: ["/post/2009/07/02/How-we-built-TwitterMaticnet-Part-7-Deploying-to-the-cloud.aspx", "/post/2009/07/02/how-we-built-twittermaticnet-part-7-deploying-to-the-cloud.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/07/02/How-we-built-TwitterMaticnet-Part-7-Deploying-to-the-cloud.aspx.html
- - /post/2009/07/02/how-we-built-twittermaticnet-part-7-deploying-to-the-cloud.aspx.html
 ---
 <p><em><a href="http://www.twittermatic.net/" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic - Schedule your Twitter updates" src="/images/twittermatic1015%5B4%5D%5B4%5D.png" border="0" alt="TwitterMatic - Schedule your Twitter updates" width="204" height="219" align="right" /></a></em><em>&ldquo;K</em><em>night Maarten The Brave Coffeedrinker had managed all there is to building an application to interact with the great god of social networking, <a href="http://www.twitter.com" target="_blank">Twitter</a>. A barn in the cloud, worker roles, web roles, a gate keeper, &hellip; The moment of truth came near: would the application survive if it was thrown at the azure cloud? Would the digital villagers like the application?&rdquo;</em></p>
 <p>This post is part of a series on how we built <a href="http://www.twittermatic.net/" target="_blank">TwitterMatic.net</a>. Other parts:</p>

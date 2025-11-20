@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["General", "Personal"]
-alias: ["/post/2008/05/08/Having-fun-with-project-managers!-(or-why-you-should-lock-your-desktop).aspx", "/post/2008/05/08/having-fun-with-project-managers!-(or-why-you-should-lock-your-desktop).aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/05/08/Having-fun-with-project-managers!-(or-why-you-should-lock-your-desktop).aspx.html
- - /post/2008/05/08/having-fun-with-project-managers!-(or-why-you-should-lock-your-desktop).aspx.html
 ---
 <p>
 Have you ever left your computer unattended? (I do hope that!) Do you lock your desktop when this occurs? (I hope so either!) Not locking your desktop can be a risk. Your data might get stolen, someone might install a trojan, ... 

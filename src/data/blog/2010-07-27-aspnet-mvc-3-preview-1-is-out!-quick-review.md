@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
-alias: ["/post/2010/07/27/ASPNET-MVC-3-preview-1-is-out!-Quick-review.aspx", "/post/2010/07/27/aspnet-mvc-3-preview-1-is-out!-quick-review.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2010/07/27/ASPNET-MVC-3-preview-1-is-out!-Quick-review.aspx.html
- - /post/2010/07/27/aspnet-mvc-3-preview-1-is-out!-quick-review.aspx.html
 ---
 <p>I just noticed a very interesting download: <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=cb42f741-8fb1-4f43-a5fa-812096f8d1e8&amp;utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+MicrosoftDownloadCenter+%28Microsoft+Download+Center%29#tm">ASP.NET MVC 3 preview 1</a>. Yes, you are reading this correctly, the first bits for v3.0 are there! Let&rsquo;s have a quick look around and see what&rsquo;s new...</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/07/22/ASPNET-MVC-3-preview-1-is-out!-Quick-review.aspx&amp;title=ASP.NET MVC 3 preview 1 is out! Quick review..."><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/07/22/ASPNET-MVC-3-preview-1-is-out!-Quick-review.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
-alias: ["/post/2009/01/30/Form-validation-with-ASPNET-MVC-release-candidate.aspx", "/post/2009/01/30/form-validation-with-aspnet-mvc-release-candidate.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2009/01/30/Form-validation-with-ASPNET-MVC-release-candidate.aspx.html
- - /post/2009/01/30/form-validation-with-aspnet-mvc-release-candidate.aspx.html
 ---
 <p>
 Last week, the <a href="http://go.microsoft.com/fwlink/?LinkID=141184&amp;clcid=0x409" target="_blank">ASP.NET MVC framework release candidate</a> was released (check <a href="http://weblogs.asp.net/scottgu/archive/2009/01/27/asp-net-mvc-1-0-release-candidate-now-available.aspx" target="_blank">ScottGu&rsquo;s post</a>). Apart from some great new tooling support, form validation has never been easier. Here&rsquo;s a quick introduction. 

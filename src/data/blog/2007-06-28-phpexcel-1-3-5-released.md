@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["General", "PHP", "Projects"]
-alias: ["/post/2007/06/28/phpexcel-1-3-5-released.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2007/06/28/phpexcel-1-3-5-released.aspx.html
- - /post/2007/06/28/phpexcel-1-3-5-released.aspx.html
 ---
 <p>Just a quick note on the new PHPExcel 1.3.5 release. There are some cool new features included!</p>
 <p>One of the new features is rich text: one can now write <span style="color: #008000;">coloured</span> and <em><span style="text-decoration: underline;"><span style="color: #800000;">styled</span></span></em> text in a cell. Here's an example of how the feature demo result file looks:</p>

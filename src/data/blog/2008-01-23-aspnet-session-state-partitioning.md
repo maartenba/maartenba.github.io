@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Software", "Webfarm"]
-alias: ["/post/2008/01/23/ASPNET-Session-State-Partitioning.aspx", "/post/2008/01/23/aspnet-session-state-partitioning.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/01/23/ASPNET-Session-State-Partitioning.aspx.html
- - /post/2008/01/23/aspnet-session-state-partitioning.aspx.html
 ---
 <p><img style="width: 316px; height: 502px;" src="/images/session_state_partitioning.png" border="1" alt="" hspace="5" vspace="5" width="316" height="502" align="right" />After my previous blog post on <a href="/post/2007/11/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx" target="_blank">ASP.NET Session State</a>, someone asked me if I knew anything about ASP.NET Session State Partitioning. Since this is a little known feature of ASP.NET, here's a little background and a short how-to.</p>
 <p>When scaling out an ASP.NET application's session state to a dedicated session server (SQL server or the ASP.NET state server), you might encounter a new problem: what if this dedicated session server can't cope with a large amount of sessions? One option might be to create a SQL server cluster for storing session state. A cheaper way is to implement a custom partitioning algorithm which redirects session X to state server A and session Y to state server B. In short, partitioning provides a means to divide session information on multiple session state servers, which all handle "their" part of the total amount of sessions.</p>

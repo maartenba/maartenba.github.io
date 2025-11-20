@@ -6,11 +6,7 @@ comments: true
 published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Presentations", "Projects", "Silverlight"]
-alias: ["/post/2008/10/21/CarTrackr-Sample-ASPNET-MVC-application.aspx", "/post/2008/10/21/cartrackr-sample-aspnet-mvc-application.aspx"]
 author: Maarten Balliauw
-redirect_from:
- - /post/2008/10/21/CarTrackr-Sample-ASPNET-MVC-application.aspx.html
- - /post/2008/10/21/cartrackr-sample-aspnet-mvc-application.aspx.html
 ---
 <p>
 <a href="http://www.codeplex.com/CarTrackr"><img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/CarTrackrSampleASP.NETMVCapplication_C12F/CarTrackr_3.png" border="0" alt="CarTrackr - Sample ASP.NET MVC application" width="240" height="116" align="left" /></a> Some people may have already noticed the link in my <a href="/post/2008/10/15/Introduction-to-ASPNET-MVC-for-VISUG-Presentation-materials.aspx.html" target="_blank">VISUG session blog post</a>, but for those who didn&#39;t... I&#39;ve released my sample application <a href="http://www.codeplex.com/CarTrackr" target="_blank">CarTrackr on CodePlex</a>. 
