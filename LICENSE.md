@@ -1,3 +1,14 @@
+This repository and contents made available at [https://blog.maartenballiauw.be](http://blog.maartenballiauw.be) are licensed as follows:
+
+* Blog content such as articles, page contents, images embedded in content, ... are (c) Copyright Maarten Balliauw;
+* Astro-based site generation templates are licensed under the MIT license.
+
+## Content
+
+Blog content such as articles, page contents, images embedded in content, ... are (c) Copyright Maarten Balliauw.
+
+## Astro-based site generation templates - MIT license
+
 MIT License
 
 Copyright (c) 2023 Sat Naing

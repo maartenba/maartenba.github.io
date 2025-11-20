@@ -2,6 +2,8 @@
 import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
+import "@fontsource-variable/jetbrains-mono";
+import "@fontsource-variable/inter";
 import "@/styles/global.css";
 
 export interface Props {
@@ -111,7 +113,7 @@ const structuredData = {
       rel="alternate"
       type="application/rss+xml"
       title={SITE.title}
-      href={new URL("rss.xml", Astro.site)}
+      href={new URL("feed.xml", Astro.site)}
     />
 
     <meta name="theme-color" content="" />
