@@ -1,0 +1,18 @@
+---
+layout: post
+title: "BlogEngine.NET comment spam filtering"
+pubDatetime: 2010-09-09T14:10:37Z
+comments: true
+published: true
+categories: ["post"]
+tags: ["ASP.NET", "General", "Offtopic", "Personal", "Security"]
+alias: ["/post/2010/09/09/BlogEngineNET-comment-spam-filtering.aspx", "/post/2010/09/09/blogenginenet-comment-spam-filtering.aspx"]
+author: Maarten Balliauw
+redirect_from:
+ - /post/2010/09/09/BlogEngineNET-comment-spam-filtering.aspx.html
+ - /post/2010/09/09/blogenginenet-comment-spam-filtering.aspx.html
+---
+<p><a href="/images/image_61.png"><img style="background-image: none; border-right-width: 0px; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Spam" border="0" alt="Spam" align="right" src="/images/image_thumb_33.png" width="192" height="240" /></a>It’s been a month or three since I was utterly fed up with comment spam on my blog. Sure, I did turn on comment moderation so you, as a visitor, would not notice this spam if I did not approve it as a valid comment. However, I found myself cleaning up comment spam from in between legitimate comments in the <a href="http://www.dotnetblogengine.net/" target="_blank">BlogEngine.NET</a> admin interface.</p>  <p>In an effort of trying to reduce comment spam, I tried the following:</p>  <ul>   <li>Close comments after 90 days – This effort worked for a few days, but afterwards I was just seeing more comment spam on the topics that were still open to comments. </li>    <li>Use a CAPTCHA – This effort reduced some comment spam, but not all. Which makes me believe there are people actually making a living by just sending out comment spam and filling out CAPTCHA’s out there. </li>    <li>Whining and cursing while again cleaning out comments manually – This effort worked, until I found out that this was what I’ve been doing before the other 2 efforts. Back to start… </li> </ul>  <p>Luckily, the latest version of <a href="http://www.dotnetblogengine.net/" target="_blank">BlogEngine.NET</a> (and also earlier version if you go down the hacky road) featured a new comment system, including spam filtering. After using it for a few months, I must say I’m very close to zero comment spam!</p>  <h2>The results</h2>  <p>I have configured BlogEngine.NET as follows:</p>  <ul>   <li>Comments enabled, never closed </li>    <li>Comment moderation: “on” and “automatic” </li>    <li>Whitelisting rules enabled (if you have 5 legitimate comments, you are probably OK) </li>    <li>Spam filters enabled: AkismetFilter, StopForumSpam and TypePadFilter </li> </ul>  <p>Now if you look at the results, there’s an interesting difference between the spam filter services being used:</p>  <p><img style="background-image: none; border-right-width: 0px; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/images/image_62.png" width="644" height="103" /></p>  <p>The accuracy of the spam filters is mostly &gt; 90%, for <a href="http://www.akismet.com" target="_blank">Akismet</a> it’s even 97.30 %. Which I also feel: a small check every week on whether there are spam filter mistakes is quite enough. Only the TypePadFilter is letting me down there, and I will probably disable this one and rely on only two filters.</p>
+
+{% include imported_disclaimer.html %}
+

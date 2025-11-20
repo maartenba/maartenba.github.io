@@ -1,0 +1,171 @@
+---
+layout: post
+title: "Simplified access control using Windows Azure AppFabric Labs"
+pubDatetime: 2010-08-12T15:05:00Z
+comments: true
+published: true
+categories: ["post"]
+tags: ["Azure", "CSharp", "General", "Security"]
+alias: ["/post/2010/08/12/Simplified-access-control-using-Windows-Azure-AppFabric-Labs.aspx", "/post/2010/08/12/simplified-access-control-using-windows-azure-appfabric-labs.aspx"]
+author: Maarten Balliauw
+redirect_from:
+ - /post/2010/08/12/Simplified-access-control-using-Windows-Azure-AppFabric-Labs.aspx.html
+ - /post/2010/08/12/simplified-access-control-using-windows-azure-appfabric-labs.aspx.html
+---
+<p><a href="/images/image_56.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Windows Azure ApFabric Access Control" src="/images/image_thumb_28.png" border="0" alt="Windows Azure ApFabric Access Control" width="244" height="51" align="right" /></a>Earlier this week, <a href="http://blogs.msdn.com/b/zaneadam/archive/2010/08/05/new-access-control-service-in-labs-delivers-greatly-expanded-capabilities.aspx" target="_blank">Zane Adam announced the availability of the New AppFabric Access Control service in LABS</a>. The highlights for this release (and I quote):</p>
+<ul>
+<li><strong>Expanded Identity provider support</strong> - allowing developers to build applications and services that accept both enterprise identities (through integration with Active Directory Federation Services 2.0), and a broad range of web identities (through support of Windows Live ID, Open ID, Google, Yahoo, Facebook identities) using a single code base. </li>
+<li><strong>WS-Trust and WS-Federation protocol support</strong> &ndash; Interoperable WS-* support is important to many of our enterprise customers. </li>
+<li><strong>Full integration with Windows Identity Foundation (WIF)</strong> - developers can apply the familiar WIF identity programming model and tooling for cloud applications and services. </li>
+<li><strong>A new management web portal</strong> -&nbsp; gives simple, complete control over all Access Control settings. </li>
+</ul>
+<p>Wow! This just <em>*has*</em> to be good! Let&rsquo;s see how easy it is to work with <a href="http://msdn.microsoft.com/en-us/magazine/ee335707.aspx" target="_blank">claims based authentication</a> and the AppFabric Labs Access Control Service, which I&rsquo;ll abbreviate to &ldquo;ACS&rdquo; throughout this post.</p>
+<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/08/10/Simplified-access-control-using-Windows-Azure-AppFabric-Labs.aspx&amp;title=Simplified access control using Windows Azure AppFabric Labs"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/08/10/Simplified-access-control-using-Windows-Azure-AppFabric-Labs.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
+<h2>What are you doing?</h2>
+<p>In essence, I&rsquo;ll be &ldquo;outsourcing&rdquo; the access control part of my application to the ACS. When a user comes to the application, he will be asked to present certain &ldquo;claims&rdquo;, for example a claim that tells what the user&rsquo;s role is. Of course, the application will only trust claims that have been signed by a trusted party, which in this case will be the ACS.</p>
+<p>Fun thing is: my application only has to know about the ACS. As an administrator, I can then tell the ACS to trust claims provided by Windows Live ID or Google Accounts, which will be reflected to my application automatically: users will be able to authenticate through any service I configure in the ACS, without my application having to know. Very flexible, as I can tell the ACS to trust for example my company&rsquo;s Active Directory and perhaps also the Active Directory of a customer who uses the application</p>
+<h2>Prerequisites</h2>
+<p>Before you start, make sure you have the <a href="http://msdn.microsoft.com/en-us/evalcenter/dd440951.aspx" target="_blank">latest version of Windows Identity Foundation</a> installed. This will make things easy, I promise! Other prerequisites, of course, are Visual Studio and an account on <a title="https://portal.appfabriclabs.com" href="https://portal.appfabriclabs.com">https://portal.appfabriclabs.com</a>. Note that, since it&rsquo;s still a &ldquo;preview&rdquo; version, this is free to use.</p>
+<p>In the labs account, create a project and in that project create a service namespace. This is what you should be seeing (or at least: something similar):</p>
+<p><a href="/images/AppFabric%20project.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="AppFabric labs project" src="/images/AppFabric%20project_thumb.png" border="0" alt="AppFabric labs project" width="244" height="136" /></a></p>
+<h2>Getting started: setting up the application side</h2>
+<p>Before starting, we will require a certificate for signing tokens and things like that. Let&rsquo;s just start with creating one so we don&rsquo;t have to worry about that further down the road. Issue the following command in a Visual Studio command prompt:</p>
+<div id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:b6de3baa-0c50-477b-907b-f731776bc8f9" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<pre style="background-color: white; width: 739px; height: 26px; overflow: auto;"><div><!--
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+http://www.CodeHighlighter.com/
+
+--><span style="color: #000000;">MakeCert.exe </span><span style="color: #000000;">-</span><span style="color: #000000;">r </span><span style="color: #000000;">-</span><span style="color: #000000;">pe </span><span style="color: #000000;">-</span><span style="color: #000000;">n </span><span style="color: #800000;">"</span><span style="color: #800000;">CN=&lt;your service namespace&gt;.accesscontrol.appfabriclabs.com</span><span style="color: #800000;">"</span><span style="color: #000000;"> </span><span style="color: #000000;">-</span><span style="color: #000000;">sky exchange </span><span style="color: #000000;">-</span><span style="color: #000000;">ss my</span></div></pre>
+<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>This will create a certificate that is valid for your ACS project. It will be installed in the local certificate store on your computer. Make sure to <a href="http://tinyurl.com/38zz8q9" target="_blank">export both the public and private key</a> (.cer and .pkx).</p>
+<p>That being said and done: let&rsquo;s add claims-based authentication to a new ASP.NET Website. Simply fire up Visual Studio, create a new ASP.NET application. I called it &ldquo;MyExternalApp&rdquo; but in fact the name is all up to you. Next, edit the Default.aspx page and paste in the following code:</p>
+<div id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:7fc901a7-0a9d-448d-8e3a-473f58b6f136" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<pre style="background-color: white; width: 739px; height: 217px; overflow: auto;"><div><!--
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+http://www.CodeHighlighter.com/
+
+--><span style="color: #008080;"> 1</span> <span style="background-color: #FFFF00; color: #000000;">&lt;%</span><span style="background-color: #F5F5F5; color: #000000;">@ Page Title</span><span style="background-color: #F5F5F5; color: #000000;">=</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #800000;">Home Page</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #000000;"> Language</span><span style="background-color: #F5F5F5; color: #000000;">=</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #800000;">C#</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #000000;"> MasterPageFile</span><span style="background-color: #F5F5F5; color: #000000;">=</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #800000;">~/Site.master</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #000000;"> AutoEventWireup</span><span style="background-color: #F5F5F5; color: #000000;">=</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #800000;">true</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #000000;">
+</span><span style="color: #008080;"> 2</span> <span style="background-color: #F5F5F5; color: #000000;">    CodeBehind</span><span style="background-color: #F5F5F5; color: #000000;">=</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #800000;">Default.aspx.cs</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #000000;"> Inherits</span><span style="background-color: #F5F5F5; color: #000000;">=</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #800000;">MyExternalApp._Default</span><span style="background-color: #F5F5F5; color: #800000;">"</span><span style="background-color: #F5F5F5; color: #000000;"> </span><span style="background-color: #FFFF00; color: #000000;">%&gt;</span><span style="color: #000000;">
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">
+</span><span style="color: #008080;"> 4</span> <span style="color: #0000FF;">&lt;</span><span style="color: #800000;">asp:Content </span><span style="color: #FF0000;">ID</span><span style="color: #0000FF;">="HeaderContent"</span><span style="color: #FF0000;"> runat</span><span style="color: #0000FF;">="server"</span><span style="color: #FF0000;"> ContentPlaceHolderID</span><span style="color: #0000FF;">="HeadContent"</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;">
+</span><span style="color: #008080;"> 5</span> <span style="color: #0000FF;">&lt;/</span><span style="color: #800000;">asp:Content</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;">
+</span><span style="color: #008080;"> 6</span> <span style="color: #0000FF;">&lt;</span><span style="color: #800000;">asp:Content </span><span style="color: #FF0000;">ID</span><span style="color: #0000FF;">="BodyContent"</span><span style="color: #FF0000;"> runat</span><span style="color: #0000FF;">="server"</span><span style="color: #FF0000;"> ContentPlaceHolderID</span><span style="color: #0000FF;">="MainContent"</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;"> 
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">    </span><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;">Your claims:</span><span style="color: #0000FF;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;"> 
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">    </span><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">asp:GridView </span><span style="color: #FF0000;">ID</span><span style="color: #0000FF;">="gridView"</span><span style="color: #FF0000;"> runat</span><span style="color: #0000FF;">="server"</span><span style="color: #FF0000;"> AutoGenerateColumns</span><span style="color: #0000FF;">="False"</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;"> 
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">        </span><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">Columns</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;"> 
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">            </span><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">asp:BoundField </span><span style="color: #FF0000;">DataField</span><span style="color: #0000FF;">="ClaimType"</span><span style="color: #FF0000;"> HeaderText</span><span style="color: #0000FF;">="ClaimType"</span><span style="color: #FF0000;"> ReadOnly</span><span style="color: #0000FF;">="True"</span><span style="color: #FF0000;"> </span><span style="color: #0000FF;">/&gt;</span><span style="color: #000000;"> 
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">            </span><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">asp:BoundField </span><span style="color: #FF0000;">DataField</span><span style="color: #0000FF;">="Value"</span><span style="color: #FF0000;"> HeaderText</span><span style="color: #0000FF;">="Value"</span><span style="color: #FF0000;"> ReadOnly</span><span style="color: #0000FF;">="True"</span><span style="color: #FF0000;"> </span><span style="color: #0000FF;">/&gt;</span><span style="color: #000000;"> 
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">        </span><span style="color: #0000FF;">&lt;/</span><span style="color: #800000;">Columns</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;"> 
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">    </span><span style="color: #0000FF;">&lt;/</span><span style="color: #800000;">asp:GridView</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;"> 
+</span><span style="color: #008080;">14</span> <span style="color: #0000FF;">&lt;/</span><span style="color: #800000;">asp:Content</span><span style="color: #0000FF;">&gt;</span></div></pre>
+<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>Next, edit Default.aspx.cs and add the following <em>Page_Load</em> event handler:</p>
+<div id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:dc038d8d-ad7d-4c64-a1cc-e1fed2381bdd" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<pre style="background-color: white; width: 739px; height: 167px; overflow: auto;"><div><!--
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+http://www.CodeHighlighter.com/
+
+--><span style="color: #008080;"> 1</span> <span style="color: #0000FF;">protected</span><span style="color: #000000;"> </span><span style="color: #0000FF;">void</span><span style="color: #000000;"> Page_Load(</span><span style="color: #0000FF;">object</span><span style="color: #000000;"> sender, EventArgs e)
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">    IClaimsIdentity claimsIdentity </span><span style="color: #000000;">=</span><span style="color: #000000;">
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">        ((IClaimsPrincipal)(Thread.CurrentPrincipal)).Identities.FirstOrDefault();
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">    </span><span style="color: #0000FF;">if</span><span style="color: #000000;"> (claimsIdentity </span><span style="color: #000000;">!=</span><span style="color: #000000;"> </span><span style="color: #0000FF;">null</span><span style="color: #000000;">)
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">        gridView.DataSource </span><span style="color: #000000;">=</span><span style="color: #000000;"> claimsIdentity.Claims;
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">        gridView.DataBind();
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">    } 
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">}</span></div></pre>
+<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>So far, so good. If we had everything configured, Default.aspx would simply show us the claims we received from ACS once we have everything running. Now in order to configure the application to use the ACS, there&rsquo;s two steps left to do:</p>
+<ul>
+<li>Add a reference to <em>Microsoft.IdentityModel</em> (located somewhere at<em> C:\Program Files\Reference Assemblies\Microsoft\Windows Identity Foundation\v3.5\Microsoft.IdentityModel.dll</em>) </li>
+<li>Add an STS reference&hellip; </li>
+</ul>
+<p>That first step should be easy: add a reference to <em>Microsoft.IdentityModel</em> in your ASP.NET application. The second step is almost equally easy: right-click the project and select &ldquo;Add STS reference&hellip;&rdquo;, like so:</p>
+<p><a href="/images/Add%20STS%20reference.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Add STS reference" src="/images/Add%20STS%20reference_thumb.png" border="0" alt="Add STS reference" width="244" height="243" /></a></p>
+<p>A wizard will pop-up. Here&rsquo;s a secret: this wizard will do a lot for us! On the first screen, enter the full URL to your application. I have mine hosted on IIS and enabled SSL, hence the following screenshot:</p>
+<p><a href="/images/Specify%20application%20URI.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Specify application URI" src="/images/Specify%20application%20URI_thumb.png" border="0" alt="Specify application URI" width="244" height="184" /></a></p>
+<p>In the next step, enter the URL to the STS federation metadata. To the what where? Well, to the metadata provided by ACS. This metadata contains the types of claims offered, the certificates used for signing, &hellip; The URL to enter will be something like <a href="https://&lt;your service namespace&gt;.accesscontrol.appfabriclabs.com:443/FederationMetadata/2007-06/FederationMetadata.xml" target="_blank">https://&lt;your service namespace&gt;.accesscontrol.appfabriclabs.com:443/FederationMetadata/2007-06/FederationMetadata.xml</a><em></em>:</p>
+<p><a href="/images/Security%20Token%20Service.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Security Token Service" src="/images/Security%20Token%20Service_thumb.png" border="0" alt="Security Token Service" width="244" height="184" /></a></p>
+<p>In the next step, select &ldquo;Disable security chain validation&rdquo;. Because we are using self-signed certificates, selecting the second option would lead us to doom because all infrastructure would require a certificate provided by a valid certificate authority.</p>
+<p>From now on, it&rsquo;s just &ldquo;Next&rdquo;, &ldquo;Next&rdquo;, &ldquo;Finish&rdquo;. If you now have a look at your <em>Web.config</em> file, you&rsquo;ll see that the wizard has configured the application to use ACS as the federation authentication provider. Furthermore, a new folder called &ldquo;FederationMetadata&rdquo; has been created, which contains an XML file that specifies which claims this application requires. Oh, and some other details on the application, but nothing to worry about at this point.</p>
+<p>Our application has now been configured: off to the ACS side!</p>
+<h2>Getting started: setting up the ACS side</h2>
+<p>First of all, we need to register our application with the Windows Azure AppFabric ACS. his can be done by clicking &ldquo;Manage&rdquo; on the management portal over at <a title="https://portal.appfabriclabs.com" href="https://portal.appfabriclabs.com">https://portal.appfabriclabs.com</a>. Next, click &ldquo;Relying Party Applications&rdquo; and &ldquo;Add Relying Party Application&rdquo;. The following screen will be presented:</p>
+<p><a href="/images/Add%20Relying%20Party%20Application.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Add Relying Party Application" src="/images/Add%20Relying%20Party%20Application_thumb.png" border="0" alt="Add Relying Party Application" width="244" height="223" /></a></p>
+<p>Fill out the form as follows:</p>
+<ul>
+<li>Name: a descriptive name for your application. </li>
+<li>Realm: the URI that the issued token will be valid for. This can be a complete domain (i.e. <a href="http://www.example.com">www.example.com</a>) or the full path to your application. For now, enter the full URL to your application, which will be something like <a href="https://localhost/MyApp">https://localhost/MyApp</a>. </li>
+<li>Return URL: where to return after successful sign-in </li>
+<li>Token format: we&rsquo;ll be using the defaults in WIF, so go for SAML 2.0. </li>
+<li>For the token encryption certificate, select X.509 certificate and upload the certificate file (.cer) we&rsquo;ve been using before </li>
+<li>Rule groups: pick one, best is to create a new one specific to the application we are registering </li>
+</ul>
+<p>Afterwards click &ldquo;Save&rdquo;. Your application is now registered with ACS.</p>
+<p>The next step is to select the Identity Providers we want to use. I selected Windows Live ID and Google Accounts as shown in the next screenshot:</p>
+<p><a href="/images/Identity%20Providers.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Identity Providers" src="/images/Identity%20Providers_thumb.png" border="0" alt="Identity Providers" width="244" height="128" /></a></p>
+<p>One thing left: since we are using Windows Identity Foundation, we have to upload a token signing certificate to the portal. Export the private key of the previously created certificate and upload that to the &ldquo;Certificates and Keys&rdquo; part of the management portal. Make sure to specify that the certificate is to be used for token signing.</p>
+<p><a href="/images/Signing%20certificate%20Windows%20Identity%20Foundation%20WIF.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Signing certificate Windows Identity Foundation WIF" src="/images/Signing%20certificate%20Windows%20Identity%20Foundation%20WIF_thumb.png" border="0" alt="Signing certificate Windows Identity Foundation WIF" width="244" height="179" /></a></p>
+<p>Allright, we&rsquo;re almost done. Well, in fact: we are done! An optional next step would be to edit the rule group we&rsquo;ve created before. This rule group will describe the claims that will be presented to the application asking for the user&rsquo;s claims. Which is very powerful, because it also supports so-called claim transformations: if an identity provider provides ACS with a claim that says &ldquo;the user is part of a group named Administrators&rdquo;, the rules can then transform the claim into a new claim stating &ldquo;the user has administrative rights&rdquo;.</p>
+<h2>Testing our setup</h2>
+<p>With all this information and configuration in place, press<em> F5</em> inside Visual Studio and behold&hellip; Your application now redirects to the STS in the form of ACS&rsquo; login page.</p>
+<p><a href="/images/Sign%20in%20using%20AppFabric.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Sign in using AppFabric" src="/images/Sign%20in%20using%20AppFabric_thumb.png" border="0" alt="Sign in using AppFabric" width="244" height="182" /></a></p>
+<p>So far so good. Now sign in using one of the identity providers listed. After a successful sign-in, you will be redirected back to ACS, which will in turn redirect you back to your application. And then: misery :-)</p>
+<p><a href="/images/Request%20validation.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Request validation" src="/images/Request%20validation_thumb.png" border="0" alt="Request validation" width="244" height="182" /></a></p>
+<p>ASP.NET request validation kicked in since it detected unusual headers. Let&rsquo;s fix that. Two possible approaches:</p>
+<ul>
+<li>Disable request validation, but I&rsquo;d prefer not to do that </li>
+<li>Create a custom <em>RequestValidator</em> </li>
+</ul>
+<p>Let&rsquo;s go with the latter option&hellip; Here&rsquo;s a class that you can copy-paste in your application:</p>
+<div id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:ad2141b1-97b4-4497-8890-bda91e1175fd" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<pre style="background-color: white; width: 739px; height: 313px; overflow: auto;"><div><!--
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+http://www.CodeHighlighter.com/
+
+--><span style="color: #008080;"> 1</span> <span style="color: #0000FF;">public</span><span style="color: #000000;"> </span><span style="color: #0000FF;">class</span><span style="color: #000000;"> WifRequestValidator : RequestValidator
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">    </span><span style="color: #0000FF;">protected</span><span style="color: #000000;"> </span><span style="color: #0000FF;">override</span><span style="color: #000000;"> </span><span style="color: #0000FF;">bool</span><span style="color: #000000;"> IsValidRequestString(HttpContext context, </span><span style="color: #0000FF;">string</span><span style="color: #000000;"> value, RequestValidationSource requestValidationSource, </span><span style="color: #0000FF;">string</span><span style="color: #000000;"> collectionKey, </span><span style="color: #0000FF;">out</span><span style="color: #000000;"> </span><span style="color: #0000FF;">int</span><span style="color: #000000;"> validationFailureIndex)
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">        validationFailureIndex </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">        </span><span style="color: #0000FF;">if</span><span style="color: #000000;"> (requestValidationSource </span><span style="color: #000000;">==</span><span style="color: #000000;"> RequestValidationSource.Form </span><span style="color: #000000;">&amp;&amp;</span><span style="color: #000000;"> collectionKey.Equals(WSFederationConstants.Parameters.Result, StringComparison.Ordinal))
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">            SignInResponseMessage message </span><span style="color: #000000;">=</span><span style="color: #000000;"> WSFederationMessage.CreateFromFormPost(context.Request) </span><span style="color: #0000FF;">as</span><span style="color: #000000;"> SignInResponseMessage;
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">            </span><span style="color: #0000FF;">if</span><span style="color: #000000;"> (message </span><span style="color: #000000;">!=</span><span style="color: #000000;"> </span><span style="color: #0000FF;">null</span><span style="color: #000000;">)
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">            {
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">                </span><span style="color: #0000FF;">return</span><span style="color: #000000;"> </span><span style="color: #0000FF;">true</span><span style="color: #000000;">;
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">
+</span><span style="color: #008080;">17</span> <span style="color: #000000;">        </span><span style="color: #0000FF;">return</span><span style="color: #000000;"> </span><span style="color: #0000FF;">base</span><span style="color: #000000;">.IsValidRequestString(context, value, requestValidationSource, collectionKey, </span><span style="color: #0000FF;">out</span><span style="color: #000000;"> validationFailureIndex);
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">19</span> <span style="color: #000000;">}</span></div></pre>
+<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>Basically, it&rsquo;s just validating the request and returning true to ASP.NET request validation if a <em>SignInMesage</em> is in the request. One thing left to do: register this provider with ASP.NET. Add the following line of code in the <em>&lt;system.web&gt;</em> section of <em>Web.config</em>:</p>
+<div id="scid:9D7513F9-C04C-4721-824A-2B34F0212519:151d8834-2007-4ddb-b2e4-8a252c67b029" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<pre style="background-color: white; width: 739px; height: 21px; overflow: auto;"><div><!--
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+http://www.CodeHighlighter.com/
+
+--><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">httpRuntime </span><span style="color: #FF0000;">requestValidationType</span><span style="color: #0000FF;">="MyExternalApp.Modules.WifRequestValidator"</span><span style="color: #FF0000;"> </span><span style="color: #0000FF;">/&gt;</span></div></pre>
+<!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>If you now try loading the application again, chances are you will actually see claims provided by ACS:</p>
+<p><a href="/images/Claims%20output%20from%20Windows%20Azure%20AppFabric%20Access%20Control%20Service.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Claims output from Windows Azure AppFabric Access Control Service" src="/images/Claims%20output%20from%20Windows%20Azure%20AppFabric%20Access%20Control%20Service_thumb.png" border="0" alt="Claims output from Windows Azure AppFabric Access Control Service" width="244" height="182" /></a></p>
+<p>There', that&rsquo;s it. We now have successfully delegated access control to ACS. Obviously the next step would be to specify which claims are required for specific actions in your application, provide the necessary claims transformations in ACS, &hellip; All of that can easily be found on <span style="text-decoration: line-through;"><a href="http://www.google.com" target="_blank">Google</a></span> <a href="http://www.bing.com" target="_blank">Bing</a>.</p>
+<h2>Conclusion</h2>
+<p>To be honest: I&rsquo;ve always found claims-based authentication and Windows Azure AppFabric Access Control a good match in theory, but an ugly and cumbersome beast to work with. With this labs release, things get interesting and almost self-explaining, allowing for easier implementation of it in your own application. As an extra bonus to this blog post, I also decided to link my ADFS server to ACS: it took me literally 5 minutes to do so and works like a charm!</p>
+<p>Final conclusion: AppFabric team, please ship this soon :-) I really like the way this labs release works and I think many users who find the step up to using ACS today may as well take the step if they can use ACS in the easy manner the labs release provides.</p>
+<p>By the way: more information can be found on <a title="http://acs.codeplex.com" href="http://acs.codeplex.com">http://acs.codeplex.com</a>.</p>
+<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/08/10/Simplified-access-control-using-Windows-Azure-AppFabric-Labs.aspx&amp;title=Simplified access control using Windows Azure AppFabric Labs"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/08/10/Simplified-access-control-using-Windows-Azure-AppFabric-Labs.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
+
+{% include imported_disclaimer.html %}
+
