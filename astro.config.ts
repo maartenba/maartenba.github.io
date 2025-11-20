@@ -10,19 +10,19 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
+import redirectFrom from "astro-redirect-from";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
   integrations: [
+    redirectFrom({ contentDir: "src/data/blog" }),
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
     }),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkToc, [remarkCollapse, { test: "Table of contents" }],
-    ],
+    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },
