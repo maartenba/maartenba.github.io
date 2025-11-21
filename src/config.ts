@@ -4,7 +4,7 @@ export const SITE = {
   profile: null,
   desc: "Web development, .NET, C#, Azure, ...",
   title: "Maarten Balliauw {blog}",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 10,
   postPerPage: 10,
