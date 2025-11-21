@@ -1,5 +1,0 @@
-id: dsq-937490594
-date: 2009-04-04T07:16:04.0000000+02:00
-name: mycall
-avatar: https://disqus.com/api/users/avatars/mycall.jpg
-message: <p>Asynchronous controllers might be error prone when IIS worker threads recycle.</p>

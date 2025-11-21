@@ -1,5 +1,0 @@
-id: dsq-937490238
-date: 2011-02-16T19:44:46.0000000+01:00
-name: Andy Worral
-avatar: https://disqus.com/api/users/avatars/Andy Worral.jpg
-message: <p>I did do a quick test using the new MEfContrib.MVC3 from nuget and it seemed that however the ControllerFactory was looking for an exported Controller that it didn't see the ones in my separate dlll.</p><p>The base namespace in the other dll is different perhaps that is causing the issue? The controller in the other dll still has the XXXX.Areas.MyArea.DoSomethingController as the namespace just the XXXX is different.  As I was saying I haven't looked through the code to see how this implementation looks for exported Controllers and selects one.  Or if it is just using the original ControllerFactory's implementation to find the Contoller and then using MEF to instantiate it with its dependencies.</p><p>Do you have an example at all of the MefContrib.MVC3 working with a controller from another assembly?</p><p>Hopefully I'll get a chance to dig through the code a bit more today.</p><p>Thanks again</p>

@@ -1,5 +1,0 @@
-id: dsq-937490395
-date: 2009-10-06T23:15:34.0000000+02:00
-name: Haacked
-avatar: https://disqus.com/api/users/avatars/Haacked.jpg
-message: <p>Just because Html.Serialized has the option of using Base64 encoding doesn't mean it equates to ViewState. I think calling it ViewState is very misleading First of all, what your serializing is the state of the Model, not the View. You just store it in the view. This helps with doing things like optimistic concurrency or wizards without having to store values in session or cookie.</p><p>Also, unlike ViewState, this is opt in and not automatic and doesn't have any way of serializing the actual view.</p>

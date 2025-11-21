@@ -1,7 +1,0 @@
-id: e0e72f4b
-date: 2023-01-16T11:23:07.4592240Z
-name: Alf Kåre Lefdal
-email: 
-avatar: https://secure.gravatar.com/avatar/b86093a8c3c18571b86c2f588515a5c7?s=80&r=pg
-url: https://lefdal.cc/info
-message: "Option 6: Use two different types, one DTO that is easy to serialize and deserialize, and one proper domain object. With functions to map between them. See Einar Høst's talk from NDC Oslo 2022 on Youtube: How I work with JSON. "

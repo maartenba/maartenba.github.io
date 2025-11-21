@@ -1,6 +1,0 @@
-id: dsq-937490250
-replyToId: dsq-937490048
-date: 2013-01-11T18:52:34.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>Good point. Guess I started with bytes since all internal stuff works in bytes as well. Feel free to create a pull request (should be an easy change)</p>

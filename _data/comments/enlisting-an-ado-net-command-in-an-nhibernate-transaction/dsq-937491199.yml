@@ -1,5 +1,0 @@
-id: dsq-937491199
-date: 2007-10-31T17:55:40.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>trendl, no 100% sure of that. In my case, I created a HttpModule in ASP.NET which creates and disposes the Session properly which mens no worry about manually clearing... Will have to go trough the NHibernate code though to chekc whether you have to clear the session yes or no in this particular case.</p>

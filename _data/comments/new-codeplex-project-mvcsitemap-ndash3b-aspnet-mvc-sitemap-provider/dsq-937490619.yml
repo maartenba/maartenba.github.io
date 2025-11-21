@@ -1,5 +1,0 @@
-id: dsq-937490619
-date: 2009-04-20T21:56:22.0000000+02:00
-name: Michael
-avatar: https://disqus.com/api/users/avatars/Michael.jpg
-message: <p>Hi!<br>This code on the real project works very slowly<br>                    if (this.scanAssembliesForSiteMapNodes)<br>                    {<br>                        foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())<br>                        {<br>                            ProcessNodesInAssembly(assembly);<br>                        }<br>                    }</p>

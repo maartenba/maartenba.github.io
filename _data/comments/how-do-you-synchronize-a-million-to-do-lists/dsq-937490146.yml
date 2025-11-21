@@ -1,5 +1,0 @@
-id: dsq-937490146
-date: 2012-01-10T14:58:12.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>1) You are billed for "connected time" (per hour). There are limits (I guess something like 20k subscriptions per bus) but you can partition over multiple buses.</p><p>2) Yes, that&amp;#39s correct. The plan is to subscribe some back-end services (filtered on SyncGroup = %) and store these items in a database, optionally shareded for scale.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490551
-date: 2009-04-22T02:13:32.0000000+02:00
-name: hammett
-avatar: https://disqus.com/api/users/avatars/hammett.jpg
-message: '<p>Hi, awesome work! Thanks for sharing it. Just a note: your implementation of ReleaseController should call container.ReleaseExport( controllerExport ) instead. This way MEF can release references and dispose any nonshared/disposable part in the graph that the controller started.</p><p>I will publish a sample on MEF/MVC this week that shows how to do that. Stay tuned :-)</p><p>Thanks</p>'

@@ -1,5 +1,0 @@
-id: dsq-937490779
-date: 2008-11-27T04:36:08.0000000+01:00
-name: mike kidder
-avatar: https://disqus.com/api/users/avatars/mike kidder.jpg
-message: <p>Maarten,  thanks for the example....   very helpful.</p><p>One thing I did notice is that you don't have to have the same number of ContentPlaceHolder tags from your Site.Master template.  I just used the "MainContent" to match the main area of the Site.Master.   If your Empty.Master and View both used something like "AjaxContent" instead, then your Ajax methods won't be callable via URL (not that you want to throw an exception).</p><p>Also,  added line to JQuery code within the click event function selector to prevent duplicates if name is clicked multiple times:</p><p>     $(element).parent().children('div').remove();</p><p>Good Stuff... :)</p>

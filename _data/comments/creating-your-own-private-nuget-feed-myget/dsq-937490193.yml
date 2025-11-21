@@ -1,5 +1,0 @@
-id: dsq-937490193
-date: 2011-06-07T22:54:23.0000000+02:00
-name: putrtek
-avatar: https://disqus.com/api/users/avatars/putrtek.jpg
-message: <p>Ok, so what&amp;#39s the trick to Adding Packages from the official NuGet feed? I&amp;#39ve tried adding &amp;#39elmah&amp;#39, &amp;#39log4net&amp;#39 and &amp;#39MvcScaffolding&amp;#39 All give me the error &amp;#39The package name you entered does not seem to exist...&amp;#39 I&amp;#39m copying and pasting the name directly from my existing packages.config file. What am I doing wrong?</p><p>putrtek<br>putrtek@gmail.com</p>

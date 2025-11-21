@@ -1,7 +1,0 @@
-id: 9e736465
-date: 2023-06-30T10:08:22.2687761Z
-name: --
-email: 
-avatar: https://secure.gravatar.com/avatar/214c4296dac2ec27e371854ae6c397ad?s=80&r=pg
-url: 
-message: When I think about it a bit more, I came up with the following idea, but I'm not sure if it would be correct. While I'm at it, let me write it down. We can achieve the rule 'all clients can make a maximum of 1000 requests in 10 minutes' by applying one of the methods shown in the video. For the rule 'each client can make a maximum of 100 requests in 10 minutes', we will need to write an additional middleware. In this middleware, we will retrieve the IP address of the request using HttpContext, and then store it in Redis. If the request count has not exceeded the limit, we will increment it by 1, call 'next' to proceed with other operations. If there is an issue, we will return the response without further processing. We can also create a background service using Hangfire to clean up Redis every 10 minutes. I'm not sure what the best practice is for this, but I wonder if this approach would work

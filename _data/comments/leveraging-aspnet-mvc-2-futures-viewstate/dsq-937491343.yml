@@ -1,6 +1,0 @@
-id: dsq-937491343
-replyToId: dsq-937490385
-date: 2009-10-09T15:27:21.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>Agreed on the timestamp thingy.</p><p>There still are other situations where persisting model state on the client is a better choice than pushing stuff in session.</p>

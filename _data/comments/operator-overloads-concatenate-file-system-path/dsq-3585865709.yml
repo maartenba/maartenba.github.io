@@ -1,5 +1,0 @@
-id: dsq-3585865709
-date: 2017-10-26T18:07:25.0000000+02:00
-name: James Curran
-avatar: https://disqus.com/api/users/avatars/james_curran.jpg
-message: <p>Also, I think we need to add:<br>public static implicit operator FilePath (Environment.SpecialFolder folder)<br>{<br>return new FilePath(Environment.GetFolderPath(folder));<br>}</p><p>to FilePath.  That will let us reduce our example down to :</p><p>var path = (FilePath) Environment.SpecialFolder.UserProfile / (".nuget" + i) / "packages";</p>

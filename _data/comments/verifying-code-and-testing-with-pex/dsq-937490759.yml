@@ -1,5 +1,0 @@
-id: dsq-937490759
-date: 2009-01-17T02:21:57.0000000+01:00
-name: Matt Penner
-avatar: https://disqus.com/api/users/avatars/Matt Penner.jpg
-message: <p>I'm definitely a TDD yourself type guy.  I don't like generated tests, but this looks like a great helper.  As Maarten said this gives you an extra layer.  I would definitely write the tests yourself, but run this to see if you missed anything.  Self created tests can only test what you think to test.</p><p>However, as Maarten so cleverly displayed, you still need to look at the entire procedure as a whole.  Maarten, after you incorporated Pex's (can I say that?) additions your initial exception block at the end will never be used.  This can be removed.  ReSharper probably would have caught this (wow, tools are replacing all our intelligence huh? j/k).</p><p>So, refactor your code after running Pex.</p>

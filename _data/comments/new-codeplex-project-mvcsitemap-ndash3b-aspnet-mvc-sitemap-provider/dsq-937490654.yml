@@ -1,5 +1,0 @@
-id: dsq-937490654
-date: 2009-07-28T06:23:31.0000000+02:00
-name: thomas
-avatar: https://disqus.com/api/users/avatars/thomas.jpg
-message: <p>hey maarten, this MVC Sitemap provider is fantastic, thank you!</p><p>fyi, I downloaded build 23592; it seems to still have a bug where setting SiteTitle is lost. I patched this (temporarily, hopefully) by adding an override to the Title property in your MvcSiteMapNode class. <br>I'll check back for updates. Many thanks again.</p>

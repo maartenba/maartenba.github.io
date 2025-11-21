@@ -1,6 +1,0 @@
-id: dsq-937491332
-replyToId: dsq-937490352
-date: 2009-11-27T13:49:18.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>You could simply add support for localized buttons in the MultiButtonAttribute and take care of translated values in there.</p>

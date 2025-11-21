@@ -1,5 +1,0 @@
-id: dsq-937491131
-date: 2011-04-08T04:23:26.0000000+02:00
-name: Sorgfelt
-avatar: https://disqus.com/api/users/avatars/Sorgfelt.jpg
-message: '<p>There is a problem with PHPLinq that many have noticed: It is not really Language INtegrated, but, instead uses evaluated strings.  A better implementation of the LINQ idea that really is Language INtegrated has been developed.  See <a href="http://plinq.codeplex.com" rel="nofollow noopener" title="plinq.codeplex.com">plinq.codeplex.com</a> or <a href="http://linqforphp.codeplex.com" rel="nofollow noopener" title="linqforphp.codeplex.com">linqforphp.codeplex.com</a> .<br>This needs to be spread, rather than everyone jumping on the first, but badly designed, PHPLinq bandwagon.</p>'

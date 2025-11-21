@@ -1,5 +1,0 @@
-id: dsq-937490273
-date: 2010-10-29T10:57:07.0000000+02:00
-name: Al
-avatar: https://disqus.com/api/users/avatars/Al.jpg
-message: '<p>2 maartenba <br>OK. In Beta 3 class MefServiceLocator:IMvcServiceLocator bacaming class MefDependencyResolver : IDependencyResolver<br>IMvcServiceLocator not existed any more. but what about class ServiceLocatorControllerFactory : DefaultControllerFactory it was also dealing with IMvcServiceLocator?</p>'

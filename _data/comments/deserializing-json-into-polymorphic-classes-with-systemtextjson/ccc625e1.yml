@@ -1,7 +1,0 @@
-id: cdcfef0f
-date: 2021-04-15T05:58:10.6311640Z
-name: Akshay
-email: 
-avatar: https://secure.gravatar.com/avatar/d1f6da34e71d194df3a98fef8165c5a8?s=80&r=pg
-url: 
-message: 'When I use "JsonSerializer.Serialize(writer, value, value.GetType(), options);" - it again calls the write method which again calls the serialize method - so on so forth - it becomes an infinite recursion. How can I solve this recursion. '

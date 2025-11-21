@@ -1,5 +1,0 @@
-id: dsq-937490303
-date: 2010-09-15T22:51:20.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>We did not go for perf counters, but concurrent video streams. I think autoscaling will always depend on the type of application you host, sometimes perf counters can be enough, sometimes you want something else.</p>

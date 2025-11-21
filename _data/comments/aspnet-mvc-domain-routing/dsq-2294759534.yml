@@ -1,5 +1,0 @@
-id: dsq-2294759534
-date: 2015-10-07T17:26:19.0000000+02:00
-name: gaurav
-avatar: https://disqus.com/api/users/avatars/disqus_Zq97ig1kIs.jpg
-message: <p>Pl. share full source code of Multi tenancy URL routing in mvc5. I did lot of effort, But i didn't get, what i need.</p><p>eg.<br>my application URl is <a href="http://www.example.com" rel="nofollow noopener" title="www.example.com">www.example.com</a>. if a &amp; b is tenant.</p><p>As i have need, domain URl become like <a href="http://www.a.example.com" rel="nofollow noopener" title="www.a.example.com">www.a.example.com</a> &amp;<a href="http://www.b.example.com" rel="nofollow noopener" title="www.b.example.com">www.b.example.com</a></p><p>Please share me full source code in MVC-5</p>

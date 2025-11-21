@@ -1,5 +1,0 @@
-id: dsq-4141970723
-date: 2018-10-12T20:12:29.0000000+02:00
-name: Coverup
-avatar: https://disqus.com/api/users/avatars/disqus_Z2nqtgRl3s.jpg
-message: <p>Thank you Maarten, is still working like a charm. And also thank you for the info about VHD specs.<br>I will share my steps to shrink a 128gb disk (P10) to 64gb (P6 Free tier)<br>-Resize the disk in VM before everything using PowerShell (PS&gt;Resize-Partition -DiskNumber 0 -PartitionNumber 1 -Size 64GB )</p><p>-Deattach VM and copy snapshot to storage account</p><p>-Update footer of the snapshot with diskresizer</p><p>-Make a new disk from snapshot</p><p>-Atacch new disk to VM and delete both old disk (original and snapshot)</p><p>Enjoy the free tier for a year... BTW without this is not posible to get REAL ACCESS to free tier, because default disk of VM are 128gb not covered by free tier, but if you resize to 64gb yo can do it for free.</p><p>IMHO It's misleading advertising from Azure part</p>

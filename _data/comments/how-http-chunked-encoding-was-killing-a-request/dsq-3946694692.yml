@@ -1,6 +1,0 @@
-id: dsq-3946694692
-replyToId: dsq-3944383179
-date: 2018-06-16T05:57:46.0000000+02:00
-name: Jason Stubbs
-avatar: https://disqus.com/api/users/avatars/disqus_LLRyvQkzUn.jpg
-message: <p>My first thought was BufferredStream, not being a .net developer, but StreamWriter even allows you to control the size of the buffer so setting AutoFlush to false is definitely the best answer. This blog post should really be entitled "How disabling all buffering was killing a request" rather than suggesting that chunked encoding is inherently bad for performance and moving away from it is what fixed the issue.</p>

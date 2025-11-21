@@ -1,6 +1,0 @@
-id: dsq-937490404
-replyToId: dsq-937490396
-date: 2009-10-10T00:41:32.0000000+02:00
-name: Vijay santhanam
-avatar: https://disqus.com/api/users/avatars/Vijay santhanam.jpg
-message: <p>As Phil Haack says in another thread, calling it ViewState is misleading as it's actually serializing a part of the model back to business logic.</p><p>ViewState wasn't wrong, it was just a mess and hard to wield. The Serialize helper on the other hand is rather easy to deal with without getting out of hand.</p>

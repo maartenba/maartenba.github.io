@@ -1,5 +1,0 @@
-id: dsq-937490647
-date: 2009-06-11T01:30:20.0000000+02:00
-name: Germ&#225;n
-avatar: https://disqus.com/api/users/avatars/Germ&#225;n.jpg
-message: <p>Hi, Maarten, nice job! However, i&amp;#180m still not able to use localization as it is stated in msdn. I enabled localization in the sitemap file, added resourcekeys in every sitemap node and also created the resource file Web.sitemap.resx file in my App_GlobalResources folder. Am i doing something wrong? Can you post working example with localization enabled?? <br>Regards,<br>Germ&amp;#225n</p>

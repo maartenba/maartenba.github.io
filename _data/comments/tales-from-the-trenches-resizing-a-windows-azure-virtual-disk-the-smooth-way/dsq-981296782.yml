@@ -1,6 +1,0 @@
-id: dsq-981296782
-replyToId: dsq-981295563
-date: 2013-07-30T14:52:53.0000000+02:00
-name: Maarten Balliauw
-avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
-message: <p>That would be really hard to do I'm affraid. The only option is to also enable PowerShell remoting in the VM  and change the RDP port using PS remoting.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490829
-date: 2008-09-28T23:19:20.0000000+02:00
-name: Tim
-avatar: https://disqus.com/api/users/avatars/Tim.jpg
-message: <p>This is great, except it doesn't seem to work.  I did the following:</p><p>1) followed the example code in this post exactly<br>2) verified that the token was placed in the web page exactly as shown in this post<br>3) using Firebug, modified a hidden field inside the form that contains the token<br>4) clicked submit button causing a form post<br>5) inspected Request.Form inside the action method called by the form post and verified that the modified value was in the form</p><p>No exception was thrown.  Now, when I modified the token itself an exception *[i]was[/i]* thrown.  I tried this with and without a salt value.  Did I so something wrong or is this not working?</p>

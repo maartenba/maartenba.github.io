@@ -1,5 +1,0 @@
-id: dsq-937490666
-date: 2010-12-17T03:47:46.0000000+01:00
-name: G
-avatar: https://disqus.com/api/users/avatars/G.jpg
-message: <p>How do you use the isDynamic property? I tried and all I get is this appended to the URL in the breadcrumb:<br>?isDynamic=true&amp;dynamicParameters=id</p>

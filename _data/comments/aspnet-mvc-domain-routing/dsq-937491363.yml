@@ -1,6 +1,0 @@
-id: dsq-937491363
-replyToId: dsq-937490497
-date: 2009-10-02T13:55:17.0000000+02:00
-name: Maarten
-avatar: https://disqus.com/api/users/avatars/Maarten.jpg
-message: <p>You can add an entry to your hosts file (c:\windows\system32\drivers\etc\hosts) and map this to your local host. That way, you have multiple domains or subdomains pointing to your localhost.</p>

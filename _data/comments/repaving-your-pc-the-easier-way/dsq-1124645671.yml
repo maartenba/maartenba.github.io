@@ -1,5 +1,0 @@
-id: dsq-1124645671
-date: 2013-11-15T17:15:37.0000000+01:00
-name: Matt Wrock
-avatar: https://disqus.com/api/users/avatars/mwrock.jpg
-message: <p>I know this post is a couple years old but I just stumbled upon it now. For those wanting a 100% unattended install that handles reboots/autologons, checkout a project I've been working on at <a href="http://boxstarter.org" rel="nofollow noopener" title="http://boxstarter.org">http://boxstarter.org</a>. I created it specifically for this scenario. It leverages chocolatey and intercepts it at various points to monitor for pending reboots and conflicting MSIEXEC processes. It ensures the entire install only requires one acceptance of elevated privileges in the beginning and then never bugs you again. It can even be used to setup remote machines.</p>

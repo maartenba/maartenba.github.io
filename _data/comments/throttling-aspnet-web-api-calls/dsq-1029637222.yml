@@ -1,6 +1,0 @@
-id: dsq-1029637222
-replyToId: dsq-1029591733
-date: 2013-09-04T17:13:13.0000000+02:00
-name: Marta Rossi
-avatar: https://disqus.com/api/users/avatars/glipme.jpg
-message: <p>I've solved passing Period to MemoryStore during ThrottlingHandler constructor, so using a timer in MemoryStore I can remove items older that the period when throttling may count calls ( Dim expired = From te In _throttleStore Where te.Value.PeriodStartUtc.Add(ObservationPeriod) &lt; Now.ToUniversalTime<br>).<br> Faster than switch to .net caching and test all code, and so ASP.NET will not remove entries from cache if ask for memory.</p>

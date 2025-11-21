@@ -1,5 +1,0 @@
-id: dsq-937490489
-date: 2011-02-23T12:46:09.0000000+01:00
-name: Matt
-avatar: https://disqus.com/api/users/avatars/Matt.jpg
-message: <p>The issue that I see here is the CacheDependency being set to null.  This would mean that you would never get an updated view without restarting the application.  Have you found a way around this?</p>

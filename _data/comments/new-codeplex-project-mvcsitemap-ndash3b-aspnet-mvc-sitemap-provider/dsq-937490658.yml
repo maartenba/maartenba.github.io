@@ -1,5 +1,0 @@
-id: dsq-937490658
-date: 2009-08-11T22:18:05.0000000+02:00
-name: latho
-avatar: https://disqus.com/api/users/avatars/latho.jpg
-message: '<p>Hi.</p><p>This is great stuff. And I love the way it allows to combine menus as indicated in the last comment!<br>keep up the good work!!</p><p>I am currently trying to render breadcrumbs for more "unstructured" data. I have a LOT of categories (&gt;5000) and the depth of nodes varies greatly (from 1 to 19). Do you have any good ways of rendering/mapping stuff like that?</p><p>For the business logic to work I really just need to pick up the last category id since all ids are unique (illustrated in the urls-below).<br>So /Category/1/11/111 shall result in the same content as putting in /Category/111 except I want to render breadcrumbs as the navigation-path and not by tracking parents recursively.</p><p>my tree is similar to this:</p><p>cat 1                             - url: /Category/1<br>  cat 1.1                        - url: /Category/11<br>    cat 1.1.1                   - url: /Category/111<br>    cat 1.1.2<br>cat 2<br>  cat 2.1<br>  cat 2.2<br>    cat 2.2.1<br>      cat 2.2.1.2<br>  cat 2.3</p>'

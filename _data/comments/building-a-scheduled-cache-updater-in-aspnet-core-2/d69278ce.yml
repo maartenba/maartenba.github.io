@@ -1,5 +1,0 @@
-id: c90ad43c
-date: 2020-03-17T11:05:26.6612522Z
-name: Stefano Denti
-avatar: https://secure.gravatar.com/avatar/18a5aaa63bd2fb3e07541d2cc3e9e5d8?s=80&r=pg
-message: "to access the db directly inside the task I simply created a constructor without changing the code created by Maarten \r\n\r\n    public class LogCleanerTask : IScheduledTask\r\n    {\r\n        IServiceScopeFactory scopeFactory;\r\n        public LogCleanerTask(IServiceScopeFactory scopeFactory)\r\n        {\r\n            this.scopeFactory = scopeFactory;\r\n        }"

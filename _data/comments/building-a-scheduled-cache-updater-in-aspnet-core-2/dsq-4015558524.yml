@@ -1,5 +1,0 @@
-id: dsq-4015558524
-date: 2018-07-31T22:56:25.0000000+02:00
-name: ignj
-avatar: https://disqus.com/api/users/avatars/disqus_aXoSYL2kWp.jpg
-message: <p>I don't know if anyone else has this problem. When I shut down the server and I start it again it doesn't matter what value has the cron, the task is executed always (and I've the schedule to execute it once per month. Schedule =&gt; "0 0 1 * *").<br>Does anyone know what I'm missing?</p>

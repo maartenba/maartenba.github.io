@@ -1,6 +1,0 @@
-id: dsq-937491401
-replyToId: dsq-937491399
-date: 2009-06-01T05:14:22.0000000+02:00
-name: kamilH
-avatar: https://disqus.com/api/users/avatars/kamilH.jpg
-message: <p>Hi<br>you shoud add<br>  if (!string.IsNullOrEmpty(attributes["resourceKey"]))<br>                ResourceKey = attributes["resourceKey"];<br>to public override void Initialize(string name, NameValueCollection attributes) in Provider</p>

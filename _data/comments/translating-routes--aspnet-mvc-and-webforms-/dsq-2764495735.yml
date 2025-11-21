@@ -1,5 +1,0 @@
-id: dsq-2764495735
-date: 2016-07-04T13:05:47.0000000+02:00
-name: bob
-avatar: https://disqus.com/api/users/avatars/disqus_bD9vP8VQYq.jpg
-message: <p>I'm finding that "var routeData = base.GetRouteData(httpContext);" is returning null within "RouteData GetRouteData(HttpContextBase httpContext)", which is causing execution to jump over the translation lookup; any suggestions on a fix for this please?</p>

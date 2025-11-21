@@ -1,5 +1,0 @@
-id: dsq-937490651
-date: 2009-07-02T05:38:37.0000000+02:00
-name: Eric
-avatar: https://disqus.com/api/users/avatars/Eric.jpg
-message: <p>Maarten, have you had any issues when the cache expires?</p><p>Once our expires, if we return to the main page, all the sitemap nodes now only point to<br>the main page. This effectively locks us on the main page.</p><p>it reproduces when the timeout is set to 1 min, so i know it's not cookie expiriation or security thing, it's the<br>sitemap Cache time.</p><p>any hints or hlpe is appreicated.</p><p>Thanks,</p><p>E-</p>

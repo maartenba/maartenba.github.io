@@ -1,5 +1,0 @@
-id: dsq-1032070282
-date: 2013-09-06T13:25:41.0000000+02:00
-name: Muhammad Sajjad Nawaz
-avatar: https://disqus.com/api/users/avatars/muhammadsajjadnawaz.jpg
-message: '<p>Excellent idea and nice way done. I really enjoyed learning this.But there is still an issue for me: I want to use aspx page as partial view in MVC 4. If i do that, I have to inherit it from "System.Web.Mvc.ViewPage&lt;dynamic&gt;" and I can not use the code behind (.cs) file. The real purpose to implement Grid View in MVC dies for me. can u suggest something for this problem ???</p>'

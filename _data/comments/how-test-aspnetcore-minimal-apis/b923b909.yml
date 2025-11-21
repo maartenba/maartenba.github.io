@@ -1,7 +1,0 @@
-id: ca16e239
-date: 2022-09-12T21:59:55.9424912Z
-name: R. G.
-email: 
-avatar: https://secure.gravatar.com/avatar/e652135e35371d3ca6a18f27df792013?s=80&r=pg
-url: 
-message: 'Should you inherit from WebApplicationFactory<Program> instead of WebApplicationFactory<Person> in "class TestingApplication : WebApplicationFactory<Person>"?'

@@ -1,5 +1,0 @@
-id: dsq-1331706229
-date: 2014-04-11T14:28:40.0000000+02:00
-name: khalidabuhakmeh
-avatar: https://disqus.com/api/users/avatars/khalidabuhakmeh.jpg
-message: <p>I think I remember during a Build talk that the .NET team is moving as much functionality out of the .NET framework as they possibly can and are trying to distribute those changes via NuGet. The teams at Microsoft want to iterate as fast as they can without forcing you to download .NET Framework 4.5.1.14 to do it :)</p><p>You are right, Microsoft and .NET have a long history, and fighting to change the habits of the past from permeating and shaping the future is HARD! That said, it needs to happen, so it's time for all .NET developers to strap in for the ride, it might be bumpy at times.</p>

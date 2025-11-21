@@ -1,5 +1,0 @@
-id: dsq-937490895
-date: 2009-01-24T06:51:30.0000000+01:00
-name: Rob Fearn
-avatar: https://disqus.com/api/users/avatars/Rob Fearn.jpg
-message: <p>Typically I find that I don't have to add a reference for the standard htmlHelper extensions (i.e. there is usually one already added to the project) I only need to add an import for my own custom html extensions.</p><p> I have found on the odd occasion that VS08 loses site of the htmlHelper extensions and gives me a similar message, I find that a clean of the entire solution usually helps to rectify this problem. I also find sometimes that intellisense doesn't work with the extensions so I usually manually add one (e.g. type in Html.ActionLink(etc...)  then build the project and intellisense goes back to normal.</p><p>Good luck :-)</p>

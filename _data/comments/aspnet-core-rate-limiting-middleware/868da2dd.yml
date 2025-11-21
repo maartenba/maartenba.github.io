@@ -1,7 +1,0 @@
-id: 85e3ebc6
-date: 2024-07-31T08:44:34.6969538Z
-name: 'Alexander '
-email: 
-avatar: https://secure.gravatar.com/avatar/e1e60a24e858d687dbe201db4ee5d970?s=80&r=pg
-url: 
-message: It there any way to define rate limit policies in the config file and load them dynamically at runtime like we can do with yarp routes and clusters? What if I want to add specific policy to the specific route at runtime(Like in this old library https://github.com/stefanprodan/AspNetCoreRateLimit/wiki/ClientRateLimitMiddleware#update-rate-limits-at-runtime)?

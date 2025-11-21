@@ -1,7 +1,0 @@
-id: afc88f28
-date: 2023-04-01T05:32:35.1382410Z
-name: Mattias Nordqvist
-email: 
-avatar: https://secure.gravatar.com/avatar/280b54e18d8b9e4b08428676374f56d0?s=80&r=pg
-url: 
-message: How is option 5 different from 2 except for the fact that it is more expressive? The default value will still be null when deserializing, right?

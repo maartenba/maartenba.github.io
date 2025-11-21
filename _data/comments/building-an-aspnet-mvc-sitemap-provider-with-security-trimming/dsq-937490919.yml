@@ -1,5 +1,0 @@
-id: dsq-937490919
-date: 2009-12-03T15:26:26.0000000+01:00
-name: Smerp
-avatar: https://disqus.com/api/users/avatars/Smerp.jpg
-message: <p>Hi,</p><p>This entry node works for me (please note i hard coded parameter id = 100):</p><p>&lt;mvcSiteMapNode title="Product Detail"<br>                                 controller="Product"<br>                                 action="Details"<br>                                 isDynamic="true" <br>                                 dynamicParameters="id" id="100"/&gt;</p><p>Is there a way to have it assigned @ runtime? So every time I click the link "Details" it will redirect me to the same item i last selected..</p><p>Lets say my breadcrumb is</p><p>A.   Home &gt; Products &gt; Details &gt; Price (Product ID = 100)<br>B.   Home &gt; Products &gt; Details &gt; Price (Product ID = 200)</p><p>If i clicked "Details" in A, it should route me to Product ID 100 or<br>If i clicked "Details" in B, it should route me to Product ID 200</p><p>Hope you could help me on this.</p><p>Thank you in advance!</p>

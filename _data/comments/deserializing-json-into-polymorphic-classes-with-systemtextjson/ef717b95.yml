@@ -1,7 +1,0 @@
-id: f0c4be98
-date: 2021-04-19T13:42:18.0779541Z
-name: Maarten Balliauw
-email: 
-avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
-url: https://blog.maartenballiauw.be/
-message: "This can happen if you register the serializer in `JsonOptions`. \r\nIdeally, you only use it with `[JsonConverter(typeof(ConverterYouCreated))]`. Unfortunately haven't found a way to limit this recursive call `System.Text.Json` makes otherwise."

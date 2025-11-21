@@ -1,6 +1,0 @@
-id: dsq-1559911091
-replyToId: dsq-1559885215
-date: 2014-08-26T15:52:21.0000000+02:00
-name: Fred .
-avatar: https://disqus.com/api/users/avatars/disqus_UewjzPq6jN.jpg
-message: <p>Thank you. Please make sure you specify which config file too. I was not aware that FilterConfig was specific to MVC, hence I incorrectly tried to put my filter in the FilterConfig, when I should have been placed in the WebApiConfig file. This naturally resulted in an exception.</p>

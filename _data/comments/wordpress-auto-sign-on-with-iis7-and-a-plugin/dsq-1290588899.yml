@@ -1,5 +1,0 @@
-id: dsq-1290588899
-date: 2014-03-18T23:59:04.0000000+01:00
-name: jeremyflint
-avatar: https://disqus.com/api/users/avatars/jeremyflint.jpg
-message: <p>Has this been tested on a Windows 2012 Server with IIS8? I have a server running with that plus PHP 5.4. We are running the Simple intranet plugin which requires logging in to view the site. Do I need to have Simple LDAP activated along with this plugin?</p>

@@ -1,5 +1,0 @@
-id: dsq-937490810
-date: 2008-10-04T19:33:09.0000000+02:00
-name: tasarım
-avatar: https://disqus.com/api/users/avatars/tasarım.jpg
-message: <p>Ok. I do have question on MVC and models. I want to build an multilingual website so i need to get the localized version of the objects from db. This is not a problem only there are multible objects like menuitems and person and footer etc.. How can i bind them to 1 view with modelbinder? What is best practise for it? Can i bind multiple models?</p>

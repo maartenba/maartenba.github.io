@@ -1,5 +1,0 @@
-id: dsq-937490482
-date: 2009-06-11T00:37:11.0000000+02:00
-name: Troy Goode
-avatar: https://disqus.com/api/users/avatars/Troy Goode.jpg
-message: <p>Much, much better than the previous functionality. I noticed that in the example you gave, DemoController.cs was placed at the root of MvcApplication1, rather than in the Controllers folder. If you typed "Controllers\DemoController.cs" into the "Generate Other" dialog, would it place it in the correct folder and namespace it correctly? (I'll check this when I get home if you don't get around to it first.)</p>

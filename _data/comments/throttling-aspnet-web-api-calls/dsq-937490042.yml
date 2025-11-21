@@ -1,5 +1,0 @@
-id: dsq-937490042
-date: 2013-05-28T17:14:03.0000000+02:00
-name: Donatas Mačiūnas
-avatar: https://disqus.com/api/users/avatars/mdonatas.jpg
-message: <p>You could use Task.FromResult() instead of creating TaskCompletionSource that would save you some boilerplate.</p>

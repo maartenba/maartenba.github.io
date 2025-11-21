@@ -1,6 +1,0 @@
-id: dsq-963962045
-replyToId: dsq-963667217
-date: 2013-07-16T07:41:33.0000000+02:00
-name: Maarten Balliauw
-avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
-message: <p>As far as I know only your diagnostics logs may be able to tell you. On the "settings" of the management portal there is also a service operation log which will show scaling (as a configuration change).</p>

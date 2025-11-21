@@ -1,6 +1,0 @@
-id: dsq-937491368
-replyToId: dsq-937490523
-date: 2011-04-13T16:44:17.0000000+02:00
-name: jse
-avatar: https://disqus.com/api/users/avatars/jse.jpg
-message: <p>Hi,<br>if used in MVC 3 (maybe MVC 2 as well) all ActionLink extensions return MvcHtmlString, so change return types in LinkExtensions.cs to MvcHtmlString</p>

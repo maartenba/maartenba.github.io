@@ -1,6 +1,0 @@
-id: dsq-937491458
-replyToId: dsq-937491359
-date: 2009-09-16T12:47:08.0000000+02:00
-name: selaromdotnet
-avatar: https://disqus.com/api/users/avatars/selaromdotnet.jpg
-message: "<p>thanks for the helpful reply, it has been very useful in moving my project foreward!</p><p>however, I have another questtion: do you have to reauthorize the user with OAuth every time they login to your site? for example, they setup the initial access, and that's fine, but then they come back a week later, and are already logged into twitter, but not logged into your account. do they have to go through the whole authorization process again?</p><p>I thought there was a way to have them automatically login if they're already signed into twitter...</p><p>many thanks again!</p>"

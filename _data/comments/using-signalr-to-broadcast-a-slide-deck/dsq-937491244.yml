@@ -1,6 +1,0 @@
-id: dsq-937491244
-replyToId: dsq-937490152
-date: 2011-12-07T17:12:10.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>The deckId in the Console app is the same as the last part of the URL of the presenter. So if the presenter navigates to /Deck/Present/something, the deckId is "something".</p>

@@ -1,5 +1,0 @@
-id: dsq-937490259
-date: 2010-10-22T22:40:07.0000000+02:00
-name: KristoferA
-avatar: https://disqus.com/api/users/avatars/KristoferA.jpg
-message: <p>Unfortunately, the bottleneck for data-driven apps tend to be DB I/O bandwidth. Unless the cloud can offer rack-to-cloud db replication, real world rack&lt;=&gt;cloud requires a bit more...</p><p>Just my 2 cents....</p>

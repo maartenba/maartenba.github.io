@@ -1,5 +1,0 @@
-id: dsq-1863271843
-date: 2015-02-19T07:10:30.0000000+01:00
-name: christine sarsonas
-avatar: https://disqus.com/api/users/avatars/christinesarsonas.jpg
-message: <p>hi sir.<br>i tried this approach but i didnt able to retrieve the values inside the session.<br>both web application resides on the same domain.<br>both web application has the same session id but when i checked the content, web1 has 1 count but web2 has zero.</p><p>how can i access the session value initiated by web1 and received by web2?</p>

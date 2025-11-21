@@ -1,5 +1,0 @@
-id: dsq-937490998
-date: 2008-09-25T00:33:51.0000000+02:00
-name: Gino Heyman
-avatar: https://disqus.com/api/users/avatars/Gino Heyman.jpg
-message: <p>That was not my point. Sorry, I wasn't entirely clear.<br>I am not generating images on the fly, they are already stored on disk, but due to some circumstances I am not willing to let IIS handle the images directly; hence the need for a custom route/handler. (I also set the cache expiration header values appropriately.)<br>I was just pointing out (just a footnote) that the ASP.Net MVC overhead itself is fine for pages (and a few extra requests per page maybe), but not necessarily appropriate for [b]any[/b] image (or other) resource... I still favor the solution you are referring to, but had to fall back to a handler.</p>

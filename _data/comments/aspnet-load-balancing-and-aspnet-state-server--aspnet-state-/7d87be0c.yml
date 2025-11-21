@@ -1,5 +1,0 @@
-id: 6e348494
-date: 2018-12-18T18:57:56.5447025Z
-name: ronak
-avatar: https://secure.gravatar.com/avatar/a35f43cbc80295d2886cb797c56737b0?s=80&r=pg
-message: "Hi,\r\nI am wondering which server we should choose asp.net state service.  Can we use asp.net state service on load balancer ? I am not sure that asp.net state service is available on LB or not ?  is it good idea to choose LB state service ? Now , if we can't use LB state service or not available on LB..then is it good idea to choose state service from server 1 or server 2 ?  Kindly provide some input. "

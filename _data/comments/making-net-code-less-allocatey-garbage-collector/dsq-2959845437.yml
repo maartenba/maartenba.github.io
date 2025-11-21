@@ -1,6 +1,0 @@
-id: dsq-2959845437
-replyToId: dsq-2959836129
-date: 2016-10-20T10:14:32.0000000+02:00
-name: Matthew Steeples
-avatar: https://disqus.com/api/users/avatars/matthew_steeples.jpg
-message: <p>Can't quite work out how to word it. In effect IDisposable isn't about helping the garbage collector with your object, it's about helping it with the (unmanaged) dependencies that your object has. Your revised method is definitely better and clearer, apart from referencing managed instead of unmanaged resources in the parentheses.</p>

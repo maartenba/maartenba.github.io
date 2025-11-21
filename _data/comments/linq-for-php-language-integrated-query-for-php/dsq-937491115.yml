@@ -1,5 +1,0 @@
-id: dsq-937491115
-date: 2008-04-01T19:02:54.0000000+02:00
-name: Christian Hammers
-avatar: https://disqus.com/api/users/avatars/Christian Hammers.jpg
-message: <p>Some comments:<br>1. Look at the 'PHP doctrine' Object-Relational-Mapper, they have already invented a similar syntax.<br>2. Why not make a function that creates a temporary sqlite table and then use real SQL or the doctrine LINQ syntax on it. Would look almost the same but had more features<br>3. The advantages in C# were (IIRC) that the query language was actually *part* of the programming language and thus variables and keywords were syntax checked at compile time. Here even functions like substr() and strpos() are parts of a string and cannot be checked. Don't know how to improve that without hacking the PHP parser but maybe you want to play around with SQL as part of PHP. Real SQL is IMHO easer to read that your chain<br>of functions :)</p>

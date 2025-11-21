@@ -1,5 +1,0 @@
-id: dsq-937491084
-date: 2008-03-18T22:08:44.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>This example code does NOT include any checks on remote server existance. You would have to check if the state server is running in the code prior to assigning a session to it without failure massages.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490999
-date: 2011-02-02T00:26:04.0000000+01:00
-name: Jeremy Holovacs
-avatar: https://disqus.com/api/users/avatars/Jeremy Holovacs.jpg
-message: <p>Fantastic.  Works like a champ.  I did end up putting the MIME types into a switch statement off ImageFormat.ToString(), I think it looked cleaner that way and then it was easier to trap a bad image format and throw an exception.</p>

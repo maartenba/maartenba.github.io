@@ -1,6 +1,0 @@
-id: 35651d8c
-date: 2018-11-09T07:41:19.8406903Z
-name: Maarten Balliauw
-avatar: https://secure.gravatar.com/avatar/f62ebe822f6b351538e68cb2bbadefe9?s=80&r=pg
-url: https://blog.maartenballiauw.be/
-message: You could use an application warmup call (e.g. a request to `/`) when your server starts? E.g. from within your startup, or when running on IIS, using application initialization - [https://docs.microsoft.com/en-us/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization](https://docs.microsoft.com/en-us/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)

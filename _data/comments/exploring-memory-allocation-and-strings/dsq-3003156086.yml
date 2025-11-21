@@ -1,5 +1,0 @@
-id: dsq-3003156086
-date: 2016-11-15T14:37:53.0000000+01:00
-name: David Pine
-avatar: https://disqus.com/api/users/avatars/disqus_LYICwH4xAA.jpg
-message: <p>Awesome post, loved it! Thanks for sharing. I just wanted to point out a cool trick for linking PDF URLs. You can specify the page you want it to navigate to in the URL itself, so for the ECMA-335 link you could set the href to this <a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-335.pdf#page=438" rel="nofollow noopener" title="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-335.pdf#page=438">http://www.ecma-internation...</a> and it will navigate to section II.24.2.4.</p>

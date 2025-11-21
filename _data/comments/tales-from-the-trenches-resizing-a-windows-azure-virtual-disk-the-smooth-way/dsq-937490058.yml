@@ -1,5 +1,0 @@
-id: dsq-937490058
-date: 2013-03-07T04:30:50.0000000+01:00
-name: Roger
-avatar: https://disqus.com/api/users/avatars/Roger.jpg
-message: <p>I keep geting "The specified storage credentials are invalid". Did anyone come accross that and how did you fix it? My blob url does not include SAS. So I am typing the storage account name, the Storage access key as well as the full blob url to my OS disk.</p>

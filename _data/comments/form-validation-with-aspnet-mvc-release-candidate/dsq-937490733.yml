@@ -1,5 +1,0 @@
-id: dsq-937490733
-date: 2009-02-20T18:55:52.0000000+01:00
-name: Alberto Ferreira
-avatar: https://disqus.com/api/users/avatars/Alberto Ferreira.jpg
-message: "<p>Because DefaultBindig check this[string columnName] just after set the property, this approach don't let you validate one property based on another, because it coud be not initialized yet.</p><p>I Think was better to validate all the columnName when Error is called.</p><p>Another think: if DefaultBinding can&amp;#180t cast to destination type (ex.: unitPrice TextBox with \"Hello\"), IDataErrorInfo will never be called, so this way we can create our custom message for this kind of error.</p>"

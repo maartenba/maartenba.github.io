@@ -1,6 +1,0 @@
-id: dsq-937491303
-replyToId: dsq-937490253
-date: 2011-03-15T09:48:12.0000000+01:00
-name: charlie
-avatar: https://disqus.com/api/users/avatars/charlie.jpg
-message: <p>It needs to upload two certificates. One to the service to allow RDP authentication and one to the Management Certificates section of the Azure Portal to allow Service Management API authentication</p>

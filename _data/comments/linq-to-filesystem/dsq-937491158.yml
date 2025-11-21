@@ -1,5 +1,0 @@
-id: dsq-937491158
-date: 2008-07-12T02:51:09.0000000+02:00
-name: Jos
-avatar: https://disqus.com/api/users/avatars/Jos.jpg
-message: <p>Could this code be extended to allow WHERE clauses (where name like '*.jpg' and ModifedDate &gt; '1/1/2008'), or even aggregates (total filesize)? That would be even greater...</p><p>Maybe it needs a dedicated Linq to FileSystem provider?</p><p>Jos</p>

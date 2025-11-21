@@ -1,6 +1,0 @@
-id: dsq-937491261
-replyToId: dsq-937490182
-date: 2011-05-31T16:57:28.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>Currently, it&amp;#39s private "by obscurity", that means if someone knows or finds the URL of your feed, it&amp;#39s public.<br>I&amp;#39m not sure if NuGet currently supports an authentication method? What is DevExpress doing on that field? Do they have basic auth or something in place?</p><p>(login on the website works because you were probably logged in through Windows Live already, we just use Windows Live for website logins)</p>

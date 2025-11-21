@@ -1,6 +1,0 @@
-id: dsq-937491346
-replyToId: dsq-937490422
-date: 2009-08-20T22:13:56.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>THis is a separate controller factory, so Windsor will be a problem at the moment. I had the same "issue" in my mind yesterday, thinking of an elegant way to perform such chaining.</p>

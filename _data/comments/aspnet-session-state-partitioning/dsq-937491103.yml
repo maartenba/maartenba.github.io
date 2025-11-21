@@ -1,5 +1,0 @@
-id: dsq-937491103
-date: 2008-10-31T23:37:04.0000000+01:00
-name: submariner_highlander
-avatar: https://disqus.com/api/users/avatars/submariner_highlander.jpg
-message: <p>If one of the state servers goes down you will get an exception in PartitionResolver for the sessions stored in that server. Read the following post to learn how to fix it:</p><p><a href="http://forums.asp.net/p/1341297/2717479.aspx#2717479" rel="nofollow noopener" title="http://forums.asp.net/p/1341297/2717479.aspx#2717479">http://forums.asp.net/p/134...</a></p>

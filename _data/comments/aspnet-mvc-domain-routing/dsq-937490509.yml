@@ -1,5 +1,0 @@
-id: dsq-937490509
-date: 2010-07-02T22:11:43.0000000+02:00
-name: Tristan
-avatar: https://disqus.com/api/users/avatars/Tristan.jpg
-message: <p>Has anyone managed to get subdomain level routing working against areas within MVC.</p><p>So:<br>http://{area}.domain.com/{controller}/{index}</p><p>Then you could have a Blog area, and a Shop area all with different controllers etc...</p><p>This seems to me to be the perfect use of this extended functionality.</p>

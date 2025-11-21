@@ -1,5 +1,0 @@
-id: dsq-937491086
-date: 2008-03-19T00:58:46.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>As far as I can see there are 2 things that can go wrong:<br>1) The performance counter is unavailable<br>2) State server is unavailable</p><p>Possible solutions:<br>1) Check for Exceptions on PerformanceCounterCategory.CounterExists(...), respond to Exceptions by trying the next server. If it fails &gt; X times, remove it from the list of servers.<br>2) Respond to possible Exceptions. If it fails &gt; X times, remove it from the list of servers.</p>

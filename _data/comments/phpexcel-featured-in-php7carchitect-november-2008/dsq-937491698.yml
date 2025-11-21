@@ -1,6 +1,0 @@
-id: dsq-937491698
-replyToId: dsq-937491568
-date: 2009-09-30T20:50:49.0000000+02:00
-name: alains
-avatar: https://disqus.com/api/users/avatars/alains.jpg
-message: <p>After having changed some parameter in order to use PHP 5  this problem disappeared.</p><p>it happened only some minutes before now</p><p>but now comes a new problem</p><p>my Excel file size is 5 MO</p><p>the load function aborts because of lack of memory</p><p>I understand that the whole file is put into RAM</p><p>It works if the file size is &lt; 150 KO</p><p>Is it possible not to load the whole file into memory ?</p>

@@ -1,5 +1,0 @@
-id: dsq-3271455645
-date: 2017-04-24T17:23:38.0000000+02:00
-name: Oded Coster
-avatar: https://disqus.com/api/users/avatars/odedcoster.jpg
-message: <p>One thing about your custom solution - it uses `char.IsLetterOrDigit`, which returns true for any Unicode character or digit. The regular expression is much more restrictive - only allows for ASCII digits and characters (in addition to the "special" characters  @/._-).</p><p>So, semantics have changed. I suspect that if you restrict to the same set in your custom solution you will see a further performance improvement.</p>

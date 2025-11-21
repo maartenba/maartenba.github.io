@@ -1,6 +1,0 @@
-id: dsq-3585848088
-replyToId: dsq-3585283269
-date: 2017-10-26T17:56:33.0000000+02:00
-name: James Curran
-avatar: https://disqus.com/api/users/avatars/james_curran.jpg
-message: <p>Now, I'm going to assume that i is an integer, and you are going for "\output\package5\sub".<br>However, + and / should maintain their arithmatic precedence, which means it would try to perfrom the int-divided-by-string, before the string-plus-int.   That probably won't compile.</p><p>However, "output" / ("package" + i) / "sub"  should handle any confusion of either the reader or the compiler.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490234
-date: 2011-02-01T23:02:14.0000000+01:00
-name: Corey Gaudin
-avatar: https://disqus.com/api/users/avatars/Corey Gaudin.jpg
-message: <p>Quick Correction to above:</p><p>It also makes alot of sense with Repository classes since having a shared context between 1000s of users *WOULDNT* be very feasible or practical.</p><p>Sorry.</p>

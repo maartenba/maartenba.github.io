@@ -1,5 +1,0 @@
-id: dsq-937490725
-date: 2009-01-30T21:01:32.0000000+01:00
-name: PaulBlamire
-avatar: https://disqus.com/api/users/avatars/PaulBlamire.jpg
-message: <p>Hi Maarten,</p><p>Good article. Just a thought though, should you not be declaring your employee object outside of the try block so that if the catch clause is invoked you don't need to hit the db again? Suppose it depends on if L2S implements an identity map, and if your repository hold onto the datacontext.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490392
-date: 2009-10-21T04:09:26.0000000+02:00
-name: Igor Loginov
-avatar: https://disqus.com/api/users/avatars/Igor Loginov.jpg
-message: <p>And I'd rather vote for such serialization. The problem with ViewState in WebForms was not in keeping serialized objects in a hidden field. The problem, that there ViewState is automatic and therefore not manageable. Switching it off actually breaks the event-based server code.  So, if MVC team offers "Managable ViewState" (I mean, of developer's choice where and how to use it), it becomes just a helper for a widely used technique for storing some data in a hidden field.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490830
-date: 2008-09-01T19:25:37.0000000+02:00
-name: Cameron Singe
-avatar: https://disqus.com/api/users/avatars/Cameron Singe.jpg
-message: <p>Excellent, thanks for that.</p><p>I was wondering if I could pass a Guid in as an ID, if it doesn't work out of the box, at least I know I can resort to this.  For more complex types I prob rather keep the logic in the actual method not in the binding part, however thats more personal preference.</p>

@@ -1,5 +1,0 @@
-id: dsq-937491202
-date: 2007-10-31T18:07:01.0000000+01:00
-name: trendl
-avatar: https://disqus.com/api/users/avatars/trendl.jpg
-message: <p>I'm writing a desktop application with embedded SqLite database and in order to avoid problems with dependent collections of persistent objects being called outside a session lifespan, I'm using a single static session throughout my application. When I delete an object using ADO.Net and try to create a new persistent object of the same type, I get an exception that an object with the same id 1 already exists. If I clear the session manually, it works fine.</p>

@@ -1,5 +1,0 @@
-id: dsq-996921118
-date: 2013-08-12T07:50:20.0000000+02:00
-name: Piers Williams
-avatar: https://disqus.com/api/users/avatars/pierswilliams.jpg
-message: <p>Wooah there. I think you've overlooked the fairly significant limitation that you need to licence your build agents over and above the 3 you get with the server. So you can do 'autoscaling' to reduce paying for noop CPU hours, but you can't burst beyond your agent licence count.</p>

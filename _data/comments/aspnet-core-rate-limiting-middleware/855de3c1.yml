@@ -1,7 +1,0 @@
-id: 86611006
-date: 2022-09-28T13:40:30.1155715Z
-name: Anand Sowmithiran
-email: 
-avatar: https://secure.gravatar.com/avatar/13830eb5655222e314d2ce7a9f731b9e?s=80&r=pg
-url: 
-message: 'Very useful feature. Looking at the different classes involved, there is no way to know how many permits have been issued so far for a given partition key. That would be nice. Also is there a way to retain the count of leases issued between server restarts? It is right now stored in memory. '

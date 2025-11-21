@@ -1,6 +1,0 @@
-id: dsq-937490567
-replyToId: dsq-937490558
-date: 2009-05-14T16:43:13.0000000+02:00
-name: Daniel Earwicker
-avatar: https://disqus.com/api/users/avatars/Daniel Earwicker.jpg
-message: <p>Not necessarily bad - depends where you put it in the chain of linq operators. If you put it after the Where but before the FirstOrDefault, you could assign the result of the expression directly to 'controller', and miss out the test for export != null (lose the export variable altogether). This would be equivalent to your current code but all in a single expression, and would only construct one controller, not all of them.</p>

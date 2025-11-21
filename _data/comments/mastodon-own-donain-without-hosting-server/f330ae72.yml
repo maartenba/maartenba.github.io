@@ -1,7 +1,0 @@
-id: f489cd97
-date: 2022-12-01T10:38:19.1170587Z
-name: Marc Brooks
-email: 
-avatar: https://secure.gravatar.com/avatar/2a6b434b5332e77137537e6de4efc41a?s=80&r=pg
-url: http://about.me/IDisposable
-message: Thanks for the inspiration! I built out a CloudFlare Worker that uses a KV store to map identities. I've detailed the information https://twitter.com/IDisposable/status/1598263377159417856 and the source is at https://github.com/IDisposable/cloudfinger/

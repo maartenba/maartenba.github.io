@@ -1,5 +1,0 @@
-id: dsq-937491164
-date: 2008-07-15T18:31:39.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>It is indeed true that you lose those sessions. Another option there is to use SQL Server as a session store. This is slihtly slower, but increases session reliability. Another option is to use StateMirror (<a href="http://www.statemirror.com" rel="nofollow noopener" title="www.statemirror.com">www.statemirror.com</a>), a commercial product which acts the same as ASP.NET State server but also shares data between multiple state servers.</p>

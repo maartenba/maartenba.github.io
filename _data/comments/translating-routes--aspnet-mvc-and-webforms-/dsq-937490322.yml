@@ -1,5 +1,0 @@
-id: dsq-937490322
-date: 2010-01-26T19:37:24.0000000+01:00
-name: Augi
-avatar: https://disqus.com/api/users/avatars/Augi.jpg
-message: "<p>Hehe, I blogged about url localization in ASP.NET MVC the last weekend (proof of concept only): <a href=\"http://www.augi.cz/programovani/asp-net-mvc-lokalizace-url/\" rel=\"nofollow noopener\" title=\"http://www.augi.cz/programovani/asp-net-mvc-lokalizace-url/\">http://www.augi.cz/programo...</a></p><p>Your code is very nice and usable. I have only two notes:<br>1) I would use \"Convert.ToString(routeData.Values[pair.Key])\" instead of \"routeData.Values[pair.Key].ToString()\".<br>2) You are setting current culture by changing culture of current thread. It's noticable that this will not work with asynchronous controller (because different thread could be used for the second phase - it would require thread culture re-setting).</p>"

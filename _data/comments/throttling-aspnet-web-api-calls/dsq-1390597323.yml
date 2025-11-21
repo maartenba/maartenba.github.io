@@ -1,5 +1,0 @@
-id: dsq-1390597323
-date: 2014-05-17T14:54:51.0000000+02:00
-name: Lenny
-avatar: https://disqus.com/api/users/avatars/disqus_GPzQXGRkaa.jpg
-message: <p>This solution has a dependency on ASP.NET pipeline that Web API may not have, especially when it runs as self-hosted application. There is <a href="https://throttlewebapi.codeplex.com/" rel="nofollow noopener" title="https://throttlewebapi.codeplex.com/">https://throttlewebapi.code...</a> project that might provide the functionality.</p>

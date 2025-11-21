@@ -1,7 +1,0 @@
-id: 7b8a0a68
-date: 2024-07-31T15:50:48.3029109Z
-name: Dishant
-email: 
-avatar: https://secure.gravatar.com/avatar/0a091fa103d9e99a10a75426685fce5b?s=80&r=pg
-url: 
-message: "My Application is .Net6 based. can I not use Rate Limiter in my application?\r\n\r\nWhat if I add/create separate .csproj  project pointed to .net7 framework and add only ratelimiter to it. try to reference it from my application? "

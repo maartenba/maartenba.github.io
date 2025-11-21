@@ -1,5 +1,0 @@
-id: dsq-937491193
-date: 2008-02-28T17:52:52.0000000+01:00
-name: Sandesh Daddi
-avatar: https://disqus.com/api/users/avatars/Sandesh Daddi.jpg
-message: <p>Actually I wan to redirect a user from any page to default.aspx. <br>It means If user wants to view <a href="http://www.abc.com/modules/adduser.aspx" rel="nofollow noopener" title="www.abc.com/modules/adduser.aspx">www.abc.com/modules/adduser...</a> then<br>he/she will be redirected to <a href="http://www.abc.com/default.aspx" rel="nofollow noopener" title="www.abc.com/default.aspx">www.abc.com/default.aspx</a> and output of page which he/she was requesting is shown to him on that default.aspx page.</p><p>Whether it is possible????</p>

@@ -1,5 +1,0 @@
-id: dsq-2595986480
-date: 2016-03-30T02:42:00.0000000+02:00
-name: tiagoskaneta
-avatar: https://disqus.com/api/users/avatars/tiagoskaneta.jpg
-message: <p>Thank you for sharing. I'd just like to point out that the first approach no longer works in RC1. This is due to a change in the TemplateMatcher class, which now expects a PathString to be passed to the Match method (instead of a string in a couple of versions ago). As a result of this change, I believe we're no longer able to use the default TemplateMatcher in this kind of application.</p>

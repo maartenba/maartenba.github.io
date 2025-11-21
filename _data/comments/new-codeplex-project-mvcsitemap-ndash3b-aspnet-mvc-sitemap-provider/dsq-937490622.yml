@@ -1,5 +1,0 @@
-id: dsq-937490622
-date: 2009-04-22T16:20:15.0000000+02:00
-name: Michael Sommer
-avatar: https://disqus.com/api/users/avatars/Michael Sommer.jpg
-message: <p>Hi,</p><p>I tried it out, and loving it, but for some reason my nodes which I add by defining '[MvcSiteMapNode( ParentKey = "FeedbackKey", Title = "Details", DynamicParameters = "id", IsDynamic = true )]' in the class is only showing the breadcrumb for only the first details page I request. Every other details page with the same path, but different id is not showing the breadcrumb. Any ideas what I do wrong?</p>

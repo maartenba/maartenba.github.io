@@ -1,6 +1,0 @@
-id: dsq-2062325566
-replyToId: dsq-2062305749
-date: 2015-06-04T21:15:08.0000000+02:00
-name: Maarten Balliauw
-avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
-message: <p>There is an overload (not on my PC atm) that accepts additional parameters. You may want to use googleanalyticstracker.simple and build your own filter.</p>

@@ -1,6 +1,0 @@
-id: dsq-2959836129
-replyToId: dsq-2959831912
-date: 2016-10-20T10:00:47.0000000+02:00
-name: Maarten Balliauw
-avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
-message: "<p>How does this sound?</p><p>Another way of preventing objects from moving into further heap generations is by making use of `IDisposable` (to free managed resources) and make sure they are called whenever the object is no longer needed (e.g. using a `using` statement). This ensures the GC has no reason to believe our objects' memory can not be reclaimed. Be careful with finalizers: when the GC comes along and finds an object that is ready to be collected, it is moved into the finalizer queue (and thus promoted a generation). Also remember [finalizers are not guaranteed to run](<a href=\"https://ericlippert.com/2015/05/18/when-everything-you-know-is-wrong-part-one/)\" rel=\"nofollow noopener\" title=\"https://ericlippert.com/2015/05/18/when-everything-you-know-is-wrong-part-one/)\">https://ericlippert.com/201...</a> and it's better to write no finalizer than a wrong finalizer.</p>"

@@ -1,5 +1,0 @@
-id: dsq-2024197528
-date: 2015-05-14T12:32:58.0000000+02:00
-name: Lior Tal
-avatar: https://disqus.com/api/users/avatars/liortal53.jpg
-message: <p>I realize this is just an example, but is it possible that you have another DateTime type with a Now identifier on it, and that will be flagged as an error? Also, are there any "built-in" analyzers and fixes that are available as part of VS2015 ? (is their source available to learn from?)</p>

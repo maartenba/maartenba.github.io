@@ -1,5 +1,0 @@
-id: dsq-937490419
-date: 2009-10-27T03:19:03.0000000+01:00
-name: Robert
-avatar: https://disqus.com/api/users/avatars/Robert.jpg
-message: '<p>There is one more thing unclear to me: I am using Windsor controller factory in order to wire controllers with all required dependencies. Is there any possibility to continue using Windsor and yet to take advantage of  ResourceControllerFactory from REST for ASP.NET MVC SDK?</p>'

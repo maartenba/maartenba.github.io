@@ -1,5 +1,0 @@
-id: dsq-3639947194
-date: 2017-11-30T17:04:17.0000000+01:00
-name: lunix11
-avatar: https://disqus.com/api/users/avatars/lunix11.jpg
-message: '<p>I want recurring Task that will execute every 1 minute :</p><p>public class SomeOtherTask : IScheduledTask<br>    {<br>        public string Schedule =&gt; "1 * * * *";</p><p>        public async Task ExecuteAsync(CancellationToken cancellationToken)<br>        {<br>            await Task.Delay(500, cancellationToken);<br>        }<br>    }</p><p>The problem the task will execute only once. Did I miss something</p>'

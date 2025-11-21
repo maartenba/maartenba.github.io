@@ -1,7 +1,0 @@
-id: c47d6fc9
-date: 2020-05-07T10:58:35.6351070Z
-name: Ian Kemp
-email: 
-avatar: https://secure.gravatar.com/avatar/eccdb380a8c9a59f4b2a1e7f97875447?s=80&r=pg
-url: 
-message: "You've told us to use the right tool for the job, but you haven't told us how or why to choose which is \"right\", i.e. what should be evaluated when trying to choose between these options. \r\n\r\nOff the top of my head, Functions give us autoscaling and are cheaper, but miss out on a lot of aspects of ASP.NET Core (pipeline, middleware). Web API requires App Services which is more expensive and scaling has to be setup manually, but is far more flexible.\r\n\r\nIt seems to me that unless your primary concern is price, it always makes sense to go with standard Web API. What else am I missing?"

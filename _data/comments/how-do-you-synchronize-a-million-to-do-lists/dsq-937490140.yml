@@ -1,5 +1,0 @@
-id: dsq-937490140
-date: 2012-01-06T17:41:25.0000000+01:00
-name: Paul Stovell
-avatar: https://disqus.com/api/users/avatars/Paul Stovell.jpg
-message: <p>Hi Maarten,</p><p>1. What kinds of limits exist for the service bus? Is each subscription expensive?<br>2. What would you when I reset my device and need my todo list back (having already read messages from the queue)?</p><p>I&amp;#39m guessing for 2 you&amp;#39d need to persist TODO items somewhere and just use messages to sync?</p><p>Paul</p>

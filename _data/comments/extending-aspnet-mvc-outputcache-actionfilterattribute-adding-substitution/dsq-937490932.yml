@@ -1,5 +1,0 @@
-id: dsq-937490932
-date: 2008-10-18T00:33:13.0000000+02:00
-name: Haacked
-avatar: https://disqus.com/api/users/avatars/Haacked.jpg
-message: <p>Slick approach. One thing to note is that if you use the WebFormViewEngine you can use the declarative substitution control. Yes, that would require you to put some code in the code-behind (egads!) and that code would not have access to the ControllerContext, but for really simple donuts where the info you need is all accessible by the HttpContext, that would work.</p>

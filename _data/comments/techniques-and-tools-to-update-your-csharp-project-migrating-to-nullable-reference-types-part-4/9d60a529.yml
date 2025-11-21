@@ -1,9 +1,0 @@
-id: 9e696714
-date: 2022-08-12T06:16:48.5404828Z
-name: Maarten Balliauw
-email: 
-avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
-url: https://blog.maartenballiauw.be/
-message: >+
-  That's definitely lying to the compiler, but alas, no other way around it in this case. I would say in this case it is fine. You could disable/enable nullability for those properties as well (using `#nullable disable / enable`.
-

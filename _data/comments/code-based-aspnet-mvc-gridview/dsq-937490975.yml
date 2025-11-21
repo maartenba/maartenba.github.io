@@ -1,5 +1,0 @@
-id: dsq-937490975
-date: 2011-04-28T23:44:48.0000000+02:00
-name: Benny
-avatar: https://disqus.com/api/users/avatars/Benny.jpg
-message: <p>This code works great in MVC1 however I&amp;#39m trying to use this in an MVC3 project with Razor in .Net 4.  I&amp;#39m having trouble with upgrading the code as the assembly system.web.mvc seems to be a very old version.  Any suggestions?</p>

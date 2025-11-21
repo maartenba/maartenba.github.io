@@ -1,5 +1,0 @@
-id: dsq-979784118
-date: 2013-07-29T09:47:09.0000000+02:00
-name: Samuel Sperling
-avatar: https://disqus.com/api/users/avatars/samuelsperling.jpg
-message: "<p>Hi,</p><p>thanks a lot for your work on this library and keeping it open source! :)</p><p>I'm currently getting an error trying to install the latest version:</p><p>PM&gt; Install-Package MvcSiteMapProvider<br>Attempting to resolve dependency 'MvcSiteMapProvider.MVC4 (= 4.0.0-CI)'.<br>Install-Package : Unable to resolve dependency 'MvcSiteMapProvider.MVC4 (= 4.0.0-CI)'.<br>At line:1 char:1<br>+ Install-Package MvcSiteMapProvider<br>+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>+ CategoryInfo          : NotSpecified: (:) [Install-Package], InvalidOperationException<br>+ FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand</p>"

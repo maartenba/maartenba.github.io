@@ -1,5 +1,0 @@
-id: dsq-937490934
-date: 2008-07-01T03:04:57.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>Option 1 - I'd say HttpContext context = new HttpContext(existingContext.Request, response) <br>{ <br>User = existingContext.User, <br>Session = existingContext.Session, <br>};</p><p>Unfortunately, Session is read only...</p><p>Option 2 - Diretcly calling RenderView on the view, but that would make output caching only available for ViewResult actions.</p>

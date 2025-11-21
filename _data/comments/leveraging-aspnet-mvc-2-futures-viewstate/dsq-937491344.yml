@@ -1,6 +1,0 @@
-id: dsq-937491344
-replyToId: dsq-937490387
-date: 2009-10-15T14:00:11.0000000+02:00
-name: Maarten
-avatar: https://disqus.com/api/users/avatars/Maarten.jpg
-message: <p>None, except that there is no dependency on session state. This is also good when having multiple browser windows sharing one session.</p>

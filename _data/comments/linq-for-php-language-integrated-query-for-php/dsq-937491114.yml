@@ -1,5 +1,0 @@
-id: dsq-937491114
-date: 2008-03-26T19:14:16.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>select(' array(....) '); should do the trick.</p><p>MySQL will be one of the next things on the list, I want a full implementation on arrays first.</p>

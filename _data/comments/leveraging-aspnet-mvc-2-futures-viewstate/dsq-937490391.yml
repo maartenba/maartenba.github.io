@@ -1,5 +1,0 @@
-id: dsq-937490391
-date: 2009-10-15T19:39:18.0000000+02:00
-name: Boriscallens
-avatar: https://disqus.com/api/users/avatars/Boriscallens.jpg
-message: <p>I'm having a hard time seeing the merit here and I tend to agree with mogadanez.<br>If it's for concurrency, there is always "something" (dtstamp, id, stateNr even hash) to compare it with. That something should normally be more interesting to save then a whole object.</p><p>For times where you want to have an object's life span multiple requests without saving it to your repository (like in a wizard) I can imagine this is a nice way to do it without having to have some kind of session.</p>

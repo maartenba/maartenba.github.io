@@ -1,7 +1,0 @@
-id: d57ed121
-date: 2022-12-08T11:12:16.2282885Z
-name: Maarten Balliauw
-email: 
-avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
-url: https://blog.maartenballiauw.be/
-message: 'Side note: In search, it looks like the custom alias is only found **when logged in to the server**. Searching for the alias while not logged in may not return a result.'

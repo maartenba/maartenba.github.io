@@ -1,5 +1,0 @@
-id: dsq-937490853
-date: 2008-09-09T18:59:51.0000000+02:00
-name: tgmdbm
-avatar: https://disqus.com/api/users/avatars/tgmdbm.jpg
-message: <p>MvcSitemapProvider.cs:line 239-250</p><p>What if there is an AuthoriseAttribute on both the class and the method? Instead of Admin,SuperUsers it would be AdminSuperUsers.</p><p>Also, the logic is incorrect. Lets say there's an [Authorize( Roles = "Admin" )] on the classand a [Authorize( Roles = "SuperUsers" )] on the method, You would only be allowed to call that action on that controller if you were in both roles. Whereas the logic you have assumes you are allowed if you are in either role.</p><p>Otherwise, excellent work.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490848
-date: 2008-09-03T03:10:04.0000000+02:00
-name: Mike
-avatar: https://disqus.com/api/users/avatars/Mike.jpg
-message: <p>Client side validation is possible, you have to look for a validation framework that uses attributes. These attributes can be inspected, and correct javascript can be written to the page based on them (such as required, compare, regex).</p><p>But you have to get the name of the form element coupled with the property of your model class somehow. Hopefully the modelbinder is capable of that.</p>

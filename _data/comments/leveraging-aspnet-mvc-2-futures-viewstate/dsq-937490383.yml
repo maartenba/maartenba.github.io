@@ -1,5 +1,0 @@
-id: dsq-937490383
-date: 2009-10-09T07:18:45.0000000+02:00
-name: Haacked
-avatar: https://disqus.com/api/users/avatars/Haacked.jpg
-message: <p>Also, you might be working with an object that doesn't have a timestamp property. For example, if it's a true POCO object. In that case, you would need to serialize the whole object.</p>

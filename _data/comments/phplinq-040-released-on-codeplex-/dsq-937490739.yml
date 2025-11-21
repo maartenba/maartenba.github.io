@@ -1,5 +1,0 @@
-id: dsq-937490739
-date: 2009-01-30T13:42:54.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>Performance of LinqToObjects should be equal to looping data yourself. Peformance of LinqToZendDb is mainly a case of the database engine itself rather than PHPLinq.</p>

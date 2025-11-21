@@ -1,5 +1,0 @@
-id: dsq-937491170
-date: 2007-11-08T17:42:19.0000000+01:00
-name: kyle
-avatar: https://disqus.com/api/users/avatars/kyle.jpg
-message: '<p>Even Stoyan uses a dynamic solution for a static problem: If one changes the validation strategy during runtime, your array becomes invalid. So I recommend to place (and use!) the strategy in the generic base class and force the user of GenricObjectArray to implement the strategy.</p><p>&lt;?php<br>abstract class GenericArrayObject<br>{<br>...<br>public abstract static function isValid( $value );<br>...<br>}<br>?&gt;</p><p>In append() and offsetSet() check, if $this-&gt;isValid( $value ) ist true and proceed. Otherwise throw an InvalidArgumentException. (Using $this avoids late binding problems - otherwise use get_class($this) and call_user_func())</p><p>Subclasses just have to implement isValid() (e.g. $value instanceof X ) - wich even might check value ranges or whatever.</p>'

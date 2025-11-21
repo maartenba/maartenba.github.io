@@ -1,6 +1,0 @@
-id: dsq-937491423
-replyToId: dsq-937491096
-date: 2009-12-31T03:48:30.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>Yes, that's correct. Unless the performance counter tells there's too much load, the server is skipped for storing state. Note that this is just an example and should not be used in production without further fine tuning.</p>

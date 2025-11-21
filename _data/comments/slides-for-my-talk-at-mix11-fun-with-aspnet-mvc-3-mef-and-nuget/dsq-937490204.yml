@@ -1,5 +1,0 @@
-id: dsq-937490204
-date: 2011-04-30T05:47:16.0000000+02:00
-name: binjiezhao
-avatar: https://disqus.com/api/users/avatars/binjiezhao.jpg
-message: '<p>Food for thought here Maarten. I know what you have demoed is probably what a lot of people are after. But what if there&amp;#39s a SOA element? For example: you have a dependency of a wcf server in your controller, how would you go about using MEF to inject the dependency? I tried manually adding mef export attribute to the service client, it worked but not ideal. I changed the wcf service so that it lends iteslf to MEF. But the generated client proxy hasn&amp;#39t got any MEF attributes at all. I don&amp;#39t know how feasible is it to extend svcutil.exe to do that leg work. Is there any way to do this automatically?<br>Thanks.</p>'

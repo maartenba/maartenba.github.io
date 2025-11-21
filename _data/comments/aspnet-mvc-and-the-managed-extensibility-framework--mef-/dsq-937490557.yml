@@ -1,5 +1,0 @@
-id: dsq-937490557
-date: 2009-04-22T05:44:43.0000000+02:00
-name: Jeff
-avatar: https://disqus.com/api/users/avatars/Jeff.jpg
-message: <p>very cool, I like it alot.  I have been working on somthing like this,  it helps alot.  Is it possible to say be able to update these "plug-ins" on the fly.  So from my app a can download a new version from some sort of online repository and have it overwrit the one in the plugin directory.  It was always a problem with like assembly.load and what not.  but i am not sure if mef resolves this.</p>

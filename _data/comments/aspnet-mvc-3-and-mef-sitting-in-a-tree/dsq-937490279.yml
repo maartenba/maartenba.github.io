@@ -1,5 +1,0 @@
-id: dsq-937490279
-date: 2010-12-21T01:40:01.0000000+01:00
-name: richie scott
-avatar: https://disqus.com/api/users/avatars/richie scott.jpg
-message: <p>I would like to use MEF and MVC in a multi-tenant scenario with each tenant having their own catalog. I'm planning on using a separate Blob (Azure) storage to store a tenants catalog assemblies. Ideally I would like a new container per tenant per session. Do you have any thoughts? My main problem is where to reference a the per-session container, I could put it in the session context but that would mean the application would not be very scalable.</p>

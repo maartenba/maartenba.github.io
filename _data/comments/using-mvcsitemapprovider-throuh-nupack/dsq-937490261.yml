@@ -1,5 +1,0 @@
-id: dsq-937490261
-date: 2010-10-18T08:56:08.0000000+02:00
-name: Fatal
-avatar: https://disqus.com/api/users/avatars/Fatal.jpg
-message: <p>any news on a version that supports MVC3? i'm having all sorts of issues trying to shoehorn mvcsitemapprovider 2.1 (and even compiled from 2.2 branch) into my MVC3 beta project</p><p>a couple of compilation errors i needed to fix:<br>MvcSiteMapProviderViewEngine.CreatePartialView (and CreateView) needs to pass the controllerContext parameter into the WebFormView constructor</p>

@@ -1,5 +1,0 @@
-id: dsq-937490396
-date: 2009-10-07T16:30:57.0000000+02:00
-name: PK
-avatar: https://disqus.com/api/users/avatars/PK.jpg
-message: "<p>I feel offended that it's possible the ViewState can come into the MVC framework. I know it has to be a manual thing, but i kept finding that the entire idea behind it was poor and poorly implimented. Yes, this is another geek-tech religious war, so I'm not going to fan the flames too much.</p><p>Will i use it? nope.<br>Will i recommend it? nope.<br>Do i believe it could add some extra complexity to a project, despite it being added to reduce complexity or at least make things more RAD? (whoa, long sentence!): yes i do.</p><p>I prefer to keep things simpler (KISS) -&gt; its easy to read form data and not hard to time consuming to program that. The effort that has been abstracted away  (eg. Deserialize attribute) i feel is minimal. It also worries me that there's sometimes too much black magic happening.</p><p>Anyways, that's my opinion. it's neither right nor wrong.</p><p>No viewstate for me in my MVC apps.</p><p>but thank gawd for ASP.NET MVC :) totally changed the way we do our .NET development now! love it :)</p><p>-PK-</p>"

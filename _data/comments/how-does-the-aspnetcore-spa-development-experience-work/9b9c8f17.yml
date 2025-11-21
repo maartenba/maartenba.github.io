@@ -1,7 +1,0 @@
-id: 9c555f92
-date: 2020-06-03T18:26:14.4328978Z
-name: Mike
-email: 
-avatar: https://secure.gravatar.com/avatar/1d2ae8a8325dd1849d2c9fec8a58584b?s=80&r=pg
-url: 
-message: "When running a React app in VSCode you can see the output of the babel and webpack processes in the terminal window.  It shows errors during this build process if there are any.   You can't see that output in VS2019.   Do you know of any way to output the console of the proxied NPM start process in VS2019 debug panel? "

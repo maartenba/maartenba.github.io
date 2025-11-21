@@ -1,5 +1,0 @@
-id: dsq-937490330
-date: 2011-01-22T05:05:25.0000000+01:00
-name: Dave
-avatar: https://disqus.com/api/users/avatars/Dave.jpg
-message: <p>Hi Maarten</p><p>Thanks for this great post, it's the cleanest solution I found and I started immediately to implement it in my current project. Though I got a problem with [i]RenderAction[/i] in my views. The translation seems not to happen correctly for these routes.</p><p>I tried also to reproduce this behaviour with your sample application. Adding [i]ActionResult Partial()[/i] to the [i]HomeController[/i], a PartialView called [i]Partial.ascx[/i] and [i]&lt;% Html.RenderAction("Partial") %&gt;[/i], actually gives me the same error (The controller for path '/Thuis/Over' was not found or does not implement IController).</p><p>I tried to find out, where the problem resides, but couldn't figure it out. Any idea? I would highly appreciate your help here. Thanks!</p>

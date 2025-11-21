@@ -1,5 +1,0 @@
-id: dsq-3274676301
-date: 2017-04-26T07:03:28.0000000+02:00
-name: Richard Tallent
-avatar: https://disqus.com/api/users/avatars/richardtallent.jpg
-message: <p>Oded beat me to the same comment. I had a similar situation awhile back, but I was using Regex *replacements* to "conform" unusual Unicode characters to simpler ASCII. My custom code ended up being FAR faster than regular expressions:</p><p><a href="https://blog.tallent.us/posts/2015-03-18-optimizing-character-replacement-in-c/" rel="nofollow noopener" title="https://blog.tallent.us/posts/2015-03-18-optimizing-character-replacement-in-c/">https://blog.tallent.us/pos...</a></p><p>I still loves me some regex and use it heavily in my work (processing regulations), but this experience has definitely made me pay more attention to regex performance and to use more custom code for critical paths.</p>

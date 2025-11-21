@@ -1,6 +1,0 @@
-id: dsq-3273106773
-replyToId: dsq-3271455645
-date: 2017-04-25T10:25:08.0000000+02:00
-name: Daniel Crabtree
-avatar: https://disqus.com/api/users/avatars/daniel_crabtree.jpg
-message: <p>A further performance improvement is quite likely. I recently replaced char.IsLetterOrDigit with a custom check where only ASCII characters were possible and got a nice performance boost.</p>

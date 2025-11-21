@@ -1,7 +1,0 @@
-id: 727fb661
-date: 2021-06-03T14:46:14.1215956Z
-name: Maarten Balliauw
-email: 
-avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
-url: https://blog.maartenballiauw.be/
-message: You can probably use a similar approach to what we are doing in the Space SDK here - https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.AspNetCore.Authentication/SpaceHandler.cs#L122

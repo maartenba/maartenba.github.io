@@ -1,5 +1,0 @@
-id: dsq-937490856
-date: 2008-09-10T20:50:27.0000000+02:00
-name: Matt Bertulli
-avatar: https://disqus.com/api/users/avatars/Matt Bertulli.jpg
-message: "<p>Hey Maarten,</p><p>First, great work on this one.  It's a straight forward example of implementing a sitemap provider.</p><p>Second, I just wanted to let you know that I have encountered a bit of a problem in using your code with Preview 5, and more specifically the AcceptAction attribute on action methods.  When the MvcSiteMapProvider gets to around line 227 and tries this:</p><p>object[] actionAttributes = controller.GetType().GetMethod(mvcNode.Action).GetCustomAttributes(typeof(AuthorizeAttribute), true);</p><p>It borks with the following message: \"Ambiguous match found.\"   I'm not familiar enough with mvc yet to fix this, but I am thinking it's becuase I have two actions of the same name in my controller class, each with a different signature and tagged with different AcceptVerbs attributes.</p>"

@@ -1,6 +1,0 @@
-id: dsq-1870429365
-replyToId: dsq-1870427751
-date: 2015-02-23T10:33:20.0000000+01:00
-name: Maarten Balliauw
-avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
-message: <p>Think that there's something wrong with your storage account key then, as that's where (according to the stack trace) the error occurs.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490577
-date: 2009-04-16T04:32:17.0000000+02:00
-name: BB
-avatar: https://disqus.com/api/users/avatars/BB.jpg
-message: <p>I'm still waiting for a detailed description, because this isn't it.</p><p>This is a start, but this is nowhere near enough information to help one actually implement this.</p><p>The event pattern looks like a real winner, as it seems like you can avoid rewriting your long running code to use beginFoo and endFoo, but I can't tell because the writeup is so short and the example so trivial.</p><p>Even the suggestion that I can pass parameters to indexCompleted isn't real helpful.  The example creates the parameter before the long running operation starts.  In 99% of cases, what I want to pass to my indexCompleted method is the [b]result [/b]of some long running operation.</p>

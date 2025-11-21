@@ -1,5 +1,0 @@
-id: dsq-1072987853
-date: 2013-10-07T02:08:15.0000000+02:00
-name: אבירן כהן
-avatar: https://disqus.com/api/users/avatars/disqus_9sFV61EHzH.jpg
-message: <p>I've implemented this exact thing in WebAPI, authenticating the user using the token, and set the User metadata avaiable at the TokenAuthApiController as a read-only property avaiable at NuGet or GitHub:<br><a href="https://github.com/Dgandalf/WebApiTokenAuthBootstrap/wiki/TokenAuthApiController--and-TokenAuthentication-Attribute" rel="nofollow noopener" title="https://github.com/Dgandalf/WebApiTokenAuthBootstrap/wiki/TokenAuthApiController--and-TokenAuthentication-Attribute">https://github.com/Dgandalf...</a></p>

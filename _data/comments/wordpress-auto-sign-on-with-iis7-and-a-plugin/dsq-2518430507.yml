@@ -1,5 +1,0 @@
-id: dsq-2518430507
-date: 2016-02-17T09:55:32.0000000+01:00
-name: BMC
-avatar: https://disqus.com/api/users/avatars/disqus_FzZD7QugET.jpg
-message: <p>Hi Maarten</p><p>I have to thank you firstly for this awesome plugin which integrates well in our intranet environment.</p><p>I am not sure if you have any time for this, but I have a quick question.</p><p>A user does not have IE open (and by default in our environment logged into the blog), and we email them a direct link to a page, e.g. <a href="http://ourblog.int/pagename" rel="nofollow noopener" title="http://ourblog.int/pagename">http://ourblog.int/pagename</a> the plugin redirects back to the home page rather than the direct link.</p><p>Is there a quick fix for this?</p><p>Thank you</p>

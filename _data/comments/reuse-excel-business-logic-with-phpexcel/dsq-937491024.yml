@@ -1,5 +1,0 @@
-id: dsq-937491024
-date: 2008-05-11T23:45:51.0000000+02:00
-name: Arik
-avatar: https://disqus.com/api/users/avatars/Arik.jpg
-message: <p>Wouldn't it be hard on performance if for every calculation you will have to do it via the Excel file? I think that better option would be to parse to logic out of the Excel formula and save it as PHP code (and apply some caching to this formula so it won't be needed to read every time).</p>

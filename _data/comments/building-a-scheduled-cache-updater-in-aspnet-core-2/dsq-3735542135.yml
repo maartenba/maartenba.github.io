@@ -1,5 +1,0 @@
-id: dsq-3735542135
-date: 2018-01-31T17:21:23.0000000+01:00
-name: Dragan
-avatar: https://disqus.com/api/users/avatars/disqus_H5ZDL83SzC.jpg
-message: <p>Given that QuoteOfTheDayTask is a Singleton, a scoped service (e.g. DbContext) can be added using the IServiceScopeFactory:</p><p>public QuoteOfTheDayTask (IServiceProvider serviceProvider)<br>{<br>    this.serviceProvider = serviceProvider;<br>}</p><p>var serviceScopeFactory = this.serviceProvider.GetRequiredService&lt;IServiceScopeFactory&gt;();</p><p>using (var scope = serviceScopeFactory.CreateScope())<br>{<br>    var dbContext = scope.ServiceProvider.GetService&lt;MyDbContext&gt;();<br>    ...<br>}</p>

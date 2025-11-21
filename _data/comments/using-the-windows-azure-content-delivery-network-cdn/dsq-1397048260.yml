@@ -1,6 +1,0 @@
-id: dsq-1397048260
-replyToId: dsq-1396992186
-date: 2014-05-21T13:03:46.0000000+02:00
-name: Maarten Balliauw
-avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
-message: <p>The best way would be to update the UR's everywhere, but you could also use reverse IIS rewriting to update the content on the fly - see <a href="http://www.iis.net/learn/extensions/url-rewrite-module/creating-outbound-rules-for-url-rewrite-module" rel="nofollow noopener" title="http://www.iis.net/learn/extensions/url-rewrite-module/creating-outbound-rules-for-url-rewrite-module">http://www.iis.net/learn/ex...</a> on how to use outbound rules.</p>

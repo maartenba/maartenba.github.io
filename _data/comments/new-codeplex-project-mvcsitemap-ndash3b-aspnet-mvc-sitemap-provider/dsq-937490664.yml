@@ -1,5 +1,0 @@
-id: dsq-937490664
-date: 2009-09-25T21:36:38.0000000+02:00
-name: Mikael &#214;stberg
-avatar: https://disqus.com/api/users/avatars/Mikael &#214;stberg.jpg
-message: "<p>Hello!</p><p>I'm having a Controller with a default action that takes a complex object as parameter and when that Action is invoked, SiteMap.CurrentNode is null, which breaks the HtmlHelper.Menu method.</p><p>The signature of my method is: public ActionResult Index([ModelBinder(typeof (UserQueryModelBinder))] UserQuery userQuery)</p><p>I'm trying to match this by having this in the Web.sitemap file:<br>&lt;mvcSiteMapNode title=\"Search\" controller=\"Search\" action=\"Index\" isDynamic=\"true\" dynamicParameters=\"*\" /&gt;</p><p>Could it be that the problem is the complex object parameter of my method?</p><p>Any ideas..?</p><p>Thanks!</p>"

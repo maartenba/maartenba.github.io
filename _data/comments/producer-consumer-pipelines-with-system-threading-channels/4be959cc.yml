@@ -1,7 +1,0 @@
-id: 4c75a1a2
-date: 2021-09-29T08:29:56.6027952Z
-name: Prasadh Kumar S
-email: 
-avatar: https://secure.gravatar.com/avatar/cd26982686391d2161373478f94d096b?s=80&r=pg
-url: 
-message: "Hey Maarten Splendid article really thanks for this your a life savor for me, i implemented the same Open Channels Extensions a  to producer (from SQL stored procedure ) and consumer to do calculations and bulk import, I have a doubt though when running in Server environment i found CPU usage was 15% in my case , so need your suggestion on how to analyze and decide on the optimal max concurrency for each pipes for better throughtput\r\n//this is my pseudo\r\nawait data  //10000 \r\n.ToChannel(capacity: data.Count, singleReader: false)\r\n                .Batch(2000)\r\n                .Pipe(maxConcurrency: 2, capacity: 2000,\r\n                        transform: batchDatas =>\r\n                        {\r\n                            // Get additional Child Data From DB\r\n                        })\r\n                .PipeAsync(maxConcurrency: 10, capacity: 100,\r\n                            transform: async tuple =>\r\n                            {\r\n                               // Perform Calculation\r\n                            })\r\n                .ReadAllAsync(async tuple =>\r\n                {\r\n                   // Do Bulk Import to DB\r\n                });\r\n\r\n"

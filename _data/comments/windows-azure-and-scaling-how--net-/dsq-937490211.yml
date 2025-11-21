@@ -1,5 +1,0 @@
-id: dsq-937490211
-date: 2011-03-23T00:48:25.0000000+01:00
-name: Bart Czernicki
-avatar: https://disqus.com/api/users/avatars/Bart Czernicki.jpg
-message: <p>There was an article on techcrunch or engadget that talked about how Microsoft was patenting a dashboard for cloud elasticity.  Essentially, you had a little window with sliders and you could slide the RAM, CPUs, HD space to what you needed.</p><p>That is what is truly needed and combine that with a calendar scheduler for version 1.0 and a true dynamic elasticity option baked in with the Azure AppFabric...so when you start getting say more than 100 requests/second you scale to a second server or something like that.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490237
-date: 2011-02-16T11:58:55.0000000+01:00
-name: Andy Worral
-avatar: https://disqus.com/api/users/avatars/Andy Worral.jpg
-message: <p>Maarten,</p><p>I have to admit I am not terribly familiar with MEFContrib yet but I was wondering if you could help me out.</p><p>I have been previously using a different implementation of MEF with MVC3 to be able to load Controllers from outside dlls via a custom ControllerFactory.  Is there any way to implement this ability just using the DependencyResolver?</p><p>I assume I will still have to override CreateController in order to point at the other dll?</p><p>Its all a little black boxy for me until I grab the source and read through it a bit more.</p><p>Thanks for any pointers!</p><p>Andy</p>

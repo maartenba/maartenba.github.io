@@ -1,5 +1,0 @@
-id: dsq-937490822
-date: 2008-10-05T17:55:35.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: "<p>If you tamper with the value, you get an exception? That's actually the point of this: ensure no one tampers with the value, to ensure that the origin of the form post is the one you actually sent to the user.</p>"

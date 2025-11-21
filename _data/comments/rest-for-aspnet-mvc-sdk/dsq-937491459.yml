@@ -1,6 +1,0 @@
-id: dsq-937491459
-replyToId: dsq-937491348
-date: 2009-08-21T16:05:18.0000000+02:00
-name: Dirk Rodermund
-avatar: https://disqus.com/api/users/avatars/Dirk Rodermund.jpg
-message: <p>Maarten, thanks for pointing me in the right direction! I was not aware that the factories can be chained this way!<br>But from my point of view it feels a bit strange to have a controller factory which is not really creating the controller, it only adds behavior to the controller created by the default controller factory. A nicer approach could be to use extension points in the factory to modify the controller after creation. Wouldn't it be a better SoC?</p>

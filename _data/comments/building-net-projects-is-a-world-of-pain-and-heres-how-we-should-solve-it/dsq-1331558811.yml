@@ -1,5 +1,0 @@
-id: dsq-1331558811
-date: 2014-04-11T11:24:54.0000000+02:00
-name: Xavier Decoster
-avatar: https://disqus.com/api/users/avatars/xavierdecoster.jpg
-message: <p>Setting up a build server really is a good indicator of the many "implicit" dependencies we all use. We should all really step away from having implicit dependencies and declare them explicitly, and ensure all these things get pulled it in as needed in a unified way.<br>Imho, given the analogies between NuGet, Chocolatey and OneGet (and even the Visual Studio Extension manager in a certain way), there's definitely a way to solve this...</p>

@@ -1,5 +1,0 @@
-id: dsq-937491198
-date: 2007-10-31T17:28:54.0000000+01:00
-name: trendl
-avatar: https://disqus.com/api/users/avatars/trendl.jpg
-message: <p>While this approach works, you still have to clear the session to get rid of the persistent objects stored in the NHibernate cache. Or am I wrong? I'm just beginning with NHibernate, so please correct me if necessary.</p>

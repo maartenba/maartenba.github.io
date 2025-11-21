@@ -1,6 +1,0 @@
-id: dsq-937491306
-replyToId: dsq-937490256
-date: 2010-11-02T20:40:19.0000000+01:00
-name: Fernando B
-avatar: https://disqus.com/api/users/avatars/Fernando B.jpg
-message: "<p>After reading the \"Walkthrough: Using Templated Helpers to Display Data in ASP.NET MVC\" (<a href=\"http://msdn.microsoft.com/en-us/library/ee308450.aspx)\" rel=\"nofollow noopener\" title=\"http://msdn.microsoft.com/en-us/library/ee308450.aspx)\">http://msdn.microsoft.com/e...</a> article I quickly figured out what was wrong. Like I figured, it was such a simple mistake. The \"DisplayTemplates\" folder shoud go under the \"Views\\Shared\\\" folder in your project, not under \"Views\" like you specify in this blog and in the Codeplex documentation (<a href=\"http://mvcsitemap.codeplex.com/wikipage?title=HtmlHelper%20functions&amp;referringTitle=Home)\" rel=\"nofollow noopener\" title=\"http://mvcsitemap.codeplex.com/wikipage?title=HtmlHelper%20functions&amp;referringTitle=Home)\">http://mvcsitemap.codeplex....</a>. If you could update the docs on the Codeplex site I'm sure you will save newbies like me some time :D</p><p>Again, thanks for all the hard work!</p>"

@@ -1,5 +1,0 @@
-id: dsq-937490327
-date: 2010-12-03T18:49:55.0000000+01:00
-name: Matteo
-avatar: https://disqus.com/api/users/avatars/Matteo.jpg
-message: <p>I've found a bug in the TranslateToRouteValue method, where you do the checks like this:</p><p>t.TranslatedValue == translatedValue</p><p>This makes the translated routes case sensitive. If I type in the address bar a translated route like "/Foo/Bar" all works fine, but if I type "/foo/bar" it returns a 404.</p><p>To fix this, just change the comparisons like this:</p><p>t.TranslatedValue.ToLower() == translatedValue.ToLower()</p><p>So the check becomes case insensitive and all works fine :)</p>

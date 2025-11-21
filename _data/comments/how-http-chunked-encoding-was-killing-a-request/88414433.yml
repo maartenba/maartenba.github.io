@@ -1,6 +1,0 @@
-id: 8ab3bb83
-date: 2018-11-02T23:21:33.0725721Z
-name: Roberto Prevato
-avatar: https://secure.gravatar.com/avatar/42d0bc4d65ee2f6ecff53483c7afeff7?s=80&r=pg
-url: https://robertoprevato.github.io/
-message: 'Hi, thanks for the interesting article. There is one thing not right about transfer encoding: "the server tells us it will send a bunch of chunks whenever it has data, and when the response is done it will tell us by closing the connection."; the last part is not correct. When Transfer-Encoding: chunked is used, the server does not close the connection to communicate the end, instead it sends this final sequence of bytes: "\0\r\n\r\n" - signifying that there are no more chunks to be sent.'

@@ -1,6 +1,0 @@
-id: dsq-3585688882
-replyToId: dsq-3524461714
-date: 2017-10-26T16:17:23.0000000+02:00
-name: Pete
-avatar: https://disqus.com/api/users/avatars/disqus_W4yfEeHGBE.jpg
-message: '<p>For anyone wondering, cause I was :), where to get the IServiceScopeFactory from in the SchedulerExtensions method you can use this: "services.BuildServiceProvider().GetRequiredService&lt;iservicescopefactory&gt;()"</p><p>This was really great info though. Thanks to everyone!!</p>'

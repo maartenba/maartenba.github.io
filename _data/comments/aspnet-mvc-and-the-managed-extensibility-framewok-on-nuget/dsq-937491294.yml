@@ -1,6 +1,0 @@
-id: dsq-937491294
-replyToId: dsq-937490239
-date: 2011-03-24T14:30:39.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>What type of export do you want to add? Controllers? Controller exports are registered by convention over at AppStart_MefContribMVC3.Start() in the new ConventionCatalog(new MvcApplicationRegistry()). Check the MefContrib sources if you want to do something similar with other classes.</p>

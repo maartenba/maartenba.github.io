@@ -1,6 +1,0 @@
-id: dsq-1450455686
-replyToId: dsq-1450305350
-date: 2014-06-23T23:14:07.0000000+02:00
-name: Wayne
-avatar: https://disqus.com/api/users/avatars/disqus_d7UQ3ufqpS.jpg
-message: <p>OK, I forgot about the lower case file name.  Now it's activated.  But it's not working.  I still find myself needing to log in, even after disabling anonymous in IIS and adding/enabling Windows authentication.  I also added wpDirAuth for LDAP login so I could add myself as a user.  So what am I missing this time?<br>Using 2008 R2 64 bit, WP 3.9.1, IIS 7</p>

@@ -1,5 +1,0 @@
-id: dsq-3781017935
-date: 2018-03-01T00:24:47.0000000+01:00
-name: Ivan Teles
-avatar: https://disqus.com/api/users/avatars/ivanteles.jpg
-message: '<p>As for the issue of hallucination of memory.<br>I created a web app following the Dispose standard after using the features, even so in the task manager on the server I see that w3wp consumes around 1Gb of memory, how would I limit this use? either through windows or IIS, or even through my web app?</p><p>Exemplo: <a href="http://www.idevweb.com.br" rel="nofollow noopener" title="http://www.idevweb.com.br">Criação de sites e aplicativos</a></p>'

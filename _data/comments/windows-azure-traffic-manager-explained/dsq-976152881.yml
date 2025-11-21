@@ -1,5 +1,0 @@
-id: dsq-976152881
-date: 2013-07-25T20:10:52.0000000+02:00
-name: BB
-avatar: https://disqus.com/api/users/avatars/disqus_2Ps8oJe56U.jpg
-message: '<p>Question: How does this help if you are using Blob, Table or Queues? In that case you would be hit with fees and performance hit by needing to have the server call across regions to where the storage is, no? Point being, if you have 3 set up, there is no way to sync the non-sql storage across the datacenters (short of creating your own syncing mechanism) - correct?</p>'

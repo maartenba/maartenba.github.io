@@ -1,5 +1,0 @@
-id: dsq-937490422
-date: 2009-08-20T22:11:12.0000000+02:00
-name: Dirk Rodermund
-avatar: https://disqus.com/api/users/avatars/Dirk Rodermund.jpg
-message: <p>Hi Maarten,<br>nice post, I didn't had a look at it, but how does this works together with other controller factories? For example, I use the WindsorControllerFactory for dependency injection. Both type of controllers are adding responsibilities to "a factory" with are orthogonal, one care for formatting, the other for dependency injection.<br>Is there a way to "chain" the controller factories, so both can do their job?</p>

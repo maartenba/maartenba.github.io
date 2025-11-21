@@ -1,6 +1,0 @@
-id: dsq-937491431
-replyToId: dsq-937491279
-date: 2011-03-23T13:39:01.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>Just double-checked and scaled from 1 to 3 instances. The management portal indeed needs the PFX, but client-side the .cer is enough apparently.</p>

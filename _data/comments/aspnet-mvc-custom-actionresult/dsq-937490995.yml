@@ -1,5 +1,0 @@
-id: dsq-937490995
-date: 2008-09-24T15:20:12.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: '<p>Gino, I agree with that for larger web sites. Another way to go there is just creating thumbnails once and storing them on disk. If you have a reverse proxy enabled on your server farm, images will be cached and your server will not notice any performance issues at all for these thumbnails. Conclusion is that the approach to take is really depending on the situation.</p><p>(sidenote: the HtmlHelper extension method could also be used for calling a regular IHttpHandler somewhere, making it easy to include an automatically generated image in a view)</p>'

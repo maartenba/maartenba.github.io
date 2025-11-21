@@ -1,5 +1,0 @@
-id: dsq-937491040
-date: 2008-03-20T14:47:43.0000000+01:00
-name: Makka
-avatar: https://disqus.com/api/users/avatars/Makka.jpg
-message: <p>Intresting post.<br>You can use a smart syntax for MembershipProviderInstance  getter :)</p><p>get {  return membershipProvider ?? Membership.Provider; }</p>

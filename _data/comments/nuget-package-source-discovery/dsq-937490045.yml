@@ -1,5 +1,0 @@
-id: dsq-937490045
-date: 2013-03-30T00:44:26.0000000+01:00
-name: Nik Molnar
-avatar: https://disqus.com/api/users/avatars/Nik Molnar.jpg
-message: <p>Quick update on this post Maarten,</p><p>Glimpse no longer uses package discovery for our nightly package feed, but instead we use package discovery for our curated plugin feed.</p><p>The plugin feed is a listing of all Glimpse plugins. That feed itself was created with MyGet!</p><p>Thanks,<br>Nik</p>

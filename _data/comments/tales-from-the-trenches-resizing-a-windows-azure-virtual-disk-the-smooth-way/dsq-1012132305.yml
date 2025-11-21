@@ -1,6 +1,0 @@
-id: dsq-1012132305
-replyToId: dsq-1000334913
-date: 2013-08-22T05:33:28.0000000+02:00
-name: Aaron
-avatar: https://disqus.com/api/users/avatars/icelava.jpg
-message: <p>Yea i tried the latest version and it was shrinkable, thanks. However it is definitely a unsafe operation as the new VM setup based on the shrunk VHD was not able to properly boot up the OS; cannot RDP into it, let alone the custom app services it is supposed to run.</p>

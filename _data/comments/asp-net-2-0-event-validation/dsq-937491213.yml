@@ -1,5 +1,0 @@
-id: dsq-937491213
-date: 2010-09-16T22:32:52.0000000+02:00
-name: lyall
-avatar: https://disqus.com/api/users/avatars/lyall.jpg
-message: <p>it does work. but some times a$<a href="http://p.net" rel="nofollow noopener" title="p.net">p.net</a> cant uniquely identify the controls in a user control.</p><p>Just use:<br> this.Page.ClientScript.RegisterForEventValidation( &lt;YourControlID&gt; ) ;</p>

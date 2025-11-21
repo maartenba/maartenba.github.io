@@ -1,6 +1,0 @@
-id: 5052fe4e
-date: 2020-01-28T21:07:53.7990581Z
-name: teodor
-avatar: https://secure.gravatar.com/avatar/c3092abcb7cfceca5ecc05ae8ae3acf0?s=80&r=pg
-url: bardici.ro
-message: "Given the cost of the alternatives on Azure (VM or App Services or hosted Containers), functions can be a much cheaper alternative for a small set of RESTful APIs. \r\nApp Services are quite expensive compared to other non-azure alternatives."

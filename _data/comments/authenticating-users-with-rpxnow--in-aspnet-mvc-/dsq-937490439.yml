@@ -1,6 +1,0 @@
-id: dsq-937490439
-replyToId: dsq-937490434
-date: 2009-11-05T09:39:17.0000000+01:00
-name: mh415
-avatar: https://disqus.com/api/users/avatars/mh415.jpg
-message: <p>Correct me if I'm wrong, but you could just store RpxProfile.Identifier in your local datastore.  That property appears to be the same each time I log in with the same credentials.  I believe this takes care of the ESmith/ESmith name collision problem.  Is this right, Maarten?</p>

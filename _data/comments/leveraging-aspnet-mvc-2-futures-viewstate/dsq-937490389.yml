@@ -1,6 +1,0 @@
-id: dsq-937490389
-replyToId: dsq-937490383
-date: 2009-10-09T17:04:27.0000000+02:00
-name: mogadanez
-avatar: https://disqus.com/api/users/avatars/mogadanez.jpg
-message: <p>If _Model_ object does not have a timestamp, that is not  mean that it is absent in DB, so I can Fetch it from DB by Model identity.<br>if no timestamp in DB, I probably want to have a Checksum instead of Entire object.</p><p>I Think "SMS" More approaches for wizards, when i not want store data while i reach end of wizard.</p>

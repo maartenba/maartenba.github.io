@@ -1,5 +1,0 @@
-id: dsq-937490498
-date: 2009-11-10T11:57:49.0000000+01:00
-name: Valer
-avatar: https://disqus.com/api/users/avatars/Valer.jpg
-message: <p>Maarten,</p><p>How about removing some unwanted folders from the URLs when the app is hosted in a subdirectory? Godaddy lets you host multiple websites in the same hosting account (but in different folders) and although I have multiple domain names pointing to the respective folders, when I deploy an MVC app, the full hosting path is there... Ugly and annoying. See my question on Stack Overflow at <a href="http://stackoverflow.com/questions/1700221/ugly-urls-when-an-asp-net-mvc-app-is-hosted-in-a-virtual-directory" rel="nofollow noopener" title="http://stackoverflow.com/questions/1700221/ugly-urls-when-an-asp-net-mvc-app-is-hosted-in-a-virtual-directory">http://stackoverflow.com/qu...</a></p><p>Regards,<br>Valer</p>

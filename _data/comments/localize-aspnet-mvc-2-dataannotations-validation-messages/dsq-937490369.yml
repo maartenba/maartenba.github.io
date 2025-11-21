@@ -1,5 +1,0 @@
-id: dsq-937490369
-date: 2009-11-09T21:02:16.0000000+01:00
-name: Klenne
-avatar: https://disqus.com/api/users/avatars/Klenne.jpg
-message: <p>All great, there is only one major problem with this.  The localized message have to come from a satellite assembly (dll).</p><p>In <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> one can specify the resource provider factory to use when performing localization.  If you use an alternate factory (like a database provider), <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> uses that factory to pull all resources into memory.  DataAnnotations does not use the factory method and you are limited to using the default factory (being satellite assemblies).  Big bummer!!!</p>

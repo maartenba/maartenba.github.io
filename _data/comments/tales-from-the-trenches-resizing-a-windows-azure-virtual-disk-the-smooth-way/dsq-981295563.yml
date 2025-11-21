@@ -1,6 +1,0 @@
-id: dsq-981295563
-replyToId: dsq-981216863
-date: 2013-07-30T14:51:12.0000000+02:00
-name: stephan
-avatar: https://disqus.com/api/users/avatars/disqus_uzhPGfGpy9.jpg
-message: <p>Yes - you have configured a VM under Azure with the port 3389 open for RDP. Now you want to secure your system with firewall and blocking ports on this VM. When you did it wrong on your VM it may happen that the Remote Desktop service is disabled or the 3389 port is blocked on this VM - you can never log into this VM again - even the Azure management cannot control this VM. The only thing you can do at the moment is to download the vhd (after deleting the VM and the other steps...) and attach the vhd as data disk to another system and repair the vhd with some tools there. The problem is the same as for resizing the disk size - you are downloading and uploading some 30 GBytes just to set some few bits e.g. in the Registry.<br>Hope this is more clear now.</p>

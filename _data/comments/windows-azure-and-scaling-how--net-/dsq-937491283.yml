@@ -1,6 +1,0 @@
-id: dsq-937491283
-replyToId: dsq-937490217
-date: 2011-06-14T16:10:02.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>This is because the roles are informed of a configuration change. They are in "updating" state however will keep running. THis behaviour can be modified through the OnChanging event of the RoleEnvironment class.</p>

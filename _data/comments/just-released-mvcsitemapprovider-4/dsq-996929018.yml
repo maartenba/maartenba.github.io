@@ -1,5 +1,0 @@
-id: dsq-996929018
-date: 2013-08-12T08:13:02.0000000+02:00
-name: Peter Hancock
-avatar: https://disqus.com/api/users/avatars/peter_hancock.jpg
-message: <p>Nice - couple of things though</p><p> - dependency injection aids testability, but through MvcSiteMapProvider.SiteMaps.ReleaseSiteMap(); we can now no longer test code that refers to that...</p><p>- Is it just Unity, or are you registering a whole bunch of interfaces that don't actually need to be registered for the provider.  Installing the unity module kind of destroyed all my registration code.  Kinda feels you've slugged the registration with a sledge hammer.</p><p>Other than that though, once running it seems more performant!</p>

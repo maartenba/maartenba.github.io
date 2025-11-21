@@ -1,5 +1,0 @@
-id: dsq-949123729
-date: 2013-07-02T16:56:25.0000000+02:00
-name: fabio parente
-avatar: https://disqus.com/api/users/avatars/fabioparente.jpg
-message: <p>Great Article! Very interesting!</p><p>But I'd like to implement the session state partitioning on every local machine of the web farm itself. For example, every single machine of the web farm must be its single state machine itself locally. Is it possible?</p><p>If true, I think i will not need a partitioning class. Right?</p><p>Probably i'll need only serializeble data, <a href="http://asp.net" rel="nofollow noopener" title="asp.net">asp.net</a> state service active (on every single machine???) and change the web config this way:</p><p>&lt;sessionstate mode="StateServer" stateconnectionstring="tcpip=your_server_ip:42424" cookieless="false" timeout="20"/&gt;</p><p>Right?</p><p> (what about cookieless true or false?????)</p>

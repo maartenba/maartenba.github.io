@@ -1,5 +1,0 @@
-id: dsq-4019693582
-date: 2018-08-03T08:46:55.0000000+02:00
-name: Tymek Majewski
-avatar: https://disqus.com/api/users/avatars/tymekmajewski.jpg
-message: <p>We’ll just create an infinite loop (that does check a CancellationToken) that triggers every minute.</p><p>The "that triggers every minute." is not entirely correct. It will run every a-little-bit-more-than-a-minute.</p><p>Do you know of an example of IHostedService which runs task at 'exactly' the right time?</p>

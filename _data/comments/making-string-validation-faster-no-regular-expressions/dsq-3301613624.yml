@@ -1,6 +1,0 @@
-id: dsq-3301613624
-replyToId: dsq-3301610363
-date: 2017-05-12T08:25:23.0000000+02:00
-name: Maarten Balliauw
-avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
-message: '<p>Forgot: the better way to solve this would be to get the validation out of the way completely in that path, but that would have taken too long to refactor the codebase around two models (one with, one withoud) validation or moving the validation to its own class and calling into it where needed.</p>'

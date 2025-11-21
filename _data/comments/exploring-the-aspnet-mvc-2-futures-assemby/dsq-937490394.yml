@@ -1,5 +1,0 @@
-id: dsq-937490394
-date: 2009-10-06T17:12:13.0000000+02:00
-name: Dave Van den Eynde
-avatar: https://disqus.com/api/users/avatars/GroovBird.jpg
-message: <p>I think this could be helpful if JSON was one of the serialization option. That way, a page could already contain some data for a client script to work with, instead of having the client script perform a second request to get its initialization data.</p>

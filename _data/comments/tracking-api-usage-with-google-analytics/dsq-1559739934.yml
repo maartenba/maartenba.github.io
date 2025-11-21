@@ -1,5 +1,0 @@
-id: dsq-1559739934
-date: 2014-08-26T13:42:27.0000000+02:00
-name: Fred .
-avatar: https://disqus.com/api/users/avatars/disqus_UewjzPq6jN.jpg
-message: "<p>I installed the GoogleAnalyticsTracker.WebAPI2 package (version 3.0.16). When I try to add the filter to my FilterConfig.cs file, it says: \"Cannot resolve symbol 'ControllerDescriptor'\" on the <code>action.ControllerDescriptor.ControllerName</code> line.<br>I can get rid of that that unresolved symbol by changing that line to <code>action.ControllerContext.ControllerDescriptor.ControllerName</code>.<br>I still get an InvalidOperationException though.</p><p></p><pre>Additional information: The given filter instance must implement one or more of the following filter interfaces: System.Web.Mvc.IAuthorizationFilter, System.Web.Mvc.IActionFilter, System.Web.Mvc.IResultFilter, System.Web.Mvc.IExceptionFilter, System.Web.Mvc.Filters.IAuthenticationFilter.</pre>"

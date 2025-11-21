@@ -1,7 +1,0 @@
-id: 3aeffd4c
-date: 2020-04-15T21:29:03.7407968Z
-name: Rahul Kumar
-email: 
-avatar: https://secure.gravatar.com/avatar/276a2dee2a441fb8039a88d7c4ba541f?s=80&r=pg
-url: 
-message: I want to know the object size at runtime as how much memory it takes. Can you please suggest the way. I have a class with few properties and at runtime those property vales are set. Now I want to know the size pf the class object. Please help

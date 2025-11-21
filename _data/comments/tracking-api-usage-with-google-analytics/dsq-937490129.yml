@@ -1,5 +1,0 @@
-id: dsq-937490129
-date: 2012-02-06T21:45:55.0000000+01:00
-name: Mark Gibaud
-avatar: https://disqus.com/api/users/avatars/Mark Gibaud.jpg
-message: <p>Maarten,</p><p>That looks great - do you have any advice on how you could segment/filter API usage on API Keys?</p><p>Maybe (mis)use the UserAgent or something else that only makes sense when GA is interacting with a browser?</p><p>Or perhaps a GA Custom Variable?</p>

@@ -1,5 +1,0 @@
-id: dsq-937491214
-date: 2007-10-10T18:21:18.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: '<p>Strange thing is: this DOES work on almost every PHP installation I did. Users of PHPExcel were compalining about strange errors, and tracked the problem down to this.</p>'

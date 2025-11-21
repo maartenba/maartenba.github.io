@@ -1,5 +1,0 @@
-id: dsq-3470622743
-date: 2017-08-16T13:06:20.0000000+02:00
-name: astig07
-avatar: https://disqus.com/api/users/avatars/astig07.jpg
-message: <p>Another problem with NWebsec.AspNetCore.Middleware which refer to NWebsec.AspNetCore.Core.<br>Now I recieve error:<br>"ErrorCS0012The type 'IFluentInterface' is defined in an assembly that is not referenced. You must add a reference to assembly 'NWebsec.AspNetCore.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null'."</p>

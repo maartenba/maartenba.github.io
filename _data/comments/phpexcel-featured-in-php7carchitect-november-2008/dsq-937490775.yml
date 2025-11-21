@@ -1,5 +1,0 @@
-id: dsq-937490775
-date: 2009-09-30T04:06:02.0000000+02:00
-name: alains
-avatar: https://disqus.com/api/users/avatars/alains.jpg
-message: "<p>bonjour,</p><p>je n'arrive pas &amp;#224 utiliser PHPExcel<br>j'obtiens  :</p><p>Parse error: syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}' in /homez.194/plaidoye/www/PHPExcel.php on line 70</p><p>je dois oublier quelque-chose d'&amp;#233vident pour vous</p><p>voici le d&amp;#233but du  source de mon php :</p><p>/** PHPExcel */<br>require_once 'PHPExcel.php';</p><p>/** PHPExcel_Cell_AdvancedValueBinder */<br>require_once 'PHPExcel/Cell/AdvancedValueBinder.php';</p><p>/** PHPExcel_IOFactory */<br>require_once 'PHPExcel/IOFactory.php';</p><p>$objReader = PHPExcel_IOFactory::createReader('Excel2007');<br>$objReader-&gt;setReadDataOnly(true);</p><p>$objPHPExcel = $objReader-&gt;load(\"FichiersDesEcoles/Liste_ecoles.xls\");<br>$objWorksheet = $objPHPExcel-&gt;getActiveSheet();</p><p>merci d'avance pour votre compr&amp;#233hension</p>"

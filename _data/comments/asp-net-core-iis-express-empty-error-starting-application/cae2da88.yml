@@ -1,5 +1,0 @@
-id: ccd9d409
-date: 2019-06-13T16:32:04.7377042Z
-name: Jonas
-avatar: https://secure.gravatar.com/avatar/823a18a6f771d83568f71275ffd0b66e?s=80&r=pg
-message: I am struggling with deploying my Asp.net core & Kestrel Webapp on my Ubuntu server. I use azure devops to deploy it but that never works and there is basically no error message. So what I always end up doing is clone the repo and publish it myself...

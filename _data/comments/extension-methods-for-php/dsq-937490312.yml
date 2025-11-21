@@ -1,5 +1,0 @@
-id: dsq-937490312
-date: 2010-06-16T13:05:14.0000000+02:00
-name: Chris Henry
-avatar: https://disqus.com/api/users/avatars/Chris Henry.jpg
-message: <p>Interesting concept.  Why would someone choose to do this over simply extending the class and adding the methods that way?  It seems as though it would be difficult to leverage and extensions you write and lead to a mess of randomly extended objects without any helpful organization.</p>

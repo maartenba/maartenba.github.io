@@ -1,7 +1,0 @@
-id: 81d2191d
-date: 2020-06-02T08:21:43.4474393Z
-name: Pavlo P
-email: 
-avatar: https://secure.gravatar.com/avatar/c98171b7c13089f2c082644b901cf548?s=80&r=pg
-url: 
-message: "Where is the benefit to have many functions instances opposite to monolith? If we have so good scaling, should we care? \r\nAnd yes, I am still sure that middle size monolith is better that hundreds of instances without assigned devops to manage them.\r\n\r\nSo only argument against functions as web api - no pipelines, middleware and some other stuff we can't remember? Pipelines and middleware  can be written in less that 100 rows of code, so is it a problem? \r\nDo you see any other?\r\n\r\nProbably performance may straggle since with functions you will have relatively small one instance size (RAM, CPU) and warm up for complicated API may take a while. "

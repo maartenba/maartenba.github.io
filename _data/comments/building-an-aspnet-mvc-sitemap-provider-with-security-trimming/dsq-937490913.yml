@@ -1,5 +1,0 @@
-id: dsq-937490913
-date: 2009-05-21T19:15:19.0000000+02:00
-name: Anis
-avatar: https://disqus.com/api/users/avatars/Anis.jpg
-message: <p>Hi Maartim!</p><p>It's a nice article indeed.</p><p>I just want to know if we could specify the action permissions in sitemap instead of specifying it as [Authorize (Role="Admin")] attribute?</p><p>I think it would be a nice addion.r</p><p>Regards,<br>Anis</p>

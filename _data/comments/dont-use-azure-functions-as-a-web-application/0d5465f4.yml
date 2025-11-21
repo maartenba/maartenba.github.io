@@ -1,5 +1,0 @@
-id: 0f6f9b6f
-date: 2020-04-06T10:35:56.7629806Z
-name: pamnani
-avatar: https://secure.gravatar.com/avatar/1fa9eb35272da3e993e669c1c61976e4?s=80&r=pg
-message: "@Maarten.. Example you wrote as a comment on 06 March, deployment will bring down all function down...isn't depends on deployment pattern and can be avoided with using the deployment slot. \r\n\r\nOne thing which I see if more than 1k request hits at the same time to micro service build using 10 different function (APIs) and then to handle integration among function, security,  network communication be bit challenge specifically when web app consist of 100  micro services or more.\r\n\r\n"

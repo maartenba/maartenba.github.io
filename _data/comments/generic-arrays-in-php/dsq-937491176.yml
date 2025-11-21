@@ -1,5 +1,0 @@
-id: dsq-937491176
-date: 2007-11-08T18:16:09.0000000+01:00
-name: kyle
-avatar: https://disqus.com/api/users/avatars/kyle.jpg
-message: '<p>Even for primitive types the solution works well:</p><p>class StringObjectArray extends GenericArrayObject<br>{<br>public static function isValid( $value )<br>{<br>return is_string($value);<br>}<br>}</p><p>As the user implements the strategy in his subclass he even may guarantee that only integers &gt; 10 are stored:</p><p>class IntegerGt10ObjectArray extends GenericArrayObject<br>{<br>public static function isValid( $value )<br>{<br>return is_integer($value) &amp;&amp; $value &gt; 10;<br>}<br>}</p><p>PS: Remember to check the initializing $array of ArrayObjects constructor - if any of the values is not valid -&gt; InvalidArgumentException.</p>'

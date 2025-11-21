@@ -1,5 +1,0 @@
-id: dsq-937490961
-date: 2008-07-12T05:50:19.0000000+02:00
-name: Swordfish
-avatar: https://disqus.com/api/users/avatars/Swordfish.jpg
-message: "<p>I second the remark of dlkl (just above). Only why not using the new 3.5 DataList? It's works perfectly with MVC (See Scott Gurthie blog) and it's not too hard to hard to turn it into a datagrid with ajax support. That's reminds me, A few weeks ago I came across a project name Ajax Data Controls from dotnetjunkies. It can do the same as the 'one-liner' function but it has proper template support, it has better maintainability (very important in larger projects where multiple developers are involved) and as dlkl said: readability is also important.</p>"

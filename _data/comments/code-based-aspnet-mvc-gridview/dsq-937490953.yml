@@ -1,5 +1,0 @@
-id: dsq-937490953
-date: 2008-06-05T15:28:05.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>Actually this was the first thing that popped up in my mind. I've used the ComponentController before in the Mvc Membership provider (<a href="http://www.codeplex.com/MvcMembership)" rel="nofollow noopener" title="www.codeplex.com/MvcMembership)">www.codeplex.com/MvcMembers...</a> and it proved quite nice to work with.</p><p>Using a ComponentController for something like a gridview would indeed be an interesting approach, as one could use 1 ComponentController base class, if needed a specific ComponentController, and multiple Views with that.</p>

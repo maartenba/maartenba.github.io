@@ -1,5 +1,0 @@
-id: dsq-937490182
-date: 2011-05-31T16:50:17.0000000+02:00
-name: Stif
-avatar: https://disqus.com/api/users/avatars/Stif.jpg
-message: <p>Great initiative guys!</p><p>There&amp;#39s potential here. One quick question here:</p><p>* How private is my private nuget feed?</p><p>It seems I can login by just clicking login. How can my nuget feed become password protected so that only our company (my collegues) can access our packages. Something in lines of what the people at devexpress are providing.</p><p>I think for companies to start using this, you&amp;#39ll need to provide guarantees that private feeds are really private and that the packages in them will never be available to non-authorized persons.</p><p>Thumbs up for this initiative, it enables my to be lazy ;-)</p>

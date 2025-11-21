@@ -1,5 +1,0 @@
-id: dsq-1559792238
-date: 2014-08-26T14:16:09.0000000+02:00
-name: Fred .
-avatar: https://disqus.com/api/users/avatars/disqus_UewjzPq6jN.jpg
-message: <p>How do you register <code>ActionTrackingAttribute</code> as a global action filter in a Web API 2 project?</p><p>The 'ControllerDescriptor' could not be resolved. The 'action' lambda does not contain any 'ControllerDescriptor'.</p>

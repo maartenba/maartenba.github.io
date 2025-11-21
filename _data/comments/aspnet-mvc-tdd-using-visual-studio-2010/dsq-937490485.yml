@@ -1,5 +1,0 @@
-id: dsq-937490485
-date: 2009-06-11T18:45:08.0000000+02:00
-name: Thomas Eyde
-avatar: https://disqus.com/api/users/avatars/Thomas Eyde.jpg
-message: <p>My preferred workflow in R#:</p><p>Please note that even this is a long list, the only mechanical steps are writing code in the testfile, and one final cut and paste. The rest is handled automatically via painless shortcuts.</p><p>- write my test.<br>- let R# create my class + constructor. Finish constructor (R# works this way).<br>- let R# create my method. Finish method with something that is clearly wrong. First test run should fail.<br>- fix any remaining compilation errors.<br>- run test.<br>- pass test.<br>- move class to new file (R# shortcut).<br>- find class in solution explorer (R# shortcut).<br>- cut and paste class file to where it's supposed to be.<br>- fix namespace (R# shortcut).</p>

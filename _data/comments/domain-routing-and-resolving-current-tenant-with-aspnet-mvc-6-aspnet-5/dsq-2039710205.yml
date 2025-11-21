@@ -1,5 +1,0 @@
-id: dsq-2039710205
-date: 2015-05-22T18:37:49.0000000+02:00
-name: Kyle
-avatar: https://disqus.com/api/users/avatars/disqus_YO251XKrTD.jpg
-message: <p>Will either of these approaches work with full (i.e. not sub) domains?  I want to use one MVC 5 application to run several smaller websites that all have their own domains.</p>

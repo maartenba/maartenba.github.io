@@ -1,5 +1,0 @@
-id: dsq-937490152
-date: 2011-12-06T23:39:25.0000000+01:00
-name: tugberk
-avatar: https://disqus.com/api/users/avatars/tugberk.jpg
-message: <p>Hmm, couldn&amp;#39t understand the logic of DeckCast.Console app.</p><p>I opened up a presenter web page and a viewer web page. When I switch the slide on the presenter side, view side is also switching. So far so good.</p><p>Then, I fired the console app. It asked me to be presenter or viewer. I hit v and enter.</p><p>Then it asked me a deckid which I am not aware of the value of it.</p>

@@ -1,5 +1,0 @@
-id: dsq-937490500
-date: 2010-01-11T23:15:58.0000000+01:00
-name: Alessandro
-avatar: https://disqus.com/api/users/avatars/Alessandro.jpg
-message: '<p>Hello, i tried this solution and it worked well in my localhost, but when i tried using it in my webserver, something went wrong.</p><p>I have the *.caeli.com.br A 75.125.142.234 in my dns records but it seems the mcv cant see it... or any subdomain is redirecting to another place.</p><p>To see whats happening , the website is : <a href="http://www.caeli.com.br" rel="nofollow noopener" title="www.caeli.com.br">www.caeli.com.br</a>.  any subdomain you put goes to a default plesk page... any idea whats wrong ?</p><p>Thanks<br>Alessandro</p>'

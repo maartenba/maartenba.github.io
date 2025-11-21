@@ -1,5 +1,0 @@
-id: dsq-937490883
-date: 2008-10-27T19:55:17.0000000+01:00
-name: Andr&#233;
-avatar: https://disqus.com/api/users/avatars/Andr&#233;.jpg
-message: <p>Hi Maarten,</p><p>I also had the problem with the MvcHandler. I think this is caused by the way MVC beta redirects to the Home page in default.aspx.cs:</p><p>[b]HttpContext.Current.RewritePath(Request.ApplicationPath);<br>IHttpHandler httpHandler = new MvcHttpHandler();<br>httpHandler.ProcessRequest(HttpContext.Current);<br>[/b]</p><p>This instantiates a MvcHttpHandler instead of a MvcHandler. Due to the caching the code in BuildSiteMap() is only executed with a MvcHandler after the cache period has expired.</p><p>For the time being I have changed the pageload handler back to</p><p>[b]Response.Redirect("~/Home");[/b]</p><p>and then everything works great again.</p><p>HTH</p>

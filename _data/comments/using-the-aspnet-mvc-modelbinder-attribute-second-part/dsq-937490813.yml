@@ -1,5 +1,0 @@
-id: dsq-937490813
-date: 2008-10-03T22:17:48.0000000+02:00
-name: Chris
-avatar: https://disqus.com/api/users/avatars/Chris.jpg
-message: "<p>Hey, did my comment get killed? I posted yesterday.  Funnily enough notifications about this comments posted to blog were emailed to me.</p><p>I'm familiar with the IModelBinder stuff in MVC.  I downloaded your source and the code doesn't make sense to me.  Changing the value of the name for example and then posting, doesn't update the person model.  I'm not following why you would need to serialize a Person instance to the client side, you already did that when you displayed a form with the fields prepopulated with the person values.  I had written an AutoBinder thingy some time back and made a post about it, just an easy way of mapping up field values to property values, check it out: <a href=\"http://panteravb.com/blog/posts/2008/10/2/imodelbinder-with-autobinder.ashx\" rel=\"nofollow noopener\" title=\"http://panteravb.com/blog/posts/2008/10/2/imodelbinder-with-autobinder.ashx\">http://panteravb.com/blog/p...</a></p>"

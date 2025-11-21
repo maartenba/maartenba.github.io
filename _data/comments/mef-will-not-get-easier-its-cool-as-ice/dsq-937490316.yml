@@ -1,5 +1,0 @@
-id: dsq-937490316
-date: 2010-03-04T20:42:25.0000000+01:00
-name: Wim Bokkers
-avatar: https://disqus.com/api/users/avatars/Wim Bokkers.jpg
-message: <p>Does container.ComposeParts(task) only compose the parts to satisfy only the imports of the task object? Or does it also satisfy all other imports in the executing assembly? I have a problem with understanding wat this ComposeParts call really does.</p>

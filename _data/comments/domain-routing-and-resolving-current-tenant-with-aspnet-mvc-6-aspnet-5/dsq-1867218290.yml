@@ -1,5 +1,0 @@
-id: dsq-1867218290
-date: 2015-02-21T05:28:29.0000000+01:00
-name: Jerrie Pelser
-avatar: https://disqus.com/api/users/avatars/$36398467.jpg
-message: <p>I like the middleware approach Maarten! I have implemented something similar for a client, but using a custom authentication attribute. Your middleware approach seem cleaner to me - time to go do some refactoring :)</p>

@@ -1,6 +1,0 @@
-id: dsq-1211699966
-replyToId: dsq-1211693386
-date: 2014-01-22T09:53:04.0000000+01:00
-name: Stuart Leeks
-avatar: https://disqus.com/api/users/avatars/stuartleeks.jpg
-message: <p>I've got the following redirect which only affects up to 5.2</p><p>      &lt;dependentassembly&gt;<br>        &lt;assemblyidentity name="Microsoft.Data.Edm" publickeytoken="31bf3856ad364e35" culture="neutral"/&gt;<br>        &lt;bindingredirect oldversion="0.0.0.0-5.2.0.0" newversion="5.2.0.0"/&gt;<br>      &lt;/dependentassembly&gt;</p><p>I uninstalled and reinstalled the Glimpse.WindowsAzure and Glimpse.WindowsAzure.Storage packages, but no change</p>

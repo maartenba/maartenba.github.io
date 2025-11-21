@@ -1,7 +1,0 @@
-id: 3ecce152
-date: 2023-04-03T05:14:14.8957886Z
-name: Maarten Balliauw
-email: 
-avatar: https://secure.gravatar.com/avatar/112c461046c64635060557a5a566d6a4?s=80&r=pg
-url: https://blog.maartenballiauw.be/
-message: Correct. This is assuming the C# code and JSON are both correctly annotated/generated, and the JSON never contains a `null` where the POCO says otherwise.

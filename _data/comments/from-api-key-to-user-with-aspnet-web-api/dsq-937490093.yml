@@ -1,5 +1,0 @@
-id: dsq-937490093
-date: 2012-10-18T23:02:32.0000000+02:00
-name: Dominick
-avatar: https://disqus.com/api/users/avatars/Dominick.jpg
-message: <p>All that functionality is already wrapped up in Thinktecture.IdentityModel ;)</p><p>...but you need to set HttpContext.User as well (see <a href="http://leastprivilege.com/2012/06/25/important-setting-the-client-principal-in-asp-net-web-api/)" rel="nofollow noopener" title="http://leastprivilege.com/2012/06/25/important-setting-the-client-principal-in-asp-net-web-api/)">http://leastprivilege.com/2...</a></p>

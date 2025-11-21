@@ -1,5 +1,0 @@
-id: dsq-1211692271
-date: 2014-01-22T09:38:44.0000000+01:00
-name: Stuart Leeks
-avatar: https://disqus.com/api/users/avatars/stuartleeks.jpg
-message: <p>I got an error for the Azure Storage tab that Microsoft.Data.Edm version 5.6.0.0 wasn't found. I updated that package manually and it worked fine. Should this be added as a package dependency?</p>

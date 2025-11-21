@@ -1,5 +1,0 @@
-id: dsq-937491051
-date: 2008-02-08T03:35:00.0000000+01:00
-name: Bart
-avatar: https://disqus.com/api/users/avatars/Bart.jpg
-message: <p>Nice post maarten!</p><p>But I do wonder how this profiling stuff acts on really [b]big[/b] applications, where it is much harder to find those 'hotpaths' (I guess ?)</p>

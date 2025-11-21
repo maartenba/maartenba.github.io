@@ -1,5 +1,0 @@
-id: dsq-937490956
-date: 2008-07-10T22:43:48.0000000+02:00
-name: dkl
-avatar: https://disqus.com/api/users/avatars/dkl.jpg
-message: '<p>It seems a little bit too complicated. Too many lambdas just to abstract away one foreach cycle. This is the real meat of this approach:</p><p>[quote]<br>      headerTemplate(data);</p><p>        int i = 0;<br>        foreach (var item in data.PagedList)<br>        {<br>            if (!item.Equals(data.EditItem))<br>            {<br>                itemTemplate(item, (i % 2 == 0 ? cssClass : cssAlternatingClass));<br>            }<br>            else<br>            {<br>                editItemTemplate(item);<br>            } <br>            i++;<br>        }</p><p>        footerTemplate(data);<br>[/quote]</p><p>Should we sacrifice readability just because one simple foreach cycle?</p>'

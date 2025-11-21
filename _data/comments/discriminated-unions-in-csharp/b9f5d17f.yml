@@ -1,7 +1,0 @@
-id: bb4ad2c3
-date: 2024-02-19T14:12:52.5406511Z
-name: falconmick
-email: 
-avatar: https://secure.gravatar.com/avatar/6c471493743ecfce73611d455048b880?s=80&r=pg
-url: 
-message: Hey maybe you can help me understand actually what Discriminating Unions are... I was under the impression that for it to be a DU and not just a regular union that the options had to be tagged, kinda like how in rust enum options can have values assosiated to them or just be tags. When I look at the Results class what I see is the OneOf pattern where the T value is constrained to be IResult.. This who Union vs Tagged Union vs Discriminated Union thing has really been confusing for me, would love your feedback.. Oh and to leave this comment I had to hack this comment into the hidden message input as when I click on the text bos on firefox I cannot type!

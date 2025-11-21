@@ -1,5 +1,0 @@
-id: dsq-937490817
-date: 2008-10-06T12:17:46.0000000+02:00
-name: tgmdbm
-avatar: https://disqus.com/api/users/avatars/tgmdbm.jpg
-message: <p>Check the second call to AddModelError. The perils of cut and paste. *wink*</p><p>The only problem that I can see with this approach is a malicious user can see all serializable properties of the Person object and you don't necessarily want that.</p>

@@ -1,6 +1,0 @@
-id: dsq-1559882900
-replyToId: dsq-1559878970
-date: 2014-08-26T15:31:19.0000000+02:00
-name: Fred .
-avatar: https://disqus.com/api/users/avatars/disqus_UewjzPq6jN.jpg
-message: <p>I think so. I assume so. Because it compiles and runs.</p><p>Your instructions said to use <code>action.ControllerDescriptor.ControllerName</code> which did not work for me (not does resolve symbol, hence does not compile). Are you sure it should be that?</p><p>Are you sure it should not be <code>action.ControllerContext.ControllerDescriptor.ControllerName</code>?<br>This <i>seems</i> seems to work for me. At least it compiles (and runs without throwing any exception).</p>

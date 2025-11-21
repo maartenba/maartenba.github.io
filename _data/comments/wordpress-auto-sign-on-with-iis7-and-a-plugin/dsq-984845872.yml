@@ -1,5 +1,0 @@
-id: dsq-984845872
-date: 2013-08-01T20:44:16.0000000+02:00
-name: Kerry Fitzgerald
-avatar: https://disqus.com/api/users/avatars/kerry_fitzgerald.jpg
-message: <p>Okay, one more question. The plugin appears to work perfectly. The only problem is that when I activated the plugin I could no longer login to the WP Adimin Dashboard since my username/password for Active Directory does not match the username/password for the WP Admin. This totally locked me out of editing the WP site so I was forced to remove the PHP script from the plugin folder in order to manually deactivate the plugin. I then went in and changed my AD username/password credentials to the role of administrator. Now I'm not sure if there are any capabilities that I won't have that would otherwise be available if I logged in as the WP Admin. Did I miss a step? How do others continue to manage the WP site through the Admin account (since you can't log out once this plugin is activated). Hope this makes sense.</p>

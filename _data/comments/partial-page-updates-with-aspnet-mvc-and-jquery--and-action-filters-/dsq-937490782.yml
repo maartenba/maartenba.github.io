@@ -1,5 +1,0 @@
-id: dsq-937490782
-date: 2008-12-01T13:55:58.0000000+01:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>True, this is a quick workaround for implementing partial page updates. Nicest solution is actually returning json and rendering using PURE (check <a href="http://plugins.jquery.com" rel="nofollow noopener" title="plugins.jquery.com">plugins.jquery.com</a>)</p>

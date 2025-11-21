@@ -1,5 +1,0 @@
-id: dsq-937490496
-date: 2009-07-27T21:27:20.0000000+02:00
-name: Adrian Grigore
-avatar: https://disqus.com/api/users/avatars/Adrian Grigore.jpg
-message: "<p>@Chad: I had the same problem. It's not caused by ASP.NET membership though, but by the fact that browser Cookies are only accessible by the domain in which they were created. That's done for security reasons, after all you would not want any site to spy into your logon cookies of other sites.</p><p>The workaround I used is quite simple though: Once a user has supplied the correct user name and password, redirect him to a controller on the domain he wants to log in to. That controller just sets the authentication cookie and redirects again to the page that the user actually wanted to visit.</p>"

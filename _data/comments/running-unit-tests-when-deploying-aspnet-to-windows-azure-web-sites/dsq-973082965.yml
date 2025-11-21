@@ -1,6 +1,0 @@
-id: dsq-973082965
-replyToId: dsq-973002306
-date: 2013-07-23T07:47:53.0000000+02:00
-name: Maarten Balliauw
-avatar: https://disqus.com/api/users/avatars/maartenballiauw.jpg
-message: <p>1. In my full file I'm issuing msbuild for both the test project and the actual application (didn't post that one...)</p><p>2. Try https://&lt;yoursite&gt;.scm.azurewebsites.net/KuduExec/ and go wild :-)</p>

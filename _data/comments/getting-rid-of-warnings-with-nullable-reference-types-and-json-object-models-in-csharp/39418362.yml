@@ -1,7 +1,0 @@
-id: 4ab346a4
-date: 2023-01-16T11:52:48.0108708Z
-name: Jack
-email: 
-avatar: https://secure.gravatar.com/avatar/0dae306a516128af3a7fb7ba9c4def28?s=80&r=pg
-url: https://jtbrown.me/
-message: I like to handle this scenario by using a naming convention + adding a pattern match rule into .editorconfig so that we don't get warnings on these types of records

@@ -1,5 +1,0 @@
-id: dsq-1710607454
-date: 2014-11-24T21:57:54.0000000+01:00
-name: Miša Zdravković
-avatar: https://disqus.com/api/users/avatars/$133023441.jpg
-message: <p>Hi there. What is the recommended way to track how long a particular action was taking to run. I would need to measure a time how long each WebApi action runs. Is there a way collect this type of information and to pass it to Google Analytics?  Thanks.</p>

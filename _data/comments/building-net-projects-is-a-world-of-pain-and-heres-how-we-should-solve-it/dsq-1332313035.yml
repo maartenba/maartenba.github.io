@@ -1,5 +1,0 @@
-id: dsq-1332313035
-date: 2014-04-11T22:00:36.0000000+02:00
-name: wwb_99
-avatar: https://disqus.com/api/users/avatars/wwb_99.jpg
-message: <p>One thing that could help would be just packaging more .targets and such with MSBuild directly -- there is no good reason that WebApplication.targets needs to be manually imported if you don't run visual studio for example. And I'm probably grossly violating some license agreement copying it to the build server but a man's gotta do what a man's gotta do.</p>

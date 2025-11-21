@@ -1,5 +1,0 @@
-id: dsq-2173537399
-date: 2015-08-04T14:31:41.0000000+02:00
-name: Rory
-avatar: https://disqus.com/api/users/avatars/disqus_38ZbIR6Ido.jpg
-message: <p>I like the 'gold master' testing approch, but I agree that replay testing using the IIS logs doesn't test very much - it assumes everything is a GET, there's no authentication, no state between calls, and you don't care about the response content. Using something else like Runscope or Fiddler would be more useful for validating behaviour.</p>

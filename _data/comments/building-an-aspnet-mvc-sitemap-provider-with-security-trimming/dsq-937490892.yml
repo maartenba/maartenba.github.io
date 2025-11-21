@@ -1,5 +1,0 @@
-id: dsq-937490892
-date: 2009-01-23T02:18:19.0000000+01:00
-name: pravin
-avatar: https://disqus.com/api/users/avatars/pravin.jpg
-message: "<p>Hi, I am getting following error</p><p>'System.Web.Mvc.HtmlHelper' does not contain a definition for 'ActionLink' and no extension method 'ActionLink' accepting a first argument of type 'System.Web.Mvc.HtmlHelper' could be found (are you missing a using directive or an assembly reference?)</p><p>Source Error:</p><p>Line 21:                         if (Request.IsAuthenticated) {<br>Line 22:                     %&gt;<br>Line 23:                             Welcome &lt;b&gt;&lt;%= Html.Encode(Page.User.Identity.Name) %&gt;&lt;/b&gt;! [ &lt;%=Html.ActionLink(\"Logout\", \"Logout\", \"Account\") %&gt; <br>Line 24:                     ]<br>Line 25:                     &lt;%</p><p>Please help</p>"

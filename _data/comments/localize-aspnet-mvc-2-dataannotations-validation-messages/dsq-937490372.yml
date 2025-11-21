@@ -1,5 +1,0 @@
-id: dsq-937490372
-date: 2009-11-26T03:33:46.0000000+01:00
-name: Fred
-avatar: https://disqus.com/api/users/avatars/Fred.jpg
-message: <p>Hey Maarten,</p><p>How can I access a resource that resides in another assembly which is not being referenced by the project that contains the dataannotation.<br>Can I get it through the caller assembly or somehow?</p><p>Thanks,<br>Fred</p>

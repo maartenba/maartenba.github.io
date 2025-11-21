@@ -1,5 +1,0 @@
-id: dsq-937490969
-date: 2010-07-27T16:02:57.0000000+02:00
-name: Kishan Hathiwala
-avatar: https://disqus.com/api/users/avatars/Kishan Hathiwala.jpg
-message: "<p>Hi, Thanks for the great code. What am trying to do is I am trying to use this gridview in master/details application. I have created 2 tabs in the first tab i see master table fields and in the second tab am trying to setup this gridview with add/edit/delete functionality. I am already done with majority of the task but am getting the following error while at design time: [b]Cannot implicitly convert type 'void'[/b] to 'object' AND at runtime am getting: [b]CS1525: Invalid expression term ')'[/b]. I can surely help with the code if needed.</p>"

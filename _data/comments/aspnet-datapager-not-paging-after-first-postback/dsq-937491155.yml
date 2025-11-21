@@ -1,5 +1,0 @@
-id: dsq-937491155
-date: 2009-02-15T03:53:50.0000000+01:00
-name: Jonathan
-avatar: https://disqus.com/api/users/avatars/Jonathan.jpg
-message: <p>check the end of this page, I found the solution there<br><a href="http://nayyeri.net/blog/using-datapager-and-listview-controls-with-a-custom-data-source-in-the-asp.net/" rel="nofollow noopener" title="http://nayyeri.net/blog/using-datapager-and-listview-controls-with-a-custom-data-source-in-the-asp.net/">http://nayyeri.net/blog/usi...</a><br>if you have problems to see it, here is the solution:</p><p>aspx:<br>&lt;asp:ListView runat="server" ID="rptProds" OnPagePropertiesChanging="listItems_PagePropertiesChanging"&gt;</p><p>code behind:<br>protected void listItems_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e) {</p><p>this.pagingProds.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);</p><p>BindYourDataAgain();</p><p>}</p>

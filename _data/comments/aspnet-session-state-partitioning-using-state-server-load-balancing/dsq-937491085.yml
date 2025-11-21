@@ -1,5 +1,0 @@
-id: dsq-937491085
-date: 2008-03-18T23:58:39.0000000+01:00
-name: Elan
-avatar: https://disqus.com/api/users/avatars/Elan.jpg
-message: <p>[quote]if (PerformanceCounterCategory.CounterExists("State Server Sessions Active", "ASP.NET", stateServer.ServerName))[/quote]</p><p>Isn't that an inherent check on whether the State Server is operating? Or will you error out entirely if the machinename reference leads to a server that is down?</p><p>If it works properly as is, then couldn't you include this check in the PartitionResolver class and handle appropriately if your session is pointing at a server that can no longer be found?</p>

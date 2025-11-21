@@ -1,6 +1,0 @@
-id: dsq-937491366
-replyToId: dsq-937490501
-date: 2010-01-11T23:57:47.0000000+01:00
-name: Alessandro
-avatar: https://disqus.com/api/users/avatars/Alessandro.jpg
-message: <p>I havent done anything in the IIS.  I created the website in Plesk (wich is suposed to define all the things i need in IIS ?)  And then i added the A record in DNS config inside Plesk pointing all subdomains to the same IP.</p><p>I can ping all the subdomains and they respond to the right IP but thats about it.</p><p>If im missing something in IIS could you tell me what to do ?  I know i could create the subdomains in IIS one by one and it should work fine, but the problem is i wanted to do something like <a href="http://www.user1.caeli.com.br" rel="nofollow noopener" title="www.user1.caeli.com.br">www.user1.caeli.com.br</a> and "filter" all the things i want for user 1... and then any new user should have this already set as well...</p>

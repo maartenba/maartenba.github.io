@@ -1,6 +1,0 @@
-id: dsq-937491383
-replyToId: dsq-937490566
-date: 2009-06-17T16:25:47.0000000+02:00
-name: maartenba
-avatar: https://disqus.com/api/users/avatars/maartenba.jpg
-message: <p>You can use <a href="http://mvcsitemap.codeplex.com" rel="nofollow noopener" title="http://mvcsitemap.codeplex.com">http://mvcsitemap.codeplex.com</a> for that and dynamically add MvcSiteMapNodes. Or create your own navigation handler which also queries MEF for certain exports.</p>
