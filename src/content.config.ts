@@ -1,11 +1,34 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { glob, type LoaderContext } from "astro/loaders";
+import getExcerpt from "./utils/getExcerpt";
 import { SITE } from "@/config";
 
 export const BLOG_PATH = "src/data/blog";
 
+function blogLoader() {
+  return {
+    name: "blog",
+    load: async (context: LoaderContext) => {
+      const inner = glob({ pattern: "**/[^_]*.md", base: `./${BLOG_PATH}` });
+      await inner.load(context);
+
+      const values = context.store.values();
+      for (let i = 0; i < values.length; i++) {
+        if (!values[i].data.description) {
+          const body = values[i].body;
+          if (body) {
+            const renderedContent = await context.renderMarkdown(body);
+
+            values[i].data.description = getExcerpt(renderedContent.html, 800);
+          }
+        }
+      }
+    },
+  };
+}
+
 const blog = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: `./${BLOG_PATH}` }),
+  loader: blogLoader(),
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),

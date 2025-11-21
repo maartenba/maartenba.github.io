@@ -1,3 +1,5 @@
+// noinspection ES6PreferShortImport
+
 import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
@@ -16,13 +18,18 @@ import redirectFrom from "astro-redirect-from";
 export default defineConfig({
   site: SITE.website,
   integrations: [
-    redirectFrom({ contentDir: "src/data/blog" }),
+    redirectFrom({
+      contentDir: "src/data/blog",
+    }),
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    remarkPlugins: [
+      remarkToc,
+      [remarkCollapse, { test: "Table of contents" }],
+    ],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },
