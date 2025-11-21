@@ -73,5 +73,5 @@ http://www.CodeHighlighter.com/
 <p>Here&rsquo;s a download for you if you want to make use of (sub)domain routes. Enjoy!</p>
 <p><a href="/files/2012/6/WebApiSubdomainRouting.zip">WebApiSubdomainRouting.zip (496.64 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

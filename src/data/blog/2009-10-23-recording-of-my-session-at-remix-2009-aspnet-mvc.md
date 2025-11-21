@@ -20,5 +20,5 @@ Abstract: <em>&quot;Building a Twitter clone in 60 minutes, featuring what's new
 <iframe src="http://www.microsoft.com/belux/msdn/nl/chopsticks/player.aspx?id=1412&amp;e=1" width="493" height="385" frameborder="0"></iframe>
 </p>
 
-{% include imported_disclaimer.html %}
+
 

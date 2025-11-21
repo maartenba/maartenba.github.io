@@ -78,5 +78,5 @@ http://www.CodeHighlighter.com/
 <p>Sweet! You can now add the Roslyn analyzer and code fix per-project, by installing the NuGet package from the feed (<a title="https://www.myget.org/F/datetime-analyzer/api/v2" href="https://www.myget.org/F/datetime-analyzer/api/v2">https://www.myget.org/F/datetime-analyzer/api/v2</a>). ANd when registering it in Visual Studio (<a title="https://www.myget.org/F/datetime-analyzer/vsix/" href="https://www.myget.org/F/datetime-analyzer/vsix/">https://www.myget.org/F/datetime-analyzer/vsix/</a>) by opening the <em>Tools | Options...</em> menu and the <em>Environment | Extensions and Updates</em> pane, you can also install the full extension.</p>
 <p><a href="/images/image_thumb%5B12%5D.png"><img title="image_thumb[12]" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image_thumb[12]" src="/images/image_thumb%5B12%5D_thumb.png" width="640" height="333"></a></p>
 
-{% include imported_disclaimer.html %}
+
 

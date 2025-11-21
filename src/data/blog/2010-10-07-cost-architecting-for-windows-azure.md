@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
   <p>Want to read more? Check <a href="http://technet.microsoft.com/en-us/magazine/gg213848.aspx">the full article</a>. I will also be doing a session on this later this month for the <a href="http://www.azug.be">Belgian Azure User Group</a>.</p>
 
-{% include imported_disclaimer.html %}
+
 

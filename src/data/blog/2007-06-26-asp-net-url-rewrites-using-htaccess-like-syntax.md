@@ -57,5 +57,5 @@ The above code has 3 possible rewrite conditions. If a URL is in the form of &qu
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

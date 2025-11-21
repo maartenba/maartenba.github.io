@@ -297,5 +297,5 @@ I hope you now know what the future for ASP.NET MVC holds. It&rsquo;s not sure a
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

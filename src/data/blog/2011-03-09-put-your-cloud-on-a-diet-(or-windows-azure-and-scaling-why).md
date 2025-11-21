@@ -23,5 +23,5 @@ author: Maarten Balliauw
 <p>Of course, this is a rough estimation, but it clearly shows there is value in scaling up and down at the right moments. The example I gave is based on a local application with clear demand differences during each day and could be scaled based on the time of day. And that&rsquo;s what I will be demonstrating in the next 2 blog posts of this series: how to scale up and down automatically using the current tooling available for Windows Azure. Stay tuned!</p>
 <p><em>PS: The Excel sheet I used to create the breakdown can be found here: </em><a href="/files/2011/3/Scaling.xlsx"><em>Scaling.xlsx (11.80 kb)</em></a></p>
 
-{% include imported_disclaimer.html %}
+
 

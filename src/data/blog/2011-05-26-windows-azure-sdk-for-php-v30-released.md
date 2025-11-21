@@ -23,5 +23,5 @@ author: Maarten Balliauw
 </ul>
 <p>Find the current download at <a title="http://phpazure.codeplex.com/releases/view/66558" href="http://phpazure.codeplex.com/releases/view/66558">http://phpazure.codeplex.com/releases/view/66558</a>. Do you prefer PEAR? Well... <em>pear channel-discover pear.pearplex.net &amp; pear install pearplex/PHPAzure </em>should do the trick.</p>
 
-{% include imported_disclaimer.html %}
+
 

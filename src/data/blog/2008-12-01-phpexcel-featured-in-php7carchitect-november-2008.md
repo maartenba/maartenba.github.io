@@ -22,5 +22,5 @@ Sweet!
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

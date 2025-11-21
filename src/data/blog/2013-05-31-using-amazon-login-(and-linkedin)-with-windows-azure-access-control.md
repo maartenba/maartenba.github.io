@@ -32,5 +32,5 @@ author: Maarten Balliauw
 <p><a href="/images/image_285.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="Windows Identity Foundation claims from Amazon,LinkedIn and so on" src="/images/image_thumb_246.png" border="0" alt="Windows Identity Foundation claims from Amazon,LinkedIn and so on" width="644" height="481" /></a></p>
 <p>Enjoy! And let me know your thoughts on this service.</p>
 
-{% include imported_disclaimer.html %}
+
 

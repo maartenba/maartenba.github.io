@@ -44,5 +44,5 @@ author: Maarten Balliauw
 <p>The <a href="http://mvcsitemap.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=32395">MvcSiteMap release can be found on CodePlex</a>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/09/04/ASPNET-MVC-MvcSiteMapProvider-10-released.aspx&amp;title=ASP.NET MVC MvcSiteMapProvider 1.0 released"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/09/04/ASPNET-MVC-MvcSiteMapProvider-10-released.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

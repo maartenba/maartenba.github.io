@@ -77,5 +77,5 @@ author: Maarten Balliauw
 </ul>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/06/08/A-view-from-the-cloud-(or-locate-your-ASPNET-MVC-views-on-Windows-Azure-Blob-Storage).aspx&amp;title=A view from the cloud (or: locate your ASP.NET MVC views on Windows Azure Blob Storage)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/06/08/A-view-from-the-cloud-(or-locate-your-ASPNET-MVC-views-on-Windows-Azure-Blob-Storage).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -137,5 +137,5 @@ Check-in the build file, and build the solution! SandCastle documentation will n
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

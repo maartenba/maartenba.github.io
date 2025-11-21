@@ -301,5 +301,5 @@ http://www.CodeHighlighter.com/
 <p><strong>[edit] There's the Objective-C client: <a href="https://github.com/DyKnow/SignalR-ObjC">https://github.com/DyKnow/SignalR-ObjC</a></strong></p>
 <p>The sample code for this blog post can be downloaded here: <a href="/files/2011/12/DeckCast.zip">DeckCast.zip (291.58 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

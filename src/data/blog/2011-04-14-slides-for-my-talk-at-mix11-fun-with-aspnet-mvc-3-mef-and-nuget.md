@@ -26,5 +26,5 @@ author: Maarten Balliauw
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2011/04/14/Slides-for-my-talk-at-MIX11-Fun-with-ASPNET-MVC-3-MEF-and-NuGet.aspx&amp;title=Slides for my talk at MIX11: Fun with ASP.NET MVC 3, MEF and NuGet"> <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2011/04/14/Slides-for-my-talk-at-MIX11-Fun-with-ASPNET-MVC-3-MEF-and-NuGet.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 <script src="http://b.scorecardresearch.com/beacon.js?c1=7&amp;c2=7400849&amp;c3=1&amp;c4=&amp;c5=&amp;c6="></script>
 
-{% include imported_disclaimer.html %}
+
 

@@ -34,5 +34,5 @@ author: Maarten Balliauw
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/21/ASPNET-MVC-Chained-Controller-Factory.aspx&amp;title=ASP.NET MVC Chained Controller Factory"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/21/ASPNET-MVC-Chained-Controller-Factory.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 <p><a href="/files/2009/8/MvcChainedControllerFactory.zip"></a></p>
 
-{% include imported_disclaimer.html %}
+
 

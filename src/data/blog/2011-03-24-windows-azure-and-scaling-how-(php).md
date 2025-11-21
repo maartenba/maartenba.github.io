@@ -121,5 +121,5 @@ http://www.CodeHighlighter.com/
 <p>Now schedule or cron this (when needed) and enjoy the benefits of scaling your Windows Azure service.</p>
 <p>So you&rsquo;re lazy? Here&rsquo;s my sample project (<a href="/files/2011/3/AutoScale-PHP.zip">AutoScale-PHP.zip (181.67 kb)</a>) and the certificates used (<a href="/files/2011/3/management.pfx">management.pfx (4.05 kb)</a>, <a href="/files/2011/3/management.cer">management.cer (1.18 kb)</a>&nbsp;and <a href="/files/2011/3/management.pem">management.pem (5.11 kb)</a>).</p>
 
-{% include imported_disclaimer.html %}
+
 

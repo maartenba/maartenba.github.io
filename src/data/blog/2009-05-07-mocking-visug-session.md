@@ -20,5 +20,5 @@ author: Maarten Balliauw
 <p>Thank you for attending the session!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/05/07/Mocking-VISUG-session.aspx&amp;title=Mocking - VISUG session"> <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/05/07/Mocking-VISUG-session.aspx.html" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

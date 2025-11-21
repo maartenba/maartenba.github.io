@@ -30,5 +30,5 @@ author: Maarten Balliauw
 <p>I like this new TDD approach and ASP.NET MVC! It&rsquo;s not ReSharper yet, but I think its a fine step that the Visual Studio team has taken.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/06/10/ASPNET-MVC-TDD-using-Visual-Studio-2010.aspx&amp;title=ASP.NET MVC TDD using Visual Studio 2010"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/06/10/ASPNET-MVC-TDD-using-Visual-Studio-2010.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

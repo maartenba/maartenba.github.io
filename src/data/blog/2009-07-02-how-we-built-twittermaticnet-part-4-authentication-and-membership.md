@@ -132,5 +132,5 @@ author: Maarten Balliauw
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-4-Authentication-and-membership.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -114,5 +114,5 @@ http://www.CodeHighlighter.com/
 
 <p>Feel this is useful to you as well? Grab the code here: <a href="/images/2011/5/DynamicServiceRoute.cs">DynamicServiceRoute.cs (1.94 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

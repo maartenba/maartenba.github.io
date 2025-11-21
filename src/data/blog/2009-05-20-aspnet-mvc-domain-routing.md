@@ -103,5 +103,5 @@ br /&gt;&nbsp;&nbsp;&nbsp; "{action}/{id}",&nbsp;&nbsp;&nbsp; // URL with parame
 <p>(if you want to try this using the development web server in Visual Studio, make sue to add some fake (sub)domains in your <a href="http://en.wikipedia.org/wiki/Hosts_file" target="_blank">hosts</a> file)</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/05/18/ASPNET-MVC-Domain-Routing.aspx&amp;title=ASP.NET MVC Domain Routing"><img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/05/18/ASPNET-MVC-Domain-Routing.aspx" border="0"> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

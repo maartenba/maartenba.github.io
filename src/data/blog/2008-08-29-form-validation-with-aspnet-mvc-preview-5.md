@@ -153,5 +153,5 @@ Notice that there are 2 new <em>HtmlHelper</em> extension methods: <em>Validatio
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

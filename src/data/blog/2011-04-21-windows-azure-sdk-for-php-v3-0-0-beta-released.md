@@ -28,5 +28,5 @@ author: Maarten Balliauw
 <p>Do you prefer PEAR? Well... <em>pear channel-discover pear.pearplex.net &amp; pear install  pearplex/PHPAzure </em>should do the trick. Make sure you allow BETA stability packages in order to get the fresh bits.</p>
 <p><em>PS: We&rsquo;re running a PHP on Windows Azure contest in Belgium and surrounding countries. The contest is closed for registration, but there&rsquo;s good value in the blog posts coming out of it. Check </em><a href="http://www.phpazurecontest.com"><em>www.phpazurecontest.com</em></a><em> for more details.</em></p>
 
-{% include imported_disclaimer.html %}
+
 

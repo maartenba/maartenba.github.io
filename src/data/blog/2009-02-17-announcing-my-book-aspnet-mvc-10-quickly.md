@@ -65,5 +65,5 @@ Of course, I can grab a couple of beers (for a couple of times), but don&#39;t t
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

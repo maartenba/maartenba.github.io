@@ -59,5 +59,5 @@ author: Maarten Balliauw
 <p><strong>Note:</strong> based on <a title="ASP.NET MVC preview 3 download" href="http://www.microsoft.com/downloads/details.aspx?FamilyId=92F2A8F0-9243-4697-8F9A-FCF6BC9F66AB&amp;displaylang=en" target="_blank">ASP.NET MVC preview 3</a></p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2008/06/Code-based-ASPNET-MVC-GridView.aspx&amp;title=Code based ASP.NET MVC GridView"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/06/Code-based-ASPNET-MVC-GridView.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" />&nbsp;</a></p>
 
-{% include imported_disclaimer.html %}
+
 

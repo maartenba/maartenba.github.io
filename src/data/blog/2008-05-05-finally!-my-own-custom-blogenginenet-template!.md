@@ -16,5 +16,5 @@ Right after my <a href="/post/2007/06/my-blog-has-just-moved---.aspx" target="_b
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -68,5 +68,5 @@ In the CodePlex download (<a href="http://www.codeplex.com/mvcxforms" title="htt
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

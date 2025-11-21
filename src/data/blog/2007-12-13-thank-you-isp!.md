@@ -25,5 +25,5 @@ Good news though!&nbsp;<a href="http://www.telenet.be" target="_blank">My ISP</a
 </div>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -45,5 +45,5 @@ author: Maarten Balliauw
 <p>[/code]</p>
 <p><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/01/ASPNET-Session-State-Partitioning-using-State-Server-Load-Balancing.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" />&nbsp;</p>
 
-{% include imported_disclaimer.html %}
+
 

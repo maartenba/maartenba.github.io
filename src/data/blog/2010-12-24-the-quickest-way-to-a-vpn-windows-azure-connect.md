@@ -38,5 +38,5 @@ author: Maarten Balliauw
 <h2>Conclusion</h2>
 <p>I&rsquo;m probably abusing Windows Azure Connect doing this. However, it&rsquo;s a great use case in my opinion and I really hope Microsoft keeps supporting this. What would even be better is that they offered Windows Azure Connect in the setup I described above for home users as well. It would be a great addition to <a href="http://www.microsoft.com/windows/windowsintune/pc-management.aspx" target="_blank">Windows Intune</a> as well!</p>
 
-{% include imported_disclaimer.html %}
+
 

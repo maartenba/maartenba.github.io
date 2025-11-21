@@ -25,5 +25,5 @@ Here&rsquo;s the press release: <a href="http://www.microsoft.com/presspass/pres
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

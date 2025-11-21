@@ -165,5 +165,5 @@ http://www.CodeHighlighter.com/
 <p>The idea is identical, except that we&rsquo;re updating the incoming URL path for reasons described in the aforementioned blog post.</p>
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

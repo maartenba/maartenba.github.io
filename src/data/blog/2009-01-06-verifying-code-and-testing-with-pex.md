@@ -123,5 +123,5 @@ More information on Pex can be found on <a href="http://research.microsoft.com/e
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

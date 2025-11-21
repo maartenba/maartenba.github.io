@@ -19,5 +19,5 @@ Hope to see you at the TechDays in Antwerp!
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

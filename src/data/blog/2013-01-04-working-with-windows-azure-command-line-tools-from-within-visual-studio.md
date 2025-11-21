@@ -19,5 +19,5 @@ author: Maarten Balliauw
 <p>For reference, here&rsquo;s the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj152841">full list of supported cmdlets</a>. There&rsquo;s also <a href="http://codebetter.com/glennblock/2012/12/26/simple-powershell-scripting-for-azure-powershell-cmdlets/">Glenn Block&rsquo;s post on some common recipes</a> you can mash together using these cmdlets. Enjoy!</p>
 <p><strong>[edit] </strong>Sandrino Di Mattia has a take on this as well: <a href="http://fabriccontroller.net/blog/posts/using-the-windows-azure-cli-on-windows-and-from-within-visual-studio/">http://fabriccontroller.net/blog/posts/using-the-windows-azure-cli-on-windows-and-from-within-visual-studio/</a></p>
 
-{% include imported_disclaimer.html %}
+
 

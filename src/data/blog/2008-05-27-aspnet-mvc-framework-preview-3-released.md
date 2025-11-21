@@ -35,5 +35,5 @@ Update instructions from preview 2 to preview 3 are contained in the download. I
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

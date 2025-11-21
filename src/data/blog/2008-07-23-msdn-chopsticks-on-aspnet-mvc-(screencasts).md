@@ -33,5 +33,5 @@ Abstract: <em>&quot;This video explains you how to develop ASP.NET MVC web appli
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

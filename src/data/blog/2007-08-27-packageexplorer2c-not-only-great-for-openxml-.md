@@ -13,5 +13,5 @@ author: Maarten Balliauw
 <P mce_keep="true">Next cool thing: a new splash screen model. Always wanted to do things right with threads? No more white gaps in your screen due to a blocked UI thread? I suggest you read the eventing and threading explanation at (again) <A class="" href="http://blogs.infosupport.com/wouterv/archive/2007/08/25/The-Package-Explorer-splash-screen_3A00_-Multi_2D00_threaded-application-initialization.aspx" target=_blank mce_href="http://blogs.infosupport.com/wouterv/archive/2007/08/25/The-Package-Explorer-splash-screen_3A00_-Multi_2D00_threaded-application-initialization.aspx">Wouter's blog</A>.</P>
 <P mce_keep="true">Next suggestion: <A class="" href="http://www.codeplex.com/PackageExplorer" target=_blank mce_href="http://www.codeplex.com/PackageExplorer">download PE</A>, even if you don't know a thing about OpenXML. Want to learn how to use OO patterns? Always wanted to provide add-in functionality for your own application? PE's code gives a lot of answers on those questions!</P>
 
-{% include imported_disclaimer.html %}
+
 

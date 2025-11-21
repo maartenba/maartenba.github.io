@@ -102,5 +102,5 @@ http://www.CodeHighlighter.com/
 <p>All sorts of fancy combinations are possible, the only thing you have to do is find an approach that works for you.</p>
 <p><em>Enjoy!</em></p>
 
-{% include imported_disclaimer.html %}
+
 

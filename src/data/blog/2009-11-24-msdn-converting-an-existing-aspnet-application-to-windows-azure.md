@@ -20,5 +20,5 @@ author: Maarten Balliauw
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/11/24/MSDN-Converting-an-existing-ASPNET-application-to-Windows-Azure.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a>
 
-{% include imported_disclaimer.html %}
+
 

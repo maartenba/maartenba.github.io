@@ -17,5 +17,5 @@ author: Maarten Balliauw
 <p>Thanks for joining and bearing with me during this tough session with very sparse bandwidth!</p>
 <p>Source code used in the session: <a href="/files/2010/9/TDD.ChristmasCreator.zip">TDD.ChristmasCreator.zip (686.86 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

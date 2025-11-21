@@ -181,5 +181,5 @@ transportInstance.Deliver(email);
 <p>Sending e-mail using SendGrid is in fact getting a new e-mail message instance from the SendGrid API client, passing the e-mail details (from, to, body, etc.) on to it and handing it your SendGrid username and password upon sending.</p>
 <p>One last thing: you notice we&rsquo;re only deleting the message from the queue <em>after</em> processing it has succeeded. This is to ensure the message is actually processed. If for some reason the worker role crashes during processing, the message will become visible again on the queue and will be processed by a new worker role which processes this specific queue. That way, messages are never lost and always guaranteed to be processed at least once.</p>
 
-{% include imported_disclaimer.html %}
+
 

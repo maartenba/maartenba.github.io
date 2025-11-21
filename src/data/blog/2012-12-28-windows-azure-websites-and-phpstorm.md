@@ -44,5 +44,5 @@ http://www.CodeHighlighter.com/
 <p><a href="/images/image_240.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin: 5px auto; display: block; padding-right: 0px; border: 0px;" title="image" src="/images/image_thumb_204.png" border="0" alt="image" width="244" height="109" /></a></p>
 <p>A non-Microsoft language on Windows Azure? A non-Microsoft IDE? It all works seamlessly together! Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

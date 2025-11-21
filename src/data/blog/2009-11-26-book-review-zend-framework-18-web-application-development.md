@@ -31,5 +31,5 @@ author: Maarten Balliauw
 </ol>
 <p>These 2 points actually summarize the whole book. Great read, great content and a must-read for everyone who is not completely sure about his application design skills. Congratulations, Keith!</p>
 
-{% include imported_disclaimer.html %}
+
 

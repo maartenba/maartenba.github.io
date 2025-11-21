@@ -157,5 +157,5 @@ Want the source code? <a href="/files/MvcImageResult.zip">Download it here!</a> 
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

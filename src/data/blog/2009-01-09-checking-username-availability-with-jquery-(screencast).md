@@ -25,5 +25,5 @@ Abstract: <em>&quot;This screencast explains how to use jQuery and the ASP.NET M
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -36,5 +36,5 @@ http://www.CodeHighlighter.com/
 <p>Keep the <em>Options</em> dialog opened and find the <em>Symbols</em> node under the <em>Debugging</em> node on the left. In the dialog shown in Figure 4-14, add the symbol server URL for <em>your</em> MyGet feed: <a title="http://srv.symbolsource.org/pdb/MyGet/maartenba/11111111-1111-1111-1111-11111111111" href="http://srv.symbolsource.org/pdb/MyGet/username/11111111-1111-1111-1111-11111111111">http://srv.symbolsource.org/pdb/MyGet/username/11111111-1111-1111-1111-11111111111</a>. After that, click <em>OK</em> to confirm configuration changes and consume symbols for NuGet packages.</p>
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

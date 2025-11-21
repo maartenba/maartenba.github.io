@@ -15,5 +15,5 @@ author: Maarten Balliauw
 <div style="width:425px;text-align:center;width:100%;" id="__ss_1520404"><a style="font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;" href="http://www.slideshare.net/maartenba/php-and-silverlight-devdays-session?type=powerpoint" title="PHP And Silverlight - DevDays session">PHP And Silverlight - DevDays session</a><object style="margin:0px" width="425" height="355"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=phpandsilverlight-devdays-090602015018-phpapp02&stripped_title=php-and-silverlight-devdays-session" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=phpandsilverlight-devdays-090602015018-phpapp02&stripped_title=php-and-silverlight-devdays-session" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object></div>
 <p>We really enjoyed DevDays and want to thank everyone who was there (and was in our session while beer drinking seemed more appropriate that time of day).</p>
 
-{% include imported_disclaimer.html %}
+
 

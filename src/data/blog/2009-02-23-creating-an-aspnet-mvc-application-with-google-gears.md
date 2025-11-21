@@ -249,5 +249,5 @@ By the way, also check this: <a href="http://glazkov.com/2008/01/31/gears-asp-ne
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

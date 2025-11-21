@@ -88,5 +88,5 @@ author: Maarten Balliauw
 <p>I&rsquo;m keeping an eye on this one.</p>
 <p><span style="text-decoration: line-through;"><em>Note: You can sign up for my &ldquo;I read your blog plan&rdquo; at </em><a href="http://cloud.balliauw.net"><em>http://cloud.balliauw.net</em></a></span><em><span style="text-decoration: line-through;"> and create your SQL Server databases on the fly! (I&rsquo;ll keep this running for a couple of days, if it&rsquo;s offline you&rsquo;re too late).</span> It's down.</em></p>
 
-{% include imported_disclaimer.html %}
+
 

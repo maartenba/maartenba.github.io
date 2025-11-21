@@ -45,5 +45,5 @@ Whenever someone tampers with this hidden HTML field&#39;s data or posts to the 
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

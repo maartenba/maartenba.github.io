@@ -21,5 +21,5 @@ author: Maarten Balliauw
 <p><a href="/images/image_312.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="Console in Visual Studio Online" src="/images/image_thumb_273.png" alt="Console in Visual Studio Online" width="616" height="366" border="0" /></a></p>
 <p>I can see myself using this for some scenarios like on-the-road editing from a Git repository (yes, you can clone any repo you want in this tool) or make live modifications to some simple sites I have running. What would you use this for?</p>
 
-{% include imported_disclaimer.html %}
+
 

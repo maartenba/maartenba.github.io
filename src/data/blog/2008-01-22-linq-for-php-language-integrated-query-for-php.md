@@ -33,5 +33,5 @@ author: Maarten Balliauw
 <p>Again, you may have noticed something strange... What's this <em>new { }</em> thing doing? Actually, this is converted to an anonymous type under the covers. <em>new { "name" =&gt; "test" }</em> is evaluated to an object containing the property "name" with a value of "test".</p>
 <p>This all sounds intuitive, interesting and very handy? Indeed! Now make sure you download a copy of <a href="http://www.codeplex.com/PHPLinq" target="_blank">PHPLinq</a> today, try it, and provide the necessary feedback / feature requests on the <a href="http://www.codeplex.com/PHPLinq" target="_blank">CodePlex</a> site.</p>
 
-{% include imported_disclaimer.html %}
+
 

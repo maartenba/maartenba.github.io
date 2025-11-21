@@ -120,5 +120,5 @@ author: Maarten Balliauw
 <p>There are some more best practices over at <a href="http://www.lostechies.com/blogs/jimmy_bogard/archive/2009/04/24/how-we-do-mvc.aspx" target="_blank">LosTechies.com</a>. These are all a bit advanced and may cause performance issues on larger projects. Interesting read but do use them with care.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/05/06/More-ASPNET-MVC-Best-Practices.aspx&amp;title=More ASP.NET MVC Best Practices"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/05/06/More-ASPNET-MVC-Best-Practices.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

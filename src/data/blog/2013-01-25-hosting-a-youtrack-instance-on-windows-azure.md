@@ -74,5 +74,5 @@ author: Maarten Balliauw
 <p><a href="/images/clip_image038.jpg"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="clip_image038" src="/images/clip_image038_thumb.jpg" border="0" alt="clip_image038" width="609" height="307" /></a></p>
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

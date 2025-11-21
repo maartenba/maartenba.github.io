@@ -21,5 +21,5 @@ The folks at <a href="http://www.zend.com" target="_blank">Zend</a> contacted me
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

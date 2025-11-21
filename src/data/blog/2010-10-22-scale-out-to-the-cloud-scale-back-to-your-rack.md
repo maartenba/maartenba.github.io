@@ -254,5 +254,5 @@ http://www.CodeHighlighter.com/
 <p>It works! And it&rsquo;s fancy and cool stuff. I think this may be a good deployment and scale-out model in some situations, however there may still be a bottleneck in the on-premise ARR server: if this one has too much traffic to cope with, a new burning server is in play. Note that this solution will work for any website hosted on IIS: custom made ASP.NET apps, ASP.NET MVC, PHP, &hellip;</p>
 <p>Here&rsquo;s the download: <a href="/files/2010/10/ScaleOutToTheCloud.zip">ScaleOutToTheCloud.zip (2.81 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

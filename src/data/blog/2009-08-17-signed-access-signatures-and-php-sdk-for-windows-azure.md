@@ -46,5 +46,5 @@ author: Maarten Balliauw
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/17/Signed-Access-Signatures-and-PHP-SDK-for-Windows-Azure.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -21,5 +21,5 @@ author: Maarten Balliauw
 <p>Basically a rename of RIA services, and converted to run on top of WCF rather than an own transport layer implementation in previous versions.</p>
 <p>Overall: a great PDC09 day two!</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -25,5 +25,5 @@ I&rsquo;ve been working with and giving training on Visual Studio 2008 for quite
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

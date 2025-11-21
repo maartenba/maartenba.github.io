@@ -23,5 +23,5 @@ author: Maarten Balliauw
 
 <p>Register now and apply for taking part on <a href="http://www.jumpincamp.com">www.jumpincamp.com</a>.</p>
 
-{% include imported_disclaimer.html %}
+
 

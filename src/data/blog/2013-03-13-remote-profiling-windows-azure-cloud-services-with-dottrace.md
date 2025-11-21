@@ -83,5 +83,5 @@ http://www.CodeHighlighter.com/
 <p>Once finished, we can simply remove the <em>C:\Config\profiling.txt</em> file and Windows Azure will add the machine back to the server pool. Don't forget this as otherwise you'll be paying for the machine without being able to serve the application from it. Reimaging the machine will also add it to the pool again.</p>
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

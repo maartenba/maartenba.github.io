@@ -25,5 +25,5 @@ author: Maarten Balliauw
 <p>If you need a book which gives you the basics and some more&nbsp;advanced topics, <a href="http://www.amazon.com/gp/product/047043399X?ie=UTF8&amp;tag=maabalblo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=047043399X" target="_blank">Beginning ASP.NET MVC 1.0</a> is really for you. I liked reading it, and <a href="http://codeclimber.net.nz" target="_blank">Simone</a> and <a href="http://nayyeri.net/" target="_blank">Keyvan</a> have done a great job in explaining all there is to the great ASP.NET MVC framework. Looking forward to read more books by these guys! And to make sure my own sales figures do not drop: if you are a fan of a quick-start book on ASP.NET MVC, go buy <a href="http://www.amazon.com/dp/184719754X?tag=maabalblo-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=184719754X&amp;adid=1X4WGF0SE0JW94CGFYP0&amp;" target="_blank">ASP.NET MVC 1.0 Quickly</a> :-)</p>
 <p>Oh and by the way, a sample chapter is also available <a href="http://p2p.wrox.com/book-beginning-asp-net-mvc-1-0-isbn-978-0-470-43399-7/74180-free-chapter-9-testing-asp-net-mvc-applications-preview.html#post240422" target="_blank">at the publisher&rsquo;s site</a>.</p>
 
-{% include imported_disclaimer.html %}
+
 

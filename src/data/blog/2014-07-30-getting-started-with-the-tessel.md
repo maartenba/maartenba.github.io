@@ -70,5 +70,5 @@ climate.on(</span><span style="color: rgb(0, 0, 0);">'</span><span style="color:
 <h2>What’s next?</h2>
 <p>When I purchased the Tessel, I had the idea of building a thermometer that I can read from my smartphone, complete with history, min/max temperatures and all that. I’ve been coding on it on and off in the past weeks (not there yet). Since I’m a heavy user of <a href="http://www.jetbrains.com/phpstorm">PhpStorm</a> and <a href="http://www.jetbrains.com/webstorm">WebStorm</a> for doing non-.NET development, I thought: why not also see what those IDE’s can do for me in terms of developing for the Tessel… I’ll tell you in a <a href="/post/2014/07/31/Developing-for-the-Tessel-with-WebStorm.aspx">next blog post!</a></p>
 
-{% include imported_disclaimer.html %}
+
 

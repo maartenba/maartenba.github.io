@@ -100,5 +100,5 @@ http://www.CodeHighlighter.com/
 <p>Personally, I would like to see these two products combined into one, in the scenario outlined <a href="http://nuget.codeplex.com/Thread/View.aspx?ThreadId=240534">here</a>. However I would already be happy if I could also create a company-wide &ldquo;Templify&rdquo; feed, ideally integrated with the NuGet tooling.</p>
 <p>For fun and leasure, I packaged everything I created in this blog post: <a href="/files/2011/1/TemplifyNuGet.zip">TemplifyNuGet.zip (508.23 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -23,5 +23,5 @@ author: Maarten Balliauw
 
 <p>Read more on <a href="http://www.azure-roadtrip.be" target="_blank">wwww.azure-roadtrip.be</a>! And keep an eye on that site as I have some fun posts coming there :-)</p>
 
-{% include imported_disclaimer.html %}
+
 

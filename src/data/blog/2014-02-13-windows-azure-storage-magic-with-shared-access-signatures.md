@@ -116,5 +116,5 @@ client.SetServiceProperties(serviceProperties);</span></div></pre><!-- Code inse
 <p>Combining all these techniques, we can do some analytics and business logic in our web application and offload the boring file and network I/O to blob storage.</p>
 <p>Enjoy!</p></p>
 
-{% include imported_disclaimer.html %}
+
 

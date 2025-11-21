@@ -111,5 +111,5 @@ http://www.CodeHighlighter.com/
 
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

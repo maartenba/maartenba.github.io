@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
   <p>Some more info is available in the <a href="http://weblogs.asp.net/rchartier/archive/2008/08/01/who-are-the-aspinsiders.aspx">Who are the ASPInsiders?</a> post by one of the insiders.</p>
 
-{% include imported_disclaimer.html %}
+
 

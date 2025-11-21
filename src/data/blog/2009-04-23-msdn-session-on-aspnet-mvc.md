@@ -18,5 +18,5 @@ author: Maarten Balliauw
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/04/23/MSDN-session-on-ASPNET-MVC.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
 
-{% include imported_disclaimer.html %}
+
 

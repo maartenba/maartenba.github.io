@@ -203,5 +203,5 @@ And yes, it has been a lot of reading, but I did not forget.&nbsp;Download the e
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

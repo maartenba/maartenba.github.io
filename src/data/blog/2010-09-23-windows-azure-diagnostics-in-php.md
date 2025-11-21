@@ -45,5 +45,5 @@ http://www.CodeHighlighter.com/
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/09/23/Windows-Azure-Diagnostics-in-PHP.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
 
-{% include imported_disclaimer.html %}
+
 

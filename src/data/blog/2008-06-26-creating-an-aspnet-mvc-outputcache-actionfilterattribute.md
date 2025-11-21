@@ -62,5 +62,5 @@ author: Maarten Balliauw
 <p><strong>UPDATE:</strong> Make sure to read&nbsp;part 2, available <a href="/post/2008/07/extending-aspnet-mvc-outputcache-actionfilterattribute---adding-substitution.aspx">here</a>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx&amp;title=Creating an ASP.NET MVC OutputCache ActionFilterAttribute"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

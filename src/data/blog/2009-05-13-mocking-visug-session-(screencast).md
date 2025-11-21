@@ -17,5 +17,5 @@ author: Maarten Balliauw
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/05/13/Mocking-VISUG-session-(screencast).aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
 
-{% include imported_disclaimer.html %}
+
 

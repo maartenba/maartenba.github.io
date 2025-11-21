@@ -48,5 +48,5 @@ Here&#39;s a list of technologies and techniques used:
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

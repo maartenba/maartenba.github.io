@@ -73,5 +73,5 @@ There are some shortcomings in the current CTP... Current databound controls can
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

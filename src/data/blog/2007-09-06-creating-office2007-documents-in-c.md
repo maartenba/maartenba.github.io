@@ -30,5 +30,5 @@ author: Maarten Balliauw
 <LI>
 <DIV mce_keep="true">My <A class="" href="/archive/tags/OpenXML/default.aspx" target=_blank mce_href="/blogs/maarten/archive/tags/OpenXML/default.aspx">own</A> <A class="" href="/archive/tags/XML/default.aspx" target=_blank mce_href="/blogs/maarten/archive/tags/XML/default.aspx">blog posts</A> [Y]</DIV></LI></UL>
 
-{% include imported_disclaimer.html %}
+
 

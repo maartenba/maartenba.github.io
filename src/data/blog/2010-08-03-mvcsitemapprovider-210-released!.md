@@ -42,5 +42,5 @@ author: Maarten Balliauw
 <p>Only one conclusion: <a href="http://mvcsitemap.codeplex.com/releases/view/49491" target="_blank">grab the latest bits and start playing with them</a>! And feel free to bug me with feature requests and issues found.</p>
 <p>Also, <a href="http://www.twitter.com/maartenballiauw" target="_blank">follow me on Twitter</a> for updates on this project.</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -56,5 +56,5 @@ author: Maarten Balliauw
 </table>
 <p>Looking forward to see you at one of these events!</p>
 
-{% include imported_disclaimer.html %}
+
 

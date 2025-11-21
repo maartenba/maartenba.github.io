@@ -235,5 +235,5 @@ http://www.CodeHighlighter.com/
 </ul>
 <p>PS: Thanks <a href="http://www.twitter.com/techmike2kx">Mike</a> for helping me out with some PowerShell goodness!</p>
 
-{% include imported_disclaimer.html %}
+
 

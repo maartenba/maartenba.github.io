@@ -31,5 +31,5 @@ author: Maarten Balliauw
  <p>There you go, two ways of detecting tenants based on the incoming URL. The full source for both solutions is at <a title="https://gist.github.com/maartenba/77ca6f9cfef50efa96ec" href="https://gist.github.com/maartenba/77ca6f9cfef50efa96ec">https://gist.github.com/maartenba/77ca6f9cfef50efa96ec</a> (requires some assembling).</p>
 
 
-{% include imported_disclaimer.html %}
+
 

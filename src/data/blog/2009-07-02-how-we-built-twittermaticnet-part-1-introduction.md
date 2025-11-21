@@ -45,5 +45,5 @@ author: Maarten Balliauw
 <p>Stay tuned during the coming weeks! And don&rsquo;t forget to start scheduling Tweets using <a href="http://www.twittermatic.net" target="_blank">TwitterMatic</a><em></em>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx&amp;title=How we built TwitterMatic.net - Part 1: Introduction"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-1-Introduction.aspx.html" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

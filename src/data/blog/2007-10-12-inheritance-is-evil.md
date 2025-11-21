@@ -29,5 +29,5 @@ I suggest you read the <a href="http://www.berniecode.com/blog/2007/09/29/inheri
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

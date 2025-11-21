@@ -93,5 +93,5 @@ author: Maarten Balliauw
 <p>In short: endless possibilities!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/04/09/Using-Windows-Azure-Drive-in-PHP-(or-Ruby).aspx&amp;title=Using Windows Azure Drive in PHP (or Ruby)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/04/09/Using-Windows-Azure-Drive-in-PHP-(or-Ruby).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

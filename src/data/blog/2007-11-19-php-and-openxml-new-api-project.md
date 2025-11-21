@@ -19,5 +19,5 @@ While I am talking about PHPExcel... Since today, the Subversion repository I ho
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

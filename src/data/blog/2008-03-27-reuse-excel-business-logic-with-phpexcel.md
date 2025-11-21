@@ -46,5 +46,5 @@ author: Maarten Balliauw
 <p>Embedding business logic in Excel and re-using it in PHP is not that hard. The <a href="http://www.phpexcel.net" target="_blank">PHPExcel</a> library helps you simplify development: your application logic and business logic is separated. Business logic can be maintained by a business expert or key user in Excel. As an application developer, you can easily pass data in the sheet and make use of PHPExcel's calculation engine.</p>
 <p><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/03/Reuse-Excel-business-logic-with-PHPExcel.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" />&nbsp;</p>
 
-{% include imported_disclaimer.html %}
+
 

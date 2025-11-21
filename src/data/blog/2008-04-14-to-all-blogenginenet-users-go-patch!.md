@@ -22,5 +22,5 @@ My recommendation: if you are using BlogEngine.NET: <a href="http://dannydouglas
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

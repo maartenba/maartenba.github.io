@@ -26,5 +26,5 @@ author: Maarten Balliauw
 <p>An interesting <a href="http://www.packtpub.com/sites/default/files/2220-chapter-7-managing-hosted-services-with-the-service-management-api.pdf?utm_source=packtpub&amp;utm_medium=free&amp;utm_campaign=pdf" target="_blank">sample chapter on the Service Management API can be found here</a>.</p>
 <p>Oh and before I forget: <a href="http://convective.wordpress.com">Neil</a>, congratulations on your book!&nbsp; It was a pleasure doing the reviewing!</p>
 
-{% include imported_disclaimer.html %}
+
 

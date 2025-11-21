@@ -24,5 +24,5 @@ author: Maarten Balliauw
 
 <p>Feel like building a killer application on Microsoft&rsquo;s cloud platform? Want fame and glory, possibly with a MIX2012 visit? I know I would join this!&nbsp; <a href="http://www.phpazurecontest.com/contest/">Check here for more information about the contest</a>.</p>
 
-{% include imported_disclaimer.html %}
+
 

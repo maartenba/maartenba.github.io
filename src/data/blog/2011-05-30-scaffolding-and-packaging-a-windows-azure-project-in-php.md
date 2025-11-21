@@ -89,5 +89,5 @@ http://www.CodeHighlighter.com/
 </ul>
 <p>Enjoy! And as I said: feedback is very welcome!</p>
 
-{% include imported_disclaimer.html %}
+
 

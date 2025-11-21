@@ -121,5 +121,5 @@ In theory, this should perform better. Let&rsquo;s run our performance session a
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

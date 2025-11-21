@@ -59,5 +59,5 @@ I&#39;m on my way to vacation. No blog posts next week, unless I spot a bear som
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -76,5 +76,5 @@ blob.Properties.ContentType </span><span style="color: #000000;">=</span><span s
 <!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
 <p>Easy, secure and scalable. Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

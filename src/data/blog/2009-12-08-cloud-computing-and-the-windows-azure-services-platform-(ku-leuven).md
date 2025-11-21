@@ -16,5 +16,5 @@ author: Maarten Balliauw
 <p>If you want more info about Windows Azure and how to develop, architect or benefit from the platform as a whole, register freely at the <a href="http://www.azug.be" target="_blank">Azure User Group Belgium</a>.</p>
 <p>Thank you for attending!</p>
 
-{% include imported_disclaimer.html %}
+
 

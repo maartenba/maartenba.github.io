@@ -58,5 +58,5 @@ http://www.CodeHighlighter.com/
 <p>Well of course, feel free to use this plugin! Here’s the source code: <a href="/files/2011/5/iisauth.zip">iisauth.zip (1.44 kb)</a>&nbsp;<strong>[update] Code for Wordpress 3.1+: </strong><a href="/files/2014/03/iisauth.php">IISAUTH.PHP (3.4KB)</a></p>
 <p><strong>(</strong>And big thanks to our marketing manager for allowing me to distribute this little plugin! Again proof for the no-nonsense spirit at <a href="http://www.realdolmen.com" target="_blank">RealDolmen</a>!)</p>
 
-{% include imported_disclaimer.html %}
+
 

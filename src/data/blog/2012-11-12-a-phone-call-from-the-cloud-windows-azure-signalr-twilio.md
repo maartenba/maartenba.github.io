@@ -234,5 +234,5 @@ http://www.CodeHighlighter.com/
 
 <p>You see? Working with voice (and text messages too, if you want) isn’t that hard. It enables additional scenarios that can make your application stand out from all the many others out there. Enjoy!</p><p><a href="/files/2012/11/05+ConfirmPhoneNumberDemo.zip">05 ConfirmPhoneNumberDemo.zip (1.32 mb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

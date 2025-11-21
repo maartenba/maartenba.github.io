@@ -89,5 +89,5 @@ author: Maarten Balliauw
 <p>In short, I&rsquo;m very positive about the amount of progress being made in this framework! Very pleased with the DI portion of it, on which I&rsquo;ll do a blog post later.</p>
 <p><strong>Update:</strong> Here's that next post on <a href="/post/2010/07/22/aspnet-mvc-3-and-mef-sitting-in-a-tree.aspx" target="_blank">ASP.NET MVC 3 and dependency injection / MEF</a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -89,5 +89,5 @@ http://www.CodeHighlighter.com/
 <p>Enjoy! Here&rsquo;s the sample code I used: <a href="/files/2011/1/MefMvc.zip">MefMvc.zip (698.58 kb)</a></p>
 <p style="text-align: right;">Need&nbsp;<a href="http://www.networksolutions.com/domain-name-registration/index.jsp" target="_blank">domain registration</a>?</p>
 
-{% include imported_disclaimer.html %}
+
 

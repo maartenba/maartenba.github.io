@@ -26,5 +26,5 @@ Another thing you can do: <a href="/post/2009/02/17/announcing-my-book-aspnet-mv
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

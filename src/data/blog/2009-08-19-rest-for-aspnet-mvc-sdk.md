@@ -108,5 +108,5 @@ author: Maarten Balliauw
 </ul>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/19/REST-for-ASPNET-MVC-SDK.aspx&amp;title=REST for ASP.NET MVC SDK"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/19/REST-for-ASPNET-MVC-SDK.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -92,5 +92,5 @@ http://www.CodeHighlighter.com/
 <p>This is not part of NuGet out of the box yet. We need your feedback, comments, implementations and so on. Head over to our <a href="https://github.com/myget/PackageSourceDiscovery">GitHub</a> repository, read through the spec and all examples and provide us with your thoughts. <a href="https://github.com/myget/PackageSourceDiscovery/wiki">Try the two clients we&rsquo;ve crafted</a> (more <a href="http://www.xavierdecoster.com/introducing-a-nuget-exe-extension-for-package-source-discovery">on Xavier's blog</a>) and make your NuGet repositories discoverable. Feel free to post a link to your blog below.</p>
 <p>Enjoy and let the commenting begin!</p>
 
-{% include imported_disclaimer.html %}
+
 

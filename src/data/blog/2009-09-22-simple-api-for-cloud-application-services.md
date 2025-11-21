@@ -30,5 +30,5 @@ author: Maarten Balliauw
 <p>It&rsquo;s quite fun to be a part of this kind of things: I started working for Microsoft on the <a href="http://phpazure.codeplex.com/">Windows Azure SDK for PHP</a>, we contributed the same codebase to Zend Framework, and now I&rsquo;m building the Windows Azure implementations for the Simple Cloud API.</p>
 <p>The full press release can be found at the <a href="http://www.simplecloudapi.org">Simple Cloud API</a> website.</p>
 
-{% include imported_disclaimer.html %}
+
 

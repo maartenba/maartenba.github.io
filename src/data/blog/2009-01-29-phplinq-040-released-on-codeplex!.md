@@ -87,5 +87,5 @@ author: Maarten Balliauw
 <p>There&rsquo;s lots of other features in PHPLinq which I covered partially in previous blog posts (<a href="/post/2008/01/linq-for-php-language-integrated-query-for-php.aspx" target="_blank">this one</a> and <a href="/post/2008/03/04/phplinq-version-020-released!.aspx" target="_blank">this one</a>). For full examples, download PHPLinq from <a href="http://www.phplinq.net">www.phplinq.net</a> and see for yourself.</p>
 <p>By the way, <a href="http://www.phpexcel.net" target="_blank">PHPExcel</a> (another project of mine) and <a href="http://www.phplinq.net" target="_blank">PHPLinq</a> seem to be listed in <a href="http://www.smashingmagazine.com/2009/01/20/50-extremely-useful-php-tools/" target="_blank">Smashing Magazine's Top 50 list of extremely useful PHP tools</a>. Thanks for this recognition!</p>
 
-{% include imported_disclaimer.html %}
+
 

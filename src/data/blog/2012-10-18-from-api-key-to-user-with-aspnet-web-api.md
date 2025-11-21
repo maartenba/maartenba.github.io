@@ -106,5 +106,5 @@ http://www.CodeHighlighter.com/
 <p>From now on, any request coming in with the <em>X-ApiKey</em> header will be translated into an <em>IPrincipal</em> which you can easily use throughout your web API. Enjoy!</p>
 <p><em>PS: if you&rsquo;re looking into OAuth2, I&rsquo;ve used a similar approach in&nbsp; &ldquo;</em><a href="/post/2012/08/07/aspnet-web-api-oauth2-delegation-with-windows-azure-access-control-service.aspx"><em>ASP.NET Web API OAuth2 delegation with Windows Azure Access Control Service</em></a><em>&rdquo; to handle OAuth2 tokens.</em></p>
 
-{% include imported_disclaimer.html %}
+
 

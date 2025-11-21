@@ -127,5 +127,5 @@ http://www.CodeHighlighter.com/
 <!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
 <p>For those interested, here&rsquo;s the set of scripts I have used: <a href="/files/2011/11/Repave.zip">Repave.zip (986.66 kb)</a>. These contain a number of commands that use the tools mentioned above to do 75% of the install work on my PC. All I had to do was install Office 2010, VS2010 and my scripts did the rest. Not the holy grail yet, but certainly a big relief of a lot of frustration finding software and clicking next-next-finish. And now my PC has been repaved, it&rsquo;s time for a WHS image again. Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -109,5 +109,5 @@ Another news item: <a href="http://www.itworld.com/open-source/58726/microsoft-l
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

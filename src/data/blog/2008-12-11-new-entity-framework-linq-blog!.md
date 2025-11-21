@@ -30,5 +30,5 @@ Just a quick recommendation note: One of my colleagues, <a href="http://blogs.se
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -41,5 +41,5 @@ author: Maarten Balliauw
 <p>You can contribute, provide feature requests &amp; test your own enhancements to the toolkit by joining the <a href="http://phpazure.codeplex.com/Thread/List.aspx">user forum</a>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/05/12/Announcing-PHP-SDK-for-Windows-Azure.aspx&amp;title=Announcing PHP SDK for Windows Azure"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/05/12/Announcing-PHP-SDK-for-Windows-Azure.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

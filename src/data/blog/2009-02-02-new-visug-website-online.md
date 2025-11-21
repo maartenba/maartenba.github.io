@@ -16,5 +16,5 @@ This new site not only features a new layout, but also some new features. One of
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

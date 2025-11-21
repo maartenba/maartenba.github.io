@@ -12,5 +12,5 @@ author: Maarten Balliauw
 
 <div style="width:100%;text-align:center;" id="__ss_3959937"><strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/maartenba/being-a-pimp-without-silverlight-3959937" title="Being a pimp without silverlight">Being a pimp without silverlight</a></strong><object id="__sse3959937" width="425" height="355"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=beingapimpwithoutsilverlight-100504032535-phpapp01&stripped_title=being-a-pimp-without-silverlight-3959937" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed name="__sse3959937" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=beingapimpwithoutsilverlight-100504032535-phpapp01&stripped_title=being-a-pimp-without-silverlight-3959937" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object><div style="padding:5px 0 12px">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/maartenba">Maarten Balliauw</a>.</div></div>
 
-{% include imported_disclaimer.html %}
+
 

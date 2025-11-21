@@ -48,5 +48,5 @@ Here are the rules if you are tagged:
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -66,5 +66,5 @@ author: Maarten Balliauw
 <h2>Conclusion</h2>
 <p>In conclusion? Choose PartitionKey and RowKey wisely. The more meaningful to your application or business domain, the faster querying will be and the more efficient table storage will work in the long run.</p>
 
-{% include imported_disclaimer.html %}
+
 

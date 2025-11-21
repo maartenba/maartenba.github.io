@@ -48,5 +48,5 @@ author: Maarten Balliauw
 <h2>Conclusion</h2>
 <p>It was a blast! Have a look at the <a href="https://twitter.com/#!/search/%23was12" target="_blank">Tweets</a> around our event. We will definitely do this again. Thank you sponsors, thank you attendees and thank you fellow AZUG board members for making this a splendid event!</p>
 
-{% include imported_disclaimer.html %}
+
 

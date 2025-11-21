@@ -23,5 +23,5 @@ author: Maarten Balliauw
 <p>Ok, it is true: this book will show you how to build a content management system in ASP.NET 3.5. However, if you are a developer working with ASP.NET for several years and the CMS part is the reason you are buying this book, you will be a bit disappointed. Don&rsquo;t get me wrong, the book <em>is</em> good for another audience: if you are making your first steps in ASP.NET development and want to learn how things like datasources, n-tier development, membership provider, extensibility, &hellip; work, <em>by example</em>, this book is actually pretty good at that. Curt and Jeff managed to squeeze in about all commonly used ASP.NET features using only one example application that is built from ground up.</p>
 <p>Conclusion: probably not the book for experienced developers, but an ideal &ldquo;large, example-driven tutorial&rdquo; for beginning development with ASP.NET 3.5.</p>
 
-{% include imported_disclaimer.html %}
+
 

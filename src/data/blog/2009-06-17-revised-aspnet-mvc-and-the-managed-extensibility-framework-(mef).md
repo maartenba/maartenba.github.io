@@ -64,5 +64,5 @@ author: Maarten Balliauw
 <p>You can download the example code here: <a href="/files/2009/6/RevisedMvcMefDemo.zip">RevisedMvcMefDemo.zip (1.03 mb)</a></p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/06/17/Revised-ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx&amp;title=Revised: ASP.NET MVC and the Managed Extensibility Framework (MEF)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/06/17/Revised-ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
   <p>Want more content? Check <a href="http://www.developerfusion.com/article/120619/advanced-scenarios-with-windows-azure-queues/" target="_blank">Advanced scenarios with Windows Azure Queues</a>. Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

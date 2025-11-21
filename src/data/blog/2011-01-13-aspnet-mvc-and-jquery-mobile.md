@@ -167,5 +167,5 @@ http://www.CodeHighlighter.com/
 <p>It&rsquo;s great! Really, I can just go ahead and build cool mobile web sites / web apps. Unfortunately, the WIndows-market of devices has bad support (due to a lack of HTML 5 support on their devices). This should get fixed in a coming upgrade, but untill then you will not have any luck running these apps on Windows Phone 7&hellip; For a complete list of compatible browsers and platforms, check the <a href="http://jquerymobile.com/gbs/">compatibility matrix</a>.</p>
 <p>For those interested, I&rsquo;ve uploaded my small test app here: <a href="/files/2011/1/RealDolmenMobile.zip">RealDolmenMobile.zip (420.38 kb)</a>&nbsp;(note that I've built this as a Windows Azure solution)</p>
 
-{% include imported_disclaimer.html %}
+
 

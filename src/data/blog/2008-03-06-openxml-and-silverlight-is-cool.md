@@ -27,5 +27,5 @@ Mix &#39;08 announced some nice things, among them the release of <a href="http:
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

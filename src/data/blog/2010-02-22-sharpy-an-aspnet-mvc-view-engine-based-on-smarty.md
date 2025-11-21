@@ -43,5 +43,5 @@ author: Maarten Balliauw
 <h2>Give it a spin!</h2>
 <p>Do give <a href="http://sharpy.codeplex.com" target="_blank">Sharpy</a> a spin, you will learn to love it.</p>
 
-{% include imported_disclaimer.html %}
+
 

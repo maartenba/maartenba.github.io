@@ -30,5 +30,5 @@ author: Maarten Balliauw
 <p><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="Localized error messages" src="/images/image_20.png" border="0" alt="Localized error messages" width="404" height="423" /></p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/11/05/Localize-ASPNET-MVC-2-DataAnnotations-validation-messages.aspx&amp;title=Localize ASP.NET MVC 2 DataAnnotations validation messages"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/11/05/Localize-ASPNET-MVC-2-DataAnnotations-validation-messages.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

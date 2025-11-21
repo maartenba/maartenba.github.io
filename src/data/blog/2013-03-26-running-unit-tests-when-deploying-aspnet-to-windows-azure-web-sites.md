@@ -206,5 +206,5 @@ http://www.CodeHighlighter.com/
 <p><a href="/images/image_277.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border-width: 0px;" title="Deployment fail when unit tests fail" src="/images/image_thumb_238.png" border="0" alt="Deployment fail when unit tests fail" width="484" height="158" /></a></p>
 <p>That&rsquo;s it. Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -24,5 +24,5 @@ Download sample code: <a rel="enclosure" href="/files/MvcCommentForm.zip">MvcCom
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

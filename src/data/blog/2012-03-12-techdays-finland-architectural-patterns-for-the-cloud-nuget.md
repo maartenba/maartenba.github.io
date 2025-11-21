@@ -21,5 +21,5 @@ author: Maarten Balliauw
 
 <p>Enjoy! And if there&rsquo;s any feedback or questions, I would love to hear it.</p>
 
-{% include imported_disclaimer.html %}
+
 

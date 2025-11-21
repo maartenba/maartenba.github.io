@@ -25,5 +25,5 @@ Abstract: <em>&quot;This screencast demonstrates how code can be made more maint
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

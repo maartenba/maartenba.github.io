@@ -29,5 +29,5 @@ author: Maarten Balliauw
 
 <p>Head over to the <a href="http://www.developerfusion.com/article/147914/protecting-your-aspnet-web-api-using-oauth2-and-the-windows-azure-access-control-service/">original article</a> for more! (I’ll also be doing a talk on this on some <a href="/page/Talks-Presentations.aspx">upcoming conferences</a>)</p>
 
-{% include imported_disclaimer.html %}
+
 

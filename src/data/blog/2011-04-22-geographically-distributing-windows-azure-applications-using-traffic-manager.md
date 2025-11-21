@@ -27,5 +27,5 @@ author: Maarten Balliauw
 <p>So what&rsquo;s this have to do with my initial thoughts? Well: design to scale, using an appropriate technique to your specific situation. Use all the tools the platform has to offer, and prepare for scaling out and for scaling '&rdquo;in&rdquo;, even to zero instances. And as with backups: test your disaster strategy now and then.</p>
 <p><em>PS: Artwork based on </em><a href="http://www.thejoyofcode.com/cloud_artwork.aspx" target="_blank"><em>Josh Twist&rsquo;s sketches</em></a></p>
 
-{% include imported_disclaimer.html %}
+
 

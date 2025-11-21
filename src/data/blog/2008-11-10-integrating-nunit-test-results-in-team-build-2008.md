@@ -118,5 +118,5 @@ When clicking the test results hyperlink, Visual Studio retrieves the result fil
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

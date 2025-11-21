@@ -13,5 +13,5 @@ author: Maarten Balliauw
 <p>The plug-in also bundles the existing <a href="http://blogs.msdn.com/interoperability/archive/2009/07/07/july-ctp-of-php-sdk-for-windows-azure-released-and-support-in-zend-framework.aspx">Windows Azure SDK for PHP</a>, which was introduced a few months ago. This SDK provides a simple API for PHP developers who use the Windows Azure storage component, making it very easy to use the blob, queue and table data storage features. Just visit the project site at <a href="http://phpazure.codeplex.com/">http://phpazure.codeplex.com/</a>.</p>
 <p>Some labs are available to help you get started with PHP on the WIndows Azure platform: <a title="http://www.windowsazure4e.org/learn/" href="http://www.windowsazure4e.org/learn/">http://www.windowsazure4e.org/learn/</a></p>
 
-{% include imported_disclaimer.html %}
+
 

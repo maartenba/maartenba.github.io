@@ -23,5 +23,5 @@ author: Maarten Balliauw
 <p>If you think this session deserves a place in Vegas, please cast your vote <a href="http://live.visitmix.com/OpenCall/Vote/Session/10">right here</a>. And while you are at it, feel free to vote for both of my direct colleagues <a href="http://live.visitmix.com/OpenCall/Vote/Session/39">Kevin Dockx</a> and <a href="http://live.visitmix.com/OpenCall/Vote/Session/38">Sandrino Di Mattia</a> as well.</p>
 <p>PS: No, I will not steal Mike Tyson&rsquo;s tiger.</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -92,5 +92,5 @@ author: Maarten Balliauw
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/03/12/Using-FTP-to-access-Windows-Azure-Blob-Storage.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a><a rev="vote-for" href="http://dotnetshoutout.com/Using-FTP-to-access-Windows-Azure-Blob-Storage"><img alt="Shout it" src="http://dotnetshoutout.com/image.axd?url=http%3A%2F%2Fblog.maartenballiauw.be%2Fpost%2F2010%2F03%2F15%2FUsing-FTP-to-access-Windows-Azure-Blob-Storage.aspx" style="border:0px"/></a></p>
 
-{% include imported_disclaimer.html %}
+
 

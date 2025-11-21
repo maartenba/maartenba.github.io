@@ -31,5 +31,5 @@ author: Maarten Balliauw
 <p>Also keep an eye on <a href="http://www.sdn.nl">www.sdn.nl</a> where I&rsquo;ll be posting an article on scripting a complete application deployment to Windows Azure, including SQL Azure, storage and firewalls.</p>
 <p>And finally: keep an eye on <a title="http://azurephp.interoperabilitybridges.com" href="http://azurephp.interoperabilitybridges.com">http://azurephp.interoperabilitybridges.com</a>&nbsp;and <a href="http://blogs.technet.com/b/port25/">http://blogs.technet.com/b/port25/</a>. I have a feeling some cool stuff may be coming following this release...</p>
 
-{% include imported_disclaimer.html %}
+
 

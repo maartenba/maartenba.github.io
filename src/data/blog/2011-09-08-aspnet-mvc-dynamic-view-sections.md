@@ -42,5 +42,5 @@ http://www.CodeHighlighter.com/
 </span><span style="color: #008080;">12</span> <span style="color: #000000;">}</span></div></pre>
 <!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
 
-{% include imported_disclaimer.html %}
+
 

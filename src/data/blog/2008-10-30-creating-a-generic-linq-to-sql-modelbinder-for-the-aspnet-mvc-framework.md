@@ -256,5 +256,5 @@ Feel free to download a working example based on this blog post: <a rel="enclosu
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

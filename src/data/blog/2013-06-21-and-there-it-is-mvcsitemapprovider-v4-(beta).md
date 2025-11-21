@@ -21,5 +21,5 @@ author: Maarten Balliauw
 <p>Speaking of NuGet packages: by popular demand, the core of MvcSIteMapProvider has been extracted into a separate package (MvcSiteMapProvider.MVC&lt;version&gt;.Core) so that you don&rsquo;t have to include views and so on in your library projects.</p>
 <p>Please give the beta a try and <a href="https://github.com/maartenba/MvcSiteMapProvider/issues">let us know your thoughts on GitHub</a> (or the comments below). Pull requests currently go in the <a href="https://github.com/maartenba/MvcSiteMapProvider/tree/v4">v4 branch</a>.</p>
 
-{% include imported_disclaimer.html %}
+
 

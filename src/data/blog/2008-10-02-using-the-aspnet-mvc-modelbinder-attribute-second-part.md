@@ -238,5 +238,5 @@ Make sure to download the full source and see it in action! <a rel="enclosure" h
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

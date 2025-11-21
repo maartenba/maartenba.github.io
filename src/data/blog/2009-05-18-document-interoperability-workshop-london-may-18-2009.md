@@ -37,5 +37,5 @@ author: Maarten Balliauw
 <li><a href="http://blogs.msdn.com/dmahugh/archive/2009/04/09/dii-workshop-london-may-18.aspx" target="_blank">DII event</a> (by Doug Mahugh)</li>
 </ul>
 
-{% include imported_disclaimer.html %}
+
 

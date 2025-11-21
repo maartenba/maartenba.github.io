@@ -36,5 +36,5 @@ author: Maarten Balliauw
 <li>Some Scott Hanselman tips: <a href="http://www.hanselman.com/blog/ItsNotWhatYouReadItsWhatYouIgnoreVideoOfScottHanselmansPersonalProductivityTips.aspx">http://www.hanselman.com/blog/ItsNotWhatYouReadItsWhatYouIgnoreVideoOfScottHanselmansPersonalProductivityTips.aspx</a></li>
 </ul>
 
-{% include imported_disclaimer.html %}
+
 

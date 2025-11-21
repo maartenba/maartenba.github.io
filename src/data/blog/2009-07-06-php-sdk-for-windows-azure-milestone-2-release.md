@@ -46,5 +46,5 @@ author: Maarten Balliauw
 <p>The batch will fail as a whole if one insert, update, delete, ... does not work out, just like with a transaction on a regular relational database like MySQL or SQL Server.</p>
 <p>If you're interested in cloud computing and WIndows Azure, and want to keep using PHP, make sure to get the latest version of the PHP SDK for Windows Azure to leverage all functionality that is available in the cloud. Here's the link: <a href="http://phpazure.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=29563#ReleaseFiles" target="_blank">PHP SDK for Windows Azure CTP2 - PHPAzure CTP2 (0.2.0)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

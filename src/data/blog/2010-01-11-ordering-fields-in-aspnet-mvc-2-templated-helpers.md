@@ -55,5 +55,5 @@ author: Maarten Balliauw
 <p><a href="/images/image_39.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" src="/images/image_thumb_16.png" border="0" alt="image" width="265" height="212" /></a></p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/01/06/Ordering-fields-in-ASPNET-MVC-2-templated-helpers.aspx&amp;title=Ordering fields in ASP.NET MVC 2 templated helpers"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/01/06/Ordering-fields-in-ASPNET-MVC-2-templated-helpers.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

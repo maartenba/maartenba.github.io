@@ -107,5 +107,5 @@ author: Maarten Balliauw
 <p>Yes! Simply navigate to the <a href="http://mvcsitemap.codeplex.com" target="_blank">MvcSiteMap</a> project page on CodePlex and <a href="http://mvcsitemap.codeplex.com/SourceControl/ListDownloadableCommits.aspx" target="_blank">grab the latest source code</a>. The sitemap provider is included as well as an example website demonstrating all features.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/03/20/New-CodePlex-project-MvcSiteMap-ndash3b-ASPNET-MVC-sitemap-provider.aspx&amp;title=New CodePlex project: MvcSiteMap &ndash; ASP.NET MVC sitemap provider"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/03/20/New-CodePlex-project-MvcSiteMap-ndash3b-ASPNET-MVC-sitemap-provider.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

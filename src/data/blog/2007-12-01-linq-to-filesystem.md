@@ -47,5 +47,5 @@ this.gridView1.DataBind();
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

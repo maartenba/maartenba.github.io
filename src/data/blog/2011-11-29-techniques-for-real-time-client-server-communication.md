@@ -60,5 +60,5 @@ http://www.CodeHighlighter.com/
 <p>Are you already seeing the link? The JavaScript client calls the C# method &ldquo;SayHelloToAll&rdquo; as if it were a JavaScript function. The C# side calls <em>all</em> of its clients (meaning the 200.000 browser windows connecting to this service :-)) JavaScript method &ldquo;sayHelloToMe&rdquo; as if it were a C# method.</p>
 <p>If I add that not only JavaScript clients are supported but also Windows Phone, Silverlight and plain .NET, does this sound of interest? If I add that SignalR can use any of the three techniques described earlier in this post based on what the client and the server support, without you even having to care&hellip; does this sound of interest? If the answer is yes, stay tuned for some follow up posts&hellip;</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -24,5 +24,5 @@ http://www.CodeHighlighter.com/
 </span><span style="color: rgb(0, 0, 255);">&lt;/</span><span style="color: rgb(128, 0, 0);">configuration</span><span style="color: rgb(0, 0, 255);">&gt;</span></div></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
 <p>Use this trick for your own ASP.NET vNext projects as well: specify the feeds you want to use explicitly and everything will be faster for you and other developers working with your code. It ensures that <em>kpm</em> or NuGet for that matter only check the feeds that are relevant to your project and not every feed that is configured on your system.</p>
 
-{% include imported_disclaimer.html %}
+
 

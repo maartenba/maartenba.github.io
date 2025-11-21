@@ -24,5 +24,5 @@ CarTrackr sample application: <a href="http://www.codeplex.com/CarTrackr/" title
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

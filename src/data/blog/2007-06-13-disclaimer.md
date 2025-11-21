@@ -22,5 +22,5 @@ author: Maarten Balliauw
 <H2>Cookies</H2>
 <P>To offer you an optimal service, I make use of "cookies", which are a small piece information that is stored on your computer: these cookies can be picked up during a later visit to the same site. The cookie are not possible read by another Internet site than my website. You have the possibility in your browser to configure it that it informs you each time cookies are produced or used. Blocking cookies of my site may result in incorrect behaviour of my website. </P>
 
-{% include imported_disclaimer.html %}
+
 

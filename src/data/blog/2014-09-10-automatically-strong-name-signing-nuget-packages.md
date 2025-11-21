@@ -39,5 +39,5 @@ signer.SignPackage(</span><span style="color: rgb(128, 0, 0);">"</span><span sty
 <p>Thanks to Werner for the <a href="http://brutaldev.com/post/2013/10/18/NET-Assembly-Strong-Name-Signer">.NET Assembly Strong-Name Signer</a> I was able to base this on.</p>
 <p><em>Enjoy!</em></p>
 
-{% include imported_disclaimer.html %}
+
 

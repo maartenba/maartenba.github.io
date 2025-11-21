@@ -76,5 +76,5 @@ author: Maarten Balliauw
 <p>I have a strong sense of a power in here&hellip; ASP.NET MVC 3 will support DI natively if you want to use it, and I&rsquo;ll be one of the users happily making use of it. There&rsquo;s use cases for injecting/composing something in all of the above components, and ASP.NET MVC 3 made this just simpler and more straightforward.</p>
 <p>Here&rsquo;s my sample code with some more examples in it:&nbsp;<a href="/files/2010/7/Mvc3WithMEF.zip">Mvc3WithMEF.zip (256.21 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

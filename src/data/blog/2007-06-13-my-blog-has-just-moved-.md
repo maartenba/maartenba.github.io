@@ -13,5 +13,5 @@ author: Maarten Balliauw
 <P>If you placed a link to my blog on your website, please change that link to <A href="/" target=_blank mce_href="/blogs/maarten/">/</A>.&nbsp;</P>
 <P mce_keep="true">&nbsp;</P>
 
-{% include imported_disclaimer.html %}
+
 

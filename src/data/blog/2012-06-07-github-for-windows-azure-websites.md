@@ -30,5 +30,5 @@ author: Maarten Balliauw
 <p>All that&rsquo;s left to do after a commit is clicking the <em>Publish</em> button. GitHub for Windows will now copy all changesets to the Windows Azure Websites GitHub repository which will in turn trigger an eventual build process for your web site. The result? A happy Windows Azure Websites dashboard and a site up and running. Rinse, repeat, commit. Happy deployments to Windows Azure Websites using GitHub for Windows!</p>
 <p><a href="/images/image_191.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="Antares Windows Azure Websites Deployment History Build" src="/images/image_thumb_156.png" border="0" alt="Antares Windows Azure Websites Deployment History Build" width="484" height="124" /></a></p>
 
-{% include imported_disclaimer.html %}
+
 

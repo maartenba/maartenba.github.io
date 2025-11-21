@@ -67,5 +67,5 @@ http://www.CodeHighlighter.com/
 
 <p>As we’ve seen in this post, working with Windows Azure SQL Database is pretty simple from within PhpStorm using the built-in database support.</p>
 
-{% include imported_disclaimer.html %}
+
 

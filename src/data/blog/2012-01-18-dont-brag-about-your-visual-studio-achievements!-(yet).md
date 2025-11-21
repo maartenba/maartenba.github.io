@@ -52,5 +52,5 @@ author: Maarten Balliauw
 <p>So in conclusion: your resume will look very bad if you are a Regional Manager or gained the Turtles All The Way Down achievement. Don&rsquo;t brag about those. Come up with some good habits that can be rewarded with achievements and please, ask the Channel 9 guys to include those.</p>
 <p><strong>[edit]This one does have positive achievements: <a href="https://github.com/jonasswiatek/strokes">https://github.com/jonasswiatek/strokes</a> [/edit]<br />[edit]<a href="http://channel9.msdn.com/niners/maartenba/achievements/visualstudio/GotoAchievement">http://channel9.msdn.com/niners/maartenba/achievements/visualstudio/GotoAchievement</a>&nbsp;[/edit] </strong></p>
 
-{% include imported_disclaimer.html %}
+
 

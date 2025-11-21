@@ -25,5 +25,5 @@ author: Maarten Balliauw
 </ul>
 <p>I feel we&rsquo;ve managed to cover a lot of concepts that go beyond &ldquo;how to use NuGet vX&rdquo; and instead have given as much guidance as possible. Questions, suggestions, remarks, &hellip; are all welcome. And a click on &ldquo;<a href="http://amzn.to/pronuget">Add to cart</a>&rdquo; is also a good idea ;-)</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -50,5 +50,5 @@ http://www.CodeHighlighter.com/
 }</span></div></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
 <p>That’s it! A fresh deploy and our temporary files are now stored in a bigger folder.</p>
 
-{% include imported_disclaimer.html %}
+
 

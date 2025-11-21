@@ -116,5 +116,5 @@ Our solution now works! Only problem left is that we have a new single point of 
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

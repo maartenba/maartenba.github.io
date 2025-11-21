@@ -16,5 +16,5 @@ author: Maarten Balliauw
 <p>Stripping out the custom XML is also quite easy. First, locate the main relationships part in the OpenXML package. Then, search it for the main document part. From there, loop over the relationships to this document part and look for any relationship of the type "<a title="http://schemas.openxmlformats.org/officeDocument/2006/relationships/customXml" href="http://schemas.openxmlformats.org/officeDocument/2006/relationships/customXml">http://schemas.openxmlformats.org/officeDocument/2006/relationships/customXml</a>". When that one's found, you just need to parse the referenced document and you're done!</p>
 <p><span style="text-decoration: line-through;">Want to see a demo? <a href="http://examples.maartenballiauw.be/2007HealthCareSamplePHP/index.php" target="_blank">Check this out</a>.</span><br /> Want the sample code? <a href="/files/2012/11/2007HealthCareSamplePHP.zip">2007HealthCareSamplePHP.zip (49.76 kb)</a><br />&nbsp;Want the OpenXML background? <a href="http://msdn2.microsoft.com/en-us/library/bb879915.aspx" target="_blank">Read the original article</a>.</p>
 
-{% include imported_disclaimer.html %}
+
 

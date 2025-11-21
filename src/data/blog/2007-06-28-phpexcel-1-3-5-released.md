@@ -22,5 +22,5 @@ author: Maarten Balliauw
 <p>[/code]</p>
 <p>As always, you can get the new release on <a href="http://www.phpexcel.net">www.phpexcel.net</a>!</p>
 
-{% include imported_disclaimer.html %}
+
 

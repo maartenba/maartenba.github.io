@@ -133,5 +133,5 @@ Nothing fancy here, everything still works! I just can&#39;t help the feeling th
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -30,5 +30,5 @@ http://www.CodeHighlighter.com/
 <p><a href="/images/image_248.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin: 5px auto 0px; display: block; padding-right: 0px; border: 0px;" title="Create a new website in PhpStorm" src="/images/image_thumb_212.png" border="0" alt="Create a new website in PhpStorm" width="484" height="398" /></a></p>
 <p>I seriously love this stuff! For reference, <a href="http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/">here&rsquo;s the complete list of available commands</a>. And <a href="http://codebetter.com/glennblock/2012/12/25/simple-bash-scripting-for-azure-cli/">Glenn Block cooked up some cool commands</a> too.</p>
 
-{% include imported_disclaimer.html %}
+
 

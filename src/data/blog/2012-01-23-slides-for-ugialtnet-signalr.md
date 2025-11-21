@@ -14,5 +14,5 @@ author: Maarten Balliauw
 <p>Demo code is available for download as well: <a href="/files/2012/1/Demos.zip">Demos.zip (1.68 mb)</a></p>
 <p><em>PS: EasyJet was kind enough to provide us with a flight attendant that looked and talked like Borat on the flight back, which made me laugh numerous times during the flight. Is nice!</em></p>
 
-{% include imported_disclaimer.html %}
+
 

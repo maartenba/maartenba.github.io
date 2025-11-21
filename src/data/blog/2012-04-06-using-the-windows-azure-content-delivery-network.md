@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
   <p>Here’s the full article: <a href="http://acloudyplace.com/2012/04/using-the-windows-azure-content-delivery-network/" target="_blank">Using the Windows Azure Content Delivery Network</a></p>
 
-{% include imported_disclaimer.html %}
+
 

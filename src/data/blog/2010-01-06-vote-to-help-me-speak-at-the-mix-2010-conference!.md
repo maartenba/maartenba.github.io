@@ -17,5 +17,5 @@ author: Maarten Balliauw
 <p>PS: There's also <a href="http://elijahmanor.com/webdevdotnet/">Elijah Manor</a>, <a href="http://www.codethinked.com/">Justin Etheredge</a>, <a href="http://odetocode.com/blogs/scott/">K. Scott Allen</a>, and many others who submitted good looking sessions.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/01/06/Vote-to-help-me-speak-at-the-MIX-2010-conference!.aspx&amp;title=Vote to help me speak at the MIX 2010 conference!"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/01/06/Vote-to-help-me-speak-at-the-MIX-2010-conference!.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

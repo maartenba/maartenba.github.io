@@ -69,5 +69,5 @@ AAAAqCw1nBkWzIgL" /&gt;</p>
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/10/08/Leveraging-ASPNET-MVC-2-futures-ViewState.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
 
-{% include imported_disclaimer.html %}
+
 

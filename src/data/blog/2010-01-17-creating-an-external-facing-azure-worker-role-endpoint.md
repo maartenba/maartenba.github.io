@@ -64,5 +64,5 @@ author: Maarten Balliauw
 <p>Just a quick note: the approach described here can also be used to run a custom WCF host that has other bindings than for example basicHttpBinding.</p>
 <p><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/01/04/Creating-an-external-facing-Azure-Worker-Role-endpoint.aspx" border="0" alt="kick it on DotNetKicks.com" />&nbsp;</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -39,5 +39,5 @@ To be honest, I&#39;m quite enthousiast about this book. If you are a .NET devel
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

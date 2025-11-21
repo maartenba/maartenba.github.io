@@ -49,5 +49,5 @@ author: Maarten Balliauw
 </ul>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/04/Accessing-ServiceConfiguration-in-FastCGI-(PHP)-web-role.aspx&amp;title=Accessing ServiceConfiguration in FastCGI (PHP) web role"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/04/Accessing-ServiceConfiguration-in-FastCGI-(PHP)-web-role.aspx" border="0" alt="kick it on DotNetKicks.com" /></a></p>
 
-{% include imported_disclaimer.html %}
+
 

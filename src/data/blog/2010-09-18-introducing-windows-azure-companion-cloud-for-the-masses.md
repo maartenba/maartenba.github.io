@@ -50,5 +50,5 @@ author: Maarten Balliauw
 <p><strong>Update:</strong> also check Jim O&rsquo;Neil's blog post:&nbsp;<a href="http://blogs.msdn.com/b/jimoneil/archive/2010/09/19/windows-azure-companion-php-and-wordpress-in-azure.aspx?wa=wsignin1.0">Windows Azure Companion: PHP and WordPress in Azure</a>&nbsp;and Brian Swan's blog post: <a href="http://blogs.msdn.com/b/brian_swan/archive/2010/09/20/announcing-the-windows-azure-companion-and-more.aspx" target="_blank">Announcing the Windows Azure Companion and More...</a></p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/09/17/Introducing-Windows-Azure-Companion-e28093-Cloud-for-the-masses.aspx&amp;title=Introducing Windows Azure Companion &ndash; Cloud for the masses?"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/09/17/Introducing-Windows-Azure-Companion-e28093-Cloud-for-the-masses.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

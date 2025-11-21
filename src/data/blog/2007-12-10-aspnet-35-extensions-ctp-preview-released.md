@@ -23,5 +23,5 @@ I&#39;ll be doing some testing during the week, and keep you all informed.
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

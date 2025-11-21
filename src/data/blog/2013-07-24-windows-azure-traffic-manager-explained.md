@@ -31,5 +31,5 @@ author: Maarten Balliauw
 <p>Enjoy!</p>
 <p><em><strong>Update:</strong>&nbsp;Alexandre Brisebois, a colleague MVP, <a href="http://alexandrebrisebois.wordpress.com/2013/07/23/windows-azure-traffic-manager-high-performance-availability-resiliency/" target="_blank">has some additional insights to share</a>.</em></p>
 
-{% include imported_disclaimer.html %}
+
 

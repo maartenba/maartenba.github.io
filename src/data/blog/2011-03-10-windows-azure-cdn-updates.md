@@ -19,5 +19,5 @@ author: Maarten Balliauw
 <p>One closing hint here: make sure to specify correct cache control headers for content. This will greatly improve your end user's CDN experience and reduce bandwidth costs between your source (blob or hosted service) and the CDN&nbsp;in many cases.</p>
 <p>And one closing question for the Windows Azure team: it would be great if I could use my current blog as the CDN source. It's not on Windows Azure yet I would want to use the CDN with my current host's data. This feature would also fit into the "cloud is not all or nothing" philosophy. Vote for this <a href="http://www.mygreatwindowsazureidea.com/forums/34192-windows-azure-feature-voting/suggestions/1577563-make-it-possible-to-use-my-current-host-as-the-cdn">here </a>:-)</p>
 
-{% include imported_disclaimer.html %}
+
 

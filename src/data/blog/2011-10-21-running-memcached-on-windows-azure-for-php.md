@@ -222,5 +222,5 @@ http://www.CodeHighlighter.com/
 <p>This is just a fun project I&rsquo;ve been working on when lonely and bored on airports. However, if you think this is valuable and in your opinion should be made available as a standard thing in the Windows Azure SDK for PHP, let me know. I&rsquo;ll be happy to push this into the main branch and make sure it&rsquo;s available in a future release.</p>
 <p>Comments or praise? There&rsquo;s a comment form right below this post!</p>
 
-{% include imported_disclaimer.html %}
+
 

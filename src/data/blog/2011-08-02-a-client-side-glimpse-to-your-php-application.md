@@ -106,5 +106,5 @@ http://www.CodeHighlighter.com/
 <p>Well, it&rsquo;s up to you. First of all: all feedback would be welcomed. Second of all: this is on Github (<a title="https://github.com/Glimpse/Glimpse.PHP" href="https://github.com/Glimpse/Glimpse.PHP">https://github.com/Glimpse/Glimpse.PHP</a>). Feel free to fork and extend! Feel free to contribute plugins, core features, whatever you like! Have a lot of CakePHP projects? Why not contribute a plugin that provides a Glimpse at CakePHP diagnostics?</p>
 <p>&lsquo;Till next time!</p>
 
-{% include imported_disclaimer.html %}
+
 

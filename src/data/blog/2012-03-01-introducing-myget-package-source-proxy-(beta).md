@@ -24,5 +24,5 @@ author: Maarten Balliauw
 <p>Instead of working with a number of NuGet feeds, your development team will just work with one feed that is aggregating packages from both MyGet and other package sources out there (NuGet, Orchard Gallery, Chocolatey, &hellip;). This centralizes managing external packages and makes it easier for your team members to find the packages they can use in your projects.</p>
 <p>Do let us know what you think of this feature! Our <a href="http://myget.uservoice.com" target="_blank">UserVoice</a> is there for you, and in fact, that&rsquo;s where we got the idea for this feature from in the first place. Your voice is heard!</p>
 
-{% include imported_disclaimer.html %}
+
 

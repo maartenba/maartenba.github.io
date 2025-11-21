@@ -89,5 +89,5 @@ author: Maarten Balliauw
 <p>There is no need for my developers to specify <em>SampleGlobalTitleFilter</em> on each controller they write. There is no need for my developers to use the <em>ControllerWithTitleFilter</em> base class. People can come in and even develop software without drinking 2 liters of coffee! Really, development should not be hard for your developers. Make sure all application-wide infrastructure is there and our people are ready to go. And I&rsquo;m really loving ASP.NET MVC&rsquo;s extensibility on that part!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/06/24/Application-wide-action-filters-in-ASPNET-MVC.aspx&amp;title=Application-wide action filters in ASP.NET MVC"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/06/24/Application-wide-action-filters-in-ASPNET-MVC.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

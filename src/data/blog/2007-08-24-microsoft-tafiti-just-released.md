@@ -17,5 +17,5 @@ author: Maarten Balliauw
 <p>If this is the way the web is evolving, I like it! Slick graphics, but not the "feeling" you are working in a browser plugin.</p>
 
 
-{% include imported_disclaimer.html %}
+
 

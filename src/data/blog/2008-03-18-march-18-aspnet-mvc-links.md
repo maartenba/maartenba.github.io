@@ -36,5 +36,5 @@ Happy coding!
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

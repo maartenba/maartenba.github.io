@@ -101,5 +101,5 @@ Any other suggestions, preferrably not harmful? Please let me know!
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

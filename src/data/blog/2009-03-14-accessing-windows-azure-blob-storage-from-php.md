@@ -37,5 +37,5 @@ author: Maarten Balliauw
 <p>Now let's hope my <a href="http://framework.zend.com/wiki/display/ZFPROP/Zend_Azure+-+Maarten+Balliauw" target="_blank">Zend Framework Proposal</a> gets accepted so this can be a part of the Zend Framework. In the meantime, I'll continue with this and also implement Azure table storage: cheap, distributed database features in the cloud.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/03/14/Accessing-Windows-Azure-Blob-Storage-from-PHP.aspx&amp;title=Accessing Windows Azure Blob Storage from PHP"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/03/14/Accessing-Windows-Azure-Blob-Storage-from-PHP.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

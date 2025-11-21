@@ -22,5 +22,5 @@ author: Maarten Balliauw
 <p>Now go grab the fresh sample on <a href="http://www.phppowerpoint.net" target="_blank">CodePlex</a> and be the very first person downloading and experimenting with it. Feel free to post some feature requests or general remarks on CodePlex too.</p>
 <p>I want to thank my employer, <a href="http://www.realdolmen.com" target="_blank">RealDolmen</a>, for letting me work on this during regular office hours and also the people at <a href="http://www.dynamiclogic.com" target="_blank">DynamicLogic</a> who convinced me to start this new project.</p>
 
-{% include imported_disclaimer.html %}
+
 

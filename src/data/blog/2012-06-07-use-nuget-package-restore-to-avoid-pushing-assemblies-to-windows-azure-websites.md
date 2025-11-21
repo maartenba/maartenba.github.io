@@ -45,5 +45,5 @@ http://www.CodeHighlighter.com/
 <p>By doing this and pushing the targets file to your Windows Azure Websites Git or TFS repo, the build system backing Windows Azure Websites will go ahead and download your packages from an external location, not cluttering your sources. Which makes for one, happy cloud.</p>
 <p><a href="/images/image_193.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="Windows Azure Git Deploy" src="/images/image_thumb_158.png" border="0" alt="Windows Azure Git Deploy" width="484" height="138" /></a></p>
 
-{% include imported_disclaimer.html %}
+
 

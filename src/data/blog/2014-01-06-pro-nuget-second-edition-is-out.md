@@ -29,5 +29,5 @@ author: Maarten Balliauw
 <p>We would love to get your feedback! E-mail us or write a review on your blog or Amazon. Enjoy the read!</p>
 <p><em>PS: Thanks to our excellent reviewers (the NuGet team) and everyone at </em><a href="http://www.apress.com"><em>Apress</em></a><em>! There is a lot of people involved in getting a quality book out there. Thanks!</em></p>
 
-{% include imported_disclaimer.html %}
+
 

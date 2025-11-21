@@ -58,5 +58,5 @@ Solution: do NOT assign identifier columns, NHibernate will do this for you! The
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

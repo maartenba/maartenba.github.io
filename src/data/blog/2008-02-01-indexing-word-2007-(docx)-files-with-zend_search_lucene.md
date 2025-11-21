@@ -75,5 +75,5 @@ author: Maarten Balliauw
 <p>[/code]</p>
 <p>There you go! That's all there is to it. Want the full code? Download it here: <a href="/files/2012/11/LuceneIndexingDOCX.zip">LuceneIndexingDOCX.zip (96.03 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

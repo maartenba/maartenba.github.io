@@ -29,5 +29,5 @@ NuGet</span><span style="color: #000000;">.</span><span style="color: #000000;">
 
 <p>Enjoy making NuGet a component of your enterprise workflow! And MyGet of course as well!</p>
 
-{% include imported_disclaimer.html %}
+
 

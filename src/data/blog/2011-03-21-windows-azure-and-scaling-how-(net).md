@@ -200,5 +200,5 @@ http://www.CodeHighlighter.com/
 <p>So you&rsquo;re lazy? Here&rsquo;s my sample project (<a href="/files/2011/3/AutoScale.zip">AutoScale.zip (26.31 kb)</a>) and the certificates used (<a href="/files/2011/3/management.pfx">management.pfx (4.05 kb)</a>&nbsp;and <a href="/files/2011/3/management.cer">management.cer (1.18 kb)</a>).</p>
 <p><strong>Note: I use the .cer file here because I generated it on my machine. If you are using a certificate created on another machine, a .pfx file and it's key should be used.</strong></p>
 
-{% include imported_disclaimer.html %}
+
 

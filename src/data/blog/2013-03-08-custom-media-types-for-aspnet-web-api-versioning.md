@@ -263,5 +263,5 @@ http://www.CodeHighlighter.com/
 <p>Enjoy!</p>
 <p><strong>[edit]</strong> there's a project on GitHub containing other implementations as well, check <a rel="nofollow" href="http://github.com/Sebazzz/SDammann.WebApi.Versioning">http://github.com/Sebazzz/SDammann.WebApi.Versioning</a></p>
 
-{% include imported_disclaimer.html %}
+
 

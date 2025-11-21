@@ -81,5 +81,5 @@ author: Maarten Balliauw
 <p>If you read this whole blog post, you may have noticed that I extensively used C# 3.5's new language features. I combined these with OpenXML and ASP.NET to create a useful Word document preview handler. If you want the full source code, download it here: <a href="/files/2012/11/WordVisualizer.zip">WordVisualizer.zip (357.01 kb)</a>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2008/01/Preview-Word-files-(docx)-in-HTML-using-ASPNET-OpenXML-and-LINQ-to-XML.aspx&amp;title=Preview Word files (docx) in HTML using ASP.NET, OpenXML and LINQ to XML"> <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/01/Preview-Word-files-(docx)-in-HTML-using-ASPNET-OpenXML-and-LINQ-to-XML.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

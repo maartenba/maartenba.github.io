@@ -246,5 +246,5 @@ http://www.CodeHighlighter.com/
 <p>We&rsquo;re good for now, at least until Microsoft decides to switch to the newer VHDX file format&hellip;</p>
 <p>Download/contribute: <a href="https://github.com/maartenba/WindowsAzureDiskResizer"><span style="color: #000080;">on GitHub</span></a>&nbsp;or binaries: <a href="/files/2013/1/WindowsAzureDiskResizer-1.0.0.0.zip">WindowsAzureDiskResizer-1.0.0.0.zip (831.69 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

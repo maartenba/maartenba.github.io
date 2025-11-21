@@ -24,5 +24,5 @@ Hope to see you there next tuesday!
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

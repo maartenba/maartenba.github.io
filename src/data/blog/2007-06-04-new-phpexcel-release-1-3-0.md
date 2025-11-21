@@ -15,5 +15,5 @@ author: Maarten Balliauw
 <p>Did you notice? The formula in the former cell E11 (now E13, as I inserted 2 new rows), changed to "SUM(E4:E11)". Also, the inserted cells duplicate style information of the previous cell, just like Excel's behaviour.
 </p><p>Curious about all this? Want to play with it? Find the source code download and demo code on <a href="http://www.phpexcel.net" mce_href="http://www.phpexcel.net">www.phpexcel.net</a>!</p>
 
-{% include imported_disclaimer.html %}
+
 

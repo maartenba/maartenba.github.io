@@ -169,5 +169,5 @@ author: Maarten Balliauw
 <p>Next to the officially supported packaging tools, there&rsquo;s also the good old craftsmen&rsquo;s hand-made deployment. And if you automate some parts, it&rsquo;s extremely easy to package your application in a very lightweight fashion. Enjoy!</p>
 <p>Here&rsquo;s the download: <a href="/files/2011/4/lightweight-php-deployment-azure.zip">lightweight-php-deployment-azure.zip (854.44 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

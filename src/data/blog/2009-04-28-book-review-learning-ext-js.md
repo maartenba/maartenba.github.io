@@ -12,5 +12,5 @@ author: Maarten Balliauw
 <p>I only spent one evening reading this book and must admit: it&rsquo;s really great at getting you started quickly with Ext JS. You&rsquo;re working with grids, windows and your own grid column renderers, creating a nice looking application which enables you to&nbsp; manage your DVD collection. As a plus, almost every example features a character or quote from the best movie ever (as an ICT-er): <a href="http://www.imdb.com/title/tt0151804/" target="_blank">Office Space</a>. This makes it a nice read (at least for me).</p>
 <p>The people at <a href="http://www.coolite.com/" target="_blank">Coolite</a> actually did a great job providing this book with their license, as you get a better view of what they do when wrapping Ext JS widgets. If you&rsquo;re not buying Coolite or a commercial Ext JS license, there&rsquo;s always <a href="http://www.packtpub.com/learning-ext-js/book" target="_blank">Packt&rsquo;s website</a> offering this book for purchase, too. Nice read!</p>
 
-{% include imported_disclaimer.html %}
+
 

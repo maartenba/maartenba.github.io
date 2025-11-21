@@ -22,5 +22,5 @@ If you are familiar with the words &ldquo;N-Tier&rdquo;, &ldquo;domain model&rdq
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

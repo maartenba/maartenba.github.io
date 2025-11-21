@@ -25,5 +25,5 @@ Abstract: <em>&quot;In this video, the new tooling for Visual Studio included in
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

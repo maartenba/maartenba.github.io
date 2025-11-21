@@ -13,6 +13,3 @@ author: Maarten Balliauw
 <p>That's all there is to it! It's even possible to pass objects between PHP and JavaScript.
 </p><p>Currently, I'm considering porting this to ASP.NET but I do not expect much interest because of <a href="http://atlas.asp.net" mce_href="http://atlas.asp.net">Atlas</a>, which offers much more options combined with a complete ASP.NET-alike object model.
 </p>
-
-{% include imported_disclaimer.html %}
-

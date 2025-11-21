@@ -16,5 +16,5 @@ Luckily, Scott Guthrie posted <a href="http://weblogs.asp.net/scottgu/archive/20
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

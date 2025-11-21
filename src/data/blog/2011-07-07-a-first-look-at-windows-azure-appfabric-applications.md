@@ -90,5 +90,5 @@ http://www.CodeHighlighter.com/
 
 <p>If Microsoft wants this thing to succeed I think they need to work even more on shifting minds to the cloud paradigm and more specific to the PaaS paradigm. Perhaps Windows 8 can be a utility to do this: if Windows 8 shifts from “programming for a Windows environment” to “programming for a PaaS environment”, people will start following that direction. What the heck, maybe this is even a great model for Joe Average to create “apps” for Windows 8! Just like one submits an app to AppStore or Marketplace today, he/she can submit an app to “Windows Marketplace” which in the background just drops everything on a technology like Windows Azure AppFabric Applications?</p>
 
-{% include imported_disclaimer.html %}
+
 

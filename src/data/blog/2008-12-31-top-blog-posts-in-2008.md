@@ -57,5 +57,5 @@ Happy new year 2009 to all my readers! See you around next year.
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

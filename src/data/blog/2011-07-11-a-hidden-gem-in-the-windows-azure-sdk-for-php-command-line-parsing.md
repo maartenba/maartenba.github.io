@@ -141,5 +141,5 @@ Available commands:
 
 <p>Magic at its best! Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

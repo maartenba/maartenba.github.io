@@ -374,5 +374,5 @@ http://www.CodeHighlighter.com/
 <p>To be honest: I have had to read quite some tutorials to get this up and running. But once you get the architecture and how components interact, Orchard is pretty sweet to develop against. And all I&rsquo;m asking you now: go write some modules and widgets, and make Orchard a rich platform with a rich module ecosystem.</p>
 <p>Want to explore my code? Here&rsquo;s the download: <a href="/files/2011/1/LatestTwitter.zip">LatestTwitter.zip (1.56 mb)</a><br />Want to install the widget in your app? Just look for &ldquo;LatestTwitter&rdquo; in the modules.</p>
 
-{% include imported_disclaimer.html %}
+
 

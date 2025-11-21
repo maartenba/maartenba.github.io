@@ -21,5 +21,5 @@ author: Maarten Balliauw
 </ul>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/29/Query-the-cloud-with-PHP-(PHPLinq-and-Windows-Azure).aspx&amp;title=Query the cloud with PHP (PHPLinq and Windows Azure)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/29/Query-the-cloud-with-PHP-(PHPLinq-and-Windows-Azure).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

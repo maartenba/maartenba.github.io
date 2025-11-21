@@ -30,5 +30,5 @@ author: Maarten Balliauw
 <h2>Conclusion</h2>
 <p>In short, Windows Azure is much more than hosting and scalability. It&rsquo;s the building blocks available such as Traffic Manager, CDN and Access Control Service that make our lives easier. The pricing structure is not always that transparent but if you dig a little into it you&rsquo;ll find affordable solutions that are really easy to use because you don&rsquo;t have to roll your own.</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -23,5 +23,5 @@ author: Maarten Balliauw
 <li><a href="http://mefcontrib.codeplex.com" target="_blank">mefcontrib.codeplex.com</a></li>
 </ul>
 
-{% include imported_disclaimer.html %}
+
 

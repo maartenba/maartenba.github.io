@@ -97,5 +97,5 @@ namespace MaartenBalliauw.WebControls<br />
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

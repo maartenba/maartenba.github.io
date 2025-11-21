@@ -14,5 +14,5 @@ author: Maarten Balliauw
 
 <p>Thanks for attending!</p>
 
-{% include imported_disclaimer.html %}
+
 

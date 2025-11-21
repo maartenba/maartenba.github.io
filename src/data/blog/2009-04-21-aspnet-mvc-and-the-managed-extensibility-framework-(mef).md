@@ -71,5 +71,5 @@ author: Maarten Balliauw
 <p>By the way, sample code can be downloaded here: <a href="/files/2009/4/MvcMefDemo.zip">MvcMefDemo.zip (270.82 kb)</a></p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx&amp;title=ASP.NET MVC and the Managed Extensibility Framework (MEF)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

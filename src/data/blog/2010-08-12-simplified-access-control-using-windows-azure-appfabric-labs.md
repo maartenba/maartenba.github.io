@@ -163,5 +163,5 @@ http://www.CodeHighlighter.com/
 <p>By the way: more information can be found on <a title="http://acs.codeplex.com" href="http://acs.codeplex.com">http://acs.codeplex.com</a>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/08/10/Simplified-access-control-using-Windows-Azure-AppFabric-Labs.aspx&amp;title=Simplified access control using Windows Azure AppFabric Labs"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/08/10/Simplified-access-control-using-Windows-Azure-AppFabric-Labs.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

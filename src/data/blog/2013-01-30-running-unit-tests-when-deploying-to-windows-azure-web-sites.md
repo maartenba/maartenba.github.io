@@ -213,5 +213,5 @@ http://www.CodeHighlighter.com/
 
 <p>As you can see, using deployment scripts we can customize deployment on Windows Azure Web Sites to fit our needs. We can run unit tests, fetch source code from a different location and so on. Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

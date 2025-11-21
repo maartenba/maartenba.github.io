@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
 <p>Thanks for joining the conference and my session! Also, <a href="http://www.codepositive.com/">Robert Castelo</a>, your talk on Drupal and its community was interesting. Did not know the active developer base and security teams were that big.</p>
 
-{% include imported_disclaimer.html %}
+
 

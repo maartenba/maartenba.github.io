@@ -24,5 +24,5 @@ author: Maarten Balliauw
 <p>Translated in short: I&rsquo;m now officially an MVP ASP.NET! I am really honored to be recognized as an MVP. Thank you for the nomination!</p>
 <p>The past year has been quite fun, doing lots of blog posts, a <a href="http://www.amazon.com/dp/184719754X?tag=maabalblo-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=184719754X&amp;adid=137V1W7BA4WV8TRTB755&amp;" target="_blank">book on ASP.NET MVC</a>, various speaking sessions at VISUG, DevDays, PHP Conference, &hellip; Guess now I&rsquo;m obligated to stay active in community :-) The next two weeks will be community less however, since I&rsquo;m off on a vacation. See/write/&hellip; you in a week or two!</p>
 
-{% include imported_disclaimer.html %}
+
 

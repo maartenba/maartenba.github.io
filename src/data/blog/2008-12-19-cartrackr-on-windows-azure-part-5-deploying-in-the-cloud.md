@@ -102,5 +102,5 @@ Overall, Microsoft is doing a good job with Azure. The platform itself seems rel
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

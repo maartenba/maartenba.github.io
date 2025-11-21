@@ -45,5 +45,5 @@ This one may actually explain why we are having some issues with PHPExcel, Excel
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

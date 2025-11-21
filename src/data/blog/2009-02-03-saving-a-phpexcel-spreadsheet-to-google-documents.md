@@ -44,5 +44,5 @@ author: Maarten Balliauw
 <p>Note that images are not displayed due to the fact that Google Docs seems to remove them when uploading a document. But hey, it&rsquo;s a start!</p>
 <p>You can download the <a rel="enclosure" href="/files/20090128GoogleDocs.zip">full example code here (26.29 kb)</a>. Make sure you have PHPExcel, Zend Framework and Zend Gdata classes installed on your system.</p>
 
-{% include imported_disclaimer.html %}
+
 

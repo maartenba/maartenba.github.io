@@ -12,5 +12,5 @@ author: Maarten Balliauw
 <p>Only bad thing is that you should add this for all your actions, otherwise not all routes succeed.<br>Another important note is that routes are matched in reverse order. Make sure your most generic routes are defined first, and more specific routes last.
 </p>
 
-{% include imported_disclaimer.html %}
+
 

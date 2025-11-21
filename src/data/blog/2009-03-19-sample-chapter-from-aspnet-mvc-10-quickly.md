@@ -39,5 +39,5 @@ By the way, if you are interested in the book writing process itself, check my <
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

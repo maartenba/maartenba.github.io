@@ -134,5 +134,5 @@ http://www.CodeHighlighter.com/
 <p><a href="/images/image_281.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" src="/images/image_thumb_242.png" border="0" alt="image" width="658" height="445" /></a></p>
 <p>Enjoy! And do checkout <a href="https://github.com/WebApiContrib/WebAPIContrib">WebApiContrib</a>, it contains almost all extensions to ASP.NET Web API you will ever need!</p>
 
-{% include imported_disclaimer.html %}
+
 

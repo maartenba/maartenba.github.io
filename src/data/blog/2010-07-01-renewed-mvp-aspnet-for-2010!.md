@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
   <p>I wish to thank everyone who has been supporting me, encouraging me, challenging me and thus bringing me to a second year of MVP duty. I will try to achieve the same for next year: do a lot of <a href="/page/Talks-Presentations.aspx" target="_blank">sessions</a>, work on open-source, do blog posts, … </p>  <p>With that: if you are not yet at lest challenging me, please do start doing this. It only helps me to learn from your problems which will in turn help the whole community to learn from it.</p>  <p>I can almost copy my <a href="/post/2009/07/02/Im-an-MVP-ASPNET!.aspx" target="_blank">blog post from last year</a> on the next part: I will leave the community for the next weeks to enjoy a nice vacation in Austria. No, not traveling for work this time. My next two weeks community will be a community of mountains, sun, große Bier and rest (not REST!). See you!</p>
 
-{% include imported_disclaimer.html %}
+
 

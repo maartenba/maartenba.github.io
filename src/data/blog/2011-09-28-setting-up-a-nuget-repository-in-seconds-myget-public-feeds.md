@@ -36,5 +36,5 @@ author: Maarten Balliauw
 <p>&nbsp;</p>
 <p><em>PS: We&rsquo;re working on lots more, but will probably provide that in a MyGet Premium version. Make sure to subscribe to our newsletter on </em><a href="http://www.myget.org"><em>www.myget.org</em></a><em> if this is of interest.</em></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -14,5 +14,5 @@ author: Maarten Balliauw
 <p>One last note: this project is not associated with Microsoft nor Bing. We&rsquo;re doing this project for fun.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/10/19/Let-me-Bing-that-for-you.aspx&amp;title=Let me Bing that for you"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/10/19/Let-me-Bing-that-for-you.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

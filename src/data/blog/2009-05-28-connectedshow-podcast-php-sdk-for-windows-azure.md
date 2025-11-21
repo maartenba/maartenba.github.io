@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
   <p>Here’s the link to the podcast: <a title="http://www.connectedshow.com/default.aspx?Episode=5" href="http://www.connectedshow.com/default.aspx?Episode=5">http://www.connectedshow.com/default.aspx?Episode=5</a></p>
 
-{% include imported_disclaimer.html %}
+
 

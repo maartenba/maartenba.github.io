@@ -28,5 +28,5 @@ author: Maarten Balliauw
 
 <p>Thanks for joining TechDays 2010 and my session!</p>
 
-{% include imported_disclaimer.html %}
+
 

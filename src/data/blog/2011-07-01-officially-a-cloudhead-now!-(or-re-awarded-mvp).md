@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
   <p>This e-mail is not that clear about what technology one is an MVP, so I dug in… It seems that I will be leaving the largest group of MVP’s around: ASP.NET (sorry guys, you were great!) and joining the cloudheads of the Windows Azure group.</p>  <p>Thanks everyone for keeping me motivated in working with the community, sharing knowledge and providing me time to do all this. That last one means: thank you, <a href="http://www.realdolmen.com">boss</a>, and thank you to my lovely wife!</p>  <p>Let’s start working on earning the award for next year…</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -362,5 +362,5 @@ Stay tuned for the final part: deployment on Azure! I&#39;ll also provide a down
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

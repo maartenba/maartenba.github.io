@@ -23,5 +23,5 @@ author: Maarten Balliauw
 <p>[/code]</p>
 <p>Using this flexible class, you can simply set a validation function on the GenericArrayObject, which enabels you to use PHP's built-in functions like is_string (string-only ArrayObject), is_int, ... You can even write a small validation function which matches a string against a regular expression and for example create an e-mail address ArrayObject rejecting any string that does not match this regular expression.</p>
 
-{% include imported_disclaimer.html %}
+
 

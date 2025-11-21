@@ -12,5 +12,5 @@ author: Maarten Balliauw
 <p mce_keep="true">Some cool news:&nbsp; <a href="http://blogs.msdn.com/codeplex/archive/2007/06/19/tortoisesvn-support-for-codeplex.aspx" target="_blank" mce_href="http://blogs.msdn.com/codeplex/archive/2007/06/19/tortoisesvn-support-for-codeplex.aspx">the CodePlex people</a> have released a <a href="http://blogs.msdn.com/codeplex/archive/2007/06/19/tortoisesvn-support-for-codeplex.aspx" target="_blank" mce_href="http://blogs.msdn.com/codeplex/archive/2007/06/19/tortoisesvn-support-for-codeplex.aspx">TFS - SVN bridge</a>, which is a man-in-the-middle proxy that translates (some) SVN command to TFS. This means anyone using SVN can now also use his (or her) tools to connect both to a Subversion server and a TFS server.</p>
 <p mce_keep="true"><i><u>Update:</u></i>&nbsp;I just&nbsp;spotted <a href="http://blog.benday.com/archive/2007/05/18/23006.aspx" class="" target="_blank" mce_href="http://blog.benday.com/archive/2007/05/18/23006.aspx">another TFS client</a> written by Ben. It provides a lot of functionality similar to TortoiseSVN for Subversion, but does not use the proxy described above.</p>
 
-{% include imported_disclaimer.html %}
+
 

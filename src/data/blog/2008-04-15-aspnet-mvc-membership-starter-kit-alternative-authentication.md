@@ -84,5 +84,5 @@ The Windows Live ID authentication is currently only available from <a href="htt
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

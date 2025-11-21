@@ -96,5 +96,5 @@ http://www.CodeHighlighter.com/
 <!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
 <p>This sitemap index links to sub-sitemap files where all nodes are included.</p>
 
-{% include imported_disclaimer.html %}
+
 

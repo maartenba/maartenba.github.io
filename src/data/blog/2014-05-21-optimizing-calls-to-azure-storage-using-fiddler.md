@@ -21,5 +21,5 @@ http://www.CodeHighlighter.com/
 <p>The result of this? Well have a look at that picture above where our response times are shown: we managed to drastically reduce response times, making ourselves happy (we could kill some VM’s), and our users as well because everything is faster.</p>
 <p>A simple trick with great results!</p>
 
-{% include imported_disclaimer.html %}
+
 

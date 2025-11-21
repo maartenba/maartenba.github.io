@@ -47,5 +47,5 @@ author: Maarten Balliauw
 <p>Now release the hounds: I think this new &ldquo;ViewState&rdquo; feature is cool. There are definitely situations where you may want to use this, but&hellip; Will it be a best practice to use this? What is your opinion on this?</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx&amp;title=Exploring the ASP.NET MVC 2 futures assemby"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

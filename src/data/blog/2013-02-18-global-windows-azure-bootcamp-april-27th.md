@@ -12,5 +12,5 @@ author: Maarten Balliauw
 <p><a href="/images/image_259.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; margin-right: auto; border: 0px;" title="Much ocations for our bootcamp!" src="/images/image_thumb_221.png" border="0" alt="Much ocations for our bootcamp!" width="484" height="238" /></a></p>
 <p>In short: we now have over 50 locations available where a bootcamp will be organized! This one day deep dive class will get you up to speed on developing for Windows Azure. The class includes a trainer with deep real world experience with Windows Azure, as well as a series of labs so you can practice what you just learned. It&rsquo;s free, so <a href="http://globalwindowsazure.azurewebsites.net/?page_id=151">find your location</a> and join the fun!</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -27,5 +27,5 @@ author: Maarten Balliauw
 <h2>Sample code</h2>
 <p>As a demo, I had <em>ImageCloud</em>, a web application similar to <a href="http://www.flickr.com" target="_blank">Flickr</a>. Here&rsquo;s the sample code: <a href="/files/2010/2/ImageCloud.rar"><span style="color: #000080;">ImageCloud.rar (5.00 mb)</span></a></p>
 
-{% include imported_disclaimer.html %}
+
 

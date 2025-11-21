@@ -52,5 +52,5 @@ http://www.CodeHighlighter.com/
 </ul>
 <p>This will work on any IIS server as well as on Windows Azure Websites. It will make your API&hellip; happy.</p>
 
-{% include imported_disclaimer.html %}
+
 

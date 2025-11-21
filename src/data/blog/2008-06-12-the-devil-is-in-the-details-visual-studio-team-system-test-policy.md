@@ -32,5 +32,5 @@ To be honest, there actually are <a href="http://msdn.microsoft.com/en-us/librar
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -74,5 +74,5 @@ http://www.CodeHighlighter.com/
 <p>Once we’re confident Glimpse.WindowsAzure and Glimpse.WindowsAzure.Storage are working properly, we’ll have a look at Windows Azure Caching and Service Bus.</p>
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

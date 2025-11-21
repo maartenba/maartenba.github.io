@@ -68,5 +68,5 @@ In addition to the above table, I&#39;ll also have to make the CarTrackr solutio
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

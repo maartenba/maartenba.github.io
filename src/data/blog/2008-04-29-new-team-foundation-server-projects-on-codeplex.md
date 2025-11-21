@@ -35,5 +35,5 @@ Want to know by one look what&#39;s going on in your project? Pick a work item q
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

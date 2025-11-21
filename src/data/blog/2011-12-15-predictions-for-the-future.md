@@ -32,5 +32,5 @@ author: Maarten Balliauw
 <p><em>PS: I promise, my next blog post will be about angle brackets again.</em></p>
 <p><em>PS 2: I am not targeting any specific government or specific enterprise.</em></p>
 
-{% include imported_disclaimer.html %}
+
 

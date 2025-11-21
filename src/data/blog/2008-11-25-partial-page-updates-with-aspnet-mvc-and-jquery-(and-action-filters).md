@@ -140,5 +140,5 @@ You can download the sample code here:&nbsp;<a rel="enclosure" href="/files/jQue
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -31,5 +31,5 @@ Here&#39;s a screenshot of my installation when accessing the CodePlex Team Foun
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -139,5 +139,5 @@ http://www.CodeHighlighter.com/
 <p>This is probably not a bullet-proof solution, but I wanted to show you how easy it is to use NuGet not only as a package manager inside Visual Studio, but also from <em>your</em> code: NuGet is not just a package manager but in essence a package management protocol. Which you can easily extend.</p>
 <p>One thing to note: I also made the Windows Azure load balancer ignore the role that&rsquo;s updating itself. This means a roie instance that is synchronizing its contents will never be available in the load balancing pool so no traffic is sent to the role instance during an update.</p>
 
-{% include imported_disclaimer.html %}
+
 

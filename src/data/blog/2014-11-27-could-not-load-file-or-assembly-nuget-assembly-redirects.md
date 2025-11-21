@@ -40,5 +40,5 @@ http://www.CodeHighlighter.com/
 <p>NuGet will get all projects and for every project, add the correct assembly binding redirects again. Compile, run, and continue your day without rage. Enjoy!</p>
 <p><em>PS: For the other cases where this trick does not help, check Damir Dobric’s post on </em><a href="http://developers.de/blogs/damir_dobric/archive/2014/08/26/troubleshooting-nuget-references.aspx"><em>troubleshooting NuGet references</em></a><em>.</em></p>
 
-{% include imported_disclaimer.html %}
+
 

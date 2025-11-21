@@ -16,5 +16,5 @@ author: Maarten Balliauw
 <p>It seems I&rsquo;m not alone with this thought. <a href="http://hadihariri.com/2011/05/18/did-you-just-take-a-dump-on-standard-versioning-practices/">Hadi Hariri</a> also blogged about it. And I expect more to follow...&nbsp;If you feel the same: now is the time to stop this madness! I suspect there&rsquo;s an R2 November Edition coming otherwise&hellip;</p>
 <p>[Edit @ 14:00] <a href="http://nuget.codeplex.com/discussions/255640">Here's how to use it in NuGet</a>. Seems this thing is actually ".NET 4.0.1" under the hood.<br />[Edit @ 14:01] And here's <a href="http://blogs.lessthandot.com/index.php/DesktopDev/MSTech/MSAccess/AccessFormsReports/did-you-notice-there-is">another one</a>. And <a href="http://coolthingoftheday.blogspot.com/2011/04/ft-then-fp-and-sp-now-pu-power-tools.html">another one</a>.<br />[Edit] And Scott Hanselman chimes in: <a rel="nofollow" href="http://www.hanselman.com/blog/RequestForCommentsIssuesWithNETAndMicrosoftProductVersioning.aspx">www.hanselman.com/.../...oftProductVersioning.aspx</a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -14,5 +14,5 @@ author: Maarten Balliauw
 
 <p>Thanks for joining the conference and my session! And thanks to the PHPBenelux crew for organizing their first conference ever, it rocked!</p>
 
-{% include imported_disclaimer.html %}
+
 

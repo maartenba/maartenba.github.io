@@ -166,5 +166,5 @@ Let&#39;s hope the ASP.NET MVC team picks this up, as I think it&#39;s something
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

@@ -49,5 +49,5 @@ http://www.CodeHighlighter.com/
 
 <p>Enjoy! And if you feel like NuGet-packaging this (or including it with Glimpse), feel free.</p>
 
-{% include imported_disclaimer.html %}
+
 

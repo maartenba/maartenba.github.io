@@ -42,5 +42,5 @@ author: Maarten Balliauw
 <p><strong>UPDATE 2008-01-24:</strong> Also check out my blog post on <a href="/post/2008/01/aspnet-session-state-partitioning-using-state-server-load-balancing.aspx" target="_blank">Session State Partitioning using load balancing</a>!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2008/01/ASPNET-Session-State-Partitioning.aspx&amp;title=ASP.NET Session State Partitioning"> <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/01/ASPNET-Session-State-Partitioning.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

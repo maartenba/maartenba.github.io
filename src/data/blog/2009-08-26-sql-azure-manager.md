@@ -16,5 +16,5 @@ author: Maarten Balliauw
 <p>Note that this thing will become open-soucre in the future, after he finds a good WF designer to do the main UI. Want to help him? <a href="http://www.hanssens.org/contact.aspx" target="_blank">Use the submit button</a>!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/26/SQL-Azure-Manager.aspx&amp;title=SQL Azure Manager"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/26/SQL-Azure-Manager.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

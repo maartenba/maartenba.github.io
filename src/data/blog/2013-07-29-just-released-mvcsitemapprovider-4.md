@@ -22,5 +22,5 @@ author: Maarten Balliauw
 
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -14,5 +14,5 @@ author: Maarten Balliauw
 <p>Follow <a href="https://twitter.com/msdnbelux">@msdnbelux</a> and I&rsquo;ll provide you with great ASP.NET MVC, ASP.NET Web API, JavaScript and Windows Azure related content.</p>
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

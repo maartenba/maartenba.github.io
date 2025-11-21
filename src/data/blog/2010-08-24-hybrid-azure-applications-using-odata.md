@@ -223,5 +223,5 @@ http://www.CodeHighlighter.com/
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/08/24/Hybrid-Azure-applications-using-OData.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
 
-{% include imported_disclaimer.html %}
+
 

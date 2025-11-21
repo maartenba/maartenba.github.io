@@ -18,5 +18,5 @@ author: Maarten Balliauw
 
 <p>Demo code: <a href="/files/2009/6/PHP+and+Silverlight+-+DevDays.zip">PHP and Silverlight - DevDays.zip (1.00 mb)</a> (based on Silverlight 2, bug <a href="http://blog.kevindockx.com/" target="_blank">Kevin</a> for a recent version :-))</p>
 
-{% include imported_disclaimer.html %}
+
 

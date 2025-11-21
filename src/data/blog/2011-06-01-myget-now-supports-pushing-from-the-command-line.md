@@ -35,5 +35,5 @@ http://www.CodeHighlighter.com/
 <h2>Other change: authentication to the website</h2>
 <p>Someone on Twitter (<a href="http://twitter.com/#!/corydeppen/status/75691754187259904" target="_blank">@corydeppen</a>) complained he had to login using Windows Live ID. Because we&rsquo;re using the <a href="http://www.microsoft.com/windowsazure/appfabric/overview/" target="_blank">Windows Azure AppFabric Access Control Service</a> (which I&rsquo;ll abbreviate to ACS next time), this was in fact a no-brainer. We now support Windows Live ID, Google, Yahoo! and Facebook as authentication mechanisms for <a href="http://www.myget.org" target="_blank">MyGet</a>. Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

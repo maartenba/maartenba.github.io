@@ -101,5 +101,5 @@ You can update projects that were created with previous releases of MVC to inclu
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

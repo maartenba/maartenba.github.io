@@ -16,5 +16,5 @@ author: Maarten Balliauw
 
 <p>Thanks for being in this session! I know it is a controversial one on a Linux event :-)</p>
 
-{% include imported_disclaimer.html %}
+
 

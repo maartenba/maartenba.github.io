@@ -58,5 +58,5 @@ author: Maarten Balliauw
 <p>[/code]</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/31/ASPNET-MVC-2-Preview-1-released!.aspx&amp;title=ASP.NET MVC 2 Preview 1 released!"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/31/ASPNET-MVC-2-Preview-1-released!.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

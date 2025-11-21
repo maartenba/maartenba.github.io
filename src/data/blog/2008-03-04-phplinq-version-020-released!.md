@@ -29,5 +29,5 @@ author: Maarten Balliauw
 <li><a href="http://james.newtonking.com/archive/2008/02/11/linq-to-json-beta.aspx" target="_blank">LINQ to JSON</a> (for C#) </li>
 </ul>
 
-{% include imported_disclaimer.html %}
+
 

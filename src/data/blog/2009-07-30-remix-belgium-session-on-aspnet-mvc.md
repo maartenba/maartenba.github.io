@@ -12,5 +12,5 @@ author: Maarten Balliauw
 <p>The session will be around building a Twitter clone in 60 minutes. Bear with me at <a href="http://www.microsoft.com/belux/remix09" target="_blank">ReMIX 2009</a>!</p>
 <p>Abstract: <em>&ldquo;What are you doing right now?, that's Twitter's question to its users. How about you creating own microblogging platform? "What are you working on?", "What are you reading?", ..., are all specific questions for your own community. This session takes you along in building a Twitter clone using the ASP.NET MVC framework.&rdquo;</em></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -25,5 +25,5 @@ author: Maarten Balliauw
 <p>As you can probably see from the screenshots, project &ldquo;Houston&rdquo; is currently quite limited. Basic operations are supported, but for example dropping a table should be done using a custom, hand-crafted query instead of a simple box.</p>
 <p>What I would love to see is that the tool gets a bit more of the basic database operations and a Windows Phone 7 port? That would allow me to quickly do some trivial SQL Azure tasks both from my browser as well as from my (future :-)) smartphone.</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -78,5 +78,5 @@ author: Maarten Balliauw
 <h2>Can I get the source?</h2>
 <p>No, not yet. For a number of reasons. I first want to make this thing a bit more stable, as well as deciding if all MEF features should be ported. Also, I&rsquo;m looking for an appropriate name/library to put this in. You may have noticed the Microsoft_* naming, a small hint to the Interop team in incorporating this as another Microsoft library in the PHP world. Yes <a href="http://blogs.msdn.com/interoperability/" target="_blank">Vijay</a>, talking to you :-)</p>
 
-{% include imported_disclaimer.html %}
+
 

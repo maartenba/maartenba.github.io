@@ -43,5 +43,5 @@ author: Maarten Balliauw
 <h2>Conclusion</h2>
 <p>If you look at the lists above, you will notice that I like the device and OS. There&rsquo;s some lacking functionality and apps, but I&rsquo;m sure these will be available soon after the release. It&rsquo;s very surprising how smooth this device works and how easy it is to work with. Looking forward to the first official devices! And hope they will sync with Outlook and will support tethering...</p>
 
-{% include imported_disclaimer.html %}
+
 

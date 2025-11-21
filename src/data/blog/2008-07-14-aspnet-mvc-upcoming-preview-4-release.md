@@ -24,5 +24,5 @@ Thank you, ASP.NET MVC team! This preview 4 release seems like a great step in t
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

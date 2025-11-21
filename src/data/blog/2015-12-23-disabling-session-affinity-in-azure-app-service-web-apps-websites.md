@@ -33,5 +33,5 @@ http://www.CodeHighlighter.com/
 <h2></h2>
 <p><em>Disclaimer: I’m an Azure geezer and may have misnamed Azure App Service Web Apps as “Azure Websites” throughout this blog post.</em></p>
 
-{% include imported_disclaimer.html %}
+
 

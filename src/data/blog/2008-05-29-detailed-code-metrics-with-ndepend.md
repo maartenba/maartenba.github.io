@@ -118,5 +118,5 @@ In my opinion, each development team should be gathering some metrics from NDepe
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

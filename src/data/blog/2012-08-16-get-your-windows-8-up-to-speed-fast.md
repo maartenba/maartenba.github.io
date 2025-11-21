@@ -23,5 +23,5 @@ author: Maarten Balliauw
 </ul>
 <p>Done!</p>
 
-{% include imported_disclaimer.html %}
+
 

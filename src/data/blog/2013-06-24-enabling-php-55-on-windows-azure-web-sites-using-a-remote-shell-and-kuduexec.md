@@ -35,5 +35,5 @@ author: Maarten Balliauw
 <p><a href="/images/image_291.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin: 5px auto; display: block; padding-right: 0px; border: 0px;" title="Running PHP 5.5 on Windows Azure" src="/images/image_thumb_252.png" alt="Running PHP 5.5 on Windows Azure" width="640" height="358" border="0" /></a></p>
 <p>Enjoy!</p>
 
-{% include imported_disclaimer.html %}
+
 

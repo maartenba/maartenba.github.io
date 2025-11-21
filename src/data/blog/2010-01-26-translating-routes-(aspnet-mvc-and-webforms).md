@@ -57,5 +57,5 @@ author: Maarten Balliauw
 <p><a href="/images/image_31.png"><img style="margin: 5px auto; display: block; float: none; border: 0px;" title="Localizing ASP.NET MVC routing" src="/images/image_thumb_9.png" border="0" alt="Localizing ASP.NET MVC routing" width="644" height="157" /></a></p>
 <p>Want the sample code? Check <a href="/files/2013/2/LocalizedRouteExample.zip">LocalizedRouteExample.zip (23.25 kb)</a></p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -20,5 +20,5 @@ author: Maarten Balliauw
 <p>function zipped_file_exists($pFileName = '') {<br />&nbsp;&nbsp;&nbsp; if ($pFileName != '') {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $fh = fopen($pFileName, 'r');<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $exists = ($fh !== false);<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; fclose($fh);<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return $exists;<br />&nbsp;&nbsp;&nbsp; }<br /><br />&nbsp;&nbsp;&nbsp; return false;<br />}</p>
 <p>[/code]</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -51,5 +51,5 @@ author: Maarten Balliauw
 <p>When applying the <em>MultiButtonAttribute</em> to an action method, ASP.NET MVC will come and call the <em>IsValidName</em> method. Next, we just check if the <em>MatchFormKey</em> value is one of the request keys, and the <em>MatchFormValue</em> matches the value in the request. Simple, straightforward and re-usable.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/11/26/Supporting-multiple-submit-buttons-on-an-ASPNET-MVC-view.aspx&amp;title=Supporting multiple submit buttons on an ASP.NET MVC view"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/11/26/Supporting-multiple-submit-buttons-on-an-ASPNET-MVC-view.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

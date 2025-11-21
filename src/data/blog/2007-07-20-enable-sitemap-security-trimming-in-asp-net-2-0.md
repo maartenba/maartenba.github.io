@@ -66,5 +66,5 @@ In this example, the page ForgotPassword.aspx is visible to anonymous users, whi
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

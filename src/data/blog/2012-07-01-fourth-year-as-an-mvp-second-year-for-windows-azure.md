@@ -21,5 +21,5 @@ author: Maarten Balliauw
 <p>Year four is down, 2 years as an ASP.NET MVP and now my second year as a Windows Azure MVP. Thanks everyone for keeping me motivated in working with the community, sharing knowledge and providing me time to do all this. That last one means: thank you, <a href="http://www.realdolmen.com">boss</a>, and thank you to my lovely wife!</p>
 <p>Let&rsquo;s start work on earning the award for next year&hellip;</p>
 
-{% include imported_disclaimer.html %}
+
 

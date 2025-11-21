@@ -15,5 +15,5 @@ author: Maarten Balliauw
 
 <p>Thanks for joining!</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -19,5 +19,5 @@ This morning, I arrived at work after a great week of skiing in <a href="http://
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

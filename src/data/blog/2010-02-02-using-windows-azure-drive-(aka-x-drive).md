@@ -69,5 +69,5 @@ author: Maarten Balliauw
 <p>Enjoy!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/02/02/Windows-Azure-Drive-(aka-X-Drive).aspx&amp;title=Windows Azure Drive (aka X-Drive)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/02/02/Windows-Azure-Drive-(aka-X-Drive).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 
-{% include imported_disclaimer.html %}
+
 

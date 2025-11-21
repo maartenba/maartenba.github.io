@@ -25,5 +25,5 @@ Bottom line of the story: it has been a while since I was enthousiast about a bo
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

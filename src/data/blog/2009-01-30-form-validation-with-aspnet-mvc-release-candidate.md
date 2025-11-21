@@ -171,5 +171,5 @@ How easy was that! More on the new things in the ASP.NET MVC release candidate c
 </p>
 
 
-{% include imported_disclaimer.html %}
+
 

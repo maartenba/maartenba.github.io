@@ -20,5 +20,5 @@ author: Maarten Balliauw
 <p><a href="/images/image_293.png"><img style="background-image: none; float: none; padding-top: 0px; padding-left: 0px; margin: 5px auto; display: block; padding-right: 0px; border: 0px;" title="Automatically increase instances under load" src="/images/image_thumb_254.png" alt="Automatically increase instances under load" width="640" height="410" border="0" /></a></p>
 <p>A long awaited feature is there! I'll enable this for some services and see how it goes...</p>
 
-{% include imported_disclaimer.html %}
+
 

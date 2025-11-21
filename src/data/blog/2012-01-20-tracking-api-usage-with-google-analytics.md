@@ -88,5 +88,5 @@ http://www.CodeHighlighter.com/
 
 <p>Enjoy! And <a href="https://github.com/maartenba/GoogleAnalyticsTracker" target="_blank">fork this thing</a> and add out-of-the-box support for WCF Web API, Nancy or even “plain old” WCF or ASMX!</p>
 
-{% include imported_disclaimer.html %}
+
 

@@ -23,5 +23,5 @@ author: Maarten Balliauw
 <p>Bugs and feature requests? Feel free to post them as a comment below. Once we release the sources, I&rsquo;ll kick your mailbox with a request to implement the stuff you proposed. Seems fair to me :-)</p>
 <p>Enjoy&nbsp;<a href="http://myget.org">http://myget.org</a>!</p>
 
-{% include imported_disclaimer.html %}
+
 
