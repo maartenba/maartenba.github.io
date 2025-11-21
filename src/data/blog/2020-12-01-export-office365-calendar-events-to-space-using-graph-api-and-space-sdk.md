@@ -13,12 +13,12 @@ Chances are you keep a personal calendar, maybe a family calendar, and a work ca
 Working from home, it's super important to keep these calendars more or less in sync.
 Colleagues book meetings because your work calendar shows you're available, while in reality you've planned to do some errands or maybe pick up your kids from school.
 
-{% include toc %}
-
 Hands up if you have been in this situation! I know I have been. As a solution to this, I was creating entries in multiple calendars, shuffling these entries around when plans changed, and I got tired of doing this manually.
 Nothing prevents a frustrated developer from automating things!
 
 In this post, I'll cover a number of things. Use the table of contents to pick the topics you want to learn more about. Reading the entire post is much appreciated, of course :-)
+
+## Table of contents
 
 ## Required tools
 

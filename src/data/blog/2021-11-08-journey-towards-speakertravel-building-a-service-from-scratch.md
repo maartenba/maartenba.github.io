@@ -11,11 +11,11 @@ author: Maarten Balliauw
 
 For close to two years now, I've had [SpeakerTravel](https://speaker.travel/) up & running. It's a tool that helps conference organizers to book flights for speakers. You invite speakers, they pick their flight of choice (within a budget the organizer can specify), and the organizer can then approve and book the flight with a single click.
 
-{% include toc %}
-
 In this post, I want to go a bit into the process of building this tool. Why I started it in the first place, how it works, a look at it from the business side, and maybe a follow-up post that covers any questions you may have after reading.
 
 There's also a table of contents, so brace yourself for a longread!
+
+## Table of contents
 
 ## Why I started building a travel booking tool
 

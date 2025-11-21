@@ -17,12 +17,12 @@ NuGet feed.**
 
 This seems like a great idea, and most of all, one that is needed.
 
-{% include toc %}
-
 In this post, I wanted to **contribute some of my own thoughts** in this area, and end with a section about
 why Sdkbin (or any solution in this space) **will have to compete head-on with NuGet.org**.
 
 Let's start with some thoughts on open source sustainability, because that is where this story starts...
+
+## Table of contents
 
 ## Why open source sustainability matters
 

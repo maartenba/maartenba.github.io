@@ -15,7 +15,7 @@ Dev Drive promises better performance for typical developer workloads, where fas
 
 In this blog post, I'll share my story of migrating (some) of my workflow to using Dev Drive and ReFS, how to configure package managers such as NuGet, Maven, Gradle and npm to store their caches on a Dev Drive. I'll also try to run my IDE from the Dev Drive, to see if it makes things any faster.
 
-{% include toc %}
+## Table of contents
 
 ## What are Dev Drives and ReFS in Windows 11?
 

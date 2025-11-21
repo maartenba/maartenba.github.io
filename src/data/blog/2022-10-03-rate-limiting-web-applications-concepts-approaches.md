@@ -14,8 +14,6 @@ Your web application is running fine, and your users are behaving as expected. L
 Is it, though...? Users are probably using your application in ways you did not expect.
 Crazy usage patterns resulting in more requests than expected, request bursts when users come back to the office after the weekend, and more!
 
-{% include toc %}
-
 These unexpected requests all pose a potential threat to the health of your web application and may impact other users or the service as a whole.
 Ideally, you want to put a bouncer at the door to do some filtering: limit the number of requests over a given timespan, limiting bandwidth, ...
 
@@ -26,6 +24,8 @@ We'll go over how to decide which resources to limit, what these limits should b
 
 As a (mostly) .NET developer myself, I'll use some examples and link some resources that use ASP.NET Core.
 The general concepts however will also apply to other platforms and web frameworks.
+
+## Table of contents
 
 ## Introduction to rate limiting
 
