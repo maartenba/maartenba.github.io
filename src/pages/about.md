@@ -24,12 +24,11 @@ title: "About"
 
 Thanks for wanting to contact me! Whether you have a question, you would like to hire me for a short-term gig or want me to speak at your conference or user group, I will try and respond to you as soon as possible.
 
-* **Email:** [maarten@maartenballiauw.be](mailto:maarten@maartenballiauw.be)
-* **X:** [@maartenballiauw](https://x.com/maartenballiauw)
 * **Bluesky:** [@maartenballiauw.be](https://bsky.app/profile/maartenballiauw.be)
 * **Mastodon:** [@maartenballiauw@mastodon.online](https://mastodon.online/@maartenballiauw)
 * **GitHub:** [maartenba](https://github.com/maartenba)
 * **LinkedIn:** [public profile](https://www.linkedin.com/in/maartenballiauw)
+* **X:** [@maartenballiauw](https://x.com/maartenballiauw)
 
 ## Bio
 
@@ -37,5 +36,3 @@ Maarten Balliauw loves building web and cloud apps. His main interests are in .N
 
 * Blog: [https://blog.maartenballiauw.be](https://blog.maartenballiauw.be)
 * Previous talks and presentations: [full list of talks](/talks-presentations.html)
-
-## Disclaimer
