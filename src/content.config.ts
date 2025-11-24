@@ -19,7 +19,7 @@ function blogLoader() {
           if (body) {
             const renderedContent = await context.renderMarkdown(body);
 
-            values[i].data.description = getExcerpt(renderedContent.html, 800);
+            values[i].data.description = getExcerpt(renderedContent.html, 600);
           }
         }
       }

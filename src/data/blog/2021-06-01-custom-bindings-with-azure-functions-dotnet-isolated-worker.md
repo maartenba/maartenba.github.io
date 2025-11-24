@@ -9,6 +9,7 @@ tags: ["General", "ICT", ".NET", "dotnet", "Azure", "Functions"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2021/06/01/custom-bindings-with-azure-functions-net-isolated-worker.html
+  - /post/2021/06/01/custom-bindings-with-azure-functions-dotnet-isolated-worker.html
 ---
 
 If you're building workloads on Azure Functions, there's a good chance you've looked at building custom bindings. Custom bindings can greatly reduce the boilerplate code you have to write in an Azure Function, so you can focus on the logic in your function instead.

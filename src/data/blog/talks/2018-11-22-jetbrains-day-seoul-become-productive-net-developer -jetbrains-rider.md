@@ -9,6 +9,7 @@ tags: ["Talks"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2018/11/22/talk-become-a-productive-net-developer-with-jetbrains-rider-jetbrains-day-south-korea-seoul.html
+  - /post/2018/11/22/talk-become-a-productive-dotnet-developer-with-jetbrains-rider-jetbrains-day-south-korea-seoul.html
 ---
 
 At JetBrains Day Seoul, I had the opportunity to speak about *How to become a productive .NET developer with [JetBrains Rider](https://www.jetbrains.com/rider)*.

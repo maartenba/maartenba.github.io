@@ -9,6 +9,7 @@ tags: ["General", "ICT", "CSharp", "Development", "dotnet", "NuGet"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2017/04/10/extending-net-cli-with-custom-tools-dotnet-init-initializes-your-nuget-package.html
+  - /post/2017/04/10/extending-dotnet-cli-with-custom-tools-dotnet-init-initializes-your-nuget-package.html
 ---
 
 A few weeks back, [.NET Core 1.1](https://www.microsoft.com/net/core#windowscmd) was released (and a boatload of related tools such as [Visual Studio 2017](http://www.visualstudio.com). For .NET Core projects, a big breaking change was introduced: the project format is no longer `project.json` but good old `.csproj`. That's a little bit of a lie: the `.csproj` is actually an entirely new, simplified format that combines the best of the old `.csproj` and `project.json` and works with .NET Standard and .NET Core.

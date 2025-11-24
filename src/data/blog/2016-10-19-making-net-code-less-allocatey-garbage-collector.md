@@ -9,6 +9,7 @@ tags: ["General", "ICT", "CSharp", "Development", "Performance", "Memory", "Prof
 author: Maarten Balliauw
 redirect_from:
   - /post/2016/10/19/making-net-code-less-allocatey-allocations-and-the-garbage-collector.html
+  - /post/2016/10/19/making-dotnet-code-less-allocatey-allocations-and-the-garbage-collector.html
 ---
 
 The .NET Garbage Collector (GC) is quite cool. In combination with the runtime's virtual memory, it helps providing our applications with virtually unlimited memory, by reclaiming memory that is no longer in use and making it available to our code again. By doing so, it also takes away the burden of having to allocate and free memory explicitly. But sometimes, it still matters to understand when and where memory is allocated. The reason for that is simple: if we can use efficient coding to help our GC spend less CPU time allocating and freeing memory we can make our applications faster and less "allocatey".
