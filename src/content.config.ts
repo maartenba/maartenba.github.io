@@ -20,6 +20,8 @@ function blogLoader() {
             const renderedContent = await context.renderMarkdown(body);
 
             values[i].data.description = getExcerpt(renderedContent.html, 600);
+
+            context.store.set(values[i]);
           }
         }
       }
