@@ -14,14 +14,12 @@ function blogLoader() {
 
       const values = context.store.values();
       for (let i = 0; i < values.length; i++) {
-        if (!values[i].data.description) {
+        if (!values[i].data['description']) {
           const body = values[i].body;
           if (body) {
             const renderedContent = await context.renderMarkdown(body);
 
-            values[i].data.description = getExcerpt(renderedContent.html, 600);
-
-            context.store.set(values[i]);
+            values[i].data['description'] = getExcerpt(renderedContent.html, 600);
           }
         }
       }
