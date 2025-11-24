@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Software", "WebAPI"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/10/18/from-api-key-to-user-with-asp-net-web-api.html
 ---
 <p>ASP.NET Web API is a great tool to build an API with. Or as my buddy <a href="http://www.kristofrennen.be">Kristof Rennen</a> (and the French) always say: &ldquo;it makes you &lsquo;api&rdquo;. One of the things I like a lot is the fact that you can do very powerful things that you know and love from the ASP.NET MVC stack, like, for example, using filter attributes. Action filters, result filters and&hellip; authorization filters.</p>
 <p>Say you wanted to protect your API and make use of the controller&rsquo;s <em>User</em> property to return user-specific information. You probably will add an <em>[Authorize]</em> attribute (to ensure the user is authenticated) to either the entire API controller or to one of its action methods, like this:</p>

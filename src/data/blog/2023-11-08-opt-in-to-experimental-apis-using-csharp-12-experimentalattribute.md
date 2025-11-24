@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "csharp"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2023/11/08/provide-opt-in-to-experimental-apis-using-c-12-experimentalattribute.html
 ---
 
 When writing libraries and frameworks that others are using, it's sometimes hard to convey that a given API is still considered "experimental".

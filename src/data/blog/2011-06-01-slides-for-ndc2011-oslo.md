@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Events"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2011/06/01/slides-for-ndc2011-oslo.html
 ---
 <p>It was great speaking at&nbsp;NDC2011! As promised during the sessions I gave, here are the slide decks:</p>
 <ul>

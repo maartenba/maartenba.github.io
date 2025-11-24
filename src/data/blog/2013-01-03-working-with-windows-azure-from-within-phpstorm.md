@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "PHP", "Azure Database", "Azure"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2013/01/03/working-with-windows-azure-from-within-phpstorm.html
 ---
 <p>Working with Windows Azure and my new toy (<a href="http://www.jetbrains.com/phpstorm/">PhpStorm</a>), I wanted to have support for doing specific actions like creating a new web site or a new database in the IDE. Since I&rsquo;m not a Java guy, writing a plugin was not an option. Fortunately, PhpStorm (or <a href="http://www.jetbrains.com/webstorm/">WebStorm</a> for that matter) provide support for issuing commands from the IDE. Which led me to think that it may be possible to hook up the Windows Azure Command Line Tools in my IDE&hellip; Let&rsquo;s see what we can do&hellip;</p>
 <p>First of all, we&rsquo;ll need the &lsquo;azure&rsquo; tools. These are available for download for <a href="http://go.microsoft.com/fwlink/?LinkID=275464&amp;clcid=0x409">Windows</a> or <a href="http://go.microsoft.com/fwlink/?LinkID=253471&amp;clcid=0x409">Mac</a>. If you happen to have Node and NPM installed, simply issue <em>npm install azure-cli -g</em> and we&rsquo;re good to go.</p>

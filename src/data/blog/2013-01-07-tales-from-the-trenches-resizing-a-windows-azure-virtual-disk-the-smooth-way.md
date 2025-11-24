@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["CSharp", "General", "Software", "Azure"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2013/01/07/tales-from-the-trenches-resizing-a-windows-azure-virtual-disk-the-smooth-way.html
 ---
 <p>We&rsquo;ve all been there. Running a virtual machine on Windows Azure and all of a sudden you notice that a virtual disk is running full. Having no access to the hypervisor nor to its storage (directly), there&rsquo;s no easy way out&hellip;</p>
 <p><em><strong><span style="color: #ff0000;">Big disclaimer: use the provided code on your own risk! I&rsquo;m not responsible if something breaks! The provided code is as-is without warranty! I have tested this on a couple of data disks without any problems. I've tested this on OS disks and this sometimes works, sometimes fails. Be warned.</span></strong></em></p>

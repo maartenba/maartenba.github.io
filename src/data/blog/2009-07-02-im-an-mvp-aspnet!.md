@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "General", "Personal", "MVP"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/07/02/im-an-mvp-asp-net.html
 ---
 <p><a href="/images/MVPLogo.gif"><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="MVPLogo" src="/images/MVPLogo_thumb.gif" border="0" alt="MVPLogo" width="115" height="240" align="right" /></a>Yesterday evening, I received the following e-mail:</p>
 

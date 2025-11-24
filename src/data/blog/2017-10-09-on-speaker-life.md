@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Development"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2017/10/09/on-speaker-life.html
 ---
 
 Last week, I did a tweet while at the Paris Charles de Gaulle airport, working on blog posts (part of my job) and drinking bad coffee.

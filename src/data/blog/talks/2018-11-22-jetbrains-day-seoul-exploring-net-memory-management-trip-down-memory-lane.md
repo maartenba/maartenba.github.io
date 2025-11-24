@@ -7,6 +7,8 @@ published: true
 categories: ["talk"]
 tags: ["Talks"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2018/11/22/talk-exploring-nets-memory-management-a-trip-down-memory-lane-jetbrains-day-south-korea-seoul.html
 ---
 
 At JetBrains Day Seoul, I had the opportunity to speak about *Exploring .NET's memory management – a trip down memory lane*.

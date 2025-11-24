@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Azure", "Space"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/03/09/monitoring-twitter-with-azure-logicapps-and-jetbrains-space.html
 ---
 
 In the [.NET team at JetBrains](https://www.jetbrains.com/dotnet/), we try to be as responsive as possible on Twitter when there are mentions of ReSharper, Rider, or any of the profiling tools. Many of our developer advocates, as well as the development team, QA and marketing, are active on Twitter and keep an eye on what's being talked about, to try and help out wherever and whenever they can.

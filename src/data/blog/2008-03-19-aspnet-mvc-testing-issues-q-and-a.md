@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "Debugging", "General", "MVC", "Testing"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/03/19/asp-net-mvc-testing-issues-q-and-a.html
 ---
 <p>
 <img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/ASP.NETMVCTestingissuesQA_784E/image_3.png" border="0" alt="WTF?" width="108" height="158" align="right" /> When playing around with the <a href="http://www.asp.net/mvc" target="_blank">ASP.NET MVC framework</a> and automated tests using <a href="http://www.ayende.com/projects/rhino-mocks.aspx" target="_blank">Rhino Mocks</a>, you will probably find yourself close to throwing your computer trough the nearest window. Here are some common issues and answers: 

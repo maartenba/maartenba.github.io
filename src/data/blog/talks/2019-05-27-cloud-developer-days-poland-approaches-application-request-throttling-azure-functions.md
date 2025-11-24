@@ -7,6 +7,8 @@ published: true
 categories: ["talk"]
 tags: ["Talks"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/05/27/talk-approaches-for-application-request-throttling-and-indexing-and-searching-nuget-org-with-azure-functions-and-search-cloud-developer-days-poland-krakow.html
 ---
 
 Thanks to the folks organizing [Cloud Developer Days Poland](https://cloud.developerdays.pl), I had the opportunity to give two talks in Krakow, Poland this week:

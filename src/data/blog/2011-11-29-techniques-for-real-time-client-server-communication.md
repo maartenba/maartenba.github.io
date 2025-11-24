@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "JavaScript", "jQuery", "MVC", "Scalability", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2011/11/29/techniques-for-real-time-client-server-communication-on-the-web-signalr-to-the-rescue.html
 ---
 <p><img style="background-image: none; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="SignalR websockets html5 long polling" src="/images/image_153.png" border="0" alt="SignalR websockets html5 long polling" width="282" height="189" align="right" />When building web applications, you often face the fact that HTTP, the foundation of the web, is a request/response protocol. A client issues a request, a server handles this request and sends back a response. All the time, with no relation between the first request and subsequent requests. Also, since it&rsquo;s request-based, there is no way to send messages from the server to the client without having the client create a request first.</p>
 <p>Today users expect that in their projects, sorry, &ldquo;experiences&rdquo;, a form of &ldquo;real time&rdquo; is available. Questions like &ldquo;I want this stock ticker to update whenever the price changes&rdquo; or &ldquo;I want to view real-time GPS locations of my vehicles on this map&rdquo;. Or even better: experiences where people collaborate often require live notifications and changes in the browser so that whenever a user triggers a task or event, the other users collaborating immediately are notified. Think Google Spreadsheets where you can work together. Think Facebook chat. Think Twitter where new messages automatically appear. Think your apps with a sprinkle of real-time sauce.</p>

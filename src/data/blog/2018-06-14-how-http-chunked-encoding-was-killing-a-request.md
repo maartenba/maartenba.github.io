@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Development", "Personal", "Performance", "Web"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2018/06/14/how-http-chunked-encoding-was-killing-a-request.html
 ---
 
 Recently, someone asked me to look at their ASP.NET MVC application and help figure out why a certain request was taking 16 seconds to complete. It's always fun to look at those things, so I could not pass on this [nerd snipe](https://xkcd.com/356/).

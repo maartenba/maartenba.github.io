@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "ASP.NET", "MVC", "Security"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/01/09/help-ive-inherited-an-asp-net-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html
 ---
 
 As ASP.NET MVC developers, whether ASP.NET MVC 5 or ASP.NET MVC Core, we all know it is important to perform certain validations to prevent a *Cross-Site Request Forgery (CSRF)* attack against the application we are building. The ASP.NET MVC provides the `@Html.AntiForgeryToken()` helper which we can use to add a hidden field in the form we are posting, and a `[ValidateAntiForgeryToken]` attribute which we can decorate our action method with and instructs the framework to validate the posted token is valid (or was forged).

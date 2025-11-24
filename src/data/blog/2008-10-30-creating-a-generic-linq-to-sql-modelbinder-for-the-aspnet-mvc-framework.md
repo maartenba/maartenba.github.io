@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/10/30/creating-a-generic-linq-to-sql-modelbinder-for-the-asp-net-mvc-framework.html
 ---
 <p>
 You are right! This is indeed my third post on ASP.NET MVC ModelBinders. The first one focussed on creating a <a href="/post/2008/09/01/using-the-aspnet-mvc-modelbinder-attribute.aspx" target="_blank">ModelBinder from scratch</a> in an older preview release, the second post did something similar trying to do <a href="/post/2008/10/02/using-the-aspnet-mvc-modelbinder-attribute-second-part.aspx" target="_blank">some dirty ViewState-like stuff</a>. Good news! There&#39;s more of this dirty stuff coming! 

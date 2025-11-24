@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Azure Database", "Webfarm", "Azure"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2013/12/30/a-new-years-present-introducing-glimpse-plugins-for-windows-azure.html
 ---
 <p><a href="/images/image_314.png"><img width="344" height="94" title="Glimpse plugin for Windows Azure" align="right" style="margin: 5px 0px 5px 5px; border: 0px currentColor; border-image: none; padding-top: 0px; padding-right: 0px; padding-left: 0px; float: right; display: inline; background-image: none;" alt="Glimpse plugin for Windows Azure" src="/images/image_thumb_274.png" border="0"></a>Have you tried <a href="http://getglimpse.com/">Glimpse</a> before? It shows you server-side information like execution times, server configuration, request data and such in your browser. At the February MVP Summit this year, <a href="http://blog.anthonyvanderhoorn.com/">Anthony</a>, <a href="http://nikcodes.com/">Nik</a> and I had a chat about what would be useful information to be displayed in Glimpse when working on Windows Azure. Some beers and a bit of coding later, we had a proof-of-concept showing Windows Azure runtime configuration data in a Glimpse tab.</p>
 <p>Today, we are happy to announce a first public preview of two Windows Azure tabs in Glimpse: the Glimpse.WindowsAzure package displaying runtime information, and Glimpse.WindowsAzure.Storage collecting information about traffic from and to storage.</p>

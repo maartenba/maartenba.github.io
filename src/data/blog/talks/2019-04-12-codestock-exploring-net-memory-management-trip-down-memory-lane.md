@@ -7,6 +7,8 @@ published: true
 categories: ["talk"]
 tags: ["Talks"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/04/12/talk-exploring-net-memory-management-a-trip-down-memory-lane-codestock-2019-knoxville-tn-usa.html
 ---
 
 That was fun! I had the opportunity to present at [CodeStock 2019](http://codestock.org/) in Knoxville, TN (USA). The conference is for the community, by the community, which means lots of enthusiast people around.

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "ASP.NET"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2018/10/19/registering-a-type-as-an-interface-and-as-self-with-asp-net-core-dependency-injection.html
 ---
 
 While I am a big fan of [Autofac](https://autofac.org/) to serve as the framework for making Inversion of Control (IoC) and Dependency Injection (DI) work in an application, it is quite convenient in simple projects to use the [built-in dependency injection in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection).

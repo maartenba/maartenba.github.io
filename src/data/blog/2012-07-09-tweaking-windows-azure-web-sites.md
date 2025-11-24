@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "Scalability", "Webfarm"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/07/09/tweaking-windows-azure-web-sites.html
 ---
 <p>A while ago, I was at a customer who wanted to run his own WebDAV server (using <a href="http://www.sabredav.org">www.sabredav.org</a>) on <a href="http://www.windowsazure.com" target="_blank">Windows Azure Web Sites</a>. After some testing, it seemed that this PHP-based WebDAV server was missing some configuration at the webserver level. Some HTTP keywords required for the WebDAV protocol were not mapped to the PHP runtime making it virtually impossible to run a custom WebDAV implementation on PHP. Unless there&rsquo;s some configuration possible&hellip;</p>
 <p>I&rsquo;ve issued a simple <em>phpinfo();</em> on Windows Azure Websites, simply outputting the PHP configuration and all available environment variables in Windows Azure Websites. This revealed the following interesting environment variable:</p>

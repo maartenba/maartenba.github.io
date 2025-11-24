@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", ".NET", "dotnet", ".NET Core"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2021/01/13/the-process-thought-and-technology-behind-building-a-friendly-net-sdk-for-jetbrains-space.html
 ---
 
 Early December 2020, we released [JetBrains Space](https://www.jetbrains.com/space/). Along with it, we built a [Kotlin SDK](https://github.com/JetBrains/space-kotlin-sdk) and a [.NET SDK](https://github.com/JetBrains/space-dotnet-sdk). In this post, I want to walk you through the process of building that .NET SDK.

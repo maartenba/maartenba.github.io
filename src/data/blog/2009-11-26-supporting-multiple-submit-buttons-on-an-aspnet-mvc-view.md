@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/11/26/supporting-multiple-submit-buttons-on-an-asp-net-mvc-view.html
 ---
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="Multiple buttons on an ASP.NET MVC view" src="/images/image_23.png" border="0" alt="Multiple buttons on an ASP.NET MVC view" width="157" height="157" align="right" /> A while ago, I was asked for advice on how to support multiple submit buttons in an ASP.NET MVC application, preferably without using any JavaScript. The idea was that a form could contain more than one submit button issuing a form post to a different controller action.</p>
 <p>The above situation can be solved in many ways, one a bit cleaner than the other. For example, one could post the form back to one action method and determine which method should be called from that action method. Good solution, however: not standardized within a project and just not that maintainable&hellip; A better solution in this case was to create an <em>ActionNameSelectorAttribute</em>.</p>

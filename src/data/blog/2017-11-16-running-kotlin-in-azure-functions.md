@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Development", "Kotlin", "Azure", "Cloud"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2017/11/16/running-kotlin-in-azure-functions.html
 ---
 
 A while back, the Azure folks [announced support for Java on Azure Functions](https://azure.microsoft.com/en-us/blog/announcing-the-preview-of-java-support-for-azure-functions/). My immediate thought was: "Do they mean Java or JVM? And if they mean JVM, will it work with [Kotlin](https://kotlinlang.org/)?" In this blog post, we'll find out!

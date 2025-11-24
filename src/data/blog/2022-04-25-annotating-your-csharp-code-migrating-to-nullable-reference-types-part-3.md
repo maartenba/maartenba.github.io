@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "Nullability"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2022/04/25/annotating-your-c-code-migrating-to-nullable-reference-types-part-3.html
 ---
 
 In the [previous post](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html), we looked at some internals of C# nullable reference types, and the nullable annotation context.

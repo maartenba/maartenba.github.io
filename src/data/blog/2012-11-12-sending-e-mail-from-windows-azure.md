@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "MVC", "Scalability", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/11/12/sending-e-mail-from-windows-azure.html
 ---
 <p><em>
 Note: this blog post used to be an article for the Windows Azure Roadtrip website. Since that one no longer exists, I decided to post the articles on my blog as well. Find the source code for this post here: <a href="/files/2012/11/04+SendingEmailsFromTheCloud.zip">04 SendingEmailsFromTheCloud.zip (922.27 kb)</a>.</p>

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", ".NET", "dotnet", ".NET Core"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/12/01/export-office-365-calendar-events-to-jetbrains-space-using-the-microsoft-graph-api-the-jetbrains-space-sdk-and-automation.html
 ---
 
 Chances are you keep a personal calendar, maybe a family calendar, and a work calendar.

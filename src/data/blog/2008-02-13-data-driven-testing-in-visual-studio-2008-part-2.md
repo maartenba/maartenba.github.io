@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "Debugging", "General", "Testing"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/02/13/data-driven-testing-in-visual-studio-2008-part-2.html
 ---
 <p>
 This is the second post in my series on Data Driven Testing in Visual Studio 2008. The first post focusses on Data Driven Testing in regular Unit Tests. This part will focus on the same in web testing. 

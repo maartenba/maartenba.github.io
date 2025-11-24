@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVP", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2010/07/01/renewed-mvp-asp-net-for-2010.html
 ---
 <p>Just got the best e-mail a Microsoft community member can receive in his mailbox:<a href="/images/MVPLogo.gif"><img title="MVPLogo" border="0" alt="MVPLogo" align="right" src="/images/MVPLogo_thumb.gif" width="115" height="240" /></a></p>  
 

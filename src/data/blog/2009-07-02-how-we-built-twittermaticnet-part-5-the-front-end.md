@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Projects"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/07/02/how-we-built-twittermatic-net-part-5-the-front-end.html
 ---
 <p><em><a href="http://www.twittermatic.net/" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic - Schedule your Twitter updates" src="/images/twittermatic1015.png" border="0" alt="TwitterMatic - Schedule your Twitter updates" width="204" height="219" align="right" /></a></em><em>&ldquo;After having found a god-like guardian for his application, Knight Maarten The Brave Coffeedrinker found out that his application still had no functional front-end. It&rsquo;s OK to have a guardian and a barn in the cloud, but if there&rsquo;s nothing to guard, this is a bit useless. Having asked the carpenter and the smith of the village, our knight decided that the so-called &ldquo;ASP.NET MVC&rdquo; framework might help in his quest.&rdquo;</em></p>
 <p>This post is part of a series on how we built <a href="http://www.twittermatic.net/" target="_blank">TwitterMatic.net</a>. Other parts:</p>

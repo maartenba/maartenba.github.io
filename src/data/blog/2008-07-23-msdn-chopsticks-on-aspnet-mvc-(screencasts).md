@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Screencasts", "Testing"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/07/23/msdn-chopsticks-on-asp-net-mvc-screencasts.html
 ---
 <p>
 A while ago, <a href="http://www.katriendg.com" target="_blank">KatrienDG</a> asked me to do some screencasts on the ASP.NET MVC framework for the <a href="http://www.microsoft.com/belux/msdn/nl/chopsticks/default.aspx" target="_blank">MSDN Chopsticks</a> page. I&#39;ve been working on 2 screencasts: an <a href="http://www.microsoft.com/belux/msdn/nl/chopsticks/default.aspx?id=551" target="_blank">introductory talk</a> to the ASP.NET MVC framework and a <a href="http://www.microsoft.com/belux/msdn/nl/chopsticks/default.aspx?id=555" target="_blank">Test Driven Development story</a>. Feel free to leave some comments! 

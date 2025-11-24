@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["CSharp", "General", "Profiling", "Testing"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/05/29/detailed-code-metrics-with-ndepend.html
 ---
 <p>
 A while ago, I blogged about <a href="/post/2008/02/code-performance-analysis-in-visual-studio-2008.aspx" target="_blank">code performance analysis in Visual Studio 2008</a>. Using profiling and hot path tracking, I measured code performance and was able to react to that. Last week, <a href="http://codebetter.com/blogs/patricksmacchia/" target="_blank">Patrick Smacchia</a> contacted me asking if I wanted to test his project <a href="http://www.ndepend.com/" target="_blank">NDepend</a>. He promised me NDepend would provide more insight in my applications. Let&#39;s test that! 

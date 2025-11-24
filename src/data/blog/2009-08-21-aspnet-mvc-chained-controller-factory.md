@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/08/21/asp-net-mvc-chained-controller-factory.html
 ---
 <p>My last post on the <a href="/post/2009/08/19/rest-for-aspnet-mvc-sdk.aspx">REST for ASP.NET MVC SDK</a> received an interesting comment&hellip; Basically, the spirit of the comment was: &ldquo;There are tons of controller factories out there, but you can only use one at a time!&rdquo;. This is true. One can have an <em>IControllerFactory</em> for MEF, for Castle Windsor, a custom one that creates a controller based on the current weather, &hellip; Most of the time, these <em>IControllerFactory</em>&nbsp; implementations do not glue together&hellip; Unless you chain them!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/21/ASPNET-MVC-Chained-Controller-Factory.aspx&amp;title=ASP.NET MVC Chained Controller Factory"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/21/ASPNET-MVC-Chained-Controller-Factory.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>

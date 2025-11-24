@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "Publications"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2011/06/14/advanced-scenarios-with-windows-azure-queues.html
 ---
 <p>For <a href="http://www.developerfusion.com/article/120619/advanced-scenarios-with-windows-azure-queues/" target="_blank">DeveloperFusion</a>, I wrote an article on Windows Azure queues. Interested in working with queues and want to use some advanced techniques? Head over to the article:</p>  
 

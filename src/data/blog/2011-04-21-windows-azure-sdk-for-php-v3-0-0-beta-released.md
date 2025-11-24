@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "General", "PHP", "Projects", "Software", "Webfarm"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2011/04/21/windows-azure-sdk-for-php-v3-0-0-beta-released.html
 ---
 <p><a href="http://www.microsoft.com"><img style="background-image: none; margin: 0px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="image" src="/images/image_thumb_79.png" border="0" alt="image" width="240" height="76" align="right" />Microsoft</a> and <a href="http://www.realdolmen.com">RealDolmen</a>&nbsp;are very proud to announce the availability of the <a href="http://phpazure.codeplex.com/releases/view/64047" target="_blank">Windows Azure SDK for PHP v3.0.0 BETA</a> on CodePlex. This releases is something we&rsquo;ve been working on in the past few weeks, implementing a lot of new features that enable you to fully leverage the Windows Azure platform from PHP.</p>
 <p>This release is BETA software, which means it is feature complete. However, since we have one breaking change, we&rsquo;re releasing a BETA first to ensure every edge case is covered. Of you are using the current version of the Windows Azure SDK for PHP, feel free to upgrade and let us know your comments.</p>

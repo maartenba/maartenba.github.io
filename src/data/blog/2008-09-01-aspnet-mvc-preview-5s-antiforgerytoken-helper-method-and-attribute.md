@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/09/01/asp-net-mvc-preview-5s-antiforgerytoken-helper-method-and-attribute.html
 ---
 <p>
 The new <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=16775" target="_blank">ASP.NET MVC preview 5</a> featured a number of new HtmlHelper methods. One of these methods is the HtmlHelper.AntiForgeryToken. When you place <em>&lt;%=Html.AntiForgeryToken()%&gt;</em> on your view, this will be rendered similar to the following: 

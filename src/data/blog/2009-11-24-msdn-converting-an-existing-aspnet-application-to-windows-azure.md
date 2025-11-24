@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "Presentations", "Screencasts"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/11/24/msdn-converting-an-existing-asp-net-application-to-windows-azure.html
 ---
 <p>Back from PDC 2009 with a lot of information on <a href="http://www.azure.com" target="_blank">Windows Azure</a>, I did an MSDN Live Meeting on ASP.NET and Windows Azure today. Here's the slide deck and demo code.</p>
 <p>Abstract: <em>"Put your stuff in the cloud! Windows Azure allows you to take advantage of cloud computing infranstructure for hosting, computing, and storage of your applications. In this demo filled session we take an existing ASP.Net Application and move it to be hosted in Windows Azure, while taking advantage of Windows Azure storage."</em></p>

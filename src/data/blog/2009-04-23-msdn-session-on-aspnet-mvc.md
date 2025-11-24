@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Presentations", "Publications"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/04/23/msdn-session-on-asp-net-mvc.html
 ---
 <p>As promised to all people attending my online session on ASP.NET MVC this afternoon, here is the slide deck I&rsquo;ve used.</p>
 

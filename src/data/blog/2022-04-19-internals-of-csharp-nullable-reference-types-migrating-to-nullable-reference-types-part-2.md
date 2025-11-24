@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "Nullability"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2022/04/19/internals-of-c-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html
 ---
 
 In the [previous post](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html), we saw that with nullable reference types enabled, you get better static flow analysis when working on your code.

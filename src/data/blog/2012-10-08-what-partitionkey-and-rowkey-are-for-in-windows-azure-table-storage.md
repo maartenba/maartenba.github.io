@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "Scalability"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/10/08/what-partitionkey-and-rowkey-are-for-in-windows-azure-table-storage.html
 ---
 <p>For the past few months, I&rsquo;ve been coaching a &ldquo;Microsoft Student Partner&rdquo; (who has a great blog on <a href="http://www.kinectingforwindows.com/">Kinect for Windows</a> by the way!) on Windows Azure. One of the questions he recently had was around <em>PartitionKey</em> and <em>RowKey</em> in Windows Azure Table Storage. What are these for? Do I have to specify them manually? Let&rsquo;s explain&hellip;</p>
 <h2>Windows Azure storage partitions</h2>

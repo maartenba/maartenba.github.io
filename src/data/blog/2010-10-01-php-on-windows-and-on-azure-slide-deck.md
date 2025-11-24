@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "General", "PHP", "Presentations", "Silverlight", "Azure Database"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2010/10/01/php-on-windows-and-on-azure-slide-deck.html
 ---
 <p>As promised during my session on PHP Summer Camp in Lisbon, Portugal, here's the slide deck.</p>
 <h2>PHP on Windows and on Azure</h2>

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "Scalability", "Webfarm"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/04/06/using-the-windows-azure-content-delivery-network.html
 ---
 <p>As you know, Windows Azure is a very rich platform. Next to compute and storage, it offers a series of building blocks that simplify your life as a cloud developer. One of these building blocks is the content delivery network (CDN), which can be used for offloading content to a globally distributed network of servers, ensuring faster throughput to your end users.</p>  <p>I’ve been asked to write an article on this matter, which I did, and which is live at <a href="http://acloudyplace.com/2012/04/using-the-windows-azure-content-delivery-network/" target="_blank">ACloudyPlace.com</a> since today. As a small teaser, here’s the first section of it:</p>  
 

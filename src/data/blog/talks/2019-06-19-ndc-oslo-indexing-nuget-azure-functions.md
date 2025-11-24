@@ -7,6 +7,8 @@ published: true
 categories: ["talk"]
 tags: ["Talks"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/06/19/talk-indexing-and-searching-nuget-org-with-azure-functions-and-search-ndc-oslo-norway-oslo.html
 ---
 
 This week, I had the opportunity to speak at [NDC Oslo](https://www.ndcoslo.com). The talk I did was "Indexing and searching NuGet.org with Azure Functions and Search", which covers a story of re-building an existing service using a serverless approach, on Azure Functions.

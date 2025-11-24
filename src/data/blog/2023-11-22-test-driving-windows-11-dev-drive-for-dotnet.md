@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "windows"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2023/11/22/test-driving-windows-11-dev-drive-for-net.html
 ---
 
 At Build 2023 back in June, [Microsoft announced](https://blogs.windows.com/windowsdeveloper/2023/06/01/dev-drive-performance-security-and-control-for-developers/) a new form of storage volume for Windows 11: Dev Drive. In October 2023, support for Dev Drive was shipped as a Windows Update and now available to anyone using the latest version of Windows 11.

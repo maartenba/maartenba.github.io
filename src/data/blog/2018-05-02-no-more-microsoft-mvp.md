@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Development", "Personal", "Azure", "Cloud"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2018/05/02/retiring-as-a-microsoft-mvp.html
 ---
 
 **I have decided to retire from the Microsoft MVP program.** In the first week of April, an e-mail from Microsoft landed in my mailbox. I was given the choice to either remain an active MVP (but without access to NDA content) until my next renewal period, or retire from the program.

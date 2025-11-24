@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "MVP", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/03/12/im-an-asp-insider.html
 ---
 <p><a href="/images/image_171.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 5px 5px 5px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" align="left" src="/images/image_thumb_137.png" width="204" height="76" /></a>Cool! I’ve just learned that I’m invited to join the <a href="http://aspinsiders.com/">ASPInsiders</a>. I’m really excited and honored to be part of this <a href="http://aspinsiders.com/Insiders.aspx">group of great ASP.NET experts</a>. Very much looking forward to learning the <em>secret handshake</em> and being able to provide feedback that helps the ASP.NET team forward.</p>  <p>If don’t know who the ASP Insiders are, here’s their elevator pitch:</p>  
 

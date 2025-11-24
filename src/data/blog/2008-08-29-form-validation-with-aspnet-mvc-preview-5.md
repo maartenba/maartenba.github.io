@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/08/29/form-validation-with-asp-net-mvc-preview-5.html
 ---
 <p>
 In earlier ASP.NET MVC previews, form validation was something that should be implemented &quot;by hand&quot;. Since the new <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=16775" target="_blank">ASP.NET MVC preview 5</a>, form validation has become more handy. Let me show you how you can add validation in such a ridiculously easy manner. 

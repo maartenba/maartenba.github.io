@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/05/06/more-asp-net-mvc-best-practices.html
 ---
 <p>In this post, I&rsquo;ll share some of the best practices and guidelines which I have come across while developing ASP.NET MVC web applications. I will not cover all best practices that are available, instead add some specific things that have not been mentioned in any blog post out there.</p>
 <p>Existing best practices can be found on Kazi Manzur Rashid&rsquo;s blog and Simone Chiaretta&rsquo;s blog:</p>

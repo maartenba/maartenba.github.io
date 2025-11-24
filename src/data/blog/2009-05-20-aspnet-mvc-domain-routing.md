@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/05/20/asp-net-mvc-domain-routing.html
 ---
 <p style="padding: 10px; border-left-color: navy; border-left-width: 5px; border-left-style: solid; background-color: rgb(238, 238, 238);">Looking for an ASP.NET MVC 6 version? Check <a href="/post/2015/02/17/Domain-Routing-and-resolving-current-tenant-with-ASPNET-MVC-6-ASPNET-5.aspx" target="_blank">this post</a>.</p>
 <p><img width="160" height="240" title="Routing" align="right" style="margin: 5px 0px 5px 5px; border: 0px currentColor; border-image: none; display: inline;" alt="Routing" src="/images/routing.jpg" border="0"> Ever since the release of ASP.NET MVC and its routing engine (<em>System.Web.Routing</em>), Microsoft has been trying to convince us that you have full control over your URL and routing. This is true to a certain extent: as long as it’s related to your application path, everything works out nicely. If you need to take care of data tokens in your (sub)domain, you’re screwed by default.</p>

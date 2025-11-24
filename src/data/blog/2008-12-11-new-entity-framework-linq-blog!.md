@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["CSharp", "General", "LINQ"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/12/11/new-entity-framework-linq-blog.html
 ---
 <p>
 Just a quick recommendation note: One of my colleagues, <a href="http://blogs.securancy.com/" target="_blank">Julien Hanssens</a>, has started blogging on his experiences with the Entity Framework and LINQ. Here are some links to get you started: 

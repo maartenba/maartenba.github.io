@@ -7,7 +7,9 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "CSharp", "Development", "Performance", "Memory", "Profiling"]
 author: Maarten Balliauw
----			
+redirect_from:
+  - /post/2016/11/15/exploring-memory-allocation-and-strings.html
+---
 
 A while back, I wrote about [making code allocate less memory](https://blog.maartenballiauw.be/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html) (go read it now if you haven't). In that post, we saw how the Garbage Collector works and how it decides to keep objects around in memory or reclaim them. There's one specific type we never touched on in that post: strings. Why would we? They look like value types, so they aren't subject to Garbage Collection, right? Well... Wrong.
 

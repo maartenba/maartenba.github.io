@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["CSharp", "General", "Projects", "Testing"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/06/12/the-devil-is-in-the-details-visual-studio-team-system-test-policy.html
 ---
 <p>
 Have you ever been in a difficult situation where a software product is overall very good, but a small detail is going wrong? At least I&#39;ve been, for the past week... 

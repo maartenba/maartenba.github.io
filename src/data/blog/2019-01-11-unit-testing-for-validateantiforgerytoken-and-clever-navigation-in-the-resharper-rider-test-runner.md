@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "ASP.NET", "MVC", "Security"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/01/11/unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner.html
 ---
 
 We all know it's important to prevent *Cross-Site Request Forgery (CSRF)* attacks against our application. Unfortunately, our inherited code base has *zero* measures implemented - not one action methods with a `[ValidateAntiForgeryToken]` attribute in sight!

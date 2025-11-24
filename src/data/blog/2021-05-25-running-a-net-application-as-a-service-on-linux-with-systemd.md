@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", ".NET", "dotnet", "Infrastructure"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2021/05/25/running-a-net-application-as-a-service-on-linux-with-systemd.html
 ---
 
 In this post, let's see how you can run a .NET Core / .NET 5 application as a service on Linux. We'll use [Systemd](https://en.wikipedia.org/wiki/Systemd) to integrate our application with the operating system and make it possible to start and stop our service, and get logs from it.

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "MVC", "Projects"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/07/02/how-we-built-twittermatic-net-part-4-authentication-and-membership.html
 ---
 <p><em><a href="http://www.twittermatic.net/" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic - Schedule your Twitter updates" src="/images/twittermatic10%5B1%5D.png" border="0" alt="TwitterMatic - Schedule your Twitter updates" width="204" height="219" align="right" /></a></em><em>&ldquo;Knight Maarten The Brave Coffeedrinker just returned from his quest to a barn in the clouds, when he discovered that he forgot to lock the door to his workplace. He immediately asked the digital village&rsquo;s smith.to create a lock and provide him a key. Our knight returned to his workplace and concluded that using the smith&rsquo;s lock would be OK, but having the great god of social networking, <a href="http://www.twitter.com" target="_blank">Twitter</a>, as a guardian, seemed like a better idea. &ldquo;O, Auth!&rdquo;, he said. And the god provided him with a set of prayers, an API, which our knight could use.&rdquo;</em></p>
 <p>This post is part of a series on how we built <a href="http://www.twittermatic.net/" target="_blank">TwitterMatic.net</a>. Other parts:</p>

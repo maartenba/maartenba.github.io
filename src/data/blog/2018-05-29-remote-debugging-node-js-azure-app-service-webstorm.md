@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Development", "Personal", "Azure", "Cloud", "Web"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2018/05/29/remote-debugging-of-node-js-apps-on-azure-app-service-from-webstorm.html
 ---
 
 At Microsoft Build 2018, a [number of Azure App Service on Linux enhancements](https://azure.microsoft.com/en-us/blog/app-service-adding-multi-container-capabilities-and-linux-support-for-app-service-environment/) were announced. One that I was interested in was this one:

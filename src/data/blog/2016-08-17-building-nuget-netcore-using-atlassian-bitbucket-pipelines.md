@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["CSharp", "General", "ICT", "NuGet", "Software", "Source control"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2016/08/17/building-nuget-net-core-using-atlassian-bitbucket-pipelines.html
 ---
 
 A while back, I signed up for the beta of [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines), a new continuous integration service from Atlassian, built into Bitbucket. The build system promises easy configuration using YAML files to describe the build steps.  It runs builds in a Docker image, so that means we can also use it for building and packaging .NET Core libraries. Let's see how.

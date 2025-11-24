@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["CSharp", "Debugging", "General", "Profiling", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/02/07/code-performance-analysis-in-visual-studio-2008.html
 ---
 <p>
 Visual Studio developer, did you know you have a great performance analysis (profiling) tool at your fingertips? In Visual Studio 2008 this profiling tool has been placed in a separate menu item to increase visibility and usage. Allow me to show what this tool can do for you in this walktrough. 

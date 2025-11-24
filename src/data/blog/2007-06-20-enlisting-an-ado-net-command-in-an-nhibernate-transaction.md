@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["CSharp", "General", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/06/20/enlisting-an-ado-net-command-in-an-nhibernate-transaction.html
 ---
 <p>
 For everyone who has read my <a href="/archive/2006/12/26/article-in-net-magazine.aspx">article on NHibernate</a>, here&#39;s a story for you...

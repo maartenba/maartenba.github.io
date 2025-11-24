@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "ASP.NET", "MVC", "Security"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html
 ---
 
 As discussed in the [previous post](https://blog.maartenballiauw.be/post/2019/01/09/help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html), we all know it is important to perform validations to prevent a *Cross-Site Request Forgery (CSRF)* attack against our application. Imagine inheriting a code base that has *zero* measures implemented? How would you find which action methods need a `[ValidateAntiForgeryToken]`?

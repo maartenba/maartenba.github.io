@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/11/05/localize-asp-net-mvc-2-dataannotations-validation-messages.html
 ---
 <p>Living in a country where there are there are <a href="http://en.wikipedia.org/wiki/Belgium#Languages" target="_blank">three languages being used</a>, almost every application you work on requires some form of localization. In an earlier blog post, I already mentioned <a href="/post/2009/07/31/ASPNET-MVC-2-Preview-1-released!.aspx" target="_blank">ASP.NET MVC 2&rsquo;s DataAnnotations</a> support for doing model validation. Ever since, I was wondering if it would be possible to use resource files or something to do localization of error messages, since every example that could be found on the Internet looks something like this:</p>
 <p>[code:c#]</p>

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Publications", "WebAPI", "Azure"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/12/07/protecting-your-asp-net-web-api-using-oauth2-and-the-windows-azure-access-control-service.html
 ---
 <p>An article I wrote a while ago has been <a href="http://www.developerfusion.com/article/147914/protecting-your-aspnet-web-api-using-oauth2-and-the-windows-azure-access-control-service/">posted on DeveloperFusion</a>:</p>
 

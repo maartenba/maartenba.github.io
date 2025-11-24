@@ -8,6 +8,8 @@ categories: ["post"]
 tags: ["General", ".NET", "dotnet", "Testing"]
 author: Maarten Balliauw
 canonical_url: https://www.twilio.com/blog/test-aspnetcore-minimal-apis
+redirect_from:
+  - /post/2022/06/07/how-to-test-asp-net-core-minimal-apis.html
 ---
 
 How do you test that your [ASP.NET Core Minimal API](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis) behaves as expected? Do you need to deploy your application? Can you write tests with frameworks like [xUnit](https://xunit.net/), [NUnit](https://nunit.org/), or [MSTest](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest)?

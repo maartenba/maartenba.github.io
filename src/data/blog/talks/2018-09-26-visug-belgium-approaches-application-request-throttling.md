@@ -7,6 +7,8 @@ published: true
 categories: ["talk"]
 tags: ["Talks"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2018/09/26/talk-approaches-to-application-request-throttling-visug-user-group-belgium.html
 ---
 
 At the [VISUG User Group](http://www.visug.be), I had the opportunity to speak about *Approaches to application request throttling*.

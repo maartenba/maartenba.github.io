@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "jQuery"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/11/25/partial-page-updates-with-asp-net-mvc-and-jquery-and-action-filters.html
 ---
 <p>
 When building an ASP.NET MVC application, chances are that you are using master pages. After working on the application for a while, it&#39;s time to spice up some views with jQuery and partial updates. 

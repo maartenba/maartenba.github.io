@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Community"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/04/08/streaming-a-community-event-on-youtube-using-streamyard.html
 ---
 
 Last week, I wrote ~~a blog post~~ a book about [Streaming a Community Event on YouTube - Sharing the Technologies and Learnings from Virtual Azure Community Day](/post/2020/04/02/streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day.html). I ended that post with an appendix of things I've looked into but have no experience with.

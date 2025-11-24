@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "General", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2011/07/01/officially-a-cloudhead-now-or-re-awarded-mvp.html
 ---
 <p><a href="https://mvp.support.microsoft.com/profile/Maarten.Balliauw"><img style="margin: 0px 0px 5px 5px; display: inline; float: right" border="0" alt="View Maarten Balliauw&#39;s MVP profile" align="right" src="/pics/mvp-aspnet-aspnetmvc.gif" /></a>Woohoo! I just received the great mail I expect yearly on the first of July:</p>  
 

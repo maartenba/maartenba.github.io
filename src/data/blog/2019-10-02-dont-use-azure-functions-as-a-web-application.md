@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Azure", "Cloud", "Serverless"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/10/02/dont-use-azure-functions-as-a-web-application.html
 ---
 
 I know, I know. That title is probably a bit too harsh and opinionated. But it got your attention, right?

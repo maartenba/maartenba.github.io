@@ -7,6 +7,8 @@ published: true
 categories: ["talk"]
 tags: ["Talks"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/02/28/talk-microservices-for-building-an-ide-the-innards-of-jetbrains-rider-techdays-2019-finland-helsinki.html
 ---
 
 The nice folks of [TechDays Finland](http://techdaysfi.com) provided me with the opportunity to speak about *Microservices for building an IDE - The innards of JetBrains Rider*. It was nice to be able to talk about some of the internals, architecture and design decisions that were made while building [a .NET IDE - Rider](https://www.jetbrains.com/rider).

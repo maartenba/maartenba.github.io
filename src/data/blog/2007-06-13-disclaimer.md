@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: []
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/06/13/disclaimer.html
 ---
 <P>The information on this website represents my personal opinion. My opinion may differ with other people's opinion and my employer's opinion. This website is by no means related to other people nor my employer. 
 <H2>Copyright and contents</H2>

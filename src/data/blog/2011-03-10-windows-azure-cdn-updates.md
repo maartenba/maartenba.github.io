@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "Scalability", "Webfarm"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2011/03/10/windows-azure-cdn-updates.html
 ---
 <p>The Windows Azure team has just put out the new <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=7a1089b6-4050-4307-86c4-9dadaa5ed018&amp;displaylang=en">Windows Azure SDK 1.4 for download</a>. Next to that, I noticed some interesting new capabilities for the CDN (Content Delivery Network):</p>
 <ul>

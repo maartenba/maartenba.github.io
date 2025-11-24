@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "Nullability"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2023/01/12/getting-rid-of-warnings-with-nullable-reference-types-and-json-object-models-in-c.html
 ---
 
 In my blog series, *[Nullable reference types in C# - Migrating to nullable reference types](/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)*, we discussed the benefits of enabling nullable reference types in your C# code, and annotating your code so the compiler and IDE can give you more reliable hints about whether a particular variable or property may need to be checked for being `null` before using it.

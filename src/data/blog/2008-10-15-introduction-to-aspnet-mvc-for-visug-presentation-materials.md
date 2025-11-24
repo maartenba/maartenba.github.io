@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Presentations"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/10/15/introduction-to-asp-net-mvc-for-visug-presentation-materials.html
 ---
 <p>
 <a href="http://www.visug.be/" target="_blank"><img style="margin: 5px; border-width: 0px" src="/images/WindowsLiveWriter/Intr.NETMVCforVISUGPresentationmaterials_7A89/visug_3.jpg" border="0" alt="VISUG" width="94" height="55" align="left" /></a> Yesterday evening, I did a presentation on the ASP.NET MVC framework for <a href="http://www.visug.be/" target="_blank">VISUG</a> (Visual Studio User Group Belgium). I really hope everyone got a good feel on what the ASP.NET MVC framework is all about and what it takes to build an ASP.NET MVC application. Thank you <a href="http://kinnie.blogspot.com/" target="_blank">Pieter Gheysens</a> for inviting me for this talk! And thank you audience for being interested for over an hour and a half! 

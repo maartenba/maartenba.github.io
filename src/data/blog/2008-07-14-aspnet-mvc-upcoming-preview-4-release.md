@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Security"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/07/14/asp-net-mvc-upcoming-preview-4-release.html
 ---
 <p>
 <a href="http://weblogs.asp.net/scottgu/archive/2008/07/14/asp-net-mvc-preview-4-release-part-1.aspx" target="_blank">ScottGu</a> just posted that there&#39;s an upcoming preview 4 release of the ASP.NET MVC framework. What I immediately noticed, is that there are actually some community concepts being integrated in the framework, yay! And what&#39;s even cooler: 2 of these new features are things that I&#39;ve already contributed to the community (the fact that it&nbsp;these are&nbsp;included in the MVC framework now could be coincidence, though...). 

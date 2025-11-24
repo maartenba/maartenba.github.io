@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/03/18/march-18-asp-net-mvc-links.html
 ---
 <p>
 Too busy this week to write large blog posts myself... Luckily other people do write interesting things on ASP.NET MVC! 

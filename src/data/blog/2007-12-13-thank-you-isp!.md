@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/12/13/thank-you-isp.html
 ---
 <p>
 Living in Belgium sometimes feels like living in the desert. Over the past few years, <a href="http://www.telenet.be" target="_blank">my ISP</a>&nbsp;has&nbsp;always offered the same:&nbsp;a cable modem subscription with 10Mbit downstream speed, and 256Kbit upstream speed. Great! Except for that data transfer limit of 12 GB per month and the ridiculous price of 42 EUR (that is 61 US$). And no, there are few better alternatives in this center of Europe... 

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2011/01/07/tools-for-the-lazy-templify-and-nuget.html
 ---
 <p>In this blog post, I will cover two interesting tools that, when combined, can bring great value and speed at the beginning of any new software project that has to meet standards that are to be re-used for every project. The tools? <a href="http://opensource.endjin.com/templify/">Templify</a> and <a href="http://nuget.codeplex.com/">NuGet</a>.</p>
 <p>You know the drill. Starting off with a new project usually consists of boring, repetitive tasks, often enforced by (good!) practices defined by the company you work for (or by yourself <em>for</em> that company). To give you an example of a project I&rsquo;ve recently done:</p>

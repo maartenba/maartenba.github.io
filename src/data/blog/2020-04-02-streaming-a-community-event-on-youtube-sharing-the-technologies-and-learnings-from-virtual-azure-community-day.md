@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Community"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/04/02/streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day.html
 ---
 
 Earlier this week, [our Belgian Azure User Group](https://www.azug.be/) has been part of the [Virtual Azure Community Day (VACD)](https://azureday.community/). An online event hosted by user groups from Belgium, the Netherlands, France and Bulgaria. All online and streamed to YouTube, and organized and executed in ~2 weeks.

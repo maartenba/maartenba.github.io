@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Offtopic", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/07/06/community-guidelines-to-stay-out-of-the-busy-trap.html
 ---
 <p>For the past few days, an interesting blog post on the <a href="http://opinionator.blogs.nytimes.com/2012/06/30/the-busy-trap/">NY Times</a> has been popping up in my Twitter timeline. In your as well, probably, since almost everyone I know has retweeted it a couple of times. Which blog post? The one about the so-called &ldquo;<a href="http://opinionator.blogs.nytimes.com/2012/06/30/the-busy-trap/">busy trap</a>&rdquo;.</p>
 <p>The idea is simple: we&rsquo;re all caught in the busy trap. Everyone feels busy, runs their life and activities at 200%. Here&rsquo;s a great summary from the blog post:</p>

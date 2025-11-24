@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/05/08/having-fun-with-project-managers-or-why-you-should-lock-your-desktop.html
 ---
 <p>
 Have you ever left your computer unattended? (I do hope that!) Do you lock your desktop when this occurs? (I hope so either!) Not locking your desktop can be a risk. Your data might get stolen, someone might install a trojan, ... 

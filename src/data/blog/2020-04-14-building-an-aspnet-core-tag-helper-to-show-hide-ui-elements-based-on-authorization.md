@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Web", ".NET"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/04/14/building-an-asp-net-core-tag-helper-to-show-hide-ui-elements-based-on-authorization.html
 ---
 
 In this post, let's see how we can create an ASP.NET Core Tag Helper to show or hide UI elements based on authorization policies. But before we do so, let's start with a quick introduction outlining why you may want to do this.

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/12/31/asp-net-mvc-framework-security.html
 ---
 <p>
 Some <a href="/post/2007/12/aspnet-mvc-framework---basic-sample-application.aspx" target="_blank">posts ago</a>, I started playing with the ASP.NET MVC framework. In an example I&#39;m creating, I&#39;m trying to add Forms-based security. 

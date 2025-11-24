@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Web", ".NET", "dotnet", "Azure", "Functions"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/01/17/invoking-non-http-azure-functions-over-http-to-make-development-easier.html
 ---
 
 This week, I was presenting at [IglooConf](https://www.iglooconf.fi) ([Indexing and searching NuGet org with Azure Functions and Search](https://www.youtube.com/watch?v=ZxH133cyns8)). During one of the demos, I casually used a feature we shipped with the latest [Azure Toolkit for JetBrains Rider](https://plugins.jetbrains.com/plugin/11220-azure-toolkit-for-rider): when the Azure Functions host is running on a development machine, Rider lets us trigger functions from the gutter by generating an HTTP request for it.

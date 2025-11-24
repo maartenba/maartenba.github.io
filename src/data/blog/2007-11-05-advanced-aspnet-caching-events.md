@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/11/05/advanced-asp-net-caching-events.html
 ---
 <p>
 Currently, I&#39;m giving an ASP.NET classroom training at <a href="http://www.dolmen.be" target="_blank" title="Dolmen">our company</a>, which actually is quite good for me: I needed to refresh all ASP.NET concepts, as those all fade away slowly when you don&#39;t use them for a while... Now, one of those refreshed concepts is ASP.NET&#39;s caching. 

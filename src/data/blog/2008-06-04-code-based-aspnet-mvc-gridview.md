@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/06/04/code-based-asp-net-mvc-gridview.html
 ---
 <p><a href="http://examples.maartenballiauw.be/MvcGridView" target="_blank"><img style="margin: 5px; border: 0px;" src="/images/WindowsLiveWriter/CodebasedASP.NETMVCGridView_111F3/image_658875b0-e15a-420c-bf5a-e710ce144b34.png" border="0" alt="ASP.NET MVC GridView" width="409" height="300" align="right" /></a>Earlier this week a colleague of mine asked me if there was such thing as a&nbsp; DataGrid or GridView or something like that in the ASP.NET MVC framework. My first answer was: "Nope!". I advised him to look for a nice <em>foreach</em> implementation or using <a href="http://extjs.com/deploy/dev/examples/grid/edit-grid.html" target="_blank">ExtJS</a>, <a href="http://dojotoolkit.org/book/dojo-book-0-9/docx-documentation-under-development/grid" target="_blank">Dojo</a> or similar. Which made me think... Why not create a simple GridView extension method which generates a nice looking, plain-HTML grid with all required features like paging, editing, deleting, alternating rows, ...?</p>
 <p>The idea was simple: an extension method to the <em>HtmlHelper</em> class would be enough. Required parameters: a header and footer template, item template, edit item template, ... But how to pass in these templates using a simple C# parameter... Luckily,&nbsp; C# 3.0 introduced lambdas! Why? They are super-flexible and versatile! For instance, take the following code:</p>

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "Web"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2022/10/03/rate-limiting-in-web-applications-concepts-and-approaches.html
 ---
 
 Your web application is running fine, and your users are behaving as expected. Life is good!

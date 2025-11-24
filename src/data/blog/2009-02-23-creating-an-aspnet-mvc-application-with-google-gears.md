@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "jQuery", "MVC", "Silverlight", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/02/23/creating-an-asp-net-mvc-application-with-google-gears.html
 ---
 <p>
 Offline web applications&hellip; This term really sounds like 2 different things: offline, no network, and web application, online. <em>Maarten, you speak in riddles man!</em> Let me explain the term&hellip; 

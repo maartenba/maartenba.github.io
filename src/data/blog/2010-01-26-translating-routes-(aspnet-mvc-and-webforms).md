@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2010/01/26/translating-routes-asp-net-mvc-and-webforms.html
 ---
 <p><img style="margin: 5px 0px 5px 5px; display: inline; border: 0px;" title="Localized route in ASP.NET MVC - Translated route in ASP.NET MVC" src="/images/image_30.png" border="0" alt="Localized route in ASP.NET MVC - Translated route in ASP.NET MVC" width="318" height="169" align="right" /> For one of the first blog posts of the new year, I thought about doing something cool. And being someone working with ASP.NET MVC, I thought about a cool thing related to that: let&rsquo;s do something with routes! Since <em>System.Web.Routing</em> is not limited to ASP.NET MVC, this post will also play nice with ASP.NET Webforms. But what&rsquo;s the cool thing? How about&hellip; translating route values?</p>
 <p>Allow me to explain&hellip; I&rsquo;m tired of seeing URLs like <a href="http://www.example.com/en/products">http://www.example.com/en/products</a> and <a href="http://www.example.com/nl/products">http://www.example.com/nl/products</a>. Or something similar, with query parameters like &ldquo;?culture=en-US&rdquo;. Or even worse stuff. Wouldn&rsquo;t it be nice to have <a href="http://www.example.com/products">http://www.example.com/products</a> mapping to the English version of the site and <a href="http://www.exaple.com/producten">http://www.exaple.com/producten</a> mapping to the Dutch version? Better to remember when giving away a link to someone, better for SEO as well.</p>

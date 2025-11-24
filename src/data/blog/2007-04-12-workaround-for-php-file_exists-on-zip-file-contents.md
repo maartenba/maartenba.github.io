@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "PHP"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/04/12/workaround-for-php-file-exists-on-zip-file-contents.html
 ---
 <p>Recently, I was writing some PHP code, to check if a specific file existed in a ZIP file. PHP has this special feature called "stream wrappers", which basically is a system which enables PHP to do I/O operations on streams.</p>
 <p>A stream can be a file, a socket, a SSH connection, ... Each of these streams has its own wrapper, which serves as an adapter between PHP and the underlying resource. This enables PHP to do, for example, a file_get_contents() on all sorts of streams.</p>

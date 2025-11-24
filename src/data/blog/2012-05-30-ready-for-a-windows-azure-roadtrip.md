@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "Webfarm"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2012/05/30/ready-for-a-windows-azure-roadtrip.html
 ---
 <p><a href="/images/image_173.png"><img style="background-image: none; margin: 5px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="image" src="/images/image_thumb_139.png" border="0" alt="image" width="244" height="120" align="right" /></a></p>
 <p>A while ago, <a href="http://www.dragonbe.com" target="_blank">Michelangelo van Dam</a> (a hardcore PHP guy), <a href="https://www.azure-roadtrip.be/?page_id=96" target="_blank">Fran&ccedil;ois Hertay</a> (a hardcore Java guru) and myself (a .NET guy) were asked if we wanted to write about some of our experiences with the Windows Azure platform.</p>

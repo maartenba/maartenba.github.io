@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", ".NET", "dotnet", "Tooling"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/04/01/can-net-core-framework-assemblies-be-mapped-back-to-individual-nuget-packages-a-detective-story.html
 ---
 
 My friend and colleague [Matt Ellis](https://twitter.com/citizenmatt/) has this habit of [nerd sniping](https://xkcd.com/356/) me. Sometimes intentional, sometimes accidental. Today, he asked whether we could have a quick look at an issue together, which ended up being a nerd snipe of the latter category.

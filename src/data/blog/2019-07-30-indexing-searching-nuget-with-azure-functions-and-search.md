@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Azure", "Cloud", "NuGet", "Serverless"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/07/30/indexing-and-searching-nuget-org-with-azure-functions-and-search.html
 ---
 
 In an application I'm writing, I need to deserialize some JSON. I know the class to use is `JsonConvert`, but which NuGet package was that type in again?

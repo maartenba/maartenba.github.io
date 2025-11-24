@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "Travel", "Startup", "Conferences"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2021/11/08/a-journey-towards-speakertravel-building-a-service-from-scratch.html
 ---
 
 For close to two years now, I've had [SpeakerTravel](https://speaker.travel/) up & running. It's a tool that helps conference organizers to book flights for speakers. You invite speakers, they pick their flight of choice (within a budget the organizer can specify), and the organizer can then approve and book the flight with a single click.

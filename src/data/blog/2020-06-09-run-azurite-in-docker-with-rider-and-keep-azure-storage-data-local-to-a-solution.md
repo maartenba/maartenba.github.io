@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", ".NET", "dotnet", "Azure", "Rider"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/06/09/run-azurite-in-docker-with-rider-and-keep-azure-storage-data-local-to-a-solution.html
 ---
 
 In this blog post, we'll see how we can use [Azurite](https://github.com/Azure/Azurite), an open source Azure Storage API compatible server (emulator), in Docker, and how to run it from [JetBrains Rider](https://jetbrains.com/rider/). We can use Azurite in Docker to keep Azure Storage data local to a solution, and, for example, have different blobs and queues for different Azure Functions projects.

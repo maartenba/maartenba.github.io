@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "Security"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2010/08/12/simplified-access-control-using-windows-azure-appfabric-labs.html
 ---
 <p><a href="/images/image_56.png"><img class="wlDisabledImage" style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Windows Azure ApFabric Access Control" src="/images/image_thumb_28.png" border="0" alt="Windows Azure ApFabric Access Control" width="244" height="51" align="right" /></a>Earlier this week, <a href="http://blogs.msdn.com/b/zaneadam/archive/2010/08/05/new-access-control-service-in-labs-delivers-greatly-expanded-capabilities.aspx" target="_blank">Zane Adam announced the availability of the New AppFabric Access Control service in LABS</a>. The highlights for this release (and I quote):</p>
 <ul>

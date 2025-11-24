@@ -7,6 +7,8 @@ published: true
 categories: ["talk"]
 tags: ["Talks"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/03/13/talk-approaches-to-application-request-throttling-and-microservices-for-building-an-ide-the-innards-of-jetbrains-rider-confoo-canada-montreal.html
 ---
 
 This week, I had the privilege to visit [ConFoo Montreal](https://www.confoo.ca) for the third time. It's a great conference that has attendees interested in lots of technologies such as PHP, Java, .NET and more.

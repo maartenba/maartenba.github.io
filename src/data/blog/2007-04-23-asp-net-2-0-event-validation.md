@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/04/23/asp-net-2-0-event-validation.html
 ---
 <p>
 Event Validation is a new feature in ASP.NET 2.0 which provides an additional level of checks on postback actions. It verifies whether a postback from a control on client-side is really from that control and not from a malicious person trying to break your application. 

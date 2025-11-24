@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Projects", "Scalability", "Security", "Software", "WebAPI"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2013/05/28/throttling-asp-net-web-api-calls.html
 ---
 <p>Many API&rsquo;s out there, such as <a href="http://developer.github.com/v3/#rate-limiting">GitHub&rsquo;s API</a>, have a concept called &ldquo;rate limiting&rdquo; or &ldquo;throttling&rdquo; in place. Rate limiting is used to prevent clients from issuing too many requests over a short amount of time to your API. For example, we can limit anonymous API clients to a maximum of 60 requests per hour whereas we can allow more requests to authenticated clients. But how can we implement this?</p>
 <h2>Intercepting API calls to enforce throttling</h2>

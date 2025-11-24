@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "csharp"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2023/09/18/discriminated-unions-in-c.html
 ---
 
 Discriminated unions have been a [long-standing request for C#](https://github.com/dotnet/csharplang/issues/113). While F# users [have had discriminated unions for years](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions), C# developers will have to wait a bit longer.

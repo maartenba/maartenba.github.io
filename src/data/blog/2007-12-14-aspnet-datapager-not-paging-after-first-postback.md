@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/12/14/asp-net-datapager-not-paging-after-first-postback.html
 ---
 <p>
 A few posts ago, I <a href="/post/2007/11/advanced-aspnet-caching-events.aspx" target="_blank">mentioned</a> that I am currently giving a classroom training on ASP.NET. People attending are currently working on a project I gave them, and today one of them came up to me with a strange problem... 

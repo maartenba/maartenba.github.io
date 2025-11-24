@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/01/05/seven-things-you-didn-rsquo-t-know-about-me.html
 ---
 <p>
 Seems 2009 is starting off with yet another round of tagging people. Back in 2007, I already had to write <a href="/post/2007/02/13/five-things-you-didnt-know-about-me-.aspx" target="_blank">five things about myself</a>. Since we are now two years further, I guess each year asks for another extra item to be added. Thank you <a href="http://www.dragonbe.com/2009/01/seven-things-tagged-by-rob-allen.html" target="_blank">Michelangelo</a> for making me write another post. 

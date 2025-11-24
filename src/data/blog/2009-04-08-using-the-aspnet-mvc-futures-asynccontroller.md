@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Scalability"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/04/08/using-the-asp-net-mvc-futures-asynccontroller.html
 ---
 <p>
 Last week, <a href="/post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx" target="_blank">I blogged about all stuff that is included in the ASP.NET MVC Futures assembly</a>, which is an assembly <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471" target="_blank">available on CodePlex</a> and contains possible future features (tonguetwister!) for the <a href="http://www.asp.net/mvc" target="_blank">ASP.NET MVC framework</a>. One of the comments asked for more information on the <em>AsyncController</em> that is introduced in the MVC Futures. So here goes! 

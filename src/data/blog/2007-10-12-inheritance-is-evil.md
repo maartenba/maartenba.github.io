@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/10/12/inheritance-is-evil.html
 ---
 <p>
 Read this on <a href="http://www.berniecode.com/blog/2007/09/29/inheritance-is-evil-and-must-be-destroyed/" target="_blank">Bernie</a>&#39;s blog:

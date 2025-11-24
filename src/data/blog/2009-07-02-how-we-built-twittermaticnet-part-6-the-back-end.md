@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: []
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/07/02/how-we-built-twittermatic-net-part-6-the-back-end.html
 ---
 <p><em><a href="http://www.twittermatic.net/" target="_blank"><img style="border-right-width: 0px; margin: 5px 0px 5px 5px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic - Schedule your Twitter updates" src="/images/twittermatic1015%5B4%5D.png" border="0" alt="TwitterMatic - Schedule your Twitter updates" width="204" height="219" align="right" /></a></em><em>&ldquo;Now that the digital villagers could enter their messages in the application, another need arose: </em><em>knight Maarten The Brave Coffeedrinker would have to recruit a lot of slaves to tell all these messages to the great god of social networking, <a href="http://www.twitter.com" target="_blank">Twitter</a>. Being a peaceful person, our knight thought of some digital slaves, sent from the azure sky. And so he started crafting a worker role.&rdquo;</em></p>
 <p>This post is part of a series on how we built <a href="http://www.twittermatic.net/" target="_blank">TwitterMatic.net</a>. Other parts:</p>

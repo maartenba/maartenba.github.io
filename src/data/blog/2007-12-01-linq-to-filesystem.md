@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["CSharp", "General", "LINQ", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/12/01/linq-to-filesystem.html
 ---
 <p>
 The past few hours, I&#39;ve been experimenting with LINQ. As a sample application, I&#39;m trying to create a small photo album website, which shows me all images in a specific folder on my webserver. 

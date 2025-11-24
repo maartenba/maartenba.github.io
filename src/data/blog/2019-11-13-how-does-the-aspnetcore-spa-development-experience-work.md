@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Web", ".NET", "dotnet", "SPA", "JavaScript"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/11/13/how-does-the-asp-net-core-spa-development-experience-work-with-react-angular-and-vuejs.html
 ---
 
 Many developers are building Single-Page Applications (SPAs) using popular frameworks like Angular, React or VueJS. They all come with an easy way to generate all required HTML, CSS, JavaScript and Webpack artifacts required to deploy to production, usually an NPM script like `npm run build` away. Having to build all those artifacts multiple times while developing on our local machine is not too pleasant, all of them come with a way to launch a development server that hot reloads artifacts when needed, usually another NPM script (such as `npm run start`) away.

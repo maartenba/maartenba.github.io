@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2007/12/10/asp-net-3-5-extensions-ctp-preview-released.html
 ---
 <p>
 Just over the weekend, Microsoft has <a href="http://weblogs.asp.net/scottgu/archive/2007/12/09/asp-net-3-5-extensions-ctp-preview-released.aspx" target="_blank">released the ASP.NET 3.5 Extensions CTP</a>. This download includes several additions to ASP.NET 3.5: 

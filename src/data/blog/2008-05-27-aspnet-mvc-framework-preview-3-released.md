@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Projects", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/05/27/asp-net-mvc-framework-preview-3-released.html
 ---
 <p>
 Don&#39;t know how I do it, but I think this blog post is <a href="/post/2008/03/aspnet-mvc-framework-out-on-codeplex.aspx" target="_blank">yet again</a> the first one out there mentioning a new release of the ASP.NET framework (preview 3)&nbsp;<img src="/admin/tiny_mce/plugins/emotions/images/smiley-cool.gif" border="0" alt="Cool" title="Cool" width="18" height="18" /> 

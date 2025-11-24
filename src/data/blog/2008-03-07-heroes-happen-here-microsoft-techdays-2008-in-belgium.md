@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "Events", "General", "LINQ", "MVC", "Silverlight", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/03/07/heroes-happen-here-microsoft-techdays-2008-in-belgium.html
 ---
 <p align="center">
 <a href="http://www.heroeshappenhere.be" target="_blank"><img style="border: 0px none ; margin: 5px" src="/images/WindowsLiveWriter/HeroeshappenhereMicrosoftTechDays2008inB_10CF6/image_3.png" border="0" alt="Microsoft TechDays 2008" width="674" height="82" /></a> 

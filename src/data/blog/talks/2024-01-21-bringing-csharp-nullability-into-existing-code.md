@@ -7,6 +7,8 @@ published: true
 categories: ["talk"]
 tags: ["Talks"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2024/01/21/talk-bringing-c-nullability-into-existing-code.html
 ---
 
 ## Related resources

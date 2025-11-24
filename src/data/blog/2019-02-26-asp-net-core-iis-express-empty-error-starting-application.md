@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "ASP.NET", "MVC", "Hosting", "IIS"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/02/26/asp-net-core-on-iis-express-empty-error-starting-application.html
 ---
 
 Usually on my development machine, I run ASP.NET Core applications in Kestrel. It's easy to do, the project templates .NET Core provide create a nice `launchSettings.json` to start it from the command line, etc.

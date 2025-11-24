@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "CSharp", "General", "PHP", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/10/28/windows-azure-tools-for-eclipse-for-php-developers.html
 ---
 <p>Pfew! Finally I can spread the word on this! While working on the <a href="http://phpazure.codeplex.com" target="_blank">Windows Azure SDK for PHP</a>, I had the opportunity to test-drive the development builds of the WIndows Azure Tools for Eclipse. Today, the project has been released officially at <a href="http://www.windowsazure4e.org">www.windowsazure4e.org</a>. Windows Azure Tools for Eclipse provides a series of wizards and utilities that allow developers to write, debug, and configure for and deploy PHP applications to Windows Azure.</p>
 <p><a href="/images/image_18.png"><img style="border-bottom: 0px; border-left: 0px; margin: 5px auto; display: block; float: none; border-top: 0px; border-right: 0px" title="image" src="/images/image_thumb_6.png" border="0" alt="image" width="632" height="382" /></a></p>

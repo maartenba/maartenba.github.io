@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Conferences", "Speaking"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2019/08/27/what-happens-after-submitting-a-session-in-a-call-for-papers.html
 ---
 
 In 2013, I was asked to be part of a conference agenda committee. Since, I have been part of a couple more, for conferences in different parts of the world.

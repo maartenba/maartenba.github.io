@@ -7,7 +7,9 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "CSharp", "Development", "Performance", "Memory", "Profiling"]
 author: Maarten Balliauw
----			
+redirect_from:
+  - /post/2017/01/03/exploring-net-managed-heap-with-clrmd.html
+---
 
 Since my posts on [making code allocate less memory](/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html) and [memory allocation for strings](/post/2016/11/15/exploring-memory-allocation-and-strings.html) were quite well received, I decided to add another post to the series: ***Exploring .NET managed heap with ClrMD***. In this post, we'll explore what is inside .NET's managed heap (you know, the thing where we alocate our objects), how it's structured and how we can do some cool tricks with it. We'll even replicate [dotMemory's dominators/path to root](https://www.jetbrains.com/help/dotmemory/Retained_by.html) feature.
 

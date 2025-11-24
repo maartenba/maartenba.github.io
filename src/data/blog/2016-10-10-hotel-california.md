@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2016/10/10/hotel-california.html
 ---
 
 At the start of 2015, [I checked out from JetBrains](https://blog.maartenballiauw.be/post/2015/01/27/sjetbrainsmicrosoft.html) to join Microsoft. Today, after almost two years in the [NuGet team](https://www.nuget.org), it's time for change. Microsoft and NuGet have been a fun ride, and I got to complete my personal mission... I remember [Paul Stack](https://twitter.com/stack72) trolling me ("Hey Maarten, is NuGet down?") on more than one occasion, and am really happy that I got the freedom and support for changing that. The quest towards server stability even got me a well-received conference talk, ["Sherlock Homepage"](/talks-presentations.html). Thanks Jeff (x2), Yishai, Hari, Jun and team! Mission accomplished! And thanks for the great walks in wonderful Washington state when I was over there, I'll sure miss stopping by that region every once in a while.

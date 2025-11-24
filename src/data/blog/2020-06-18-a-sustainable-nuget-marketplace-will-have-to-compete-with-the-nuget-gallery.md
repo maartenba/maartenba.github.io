@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", ".NET", "dotnet", "NuGet"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/06/18/a-sustainable-nuget-marketplace-will-have-to-compete-with-the-nuget-gallery.html
 ---
 
 Yesterday, [Aaron Stannard](https://twitter.com/Aaronontheweb) posted some **awesome news for the .NET community:

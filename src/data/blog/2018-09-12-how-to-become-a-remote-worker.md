@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "Development", "Personal", "Remote Work"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2018/09/12/how-to-become-a-remote-worker.html
 ---
 
 Yes, it's 2018, us IT folks have probably been working remote for quite a while (full-time or occasionally), but there are other industries where these things take time. Not to mention that in countries like Belgium, remote work also has to be arranged for in employment contracts or ancillary documents. But anyway, I digress.

@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "Events", "General", "PHP", "Presentations", "Screencasts"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/10/23/upcoming-sessions-on-azure-php-and-asp-net.html
 ---
 <p>It&rsquo;s going to be a filled end of 2009&hellip; There&rsquo;s <a href="http://www.microsoftpdc.com" target="_blank">Microsoft PDC</a> which I will be attending and will probably cause me some sleepless nights (both due to jetlag and due to all the new stuff that will be released). Next to that, I&rsquo;ll also be doing some sessions in the next few weeks. Here&rsquo;s a list&hellip;</p>
 <table style="width: 550px; border: #000000 1px solid;" border="1" cellspacing="0" cellpadding="2" align="center">

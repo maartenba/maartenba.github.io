@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", ".NET", "dotnet", "Security", "NuGet"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2021/05/05/building-a-supply-chain-attack-with-net-nuget-dns-source-generators-and-more.html
 ---
 
 For [a couple of months now](https://twitter.com/maartenballiauw/status/1343946968951873542), I've been pondering about what tools are at your disposal in .NET to help build and execute a supply chain attack.

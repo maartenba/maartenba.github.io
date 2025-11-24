@@ -7,7 +7,9 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", "CSharp", "Development", "dotPeek", "Debugging"]
 author: Maarten Balliauw
----			
+redirect_from:
+  - /post/2017/03/15/using-dotpeek-to-figure-out-why-iis-crashed.html
+---
 
 Here's a story on how I once used [dotPeek](https://www.jetbrains.com/decompiler) to provide debugger symbols and (decompiled) source code for a crashed application for which we had nothing but the application assemblies available. Namespaces have been altered to protect the innocent.
 

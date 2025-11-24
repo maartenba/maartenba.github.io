@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Community", "General", "ICT", "NuGet", "Software", "npm"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2016/09/29/nuget-and-npm-news-from-the-community.html
 ---
 
 You may know (or not, shame on you!) [Xavier Decoster](http://www.xavierdecoster.com) and myself are operating [MyGet](https://www.myget.org), a hosted service providing teams with hosting and management of [NuGet](https://www.nuget.org), [npm](https://www.npmjs.org), [Bower](https://bower.io/), VSIX and debugger symbols. Recently, we started looking into how we could do better on the content marketing front, an important piece of getting people to visit and hopefully sign up to our service. We decided on starting a series on the [MyGet blog](http://blog.myget.org), named "NuGet and NPM news from the community".

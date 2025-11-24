@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "Nullability"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2022/04/11/nullable-reference-types-in-c-migrating-to-nullable-reference-types-part-1.html
 ---
 
 The C# nullability features introduced in C#8 help you minimize the likelihood of encountering that dreaded `System.NullReferenceException`.

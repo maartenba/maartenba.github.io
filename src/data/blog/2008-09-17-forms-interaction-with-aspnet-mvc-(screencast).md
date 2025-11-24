@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Publications", "Screencasts"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/09/17/forms-interaction-with-asp-net-mvc-screencast.html
 ---
 <p>
 Abstract: <em>&quot;<span>This screencast is a short demonstration on how you can handle form interactions using the ASP.NET MVC framework.</span>&quot;</em> 

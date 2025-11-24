@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "ICT", ".NET", "dotnet", ".NET Core", "Threading", "Performance"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2020/08/26/producer-consumer-pipelines-with-system-threading-channels.html
 ---
 
 Last week, I came across the following question: "Is there an async producer/consumer collection these days in .NET?"

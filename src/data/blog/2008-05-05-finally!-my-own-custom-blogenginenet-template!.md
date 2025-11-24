@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "Personal"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2008/05/05/finally-my-own-custom-blogengine-net-template.html
 ---
 <p>
 Right after my <a href="/post/2007/06/my-blog-has-just-moved---.aspx" target="_blank">blog move to BlogEngine.net</a>, I decided to create a custom template for my blog to make it more unique in the blogosphere. Less than a year later (11 months, to be precise) I found the time to fire up my HTML and image editor to create a new look for my blog. Now who said developers are lazy?

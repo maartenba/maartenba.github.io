@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "CSharp", "General", "MVC", "Presentations", "Screencasts", "Software"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/03/03/crud-with-asp-net-mvc-screencast.html
 ---
 <p>
 A new screencast has just been uploaded to the <a href="http://www.microsoft.com/belux/MSDN/nl/chopsticks/default.aspx?id=966" target="_blank">MSDN Belgium Chopsticks</a> page. Don&#39;t forget to rate the video! 

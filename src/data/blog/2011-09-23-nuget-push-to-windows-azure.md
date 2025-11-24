@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["ASP.NET", "Azure", "CSharp", "General", "Projects", "Software", "Source control", "Webfarm", "NuGet"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2011/09/23/nuget-push-to-windows-azure.html
 ---
 <p>When looking at how people like to deploy their applications to a cloud environment, a large faction seems to prefer being able to use their source control system as a source for their production deployment. While interesting, I see a lot of problems there: your source code may not run immediately and probably has to be compiled. You don&rsquo;t want to maintain compiled assemblies in source control, right? Also, maybe some QA process is in place where a deployment can only occur after approval. Why not use source control for what it&rsquo;s there for: source control? And how about using a NuGet repository as the source for our deployment? Meet the Windows Azure NuGetRole.</p>
 <p><em>Disclaimer/Warning: this is demo material and should probably not be used for real-life deployments without making it bullet proof!</em></p>

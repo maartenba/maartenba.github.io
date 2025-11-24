@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "Web", "Social media"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2022/11/05/mastodon-on-your-own-domain-without-hosting-a-server.html
 ---
 
 Like many in the past week, I have been having a serious look at [Mastodon](https://joinmastodon.org/) as an alternative to Twitter.

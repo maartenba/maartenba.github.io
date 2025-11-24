@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["Azure", "General", "PHP", "Projects", "Webfarm", "Zend Framework"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2009/03/14/accessing-windows-azure-blob-storage-from-php.html
 ---
 <p>Pfew! A week of Microsoft TechDays here in Belgium with lots of talks on new Microsoft stuff, <a href="http://www.microsoft.com/azure" target="_blank">Azure</a> included. You may know <a href="/post/2008/12/15/Track-your-car-expenses-in-the-cloud!-CarTrackr-on-Windows-Azure-Part-1-Introduction.aspx" target="_blank">I already experimented with Windows Azure and ASP.NET MVC</a>. Earlier this week, I thought of doing the same with Windows Azure and PHP...</p>
 <h2>What the ...?</h2>

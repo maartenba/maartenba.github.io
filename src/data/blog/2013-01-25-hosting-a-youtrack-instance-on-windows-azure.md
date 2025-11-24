@@ -7,6 +7,8 @@ published: true
 categories: ["post"]
 tags: ["General", "Software", "Azure"]
 author: Maarten Balliauw
+redirect_from:
+  - /post/2013/01/25/hosting-a-youtrack-instance-on-windows-azure.html
 ---
 <p><em>Note: this is a cross-post from the JetBrains </em><a href="http://blog.jetbrains.com/youtrack/"><em>YouTrack blog</em></a><em>. Since it is centered around Windows Azure, I thought it is appropriate to post a copy on my own blog as well.</em></p>
 <hr />
