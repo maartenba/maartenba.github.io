@@ -16,7 +16,7 @@ export const SITE = {
     text: "Edit page",
     url: "https://github.com/maartenba/maartenba.github.io/edit/main/",
   },
-  dynamicOgImage: true,
+  dynamicOgImage: false,
   dir: "ltr",
   lang: "en",
   timezone: "Europe/Brussels", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones

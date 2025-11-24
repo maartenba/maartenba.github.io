@@ -14,13 +14,28 @@ import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
 import redirectFrom from "astro-redirect-from";
 import rewriteRedirects from "./src/utils/rewriteRedirects.js";
-
+import path from "node:path";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
   integrations: [
     redirectFrom({
       contentDir: "src/data/blog",
+      getSlug: filePath => {
+        // Copied from: astro-redirect-from/dist/utils.js
+        const parsedPath = path.parse(filePath);
+        let slug: string;
+        if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
+          slug = `${parsedPath.dir}`;
+        }
+        else {
+          slug = `${parsedPath.dir}/${parsedPath.name}`;
+        }
+        if (slug.startsWith('/2')) {
+          slug = '/posts' + slug;
+        }
+        return slug;
+      }
     }),
     rewriteRedirects(),
     sitemap({
