@@ -11,15 +11,15 @@ redirect_from:
   - /post/2016/11/15/exploring-memory-allocation-and-strings.html
 ---
 
-A while back, I wrote about [making code allocate less memory](https://blog.maartenballiauw.be/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html) (go read it now if you haven't). In that post, we saw how the Garbage Collector works and how it decides to keep objects around in memory or reclaim them. There's one specific type we never touched on in that post: strings. Why would we? They look like value types, so they aren't subject to Garbage Collection, right? Well... Wrong.
+A while back, I wrote about [making code allocate less memory](https://blog.maartenballiauw.be/posts/2016-10-19-making-net-code-less-allocatey-garbage-collector/) (go read it now if you haven't). In that post, we saw how the Garbage Collector works and how it decides to keep objects around in memory or reclaim them. There's one specific type we never touched on in that post: strings. Why would we? They look like value types, so they aren't subject to Garbage Collection, right? Well... Wrong.
 
 Strings are objects like any other object and follow the same rules. In this post, we will look at how they behave in terms of memory allocation. Let's see what that means.
 
 In this series:
 
-* [Making .NET code less allocatey - Allocations and the Garbage Collector](https://blog.maartenballiauw.be/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html)
-* [Exploring .NET managed heap with ClrMD](https://blog.maartenballiauw.be/post/2017/01/03/exploring-.net-managed-heap-with-clrmd.html)
-* [Exploring memory allocation and strings](https://blog.maartenballiauw.be/post/2016/11/15/exploring-memory-allocation-and-strings.html)
+* [Making .NET code less allocatey - Allocations and the Garbage Collector](https://blog.maartenballiauw.be/posts/2016-10-19-making-net-code-less-allocatey-garbage-collector/)
+* [Exploring .NET managed heap with ClrMD](https://blog.maartenballiauw.be/posts/2017-01-03-exploring-net-managed-heap-with-clrmd/)
+* [Exploring memory allocation and strings](https://blog.maartenballiauw.be/posts/2016-11-15-exploring-memory-allocation-and-strings/)
 
 ## Strings are objects
 
@@ -66,7 +66,7 @@ What's interesting though, is that it seems our application is *duplicating* str
   <img src="/images/2016-11-15-exploring-memory-allocation-and-strings/string-duplicates-vs.png" alt="Visual Studio string duplicates" />
 </p>
 
-String duplication isn't bad though. As we've seen previously, [the .NET Garbage Collector (GC)](https://blog.maartenballiauw.be/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html) is quite fast at cleaning up objects, especially when they are short-lived. But just as with any other object type, it may be bad to have lots of duplicate strings when they move to higher heap generatons like Gen 2 (or the large object heap if you have very large strings). We wouldn't want our memory swallowed by a huge amount of unwanted string duplicates or (string) objects that aren't being collected.
+String duplication isn't bad though. As we've seen previously, [the .NET Garbage Collector (GC)](https://blog.maartenballiauw.be/posts/2016-10-19-making-net-code-less-allocatey-garbage-collector/) is quite fast at cleaning up objects, especially when they are short-lived. But just as with any other object type, it may be bad to have lots of duplicate strings when they move to higher heap generatons like Gen 2 (or the large object heap if you have very large strings). We wouldn't want our memory swallowed by a huge amount of unwanted string duplicates or (string) objects that aren't being collected.
 
 ## String literals
 

@@ -17,9 +17,9 @@ Now... Imagine inheriting a code base that has *zero* of these measures implemen
 
 In this series:
 
-* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/post/2019/01/09/help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html)
-* [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html)
-* [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/post/2019/01/11/unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner.html)
+* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/)
+* [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)
+* [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/posts/2019-01-11-unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner/)
 
 > **Note:** In this series, our goal is to find all places in our codebase where we need to add `[ValidateAntiForgeryToken]`. [Dominick Baier](https://twitter.com/leastprivilege) suggested that there is an [`[AutoValidateAntiforgeryTokenAttribute]`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) in ASP.NET Core which can be applied as a global filter to trigger validation of anti forgery tokens by default for an application and HTTP methods other than `GET`, `HEAD`, `OPTIONS`, and `TRACE`. And we can use the [`[IgnoreAntiforgeryTokenAttribute]`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute) for exceptional cases where no CSRF validation is required. However, I prefer being explicit in code - adding relevant attributes for CSRF validation but also those for supported HTTP methods. And that's what we will focus on in this series.
 
@@ -79,6 +79,6 @@ Intrigued? Here are a few resources that may be of interest:
 
 Funnily enough, I started writing this post without wanting to dive into the above introduction, but that happened and this blog post became a short series...
 
-In the [next post](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html), we will look at the problem at hand: imagine inheriting a code base that has *zero* `[ValidateAntiForgeryToken]`. How can we find all action methods where this attribute should be added?
+In the [next post](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/), we will look at the problem at hand: imagine inheriting a code base that has *zero* `[ValidateAntiForgeryToken]`. How can we find all action methods where this attribute should be added?
 
-Learn all about it in ["tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace"](https://blog.maartenballiauw.be/post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html)!
+Learn all about it in ["tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace"](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)!

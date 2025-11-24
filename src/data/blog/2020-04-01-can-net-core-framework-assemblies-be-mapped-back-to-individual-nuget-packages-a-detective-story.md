@@ -118,7 +118,7 @@ Cool! That's it, right? Can't the tooling use this to know which package to refe
 
 Not really. The file only describes which packages are overridden by the framework/SDK, but not which assemblies are contained in which package. In other words: the quick fix still has no correlation between the type (for which we know the assembly), and the package.
 
-This is something [reverse package search](https://blog.maartenballiauw.be/post/2019/07/30/indexing-searching-nuget-with-azure-functions-and-search.html) could perhaps help with, but it looks like we'll need to investigate more.
+This is something [reverse package search](https://blog.maartenballiauw.be/posts/2019-07-30-indexing-searching-nuget-with-azure-functions-and-search/) could perhaps help with, but it looks like we'll need to investigate more.
 
 **Conclusion: There does not seem to be a reliable source to correlate the framework's implicit assembly reference with a NuGet package.** If you do know if such source exists, let me know!
 

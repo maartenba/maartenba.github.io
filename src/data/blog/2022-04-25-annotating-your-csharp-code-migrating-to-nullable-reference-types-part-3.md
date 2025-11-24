@@ -11,16 +11,16 @@ redirect_from:
   - /post/2022/04/25/annotating-your-c-code-migrating-to-nullable-reference-types-part-3.html
 ---
 
-In the [previous post](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html), we looked at some internals of C# nullable reference types, and the nullable annotation context.
+In the [previous post](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/), we looked at some internals of C# nullable reference types, and the nullable annotation context.
 
 Today, let's look at the many options for annotating your code and various ways to help the flow analysis understand your code.
 As a result, you (and anyone consuming your libraries) will get better and more reliable hints from the IDE and the C# compiler.
 
 In this series:
-* [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)
-* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html)
-* [Annotating your C# code](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html) (this post)
-* [Techniques and tools to update your project](https://blog.maartenballiauw.be/post/2022/05/03/techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4.html)
+* [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)
+* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/)
+* [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/) (this post)
+* [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/)
 
 ## The need for more fine-grained annotations
 
@@ -402,4 +402,4 @@ In this post, we have seen the many options for annotating your code for nullabi
 Using these annotations helps the compiler's flow analysis in understanding your code.
 Thanks to annotated code, you and folks consuming your code get better and more reliable hints from the IDE and the C# compiler.
 
-In the [next and final](https://blog.maartenballiauw.be/post/2022/05/03/techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4.html) post in this series, we'll look at some techniques and tools that are available to migrate an existing code base to using nullable reference types.
+In the [next and final](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/) post in this series, we'll look at some techniques and tools that are available to migrate an existing code base to using nullable reference types.

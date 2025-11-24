@@ -35,7 +35,7 @@ My next manager (I switched away because I didn't want to do SharePoint, sorry J
 
 Then three years into speaking, I got my first international speaking gig at 4Developers Poznan, Poland. Funny enough this is also where I first met Hadi, my boss and friend at [JetBrains](https://www.jetbrains.com). The travel aspect was new, but now I found that I loved speaking as well as meeting people from other countries and cultures, and international speaking is a bit about both!
 
-Flash forward I have now been doing public speaking [for several years](https://blog.maartenballiauw.be/talks-presentations.html) and still enjoy doing it, because it allows me to share my passion for technology, allows me to do the actual speaking, and lets me meet existing and new friends on pretty much every continent apart from Antarctica and South America, so far. If you have an opportunity there, let me know :-)
+Flash forward I have now been doing public speaking [for several years](https://blog.maartenballiauw.be/talks-presentations/) and still enjoy doing it, because it allows me to share my passion for technology, allows me to do the actual speaking, and lets me meet existing and new friends on pretty much every continent apart from Antarctica and South America, so far. If you have an opportunity there, let me know :-)
 
 ## Rockstar glamour
 

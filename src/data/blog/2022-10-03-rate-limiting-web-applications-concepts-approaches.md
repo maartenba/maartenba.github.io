@@ -19,7 +19,7 @@ Crazy usage patterns resulting in more requests than expected, request bursts wh
 These unexpected requests all pose a potential threat to the health of your web application and may impact other users or the service as a whole.
 Ideally, you want to put a bouncer at the door to do some filtering: limit the number of requests over a given timespan, limiting bandwidth, ...
 
-Last week, I covered [how to use the ASP.NET Core rate limiting middleware in .NET 7](https://blog.maartenballiauw.be/post/2022/09/26/aspnet-core-rate-limiting-middleware.html).
+Last week, I covered [how to use the ASP.NET Core rate limiting middleware in .NET 7](https://blog.maartenballiauw.be/posts/2022-09-26-aspnet-core-rate-limiting-middleware/).
 
 In this post, let's take a step back and explore the simple yet wide realm of rate limiting.
 We'll go over how to decide which resources to limit, what these limits should be, and where to enforce these limits.
@@ -433,12 +433,12 @@ Depending on what makes sense for your application, here are some resources:
 
 * In your application
   * [Stefan Prodan's AspNetCoreRateLimit](https://github.com/stefanprodan/AspNetCoreRateLimit) (highly recommend, it has lots of options for every aspect discussed in this blog post)
-  * [ASP.NET Core Rate Limiting middleware in .NET 7](https://blog.maartenballiauw.be/post/2022/09/26/aspnet-core-rate-limiting-middleware.html)
+  * [ASP.NET Core Rate Limiting middleware in .NET 7](https://blog.maartenballiauw.be/posts/2022-09-26-aspnet-core-rate-limiting-middleware/)
 * Reverse proxy
   * [NGinx](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-http/)
   * [HAProxy](https://www.haproxy.com/blog/four-examples-of-haproxy-rate-limiting/)
   * [Traefik](https://doc.traefik.io/traefik/middlewares/http/ratelimit/)
-  * [YARP reverse proxy + ASP.NET Core Rate Limiting middleware](https://blog.maartenballiauw.be/post/2022/09/26/aspnet-core-rate-limiting-middleware.html)
+  * [YARP reverse proxy + ASP.NET Core Rate Limiting middleware](https://blog.maartenballiauw.be/posts/2022-09-26-aspnet-core-rate-limiting-middleware/)
 * Content Delivery Network / API Gateway
   * [Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/api-management-sample-flexible-throttling)
   * [Azure Front Door](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-rate-limit)

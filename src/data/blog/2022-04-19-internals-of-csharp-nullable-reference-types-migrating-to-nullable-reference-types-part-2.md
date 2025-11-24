@@ -11,16 +11,16 @@ redirect_from:
   - /post/2022/04/19/internals-of-c-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html
 ---
 
-In the [previous post](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html), we saw that with nullable reference types enabled, you get better static flow analysis when working on your code.
+In the [previous post](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/), we saw that with nullable reference types enabled, you get better static flow analysis when working on your code.
 While nullable reference types don't give you runtime safety, the design-time and compile-time help is priceless!
 
 In this post, we'll look at some internals of how C# nullable reference types work, and how the C# compiler and IDE use the nullable annotation context.
 
 In this series:
-* [Nullable reference types in C#](https://blog.maartenballiauw.be/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)
-* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/post/2022/04/19/internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2.html) (this post)
-* [Annotating your C# code](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html)
-* [Techniques and tools to update your project](https://blog.maartenballiauw.be/post/2022/05/03/techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4.html)
+* [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)
+* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/) (this post)
+* [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/)
+* [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/)
 
 ## Under the hood - Intermediate Language (IL)
 
@@ -68,7 +68,7 @@ Let's break this down.
 * `int? GetInt() => 1;` is compiled into a `.method` that returns a value type ```[System.Runtime]System.Nullable`1<int32>```.
 The method body pushes the value `1` onto the stack, and creates a new ```System.Nullable`1<int32>``` that takes the first element from the stack (the `1` that was just pushed).
 Finally, this new object is returned.
-* `string? GetString() => "";` is compiled into a `.method` that returns a `string`. The method body pushes a new object reference to a string literal stored in the assembly metadata (see [this post about string literals](https://blog.maartenballiauw.be/post/2016/11/15/exploring-memory-allocation-and-strings.html) for more background), and returns it.
+* `string? GetString() => "";` is compiled into a `.method` that returns a `string`. The method body pushes a new object reference to a string literal stored in the assembly metadata (see [this post about string literals](https://blog.maartenballiauw.be/posts/2016-11-15-exploring-memory-allocation-and-strings/) for more background), and returns it.
 
 The difference between value types and reference types is very clear in IL: the method that returns a value type, returns a `Nullable<int>`.
 The method that returns a reference type returns, well, a reference type.
@@ -263,4 +263,4 @@ The compiler generates `NullableContextAttribute` and `NullableAttribute` usages
 
 The metadata added by the compiler is used in various ways, depending on the nullable annotation context you specify in your project or separate files.
 
-In the [next post](https://blog.maartenballiauw.be/post/2022/04/25/annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3.html), we'll look beyond `?` and cover the many options for annotating your code and helping out flow analysis to give you better and more reliable results.
+In the [next post](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/), we'll look beyond `?` and cover the many options for annotating your code and helping out flow analysis to give you better and more reliable results.

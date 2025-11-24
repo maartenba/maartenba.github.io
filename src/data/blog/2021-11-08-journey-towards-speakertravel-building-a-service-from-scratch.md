@@ -171,7 +171,7 @@ Since I'd already built some API integration with AllMyles in C#, at least part 
 
 So I went with an ASP.NET Core backend, [IdentityServer](https://duendesoftware.com/), and [React](https://reactjs.org/).
 
-About an hour of cursing on a simple "Hello, World" later, React was replaced with [Vue.js](https://vuejs.org/) which seemed easier to get started with. I did have to replicate the [ASP.NET Core SPA development experience (blog post)](https://blog.maartenballiauw.be/post/2019/11/13/how-does-the-aspnetcore-spa-development-experience-work.html) to support Vue.js, but that was fun to do and write about.
+About an hour of cursing on a simple "Hello, World" later, React was replaced with [Vue.js](https://vuejs.org/) which seemed easier to get started with. I did have to replicate the [ASP.NET Core SPA development experience (blog post)](https://blog.maartenballiauw.be/posts/2019-11-13-how-does-the-aspnetcore-spa-development-experience-work/) to support Vue.js, but that was fun to do and write about.
 
 What wasn't fun though, was the slow-going. New to Vue.js, a lot of things went very slow while building. After 2 weeks of spending evenings on just a login that worked smoothly, I started wondering...
 
@@ -187,7 +187,7 @@ A few hours into development, I had the login/register/manage account pages cust
 
 While developing the app, a lot of new ideas and improvements popped up. I tried to be ruthless in asking myself *"do I really need this for version 1?"*, and log anything else in the issue tracker and pick it up in the future. This definitely helped with productivity.
 
-Some fun was had implementing [tag helpers to show/hide HTML elements (blog post)](https://blog.maartenballiauw.be/post/2020/04/14/building-an-aspnet-core-tag-helper-to-show-hide-ui-elements-based-on-authorization.html), which realy works well to make certain parts of the UI available based on user permissions and roles.
+Some fun was had implementing [tag helpers to show/hide HTML elements (blog post)](https://blog.maartenballiauw.be/posts/2020-04-14-building-an-aspnet-core-tag-helper-to-show-hide-ui-elements-based-on-authorization/), which realy works well to make certain parts of the UI available based on user permissions and roles.
 
 The first version was ready near the end of August 2019, including a basic [product website](https://speaker,travel/) that is powered by a very simple Markdown-to-HTML script that seems to work well.
 

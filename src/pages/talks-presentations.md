@@ -1,6 +1,8 @@
 ---
 layout: ../layouts/AboutLayout.astro
 title: "Talks & Presentations"
+redirect_from:
+  - /talks-presentations.html
 ---
 
 This page contains links and short information on the talks that I have (co-)presented. If available, a link to slides and recording is also provided.
