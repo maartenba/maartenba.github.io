@@ -13,6 +13,7 @@ import {
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
 import redirectFrom from "astro-redirect-from";
+import rewriteRedirects from "./src/utils/rewriteRedirects.js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,6 +22,7 @@ export default defineConfig({
     redirectFrom({
       contentDir: "src/data/blog",
     }),
+    rewriteRedirects(),
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
     }),
