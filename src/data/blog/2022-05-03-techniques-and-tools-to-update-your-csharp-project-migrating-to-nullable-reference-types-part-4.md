@@ -9,6 +9,7 @@ tags: ["General", ".NET", "dotnet", "Nullability"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2022/05/03/techniques-and-tools-to-update-your-c-project-migrating-to-nullable-reference-types-part-4.html
+  - /post/2022/05/03/techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4.html
 ---
 
 Previously, [we saw how you can help the compiler's flow analysis understand your code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/), by annotating your code for nullability.

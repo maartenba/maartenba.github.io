@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /posts/2022-11-05-mastodon-own-donain-without-hosting-server
   - /post/2022/11/05/mastodon-on-your-own-domain-without-hosting-a-server.html
+  - /post/2022/11/05/mastodon-own-donain-without-hosting-server.html
 ---
 
 Like many in the past week, I have been having a serious look at [Mastodon](https://joinmastodon.org/) as an alternative to Twitter.

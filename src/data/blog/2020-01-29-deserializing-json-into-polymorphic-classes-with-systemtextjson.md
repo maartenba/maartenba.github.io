@@ -9,6 +9,7 @@ tags: ["General", "ICT", "Web", ".NET", "dotnet", "JSON"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2020/01/29/deserializing-json-into-polymorphic-classes-with-system-text-json.html
+  - /post/2020/01/29/deserializing-json-into-polymorphic-classes-with-systemtextjson.html
 ---
 
 While working on SpaceDotNet, a strong-typed client SDK to access the [JetBrains Space HTTP API](https://blog.jetbrains.com/space/2020/01/28/getting-started-with-the-space-http-api/), I came across a scenario to deserialize JSON into polymorphic classes. In this post, I'll explain how to write a custom `JsonConverter` for `System.Text.Json` to help with deserialization for such cases.

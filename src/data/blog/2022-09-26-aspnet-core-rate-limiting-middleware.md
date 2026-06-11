@@ -9,6 +9,7 @@ tags: ["General", "Web", "ASP.NET"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2022/09/26/asp-net-core-rate-limiting-middleware-in-net-7.html
+  - /post/2022/09/26/aspnet-core-rate-limiting-middleware.html
 ---
 
 Rate limiting is a way to control the amount of traffic that a web application or API receives, by limiting the number of requests that can be made in a given period of time.

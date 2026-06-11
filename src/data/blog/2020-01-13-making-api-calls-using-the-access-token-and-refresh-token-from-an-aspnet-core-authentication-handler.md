@@ -9,6 +9,7 @@ tags: ["General", "ICT", "Web", ".NET", "dotnet", "ASP.NET Core", "ASP.NET", "Au
 author: Maarten Balliauw
 redirect_from:
   - /post/2020/01/13/making-api-calls-using-the-access-token-and-refresh-token-from-an-asp-net-core-authentication-handler.html
+  - /post/2020/01/13/making-api-calls-using-the-access-token-and-refresh-token-from-an-aspnet-core-authentication-handler.html
 ---
 
 Right now, I'm having fun building a .NET Core client library for [JetBrains Space](https://jetbrains.com/space). Part of that client library will be ASP.NET Core authentication, to help in making authentication with your Space organization easy. Think of something like this:

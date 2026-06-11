@@ -9,6 +9,7 @@ tags: ["General", ".NET", "dotnet", "AI", "LLM"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2023/06/15/running-large-language-models-locally-your-own-chatgpt-like-ai-in-c.html
+  - /post/2023/06/15/running-large-language-models-locally-your-own-chatgpt-like-ai-in-csharp.html
 ---
 
 For the past few months, a lot of news in tech as well as mainstream media has been around [ChatGPT](https://openai.com/chatgpt), an Artificial Intelligence (AI) product by the folks at [OpenAI](https://www.openai.com).

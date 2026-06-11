@@ -9,6 +9,7 @@ tags: ["General", "ICT", "Development", "CSharp"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2017/10/26/using-operator-overloads-for-concatenating-file-system-paths-in-csharp.html
+  - /post/2017/10/26/operator-overloads-concatenate-file-system-path.html
 ---
 
 The past few days, I've been working on some cross-platform C# code. In this code, I needed to build a path to a file, by concatenating folder names. As you may know the path separator on Windows and Linux operating systems are different: one has a backward slash (`\`), the other has a forward slash (`/`).

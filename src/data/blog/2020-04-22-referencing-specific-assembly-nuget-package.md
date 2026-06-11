@@ -9,6 +9,7 @@ tags: ["General", "ICT", ".NET", "dotnet", "NuGet"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2020/04/22/referencing-a-specific-assembly-from-a-nuget-package.html
+  - /post/2020/04/22/referencing-specific-assembly-nuget-package.html
 ---
 
 In this post, I'll describe a little trick I used while building a [Rider](https://www.jetbrains.com/rider/) plugin for [XAML Styler](https://github.com/Xavalon/XamlStyler/), which is referencing a specific assembly from a NuGet package.

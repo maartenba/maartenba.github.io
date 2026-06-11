@@ -9,6 +9,7 @@ tags: ["General", "personal"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2024/11/21/time-for-a-change-moving-from-jetbrains-to-duende-software.html
+  - /post/2024/11/21/time-for-change-jetbrains-duende-software.html
 ---
 
 At the start of 2025, I will be joining [Duende Software](https://duendesoftware.com/) to help drive customer success and advocate for IdentityServer and other tools and frameworks built by the company.
