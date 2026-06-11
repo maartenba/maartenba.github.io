@@ -7,7 +7,7 @@ redirect_from:
 
 This page contains links and short information on the talks that I have (co-)presented. If available, a link to slides and recording is also provided.
 
-Attended a talk and looking for demo material or thought of a question? Don't hesitate and ping me on [Twitter](https://twitter.com/maartenballiauw) or [reach out via another channel](/about-me.html)
+Attended a talk and looking for demo material or thought of a question? Don't hesitate to [reach out](/about-me.html)
 
 ## Upcoming talks and conferences
 
@@ -17,6 +17,8 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date**   | **Title**                                                                                        | **Event**                                    | **Where**                    | **Slides**                                                                                                                                      | **Recording**                                                                                                                              |
 |------------|--------------------------------------------------------------------------------------------------|----------------------------------------------|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| 2026-6-2 | HTMX and ASP.NET Core - I don’t know how to React | DevSum | Sweden - Stockholm |  |  | 
+| 2026-5-27 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | Update Conference 2026 | Poland - Krakow |  |  | 
 | 2026-5-12 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | Techorama Belgium 2026 | Belgium - Antwerp |  |  | 
 | 2026-2-26 | Building a supply chain attack with .NET and NuGet | Confoo 2026 | Canada - Montreal |  |  | 
 | 2026-2-26 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | Confoo 2026 | Canada - Montreal |  |  | 
