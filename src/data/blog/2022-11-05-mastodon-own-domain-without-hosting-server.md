@@ -8,6 +8,7 @@ categories: ["post"]
 tags: ["General", "Web", "Social media"]
 author: Maarten Balliauw
 redirect_from:
+  - /posts/2022-11-05-mastodon-own-donain-without-hosting-server
   - /post/2022/11/05/mastodon-on-your-own-domain-without-hosting-a-server.html
 ---
 
