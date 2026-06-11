@@ -3,14 +3,15 @@
 import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
-import remarkToc from "remark-toc";
-import remarkCollapse from "remark-collapse";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
+import rehypeImgAttrs from "./src/utils/rehype-img-attrs";
+import remarkToc from "remark-toc";
+import remarkCollapse from "remark-collapse";
 import { SITE } from "./src/config";
 import redirectFrom from "astro-redirect-from";
 import rewriteRedirects from "./src/utils/rewriteRedirects.js";
@@ -43,10 +44,9 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [remarkCollapse, { test: "Table of contents" }],
-    ],
+    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    // Images in /public/images/ bypass Astro's sharp optimization pipeline. Lazy loading is the primary improvement here.
+    rehypePlugins: [rehypeImgAttrs],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },

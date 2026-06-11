@@ -6,14 +6,17 @@ import { SITE } from "@/config";
 export interface Props {
   hideEditPost?: CollectionEntry<"blog">["data"]["hideEditPost"];
   class?: string;
-  post: CollectionEntry<"blog">;
+  post?: CollectionEntry<"blog">;
+  /** Direct file path for non-blog pages (relative to repo root) */
+  filePath?: string;
 }
 
-const { hideEditPost, post, class: className = "" } = Astro.props;
+const { hideEditPost, post, filePath, class: className = "" } = Astro.props;
 
-const href = `${SITE.editPost.url}${post.filePath}`;
+const resolvedPath = filePath ?? post?.filePath ?? "";
+const href = `${SITE.editPost.url}${resolvedPath}`;
 const showEditPost =
-  SITE.editPost.enabled && !hideEditPost && href.trim() !== "";
+  SITE.editPost.enabled && !hideEditPost && href.trim() !== "" && resolvedPath !== "";
 ---
 
 {
@@ -23,11 +26,11 @@ const showEditPost =
       target="_blank"
       rel="noopener noreferrer"
       class:list={[
-        "flex justify-baseline gap-1.5 opacity-80 hover:text-accent",
+        "inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-sm font-medium text-accent hover:bg-accent/20 transition-colors",
         className,
       ]}
     >
-      <IconEdit class="inline-block" />
+      <IconEdit class="inline-block shrink-0" />
       <span>{SITE.editPost.text}</span>
     </a>
   )

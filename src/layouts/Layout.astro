@@ -16,6 +16,7 @@ export interface Props {
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
+  ogType?: string;
 }
 
 const {
@@ -28,24 +29,58 @@ const {
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
+  ogType = "website",
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
 
-const structuredData = {
+const structuredData = pubDatetime
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${canonicalURL}`,
+      },
+      headline: `${title}`,
+      description: `${description}`,
+      image: `${socialImageURL}`,
+      datePublished: pubDatetime.toISOString(),
+      ...(modDatetime && { dateModified: modDatetime.toISOString() }),
+      author: [
+        {
+          "@type": "Person",
+          name: `${author}`,
+          url: SITE.website,
+          sameAs: [
+            "https://github.com/maartenba",
+            "https://www.linkedin.com/in/maartenballiauw/",
+            "https://x.com/maartenballiauw",
+            "https://bsky.app/profile/maartenballiauw.be/",
+          ],
+        },
+      ],
+      publisher: {
+        "@type": "Organization",
+        name: SITE.title,
+        url: SITE.website,
+      },
+    }
+  : null;
+
+const websiteStructuredData = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
-    {
-      "@type": "Person",
-      name: `${author}`,
-      ...(profile && { url: profile }),
+  "@type": "WebSite",
+  name: SITE.title,
+  url: SITE.website,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE.website}search?q={search_term_string}`,
     },
-  ],
+    "query-input": "required name=search_term_string",
+  },
 };
 ---
 
@@ -78,6 +113,7 @@ const structuredData = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:type" content={ogType} />
 
     <!-- Article Published/Modified time -->
     {
@@ -105,11 +141,22 @@ const structuredData = {
     <meta property="twitter:image" content={socialImageURL} />
 
     <!-- Google JSON-LD Structured data -->
+    {
+      structuredData && (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
     <script
       type="application/ld+json"
       is:inline
-      set:html={JSON.stringify(structuredData)}
+      set:html={JSON.stringify(websiteStructuredData)}
     />
+
+    <slot name="head" />
 
     <!-- Enable RSS feed auto-discovery  -->
     <!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery -->

@@ -1,22 +1,31 @@
 ---
+import "@pagefind/default-ui/css/ui.css";
+import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
+import Datetime from "@/components/Datetime.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { getPath } from "@/utils/getPath";
 import { SITE } from "@/config";
+
+const posts = await getCollection("blog");
+const recentPosts = getSortedPosts(posts).slice(0, 5);
 ---
 
 <Layout title={`404 Not Found | ${SITE.title}`}>
   <Header />
 
-  <main
-    id="main-content"
-    class="mx-auto flex max-w-app flex-1 items-center justify-center"
-  >
-    <div class="mb-14 flex flex-col items-center justify-center">
+  <main id="main-content" class="mx-auto flex max-w-app flex-1 flex-col px-4 py-12">
+    <div class="mb-10 flex flex-col items-center text-center">
       <h1 class="text-9xl font-bold text-accent">404</h1>
-      <span aria-hidden="true">¯\_(ツ)_/¯</span>
-      <p class="mt-4 text-2xl sm:text-3xl">Page Not Found</p>
+      <span aria-hidden="true" class="mt-2 text-3xl">¯\_(ツ)_/¯</span>
+      <p class="mt-4 text-2xl sm:text-3xl font-semibold">Page Not Found</p>
+      <p class="mt-3 max-w-prose text-base opacity-80">
+        The page you're looking for doesn't exist. Try searching below or check
+        out these recent posts:
+      </p>
       <LinkButton
         href="/"
         class="my-6 text-lg underline decoration-dashed underline-offset-8"
@@ -24,7 +33,130 @@ import { SITE } from "@/config";
         Go back home
       </LinkButton>
     </div>
+
+    <div class="mb-10">
+      <div id="pagefind-search-404"></div>
+    </div>
+
+    {
+      recentPosts.length > 0 && (
+        <section>
+          <h2 class="mb-4 text-xl font-semibold tracking-wide">
+            Recent Posts
+          </h2>
+          <ul class="space-y-4">
+            {recentPosts.map(post => (
+              <li class="flex flex-col gap-1">
+                <a
+                  href={getPath(post.id, post.filePath)}
+                  class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80 focus-visible:no-underline focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-accent"
+                >
+                  {post.data.title}
+                </a>
+                <Datetime
+                  pubDatetime={post.data.pubDatetime}
+                  modDatetime={post.data.modDatetime}
+                  timezone={post.data.timezone}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
   </main>
 
   <Footer />
 </Layout>
+
+<script>
+  function initSearch() {
+    const pageFindSearch: HTMLElement | null = document.querySelector(
+      "#pagefind-search-404"
+    );
+
+    if (!pageFindSearch) return;
+
+    const onIdle = window.requestIdleCallback || (cb => setTimeout(cb, 1));
+
+    onIdle(async () => {
+      // @ts-expect-error — Missing types for @pagefind/default-ui package.
+      const { PagefindUI } = await import("@pagefind/default-ui");
+
+      // Display warning in dev mode
+      if (import.meta.env.DEV) {
+        pageFindSearch.innerHTML = `
+          <div class="bg-muted/75 rounded p-4 space-y-4 mb-4">
+            <p><strong>DEV mode Warning!</strong> You need to build the project at least once to see the search results during development.</p>
+            <code class="block bg-black text-white px-2 py-1 rounded">pnpm run build</code>
+          </div>
+        `;
+      }
+
+      new PagefindUI({
+        element: "#pagefind-search-404",
+        showSubResults: true,
+        showImages: false,
+      });
+    });
+  }
+
+  document.addEventListener("astro:after-swap", () => {
+    const pagefindSearch = document.querySelector("#pagefind-search-404");
+
+    // if pagefind search form already exists, don't initialize search component
+    if (pagefindSearch && pagefindSearch.querySelector("form")) return;
+
+    initSearch();
+  });
+  initSearch();
+</script>
+
+<style is:global>
+  #pagefind-search-404 {
+    --pagefind-ui-font: var(--font-mono);
+    --pagefind-ui-text: var(--foreground);
+    --pagefind-ui-background: var(--background);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-tag: var(--background);
+    --pagefind-ui-border-radius: 0.375rem;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+
+    form::before {
+      background-color: var(--foreground);
+    }
+
+    input {
+      font-weight: 400;
+      border: 1px solid var(--border);
+    }
+
+    input:focus-visible {
+      outline: 1px solid var(--accent);
+    }
+
+    .pagefind-ui__result-title a {
+      color: var(--accent);
+      outline-offset: 1px;
+      outline-color: var(--accent);
+    }
+
+    .pagefind-ui__result-title a:focus-visible,
+    .pagefind-ui__search-clear:focus-visible {
+      text-decoration-line: none;
+      outline-width: 2px;
+      outline-style: dashed;
+    }
+
+    .pagefind-ui__result:last-of-type {
+      border-bottom: 0;
+    }
+
+    .pagefind-ui__result-nested .pagefind-ui__result-link:before {
+      font-family: system-ui;
+    }
+  }
+</style>

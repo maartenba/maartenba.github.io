@@ -32,5 +32,7 @@ const headerProps = {
     }
   </a>
   <Datetime {pubDatetime} {modDatetime} {timezone} />
-  <p>{description}</p>
+  {description && (
+    <p class="mt-2 text-sm leading-relaxed text-foreground/80 line-clamp-3">{description}</p>
+  )}
 </li>
