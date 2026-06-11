@@ -5,19 +5,19 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #08185e;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+  --background: #fafafa;
+  --foreground: #1e1e2e;
+  --accent: #2563eb;
+  --muted: #f0f0f5;
+  --border: #e2e2ea;
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #b1d9ff;
-  --muted: #343f60;
-  --border: #343f60;
+  --background: #1a1b2e;
+  --foreground: #e8eaf0;
+  --accent: #60a5fa;
+  --muted: #2a2d45;
+  --border: #2e3150;
 }
 
 @theme inline {
@@ -69,4 +69,93 @@ html[data-theme="dark"] {
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 1rem;
+}
+
+/* Hero section gradient banner (matches OG image style) */
+#hero {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #7c3aed 100%);
+  color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2.5rem 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+#hero h1 {
+  color: #ffffff;
+}
+
+#hero a,
+#hero div,
+#hero span {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#hero a:hover {
+  color: #ffffff;
+}
+
+#hero svg {
+  stroke: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="dark"] #hero {
+  background: linear-gradient(135deg, #1a1b2e 0%, #1e40af 50%, #5b21b6 100%);
+}
+
+:root,
+html[data-theme="light"] {
+  --accent-end: #7c3aed;
+}
+
+html[data-theme="dark"] {
+  --accent-end: #a78bfa;
+}
+
+/* Post card hover lift effect */
+section#recent-posts li,
+.post-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+section#recent-posts li:hover,
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: var(--muted);
+}
+
+html[data-theme="dark"] section#recent-posts li:hover,
+html[data-theme="dark"] .post-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }

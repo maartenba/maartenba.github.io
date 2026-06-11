@@ -13,8 +13,12 @@
       @apply mb-3 text-foreground;
     }
 
+    h2 {
+      @apply border-b border-border pb-2;
+    }
+
     h3 {
-      @apply italic;
+      @apply font-semibold;
     }
 
     p,
@@ -75,7 +79,7 @@
     }
 
     blockquote {
-      @apply border-s-accent/80 break-words opacity-80;
+      @apply border-s-4 border-s-accent/80 break-words pl-4 opacity-80;
     }
 
     details {
