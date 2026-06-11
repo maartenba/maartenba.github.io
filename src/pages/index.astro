@@ -22,24 +22,35 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Header />
   <main id="main-content" data-layout="index">
     <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Maarten Balliauw
-        <span class="font-light opacity-80">{"{blog}"}</span>
-      </h1>
-      <a
-        target="_blank"
-        href="/feed.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-3 rtl:-rotate-90"
+      <div class="flex items-center gap-5 sm:gap-6">
+        <img
+          src="/images/avatars/maarten-2018-800x800.jpg"
+          alt="Maarten Balliauw"
+          width="80"
+          height="80"
+          class="size-16 sm:size-20 rounded-full border-2 border-white/30 shadow-lg"
         />
-        <span class="sr-only">RSS Feed</span>
-      </a>
+        <div>
+          <h1 class="inline-block text-3xl font-bold sm:text-5xl">
+            Maarten Balliauw
+            <span class="font-light opacity-80">{"{blog}"}</span>
+          </h1>
+          <a
+            target="_blank"
+            href="/feed.xml"
+            class="inline-block ml-2 align-middle"
+            aria-label="rss feed"
+            title="RSS Feed"
+          >
+            <IconRss
+              width={18}
+              height={18}
+              class="scale-110 stroke-3 rtl:-rotate-90"
+            />
+            <span class="sr-only">RSS Feed</span>
+          </a>
+        </div>
+      </div>
 
       {
         // only display if at least one social link is enabled

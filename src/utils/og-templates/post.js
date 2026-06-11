@@ -1,6 +1,12 @@
 import satori from "satori";
 import { SITE } from "@/config";
 import loadGoogleFonts from "../loadGoogleFont";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+// Load avatar as base64 data URI at build time
+const avatarPath = resolve(process.cwd(), "public/images/avatars/maarten-2018-800x800.jpg");
+const avatarBase64 = `data:image/jpeg;base64,${readFileSync(avatarPath).toString("base64")}`;
 
 export default async post => {
   const title = post.data.title;
@@ -110,7 +116,7 @@ export default async post => {
               },
             },
           },
-          // Bottom bar: author + site name
+          // Bottom bar: avatar + author + site name
           {
             type: "div",
             props: {
@@ -123,17 +129,43 @@ export default async post => {
                 marginTop: "auto",
               },
               children: [
+                // Author with avatar
                 {
-                  type: "span",
+                  type: "div",
                   props: {
                     style: {
-                      fontSize: 24,
-                      color: "#cbd5e1",
-                      fontWeight: 400,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "14px",
                     },
-                    children: author,
+                    children: [
+                      {
+                        type: "img",
+                        props: {
+                          src: avatarBase64,
+                          width: 48,
+                          height: 48,
+                          style: {
+                            borderRadius: "50%",
+                            border: "2px solid rgba(255, 255, 255, 0.3)",
+                          },
+                        },
+                      },
+                      {
+                        type: "span",
+                        props: {
+                          style: {
+                            fontSize: 24,
+                            color: "#cbd5e1",
+                            fontWeight: 400,
+                          },
+                          children: author,
+                        },
+                      },
+                    ],
                   },
                 },
+                // Site title
                 {
                   type: "span",
                   props: {
