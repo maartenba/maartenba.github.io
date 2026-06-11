@@ -1,6 +1,7 @@
 // noinspection ES6PreferShortImport
 
 import { defineConfig, envField } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import {
@@ -44,9 +45,6 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
-    // Images in /public/images/ bypass Astro's sharp optimization pipeline. Lazy loading is the primary improvement here.
-    rehypePlugins: [rehypeImgAttrs],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },
@@ -59,6 +57,11 @@ export default defineConfig({
         transformerNotationDiff({ matchAlgorithm: "v3" }),
       ],
     },
+    processor: unified({
+      remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+      // Images in /public/images/ bypass Astro's sharp optimization pipeline. Lazy loading is the primary improvement here.
+      rehypePlugins: [rehypeImgAttrs],
+    }),
   },
   vite: {
     // eslint-disable-next-line
@@ -83,7 +86,5 @@ export default defineConfig({
       }),
     },
   },
-  experimental: {
-    preserveScriptOrder: true,
-  },
+
 });

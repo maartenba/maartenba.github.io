@@ -1,4 +1,5 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob, type LoaderContext } from "astro/loaders";
 import getExcerpt from "./utils/getExcerpt";
 import { SITE } from "@/config";
