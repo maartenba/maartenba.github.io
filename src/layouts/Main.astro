@@ -1,5 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import EthicalAd from "@/components/EthicalAd.astro";
 import { SITE } from "@/config";
 
 interface StringTitleProp {
@@ -48,6 +49,7 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
       )}
     </div>
   </div>
+  <EthicalAd />
   <slot />
 </main>
 

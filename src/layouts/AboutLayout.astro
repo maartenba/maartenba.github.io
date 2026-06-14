@@ -3,6 +3,7 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import EditPost from "@/components/EditPost.astro";
+import EthicalAd from "@/components/EthicalAd.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
 
@@ -32,6 +33,7 @@ const filePath = `src/pages/${slug}.md`;
         <div class="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-white/[0.04]"></div>
         <h1 class="relative text-2xl font-bold text-white tracking-wider sm:text-3xl">{frontmatter.title}</h1>
       </div>
+      <EthicalAd />
     </div>
     <section id="about" class="app-prose mb-28 max-w-app prose-img:border-0">
       <slot />
