@@ -32,133 +32,87 @@ Wouldn&#39;t it be nice to be able to do something more ASP.NET MVC-like? Let&#3
 <h2>1. Creating the necessary HtmlHelper extension methods</h2>
 <p>
 The above example code is not available in standard ASP.NET MVC source code. We&#39;ll need an extension method for this, which will map a specific controller action, width, height and alternate text to a standard HTML image tag: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-public static class ImageResultHelper <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; public static string Image&lt;T&gt;(this HtmlHelper helper, Expression&lt;Action&lt;T&gt;&gt; action, int width, int height) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where T : Controller <br />
-&nbsp;&nbsp;&nbsp; { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ImageResultHelper.Image&lt;T&gt;(helper, action, width, height, &quot;&quot;); <br />
-&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; public static string Image&lt;T&gt;(this HtmlHelper helper, Expression&lt;Action&lt;T&gt;&gt; action, int width, int height, string alt) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where T : Controller <br />
-&nbsp;&nbsp;&nbsp; { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string url = helper.BuildUrlFromExpression&lt;T&gt;(action); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return string.Format(&quot;&lt;img src=\&quot;{0}\&quot; width=\&quot;{1}\&quot; height=\&quot;{2}\&quot; alt=\&quot;{3}\&quot; /&gt;&quot;, url, width, height, alt); <br />
-&nbsp;&nbsp;&nbsp; } <br />
-}&nbsp; 
-</p>
-<p>
-[/code] 
-</p>
+```csharp
+public static class ImageResultHelper
+{
+    public static string Image<T>(this HtmlHelper helper, Expression<Action<T>> action, int width, int height)
+        where T : Controller
+    {
+        return ImageResultHelper.Image<T>(helper, action, width, height, "");
+    }
+    public static string Image<T>(this HtmlHelper helper, Expression<Action<T>> action, int width, int height, string alt)
+        where T : Controller
+    {
+        string url = helper.BuildUrlFromExpression<T>(action);
+        return string.Format("<img src=\"{0}\" width=\"{1}\" height=\"{2}\" alt=\"{3}\" />", url, width, height, alt);
+    }
+}
+```
+
 <h2>2. The custom ActionResult class</h2>
 <p>
 Our new <em>ImageResult</em> class will inherit the abstract class <em>ActionResult</em> and implement its <em>ExecuteResult</em> method. This method basically performs communication over the HTTP response stream. 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-public class ImageResult : ActionResult <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; public ImageResult() { } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; public Image Image { get; set; } <br />
-&nbsp;&nbsp;&nbsp; public ImageFormat ImageFormat { get; set; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; public override void ExecuteResult(ControllerContext context) <br />
-&nbsp;&nbsp;&nbsp; { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // verify properties <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Image == null) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new ArgumentNullException(&quot;Image&quot;); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ImageFormat == null) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new ArgumentNullException(&quot;ImageFormat&quot;); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // output <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.HttpContext.Response.Clear(); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ImageFormat.Equals(ImageFormat.Bmp)) context.HttpContext.Response.ContentType = &quot;image/bmp&quot;; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ImageFormat.Equals(ImageFormat.Gif)) context.HttpContext.Response.ContentType = &quot;image/gif&quot;; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ImageFormat.Equals(ImageFormat.Icon)) context.HttpContext.Response.ContentType = &quot;image/vnd.microsoft.icon&quot;; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ImageFormat.Equals(ImageFormat.Jpeg)) context.HttpContext.Response.ContentType = &quot;image/jpeg&quot;; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ImageFormat.Equals(ImageFormat.Png)) context.HttpContext.Response.ContentType = &quot;image/png&quot;; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ImageFormat.Equals(ImageFormat.Tiff)) context.HttpContext.Response.ContentType = &quot;image/tiff&quot;; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ImageFormat.Equals(ImageFormat.Wmf)) context.HttpContext.Response.ContentType = &quot;image/wmf&quot;; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Image.Save(context.HttpContext.Response.OutputStream, ImageFormat); <br />
-&nbsp;&nbsp;&nbsp; } <br />
-} 
-</p>
-<p>
-[/code] 
-</p>
+```csharp
+public class ImageResult : ActionResult
+{
+    public ImageResult() { }
+    public Image Image { get; set; }
+    public ImageFormat ImageFormat { get; set; }
+    public override void ExecuteResult(ControllerContext context)
+    {
+        // verify properties
+        if (Image == null)
+        {
+            throw new ArgumentNullException("Image");
+        }
+        if (ImageFormat == null)
+        {
+            throw new ArgumentNullException("ImageFormat");
+        }
+        // output
+        context.HttpContext.Response.Clear();
+        if (ImageFormat.Equals(ImageFormat.Bmp)) context.HttpContext.Response.ContentType = "image/bmp";
+        if (ImageFormat.Equals(ImageFormat.Gif)) context.HttpContext.Response.ContentType = "image/gif";
+        if (ImageFormat.Equals(ImageFormat.Icon)) context.HttpContext.Response.ContentType = "image/vnd.microsoft.icon";
+        if (ImageFormat.Equals(ImageFormat.Jpeg)) context.HttpContext.Response.ContentType = "image/jpeg";
+        if (ImageFormat.Equals(ImageFormat.Png)) context.HttpContext.Response.ContentType = "image/png";
+        if (ImageFormat.Equals(ImageFormat.Tiff)) context.HttpContext.Response.ContentType = "image/tiff";
+        if (ImageFormat.Equals(ImageFormat.Wmf)) context.HttpContext.Response.ContentType = "image/wmf";
+        Image.Save(context.HttpContext.Response.OutputStream, ImageFormat);
+    }
+}
+```
+
 <h2>3. A &quot;DisplayTime&quot; action on the HomeController</h2>
 <p>
 We&#39;ll add a <em>DisplayTime</em> action on the <em>HomeController</em> class, which will return an instance of the newly created class <em>ImageResult</em>: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-public ActionResult DisplayTime() <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; Bitmap bmp = new Bitmap(200, 50); <br />
-&nbsp;&nbsp;&nbsp; Graphics g = Graphics.FromImage(bmp); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; g.FillRectangle(Brushes.White, 0, 0, 200, 50); <br />
-&nbsp;&nbsp;&nbsp; g.DrawString(DateTime.Now.ToShortTimeString(), new Font(&quot;Arial&quot;, 32), Brushes.Red, new PointF(0, 0)); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; return new ImageResult { Image = bmp, ImageFormat = ImageFormat.Jpeg }; <br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+public ActionResult DisplayTime()
+{
+    Bitmap bmp = new Bitmap(200, 50);
+    Graphics g = Graphics.FromImage(bmp);
+    g.FillRectangle(Brushes.White, 0, 0, 200, 50);
+    g.DrawString(DateTime.Now.ToShortTimeString(), new Font("Arial", 32), Brushes.Red, new PointF(0, 0));
+    return new ImageResult { Image = bmp, ImageFormat = ImageFormat.Jpeg };
+}
+```
+
 And just to be complete, here&#39;s the markup of the index view on the <em>HomeController</em>: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-&lt;%@ Page Language=&quot;C#&quot; MasterPageFile=&quot;~/Views/Shared/Site.Master&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Index.aspx.cs&quot; Inherits=&quot;MvcApplication1.Views.Home.Index&quot; %&gt; <br />
-&lt;%@ Import Namespace=&quot;MvcApplication1.Code&quot; %&gt; <br />
-&lt;%@ Import Namespace=&quot;MvcApplication1.Controllers&quot; %&gt; 
-</p>
-<p>
-&lt;asp:Content ID=&quot;indexContent&quot; ContentPlaceHolderID=&quot;MainContent&quot; runat=&quot;server&quot;&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;p&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;%=Html.Image&lt;HomeController&gt;(c =&gt; c.DisplayTime(), 200, 50, &quot;Current time&quot;)%&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;/p&gt; <br />
-&lt;/asp:Content&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="MvcApplication1.Views.Home.Index" %>
+<%@ Import Namespace="MvcApplication1.Code" %>
+<%@ Import Namespace="MvcApplication1.Controllers" %>
+<asp:Content ID="indexContent" ContentPlaceHolderID="MainContent" runat="server">
+    <p>
+        <%=Html.Image<HomeController>(c => c.DisplayTime(), 200, 50, "Current time")%>
+    </p>
+</asp:Content>
+```
+
 Want the source code? <a href="/files/MvcImageResult.zip">Download it here!</a> You can use it with the <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640" target="_blank">current ASP.NET MVC framework source code drop</a>. 
 </p>
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/05/ASPNET-MVC-custom-ActionResult.aspx&amp;title=ASP.NET%20MVC%20custom%20ActionResult%20%28ImageResult%29"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/05/ASPNET-MVC-custom-ActionResult.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>&nbsp; 
 </p>
-
-
 
 

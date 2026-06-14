@@ -21,49 +21,172 @@ redirect_from:
 <li>OnResultExecuting occurs just before the result is executed (before the view is rendered)</li>
 <li>OnResultExecuted occurs after the result is executed (after the view is rendered)</li>
 </ul>
-<p>Let's use this approach to create an <em>OutputCache</em> <em>ActionFilterAttribute</em> which allows you to decorate any controller and controller action, i.e.:</p>
-<p>[code:c#]</p>
-<p>[OutputCache(Duration = 60, VaryByParam = "*", CachePolicy = CachePolicy.Server)]<br /> public ActionResult Index()<br /> {<br /> &nbsp;&nbsp;&nbsp; // ...<br /> }</p>
-<p>[/code]</p>
-<p>We'll be using an enumeration called <em>CachePolicy</em> to tell the <em>OutputCache</em> attribute how and where to cache:</p>
-<p>[code:c#]</p>
-<p>public enum CachePolicy<br /> {<br /> &nbsp;&nbsp;&nbsp; NoCache = 0,<br /> &nbsp;&nbsp;&nbsp; Client = 1,<br /> &nbsp;&nbsp;&nbsp; Server = 2,<br /> &nbsp;&nbsp;&nbsp; ClientAndServer = 3<br /> }</p>
-<p>[/code]</p>
+<p>Let's use this approach to create an <em>OutputCache</em> <em>ActionFilterAttribute</em> which allows you to decorate any controller and controller action, i.e.:
+
+```csharp
+[OutputCache(Duration = 60, VaryByParam = "*", CachePolicy = CachePolicy.Server)]
+ public ActionResult Index()
+ {
+     // ...
+ }
+```
+
+<p>We'll be using an enumeration called <em>CachePolicy</em> to tell the <em>OutputCache</em> attribute how and where to cache:
+
+```csharp
+public enum CachePolicy
+ {
+     NoCache = 0,
+     Client = 1,
+     Server = 2,
+     ClientAndServer = 3
+ }
+```
+
 <h2>1. Implementing client-side caching</h2>
-<p>Actually, this one's really easy. Right before the view is rendered, we'll add some HTTP headers to the response stream. The web browser will receive these headers and respond to them by using the correct caching settings. If we pass in a duration of 60, the browser will cache this page for one minute.</p>
-<p>[code:c#]</p>
-<p>public class OutputCache : ActionFilterAttribute<br /> {<br /> &nbsp;&nbsp;&nbsp; public int Duration { get; set; }<br /> &nbsp;&nbsp;&nbsp; public CachePolicy CachePolicy { get; set; }</p>
-<p>&nbsp;&nbsp;&nbsp; public override void OnActionExecuted(ActionExecutedContext filterContext)<br /> &nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Client-side caching?<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (CachePolicy == CachePolicy.Client || CachePolicy == CachePolicy.ClientAndServer)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Duration &lt;= 0) return;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpCachePolicyBase cache = filterContext.HttpContext.Response.Cache;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TimeSpan cacheDuration = TimeSpan.FromSeconds(Duration);</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cache.SetCacheability(HttpCacheability.Public);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cache.SetExpires(DateTime.Now.Add(cacheDuration));<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cache.SetMaxAge(cacheDuration);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cache.AppendCacheExtension("must-revalidate, proxy-revalidate");<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp; }<br /> }</p>
-<p>[/code]</p>
+<p>Actually, this one's really easy. Right before the view is rendered, we'll add some HTTP headers to the response stream. The web browser will receive these headers and respond to them by using the correct caching settings. If we pass in a duration of 60, the browser will cache this page for one minute.
+
+```csharp
+public class OutputCache : ActionFilterAttribute
+ {
+     public int Duration { get; set; }
+     public CachePolicy CachePolicy { get; set; }
+    public override void OnActionExecuted(ActionExecutedContext filterContext)
+     {
+         // Client-side caching?
+         if (CachePolicy == CachePolicy.Client || CachePolicy == CachePolicy.ClientAndServer)
+         {
+             if (Duration <= 0) return;
+            HttpCachePolicyBase cache = filterContext.HttpContext.Response.Cache;
+             TimeSpan cacheDuration = TimeSpan.FromSeconds(Duration);
+            cache.SetCacheability(HttpCacheability.Public);
+             cache.SetExpires(DateTime.Now.Add(cacheDuration));
+             cache.SetMaxAge(cacheDuration);
+             cache.AppendCacheExtension("must-revalidate, proxy-revalidate");
+         }
+     }
+ }
+```
+
 <h2>2. Implementing server-side caching</h2>
-<p>Server-side caching is a little more difficult, because there's some "dirty" tricks to use. First of all, we'll have to prepare the HTTP response to be readable for our <em>OutputCache</em> system. To do this, we first save the current HTTP context in a class variable. Afterwards, we set up a new one which writes its data to a <em>StringWriter</em> that allows reading to occur:</p>
-<p>[code:c#]</p>
-<p>existingContext = System.Web.HttpContext.Current;<br /> writer = new StringWriter();<br /> HttpResponse response = new HttpResponse(writer);<br /> HttpContext context = new HttpContext(existingContext.Request, response)<br /> {<br /> &nbsp;&nbsp;&nbsp; User = existingContext.User<br /> };<br /> System.Web.HttpContext.Current = context;</p>
-<p>[/code]</p>
-<p>Using this in a <em>OnResultExecuting</em> override, the code would look like this:</p>
-<p>[code:c#]</p>
-<p>public override void OnResultExecuting(ResultExecutingContext filterContext)<br /> {<br /> &nbsp;&nbsp;&nbsp; // Server-side caching?<br /> &nbsp;&nbsp;&nbsp; if (CachePolicy == CachePolicy.Server || CachePolicy == CachePolicy.ClientAndServer)<br /> &nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Fetch Cache instance<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cache = filterContext.HttpContext.Cache;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Fetch cached data<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object cachedData = cache.Get(GenerateKey(filterContext));<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (cachedData != null)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Cache hit! Return cached data<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cacheHit = true;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filterContext.HttpContext.Response.Write(cachedData);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filterContext.Cancel = true;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Cache not hit.<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Replace the current context with a new context that writes to a string writer<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; existingContext = System.Web.HttpContext.Current;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer = new StringWriter();<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpResponse response = new HttpResponse(writer);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpContext context = new HttpContext(existingContext.Request, response)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User = existingContext.User<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Copy all items in the context (especially done for session availability in the component)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach (var key in existingContext.Items.Keys)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.Items[key] = existingContext.Items[key];<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Web.HttpContext.Current = context;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp; }<br /> }</p>
-<p>[/code]</p>
-<p>By using this code, we can retrieve an existing item from cache and set up the HTTP response to be read from. But what about storing data in the cache? This will have to occur after the view has rendered:</p>
-<p>[code:c#]</p>
-<p>public override void OnResultExecuted(ResultExecutedContext filterContext)<br /> {<br /> &nbsp;&nbsp;&nbsp; // Server-side caching?<br /> &nbsp;&nbsp;&nbsp; if (CachePolicy == CachePolicy.Server || CachePolicy == CachePolicy.ClientAndServer)<br /> &nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!cacheHit)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Restore the old context<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Web.HttpContext.Current = existingContext;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Return rendererd data<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; existingContext.Response.Write(writer.ToString());</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Add data to cache<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cache.Add(<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GenerateKey(filterContext),<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.ToString(),<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; null,<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DateTime.Now.AddSeconds(Duration),<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cache.NoSlidingExpiration,<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CacheItemPriority.Normal,<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; null);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp; }<br /> }</p>
-<p>[/code]</p>
-<p>Now you noticed I added a <em>VaryByParam</em> property to the <em>OutputCache</em> <em>ActionFilterAttribute</em>. When caching server-side, I can use this to vary cache storage by the parameters that are passed in. The <em>GenerateKey</em> method will actually generate a key depending on controller, action and the <em>VaryByParam</em> value:</p>
-<p>[code:c#]</p>
-<p>private string GenerateKey(ControllerContext filterContext)<br /> {<br /> &nbsp;&nbsp;&nbsp; StringBuilder cacheKey = new StringBuilder();</p>
-<p>&nbsp;&nbsp;&nbsp; // Controller + action<br /> &nbsp;&nbsp;&nbsp; cacheKey.Append(filterContext.Controller.GetType().FullName);<br /> &nbsp;&nbsp;&nbsp; if (filterContext.RouteData.Values.ContainsKey("action"))<br /> &nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cacheKey.Append("_");<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cacheKey.Append(filterContext.RouteData.Values["action"].ToString());<br /> &nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // Variation by parameters<br /> &nbsp;&nbsp;&nbsp; List&lt;string&gt; varyByParam = VaryByParam.Split(';').ToList();</p>
-<p>&nbsp;&nbsp;&nbsp; if (!string.IsNullOrEmpty(VaryByParam))<br /> &nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (KeyValuePair&lt;string, object&gt; pair in filterContext.RouteData.Values)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (VaryByParam == "*" || varyByParam.Contains(pair.Key))<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cacheKey.Append("_");<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cacheKey.Append(pair.Key);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cacheKey.Append("=");<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cacheKey.Append(pair.Value.ToString());<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> &nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; return cacheKey.ToString();<br /> }</p>
-<p>[/code]</p>
+<p>Server-side caching is a little more difficult, because there's some "dirty" tricks to use. First of all, we'll have to prepare the HTTP response to be readable for our <em>OutputCache</em> system. To do this, we first save the current HTTP context in a class variable. Afterwards, we set up a new one which writes its data to a <em>StringWriter</em> that allows reading to occur:
+
+```csharp
+existingContext = System.Web.HttpContext.Current;
+ writer = new StringWriter();
+ HttpResponse response = new HttpResponse(writer);
+ HttpContext context = new HttpContext(existingContext.Request, response)
+ {
+     User = existingContext.User
+ };
+ System.Web.HttpContext.Current = context;
+```
+
+<p>Using this in a <em>OnResultExecuting</em> override, the code would look like this:
+
+```csharp
+public override void OnResultExecuting(ResultExecutingContext filterContext)
+ {
+     // Server-side caching?
+     if (CachePolicy == CachePolicy.Server || CachePolicy == CachePolicy.ClientAndServer)
+     {
+         // Fetch Cache instance
+         cache = filterContext.HttpContext.Cache;
+        // Fetch cached data
+         object cachedData = cache.Get(GenerateKey(filterContext));
+         if (cachedData != null)
+         {
+             // Cache hit! Return cached data
+             cacheHit = true;
+             filterContext.HttpContext.Response.Write(cachedData);
+             filterContext.Cancel = true;
+         }
+         else
+         {
+             // Cache not hit.
+             // Replace the current context with a new context that writes to a string writer
+             existingContext = System.Web.HttpContext.Current;
+             writer = new StringWriter();
+             HttpResponse response = new HttpResponse(writer);
+             HttpContext context = new HttpContext(existingContext.Request, response)
+             {
+                 User = existingContext.User
+             };
+
+             // Copy all items in the context (especially done for session availability in the component)
+             foreach (var key in existingContext.Items.Keys)
+             {
+                 context.Items[key] = existingContext.Items[key];
+             }
+
+             System.Web.HttpContext.Current = context;
+         }
+     }
+ }
+```
+
+<p>By using this code, we can retrieve an existing item from cache and set up the HTTP response to be read from. But what about storing data in the cache? This will have to occur after the view has rendered:
+
+```csharp
+public override void OnResultExecuted(ResultExecutedContext filterContext)
+ {
+     // Server-side caching?
+     if (CachePolicy == CachePolicy.Server || CachePolicy == CachePolicy.ClientAndServer)
+     {
+         if (!cacheHit)
+         {
+             // Restore the old context
+             System.Web.HttpContext.Current = existingContext;
+            // Return rendererd data
+             existingContext.Response.Write(writer.ToString());
+            // Add data to cache
+             cache.Add(
+                 GenerateKey(filterContext),
+                 writer.ToString(),
+                 null,
+                 DateTime.Now.AddSeconds(Duration),
+                 Cache.NoSlidingExpiration,
+                 CacheItemPriority.Normal,
+                  null);
+         }
+     }
+ }
+```
+
+<p>Now you noticed I added a <em>VaryByParam</em> property to the <em>OutputCache</em> <em>ActionFilterAttribute</em>. When caching server-side, I can use this to vary cache storage by the parameters that are passed in. The <em>GenerateKey</em> method will actually generate a key depending on controller, action and the <em>VaryByParam</em> value:
+
+```csharp
+private string GenerateKey(ControllerContext filterContext)
+ {
+     StringBuilder cacheKey = new StringBuilder();
+    // Controller + action
+     cacheKey.Append(filterContext.Controller.GetType().FullName);
+     if (filterContext.RouteData.Values.ContainsKey("action"))
+     {
+         cacheKey.Append("_");
+         cacheKey.Append(filterContext.RouteData.Values["action"].ToString());
+     }
+    // Variation by parameters
+     List<string> varyByParam = VaryByParam.Split(';').ToList();
+    if (!string.IsNullOrEmpty(VaryByParam))
+     {
+         foreach (KeyValuePair<string, object> pair in filterContext.RouteData.Values)
+         {
+             if (VaryByParam == "*" || varyByParam.Contains(pair.Key))
+             {
+                 cacheKey.Append("_");
+                 cacheKey.Append(pair.Key);
+                 cacheKey.Append("=");
+                 cacheKey.Append(pair.Value.ToString());
+             }
+         }
+     }
+    return cacheKey.ToString();
+ }
+```
+
 <p>There you go! Now note that you can add this <em>OutputCache</em> attribute to any controller and any controller action you&nbsp; have in your application. The full source code is available for download here: <a href="/files/2012/11/MvcCaching.zip">MvcCaching.zip (211.33 kb)</a>&nbsp;(full sample) or <a href="/files/2012/11/OutputCache.zip">OutputCache.zip (1.59 kb)</a>&nbsp;(only attribute).</p>
 <p><strong>UPDATE:</strong> Make sure to read&nbsp;part 2, available <a href="/post/2008/07/extending-aspnet-mvc-outputcache-actionfilterattribute---adding-substitution.aspx">here</a>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx&amp;title=Creating an ASP.NET MVC OutputCache ActionFilterAttribute"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a></p>
-
 
 

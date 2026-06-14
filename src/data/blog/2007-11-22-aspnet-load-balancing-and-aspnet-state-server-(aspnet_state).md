@@ -45,61 +45,48 @@ Eventually change the port on which the state server will be listening:
 <h2>2. Make both ASP.NET servers use the state server</h2>
 <p>
 Every Web.config file contains a nice configuration directive named &quot;sessionState&quot;. So open up your Web.config, and make it look like this: 
-</p>
-<p>
-[code:xml] 
-</p>
-<p>
-&lt;?xml version=&quot;1.0&quot;?&gt;<br />
-&lt;configuration&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;system.web&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;sessionState<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mode=&quot;StateServer&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stateConnectionString=&quot;tcpip=<em>your_server_ip</em>:42424&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cookieless=&quot;false&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; timeout=&quot;20&quot; /&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/system.web&gt;<br />
-&lt;/configuration&gt; 
-</p>
-<p>
-[/code] 
-</p>
+```xml
+<?xml version="1.0"?>
+<configuration>
+    <system.web>
+        <!-- ... -->
+        <sessionState
+            mode="StateServer"
+            stateConnectionString="tcpip=your_server_ip:42424"
+            cookieless="false"
+            timeout="20" />
+        <!-- ... -->
+    </system.web>
+</configuration>
+```
+
 <h2>3. So you think you are finished...</h2>
 <p>
 ...but that&#39;s not the case! Our load balancer did a great job, but both servers where returning different session data. We decided to take a look at the session ID in our cookie: it was the same for both machines. Strange! 
 </p>
 <p>
 Some research proved that it was ASP.NET&#39;s &lt;machineKey&gt; configuration which was the issue. Both web servers should have the same &lt;machineKey&gt; configuration. Let&#39;s edit Web.config one more time: 
-</p>
-<p>
-[code:xml] 
-</p>
-<p>
-&lt;?xml version=&quot;1.0&quot;?&gt;<br />
-&lt;configuration&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;system.web&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;machineKey <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; validationKey=&quot;1234567890123456789012345678901234567890AAAAAAAAAA&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decryptionKey=&quot;123456789012345678901234567890123456789012345678&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; validation=&quot;SHA1&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decryption=&quot;Auto&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;sessionState<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mode=&quot;StateServer&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stateConnectionString=&quot;tcpip=<em>your_server_ip</em>:42424&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cookieless=&quot;false&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; timeout=&quot;20&quot; /&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/system.web&gt;<br />
-&lt;/configuration&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```xml
+<?xml version="1.0"?>
+<configuration>
+    <system.web>
+        <machineKey
+          validationKey="1234567890123456789012345678901234567890AAAAAAAAAA"
+          decryptionKey="123456789012345678901234567890123456789012345678"
+          validation="SHA1"
+          decryption="Auto"
+        />
+        <!-- ... -->
+        <sessionState
+            mode="StateServer"
+            stateConnectionString="tcpip=your_server_ip:42424"
+            cookieless="false"
+            timeout="20" />
+        <!-- ... -->
+    </system.web>
+</configuration>
+```
+
 (more on the machineKey element on <a href="http://msdn2.microsoft.com/en-us/library/w8h3skw9.aspx" target="_blank">MSDN</a>) 
 </p>
 <p>
@@ -117,7 +104,5 @@ Our solution now works! Only problem left is that we have a new single point of 
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2007/11/ASPNET-load-balancing-and-ASPNET-state-server-(aspnet_state).aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a>
 </p>
-
-
 
 

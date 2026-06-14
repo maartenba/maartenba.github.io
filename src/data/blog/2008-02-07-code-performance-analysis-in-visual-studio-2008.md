@@ -16,25 +16,18 @@ Visual Studio developer, did you know you have a great performance analysis (pro
 <h2>An application with a smell&hellip;</h2>
 <p>
 Before we can get started, we need a (simple) application with a &ldquo;smell&rdquo;. Create a new Windows application, drag a TextBox on the surface, and add the following code: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-private void Form1_Load(object sender, EventArgs e)<br />
-{<br />
-&nbsp;&nbsp;&nbsp; string s = &quot;&quot;;<br />
-&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt; 1500; i++)<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s = s + &quot; test&quot;;<br />
-&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; textBox1.Text = s;<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+private void Form1_Load(object sender, EventArgs e)
+{
+    string s = "";
+    for (int i = 0; i < 1500; i++)
+    {
+        s = s + " test";
+    }
+    textBox1.Text = s;
+}
+```
+
 You should immediately see the smell in the above code. If you don&rsquo;t: we are using <em>string.Concat()</em> for 1.500 times! This means a new string is created 1.500 times, and the old, intermediate strings, have to be disposed again. Smells like a nice memory issue to investigate! 
 </p>
 <h2>Profiling</h2>
@@ -82,25 +75,18 @@ Visual Studio 2008 introduced a cool new way of discovering smells: <em>hotpath 
 <h2>Fixing the smell</h2>
 <p>
 We are about to fix the smell. Let&rsquo;s rewrite our application code using <em>StringBuilder</em>: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-private void Form1_Load(object sender, EventArgs e)<br />
-{<br />
-&nbsp;&nbsp;&nbsp; StringBuilder sb = new StringBuilder();<br />
-&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt; 1500; i++)<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sb.Append(&quot; test&quot;);<br />
-&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; textBox1.Text = sb.ToString();<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+private void Form1_Load(object sender, EventArgs e)
+{
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < 1500; i++)
+    {
+        sb.Append(" test");
+    }
+    textBox1.Text = sb.ToString();
+}
+```
+
 In theory, this should perform better. Let&rsquo;s run our performance session again and have a look at the results: 
 </p>
 <p align="center">
@@ -121,7 +107,5 @@ In theory, this should perform better. Let&rsquo;s run our performance session a
 <p align="left">
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/02/Code-performance-analysis-in-Visual-Studio-2008.aspx&amp;title=Code performance analysis in Visual Studio 2008"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/02/Code-performance-analysis-in-Visual-Studio-2008.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
-
-
 
 

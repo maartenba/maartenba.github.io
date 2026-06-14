@@ -19,10 +19,29 @@ redirect_from:
 <p>MvcSiteMapProvider is, as the name implies, an ASP.NET MVC SiteMapProvider implementation for the ASP.NET MVC framework. Targeted at ASP.NET MVC 2, it provides sitemap XML functionality and interoperability with the classic ASP.NET sitemap controls, like the SiteMapPath control for rendering breadcrumbs and the Menu control.</p>
 <p>Based on areas, controller and action method names rather than hardcoded URL references, sitemap nodes are completely dynamic based on the routing engine used in an application. The dynamic character of ASP.NET MVC is followed in the MvcSiteMapProvider: there are numerous extensibility points that allow you to extend the basic functionality offered.</p>
 <h2>Registering the provider</h2>
-<p>After downloading the MvcSiteMapProvider, you will have to add a reference to the assembly in your project. Also, you will have to register the provider in your Web.config file. Add the following code somewhere in the &lt;system.web&gt; section:</p>
-<p>[code:c#]</p>
-<p>&lt;siteMap defaultProvider="MvcSiteMapProvider" enabled="true"&gt; <br />&nbsp; &lt;providers&gt; <br />&nbsp;&nbsp;&nbsp; &lt;clear /&gt; <br />&nbsp;&nbsp;&nbsp; &lt;add name="MvcSiteMapProvider" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type="MvcSiteMapProvider.DefaultSiteMapProvider, MvcSiteMapProvider" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; siteMapFile="~/Mvc.Sitemap" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; securityTrimmingEnabled="true" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enableLocalization="true" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scanAssembliesForSiteMapNodes="true" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; skipAssemblyScanOn="" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; attributesToIgnore="bling" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nodeKeyGenerator="MvcSiteMapProvider.DefaultNodeKeyGenerator, MvcSiteMapProvider" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; controllerTypeResolver="MvcSiteMapProvider.DefaultControllerTypeResolver, MvcSiteMapProvider" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; actionMethodParameterResolver="MvcSiteMapProvider.DefaultActionMethodParameterResolver, MvcSiteMapProvider" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aclModule="MvcSiteMapProvider.DefaultAclModule, MvcSiteMapProvider" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&gt; <br />&nbsp; &lt;/providers&gt; <br />&lt;/siteMap&gt;</p>
-<p>[/code]</p>
+<p>After downloading the MvcSiteMapProvider, you will have to add a reference to the assembly in your project. Also, you will have to register the provider in your Web.config file. Add the following code somewhere in the &lt;system.web&gt; section:
+
+```csharp
+<siteMap defaultProvider="MvcSiteMapProvider" enabled="true">
+  <providers>
+    <clear />
+    <add name="MvcSiteMapProvider"
+         type="MvcSiteMapProvider.DefaultSiteMapProvider, MvcSiteMapProvider"
+         siteMapFile="~/Mvc.Sitemap"
+         securityTrimmingEnabled="true"
+         enableLocalization="true"
+         scanAssembliesForSiteMapNodes="true"
+         skipAssemblyScanOn=""
+         attributesToIgnore="bling"
+         nodeKeyGenerator="MvcSiteMapProvider.DefaultNodeKeyGenerator, MvcSiteMapProvider"
+         controllerTypeResolver="MvcSiteMapProvider.DefaultControllerTypeResolver, MvcSiteMapProvider"
+         actionMethodParameterResolver="MvcSiteMapProvider.DefaultActionMethodParameterResolver, MvcSiteMapProvider"
+         aclModule="MvcSiteMapProvider.DefaultAclModule, MvcSiteMapProvider"
+         />
+  </providers>
+</siteMap>
+```
+
 <p>The following configuration directives can be specified:</p>
 <table  border="1" cellspacing="0" cellpadding="2">
 <tbody>
@@ -96,10 +115,18 @@ redirect_from:
 </table>
 <p>&nbsp;</p>
 <h2>Creating a first sitemap</h2>
-<p>The following is a simple sitemap XML file that can be used with the MvcSiteMapProvider:</p>
-<p>[code:c#]</p>
-<p>&lt;?xml version="1.0" encoding="utf-8" ?&gt; <br />&lt;mvcSiteMap xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-2.0" enableLocalization="true"&gt; <br />&nbsp; &lt;mvcSiteMapNode title="Home" controller="Home" action="Index" changeFrequency="Always" updatePriority="Normal"&gt; <br />&nbsp;&nbsp;&nbsp; &lt;mvcSiteMapNode title="Browse Store" controller="Store" action="Index" /&gt; <br />&nbsp;&nbsp;&nbsp; &lt;mvcSiteMapNode title="Checkout" controller="Checkout" /&gt; <br />&nbsp; &lt;/mvcSiteMapNode&gt; <br />&lt;/mvcSiteMap&gt;</p>
-<p>[/code]</p>
+<p>The following is a simple sitemap XML file that can be used with the MvcSiteMapProvider:
+
+```csharp
+<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-2.0" enableLocalization="true">
+  <mvcSiteMapNode title="Home" controller="Home" action="Index" changeFrequency="Always" updatePriority="Normal">
+    <mvcSiteMapNode title="Browse Store" controller="Store" action="Index" />
+    <mvcSiteMapNode title="Checkout" controller="Checkout" />
+  </mvcSiteMapNode>
+</mvcSiteMap>
+```
+
 <p>The following attributes can be given on an XML node element:</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tbody>
@@ -209,37 +236,79 @@ redirect_from:
 </table>
 <p>&nbsp;</p>
 <h2>Defining sitemap nodes in code</h2>
-<p>In some cases, defining a sitemap node in code is more convenient than defining it in a sitemap xml file. To do this, decorate an action method with the <em>MvcSiteMapNodeAttribute</em> attribute. For example:</p>
-<p>[code:c#]</p>
-<p>// GET: /Checkout/Complete
-<br />[MvcSiteMapNodeAttribute(Title = "Checkout complete", ParentKey = "Checkout")] <br />public ActionResult Complete(int id) <br />{ <br />&nbsp;&nbsp;&nbsp; // ...
-<br />}</p>
-<p>[/code]</p>
+<p>In some cases, defining a sitemap node in code is more convenient than defining it in a sitemap xml file. To do this, decorate an action method with the <em>MvcSiteMapNodeAttribute</em> attribute. For example:
+
+```csharp
+// GET: /Checkout/Complete
+[MvcSiteMapNodeAttribute(Title = "Checkout complete", ParentKey = "Checkout")]
+public ActionResult Complete(int id)
+{
+    // ...
+}
+```
+
 <p>Note that the <em>ParentKey</em> property should be specified to ensure the MvcSiteMapProvider&nbsp; can determine the hierarchy for all nodes.</p>
 <h2>Dynamic sitemaps</h2>
 <p>In many web applications, sitemap nodes are directly related to content in a persistent store like a database.For example, in an e-commerce application, a list of product details pages in the sitemap maps directly to the list of products in the database. Using dynamic sitemaps, a small class can be provided to the MvcSiteMapProvider offering a list of dynamic nodes that should be incldued in the sitemap. This ensures the product pages do not have to be specified by hand in the sitemap XML.</p>
-<p>First of all, a sitemap node should be defined in XML. This node will serve as a template and tell the MvcSiteMapProvider infrastructure to use a custom dynamic node procider:</p>
-<p>[code:c#]</p>
-<p>&lt;mvcSiteMapNode title="Details" action="Details" dynamicNodeProvider="MvcMusicStore.Code.StoreDetailsDynamicNodeProvider, MvcMusicStore" /&gt;</p>
-<p>[/code]</p>
-<p>Next, a class implementing <em>MvcSiteMapProvider.Extensibility.IDynamicNodeProvider</em> or extending <em>MvcSiteMapProvider.Extensibility.DynamicNodeProviderBase</em> should be created in your application code. Here&rsquo;s an example:</p>
-<p>[code:c#]</p>
-<p>public class StoreDetailsDynamicNodeProvider <br />&nbsp;&nbsp;&nbsp; : DynamicNodeProviderBase <br />{ <br />&nbsp;&nbsp;&nbsp; MusicStoreEntities storeDB = new MusicStoreEntities();</p>
-<p>&nbsp;&nbsp;&nbsp; public override IEnumerable&lt;DynamicNode&gt; GetDynamicNodeCollection() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Build value
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var returnValue = new List&lt;DynamicNode&gt;();</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create a node for each album
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (var album in storeDB.Albums.Include("Genre")) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DynamicNode node = new DynamicNode(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; node.Title = album.Title; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; node.ParentKey = "Genre_" + album.Genre.Name; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; node.RouteValues.Add("id", album.AlbumId);</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; returnValue.Add(node); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Return
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return returnValue; <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>First of all, a sitemap node should be defined in XML. This node will serve as a template and tell the MvcSiteMapProvider infrastructure to use a custom dynamic node procider:
+
+```csharp
+<mvcSiteMapNode title="Details" action="Details" dynamicNodeProvider="MvcMusicStore.Code.StoreDetailsDynamicNodeProvider, MvcMusicStore" />
+```
+
+<p>Next, a class implementing <em>MvcSiteMapProvider.Extensibility.IDynamicNodeProvider</em> or extending <em>MvcSiteMapProvider.Extensibility.DynamicNodeProviderBase</em> should be created in your application code. Here&rsquo;s an example:
+
+```csharp
+public class StoreDetailsDynamicNodeProvider
+    : DynamicNodeProviderBase
+{
+    MusicStoreEntities storeDB = new MusicStoreEntities();
+    public override IEnumerable<DynamicNode> GetDynamicNodeCollection()
+    {
+        // Build value
+
+        var returnValue = new List<DynamicNode>();
+        // Create a node for each album
+
+        foreach (var album in storeDB.Albums.Include("Genre"))
+        {
+            DynamicNode node = new DynamicNode();
+            node.Title = album.Title;
+            node.ParentKey = "Genre_" + album.Genre.Name;
+            node.RouteValues.Add("id", album.AlbumId);
+            returnValue.Add(node);
+        }
+        // Return
+
+        return returnValue;
+    }
+}
+```
+
 <h3>Cache dependency</h3>
-<p>When providing dynamic sitemap nodes to the MvcSiteMapProvider, chances are that the hierarchy of nodes will become stale, for example when adding products in an e-commerce website. This can be solved by specifying a <em>CacheDescriptor</em> on your <em>MvcSiteMapProvider.Extensibility.IDynamicNodeProvider</em> implementation:</p>
-<p>[code:c#]</p>
-<p>public class StoreDetailsDynamicNodeProvider <br />&nbsp;&nbsp;&nbsp; : DynamicNodeProviderBase <br />{ <br />&nbsp;&nbsp;&nbsp; MusicStoreEntities storeDB = new MusicStoreEntities();</p>
-<p>&nbsp;&nbsp;&nbsp; public override IEnumerable&lt;DynamicNode&gt; GetDynamicNodeCollection() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ...
-<br />&nbsp;&nbsp;&nbsp; } <br /><br />&nbsp;&nbsp;&nbsp; public override CacheDescription GetCacheDescription() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return new CacheDescription("StoreDetailsDynamicNodeProvider") <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SlidingExpiration = TimeSpan.FromMinutes(1) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }; <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>When providing dynamic sitemap nodes to the MvcSiteMapProvider, chances are that the hierarchy of nodes will become stale, for example when adding products in an e-commerce website. This can be solved by specifying a <em>CacheDescriptor</em> on your <em>MvcSiteMapProvider.Extensibility.IDynamicNodeProvider</em> implementation:
+
+```csharp
+public class StoreDetailsDynamicNodeProvider
+    : DynamicNodeProviderBase
+{
+    MusicStoreEntities storeDB = new MusicStoreEntities();
+    public override IEnumerable<DynamicNode> GetDynamicNodeCollection()
+    {
+        // ...
+
+    }
+
+    public override CacheDescription GetCacheDescription()
+    {
+        return new CacheDescription("StoreDetailsDynamicNodeProvider")
+        {
+            SlidingExpiration = TimeSpan.FromMinutes(1)
+        };
+    }
+}
+```
+
 <h2>HtmlHelper functions</h2>
 <p>The MvcSiteMapProvider provides different HtmlHelper extension methods which you can use to generate SiteMap-specific HTML code on your ASP.NET MVC views. Here's a list of available HtmlHelper extension methods.</p>
 <ul>
@@ -249,33 +318,62 @@ redirect_from:
 <li>Html.MvcSiteMap().SiteMapPath() - Can be used to generate a so-called "breadcrumb trail" </li>
 <li>Html.MvcSiteMap().SiteMapTitle() - Can be used to render the current SiteMap node's title </li>
 </ul>
-<p>Note that these should be registered in Web.config, i.e. under &lt;pages&gt; add the following:</p>
-<p>[code:c#]</p>
-<p>&lt;pages&gt; <br />&nbsp;&nbsp;&nbsp; &lt;controls&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;! -- ... --&gt; <br />&nbsp;&nbsp;&nbsp; &lt;/controls&gt; <br />&nbsp;&nbsp;&nbsp; &lt;namespaces&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;! -- ... --&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add namespace="MvcSiteMapProvider.Web.Html" /&gt; <br />&nbsp;&nbsp;&nbsp; &lt;/namespaces&gt; <br />&lt;/pages&gt;</p>
-<p>[/code]</p>
+<p>Note that these should be registered in Web.config, i.e. under &lt;pages&gt; add the following:
+
+```csharp
+<pages>
+    <controls>
+        <! -- ... -->
+    </controls>
+    <namespaces>
+        <! -- ... -->
+        <add namespace="MvcSiteMapProvider.Web.Html" />
+    </namespaces>
+</pages>
+```
+
 <h2>Action Filter Attributes</h2>
 <h3>SiteMapTitle</h3>
 <p>In some situations, you may want to dynamically change the <em>SiteMap.CurrentNode.Title</em> in an action method. This can be done manually by setting <em>SiteMap.CurrentNode.Title</em>, or by adding the <em>SiteMapTitle</em> action filter attribute.</p>
-<p>Imagine you are building a blog and want to use the Blog's Headline property as the site map node title. You can use the following snippet:</p>
-<p>[code:c#]</p>
-<p>[SiteMapTitle("Headline")] <br />public ViewResult Show(int blogId) { <br />&nbsp;&nbsp; var blog = _repository.Find(blogIdId); <br />&nbsp;&nbsp; return blog; <br />}</p>
-<p>[/code]</p>
-<p>You can also use a non-strong typed <em>ViewData</em> value as the site map node title:</p>
-<p>[code:c#]</p>
-<p>[SiteMapTitle("SomeKey")] <br />public ViewResult Show(int blogId) { <br />&nbsp;&nbsp; ViewData["SomeKey"] = "This will be the title";</p>
-<p>&nbsp;&nbsp; var blog = _repository.Find(blogIdId); <br />&nbsp;&nbsp; return blog; <br />}</p>
-<p>[/code]</p>
+<p>Imagine you are building a blog and want to use the Blog's Headline property as the site map node title. You can use the following snippet:
+
+```csharp
+[SiteMapTitle("Headline")]
+public ViewResult Show(int blogId) {
+   var blog = _repository.Find(blogIdId);
+   return blog;
+}
+```
+
+<p>You can also use a non-strong typed <em>ViewData</em> value as the site map node title:
+
+```csharp
+[SiteMapTitle("SomeKey")]
+public ViewResult Show(int blogId) {
+   ViewData["SomeKey"] = "This will be the title";
+   var blog = _repository.Find(blogIdId);
+   return blog;
+}
+```
+
 <h2>Exporting the sitemap for search engine indexing</h2>
-<p>When building a website, chances are that you want to provide an XML sitemap used for search engine indexing. The <em>XmlSiteMapResult</em> class creates an XML sitemap that can be submitted to Google, Yahoo and other search engines to help them crawl your website better. The usage is very straightforward:</p>
-<p>[code:c#]</p>
-<p>public class HomeController<br />{ <br />&nbsp;&nbsp;&nbsp; public ActionResult SiteMapXml() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return new XmlSiteMapResult(); <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>When building a website, chances are that you want to provide an XML sitemap used for search engine indexing. The <em>XmlSiteMapResult</em> class creates an XML sitemap that can be submitted to Google, Yahoo and other search engines to help them crawl your website better. The usage is very straightforward:
+
+```csharp
+public class HomeController
+{
+    public ActionResult SiteMapXml()
+    {
+        return new XmlSiteMapResult();
+    }
+}
+```
+
 <p>Optionally, a starting node can also be specified in the constructor of the<em>XmlSiteMapResult</em> .</p>
 <h2>Conclusion</h2>
 <p>Get it while it&rsquo;s hot! <a href="http://mvcsitemap.codeplex.com/releases/view/47019" target="_blank">MvcSiteMapProvider 2.0.0</a> is available on CodePlex.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/06/16/ASPNET-MVC-MvcSiteMapProvider-20-is-out!.aspx&amp;title=ASP.NET MVC - MvcSiteMapProvider 2.0 is out!">
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/06/16/ASPNET-MVC-MvcSiteMapProvider-20-is-out!.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
-
 
 

@@ -39,36 +39,36 @@ redirect_from:
 <p>This means we&rsquo;ll be using two out of three storage types: Table Storage and Queue Storage. Problem: these services are offered as a RESTful service, somewhere in the cloud. Solution to that: use the StorageClient project located in the <a href="http://www.microsoft.com/downloads/details.aspx?familyid=11B451C4-7A7B-4537-A769-E1D157BAD8C6&amp;displaylang=en" target="_blank">Windows Azure SDK</a>&rsquo;s samples directory!</p>
 <p>The <em>StorageClient</em> project contains .NET API&rsquo;s that work with the blob, table and queue storage services provided by Windows Azure. For Table Storage, <em>StorageClient</em> provides an extension on top of Astoria (ADO.NET Data Services Framework, but I still say Astoria because it&rsquo;s easier to type and say&hellip;). This makes it easier for you as a developer to use existing knowledge, from LINQ to SQL or Entity Framework or Astoria, to develop Windows Azure applications.</p>
 <h2>Setting up StorageClient</h2>
-<p>Add a reference to the StorageClient project to your WebRole project. Next, add some settings to the <em>ServiceConfiguration.cscfg</em> file:</p>
-<p>[code:xml]</p>
-<p>
-&lt;?xml version="1.0"?&gt;
-<br />&lt;ServiceConfiguration serviceName="TwitterMatic" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration"&gt;
-<br />&nbsp; &lt;Role name="WebRole"&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;Instances count="1"/&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;ConfigurationSettings&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="AccountName" value="twittermatic"/&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="AccountSharedKey" value=&rdquo;..."/&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="BlobStorageEndpoint" value="http://blob.core.windows.net"/&gt; 
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="QueueStorageEndpoint" value = "http://queue.core.windows.net"/&gt; 
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="TableStorageEndpoint" value="http://table.core.windows.net"/&gt; 
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="allowInsecureRemoteEndpoints" value="true"/&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;/ConfigurationSettings&gt;
-<br />&nbsp; &lt;/Role&gt;
-<br />&nbsp; &lt;Role name="WorkerRole"&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;Instances count="1"/&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;ConfigurationSettings&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="AccountName" value="twittermatic"/&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="AccountSharedKey" value=&rdquo;..."/&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="BlobStorageEndpoint" value="http://blob.core.windows.net"/&gt; 
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="QueueStorageEndpoint" value = "http://queue.core.windows.net"/&gt; 
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="TableStorageEndpoint" value="http://table.core.windows.net"/&gt; 
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting name="allowInsecureRemoteEndpoints" value="true"/&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;/ConfigurationSettings&gt;
-<br />&nbsp; &lt;/Role&gt;
-<br />&lt;/ServiceConfiguration&gt;
-</p>
-<p>[/code]</p>
+<p>Add a reference to the StorageClient project to your WebRole project. Next, add some settings to the <em>ServiceConfiguration.cscfg</em> file:
+
+```xml
+<?xml version="1.0"?>
+<ServiceConfiguration serviceName="TwitterMatic" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration">
+  <Role name="WebRole">
+    <Instances count="1"/>
+    <ConfigurationSettings>
+      <Setting name="AccountName" value="twittermatic"/>
+      <Setting name="AccountSharedKey" value=”..."/>
+      <Setting name="BlobStorageEndpoint" value="http://blob.core.windows.net"/>
+      <Setting name="QueueStorageEndpoint" value = "http://queue.core.windows.net"/>
+      <Setting name="TableStorageEndpoint" value="http://table.core.windows.net"/>
+      <Setting name="allowInsecureRemoteEndpoints" value="true"/>
+    </ConfigurationSettings>
+  </Role>
+  <Role name="WorkerRole">
+    <Instances count="1"/>
+    <ConfigurationSettings>
+      <Setting name="AccountName" value="twittermatic"/>
+      <Setting name="AccountSharedKey" value=”..."/>
+      <Setting name="BlobStorageEndpoint" value="http://blob.core.windows.net"/>
+      <Setting name="QueueStorageEndpoint" value = "http://queue.core.windows.net"/>
+      <Setting name="TableStorageEndpoint" value="http://table.core.windows.net"/>
+      <Setting name="allowInsecureRemoteEndpoints" value="true"/>
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
+```
+
 <p>This way, both the web and worker role know where to find their data (URI) and how to authenticate (account name and shared key).</p>
 <h2>Working with tables</h2>
 <p>We&rsquo;ll only be using one domain class in our entire project: <em>TimedTweet</em>. This class represents a scheduled Twitter update, containing information required to schedule the update. Here&rsquo;s a list of properties:</p>
@@ -83,38 +83,100 @@ redirect_from:
 <li><em>RetriesLeft</em>: How many retries left before giving up on the Twitter update. </li>
 <li><em>Archived</em>: Yes/no if the message is archived. </li>
 </ul>
-<p>Here&rsquo;s the code:</p>
-<p>[code:c#]</p>
-<p>public class TimedTweet : TableStorageEntity, IComparable <br />{ <br />&nbsp;&nbsp;&nbsp; public string Token { get; set; } <br />&nbsp;&nbsp;&nbsp; public string TokenSecret { get; set; } <br />&nbsp;&nbsp;&nbsp; public string ScreenName { get; set; } <br />&nbsp;&nbsp;&nbsp; public string Status { get; set; } <br />&nbsp;&nbsp;&nbsp; public DateTime SendOn { get; set; } <br />&nbsp;&nbsp;&nbsp; public DateTime SentOn { get; set; } <br />&nbsp;&nbsp;&nbsp; public string SendStatus { get; set; } <br />&nbsp;&nbsp;&nbsp; public int RetriesLeft { get; set; } <br />&nbsp;&nbsp;&nbsp; public bool Archived { get; set; }</p>
-<p>&nbsp;&nbsp;&nbsp; public TimedTweet() <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : base() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SendOn = DateTime.Now.ToUniversalTime(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Timestamp = DateTime.Now; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RowKey = Guid.NewGuid().ToString(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SendStatus = "Scheduled"; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RetriesLeft = 3; <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; public TimedTweet(string partitionKey, string rowKey) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : base(partitionKey, rowKey) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SendOn = DateTime.Now.ToUniversalTime(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SendStatus = "Scheduled"; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RetriesLeft = 3; <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; public int CompareTo(object obj) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TimedTweet target = obj as TimedTweet; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (target != null) { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return this.SendOn.CompareTo(target.SendOn); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0; <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>Here&rsquo;s the code:
+
+```csharp
+public class TimedTweet : TableStorageEntity, IComparable
+{
+    public string Token { get; set; }
+    public string TokenSecret { get; set; }
+    public string ScreenName { get; set; }
+    public string Status { get; set; }
+    public DateTime SendOn { get; set; }
+    public DateTime SentOn { get; set; }
+    public string SendStatus { get; set; }
+    public int RetriesLeft { get; set; }
+    public bool Archived { get; set; }
+    public TimedTweet()
+        : base()
+    {
+        SendOn = DateTime.Now.ToUniversalTime();
+        Timestamp = DateTime.Now;
+        RowKey = Guid.NewGuid().ToString();
+        SendStatus = "Scheduled";
+        RetriesLeft = 3;
+    }
+    public TimedTweet(string partitionKey, string rowKey)
+        : base(partitionKey, rowKey)
+    {
+        SendOn = DateTime.Now.ToUniversalTime();
+        SendStatus = "Scheduled";
+        RetriesLeft = 3;
+    }
+    public int CompareTo(object obj)
+    {
+        TimedTweet target = obj as TimedTweet;
+        if (target != null) {
+            return this.SendOn.CompareTo(target.SendOn);
+        }
+        return 0;
+    }
+}
+```
+
 <p>Note that our <em>TimedTweet</em> is inheriting <em>TableStorageEntity</em>. This class provides some base functionality for Windows Azure Table Storage.</p>
-<p>We&rsquo;ll also need to work with this class against table Storage. For that, we can use <em>TableStorage</em> and <em>TableStorageDataServiceContext</em> class, like this:</p>
-<p>[code:c#]</p>
-<p>public List&lt;TimedTweet&gt; RetrieveAllForUser(string screenName) { <br />&nbsp;&nbsp;&nbsp; StorageAccountInfo info = StorageAccountInfo.GetDefaultTableStorageAccountFromConfiguration(true); <br />&nbsp;&nbsp;&nbsp; TableStorage storage = TableStorage.Create(info);</p>
-<p>&nbsp;&nbsp;&nbsp; storage.TryCreateTable("TimedTweet");</p>
-<p>&nbsp;&nbsp;&nbsp; TableStorageDataServiceContext svc = storage.GetDataServiceContext(); <br />&nbsp;&nbsp;&nbsp; svc.IgnoreMissingProperties = true;</p>
-<p>&nbsp;&nbsp;&nbsp; List&lt;TimedTweet&gt; result = svc.CreateQuery&lt;TimedTweet&gt;("TimedTweet").Where(t =&gt; t.ScreenName ==&nbsp;&nbsp;&nbsp;&nbsp; screenName).ToList(); <br />&nbsp;&nbsp;&nbsp; foreach (var item in result) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; svc.Detach(item); <br />&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; return result; <br />}</p>
-<p>[/code]</p>
-<p>Using this, we can build a repository class based on ITimedtweetRepository and implemented against Table Storage:</p>
-<p>[code:c#]</p>
-<p>public interface ITimedTweetRepository <br />{ <br />&nbsp;&nbsp;&nbsp; void Delete(string screenName, TimedTweet tweet); <br />&nbsp;&nbsp;&nbsp; void Archive(string screenName, TimedTweet tweet); <br />&nbsp;&nbsp;&nbsp; void Insert(string screenName, TimedTweet tweet); <br />&nbsp;&nbsp;&nbsp; void Update(TimedTweet tweet); <br />&nbsp;&nbsp;&nbsp; List&lt;TimedTweet&gt; RetrieveAll(string screenName); <br />&nbsp;&nbsp;&nbsp; List&lt;TimedTweet&gt; RetrieveDue(DateTime dueDate); <br />&nbsp;&nbsp;&nbsp; TimedTweet RetrieveById(string screenName, string id); <br />}</p>
-<p>[/code]</p>
+<p>We&rsquo;ll also need to work with this class against table Storage. For that, we can use <em>TableStorage</em> and <em>TableStorageDataServiceContext</em> class, like this:
+
+```csharp
+public List<TimedTweet> RetrieveAllForUser(string screenName) {
+    StorageAccountInfo info = StorageAccountInfo.GetDefaultTableStorageAccountFromConfiguration(true);
+    TableStorage storage = TableStorage.Create(info);
+    storage.TryCreateTable("TimedTweet");
+    TableStorageDataServiceContext svc = storage.GetDataServiceContext();
+    svc.IgnoreMissingProperties = true;
+    List<TimedTweet> result = svc.CreateQuery<TimedTweet>("TimedTweet").Where(t => t.ScreenName ==     screenName).ToList();
+    foreach (var item in result)
+    {
+        svc.Detach(item);
+    }
+    return result;
+}
+```
+
+<p>Using this, we can build a repository class based on ITimedtweetRepository and implemented against Table Storage:
+
+```csharp
+public interface ITimedTweetRepository
+{
+    void Delete(string screenName, TimedTweet tweet);
+    void Archive(string screenName, TimedTweet tweet);
+    void Insert(string screenName, TimedTweet tweet);
+    void Update(TimedTweet tweet);
+    List<TimedTweet> RetrieveAll(string screenName);
+    List<TimedTweet> RetrieveDue(DateTime dueDate);
+    TimedTweet RetrieveById(string screenName, string id);
+}
+```
+
 <h2>Working with queues</h2>
-<p>Queues are slightly easier to work with: you can enqueue messages and dequeue messages, and that&rsquo;s about it. Here&rsquo;s an example snippet:</p>
-<p>[code:c#]</p>
-<p>public void EnqueueMessage(string message) { <br />&nbsp;&nbsp;&nbsp; StorageAccountInfo info = StorageAccountInfo.GetDefaultTableStorageAccountFromConfiguration(true);</p>
-<p>&nbsp;&nbsp;&nbsp; QueueStorage queueStorage = QueueStorage.Create(info); <br />&nbsp;&nbsp;&nbsp; MessageQueue updateQueue = queueStorage.GetQueue("updatequeue"); <br />&nbsp;&nbsp;&nbsp; if (!updateQueue.DoesQueueExist()) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; updateQueue.CreateQueue();</p>
-<p>&nbsp;&nbsp;&nbsp; updateQueue.PutMessage(new Message(message)); <br />}</p>
+<p>Queues are slightly easier to work with: you can enqueue messages and dequeue messages, and that&rsquo;s about it. Here&rsquo;s an example snippet:
+
+```csharp
+public void EnqueueMessage(string message) {
+    StorageAccountInfo info = StorageAccountInfo.GetDefaultTableStorageAccountFromConfiguration(true);
+    QueueStorage queueStorage = QueueStorage.Create(info);
+    MessageQueue updateQueue = queueStorage.GetQueue("updatequeue");
+    if (!updateQueue.DoesQueueExist())
+        updateQueue.CreateQueue();
+    updateQueue.PutMessage(new Message(message));
+}
 <h2>Conclusion</h2>
-<p>[/code]</p>
+```
+
 <p>We now know how to use StorageClient and have a location in the cloud to store our data.</p>
 <p>In the next part of this series, we&rsquo;ll have a look at how we can leverage Twitter&rsquo;s OAuth authentication mechanism in our own Twiter<em>Matic </em>application and make use of some other utilities packed in the Windows Azure SDK.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-3-Store-data-in-the-cloud.aspx&amp;title=How we built TwitterMatic.net - Part 3: Store data in the cloud">
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-3-Store-data-in-the-cloud.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
-
 
 

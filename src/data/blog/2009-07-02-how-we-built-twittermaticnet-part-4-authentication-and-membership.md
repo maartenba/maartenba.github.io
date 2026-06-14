@@ -32,101 +32,206 @@ redirect_from:
 <p>Now let&rsquo;s build this in to our application&hellip;</p>
 <h2>Implementing OAuth in TwitterMatic</h2>
 <p>First of all: if you are developing something and it involves a third-party product or service, chances are there&rsquo;s something useful for you on <a href="http://www.codeplex.com" target="_blank">CodePlex</a>. In Twitter<em>Matic&rsquo;</em>s case, that useful tool is <a href="http://linqtotwitter.codeplex.com/" target="_blank">LINQ to Twitter</a>, providing OAuth implementation as well as a full API to the Twitter REST services. Thank you, <a href="http://twitter.com/JoeMayo" target="_blank">JoeMayo</a>!</p>
-<p>The only thing we still have to do in order for Twitter<em>Matic</em> OAuth authentication to work, is create an <em>AccountController</em> in the web role project. Let&rsquo;s start with a Login action method:</p>
-<p>[code:c#]</p>
-<p>IOAuthTwitter oAuthTwitter = new OAuthTwitter(); <br />oAuthTwitter.OAuthConsumerKey = configuration.ReadSetting("OAuthConsumerKey"); <br />oAuthTwitter.OAuthConsumerSecret = configuration.ReadSetting("OAuthConsumerSecret");</p>
-<p>if (string.IsNullOrEmpty(oauth_token)) { <br />&nbsp;&nbsp;&nbsp; // Not authorized. Redirect to Twitter!
-<br />&nbsp;&nbsp;&nbsp; string loginUrl = oAuthTwitter.AuthorizationLinkGet( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; configuration.ReadSetting("OAuthRequestTokenUrl"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; configuration.ReadSetting("OAuthAuthorizeTokenUrl"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; false, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true <br />&nbsp;&nbsp;&nbsp; ); <br />&nbsp;&nbsp;&nbsp; return Redirect(loginUrl); <br />}</p>
-<p>[/code]</p>
-<p>Our users will now be redirected to Twitter in order to authenticate, if the method receives an empty or invalid oauth-token. If we however do retrieve a valid token, we&rsquo;ll use <em>FormsAuthentication</em> cookies to keep the user logged in on Twitter<em>Matic</em> as well. Note that we are also saving the authentication token as the user&rsquo;s password, we&rsquo;ll be needing this same token to post updates afterwards.</p>
-<p>[code:c#]</p>
-<p>// Should be authorized. Get the access token and secret.
-<br />string userId = ""; <br />string screenName = "";</p>
-<p>oAuthTwitter.AccessTokenGet(oauth_token, configuration.ReadSetting("OAuthAccessTokenUrl"), <br />&nbsp;&nbsp;&nbsp; out screenName, out userId); <br />if (oAuthTwitter.OAuthTokenSecret.Length &gt; 0) <br />{ <br />&nbsp;&nbsp;&nbsp; // Store the user in membership
-<br />&nbsp;&nbsp;&nbsp; MembershipUser user = Membership.GetUser(screenName); <br />&nbsp;&nbsp;&nbsp; if (user == null) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MembershipCreateStatus status = MembershipCreateStatus.Success; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user = Membership.CreateUser( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screenName, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthToken + ";" + oAuthTwitter.OAuthTokenSecret, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screenName,&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "twitter",&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "matic", <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out status); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // Change user's password
-<br />&nbsp;&nbsp;&nbsp; user.ChangePassword( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.GetPassword("matic"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthToken + ";" + oAuthTwitter.OAuthTokenSecret <br />&nbsp;&nbsp;&nbsp; ); <br />&nbsp;&nbsp;&nbsp; Membership.UpdateUser(user);</p>
-<p>&nbsp;&nbsp;&nbsp; // All is well!
-<br />&nbsp;&nbsp;&nbsp; FormsAuthentication.SetAuthCookie(screenName, true); <br />&nbsp;&nbsp;&nbsp; return RedirectToAction("Index", "Home"); <br />} <br />else <br />{ <br />&nbsp;&nbsp;&nbsp; // Not OK...
-<br />&nbsp;&nbsp;&nbsp; return RedirectToAction("Login"); <br />}</p>
-<p>[/code]</p>
-<p>Here&rsquo;s the full code to <em>AccountController</em>:</p>
-<p>[code:c#]</p>
-<p>[HandleError] <br />public class AccountController : Controller <br />{ <br />&nbsp;&nbsp;&nbsp; protected IConfigurationProvider configuration;</p>
-<p>&nbsp;&nbsp;&nbsp; public ActionResult Login(string oauth_token) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IOAuthTwitter oAuthTwitter = new OAuthTwitter(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthConsumerKey = configuration.ReadSetting("OAuthConsumerKey"); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthConsumerSecret = configuration.ReadSetting("OAuthConsumerSecret");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (string.IsNullOrEmpty(oauth_token)) { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Not authorized. Redirect to Twitter!
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string loginUrl = oAuthTwitter.AuthorizationLinkGet( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; configuration.ReadSetting("OAuthRequestTokenUrl"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; configuration.ReadSetting("OAuthAuthorizeTokenUrl"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; false, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return Redirect(loginUrl); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Should be authorized. Get the access token and secret.
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string userId = ""; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string screenName = "";</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.AccessTokenGet(oauth_token, configuration.ReadSetting("OAuthAccessTokenUrl"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out screenName, out userId); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (oAuthTwitter.OAuthTokenSecret.Length &gt; 0) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Store the user in membership
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MembershipUser user = Membership.GetUser(screenName); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (user == null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MembershipCreateStatus status = MembershipCreateStatus.Success; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user = Membership.CreateUser( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screenName, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthToken + ";" + oAuthTwitter.OAuthTokenSecret, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screenName, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; configuration.ReadSetting("OAuthConsumerKey"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; configuration.ReadSetting("OAuthConsumerSecret"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out status); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Change user's password
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.ChangePassword( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.GetPassword(configuration.ReadSetting("OAuthConsumerSecret")), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthToken + ";" + oAuthTwitter.OAuthTokenSecret <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Membership.UpdateUser(user);</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // All is well!
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FormsAuthentication.SetAuthCookie(screenName, true); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction("Index", "Home"); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Not OK...
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction("Login"); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; public ActionResult Logout() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FormsAuthentication.SignOut(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction("Index", "Home"); <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>The only thing we still have to do in order for Twitter<em>Matic</em> OAuth authentication to work, is create an <em>AccountController</em> in the web role project. Let&rsquo;s start with a Login action method:
+
+```csharp
+IOAuthTwitter oAuthTwitter = new OAuthTwitter();
+oAuthTwitter.OAuthConsumerKey = configuration.ReadSetting("OAuthConsumerKey");
+oAuthTwitter.OAuthConsumerSecret = configuration.ReadSetting("OAuthConsumerSecret");
+if (string.IsNullOrEmpty(oauth_token)) {
+    // Not authorized. Redirect to Twitter!
+
+    string loginUrl = oAuthTwitter.AuthorizationLinkGet(
+        configuration.ReadSetting("OAuthRequestTokenUrl"),
+        configuration.ReadSetting("OAuthAuthorizeTokenUrl"),
+        false,
+        true
+    );
+    return Redirect(loginUrl);
+}
+```
+
+<p>Our users will now be redirected to Twitter in order to authenticate, if the method receives an empty or invalid oauth-token. If we however do retrieve a valid token, we&rsquo;ll use <em>FormsAuthentication</em> cookies to keep the user logged in on Twitter<em>Matic</em> as well. Note that we are also saving the authentication token as the user&rsquo;s password, we&rsquo;ll be needing this same token to post updates afterwards.
+
+```csharp
+// Should be authorized. Get the access token and secret.
+
+string userId = "";
+string screenName = "";
+oAuthTwitter.AccessTokenGet(oauth_token, configuration.ReadSetting("OAuthAccessTokenUrl"),
+    out screenName, out userId);
+if (oAuthTwitter.OAuthTokenSecret.Length > 0)
+{
+    // Store the user in membership
+
+    MembershipUser user = Membership.GetUser(screenName);
+    if (user == null)
+    {
+        MembershipCreateStatus status = MembershipCreateStatus.Success;
+        user = Membership.CreateUser(
+            screenName,
+            oAuthTwitter.OAuthToken + ";" + oAuthTwitter.OAuthTokenSecret,
+            screenName,
+            "twitter",
+            "matic",
+            true,
+            out status);
+    }
+    // Change user's password
+
+    user.ChangePassword(
+        user.GetPassword("matic"),
+        oAuthTwitter.OAuthToken + ";" + oAuthTwitter.OAuthTokenSecret
+    );
+    Membership.UpdateUser(user);
+    // All is well!
+
+    FormsAuthentication.SetAuthCookie(screenName, true);
+    return RedirectToAction("Index", "Home");
+}
+else
+{
+    // Not OK...
+
+    return RedirectToAction("Login");
+}
+```
+
+<p>Here&rsquo;s the full code to <em>AccountController</em>:
+
+```csharp
+[HandleError]
+public class AccountController : Controller
+{
+    protected IConfigurationProvider configuration;
+    public ActionResult Login(string oauth_token)
+    {
+        IOAuthTwitter oAuthTwitter = new OAuthTwitter();
+        oAuthTwitter.OAuthConsumerKey = configuration.ReadSetting("OAuthConsumerKey");
+        oAuthTwitter.OAuthConsumerSecret = configuration.ReadSetting("OAuthConsumerSecret");
+        if (string.IsNullOrEmpty(oauth_token)) {
+            // Not authorized. Redirect to Twitter!
+
+            string loginUrl = oAuthTwitter.AuthorizationLinkGet(
+                configuration.ReadSetting("OAuthRequestTokenUrl"),
+                configuration.ReadSetting("OAuthAuthorizeTokenUrl"),
+                false,
+                true
+            );
+            return Redirect(loginUrl);
+        } else {
+            // Should be authorized. Get the access token and secret.
+
+            string userId = "";
+            string screenName = "";
+            oAuthTwitter.AccessTokenGet(oauth_token, configuration.ReadSetting("OAuthAccessTokenUrl"),
+                out screenName, out userId);
+            if (oAuthTwitter.OAuthTokenSecret.Length > 0)
+            {
+                // Store the user in membership
+
+                MembershipUser user = Membership.GetUser(screenName);
+                if (user == null)
+                {
+                    MembershipCreateStatus status = MembershipCreateStatus.Success;
+                    user = Membership.CreateUser(
+                        screenName,
+                        oAuthTwitter.OAuthToken + ";" + oAuthTwitter.OAuthTokenSecret,
+                        screenName,
+                        configuration.ReadSetting("OAuthConsumerKey"),
+                        configuration.ReadSetting("OAuthConsumerSecret"),
+                        true,
+                        out status);
+                }
+                // Change user's password
+
+                user.ChangePassword(
+                    user.GetPassword(configuration.ReadSetting("OAuthConsumerSecret")),
+                    oAuthTwitter.OAuthToken + ";" + oAuthTwitter.OAuthTokenSecret
+                );
+                Membership.UpdateUser(user);
+                // All is well!
+
+                FormsAuthentication.SetAuthCookie(screenName, true);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                // Not OK...
+
+                return RedirectToAction("Login");
+            }
+        }
+    }
+    public ActionResult Logout()
+    {
+        FormsAuthentication.SignOut();
+        return RedirectToAction("Index", "Home");
+    }
+}
+```
+
 <h2>Using ASP.NET provider model</h2>
-<p>The ASP.NET provider model provides abstractions for features like membership, roles, sessions, &hellip; Since we&rsquo;ll be using membership to store authenticated users, we&rsquo;ll need a provider that works with Windows Azure Table Storage. The Windows Azure SDK samples contain a project '&rdquo;AspProviders&rdquo;. Reference it, and add the following to your web.config:</p>
-<p>[code:xml]</p>
-<p>
-&lt;?xml version="1.0"?&gt;
-<br />&lt;configuration&gt;
-<br />&nbsp; &lt;!-- ... --&gt;</p>
-<p>&nbsp; &lt;appSettings&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;add key="DefaultMembershipTableName" value="Membership" /&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;add key="DefaultRoleTableName" value="Roles" /&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;add key="DefaultSessionTableName" value="Sessions" /&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;add key="DefaultProviderApplicationName" value="TwitterMatic" /&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;add key="DefaultProfileContainerName" /&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;add key="DefaultSessionContainerName" /&gt;
-<br />&nbsp; &lt;/appSettings&gt;</p>
-<p>&nbsp; &lt;connectionStrings /&gt;</p>
-<p>&nbsp; &lt;system.web&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;</p>
-<p>&nbsp;&nbsp;&nbsp; &lt;authentication mode="Forms"&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;forms loginUrl="~/Account/Login" /&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;/authentication&gt;</p>
-<p>&nbsp;&nbsp;&nbsp; &lt;membership defaultProvider="TableStorageMembershipProvider"&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;providers&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;clear/&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add name="TableStorageMembershipProvider"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type="Microsoft.Samples.ServiceHosting.AspProviders.TableStorageMembershipProvider"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; description="Membership provider using table storage"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; applicationName="TwitterMatic"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enablePasswordRetrieval="true"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enablePasswordReset="true"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; requiresQuestionAndAnswer="true"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minRequiredPasswordLength="1"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minRequiredNonalphanumericCharacters="0"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; requiresUniqueEmail="false"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; passwordFormat="Clear" /&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/providers&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;/membership&gt;</p>
-<p>&nbsp;&nbsp;&nbsp; &lt;profile enabled="false" /&gt;</p>
-<p>&nbsp;&nbsp;&nbsp; &lt;roleManager enabled="true" defaultProvider="TableStorageRoleProvider" cacheRolesInCookie="false"&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;providers&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;clear/&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add name="TableStorageRoleProvider"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type="Microsoft.Samples.ServiceHosting.AspProviders.TableStorageRoleProvider"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; description="Role provider using table storage"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; applicationName="TwitterMatic" /&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/providers&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;/roleManager&gt;</p>
-<p>&nbsp;&nbsp;&nbsp; &lt;sessionState mode="Custom" customProvider="TableStorageSessionStateProvider"&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;providers&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;clear /&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add name="TableStorageSessionStateProvider"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type="Microsoft.Samples.ServiceHosting.AspProviders.TableStorageSessionStateProvider"
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; applicationName="TwitterMatic" /&gt;
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/providers&gt;
-<br />&nbsp;&nbsp;&nbsp; &lt;/sessionState&gt;</p>
-<p>&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;
-<br />&nbsp; &lt;/system.web&gt;</p>
-<p>&nbsp; &lt;!-- ... --&gt;
-<br />&lt;/configuration&gt;
-</p>
-<p>[/code]</p>
+<p>The ASP.NET provider model provides abstractions for features like membership, roles, sessions, &hellip; Since we&rsquo;ll be using membership to store authenticated users, we&rsquo;ll need a provider that works with Windows Azure Table Storage. The Windows Azure SDK samples contain a project '&rdquo;AspProviders&rdquo;. Reference it, and add the following to your web.config:
+
+```xml
+<?xml version="1.0"?>
+<configuration>
+  <!-- ... -->
+  <appSettings>
+    <add key="DefaultMembershipTableName" value="Membership" />
+    <add key="DefaultRoleTableName" value="Roles" />
+    <add key="DefaultSessionTableName" value="Sessions" />
+    <add key="DefaultProviderApplicationName" value="TwitterMatic" />
+    <add key="DefaultProfileContainerName" />
+    <add key="DefaultSessionContainerName" />
+  </appSettings>
+  <connectionStrings />
+  <system.web>
+    <!-- ... -->
+    <authentication mode="Forms">
+      <forms loginUrl="~/Account/Login" />
+    </authentication>
+    <membership defaultProvider="TableStorageMembershipProvider">
+      <providers>
+        <clear/>
+        <add name="TableStorageMembershipProvider"
+             type="Microsoft.Samples.ServiceHosting.AspProviders.TableStorageMembershipProvider"
+             description="Membership provider using table storage"
+             applicationName="TwitterMatic"
+             enablePasswordRetrieval="true"
+             enablePasswordReset="true"
+             requiresQuestionAndAnswer="true"
+             minRequiredPasswordLength="1"
+             minRequiredNonalphanumericCharacters="0"
+             requiresUniqueEmail="false"
+             passwordFormat="Clear" />
+      </providers>
+    </membership>
+    <profile enabled="false" />
+    <roleManager enabled="true" defaultProvider="TableStorageRoleProvider" cacheRolesInCookie="false">
+      <providers>
+        <clear/>
+        <add name="TableStorageRoleProvider"
+             type="Microsoft.Samples.ServiceHosting.AspProviders.TableStorageRoleProvider"
+             description="Role provider using table storage"
+             applicationName="TwitterMatic" />
+      </providers>
+    </roleManager>
+    <sessionState mode="Custom" customProvider="TableStorageSessionStateProvider">
+      <providers>
+        <clear />
+        <add name="TableStorageSessionStateProvider"
+             type="Microsoft.Samples.ServiceHosting.AspProviders.TableStorageSessionStateProvider"
+             applicationName="TwitterMatic" />
+      </providers>
+    </sessionState>
+    <!-- ... -->
+  </system.web>
+  <!-- ... -->
+</configuration>
+```
+
 <p>Twitter<em>Matic</em> should now be storing sessions (if we were to use them), membership and roles in the cloud, by just doing some configuration magic. I love ASP.NET for this!</p>
 <h2>Conclusion</h2>
 <p>We now know how to leverage third-party authentication (OAuth in our case) and have implemented this in Twitter<em>Matic</em>.</p>
@@ -134,6 +239,5 @@ redirect_from:
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-4-Authentication-and-membership.aspx&amp;title=How we built TwitterMatic.net - Part 4: Authentication and membership">
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-4-Authentication-and-membership.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
-
 
 

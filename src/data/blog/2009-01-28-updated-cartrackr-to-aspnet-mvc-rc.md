@@ -23,48 +23,27 @@ Here&rsquo;s what I have updated (copied from the <a href="http://go.microsoft.c
 <h2>Specifying View Types in Page Directives</h2>
 <p>
 The templates for <em>ViewPage</em>, <em>ViewMasterPage</em>, and <em>ViewUserControl</em> (and derived types) now support language-specific generic syntax in the main directive&rsquo;s <em>Inherits</em> attribute. For example, you can specify the following type in the @ Master directive: 
-</p>
-<p>
-[code:xml] 
-</p>
-<p>
-&lt;%@ Master Inherits=&quot;ViewMasterPage&lt;IMasterInfo&gt;&quot; %&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```xml
+<%@ Master Inherits="ViewMasterPage<IMasterInfo>" %>
+```
+
 An alternative approach is to add markup like the following to your page (or to the content area for a content page), although doing so should never be necessary. 
-</p>
-<p>
-[code:xml] 
-</p>
-<p>
-&lt;mvc:ViewType runat=&quot;server&quot; TypeName=&quot;ViewUserControl&lt;ProductInfo&gt;&quot; /&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```xml
+<mvc:ViewType runat="server" TypeName="ViewUserControl<ProductInfo>" />
+```
+
 The default MVC project templates for Visual Basic and C# views have been updated to incorporate this change to the Inherits attribute. All existing views will still work. If you choose not to use the new syntax, you can still use the earlier syntax in code. 
 </p>
 <h2>ASP.NET Compiler Post-Build Step</h2>
 <p>
 Currently, errors within a view file are not detected until run time. To let you detect these errors at compile time, ASP.NET MVC projects now include an <em>MvcBuildViews</em> property, which is disabled by default. To enable this property, open the project file and set the <em>MvcBuildViews</em> property to true, as shown in the following example: 
-</p>
-<p>
-[code:xml]
-</p>
-<p>
-&lt;Project ToolsVersion=&quot;3.5&quot; DefaultTargets=&quot;Build&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;&nbsp;<br />
-&nbsp; &lt;PropertyGroup&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;MvcBuildViews&gt;true&lt;/MvcBuildViews&gt;&nbsp;<br />
-&nbsp; &lt;/PropertyGroup&gt; 
-</p>
-<p>
-[/code]
-</p>
-<p>
+```xml
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MvcBuildViews>true</MvcBuildViews>
+  </PropertyGroup>
+```
+
 Note: Enabling this feature adds some overhead to the build time. 
 </p>
 <p>
@@ -75,34 +54,18 @@ You can update projects that were created with previous releases of MVC to inclu
 </p>
 <p>
 2. Add the following element under the top-most <em>&lt;PropertyGroup&gt;</em> element: 
-</p>
-<p>
-[code:xml] 
-</p>
-<p>
-&lt;MvcBuildViews&gt;true&lt;/MvcBuildViews&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```xml
+<MvcBuildViews>true</MvcBuildViews>
+```
+
 3. At the end of the project file, uncomment the &lt;Target Name=&quot;AfterBuild&quot;&gt; element and modify it to match the following example: 
-</p>
-<p>
-[code:xml] 
-</p>
-<p>
-&lt;Target Name=&quot;AfterBuild&quot; Condition=&quot;&#39;$(MvcBuildViews)&#39;==&#39;true&#39;&quot;&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;AspNetCompiler VirtualPath=&quot;temp&quot; PhysicalPath=&quot;$(ProjectDir)\..\$(ProjectName)&quot; /&gt;<br />
-&lt;/Target&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```xml
+<Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+</Target>
+```
+
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2009/01/28/Updated-CarTrackr-to-ASPNET-MVC-RC.aspx&amp;title=Updated CarTrackr to ASP.NET MVC RC"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/01/28/Updated-CarTrackr-to-ASPNET-MVC-RC.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
-
-
 
 

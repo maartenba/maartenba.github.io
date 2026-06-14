@@ -15,43 +15,74 @@ redirect_from:
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/07/22/ASPNET-MVC-3-preview-1-is-out!-Quick-review.aspx&amp;title=ASP.NET MVC 3 preview 1 is out! Quick review..."><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/07/22/ASPNET-MVC-3-preview-1-is-out!-Quick-review.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 <h2>Razor Syntax View Engine</h2>
 <p><a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx" target="_blank">ScottGu blogged about Razor</a> before. ASP.NET MVC has always supported the concept of &ldquo;view engines&rdquo;, pluggable modules that allow you to have your views rendered by different engines like for example the WebForms engine, <a href="http://sparkviewengine.com/" target="_blank">Spark</a>, <a href="http://code.google.com/p/nhaml/" target="_blank">NHAML</a>, &hellip;</p>
-<p>Razor is a new view engine, focused on less code clutter and shorter code-expressions for generating HTML dynamically. As an example, have a look at the following view:</p>
-<p>[code:c#]</p>
-<p>&lt;ul&gt;<br />&nbsp; &lt;% foreach (var c in Model.Customers) { %&gt; <br />&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;%:c.DisplayName%&gt;&lt;/li&gt; <br />&nbsp; &lt;% } %&gt; <br />&lt;/ul&gt;</p>
-<p>[/code]</p>
-<p>In Razor syntax, this becomes:</p>
-<p>[code:c#]</p>
-<p>&lt;ul&gt; <br />&nbsp; @foreach (var c in Model.Customers) { <br />&nbsp;&nbsp;&nbsp; &lt;li&gt;@c.DisplayName&lt;/li&gt; <br />&nbsp; } <br />&lt;/ul&gt;</p>
-<p>[/code]</p>
+<p>Razor is a new view engine, focused on less code clutter and shorter code-expressions for generating HTML dynamically. As an example, have a look at the following view:
+
+```csharp
+<ul>
+  <% foreach (var c in Model.Customers) { %>
+    <li><%:c.DisplayName%></li>
+  <% } %>
+</ul>
+```
+
+<p>In Razor syntax, this becomes:
+
+```csharp
+<ul>
+  @foreach (var c in Model.Customers) {
+    <li>@c.DisplayName</li>
+  }
+</ul>
+```
+
 <p>Perhaps not the best example to show the strengths of this new engine, but do bear in mind that Razor simply puts code literally in your HTML, making it develop faster (did I mention perfect IntelliSense support in the Razor view editor?).</p>
 <p>Also, there&rsquo;s a nice addition to the &ldquo;Add View&rdquo; dialog in Visual Studio: you can now choose for which view engine you want to generate a view.</p>
 <p><a href="/images/image_50.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="Razor view engine - Add view dialog" src="/images/image_thumb_22.png" border="0" alt="Razor view engine - Add view dialog" width="244" height="242" /></a></p>
 <h2>ViewData dictionary &ldquo;dynamic&rdquo; support</h2>
 <p>.NET 4 introduced the &ldquo;dynamic&rdquo; keyword, which is abstracting away a lot of reflection code you&rsquo;d normally have to write yourself. The fun thing is, that the MVC guys abused this thing in a very nice way.</p>
-<p>Controller action method, ASP.NET MVC 2:</p>
-<p>[code:c#]</p>
-<p>public ActionResult Index() <br />{ <br />&nbsp;&nbsp;&nbsp; ViewModel["Message"] = "Welcome to ASP.NET MVC!";</p>
-<p>&nbsp;&nbsp;&nbsp; return View(); <br />}</p>
-<p>[/code]</p>
-<p>Controller action method, ASP.NET MVC 3:</p>
-<p>[code:c#]</p>
-<p>public ActionResult Index() <br />{ <br />&nbsp;&nbsp;&nbsp; ViewModel.Message = "Welcome to ASP.NET MVC!";</p>
-<p>&nbsp;&nbsp;&nbsp; return View(); <br />}</p>
-<p>[/code]</p>
+<p>Controller action method, ASP.NET MVC 2:
+
+```csharp
+public ActionResult Index()
+{
+    ViewModel["Message"] = "Welcome to ASP.NET MVC!";
+    return View();
+}
+```
+
+<p>Controller action method, ASP.NET MVC 3:
+
+```csharp
+public ActionResult Index()
+{
+    ViewModel.Message = "Welcome to ASP.NET MVC!";
+    return View();
+}
+```
+
 <p>&ldquo;Isn&rsquo;t that the same?&rdquo; &ndash; Yes, in essence it is exactly the same concept at work. However, by using the dynamic keyword, there&rsquo;s less &ldquo;string pollution&rdquo; in my code. Do note that in most situations, you would create a custom &ldquo;View Model&rdquo; and pass that to the view instead of using this ugly dictionary or dynamic object. Nevertheless: I do prefer reading code that uses less dictionaries.</p>
-<p>So far for the controller side, there&rsquo;s also the view side. Have a look at this:</p>
-<p>[code:c#]</p>
-<p>@inherits System.Web.Mvc.WebViewPage</p>
-<p>@{ <br />&nbsp;&nbsp;&nbsp; View.Title = "Home Page"; <br />&nbsp;&nbsp;&nbsp; LayoutPage = "~/Views/Shared/_Layout.cshtml"; <br />}</p>
-<p>&lt;h2&gt;@View.Message&lt;/h2&gt; <br />&lt;p&gt; <br />&nbsp;&nbsp;&nbsp; To learn more about ASP.NET MVC visit &lt;a href="http://asp.net/mvc" title="ASP.NET MVC Website"&gt;http://asp.net/mvc&lt;/a&gt;. <br />&lt;/p&gt;</p>
-<p>[/code]</p>
+<p>So far for the controller side, there&rsquo;s also the view side. Have a look at this:
+
+```csharp
+@inherits System.Web.Mvc.WebViewPage
+@{
+    View.Title = "Home Page";
+    LayoutPage = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@View.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+```
+
 <p>A lot of new stuff there, right? First of all the Razor syntax, but secondly&hellip; There&rsquo;s just something like <em>@View.Message</em> in this view, and this is rendering something from the ViewData dictionary/dynamic object. Again: very readable and understandable.</p>
 <p>It&rsquo;s a small change on the surface, but I do like it. In my opinion, it&rsquo;s more readable than using the ViewData dictionary when you are not using a custom view model.</p>
 <h2>Global action filters</h2>
-<p>Imagine you have a team of developers, all writing controllers. Imagine that they have to add the<em> [HandleError]</em> action filter to every controller, and they sometimes tend to forget&hellip; That&rsquo;s where global action filters come to the rescue! Add this line to <em>Global.asax</em>:</p>
-<p>[code:c#]</p>
-<p>GlobalFilters.Filters.Add(new HandleErrorAttribute());</p>
-<p>[/code]</p>
+<p>Imagine you have a team of developers, all writing controllers. Imagine that they have to add the<em> [HandleError]</em> action filter to every controller, and they sometimes tend to forget&hellip; That&rsquo;s where global action filters come to the rescue! Add this line to <em>Global.asax</em>:
+
+```csharp
+GlobalFilters.Filters.Add(new HandleErrorAttribute());
+```
+
 <p>This will automatically register that action filter attribute for every controller and action method.</p>
 
 
@@ -67,9 +98,11 @@ redirect_from:
 <li>At least allow to specify action filters on a per-area level, so I can have my &ldquo;Administration&rdquo; area have other filters than my default area. </li>
 <li>In an ideal world, I&rsquo;d prefer something where I can specify global action filters even more granularly. This can be done using some customizing, but it would be useful to have it out-of-the-box. Here's an example of the ideal world: </li>
 </ul>
-<p>[code:c#]</p>
-<p>GlobalFilters.Filters.AddTo&lt;HomeController&gt;(new HandleErrorAttribute())&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .AddTo&lt;AccountController&gt;(c =&gt; c.ChangePassword(), new AuthorizeAttribute());</p>
-<p>[/code]</p>
+```csharp
+GlobalFilters.Filters.AddTo<HomeController>(new HandleErrorAttribute())
+                     .AddTo<AccountController>(c => c.ChangePassword(), new AuthorizeAttribute());
+```
+
 <h2>Dependency injection support</h2>
 <p>I&rsquo;m going to be short on this one: there&rsquo;s 4 new hooks for injecting dependencies:</p>
 <ul>
@@ -91,6 +124,5 @@ redirect_from:
 <p>I only touched the tip of the iceberg. There&rsquo;s more to ASP.NET MVC 3 preview 1, described in the release notes.</p>
 <p>In short, I&rsquo;m very positive about the amount of progress being made in this framework! Very pleased with the DI portion of it, on which I&rsquo;ll do a blog post later.</p>
 <p><strong>Update:</strong> Here's that next post on <a href="/post/2010/07/22/aspnet-mvc-3-and-mef-sitting-in-a-tree.aspx" target="_blank">ASP.NET MVC 3 and dependency injection / MEF</a></p>
-
 
 

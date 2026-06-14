@@ -20,40 +20,29 @@ This is the second post in my series on Data Driven Testing in Visual Studio 200
 <h2>Web Testing</h2>
 <p>
 I assume you have read my <a href="/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx" target="_blank">previous post</a> and saw the cool user interface I created. Let&#39;s first add some code to that, focussing on the <em>TextBox_TextChanged</em> event handler that is linked to <em>TextBox1</em> and <em>TextBox2</em>. 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-public partial class _Default : System.Web.UI.Page<br />
-{<br />
-&nbsp;&nbsp;&nbsp; // ... other code ... 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; protected void TextBox_TextChanged(object sender, EventArgs e)<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!string.IsNullOrEmpty(TextBox1.Text.Trim()) &amp;&amp; !string.IsNullOrEmpty(TextBox2.Text.Trim()))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int a;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int b;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int.TryParse(TextBox1.Text.Trim(), out a);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int.TryParse(TextBox2.Text.Trim(), out b); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calculator calc = new Calculator();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextBox3.Text = calc.Add(a, b).ToString();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextBox3.Text = &quot;&quot;;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; }<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+public partial class _Default : System.Web.UI.Page
+{
+    // ... other code ...
+    protected void TextBox_TextChanged(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TextBox1.Text.Trim()) && !string.IsNullOrEmpty(TextBox2.Text.Trim()))
+        {
+            int a;
+            int b;
+            int.TryParse(TextBox1.Text.Trim(), out a);
+            int.TryParse(TextBox2.Text.Trim(), out b);
+            Calculator calc = new Calculator();
+            TextBox3.Text = calc.Add(a, b).ToString();
+        }
+        else
+        {
+            TextBox3.Text = "";
+        }
+    }
+}
+```
+
 It is now easy to run this in a browser and play with it. You&#39;ll notice 1 + 1 equals 2, otherwise you copy-pasted the wrong code. You can now create a web test for this. Right-click the test project, &quot;Add&quot;, &quot;Web Test...&quot;. If everything works well your browser is now started with a giant toolbar named &quot;Web Test Recorder&quot; on the left. This toolbar will record a macro of what you are doing, so let&#39;s simply navigate to the web application we created, enter some numbers and whatch the calculation engine do the rest: 
 </p>
 <p align="center">
@@ -92,7 +81,5 @@ Click &quot;Edit run Settings&quot; and pick &quot;One run per data source row&q
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/02/Data-Driven-Testing-in-Visual-Studio-2008---Part-2.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a>
 </p>
-
-
 
 

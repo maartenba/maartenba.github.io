@@ -51,28 +51,19 @@ More on Windows Live ID Web Authentication at <a href="http://dev.live.com/livei
 <h2>Associate user with membership database</h2>
 <p>
 Both the OpenID and Windows Live ID authentication require you to do one &quot;manual&quot; step: implement the link between the membership database and the authentication method. You can simply override a virtual method in your own controller implementation, like so: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-protected override MembershipUser AssociateOpenIDToMembershipUser( string identity, string name, string email )<br />
-{<br />
-&nbsp;&nbsp;&nbsp; // TODO: implement this to use OpenID authentication<br />
-&nbsp;&nbsp;&nbsp; return null;<br />
-} 
-</p>
-<p>
-protected override MembershipUser AssociateWindowsLiveIDToMembershipUser(string userId)<br />
-{<br />
-&nbsp;&nbsp;&nbsp; // TODO: implement this to use Windows Live ID authentication<br />
-&nbsp;&nbsp;&nbsp; return null;<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+protected override MembershipUser AssociateOpenIDToMembershipUser( string identity, string name, string email )
+{
+    // TODO: implement this to use OpenID authentication
+    return null;
+}
+protected override MembershipUser AssociateWindowsLiveIDToMembershipUser(string userId)
+{
+    // TODO: implement this to use Windows Live ID authentication
+    return null;
+}
+```
+
 What you&#39;ll have to do is return the ASP.Net membership user associated with the OpenID / Windows Live ID account. 
 </p>
 <p>
@@ -84,7 +75,5 @@ The Windows Live ID authentication is currently only available from <a href="htt
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/04/ASPNet-MVC-Membership-Starter-Kit-alternative-authentication.aspx&amp;title=ASP.Net MVC Membership Starter Kit alternative authentication"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/04/ASPNet-MVC-Membership-Starter-Kit-alternative-authentication.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
-
-
 
 

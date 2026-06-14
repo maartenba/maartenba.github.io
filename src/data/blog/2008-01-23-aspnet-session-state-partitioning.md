@@ -17,32 +17,75 @@ redirect_from:
 <h2>1. Set up ASP.NET session mode</h2>
 <p>Follow all steps in my <a href="/post/2007/11/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx" target="_blank">previous blog post</a> to set up the ASP.NET state service / SQL state server database and the necessary web.config setup. We'll customise this afterwards.</p>
 <h2>2.&nbsp;&nbsp; Create your own session state partitioning class</h2>
-<p>The "magic" of this el-cheapo solution to multiple session servers will be your own session state partitioning class. Here's an example:</p>
-<p>[code:c#]</p>
-<p>using System;</p>
-<p>public class PartitionResolver : System.Web.IPartitionResolver<br /> {</p>
-<p>&nbsp;&nbsp;&nbsp; #region Private members</p>
-<p>&nbsp;&nbsp;&nbsp; private String[] partitions;</p>
-<p>&nbsp;&nbsp;&nbsp; #endregion</p>
-<p>&nbsp;&nbsp;&nbsp; #region IPartitionResolver Members</p>
-<p>&nbsp;&nbsp;&nbsp; public void Initialize()<br /> &nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create an array containing<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // all partition connection strings<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Note that this could also be an array<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // of SQL server connection strings!<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; partitions = new String[] {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tcpip=10.0.0.1:42424",&nbsp;&nbsp;&nbsp; <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tcpip=10.0.0.2:42424",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tcpip=10.0.0.3:42424"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };<br /> &nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; public string ResolvePartition(object key)<br /> &nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Accept incoming session identifier<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // which looks similar like "2ywbtzez3eqxut45ukyzq3qp"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string sessionId = key as string;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create your own manner to divide session id's<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // across available partitions or simply use this one!<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int partitionID = Math.Abs(sessionId.GetHashCode()) % partitions.Length;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return partitions[partitionID];<br /> &nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; #endregion<br /> }</p>
-<p>[/code]</p>
+<p>The "magic" of this el-cheapo solution to multiple session servers will be your own session state partitioning class. Here's an example:
+
+```csharp
+using System;
+public class PartitionResolver : System.Web.IPartitionResolver
+ {
+    #region Private members
+    private String[] partitions;
+    #endregion
+    #region IPartitionResolver Members
+    public void Initialize()
+     {
+         // Create an array containing
+         // all partition connection strings
+         //
+         // Note that this could also be an array
+         // of SQL server connection strings!
+         partitions = new String[] {
+             "tcpip=10.0.0.1:42424",
+             "tcpip=10.0.0.2:42424",
+             "tcpip=10.0.0.3:42424"
+         };
+     }
+    public string ResolvePartition(object key)
+     {
+         // Accept incoming session identifier
+         // which looks similar like "2ywbtzez3eqxut45ukyzq3qp"
+         string sessionId = key as string;
+        // Create your own manner to divide session id's
+         // across available partitions or simply use this one!
+         int partitionID = Math.Abs(sessionId.GetHashCode()) % partitions.Length;
+         return partitions[partitionID];
+     }
+    #endregion
+ }
+```
+
 <p>Basically, you just have to implement the interface <em>System.Web.IPartitionResolver</em>, which is the contract ASP.NET uses to determine the session state server's connection string. The <em>ResolvePartition</em> method is called with the current session id in it, and allows you to return the connection string that should be used for that specific session id.</p>
 <h2>3. Update your web.config</h2>
-<p>Most probably, you'll have a web.config which looks like this:</p>
-<p>[code:xml]</p>
-<p>&lt;configuration&gt;<br /> &nbsp; &lt;system.web&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;sessionState<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mode="StateServer"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stateConnectionString="tcpip=your_server_ip:42424" /&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br /> &nbsp; &lt;/system.web&gt;<br /> &lt;/configuration&gt;</p>
-<p>[/code]</p>
-<p>In order for ASP.NET to use our custom class, modify web.config into:</p>
-<p>[code:xml]</p>
-<p>&lt;configuration&gt;<br /> &nbsp; &lt;system.web&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;sessionState <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mode="StateServer" <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; partitionResolverType="PartitionResolver" /&gt;<br /> &nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;<br /> &nbsp; &lt;/system.web&gt;<br /> &lt;/configuration&gt;</p>
-<p>[/code]</p>
+<p>Most probably, you'll have a web.config which looks like this:
+
+```xml
+<configuration>
+   <system.web>
+     <!-- ... -->
+     <sessionState
+         mode="StateServer"
+         stateConnectionString="tcpip=your_server_ip:42424" />
+     <!-- ... -->
+   </system.web>
+ </configuration>
+```
+
+<p>In order for ASP.NET to use our custom class, modify web.config into:
+
+```xml
+<configuration>
+   <system.web>
+     <!-- ... -->
+     <sessionState
+         mode="StateServer"
+         partitionResolverType="PartitionResolver" />
+     <!-- ... -->
+   </system.web>
+ </configuration>
+```
+
 <p>You may have noticed that the <em>stateConnectionString</em> attribute was replaced by a <em>partitionResolverType</em> attribute. From now on, ASP.NET will use the class specified in the <em>partitionResolverType</em> attribute for distributing sessions across state servers.</p>
 <p><strong>UPDATE 2008-01-24:</strong> Also check out my blog post on <a href="/post/2008/01/aspnet-session-state-partitioning-using-state-server-load-balancing.aspx" target="_blank">Session State Partitioning using load balancing</a>!</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2008/01/ASPNET-Session-State-Partitioning.aspx&amp;title=ASP.NET Session State Partitioning"> <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/01/ASPNET-Session-State-Partitioning.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
-
 
 

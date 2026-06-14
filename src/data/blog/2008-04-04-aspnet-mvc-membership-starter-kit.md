@@ -90,83 +90,57 @@ After an evening of contributing code, there&#39;s additional functionality in t
 </ul>
 <p>
 Also, I&#39;ve been doing some massive refactoring to this project. Everything that is &quot;generic&quot; for most applications is now stripped out in a separate assembly still allowing situation-specific overrides. For example, if you use this MvcMembership framework, you can simply inherit the <em>BaseFormsAuthenticationController </em>class in your own code: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-namespace MvcMembership.Controllers<br />
-{<br />
-&nbsp;&nbsp;&nbsp; public class FormsAuthenticationController : StarterKit.Mvc.Membership.Controllers.BaseFormsAuthenticationController<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp; // Nothing here... All is handled in the BaseFormsAuthenticationController class!<br />
-&nbsp;&nbsp;&nbsp; }<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+namespace MvcMembership.Controllers
+{
+    public class FormsAuthenticationController : StarterKit.Mvc.Membership.Controllers.BaseFormsAuthenticationController
+    {
+    // Nothing here... All is handled in the BaseFormsAuthenticationController class!
+    }
+}
+```
+
 Need a custom <em>Login</em> action? No problem! 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-namespace MvcMembership.Controllers<br />
-{<br />
-&nbsp;&nbsp;&nbsp; public class FormsAuthenticationController : StarterKit.Mvc.Membership.Controllers.BaseFormsAuthenticationController<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void Login()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // this is an override, additional ViewData can be set here<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base.Login();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; }<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+namespace MvcMembership.Controllers
+{
+    public class FormsAuthenticationController : StarterKit.Mvc.Membership.Controllers.BaseFormsAuthenticationController
+    {
+        public override void Login()
+        {
+            // this is an override, additional ViewData can be set here
+            base.Login();
+        }
+    }
+}
+```
+
 Want to respond to some actions inside <em>BaseFormsAuthenticationController</em>? No problem either! 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-namespace MvcMembership.Controllers<br />
-{<br />
-&nbsp;&nbsp;&nbsp; public class FormsAuthenticationController : StarterKit.Mvc.Membership.Controllers.BaseFormsAuthenticationController<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void OnAfterResetPassword(string email, string userName, string newPassword)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // TODO: replace with sender e-mail address.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MailMessage mailMessage = new MailMessage(&quot;sender@example.com&quot;, email);<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // TODO: replace with custom subject.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mailMessage.Subject = &quot;Your password&quot;;<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // TODO: replace with custom body.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mailMessage.Body = string.Format(&quot;{0}, your password is: {1}.&quot;, userName, newPassword);<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // TODO: replace with the name of your SMTP server.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SmtpClient smtpClient = new SmtpClient(&quot;localhost&quot;, 25);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; smtpClient.Send(mailMessage);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; }<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+namespace MvcMembership.Controllers
+{
+    public class FormsAuthenticationController : StarterKit.Mvc.Membership.Controllers.BaseFormsAuthenticationController
+    {
+        public override void OnAfterResetPassword(string email, string userName, string newPassword)
+        {
+            // TODO: replace with sender e-mail address.
+            MailMessage mailMessage = new MailMessage("sender@example.com", email);
+            // TODO: replace with custom subject.
+            mailMessage.Subject = "Your password";
+            // TODO: replace with custom body.
+            mailMessage.Body = string.Format("{0}, your password is: {1}.", userName, newPassword);
+            // TODO: replace with the name of your SMTP server.
+            SmtpClient smtpClient = new SmtpClient("localhost", 25);
+            smtpClient.Send(mailMessage);
+        }
+    }
+}
+```
+
 Let&#39;s hope the ASP.NET MVC team picks this up, as I think it&#39;s something lots of users would like to see. For now, it&#39;s a separate download from <a href="http://www.codeplex.com/MvcMembership/" target="_blank">CodePlex</a>. 
 </p>
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/04/ASPNet-MVC-Membership-Starter-Kit.aspx&amp;title=ASP.Net MVC Membership Starter Kit"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/04/ASPNet-MVC-Membership-Starter-Kit.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>&nbsp; 
 </p>
-
-
 
 

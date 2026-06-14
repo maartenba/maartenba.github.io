@@ -16,48 +16,129 @@ redirect_from:
 <p>Let&rsquo;s see if we can leverage the routing engine in<em> System.Web.Routing</em> for this&hellip;</p>
 <p>Want the sample code? Check <a href="/files/2013/2/LocalizedRouteExample.zip">LocalizedRouteExample.zip (23.25 kb)</a></p>
 <h2>Mapping a translated route</h2>
-<p>First things first: here&rsquo;s how I see a translated route being mapped in <em>Global.asax.cs</em>:</p>
-<p>[code:c#]</p>
-<p>routes.MapTranslatedRoute( <br />&nbsp;&nbsp;&nbsp; "TranslatedRoute", <br />&nbsp;&nbsp;&nbsp; "{controller}/{action}/{id}", <br />&nbsp;&nbsp;&nbsp; new { controller = "Home", action = "Index", id = "" }, <br />&nbsp;&nbsp;&nbsp; new { controller = translationProvider, action = translationProvider }, <br />&nbsp;&nbsp;&nbsp; true <br />);</p>
-<p>[/code]</p>
+<p>First things first: here&rsquo;s how I see a translated route being mapped in <em>Global.asax.cs</em>:
+
+```csharp
+routes.MapTranslatedRoute(
+    "TranslatedRoute",
+    "{controller}/{action}/{id}",
+    new { controller = "Home", action = "Index", id = "" },
+    new { controller = translationProvider, action = translationProvider },
+    true
+);
+```
+
 <p>Looks pretty much the same as you would normally map a route, right? There&rsquo;s only one difference: the <em>new { controller = translationProvider, action = translationProvider }</em> line of code. This line of code basically tells the routing engine to use the object <em>translationProvider</em> as a provider which allows to translate a route value. In this case, the same translation provider will handle translating controller names and action names.</p>
 <h2>Translation providers</h2>
-<p>The translation provider being used can actually be anything, as long as it conforms to the following contract:</p>
-<p>[code:c#]</p>
-<p>public interface IRouteValueTranslationProvider <br />{ <br />&nbsp;&nbsp;&nbsp; RouteValueTranslation TranslateToRouteValue(string translatedValue, CultureInfo culture); <br />&nbsp;&nbsp;&nbsp; RouteValueTranslation TranslateToTranslatedValue(string routeValue, CultureInfo culture); <br />}</p>
-<p>[/code]</p>
+<p>The translation provider being used can actually be anything, as long as it conforms to the following contract:
+
+```csharp
+public interface IRouteValueTranslationProvider
+{
+    RouteValueTranslation TranslateToRouteValue(string translatedValue, CultureInfo culture);
+    RouteValueTranslation TranslateToTranslatedValue(string routeValue, CultureInfo culture);
+}
+```
+
 <p>This contract provides 2 method definitions: one for mapping a translated value to a route value (like: mapping the Dutch &ldquo;Thuis&rdquo; to &ldquo;Home&rdquo;). The other method will do the opposite.</p>
 <h2>TranslatedRoute</h2>
-<p>The &ldquo;core&rdquo; of this solution is the <em>TranslatedRoute</em> class. It&rsquo;s basically an overridden implementation of the<em> System.Web.Routing.Route</em> class, using the <em>IRouteValueTranslationProvider</em> for translating a route. As a bonus, it also tries to set the current thread culture to the <em>CultureInfo</em> detected based on the route being called. Note that this is just a reasonable guess, not the very truth. It will not detect nl-NL versus nl-BE, for example. Here&rsquo;s the code:</p>
-<p>[code:c#]</p>
-<p>public class TranslatedRoute : Route <br />{ <br />&nbsp;&nbsp;&nbsp; // ...</p>
-<p>&nbsp;&nbsp;&nbsp; public RouteValueDictionary RouteValueTranslationProviders { get; private set; }</p>
-<p>&nbsp;&nbsp;&nbsp; // ...</p>
-<p>&nbsp;&nbsp;&nbsp; public override RouteData GetRouteData(HttpContextBase httpContext) <br />&nbsp;&nbsp;&nbsp; {&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RouteData routeData = base.GetRouteData(httpContext);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (routeData == null) return null;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Translate route values <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (KeyValuePair&lt;string, object&gt; pair in this.RouteValueTranslationProviders) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IRouteValueTranslationProvider translationProvider = pair.Value as IRouteValueTranslationProvider; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (translationProvider != null <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; routeData.Values.ContainsKey(pair.Key)) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RouteValueTranslation translation = translationProvider.TranslateToRouteValue( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routeData.Values[pair.Key].ToString(), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CultureInfo.CurrentCulture);</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routeData.Values[pair.Key] = translation.RouteValue;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Store detected culture <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (routeData.DataTokens[DetectedCultureKey] == null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routeData.DataTokens.Add(DetectedCultureKey, translation.Culture); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Set detected culture <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (this.SetDetectedCulture) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Threading.Thread.CurrentThread.CurrentCulture = translation.Culture; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Threading.Thread.CurrentThread.CurrentUICulture = translation.Culture; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return routeData; <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RouteValueDictionary translatedValues = values;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Translate route values <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (KeyValuePair&lt;string, object&gt; pair in this.RouteValueTranslationProviders) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IRouteValueTranslationProvider translationProvider = pair.Value as IRouteValueTranslationProvider; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (translationProvider != null <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; translatedValues.ContainsKey(pair.Key)) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RouteValueTranslation translation = <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; translationProvider.TranslateToTranslatedValue( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; translatedValues[pair.Key].ToString(), CultureInfo.CurrentCulture);</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; translatedValues[pair.Key] = translation.TranslatedValue; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return base.GetVirtualPath(requestContext, translatedValues); <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>The &ldquo;core&rdquo; of this solution is the <em>TranslatedRoute</em> class. It&rsquo;s basically an overridden implementation of the<em> System.Web.Routing.Route</em> class, using the <em>IRouteValueTranslationProvider</em> for translating a route. As a bonus, it also tries to set the current thread culture to the <em>CultureInfo</em> detected based on the route being called. Note that this is just a reasonable guess, not the very truth. It will not detect nl-NL versus nl-BE, for example. Here&rsquo;s the code:
+
+```csharp
+public class TranslatedRoute : Route
+{
+    // ...
+    public RouteValueDictionary RouteValueTranslationProviders { get; private set; }
+    // ...
+    public override RouteData GetRouteData(HttpContextBase httpContext)
+    {
+        RouteData routeData = base.GetRouteData(httpContext);
+        if (routeData == null) return null;
+        // Translate route values
+        foreach (KeyValuePair<string, object> pair in this.RouteValueTranslationProviders)
+        {
+            IRouteValueTranslationProvider translationProvider = pair.Value as IRouteValueTranslationProvider;
+            if (translationProvider != null
+                && routeData.Values.ContainsKey(pair.Key))
+            {
+                RouteValueTranslation translation = translationProvider.TranslateToRouteValue(
+                    routeData.Values[pair.Key].ToString(),
+                    CultureInfo.CurrentCulture);
+                routeData.Values[pair.Key] = translation.RouteValue;
+                // Store detected culture
+                if (routeData.DataTokens[DetectedCultureKey] == null)
+                {
+                    routeData.DataTokens.Add(DetectedCultureKey, translation.Culture);
+                }
+                // Set detected culture
+                if (this.SetDetectedCulture)
+                {
+                    System.Threading.Thread.CurrentThread.CurrentCulture = translation.Culture;
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = translation.Culture;
+                }
+            }
+        }
+        return routeData;
+    }
+    public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)
+    {
+        RouteValueDictionary translatedValues = values;
+        // Translate route values
+        foreach (KeyValuePair<string, object> pair in this.RouteValueTranslationProviders)
+        {
+            IRouteValueTranslationProvider translationProvider = pair.Value as IRouteValueTranslationProvider;
+            if (translationProvider != null
+                && translatedValues.ContainsKey(pair.Key))
+            {
+                RouteValueTranslation translation =
+                    translationProvider.TranslateToTranslatedValue(
+                        translatedValues[pair.Key].ToString(), CultureInfo.CurrentCulture);
+                translatedValues[pair.Key] = translation.TranslatedValue;
+            }
+        }
+        return base.GetVirtualPath(requestContext, translatedValues);
+    }
+}
+```
+
 <p>The <em>GetRouteData</em> finds a corresponding route translation if I entered &ldquo;/Thuis/Over&rdquo; in the URL. The <em>GetVirtualPath</em> method does the opposite, and will be used for mapping a call to <em>&lt;%=Html.ActionLink(&ldquo;About&rdquo;, &ldquo;About&rdquo;, &ldquo;Home&rdquo;)%&gt;</em> to a route like &ldquo;/Thuis/Over&rdquo; if the current thread culture is nl-NL. This is not rocket science, it simply tries to translate every token in the requested path and update the route data with it so the ASP.NET MVC subsystem will know that &ldquo;Thuis&rdquo; maps to <em>HomeController</em>.</p>
 <h2>Tying everything together</h2>
-<p>We already tied the route definition in<em> Global.asax.cs</em> earlier in this blog post, but let&rsquo;s do it again with a sample <em>DictionaryRouteValueTranslationProvider</em> that will be used for translating routes. This one goes in <em>Global.asax.cs</em>:</p>
-<p>[code:c#]</p>
-<p>public static void RegisterRoutes(RouteCollection routes) <br />{ <br />&nbsp;&nbsp;&nbsp; CultureInfo cultureEN = CultureInfo.GetCultureInfo("en-US"); <br />&nbsp;&nbsp;&nbsp; CultureInfo cultureNL = CultureInfo.GetCultureInfo("nl-NL"); <br />&nbsp;&nbsp;&nbsp; CultureInfo cultureFR = CultureInfo.GetCultureInfo("fr-FR");</p>
-<p>&nbsp;&nbsp;&nbsp; DictionaryRouteValueTranslationProvider translationProvider = new DictionaryRouteValueTranslationProvider( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new List&lt;RouteValueTranslation&gt; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new RouteValueTranslation(cultureEN, "Home", "Home"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new RouteValueTranslation(cultureEN, "About", "About"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new RouteValueTranslation(cultureNL, "Home", "Thuis"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new RouteValueTranslation(cultureNL, "About", "Over"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new RouteValueTranslation(cultureFR, "Home", "Demarrer"), <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new RouteValueTranslation(cultureFR, "About", "Infos") <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; );</p>
-<p>&nbsp;&nbsp;&nbsp; routes.IgnoreRoute("{resource}.axd/{*pathInfo}");</p>
-<p>&nbsp;&nbsp;&nbsp; routes.MapTranslatedRoute( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "TranslatedRoute", <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "{controller}/{action}/{id}", <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new { controller = "Home", action = "Index", id = "" }, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new { controller = translationProvider, action = translationProvider }, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true <br />&nbsp;&nbsp;&nbsp; );</p>
-<p>&nbsp;&nbsp;&nbsp; routes.MapRoute( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Default",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Route name <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "{controller}/{action}/{id}",&nbsp;&nbsp; // URL with parameters <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new { controller = "Home", action = "Index", id = "" }&nbsp; // Parameter defaults <br />&nbsp;&nbsp;&nbsp; );</p>
-<p>}</p>
-<p>[/code]</p>
+<p>We already tied the route definition in<em> Global.asax.cs</em> earlier in this blog post, but let&rsquo;s do it again with a sample <em>DictionaryRouteValueTranslationProvider</em> that will be used for translating routes. This one goes in <em>Global.asax.cs</em>:
+
+```csharp
+public static void RegisterRoutes(RouteCollection routes)
+{
+    CultureInfo cultureEN = CultureInfo.GetCultureInfo("en-US");
+    CultureInfo cultureNL = CultureInfo.GetCultureInfo("nl-NL");
+    CultureInfo cultureFR = CultureInfo.GetCultureInfo("fr-FR");
+    DictionaryRouteValueTranslationProvider translationProvider = new DictionaryRouteValueTranslationProvider(
+        new List<RouteValueTranslation> {
+            new RouteValueTranslation(cultureEN, "Home", "Home"),
+            new RouteValueTranslation(cultureEN, "About", "About"),
+            new RouteValueTranslation(cultureNL, "Home", "Thuis"),
+            new RouteValueTranslation(cultureNL, "About", "Over"),
+            new RouteValueTranslation(cultureFR, "Home", "Demarrer"),
+            new RouteValueTranslation(cultureFR, "About", "Infos")
+        }
+    );
+    routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+    routes.MapTranslatedRoute(
+        "TranslatedRoute",
+        "{controller}/{action}/{id}",
+        new { controller = "Home", action = "Index", id = "" },
+        new { controller = translationProvider, action = translationProvider },
+        true
+    );
+    routes.MapRoute(
+        "Default",      // Route name
+        "{controller}/{action}/{id}",   // URL with parameters
+        new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
+    );
+}
+```
+
 <p>This is basically it! What I can now do is set the current thread&rsquo;s culture to, let&rsquo;s say fr-FR, and all action links generated by ASP.NET MVC will be using French. Easy? Yes! Cool? Yes!</p>
 <p><a href="/images/image_31.png"><img style="margin: 5px auto; display: block; float: none; border: 0px;" title="Localizing ASP.NET MVC routing" src="/images/image_thumb_9.png" border="0" alt="Localizing ASP.NET MVC routing" width="644" height="157" /></a></p>
 <p>Want the sample code? Check <a href="/files/2013/2/LocalizedRouteExample.zip">LocalizedRouteExample.zip (23.25 kb)</a></p>
-
 
 

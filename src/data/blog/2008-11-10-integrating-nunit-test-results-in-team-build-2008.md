@@ -52,56 +52,43 @@ The build script for a NUnit enabled build should be modified in several locatio
 </p>
 <p>
 Open the TFSBuild.proj file from source control and merge the following lines in: 
-</p>
-<p>
-[code:xml] 
-</p>
-<p>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br />
-&lt;Project DefaultTargets=&quot;DesktopBuild&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot; ToolsVersion=&quot;3.5&quot;&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;!-- Do not edit this --&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;Import Project=&quot;$(MSBuildExtensionsPath)\Microsoft\VisualStudio\TeamBuild\Microsoft.TeamFoundation.Build.targets&quot; /&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;Import Project=&quot;$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.targets&quot; /&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;ProjectExtensions&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;/ProjectExtensions&gt;&nbsp;<br />
-<br />
-&nbsp;&nbsp;&nbsp; &lt;!-- At the end of file: --&gt;&nbsp;<br />
-<br />
-&nbsp;&nbsp;&nbsp; &lt;ItemGroup&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;AdditionalReferencePath Include=&quot;$(ProgramFiles)\Nunit 2.4.7\bin\&quot; /&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;/ItemGroup&gt;&nbsp;<br />
-<br />
-&nbsp;&nbsp;&nbsp; &lt;Target Name=&quot;AfterCompile&quot;&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Create a Custom Build Step --&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;BuildStep TeamFoundationServerUrl=&quot;$(TeamFoundationServerUrl)&quot; BuildUri=&quot;$(BuildUri)&quot; Name=&quot;NUnitTestStep&quot; Message=&quot;Running NUnit Tests&quot;&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Output TaskParameter=&quot;Id&quot; PropertyName=&quot;NUnitStepId&quot; /&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/BuildStep&gt;&nbsp;<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Get Assemblies to test --&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ItemGroup&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TestAssemblies Include=&quot;$(OutDir)\**\Calculator.dll&quot;/&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ItemGroup&gt;&nbsp;<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Run NUnit and check the result --&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;NUnit ContinueOnError=&quot;true&quot; Assemblies=&quot;@(TestAssemblies)&quot; OutputXmlFile=&quot;$(OutDir)nunit_results.xml&quot; ToolPath=&quot;$(ProgramFiles)\Nunit 2.4.8\bin\&quot;&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Output TaskParameter=&quot;ExitCode&quot; PropertyName=&quot;NUnitResult&quot; /&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/NUnit&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;BuildStep Condition=&quot;&#39;$(NUnitResult)&#39;==&#39;0&#39;&quot; TeamFoundationServerUrl=&quot;$(TeamFoundationServerUrl)&quot; BuildUri=&quot;$(BuildUri)&quot; Id=&quot;$(NUnitStepId)&quot; Status=&quot;Succeeded&quot; /&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;BuildStep Condition=&quot;&#39;$(NUnitResult)&#39;!=&#39;0&#39;&quot; TeamFoundationServerUrl=&quot;$(TeamFoundationServerUrl)&quot; BuildUri=&quot;$(BuildUri)&quot; Id=&quot;$(NUnitStepId)&quot; Status=&quot;Failed&quot; /&gt;&nbsp;<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Regardless of NUnit success/failure merge results into the build --&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Exec Command=&quot;&amp;quot;$(ProgramFiles)\nxslt-2.3-bin\nxslt2.exe&amp;quot; &amp;quot;$(OutDir)nunit_results.xml&amp;quot; &amp;quot;$(ProgramFiles)\MSBuild\NUnit\nunit transform.xslt&amp;quot; -o &amp;quot;$(OutDir)nunit_results.trx&amp;quot;&quot;/&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Exec Command=&quot;&amp;quot;$(ProgramFiles)\Microsoft Visual Studio 9.0\Common7\IDE\mstest.exe&amp;quot; /publish:$(TeamFoundationServerUrl) /publishbuild:&amp;quot;$(BuildNumber)&amp;quot; /publishresultsfile:&amp;quot;$(OutDir)nunit_results.trx&amp;quot; /teamproject:&amp;quot;$(TeamProject)&amp;quot; /platform:&amp;quot;%(ConfigurationToBuild.PlatformToBuild)&amp;quot; /flavor:&amp;quot;%(ConfigurationToBuild.FlavorToBuild)&amp;quot;&quot; IgnoreExitCode=&quot;true&quot; /&gt;&nbsp;<br />
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- If NUnit failed it&#39;s time to error out --&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Error Condition=&quot;&#39;$(NUnitResult)&#39;!=&#39;0&#39;&quot; Text=&quot;Unit Tests Failed&quot; /&gt;&nbsp;<br />
-&nbsp;&nbsp;&nbsp; &lt;/Target&gt; <br />
-&lt;/Project&gt; 
-</p>
-<p>
-[/code] 
-</p>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="DesktopBuild" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+    <!-- Do not edit this -->
+    <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\TeamBuild\Microsoft.TeamFoundation.Build.targets" />
+    <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.targets" />
+    <ProjectExtensions>
+        <!-- ... -->
+    </ProjectExtensions>
+    <!-- At the end of file: -->
+    <ItemGroup>
+        <AdditionalReferencePath Include="$(ProgramFiles)\Nunit 2.4.7\bin\" />
+    </ItemGroup>
+    <Target Name="AfterCompile">
+        <!-- Create a Custom Build Step -->
+        <BuildStep TeamFoundationServerUrl="$(TeamFoundationServerUrl)" BuildUri="$(BuildUri)" Name="NUnitTestStep" Message="Running NUnit Tests">
+            <Output TaskParameter="Id" PropertyName="NUnitStepId" />
+        </BuildStep>
+        <!-- Get Assemblies to test -->
+        <ItemGroup>
+            <TestAssemblies Include="$(OutDir)\**\Calculator.dll"/>
+        </ItemGroup>
+        <!-- Run NUnit and check the result -->
+        <NUnit ContinueOnError="true" Assemblies="@(TestAssemblies)" OutputXmlFile="$(OutDir)nunit_results.xml" ToolPath="$(ProgramFiles)\Nunit 2.4.8\bin\">
+            <Output TaskParameter="ExitCode" PropertyName="NUnitResult" />
+        </NUnit>
+        <BuildStep Condition="'$(NUnitResult)'=='0'" TeamFoundationServerUrl="$(TeamFoundationServerUrl)" BuildUri="$(BuildUri)" Id="$(NUnitStepId)" Status="Succeeded" />
+        <BuildStep Condition="'$(NUnitResult)'!='0'" TeamFoundationServerUrl="$(TeamFoundationServerUrl)" BuildUri="$(BuildUri)" Id="$(NUnitStepId)" Status="Failed" />
+        <!-- Regardless of NUnit success/failure merge results into the build -->
+        <Exec Command="&quot;$(ProgramFiles)\nxslt-2.3-bin\nxslt2.exe&quot; &quot;$(OutDir)nunit_results.xml&quot; &quot;$(ProgramFiles)\MSBuild\NUnit\nunit transform.xslt&quot; -o &quot;$(OutDir)nunit_results.trx&quot;"/>
+        <Exec Command="&quot;$(ProgramFiles)\Microsoft Visual Studio 9.0\Common7\IDE\mstest.exe&quot; /publish:$(TeamFoundationServerUrl) /publishbuild:&quot;$(BuildNumber)&quot; /publishresultsfile:&quot;$(OutDir)nunit_results.trx&quot; /teamproject:&quot;$(TeamProject)&quot; /platform:&quot;%(ConfigurationToBuild.PlatformToBuild)&quot; /flavor:&quot;%(ConfigurationToBuild.FlavorToBuild)&quot;" IgnoreExitCode="true" />
+        <!-- If NUnit failed it's time to error out -->
+        <Error Condition="'$(NUnitResult)'!='0'" Text="Unit Tests Failed" />
+    </Target>
+</Project>
+```
+
 <h2>4. Viewing test results</h2>
 <p>
 When a build containing NUnit tests has succeeded, results of this tests are present in the build log: 
@@ -118,7 +105,5 @@ When clicking the test results hyperlink, Visual Studio retrieves the result fil
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/11/10/Integrating-NUnit-test-results-in-Team-Build-2008.aspx&amp;title=Integrating NUnit test results in Team Build 2008"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/11/10/Integrating-NUnit-test-results-in-Team-Build-2008.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
-
-
 
 

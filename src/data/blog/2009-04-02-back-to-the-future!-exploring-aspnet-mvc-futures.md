@@ -19,40 +19,29 @@ redirect_from:
 </p>
 <p>
 First things first: where to get this thing? You can download the assembly from the <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471" target="_blank">CodePlex releases page</a>. Afterwards, reference this assembly in your ASP.NET MVC web application. Also add some things to the Web.config file of your application: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-&lt;?xml version=&quot;1.0&quot;?&gt; <br />
-&lt;configuration&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;system.web&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;pages&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;controls&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add tagPrefix=&quot;mvc&quot; namespace=&quot;Microsoft.Web.Mvc.Controls&quot; assembly=&quot;Microsoft.Web.Mvc&quot;/&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/controls&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;namespaces&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add namespace=&quot;Microsoft.Web.Mvc&quot;/&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add namespace=&quot;Microsoft.Web.Mvc.Controls&quot;/&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/namespaces&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/pages&gt; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;/system.web&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;!-- ... --&gt; <br />
-&lt;/configuration&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+<?xml version="1.0"?>
+<configuration>
+    <!-- ... -->
+    <system.web>
+        <!-- ... -->
+        <pages>
+            <controls>
+                <!-- ... -->
+                <add tagPrefix="mvc" namespace="Microsoft.Web.Mvc.Controls" assembly="Microsoft.Web.Mvc"/>
+            </controls>
+            <namespaces>
+                <!-- ... -->
+                <add namespace="Microsoft.Web.Mvc"/>
+                <add namespace="Microsoft.Web.Mvc.Controls"/>
+            </namespaces>
+        </pages>
+        <!-- ... -->
+    </system.web>
+    <!-- ... -->
+</configuration>
+```
+
 You are now ready to go! Buckle up and start your De Lorean DMC-12&hellip; 
 </p>
 <h2>Donut caching (a.k.a. substitution)</h2>
@@ -61,39 +50,22 @@ If you have never heard of the term &ldquo;donut caching&rdquo; or &ldquo;substi
 </p>
 <p>
 You&rsquo;ll be needing an <em>OutputCache</em>-enabled action method in a controller: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-[OutputCache(Duration = 10, VaryByParam = &quot;*&quot;)] <br />
-public ActionResult DonutCaching() <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; ViewData[&quot;lastCached&quot;] = DateTime.Now.ToString(); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; return View(); <br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+[OutputCache(Duration = 10, VaryByParam = "*")]
+public ActionResult DonutCaching()
+{
+    ViewData["lastCached"] = DateTime.Now.ToString();
+    return View();
+}
+```
+
 Next: a view. Add the following lines of code to a view: 
-</p>
+```csharp
 <p>
-[code:c#] 
-</p>
-<p>
-&lt;p&gt; <br />
-&nbsp;&nbsp;&nbsp; This page was last cached on: &lt;%=Html.Encode(ViewData[&quot;lastCached&quot;])%&gt;&lt;br /&gt; <br />
-&nbsp;&nbsp;&nbsp; Here&#39;s some &quot;donut content&quot; that is uncached: &lt;%=Html.Substitute( c =&gt; DateTime.Now.ToString() )%&gt; <br />
-&lt;/p&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+    This page was last cached on: <%=Html.Encode(ViewData["lastCached"])%><br />
+    Here's some "donut content" that is uncached: <%=Html.Substitute( c => DateTime.Now.ToString() )%>
+```
+
 There you go: when running this application, you will see one <em>DateTime</em> printed in a cached way (refreshed once a minute), and one <em>DateTime</em> printed on every page load thanks to the substitution <em>HtmlHelper</em> extension. This extension method accepts a <em>HttpContext</em> instance which you can also use to enhance the output. 
 </p>
 <p>
@@ -105,131 +77,83 @@ You heard me! We will be rendering an action method in a view. Yes, that breaks 
 </p>
 <p>
 Add some action methods to a <em>Controller</em>: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-public ActionResult SomeAction() <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; return View(); <br />
-} 
-</p>
-<p>
-public ActionResult CurrentTime() <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; ViewData[&quot;currentTime&quot;] = DateTime.Now.ToString(); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; return View(); <br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+public ActionResult SomeAction()
+{
+    return View();
+}
+public ActionResult CurrentTime()
+{
+    ViewData["currentTime"] = DateTime.Now.ToString();
+    return View();
+}
+```
+
 This indeed is not much logic, but here&rsquo;s the point: the <em>SomeAction</em> action method will render a view. That view will then render the <em>CurrentTime</em> action method, which will also render a (partial) view. Both views are combined and voila: a HTTP response which was generated by 2 action methods that were combined. 
 </p>
 <p>
 Here&rsquo;s how you can render an action method from within a view: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-&lt;% Html.RenderAction(&quot;CurrentTime&quot;); %&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+<% Html.RenderAction("CurrentTime"); %>
+```
+
 There&rsquo;s also lambdas to perform more complex actions! 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-&lt;% Html.RenderAction&lt;HomeController&gt;(c =&gt; c.CurrentTime()); %&gt; 
-</p>
-<p>
-[/code] 
-</p>
+```csharp
+<% Html.RenderAction<HomeController>(c => c.CurrentTime()); %>
+```
+
 <h2>What most people miss: controls</h2>
 <p>
 Lots of people are missing something when first working with the ASP.NET MVC framework: <em>&ldquo;Where are all the controls? Why don&rsquo;t all ASP.NET Webforms controls work?&rdquo;</em> My answer would normally be: <em>&ldquo;You don&rsquo;t need them.&rdquo;</em>, but I now also have an alternative: <em>&ldquo;Use the futures assembly!&rdquo;</em> 
 </p>
 <p>
 Here&rsquo;s a sample controller action method: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-public ActionResult Controls() <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; ViewData[&quot;someData&quot;] = new[] { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Id = 1, <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name = &quot;Maarten&quot; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Id = 2, <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name = &quot;Bill&quot; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />
-&nbsp;&nbsp;&nbsp; }; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; return View(); <br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+public ActionResult Controls()
+{
+    ViewData["someData"] = new[] {
+        new {
+            Id = 1,
+            Name = "Maarten"
+        },
+        new {
+            Id = 2,
+            Name = "Bill"
+        }
+    };
+    return View();
+}
+```
+
 The view: 
+```csharp
+<p>
+    TextBox: <mvc:TextBox Name="someTextBox" runat="server" /><br />
+    Password: <mvc:Password Name="somePassword" runat="server" />
 </p>
 <p>
-[code:c#] 
-</p>
-<p>
-&lt;p&gt; <br />
-&nbsp;&nbsp;&nbsp; TextBox: &lt;mvc:TextBox Name=&quot;someTextBox&quot; runat=&quot;server&quot; /&gt;&lt;br /&gt; <br />
-&nbsp;&nbsp;&nbsp; Password: &lt;mvc:Password Name=&quot;somePassword&quot; runat=&quot;server&quot; /&gt; <br />
-&lt;/p&gt; <br />
-&lt;p&gt; <br />
-&nbsp;&nbsp;&nbsp; Repeater: <br />
-&nbsp;&nbsp;&nbsp; &lt;ul&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;mvc:Repeater Name=&quot;someData&quot; runat=&quot;server&quot;&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;EmptyDataTemplate&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;No data is available.&lt;/li&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/EmptyDataTemplate&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ItemTemplate&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;%# Eval(&quot;Name&quot;) %&gt;&lt;/li&gt; <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ItemTemplate&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;/mvc:Repeater&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;/ul&gt; <br />
-&lt;/p&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+    Repeater:
+    <ul>
+    <mvc:Repeater Name="someData" runat="server">
+        <EmptyDataTemplate>
+            <li>No data is available.</li>
+        </EmptyDataTemplate>
+        <ItemTemplate>
+            <li><%# Eval("Name") %></li>
+        </ItemTemplate>
+    </mvc:Repeater>
+    </ul>
+```
+
 As you can see: these controls all work quite easy. The &quot;Name property accepts the key in the <em>ViewData</em> dictionary and will render the value from there. In the repeater control, you can even work with &ldquo;good old&rdquo; <em>Eval</em>: <em>&lt;%# Eval(&quot;Name&quot;) %&gt;</em>. 
 </p>
 <h2>Extra HtmlHelper extension methods</h2>
 <p>
 Not going in too much detail here: there are lots of new <em>HtmlHelper</em> extension methods. The ones I especially like are those that allow you to create a hyperlink to an action method using lambdas: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-&lt;%=Html.ActionLink&lt;HomeController&gt;(c =&gt; c.ShowProducts(&quot;Books&quot;), &quot;Show books&quot;)%&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+<%=Html.ActionLink<HomeController>(c => c.ShowProducts("Books"), "Show books")%>
+```
+
 Here&rsquo;s a list of new <em>HtmlHelper</em> extension methods: 
 </p>
 <ul>
@@ -298,7 +222,5 @@ I hope you now know what the future for ASP.NET MVC holds. It&rsquo;s not sure a
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx&amp;title=Back to the future! Exploring ASP.NET MVC Futures"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a>
 </p>
-
-
 
 

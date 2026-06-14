@@ -16,24 +16,17 @@ Trying to speed up some things in a demo ASP.NET application for a customer, I f
 <p>
 Now, how to do this? Very easy! Fire up your Visual Studio, and open Web.config.<br />
 In the HttpModules section, add some &quot;remove&quot; elements, one for every module you whish to disable. If HttpModules section is not present, you can add it yourself.
-</p>
-<p>
-[code:xml]
-</p>
-<p>
-...<br />
-&lt;httpModules&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;remove name=&quot;WindowsAuthentication&quot;/&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;remove name=&quot;PassportAuthentication&quot;/&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;remove name=&quot;UrlAuthorization&quot;/&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;remove name=&quot;FileAuthorization&quot;/&gt;<br />
-&lt;/httpModules&gt;<br />
+```xml
 ...
-</p>
-<p>
-[/code]
-</p>
-<p>
+<httpModules>
+    <remove name="WindowsAuthentication"/>
+    <remove name="PassportAuthentication"/>
+    <remove name="UrlAuthorization"/>
+    <remove name="FileAuthorization"/>
+</httpModules>
+...
+```
+
 Here are the default HttpModules that are present and can eventually be disabled:
 </p>
 <ul>
@@ -59,7 +52,5 @@ Now assume you have a public and protected part on your website. The public part
 <p>
 I&#39;m on my way to vacation. No blog posts next week, unless I spot a bear somewhere. 
 </p>
-
-
 
 

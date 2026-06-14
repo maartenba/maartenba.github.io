@@ -54,28 +54,93 @@ redirect_from:
 </ol>
 <h2>An example&hellip;</h2>
 <h3>&hellip; a simple ASP.NET MVC application!</h3>
-<p>Let&rsquo;s say you have an application where you can create, read, update and delete your own name and firstname. We have a simple model for that:</p>
-<p>[code:c#]</p>
-<p>public class Person <br />{ <br />&nbsp;&nbsp;&nbsp; public int Id { get; set; } <br />&nbsp;&nbsp;&nbsp; public string FirstName { get; set; } <br />&nbsp;&nbsp;&nbsp; public string LastName { get; set; } <br />}</p>
-<p>[/code]</p>
-<p>We can do CRUD operations on this in our ASP.NET MVC application, using the action methods in our <em>PersonController</em>:</p>
-<p>[code:c#]</p>
-<p>public class PersonController : Controller <br />{ <br />&nbsp;&nbsp;&nbsp; protected List&lt;Person&gt; Data <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Session["Persons"] == null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Session["Persons"] = new List&lt;Person&gt;(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (List&lt;Person&gt;)Session["Persons"]; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // <br />&nbsp;&nbsp;&nbsp; // GET: /Person/</p>
-<p>&nbsp;&nbsp;&nbsp; public ActionResult Index() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return View(Data); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // <br />&nbsp;&nbsp;&nbsp; // GET: /Person/Details/5</p>
-<p>&nbsp;&nbsp;&nbsp; public ActionResult Details(int id) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return View(Data.FirstOrDefault(p =&gt; p.Id == id)); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // <br />&nbsp;&nbsp;&nbsp; // GET: /Person/Create</p>
-<p>&nbsp;&nbsp;&nbsp; public ActionResult Create() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return View(new Person()); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // <br />&nbsp;&nbsp;&nbsp; // POST: /Person/Create</p>
-<p>&nbsp;&nbsp;&nbsp; [AcceptVerbs(HttpVerbs.Post)] <br />&nbsp;&nbsp;&nbsp; public ActionResult Create(Person person) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; person.Id = Data.Count + 1; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Data.Add(person);</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction("Index"); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catch <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return View(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // <br />&nbsp;&nbsp;&nbsp; // GET: /Person/Edit/5 
-<br />
-<br />&nbsp;&nbsp;&nbsp; public ActionResult Edit(int id) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return View(Data.FirstOrDefault(p =&gt; p.Id == id)); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // <br />&nbsp;&nbsp;&nbsp; // POST: /Person/Edit/5</p>
-<p>&nbsp;&nbsp;&nbsp; [AcceptVerbs(HttpVerbs.Post)] <br />&nbsp;&nbsp;&nbsp; public ActionResult Edit(int id, FormCollection collection) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Person person = Data.FirstOrDefault(p =&gt; p.Id == id); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UpdateModel(person, new string[] { "FirstName", "LastName" }, collection.ToValueProvider()); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction("Index"); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catch <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return View(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>Let&rsquo;s say you have an application where you can create, read, update and delete your own name and firstname. We have a simple model for that:
+
+```csharp
+public class Person
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+}
+```
+
+<p>We can do CRUD operations on this in our ASP.NET MVC application, using the action methods in our <em>PersonController</em>:
+
+```csharp
+public class PersonController : Controller
+{
+    protected List<Person> Data
+    {
+        get
+        {
+            if (Session["Persons"] == null)
+            {
+                Session["Persons"] = new List<Person>();
+            }
+            return (List<Person>)Session["Persons"];
+        }
+    }
+    //
+    // GET: /Person/
+    public ActionResult Index()
+    {
+        return View(Data);
+    }
+    //
+    // GET: /Person/Details/5
+    public ActionResult Details(int id)
+    {
+        return View(Data.FirstOrDefault(p => p.Id == id));
+    }
+    //
+    // GET: /Person/Create
+    public ActionResult Create()
+    {
+        return View(new Person());
+    }
+    //
+    // POST: /Person/Create
+    [AcceptVerbs(HttpVerbs.Post)]
+    public ActionResult Create(Person person)
+    {
+        try
+        {
+            person.Id = Data.Count + 1;
+            Data.Add(person);
+            return RedirectToAction("Index");
+        }
+        catch
+        {
+            return View();
+        }
+    }
+    //
+    // GET: /Person/Edit/5
+
+    public ActionResult Edit(int id)
+    {
+        return View(Data.FirstOrDefault(p => p.Id == id));
+    }
+    //
+    // POST: /Person/Edit/5
+    [AcceptVerbs(HttpVerbs.Post)]
+    public ActionResult Edit(int id, FormCollection collection)
+    {
+        try
+        {
+            Person person = Data.FirstOrDefault(p => p.Id == id);
+            UpdateModel(person, new string[] { "FirstName", "LastName" }, collection.ToValueProvider());
+            return RedirectToAction("Index");
+        }
+        catch
+        {
+            return View();
+        }
+    }
+}
+```
+
 <p>Any questions on this? <a href="http://www.amazon.com/dp/184719754X?tag=maabalblo-20&amp;camp=14573&amp;creative=327641&amp;linkCode=as1&amp;creativeASIN=184719754X&amp;adid=0PWDTRV8Y04HQ9K9TP7K&amp;" target="_blank">Read the book</a> :-)</p>
 <h3>&hellip; get some REST for FREE!</h3>
 <p>Like all &ldquo;free&rdquo; things in life, there&rsquo;s always at least a little catch. &ldquo;Free&rdquo; in this case means:</p>
@@ -84,15 +149,26 @@ redirect_from:
 <li>Registering another controller factory in <em>Global.asax.cs</em> (more on that later)</li>
 <li>Adding the <em>[WebApiEnabled]</em> to every controller and/or action method you want to expose via REST.</li>
 </ol>
-<p>The first step is quite straightforward: get the bits from CodePlex, compile, and add it as a reference in your MVC project. Next, open <em>Global.asax.cs</em> and add the following in <em>Application_Start</em>:</p>
-<p>[code:c#]</p>
-<p>protected void Application_Start() <br />{ <br />&nbsp;&nbsp;&nbsp; // We use this hook to inject our ResourceControllerActionInvoker <br />&nbsp;&nbsp;&nbsp; // which can smartly map HTTP verbs to Actions
-<br />&nbsp;&nbsp;&nbsp; ResourceControllerFactory factory = new ResourceControllerFactory(); <br />&nbsp;&nbsp;&nbsp; ControllerBuilder.Current.SetControllerFactory(factory);</p>
-<p>&nbsp;&nbsp;&nbsp; // We use this hook to inject the ResourceModelBinder behavior <br />&nbsp;&nbsp;&nbsp; // which can de-serialize from xml/json formats 
-<br />&nbsp;&nbsp;&nbsp; ModelBinders.Binders.DefaultBinder = new ResourceModelBinder();</p>
-<p>&nbsp;&nbsp;&nbsp; // Regular register routes
-<br />&nbsp;&nbsp;&nbsp; RegisterRoutes(RouteTable.Routes); <br />}</p>
-<p>[/code]</p>
+<p>The first step is quite straightforward: get the bits from CodePlex, compile, and add it as a reference in your MVC project. Next, open <em>Global.asax.cs</em> and add the following in <em>Application_Start</em>:
+
+```csharp
+protected void Application_Start()
+{
+    // We use this hook to inject our ResourceControllerActionInvoker
+    // which can smartly map HTTP verbs to Actions
+
+    ResourceControllerFactory factory = new ResourceControllerFactory();
+    ControllerBuilder.Current.SetControllerFactory(factory);
+    // We use this hook to inject the ResourceModelBinder behavior
+    // which can de-serialize from xml/json formats
+
+    ModelBinders.Binders.DefaultBinder = new ResourceModelBinder();
+    // Regular register routes
+
+    RegisterRoutes(RouteTable.Routes);
+}
+```
+
 <p>What we do here is tell ASP.NET MVC to create controllers using the <em>ResourceControllerFactory</em> provided by the REST for ASP.NET MVC SDK.</p>
 <p>Next: add the <em>[WebApiEnabled]</em> to every controller and/or action method you want to expose via REST. And that&rsquo;s about it. Here&rsquo;s what I get in my application if I browse to <a title="http://localhost:2681/Person" href="http://localhost:2681/Person">http://localhost:2681/Person</a>:</p>
 <p><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" src="/images/image_8.png" border="0" alt="image" width="604" height="484" /></p>
@@ -110,6 +186,5 @@ redirect_from:
 <li>My example code: <a href="/files/2009/8/MvcRestExample.zip">MvcRestExample.zip (75.59 kb)</a></li>
 </ul>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/19/REST-for-ASPNET-MVC-SDK.aspx&amp;title=REST for ASP.NET MVC SDK"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/19/REST-for-ASPNET-MVC-SDK.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
-
 
 

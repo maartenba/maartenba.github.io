@@ -69,20 +69,13 @@ Next to all these graphs and diagrams, there&#39;s another powerful utility: CQL
 <h3>Methods poorly commented</h3>
 <p>
 It&#39;s always fun to check if there are enough comments in your code. Some developers tend to comment more than writing code, others don&#39;t write any comments at all. Here&#39;s a (standard) CQL query: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-// &lt;Name&gt;Methods poorly commented&lt;/Name&gt;<br />
-WARN IF Count &gt; 0 IN SELECT TOP 10 METHODS WHERE PercentageComment &lt; 20 AND NbLinesOfCode &gt; 10&nbsp; ORDER BY PercentageComment ASC<br />
-// METHODS WHERE %Comment &lt; 20 and that have at least 10 lines of code should be more commented.<br />
-// See the definition of the PercentageComment metric here <a href="http://www.ndepend.com/Metrics.aspx#PercentageComment">http://www.ndepend.com/Metrics.aspx#PercentageComment</a> 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+// <Name>Methods poorly commented</Name>
+WARN IF Count > 0 IN SELECT TOP 10 METHODS WHERE PercentageComment < 20 AND NbLinesOfCode > 10  ORDER BY PercentageComment ASC
+// METHODS WHERE %Comment < 20 and that have at least 10 lines of code should be more commented.
+// See the definition of the PercentageComment metric here http://www.ndepend.com/Metrics.aspx#PercentageComment
+```
+
 This query searches the top 10 methods containing more than 10 lines of code where the percentage of comments is less than 20%. 
 </p>
 <p align="center">
@@ -118,7 +111,5 @@ In my opinion, each development team should be gathering some metrics from NDepe
 <p align="left">
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/05/Detailed-code-metrics-with-NDepend.aspx&amp;title=Detailed code metrics with NDepend"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/05/Detailed-code-metrics-with-NDepend.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
-
-
 
 

@@ -29,37 +29,21 @@ at NHibernate.Transaction.AdoTransaction.Commit()
 </pre>
 <p>
 The problem seems to be a combination of things. First, there&#39;s my mapping file:
-</p>
-<p>
-[code:xml]
-</p>
-<p>
-&lt;id name=&quot;Hash&quot; column=&quot;hash_id&quot; type=&quot;String&quot;&gt;<br />
-&lt;generator class=&quot;assigned&quot;/&gt;<br />
-&lt;/id&gt;
-</p>
-<p>
-[/code]
-</p>
-<p>
+```xml
+<id name="Hash" column="hash_id" type="String">
+<generator class="assigned"/>
+</id>
+```
+
 Second, I use _session.SaveOrUpdate(o). SaveOrUpdate() tries to use the NHibernate baked-in generator assigned in the mapping file (in my case: &quot;assigned&quot;). Since&nbsp;my Hash column is filled by hand, using a source-code algorithm, NHibernate can&#39;t re-assign the identifier column using the generator, resulting in the above error.
 </p>
 <p>
 Solution: do NOT assign identifier columns, NHibernate will do this for you! The hash column was thus removed as an identifier, and a normal identifier column has been added. Resulting in a working piece of code. Here&#39;s the new mapping:
-</p>
-<p>
-[code:xml]
-</p>
-<p>
-&lt;id name=&quot;Id&quot; column=&quot;id&quot; type=&quot;Guid&quot;&gt;<br />
-&lt;generator class=&quot;guid&quot;/&gt;<br />
-&lt;/id&gt;<br />
-&lt;property column=&quot;hash_id&quot; type=&quot;String&quot; name=&quot;Hash&quot; not-null=&quot;true&quot; length=&quot;50&quot; /&gt;
-</p>
-<p>
-[/code]
-</p>
-
-
+```xml
+<id name="Id" column="id" type="Guid">
+<generator class="guid"/>
+</id>
+<property column="hash_id" type="String" name="Hash" not-null="true" length="50" />
+```
 
 

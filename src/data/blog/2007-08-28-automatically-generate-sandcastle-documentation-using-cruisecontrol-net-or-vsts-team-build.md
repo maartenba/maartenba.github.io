@@ -61,49 +61,42 @@ If you are using ccnet as your build server, the following steps are required to
 </p>
 <p>
 Locate your ccnet.config file, and add a new project:
-</p>
-<p>
-[code:xml]
-</p>
-<p>
-&lt;cruisecontrol&gt;<br />
-&nbsp; &lt;project name=&quot;SandCastle_Documentation&quot;&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;workingDirectory&gt;C:\SandCastle_Documentation\&lt;/workingDirectory&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;artifactDirectory&gt;C:\SandCastle_Documentation\Generated\&lt;/artifactDirectory&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;modificationDelaySeconds&gt;0&lt;/modificationDelaySeconds&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;sourcecontrol&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- ... Fetch Documentation.shfb here! ... --&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/sourcecontrol&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;triggers&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;scheduleTrigger time=&quot;21:00&quot; buildCondition=&quot;ForceBuild&quot;&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;weekDays&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;weekDay&gt;Sunday&lt;/weekDay&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/weekDays&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/scheduleTrigger&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/triggers&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;tasks&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;exec&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;executable&gt;C:\Program Files\EWSoftware\Sandcastle Help File Builder\SandcastleBuilderConsole.exe&lt;/executable&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;baseDirectory&gt;C:\SandCastle_Documentation\&lt;/baseDirectory&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;buildArgs&gt;&quot;C:\SandCastle_Documentation\Documentation.shfb&quot;&lt;/buildArgs&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;buildTimeoutSeconds&gt;10800&lt;/buildTimeoutSeconds&gt; &lt;!-- 3 hours --&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/exec&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;exec&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;executable&gt;xcopy&lt;/executable&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;buildArgs&gt;&quot;C:\SandCastle_Documentation\Generated&quot; &quot;C:\Inetpub\wwwroot\SandCastle_Documentation&quot; /E /Q /H /R /Y&lt;/buildArgs&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;buildTimeoutSeconds&gt;3600&lt;/buildTimeoutSeconds&gt; &lt;!-- 1 hour --&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/exec&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/tasks&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;publishers&gt;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xmllogger logDir=&quot;c:\Program Files\CruiseControl.NET\Log&quot; /&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/publishers&gt;<br />
-&nbsp; &lt;/project&gt;<br />
-&lt;/cruisecontrol&gt;
-</p>
-<p>
-[/code]
-</p>
-<p>
+```xml
+<cruisecontrol>
+  <project name="SandCastle_Documentation">
+    <workingDirectory>C:\SandCastle_Documentation\</workingDirectory>
+    <artifactDirectory>C:\SandCastle_Documentation\Generated\</artifactDirectory>
+    <modificationDelaySeconds>0</modificationDelaySeconds>
+    <sourcecontrol>
+      <!-- ... Fetch Documentation.shfb here! ... -->
+    </sourcecontrol>
+    <triggers>
+      <scheduleTrigger time="21:00" buildCondition="ForceBuild">
+        <weekDays>
+          <weekDay>Sunday</weekDay>
+        </weekDays>
+      </scheduleTrigger>
+    </triggers>
+    <tasks>
+      <exec>
+        <executable>C:\Program Files\EWSoftware\Sandcastle Help File Builder\SandcastleBuilderConsole.exe</executable>
+        <baseDirectory>C:\SandCastle_Documentation\</baseDirectory>
+        <buildArgs>"C:\SandCastle_Documentation\Documentation.shfb"</buildArgs>
+        <buildTimeoutSeconds>10800</buildTimeoutSeconds> <!-- 3 hours -->
+      </exec>
+      <exec>
+        <executable>xcopy</executable>
+        <buildArgs>"C:\SandCastle_Documentation\Generated" "C:\Inetpub\wwwroot\SandCastle_Documentation" /E /Q /H /R /Y</buildArgs>
+        <buildTimeoutSeconds>3600</buildTimeoutSeconds> <!-- 1 hour -->
+      </exec>
+    </tasks>
+    <publishers>
+      <xmllogger logDir="c:\Program Files\CruiseControl.NET\Log" />
+    </publishers>
+  </project>
+</cruisecontrol>
+```
+
 There are two notheworthy steps here, located inside the <em>&lt;tasks&gt;</em> element. The first task you see there is used to call the SHFB command line tool and instruct it to generate documentation. Now since I want to create a MSDN-style documentation website, I added a second step, copying the deliverables to a folder in my wwwroot. For both steps, make sure you extend the default <em>&lt;buildTimeoutSeconds&gt;</em>! Over here, the thing takes a hour and a half to complete both steps, you see I have configured a larger amount of time there...
 </p>
 <p>
@@ -115,20 +108,13 @@ If you are using VSTS Team Build as your build server, the following steps are r
 </p>
 <p>
 Locate your TFSbuild.proj file, check it out, and add a build target at the end of the file:
-</p>
-<p>
-[code:xml]
-</p>
-<p>
-&lt;Target Name=&quot;AfterCompile&quot;&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;Exec Command=&quot;&amp;quot;C:\Program Files\EWSoftware\Sandcastle Help File Builder\SandcastleBuilderConsole.exe&amp;quot; &amp;quot;C:\SandCastle_Documentation\Documentation.shfb&amp;quot;&quot; /&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;Exec Command=&quot;xcopy &amp;quot;C:\SandCastle_Documentation\Generated&amp;quot; &amp;quot;C:\Inetpub\wwwroot\SandCastle_Documentation&amp;quot;&nbsp; /E /Q /H /R /Y&quot; /&gt;<br />
-&lt;/Target&gt;
-</p>
-<p>
-[/code]
-</p>
-<p>
+```xml
+<Target Name="AfterCompile">
+    <Exec Command="&quot;C:\Program Files\EWSoftware\Sandcastle Help File Builder\SandcastleBuilderConsole.exe&quot; &quot;C:\SandCastle_Documentation\Documentation.shfb&quot;" />
+    <Exec Command="xcopy &quot;C:\SandCastle_Documentation\Generated&quot; &quot;C:\Inetpub\wwwroot\SandCastle_Documentation&quot;  /E /Q /H /R /Y" />
+</Target>
+```
+
 There is one notheworthy step here: the first target task you see is used to call the SHFB command
 line tool and instruct it to generate documentation. Now since I want
 to create a MSDN-style documentation website, I added a second task,
@@ -137,7 +123,5 @@ copying the deliverables to a folder in my wwwroot.
 <p>
 Check-in the build file, and build the solution! SandCastle documentation will now be integrated in your build process.
 </p>
-
-
 
 

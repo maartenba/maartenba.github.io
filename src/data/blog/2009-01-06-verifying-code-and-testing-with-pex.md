@@ -28,32 +28,23 @@ First of all, download the academic release of Pex at <a href="http://research.m
 </p>
 <p>
 What we will do next is analyzing a piece of code in a fictive library of string extension methods. The following method is intended to mimic VB6&rsquo;s <em>Left</em> method. 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-/// &lt;summary&gt; <br />
-/// Return leftmost characters from string for a certain length <br />
-/// &lt;/summary&gt; <br />
-/// &lt;param name=&quot;current&quot;&gt;Current string&lt;/param&gt; <br />
-/// &lt;param name=&quot;length&quot;&gt;Length to take&lt;/param&gt; <br />
-/// &lt;returns&gt;Leftmost characters from string&lt;/returns&gt; <br />
-public static string Left(this string current, int length) <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; if (length &lt; 0) <br />
-&nbsp;&nbsp;&nbsp; { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new ArgumentOutOfRangeException(&quot;length&quot;, &quot;Length should be &gt;= 0&quot;); <br />
-&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; return current.Substring(0, length); <br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+/// <summary>
+/// Return leftmost characters from string for a certain length
+/// </summary>
+/// <param name="current">Current string</param>
+/// <param name="length">Length to take</param>
+/// <returns>Leftmost characters from string</returns>
+public static string Left(this string current, int length)
+{
+    if (length < 0)
+    {
+        throw new ArgumentOutOfRangeException("length", "Length should be >= 0");
+    }
+    return current.Substring(0, length);
+}
+```
+
 Great coding! I even throw an <em>ArgumentOutOfRangeException</em> if I receive a faulty length parameter. 
 </p>
 <h2>Pexify this!</h2>
@@ -83,34 +74,25 @@ When I right-click the first failing exploration, I can choose from some menu op
 </p>
 <p>
 Nice! It actually avoids the uncaught exception and provides the user of my code with a new <em>ArgumentException</em> thrown at the right location and with the right reason. After doing this for both failing explorations, my code looks like this: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-/// &lt;summary&gt; <br />
-/// Return leftmost characters from string for a certain length <br />
-/// &lt;/summary&gt; <br />
-/// &lt;param name=&quot;current&quot;&gt;Current string&lt;/param&gt; <br />
-/// &lt;param name=&quot;length&quot;&gt;Length to take&lt;/param&gt; <br />
-/// &lt;returns&gt;Leftmost characters from string&lt;/returns&gt; <br />
-public static string Left(this string current, int length) <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; // &lt;pex&gt; <br />
-&nbsp;&nbsp;&nbsp; if (current == (string)null) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new ArgumentNullException(&quot;current&quot;); <br />
-&nbsp;&nbsp;&nbsp; if (length &lt; 0 || current.Length &lt; length) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new ArgumentException(&quot;length &lt; 0 || current.Length &lt; length&quot;); <br />
-&nbsp;&nbsp;&nbsp; // &lt;/pex&gt;
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; return current.Substring(0, length); <br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+/// <summary>
+/// Return leftmost characters from string for a certain length
+/// </summary>
+/// <param name="current">Current string</param>
+/// <param name="length">Length to take</param>
+/// <returns>Leftmost characters from string</returns>
+public static string Left(this string current, int length)
+{
+    // <pex>
+    if (current == (string)null)
+        throw new ArgumentNullException("current");
+    if (length < 0 || current.Length < length)
+        throw new ArgumentException("length < 0 || current.Length < length");
+    // </pex>
+    return current.Substring(0, length);
+}
+```
+
 Great! This should work for any input now, returning a clear exception message when someone does provide faulty parameters. 
 </p>
 <p>
@@ -123,7 +105,5 @@ More information on Pex can be found on <a href="http://research.microsoft.com/e
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2009/01/07/Verifying-code-and-testing-with-Pex.aspx&amp;title=Verifying code and testing with Pex"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/01/07/Verifying-code-and-testing-with-Pex.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
-
-
 
 

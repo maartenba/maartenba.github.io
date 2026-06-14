@@ -32,27 +32,18 @@ in order to register the postback or callback data for validation.&quot;
 </pre>
 <p>
 There are some options to overcome this&hellip; One is to add a EnableEventValidation=&quot;false&quot; in your @Page directive, another is to globally disable this in your Web.config (don&rsquo;t!). The best solution, however, is telling ASP.NET to allow events from your user control&rsquo;s inner controls, by adding the following snippet of code in the user control:
-</p>
-<p>
-[code:c#]
-</p>
-<p>
-protected override void Render(HtmlTextWriter writer)<br />
-{<br />
-&nbsp;&nbsp;&nbsp; // Register controls for event validation<br />
-&nbsp;&nbsp;&nbsp; foreach (Control c in this.Controls)<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Page.ClientScript.RegisterForEventValidation(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c.UniqueID.ToString()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br />
-&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; base.Render(writer);<br />
+```csharp
+protected override void Render(HtmlTextWriter writer)
+{
+    // Register controls for event validation
+    foreach (Control c in this.Controls)
+    {
+        this.Page.ClientScript.RegisterForEventValidation(
+                c.UniqueID.ToString()
+        );
+    }
+    base.Render(writer);
 }
-</p>
-<p>
-[/code] 
-</p>
-
-
+```
 
 

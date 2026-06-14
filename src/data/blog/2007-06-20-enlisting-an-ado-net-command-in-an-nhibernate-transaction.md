@@ -21,30 +21,17 @@ This can also be done using NHibernate, by fetching an IList&lt;User&gt; from yo
 </p>
 <p>
 Luckily, I saw a <a href="http://lostechies.com/blogs/joshua_lockwood/archive/2007/04/10/how-to-enlist-ado-commands-into-an-nhibernate-transaction.aspx" target="_blank">blog post on this</a> by jlockwood. He simply tells to enlist a regular SQL statement in a NHibernate transaction, and you&#39;re ready to go. His code isn&#39;t provider-independent, so here&#39;s an improved version:
-</p>
-<p>
-[code:c#]
-</p>
-<p>
-ISession session = sessionFactory.GetSession();<br />
-<br />
-using(ITransaction transaction = session.BeginTransaction())<br />
-{<br />
-&nbsp;&nbsp; &nbsp;IDbCommand command = session.Connection.CreateCommand();<br />
-&nbsp;&nbsp; &nbsp;command.Connection = session.Connection;<br />
-<br />
-&nbsp;&nbsp; &nbsp;transaction.Enlist(command);<br />
-<br />
-&nbsp;&nbsp; &nbsp;command.CommandText = &quot;delete from User where activationdate &lt; &#39;2000-01-01&#39;&quot;;<br />
-&nbsp;&nbsp; &nbsp;command.ExecuteNonQuery();<br />
-<br />
-&nbsp;&nbsp; &nbsp;transaction.Commit();<br />
+```csharp
+ISession session = sessionFactory.GetSession();
+using(ITransaction transaction = session.BeginTransaction())
+{
+    IDbCommand command = session.Connection.CreateCommand();
+    command.Connection = session.Connection;
+    transaction.Enlist(command);
+    command.CommandText = "delete from User where activationdate < '2000-01-01'";
+    command.ExecuteNonQuery();
+    transaction.Commit();
 }
-</p>
-<p>
-[/code]
-</p>
-
-
+```
 
 

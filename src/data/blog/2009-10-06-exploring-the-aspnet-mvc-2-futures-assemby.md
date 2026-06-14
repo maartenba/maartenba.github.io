@@ -16,10 +16,27 @@ redirect_from:
 <p><em>Quick note: the &ldquo;piece de resistance&rdquo; is near the end of this post. Also make sure to post your thoughts on this &ldquo;piece&rdquo;.</em></p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx&amp;title=Exploring the ASP.NET MVC 2 futures assemby"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 <h2>Controls</h2>
-<p>There&rsquo;s not much that has changed here since my previous <a href="/post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx" target="_blank">blog post on the MVC futures</a>. Want to use a lightweight TextBox or Repeater control? Feel free to do so:</p>
-<p>[code:c#]</p>
-<p>&lt;p&gt; <br />&nbsp;&nbsp;&nbsp; TextBox: &lt;mvc:TextBox Name="someTextBox" runat="server" /&gt;&lt;br /&gt; <br />&nbsp;&nbsp;&nbsp; Password: &lt;mvc:Password Name="somePassword" runat="server" /&gt; <br />&lt;/p&gt; <br />&lt;p&gt; <br />&nbsp;&nbsp;&nbsp; Repeater: <br />&nbsp;&nbsp;&nbsp; &lt;ul&gt; <br />&nbsp;&nbsp;&nbsp; &lt;mvc:Repeater Name="someData" runat="server"&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;EmptyDataTemplate&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;No data is available.&lt;/li&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/EmptyDataTemplate&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ItemTemplate&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;%# Eval("Name") %&gt;&lt;/li&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ItemTemplate&gt; <br />&nbsp;&nbsp;&nbsp; &lt;/mvc:Repeater&gt; <br />&nbsp;&nbsp;&nbsp; &lt;/ul&gt; <br />&lt;/p&gt;</p>
-<p>[/code]</p>
+<p>There&rsquo;s not much that has changed here since my previous <a href="/post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx" target="_blank">blog post on the MVC futures</a>. Want to use a lightweight TextBox or Repeater control? Feel free to do so:
+
+```csharp
+<p>
+    TextBox: <mvc:TextBox Name="someTextBox" runat="server" /><br />
+    Password: <mvc:Password Name="somePassword" runat="server" />
+</p>
+<p>
+    Repeater:
+    <ul>
+    <mvc:Repeater Name="someData" runat="server">
+        <EmptyDataTemplate>
+            <li>No data is available.</li>
+        </EmptyDataTemplate>
+        <ItemTemplate>
+            <li><%# Eval("Name") %></li>
+        </ItemTemplate>
+    </mvc:Repeater>
+    </ul>
+```
+
 <h2>Asynchronous controllers</h2>
 <p>Yes, I also <a href="/post/2009/04/08/using-the-aspnet-mvc-futures-asynccontroller.aspx" target="_blank">blogged about these before</a>. Basically, asynchronous controllers allow you to overcome the fact that processing-intensive action methods may consume all of your web server&rsquo;s worker threads, making your webserver a slow piece of software while it is on top-notch hardware.</p>
 <p>When using asynchronous controllers, the web server schedules a worker thread to handle an incoming request. This worker thread will start a new thread and call the action method on there. The worker thread is now immediately available to handle a new incoming request again.</p>
@@ -38,17 +55,43 @@ redirect_from:
 <h2>ViewState!</h2>
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 5px 5px 0px; display: inline; border-top: 0px; border-right: 0px" title="ViewState gone evil!" src="/images/image_15.png" border="0" alt="ViewState gone evil!" width="145" height="99" align="left" /> Got you there, right? The ASP.NET MVC team has been screaming in every presentation they gave in the past year that there was no such thing as ViewState in ASP.NE MVC. Well, there is now&hellip; And maybe, i will be part of the future MVC 2 release as well. Let&rsquo;s first have a look at it and afterwards discuss this all&hellip;</p>
 <p>On every view, a new <em>HtmlHelper</em> extension method named &ldquo;Serialize&rdquo; is present. This one can be used to create a hidden field inside a HTML form, containing a serialized version of an object. The extension method also allows you to pass a parameter specifying how the object should be serialized. The default option, <em>SerializationMode.PlainText</em>, simply serializes the object to a string and puts it inside of a hidden field. When using <em>SerializationMode.Encrypted </em>and/or <em>SerializationMode.Signed</em>, you are really using ASP.NET Webforms ViewState under the covers.</p>
-<p>The call in your view source code is easy:</p>
-<p>[code:c#]</p>
-<p>&lt;% using (Html.BeginForm()) {&gt; <br />&nbsp;&nbsp;&nbsp; &lt;%Html.Serialize("person", Model); %&gt; <br />&nbsp;&nbsp;&nbsp; &lt;fieldset&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;legend&gt;Edit person&lt;/legend&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;%=Html.DisplayFor(p =&gt; Model.FirstName)%&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/p&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;%=Html.DisplayFor(p =&gt; Model.LastName)%&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/p&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label for="Email"&gt;Email:&lt;/label&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;%= Html.TextBox("Email", Model.Email) %&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;%= Html.ValidationMessage("Email", "*") %&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/p&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input type="submit" value="Save" /&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/p&gt; <br />&nbsp;&nbsp;&nbsp; &lt;/fieldset&gt; <br />&lt;% } %&gt;</p>
-<p>[/code]</p>
-<p>When posting this form back to a controller action, a new <em>ModelBinder</em> can be used: The <em>DeserializeAttribute</em> can be placed next to an action method parameter:</p>
-<p>[code:c#]</p>
-<p>[HttpPost] <br />public ActionResult Edit([Deserialize]Person person, string Email) <br />{ <br />&nbsp;&nbsp;&nbsp; // ... <br />}</p>
-<p>[/code]</p>
+<p>The call in your view source code is easy:
+
+```csharp
+<% using (Html.BeginForm()) {>
+    <%Html.Serialize("person", Model); %>
+    <fieldset>
+        <legend>Edit person</legend>
+        <p>
+            <%=Html.DisplayFor(p => Model.FirstName)%>
+        </p>
+        <p>
+            <%=Html.DisplayFor(p => Model.LastName)%>
+        </p>
+        <p>
+            <label for="Email">Email:</label>
+            <%= Html.TextBox("Email", Model.Email) %>
+            <%= Html.ValidationMessage("Email", "*") %>
+        </p>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+<% } %>
+```
+
+<p>When posting this form back to a controller action, a new <em>ModelBinder</em> can be used: The <em>DeserializeAttribute</em> can be placed next to an action method parameter:
+
+```csharp
+[HttpPost]
+public ActionResult Edit([Deserialize]Person person, string Email)
+{
+    // ...
+}
+```
+
 <p>There you go: <em>Person</em> is the same object as the one you serialized in your view. Combine this with the <em>RenderAction</em> feature (yes, check my previous <a href="/post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx" target="_blank">blog post on the MVC futures</a>), and you have a powerful model for creating something like controls, which still follows the model-view-controller pattern mostly.</p>
 <p>Now release the hounds: I think this new &ldquo;ViewState&rdquo; feature is cool. There are definitely situations where you may want to use this, but&hellip; Will it be a best practice to use this? What is your opinion on this?</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx&amp;title=Exploring the ASP.NET MVC 2 futures assemby"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
-
 
 

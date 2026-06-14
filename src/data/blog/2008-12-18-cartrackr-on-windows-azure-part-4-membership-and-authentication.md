@@ -36,313 +36,216 @@ The solution I&#39;ll be using in CarTrackr is <a href="http://dev.live.com/live
 <h2>Adding Live ID to CarTrackr</h2>
 <p>
 First of all, add the <a href="http://www.codeplex.com/MvcMembership/SourceControl/changeset/view/11559" target="_blank">WindowsLiveLogin.cs</a> class from the MVC Membership Starter Kit. Also ,ake sure it can configure itself by adding the Live ID settings in web.config: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-&lt;appSettings&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;!-- See: http://msdn2.microsoft.com/en-us/library/bb676633.aspx and https://msm.live.com/app/default.aspx --&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;add key=&quot;wll_appid&quot; value=&quot;001600008000AF26&quot;/&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;add key=&quot;wll_secret&quot; value=&quot;mvcmembershipstarterkit&quot;/&gt; <br />
-&nbsp;&nbsp;&nbsp; &lt;add key=&quot;wll_securityalgorithm&quot; value=&quot;wsignin1.0&quot;/&gt;<br />
-&lt;/appSettings&gt; 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+<appSettings>
+    <!-- See: http://msdn2.microsoft.com/en-us/library/bb676633.aspx and https://msm.live.com/app/default.aspx -->
+    <add key="wll_appid" value="001600008000AF26"/>
+    <add key="wll_secret" value="mvcmembershipstarterkit"/>
+    <add key="wll_securityalgorithm" value="wsignin1.0"/>
+</appSettings>
+```
+
 Now, I always like removing code. Actually, a lot of methods can be removed from the <em>AuthenticationController</em> due to the fact that Live ID will take care of lost password e-mails and stuff like that. After these stripping actions, my <em>AccountController</em> looks like the following: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-using System;<br />
-using System.Collections.Generic;<br />
-using System.Globalization;<br />
-using System.Linq;<br />
-using System.Security.Principal;<br />
-using System.Web;<br />
-using System.Web.Mvc;<br />
-using System.Web.Security;<br />
-using System.Web.UI;<br />
-using CarTrackr.Core;<br />
-using CarTrackr.Repository;<br />
-using CarTrackr.Models;<br />
-using CarTrackr.Filters; 
-</p>
-<p>
-namespace CarTrackr.Controllers<br />
-{ 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; [HandleError]<br />
-&nbsp;&nbsp;&nbsp; [OutputCache(Location = OutputCacheLocation.None)]<br />
-&nbsp;&nbsp;&nbsp; [LiveLogin]<br />
-&nbsp;&nbsp;&nbsp; public class AccountController : Controller<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private IUserRepository UserRepository; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public AccountController()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : this(null, null)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public AccountController(IFormsAuthentication formsAuth, IUserRepository userRepository)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FormsAuth = formsAuth ?? new FormsAuthenticationWrapper();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UserRepository = userRepository;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public IFormsAuthentication FormsAuth<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private set;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Authorize]<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public ActionResult Index()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction(&quot;Login&quot;);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public ActionResult Login()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return View(&quot;Login&quot;);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public ActionResult Logout()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FormsAuth.SignOut(); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Windows Live ID logout...<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpCookie loginCookie = new HttpCookie( &quot;webauthtoken&quot; );<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginCookie.Expires = DateTime.Now.AddYears( -10 );<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Response.Cookies.Add( loginCookie ); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction(&quot;Index&quot;, &quot;Home&quot;);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected override void OnActionExecuting(ActionExecutingContext filterContext)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (filterContext.HttpContext.User.Identity is WindowsIdentity)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new InvalidOperationException(&quot;Windows authentication is not supported.&quot;);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #region Live ID 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public ActionResult WindowsLiveAuthenticate()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // initialize the WindowsLiveLogin module.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WindowsLiveLogin wll = new WindowsLiveLogin(true); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // communication channels<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpRequestBase request = this.HttpContext.Request;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpResponseBase response = this.HttpContext.Response; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // extract the &#39;action&#39; parameter from the request, if any.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string action = request[&quot;action&quot;] ?? &quot;&quot;; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If action is &#39;logout&#39;, clear the login cookie and redirect<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to the logout page. 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If action is &#39;clearcookie&#39;, clear the login cookie and<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return a GIF as response to signify success. 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; By default, try to process a login. If login was<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; successful, cache the user token in a cookie and redirect<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to the site&#39;s main page.&nbsp; If login failed, clear the cookie<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and redirect to the main page.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (action == &quot;logout&quot;)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction(&quot;Logout&quot;);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (action == &quot;clearcookie&quot;)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpCookie loginCookie = new HttpCookie(&quot;webauthtoken&quot;);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginCookie.Expires = DateTime.Now.AddYears(-10);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.Cookies.Add(loginCookie); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string type;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; byte[] content;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wll.GetClearCookieResponse(out type, out content);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.ContentType = type;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.BinaryWrite(content);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.End();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return new EmptyResult(); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WindowsLiveLogin.User wllUser = wll.ProcessLogin(request.Form); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpCookie loginCookie = new HttpCookie(&quot;webauthtoken&quot;);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (wllUser != null)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginCookie.Value = wllUser.Token; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (wllUser.UsePersistentCookie)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginCookie.Expires = DateTime.Now.AddYears(10);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginCookie.Expires = DateTime.Now.AddYears(-10);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // check for user in repository<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CarTrackr.Domain.User user = UserRepository.RetrieveByUserName(wllUser.Id);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (user == null)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user = new CarTrackr.Domain.User();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.UserName = wllUser.Id;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UserRepository.Add(user);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // log user in<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.Cookies.Add(loginCookie);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FormsAuthentication.SetAuthCookie(user.UserName, false); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return RedirectToAction(&quot;Login&quot;);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #endregion<br />
-&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; // The FormsAuthentication type is sealed and contains static members, so it is difficult to<br />
-&nbsp;&nbsp;&nbsp; // unit test code that calls its members. The interface and helper class below demonstrate<br />
-&nbsp;&nbsp;&nbsp; // how to create an abstract wrapper around such a type in order to make the AccountController<br />
-&nbsp;&nbsp;&nbsp; // code unit testable. 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; public interface IFormsAuthentication<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void SetAuthCookie(string userName, bool createPersistentCookie);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void SignOut();<br />
-&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp; public class FormsAuthenticationWrapper : IFormsAuthentication<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void SetAuthCookie(string userName, bool createPersistentCookie)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void SignOut()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FormsAuthentication.SignOut();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; }<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Security.Principal;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+using System.Web.UI;
+using CarTrackr.Core;
+using CarTrackr.Repository;
+using CarTrackr.Models;
+using CarTrackr.Filters;
+namespace CarTrackr.Controllers
+{
+    [HandleError]
+    [OutputCache(Location = OutputCacheLocation.None)]
+    [LiveLogin]
+    public class AccountController : Controller
+    {
+        private IUserRepository UserRepository;
+        public AccountController()
+            : this(null, null)
+        {
+        }
+        public AccountController(IFormsAuthentication formsAuth, IUserRepository userRepository)
+        {
+            FormsAuth = formsAuth ?? new FormsAuthenticationWrapper();
+            UserRepository = userRepository;
+        }
+        public IFormsAuthentication FormsAuth
+        {
+            get;
+            private set;
+        }
+        [Authorize]
+        public ActionResult Index()
+        {
+            return RedirectToAction("Login");
+        }
+        public ActionResult Login()
+        {
+            return View("Login");
+        }
+        public ActionResult Logout()
+        {
+            FormsAuth.SignOut();
+            // Windows Live ID logout...
+            HttpCookie loginCookie = new HttpCookie( "webauthtoken" );
+            loginCookie.Expires = DateTime.Now.AddYears( -10 );
+            Response.Cookies.Add( loginCookie );
+            return RedirectToAction("Index", "Home");
+        }
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            if (filterContext.HttpContext.User.Identity is WindowsIdentity)
+            {
+                throw new InvalidOperationException("Windows authentication is not supported.");
+            }
+        }
+        #region Live ID
+        public ActionResult WindowsLiveAuthenticate()
+        {
+            // initialize the WindowsLiveLogin module.
+            WindowsLiveLogin wll = new WindowsLiveLogin(true);
+            // communication channels
+            HttpRequestBase request = this.HttpContext.Request;
+            HttpResponseBase response = this.HttpContext.Response;
+            // extract the 'action' parameter from the request, if any.
+            string action = request["action"] ?? "";
+            /*
+              If action is 'logout', clear the login cookie and redirect
+              to the logout page.
+              If action is 'clearcookie', clear the login cookie and
+              return a GIF as response to signify success.
+              By default, try to process a login. If login was
+              successful, cache the user token in a cookie and redirect
+              to the site's main page.  If login failed, clear the cookie
+              and redirect to the main page.
+            */
+            if (action == "logout")
+            {
+                return RedirectToAction("Logout");
+            }
+            else if (action == "clearcookie")
+            {
+                HttpCookie loginCookie = new HttpCookie("webauthtoken");
+                loginCookie.Expires = DateTime.Now.AddYears(-10);
+                response.Cookies.Add(loginCookie);
+                string type;
+                byte[] content;
+                wll.GetClearCookieResponse(out type, out content);
+                response.ContentType = type;
+                response.BinaryWrite(content);
+                response.End();
+                return new EmptyResult();
+            }
+            else
+            {
+                WindowsLiveLogin.User wllUser = wll.ProcessLogin(request.Form);
+                HttpCookie loginCookie = new HttpCookie("webauthtoken");
+                if (wllUser != null)
+                {
+                    loginCookie.Value = wllUser.Token;
+                    if (wllUser.UsePersistentCookie)
+                    {
+                        loginCookie.Expires = DateTime.Now.AddYears(10);
+                    }
+                }
+                else
+                {
+                    loginCookie.Expires = DateTime.Now.AddYears(-10);
+                }
+                // check for user in repository
+                CarTrackr.Domain.User user = UserRepository.RetrieveByUserName(wllUser.Id);
+                if (user == null)
+                {
+                    user = new CarTrackr.Domain.User();
+                    user.UserName = wllUser.Id;
+                    UserRepository.Add(user);
+                }
+                // log user in
+                response.Cookies.Add(loginCookie);
+                FormsAuthentication.SetAuthCookie(user.UserName, false);
+                return RedirectToAction("Login");
+            }
+        }
+        #endregion
+    }
+    // The FormsAuthentication type is sealed and contains static members, so it is difficult to
+    // unit test code that calls its members. The interface and helper class below demonstrate
+    // how to create an abstract wrapper around such a type in order to make the AccountController
+    // code unit testable.
+    public interface IFormsAuthentication
+    {
+        void SetAuthCookie(string userName, bool createPersistentCookie);
+        void SignOut();
+    }
+    public class FormsAuthenticationWrapper : IFormsAuthentication
+    {
+        public void SetAuthCookie(string userName, bool createPersistentCookie)
+        {
+            FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);
+        }
+        public void SignOut()
+        {
+            FormsAuthentication.SignOut();
+        }
+    }
+}
+```
+
 Yes, that&#39;s almost no code left compared to the original! Remember, Live ID will take care of all user-account-related stuff for me. The only thing I&#39;m doing here is accepting the authentication ticket Live ID provides to CarTrackr. Yes, I&#39;m actually registering the user on my cloud storage too, because I want to track how much users actually use CarTrackr... 
 </p>
 <p>
 One thing to notice: I&#39;ve created an action filter attribute (hence the [LiveLogin] attribute on the <em>AccountController</em> class). The <em>LiveLogin</em> action filter looks like the following: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-using System;<br />
-using System.Collections.Generic;<br />
-using System.Linq;<br />
-using System.Web;<br />
-using System.Web.Mvc;<br />
-using CarTrackr.Core;<br />
-using CarTrackr.Models; 
-</p>
-<p>
-namespace CarTrackr.Filters<br />
-{<br />
-&nbsp;&nbsp;&nbsp; public class LiveLogin : ActionFilterAttribute<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void OnResultExecuting(ResultExecutingContext filterContext)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WindowsLiveLogin wll = new WindowsLiveLogin(true); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SignInViewData viewData = new SignInViewData<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AppId = wll.AppId,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UserId = GetUserId(wll, filterContext.HttpContext.Request)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filterContext.Controller.ViewData[&quot;WindowsLiveLogin&quot;] = viewData;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static string GetUserId(WindowsLiveLogin wll, HttpRequestBase request)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HttpCookie loginCookie = request.Cookies[&quot;webauthtoken&quot;]; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (loginCookie != null)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string token = loginCookie.Value; 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!string.IsNullOrEmpty(token))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WindowsLiveLogin.User user = wll.ProcessToken(token); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (user != null)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return user.Id;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return null;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; }<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CarTrackr.Core;
+using CarTrackr.Models;
+namespace CarTrackr.Filters
+{
+    public class LiveLogin : ActionFilterAttribute
+    {
+        public override void OnResultExecuting(ResultExecutingContext filterContext)
+        {
+            WindowsLiveLogin wll = new WindowsLiveLogin(true);
+            SignInViewData viewData = new SignInViewData
+            {
+                AppId = wll.AppId,
+                UserId = GetUserId(wll, filterContext.HttpContext.Request)
+            };
+            filterContext.Controller.ViewData["WindowsLiveLogin"] = viewData;
+        }
+        public static string GetUserId(WindowsLiveLogin wll, HttpRequestBase request)
+        {
+            HttpCookie loginCookie = request.Cookies["webauthtoken"];
+            if (loginCookie != null)
+            {
+                string token = loginCookie.Value;
+                if (!string.IsNullOrEmpty(token))
+                {
+                    WindowsLiveLogin.User user = wll.ProcessToken(token);
+                    if (user != null)
+                    {
+                        return user.Id;
+                    }
+                }
+            }
+            return null;
+        }
+    }
+}
+```
+
 What hapens in this code is actually checking for the Live ID context we are in. This context can be used in any view of CarTrackr since it is stored in the <em>ViewData</em> dictionary by this action filter: ViewData[&quot;WindowsLiveLogin&quot;]. This context is used by a simple <em>LiveIdControl</em> (code in download later on) to render the Live ID sign in / sign out link. 
 </p>
 <h2>Reminder for deployment...</h2>
@@ -362,7 +265,5 @@ Stay tuned for the final part: deployment on Azure! I&#39;ll also provide a down
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/11/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx&amp;title=CarTrackr on Windows Azure - Part 4 - Membership and authentication"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/11/CarTrackr-on-Windows-Azure-Part-4-Membership-and-authentication.aspx.html" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
-
-
 
 

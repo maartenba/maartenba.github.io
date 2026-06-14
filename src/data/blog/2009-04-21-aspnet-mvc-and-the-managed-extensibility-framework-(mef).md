@@ -19,10 +19,21 @@ redirect_from:
 <h2>Creating a first plugin</h2>
 <p>Before we build our host application, let&rsquo;s first create a plugin. Create a new class library in Visual Studio, add a reference to the MEF assembly (<em>System.ComponentModel.Composition.dll</em>) and to <em>System.Web.Mvc</em> and <em>System.Web.Abstractions</em>. Next, create the following project structure:</p>
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px auto; display: block; float: none; border-top: 0px; border-right: 0px" title="Sample Plugin Project" src="/images/sample_plugin_project.png" border="0" alt="Sample Plugin Project" width="194" height="116" /></p>
-<p>That is right: a <em>DemoController</em> and a <em>Views</em> folder containing a <em>Demo</em> folder containing <em>Index.aspx</em> view. Looks a bit like a regular ASP.NET MVC application, no? Anyway, the <em>DemoController</em> class looks like this:</p>
-<p>[code:c#]</p>
-<p>[Export(typeof(IController))]<br />[ExportMetadata("controllerName", "Demo")]<br />[PartCreationPolicy(CreationPolicy.NonShared)] <br />public class DemoController : Controller <br />{ <br />&nbsp;&nbsp;&nbsp; public ActionResult Index() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return View("~/Plugins/Views/Demo/Index.aspx"); <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>That is right: a <em>DemoController</em> and a <em>Views</em> folder containing a <em>Demo</em> folder containing <em>Index.aspx</em> view. Looks a bit like a regular ASP.NET MVC application, no? Anyway, the <em>DemoController</em> class looks like this:
+
+```csharp
+[Export(typeof(IController))]
+[ExportMetadata("controllerName", "Demo")]
+[PartCreationPolicy(CreationPolicy.NonShared)]
+public class DemoController : Controller
+{
+    public ActionResult Index()
+    {
+        return View("~/Plugins/Views/Demo/Index.aspx");
+    }
+}
+```
+
 <p>Nothing special, except&hellip; what are those three attributes doing there, <em>Export</em> and <em>PartCreationPolicy</em>? In short:</p>
 <ul>
 <li><em>Export</em> tells the MEF framework that our <em>DemoController</em> class implements the <em>IController</em> contract and can be used when the host application is requesting an <em>IController</em> implementation.</li>
@@ -31,37 +42,101 @@ redirect_from:
 </ul>
 <p>Now we are ready to go to our host application, in which this plugin will be hosted.</p>
 <h2>Creating our host application</h2>
-<p>The ASP.NET MVC application hosting these plugin controllers is a regular ASP.NET MVC application, in which we&rsquo;ll add a reference to the MEF assembly (<em>System.ComponentModel.Composition.dll</em>). Next, edit the <em>Global.asax.cs</em> file and add the following code in <em>Application_Start</em>:</p>
-<p>[code:c#]</p>
-<p>ControllerBuilder.Current.SetControllerFactory( <br />&nbsp;&nbsp;&nbsp; new MefControllerFactory( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins")));</p>
-<p>[/code]</p>
-<p>What we are doing here is telling the ASP.NET MVC framework to create controller instances by using the <em>MefControllerFactory</em> instead of ASP.NET MVC&rsquo;s default <em>DefaultControllerFactory</em>. Remember that everyone&rsquo;s always telling ASP.NET MVC is very extensible, and it is: we are now changing a core component of ASP.NET MVC to use our custom <em>MefControllerFactory</em> class. We&rsquo;re also telling our own <em>MefControllerFactory</em> class to check the &ldquo;Plugins&rdquo; folder in our web application for new plugins. By the way, here&rsquo;s the code for the <em>MefControllerFactory</em>:</p>
-<p>[code:c#]</p>
-<p>public class MefControllerFactory : IControllerFactory <br />{ <br />&nbsp;&nbsp;&nbsp; private string pluginPath; <br />&nbsp;&nbsp;&nbsp; private DirectoryCatalog catalog; <br />&nbsp;&nbsp;&nbsp; private CompositionContainer container;</p>
-<p>&nbsp;&nbsp;&nbsp; private DefaultControllerFactory defaultControllerFactory;</p>
-<p>&nbsp;&nbsp;&nbsp; public MefControllerFactory(string pluginPath) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.pluginPath = pluginPath; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.catalog = new DirectoryCatalog(pluginPath); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.container = new CompositionContainer(catalog);</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.defaultControllerFactory = new DefaultControllerFactory(); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; #region IControllerFactory Members</p>
-<p>&nbsp;&nbsp;&nbsp; public IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IController controller = null;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (controllerName != null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string controllerClassName = controllerName + "Controller"; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Export&lt;IController&gt; export = this.container.GetExports&lt;IController&gt;()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .Where(c =&gt; c.Metadata.ContainsKey("controllerName") <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; c.Metadata["controllerName"].ToString() == controllerName)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .FirstOrDefault();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (export != null) { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; controller = export.GetExportedObject(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (controller == null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return this.defaultControllerFactory.CreateController(requestContext, controllerName); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return controller; <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; public void ReleaseController(IController controller) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IDisposable disposable = controller as IDisposable; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (disposable != null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; disposable.Dispose(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; #endregion <br />}</p>
-<p>[/code]</p>
-<p>Too much? Time for a breakdown. Let&rsquo;s start with the constructor:</p>
-<p>[code:c#]</p>
-<p>public MefControllerFactory(string pluginPath) <br />{ <br />&nbsp;&nbsp;&nbsp; this.pluginPath = pluginPath; <br />&nbsp;&nbsp;&nbsp; this.catalog = new DirectoryCatalog(pluginPath); <br />&nbsp;&nbsp;&nbsp; this.container = new CompositionContainer(catalog);</p>
-<p>&nbsp;&nbsp;&nbsp; this.defaultControllerFactory = new DefaultControllerFactory(); <br />}</p>
-<p>[/code]</p>
+<p>The ASP.NET MVC application hosting these plugin controllers is a regular ASP.NET MVC application, in which we&rsquo;ll add a reference to the MEF assembly (<em>System.ComponentModel.Composition.dll</em>). Next, edit the <em>Global.asax.cs</em> file and add the following code in <em>Application_Start</em>:
+
+```csharp
+ControllerBuilder.Current.SetControllerFactory(
+    new MefControllerFactory(
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins")));
+```
+
+<p>What we are doing here is telling the ASP.NET MVC framework to create controller instances by using the <em>MefControllerFactory</em> instead of ASP.NET MVC&rsquo;s default <em>DefaultControllerFactory</em>. Remember that everyone&rsquo;s always telling ASP.NET MVC is very extensible, and it is: we are now changing a core component of ASP.NET MVC to use our custom <em>MefControllerFactory</em> class. We&rsquo;re also telling our own <em>MefControllerFactory</em> class to check the &ldquo;Plugins&rdquo; folder in our web application for new plugins. By the way, here&rsquo;s the code for the <em>MefControllerFactory</em>:
+
+```csharp
+public class MefControllerFactory : IControllerFactory
+{
+    private string pluginPath;
+    private DirectoryCatalog catalog;
+    private CompositionContainer container;
+    private DefaultControllerFactory defaultControllerFactory;
+    public MefControllerFactory(string pluginPath)
+    {
+        this.pluginPath = pluginPath;
+        this.catalog = new DirectoryCatalog(pluginPath);
+        this.container = new CompositionContainer(catalog);
+        this.defaultControllerFactory = new DefaultControllerFactory();
+    }
+    #region IControllerFactory Members
+    public IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
+    {
+        IController controller = null;
+        if (controllerName != null)
+        {
+            string controllerClassName = controllerName + "Controller";
+            Export<IController> export = this.container.GetExports<IController>()
+                                             .Where(c => c.Metadata.ContainsKey("controllerName")
+                                                 && c.Metadata["controllerName"].ToString() == controllerName)
+                                             .FirstOrDefault();
+            if (export != null) {
+                controller = export.GetExportedObject();
+            }
+        }
+        if (controller == null)
+        {
+            return this.defaultControllerFactory.CreateController(requestContext, controllerName);
+        }
+        return controller;
+    }
+    public void ReleaseController(IController controller)
+    {
+        IDisposable disposable = controller as IDisposable;
+        if (disposable != null)
+        {
+            disposable.Dispose();
+        }
+    }
+    #endregion
+}
+```
+
+<p>Too much? Time for a breakdown. Let&rsquo;s start with the constructor:
+
+```csharp
+public MefControllerFactory(string pluginPath)
+{
+    this.pluginPath = pluginPath;
+    this.catalog = new DirectoryCatalog(pluginPath);
+    this.container = new CompositionContainer(catalog);
+    this.defaultControllerFactory = new DefaultControllerFactory();
+}
+```
+
 <p>In the constructor, we are storing the path where plugins can be found (the &ldquo;Plugins&rdquo; folder in our web application). Next, we are telling MEF to create a catalog of plugins based on what it can find in that folder using the <em>DirectoryCatalog</em> class. Afterwards, a <em>CompositionContainer</em> is created which will be responsible for matching plugins in our application.</p>
-<p>Next, the <em>CreateController</em> method we need to implement for <em>IControllerFactory</em>:</p>
-<p>[code:c#]</p>
-<p>public IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName) <br />{ <br />&nbsp;&nbsp;&nbsp; IController controller = null;</p>
-<p>&nbsp;&nbsp;&nbsp; if (controllerName != null) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string controllerClassName = controllerName + "Controller";&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Export&lt;IController&gt; export = this.container.GetExports&lt;IController&gt;()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .Where(c =&gt; c.Metadata.ContainsKey("controllerName")&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; c.Metadata["controllerName"].ToString() == controllerName)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .FirstOrDefault();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (export != null) { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; controller = export.GetExportedObject(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; if (controller == null) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return this.defaultControllerFactory.CreateController(requestContext, controllerName); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; return controller; <br />}</p>
-<p>[/code]</p>
+<p>Next, the <em>CreateController</em> method we need to implement for <em>IControllerFactory</em>:
+
+```csharp
+public IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
+{
+    IController controller = null;
+    if (controllerName != null)
+    {
+        string controllerClassName = controllerName + "Controller";
+        Export<IController> export = this.container.GetExports<IController>()
+                                         .Where(c => c.Metadata.ContainsKey("controllerName")
+                                             && c.Metadata["controllerName"].ToString() == controllerName)
+                                         .FirstOrDefault();
+        if (export != null) {
+            controller = export.GetExportedObject();
+        }
+    }
+    if (controller == null)
+    {
+        return this.defaultControllerFactory.CreateController(requestContext, controllerName);
+    }
+    return controller;
+}
+```
+
 <p>This method handles the creation of a controller, based on the current request context and the controller name that is required. What we are doing here is checking MEF&rsquo;s container for all &ldquo;Exports&rdquo; (plugins as you wish) that match the controller name. If one is found, we return that one. If not, we&rsquo;re falling back to ASP.NET MVC&rsquo;s <em>DefaultControllerBuilder</em>.</p>
 <p>The <em>ReleaseController</em> method is not really exciting: it's used by ASP.NET MVC to correctly dispose a controller after use.</p>
 <h2>Running the sample</h2>
@@ -72,6 +147,5 @@ redirect_from:
 <p>The <a href="http://mef.codeplex.com/" target="_blank">MEF (Managed Extensibility Framework)</a> offers a rich manner to dynamically composing applications. Not only does it allow you to create a plugin based on a class, it also allows exporting methods and even properties as a plugin (see the samples in the CodePlex download).</p>
 <p>By the way, sample code can be downloaded here: <a href="/files/2009/4/MvcMefDemo.zip">MvcMefDemo.zip (270.82 kb)</a></p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx&amp;title=ASP.NET MVC and the Managed Extensibility Framework (MEF)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
-
 
 

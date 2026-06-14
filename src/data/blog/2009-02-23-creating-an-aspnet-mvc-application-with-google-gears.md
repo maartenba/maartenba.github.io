@@ -85,43 +85,27 @@ The <a href="http://code.google.com/intl/nl-NL/apis/gears/tutorial.html" target=
 <h3>Autogenerating the manifest.json class</h3>
 <p>
 Let&rsquo;s add a new <em>Controller</em>: the <em>GearsController</em>. We will generate a list of urls to cache in here and disguise it as a <em>manifest.json</em> file. Here&rsquo;s the disguise (to be added in your route table): 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-routes.MapRoute( <br />
-&nbsp;&nbsp;&nbsp; &quot;GearsManifest&quot;, <br />
-&nbsp;&nbsp;&nbsp; &quot;manifest.json&quot;, <br />
-&nbsp;&nbsp;&nbsp; new { controller = &quot;Gears&quot;, action = &quot;Index&quot; } <br />
-); 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+routes.MapRoute(
+    "GearsManifest",
+    "manifest.json",
+    new { controller = "Gears", action = "Index" }
+);
+```
+
 And here&rsquo;s (a real short snippet of) the controller, automatically adding a lot of URL&rsquo;s that I want to be accessible offline. Make sure to download the example code (see further in this post) to view the complete <em>GearsController</em> class. 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-List&lt;object&gt; urls = new List&lt;object&gt;(); <br />
-<br />
-// &hellip; add urls &hellip; <br />
-<br />
-// Create manifest <br />
-return Json(new <br />
-{ <br />
-&nbsp;&nbsp;&nbsp; betaManifestVersion = 1, <br />
-&nbsp;&nbsp;&nbsp; version = &quot;GearsForMvcDemo_0_1_0&quot;, <br />
-&nbsp;&nbsp;&nbsp; entries = urls <br />
-}); 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+List<object> urls = new List<object>();
+// … add urls …
+// Create manifest
+return Json(new
+{
+    betaManifestVersion = 1,
+    version = "GearsForMvcDemo_0_1_0",
+    entries = urls
+});
+```
+
 The goodness of ASP.NET MVC! A manifest is built using JSON, and ASP.NET MVC plays along returning that from an object tree. 
 </p>
 <h3>Going offline&hellip;</h3>
@@ -130,74 +114,59 @@ Next step: going offline! The tutorial I mentioned before contains some example 
 </p>
 <p>
 This <em>demo_offline.js</em> script is built using <a href="http://www.jquery.com" target="_blank">jQuery</a> and Google Gears code. Let&rsquo;s step trough a small part, make sure to download the example code (see further in this post) to view the complete file contents. 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-// Bootstrapper (page load) <br />
-$(function() { <br />
-&nbsp;&nbsp;&nbsp; // Check for Google Gears. If it is not present, <br />
-&nbsp;&nbsp;&nbsp; // remove the &quot;Go offline&quot; link. <br />
-&nbsp;&nbsp;&nbsp; if (!window.google || !google.gears) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Google Gears not present... <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(&quot;#goOffline&quot;).hide(); <br />
-&nbsp;&nbsp;&nbsp; } else { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Initialize Google Gears <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (google.gears.factory.hasPermission) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initGears(); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Offline cache available? <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!google.gears.factory.hasPermission || (store != null &amp;&amp; !store.currentVersion)) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Wire up Google Gears <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(&quot;#goOffline&quot;).click(function(e) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create store <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initGears(); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; createStore(); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Prevent default behaviour <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.preventDefault(); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Check if we are online... <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; checkOnline(function(isOnline) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (isOnline) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Refresh data! <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; updateStore(); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Make sure &quot;Edit&quot; and &quot;Create&quot; are disabled <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(&quot;a&quot;).each(function(index, item) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ($(item).text() == &quot;Edit&quot; || $(item).text() == &quot;Create New&quot;) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(item).attr(&#39;disabled&#39;, true); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(item).click(function(e) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.preventDefault(); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Provide &quot;Clear cache&quot; function <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(&quot;#goOffline&quot;).text(&quot;Clear offline cache...&quot;).click(function(e) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Remove store <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; removeStore(); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window.location.reload(); 
-</p>
-<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Prevent default behaviour <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.preventDefault(); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />
-&nbsp;&nbsp;&nbsp; } <br />
-}); 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+// Bootstrapper (page load)
+$(function() {
+    // Check for Google Gears. If it is not present,
+    // remove the "Go offline" link.
+    if (!window.google || !google.gears) {
+        // Google Gears not present...
+        $("#goOffline").hide();
+    } else {
+        // Initialize Google Gears
+        if (google.gears.factory.hasPermission)
+            initGears();
+        // Offline cache available?
+        if (!google.gears.factory.hasPermission || (store != null && !store.currentVersion)) {
+            // Wire up Google Gears
+            $("#goOffline").click(function(e) {
+                // Create store
+                initGears();
+                createStore();
+                // Prevent default behaviour
+                e.preventDefault();
+            });
+        } else {
+            // Check if we are online...
+            checkOnline(function(isOnline) {
+                if (isOnline) {
+                    // Refresh data!
+                    updateStore();
+                } else {
+                    // Make sure "Edit" and "Create" are disabled
+                    $("a").each(function(index, item) {
+                        if ($(item).text() == "Edit" || $(item).text() == "Create New") {
+                            $(item).attr('disabled', true);
+                            $(item).click(function(e) {
+                                e.preventDefault();
+                            });
+                        }
+                    });
+                }
+            });
+            // Provide "Clear cache" function
+            $("#goOffline").text("Clear offline cache...").click(function(e) {
+                // Remove store
+                removeStore();
+                window.location.reload();
+                // Prevent default behaviour
+                e.preventDefault();
+            });
+        }
+    }
+});
+```
+
 What we are doing here is checking if Google gears has permisison to store data from this site on the local PC. If so, it is initialized. Next, we check if we already have something cached. If not, we wire up some code for the &ldquo;Go offline&rdquo; link, which will trigger the creation of a local cache on click. If we already have a cache, let&rsquo;s do things different&hellip; 
 </p>
 <p>
@@ -249,7 +218,5 @@ By the way, also check this: <a href="http://glazkov.com/2008/01/31/gears-asp-ne
 <p>
 <a href="http://www.dotnetkicks.com/kick/?url=/post/2009/02/19/Creating-an-ASPNET-MVC-application-with-Google-Gears.aspx&amp;title=Creating an ASP.NET MVC application with Google Gears"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/02/19/Creating-an-ASPNET-MVC-application-with-Google-Gears.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
 </p>
-
-
 
 

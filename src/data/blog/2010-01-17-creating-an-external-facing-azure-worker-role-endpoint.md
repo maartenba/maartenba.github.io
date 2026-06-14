@@ -27,35 +27,94 @@ redirect_from:
 <li><em>OnStop()</em> can be used to do things that should be done when the Worker Role is stopped.</li>
 <li><em>RoleEnvironmentChanging()</em> is the event handler that gets called when the environment changes: configuration changed, extra instances fired, &hellip; are possible triggers for this.</li>
 </ul>
-<p>Our stuff will go in the <em>Run()</em> method. We&rsquo;ll be creating a new <em>TcpListener</em> which will sit and accept connections. Whenever a connection is available, it will be dispatched on a second thread that will be communicating with the client. Let&rsquo;s see how we can start the <em>TcpListener</em>:</p>
-<p>[code:c#]</p>
-<p>public class WorkerRole : RoleEntryPoint <br />{ <br />&nbsp;&nbsp;&nbsp; private AutoResetEvent connectionWaitHandle = new AutoResetEvent(false);</p>
-<p>&nbsp;&nbsp;&nbsp; public override void Run() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TcpListener listener = null; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listener = new TcpListener( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["EchoEndpoint"].IPEndpoint); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listener.ExclusiveAddressUse = false; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listener.Start(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catch (SocketException) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Trace.Write("Echo server could not start.", "Error"); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (true) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IAsyncResult result = listener.BeginAcceptTcpClient(HandleAsyncConnection, listener); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connectionWaitHandle.WaitOne(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
-<p>First thing to notice is that the <em>TcpListener</em> is initialized using the IPEndpoint from the current Worker Role instance:</p>
-<p>[code:c#]</p>
-<p>listener = new TcpListener( <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["EchoEndpoint"].IPEndpoint);</p>
-<p>[/code]</p>
+<p>Our stuff will go in the <em>Run()</em> method. We&rsquo;ll be creating a new <em>TcpListener</em> which will sit and accept connections. Whenever a connection is available, it will be dispatched on a second thread that will be communicating with the client. Let&rsquo;s see how we can start the <em>TcpListener</em>:
+
+```csharp
+public class WorkerRole : RoleEntryPoint
+{
+    private AutoResetEvent connectionWaitHandle = new AutoResetEvent(false);
+    public override void Run()
+    {
+        TcpListener listener = null;
+        try
+        {
+            listener = new TcpListener(
+                RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["EchoEndpoint"].IPEndpoint);
+            listener.ExclusiveAddressUse = false;
+            listener.Start();
+        }
+        catch (SocketException)
+        {
+            Trace.Write("Echo server could not start.", "Error");
+            return;
+        }
+        while (true)
+        {
+            IAsyncResult result = listener.BeginAcceptTcpClient(HandleAsyncConnection, listener);
+            connectionWaitHandle.WaitOne();
+        }
+    }
+}
+```
+
+<p>First thing to notice is that the <em>TcpListener</em> is initialized using the IPEndpoint from the current Worker Role instance:
+
+```csharp
+listener = new TcpListener(
+                RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["EchoEndpoint"].IPEndpoint);
+```
+
 <p>We could have started the <em>TcpListener</em> using a static configuration telling it to listen on TCP port 1234, but that would be difficult for the Windows Azure platform. Instead, we start the <em>TcpListener</em> using the current IPEndpoint configuration that we set earlier in this blog post. This allows the application to run on the Windows Azure production environment, as well as on the development environment available from the Windows Azure SDK. Here&rsquo;s how it would work if we had multiple Worker Roles hosting this application:</p>
 <p><a href="/images/image_35.png"><img style="border-bottom: 0px; border-left: 0px; margin: 5px auto; display: block; float: none; border-top: 0px; border-right: 0px" title="Multiple worker roles running a custom TCP server" src="/images/image_thumb_13.png" border="0" alt="Multiple worker roles running a custom TCP server" width="644" height="371" /></a>&nbsp;</p>
-<p>Second thing we are doing is starting the infinite loop that accepts connections and dispatches the connection to the <em>HandleAsyncConnection</em> method that will sit on another thread. This allows for having multiple connections into one Worker Role. Let&rsquo;s have a look at the <em>HandleAsyncConnection</em> method:</p>
-<p>[code:c#]</p>
-<p>private void HandleAsyncConnection(IAsyncResult result) <br />{ <br />&nbsp;&nbsp;&nbsp; // Accept connection
-<br />&nbsp;&nbsp;&nbsp; TcpListener listener = (TcpListener)result.AsyncState; <br />&nbsp;&nbsp;&nbsp; TcpClient client = listener.EndAcceptTcpClient(result); <br />&nbsp;&nbsp;&nbsp; connectionWaitHandle.Set();</p>
-<p>&nbsp;&nbsp;&nbsp; // Accepted connection
-<br />&nbsp;&nbsp;&nbsp; Guid clientId = Guid.NewGuid(); <br />&nbsp;&nbsp;&nbsp; Trace.WriteLine("Accepted connection with ID " + clientId.ToString(), "Information");</p>
-<p>&nbsp;&nbsp;&nbsp; // Setup reader/writer
-<br />&nbsp;&nbsp;&nbsp; NetworkStream netStream = client.GetStream(); <br />&nbsp;&nbsp;&nbsp; StreamReader reader = new StreamReader(netStream); <br />&nbsp;&nbsp;&nbsp; StreamWriter writer = new StreamWriter(netStream); <br />&nbsp;&nbsp;&nbsp; writer.AutoFlush = true;</p>
-<p>&nbsp;&nbsp;&nbsp; // Show application
-<br />&nbsp;&nbsp;&nbsp; string input = string.Empty; <br />&nbsp;&nbsp;&nbsp; while (input != "9") <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Show menu
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.WriteLine("&hellip;");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; input = reader.ReadLine(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.WriteLine();</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Do something
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (input == "1") <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.WriteLine("Current pubDatetime: " + DateTime.Now.ToShortDateString()); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (input == "2") <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.WriteLine("Current time: " + DateTime.Now.ToShortTimeString()); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writer.WriteLine(); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // Done!
-<br />&nbsp;&nbsp;&nbsp; client.Close(); <br />}</p>
-<p>[/code]</p>
+<p>Second thing we are doing is starting the infinite loop that accepts connections and dispatches the connection to the <em>HandleAsyncConnection</em> method that will sit on another thread. This allows for having multiple connections into one Worker Role. Let&rsquo;s have a look at the <em>HandleAsyncConnection</em> method:
+
+```csharp
+private void HandleAsyncConnection(IAsyncResult result)
+{
+    // Accept connection
+
+    TcpListener listener = (TcpListener)result.AsyncState;
+    TcpClient client = listener.EndAcceptTcpClient(result);
+    connectionWaitHandle.Set();
+    // Accepted connection
+
+    Guid clientId = Guid.NewGuid();
+    Trace.WriteLine("Accepted connection with ID " + clientId.ToString(), "Information");
+    // Setup reader/writer
+
+    NetworkStream netStream = client.GetStream();
+    StreamReader reader = new StreamReader(netStream);
+    StreamWriter writer = new StreamWriter(netStream);
+    writer.AutoFlush = true;
+    // Show application
+
+    string input = string.Empty;
+    while (input != "9")
+    {
+        // Show menu
+
+        writer.WriteLine("…");
+        input = reader.ReadLine();
+        writer.WriteLine();
+        // Do something
+
+        if (input == "1")
+        {
+            writer.WriteLine("Current pubDatetime: " + DateTime.Now.ToShortDateString());
+        }
+        else if (input == "2")
+        {
+            writer.WriteLine("Current time: " + DateTime.Now.ToShortTimeString());
+        }
+
+        writer.WriteLine();
+    }
+    // Done!
+
+    client.Close();
+}
+```
+
 <p>Code speaks for itself, no? One thing that you may find awkward is the <em>connectionWaitHandle.Set();</em>. In the previous code sample, we did <em>connectionWaitHandle.WaitOne();</em>. This means that we are not accepting any new connection until the current one is up and running. <em>connectionWaitHandle.Set();</em> signals the original thread to start accepting new connections again.</p>
 <h2>Running the worker role</h2>
 <p>When running the application using the development fabric, you can fire up multiple instances. I fired up 4 Worker Roles that provide the simple TCP service that we just created. This means that my application will be load balanced, and every incoming connection will be distributed over these 4 Worker Role instances. Nifty!</p>
@@ -65,6 +124,5 @@ redirect_from:
 <p>Example code can be downloaded here: <a href="/files/2010/1/EchoCloud.zip">EchoCloud.zip (9.92 kb)</a></p>
 <p>Just a quick note: the approach described here can also be used to run a custom WCF host that has other bindings than for example basicHttpBinding.</p>
 <p><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/01/04/Creating-an-external-facing-Azure-Worker-Role-endpoint.aspx" border="0" alt="kick it on DotNetKicks.com" />&nbsp;</p>
-
 
 

@@ -15,49 +15,33 @@ Having a PHP background, I&#39;ve been using .htaccess mod_rewrite in Apache for
 </p>
 <p>
 First of all, you need to <a href="/files/MaartenBalliauw.UrlRewriter.zip">download the attached library</a>. Reference it from your web project, and register it as a module in Web.config, preferrably as the first one:
-</p>
-<p>
-[code:xml]
-</p>
-<p>
-&lt;httpModules&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;add name=&quot;UrlRewriter&quot; type=&quot;MaartenBalliauw.UrlRewriter.Rewriter&quot;/&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;!-- Other modules can be put here... --&gt;<br />
-&lt;/httpModules&gt;
-</p>
-<p>
-[/code]
-</p>
-<p>
+```xml
+<httpModules>
+    <add name="UrlRewriter" type="MaartenBalliauw.UrlRewriter.Rewriter"/>
+    <!-- Other modules can be put here... -->
+</httpModules>
+```
+
 Second, create a file UrlRewriter.xml in the root of your web project, and add rewrite conditions in there:
-</p>
-<p>
-[code:xml]
-</p>
-<p>
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;<br />
-&lt;UrlRewriter&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;Mapping&gt;<br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;From&gt;&lt;![CDATA[^\/([_a-zA-Z0-9-]+).php]]&gt;&lt;/From&gt;<br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;To&gt;&lt;![CDATA[$1.aspx]]&gt;&lt;/To&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/Mapping&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;Mapping&gt;<br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;From&gt;&lt;![CDATA[^\/([_a-zA-Z0-9-]+)\/([_a-zA-Z0-9-]+)\.php]]&gt;&lt;/From&gt;<br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;To&gt;&lt;![CDATA[Default.aspx]]&gt;&lt;/To&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/Mapping&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;Mapping&gt;<br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;From&gt;&lt;![CDATA[^\/search\/region\/([_a-zA-Z0-9-]+)\/number\/(\d+)]]&gt;&lt;/From&gt;<br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;To&gt;&lt;![CDATA[Default.aspx?region=$1&amp;number=$2]]&gt;&lt;/To&gt;<br />
-&nbsp;&nbsp;&nbsp; &lt;/Mapping&gt;<br />
-&lt;/UrlRewriter&gt;
-</p>
-<p>
-[/code]
-</p>
-<p>
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<UrlRewriter>
+    <Mapping>
+        <From><![CDATA[^\/([_a-zA-Z0-9-]+).php]]></From>
+        <To><![CDATA[$1.aspx]]></To>
+    </Mapping>
+    <Mapping>
+        <From><![CDATA[^\/([_a-zA-Z0-9-]+)\/([_a-zA-Z0-9-]+)\.php]]></From>
+        <To><![CDATA[Default.aspx]]></To>
+    </Mapping>
+    <Mapping>
+        <From><![CDATA[^\/search\/region\/([_a-zA-Z0-9-]+)\/number\/(\d+)]]></From>
+        <To><![CDATA[Default.aspx?region=$1&number=$2]]></To>
+    </Mapping>
+</UrlRewriter>
+```
+
 The above code has 3 possible rewrite conditions. If a URL is in the form of &quot;xxxx.php&quot;, it is rewritten to &quot;xxxx.aspx&quot;. If a URL is in the form &quot;/x/xxxx.php&quot;, it is rewritten to &quot;Default.aspx&quot;. The third one is a bit more complicated, as it rewrites &quot;search/region/xxxxx/number/yyyyy&quot; to &quot;Default.aspx?region=xxxxx&amp;number=yyyyy&quot;. Easy, no?
 </p>
-
-
 
 

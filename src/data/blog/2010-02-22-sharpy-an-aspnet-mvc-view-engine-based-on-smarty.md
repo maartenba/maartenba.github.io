@@ -21,30 +21,59 @@ redirect_from:
 </ul>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx&amp;title=Sharpy - an ASP.NET MVC view engine based on Smarty"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/02/22/Sharpy-an-ASPNET-MVC-view-engine-based-on-Smarty.aspx.html" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 <h2>A simple example&hellip;</h2>
-<p>Here&rsquo;s a simple example:</p>
-<p>[code:c#]</p>
-<p>{master file='~/Views/Shared/Master.sharpy' title='Hello World sample'}</p>
-<p>&lt;h1&gt;Blog entries&lt;/h1&gt;</p>
-<p>{foreach from=$Model item="entry"} <br />&nbsp;&nbsp;&nbsp; &lt;tr&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;td&gt;{$entry.Name|escape}&lt;/td&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;{$entry.Date|date_format:"dd/MMM/yyyy"}&lt;/td&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &lt;/tr&gt; <br />&nbsp;&nbsp;&nbsp; &lt;tr&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;td colspan="2" bgcolor="#dedede"&gt;{$entry.Body|escape}&lt;/td&gt; <br />&nbsp;&nbsp;&nbsp; &lt;/tr&gt; <br />{foreachelse} <br />&nbsp;&nbsp;&nbsp; &lt;tr&gt; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;td colspan="2"&gt;No records&lt;/td&gt; <br />&nbsp;&nbsp;&nbsp; &lt;/tr&gt; <br />{/foreach}</p>
-<p>[/code]</p>
+<p>Here&rsquo;s a simple example:
+
+```csharp
+{master file='~/Views/Shared/Master.sharpy' title='Hello World sample'}
+<h1>Blog entries</h1>
+{foreach from=$Model item="entry"}
+    <tr>
+        <td>{$entry.Name|escape}</td>
+        <td align="right">{$entry.Date|date_format:"dd/MMM/yyyy"}</td>
+    </tr>
+    <tr>
+        <td colspan="2" bgcolor="#dedede">{$entry.Body|escape}</td>
+    </tr>
+{foreachelse}
+    <tr>
+        <td colspan="2">No records</td>
+    </tr>
+{/foreach}
+```
+
 <p>The above example first specifies the master page to use. Next, a <em>foreach</em>-loop is executed for each blog post (aliased &ldquo;<em>entry</em>&rdquo;) in the <em>$Model</em>. Printing the entry&rsquo;s body is done using {$entry.Body|escape}. Note the pipe &ldquo;|&rdquo; and the word escape after it. These are variable modifiers that can be used to escape content, format dates, &hellip;</p>
 <h2>Extensibility</h2>
-<p>Sharpy is all about extensibility: every function in a view is actually a plugin of a specific type (there are four types, IInlineFunction, IBlockFunction, IExpressionFunction and IVariableModifier). These plugins are all exposed through MEF. This means that Sharpy will always use any of your custom functions that are exposed through MEF. For example, here&rsquo;s a custom function named &ldquo;content&rdquo;:</p>
-<p>[code:c#]</p>
-<p>[Export(typeof(IInlineFunction))] <br />public class Content : IInlineFunction <br />{ <br />&nbsp;&nbsp;&nbsp; public string Name <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return "content"; } <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; public string Evaluate(IDictionary&lt;string, object&gt; attributes, IFunctionEvaluator evaluator) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Fetch attributes
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var file = attributes.GetRequiredAttribute&lt;string&gt;("file");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Write output
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return evaluator.EvaluateUrl(file); <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
-<p>Here&rsquo;s how to use it:</p>
-<p>[code:c#]</p>
-<p>{content file='~/Content/SomeFile.txt'}</p>
-<p>[/code]</p>
+<p>Sharpy is all about extensibility: every function in a view is actually a plugin of a specific type (there are four types, IInlineFunction, IBlockFunction, IExpressionFunction and IVariableModifier). These plugins are all exposed through MEF. This means that Sharpy will always use any of your custom functions that are exposed through MEF. For example, here&rsquo;s a custom function named &ldquo;content&rdquo;:
+
+```csharp
+[Export(typeof(IInlineFunction))]
+public class Content : IInlineFunction
+{
+    public string Name
+    {
+        get { return "content"; }
+    }
+    public string Evaluate(IDictionary<string, object> attributes, IFunctionEvaluator evaluator)
+    {
+        // Fetch attributes
+
+        var file = attributes.GetRequiredAttribute<string>("file");
+        // Write output
+
+        return evaluator.EvaluateUrl(file);
+    }
+}
+```
+
+<p>Here&rsquo;s how to use it:
+
+```csharp
+{content file='~/Content/SomeFile.txt'}
+```
+
 <p>Sharpy uses MEF to allow developers to implement their own functions and modifiers.&nbsp; All the built-in functions are also built using this exact same framework &ndash; the same functionality is available to both internal and external functions.</p>
 <p>Extensibility is one of the strongest features in Sharpy.&nbsp; This should allow us to leverage any functionality available in a normal ASP.NET view while maintaining simple views and straightforward markup.</p>
 <h2>Give it a spin!</h2>
 <p>Do give <a href="http://sharpy.codeplex.com" target="_blank">Sharpy</a> a spin, you will learn to love it.</p>
-
 
 

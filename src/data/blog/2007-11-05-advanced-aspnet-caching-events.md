@@ -18,86 +18,53 @@ ASP.NET offers a flexible built-in caching mechanism, providing you with a globa
 </p>
 <p>
 As for many things in this world, every good thing also has a downside... And here&#39;s the downside for ASP.NET&#39;s caching: when an item is removed from cache, you&#39;ll have to know and react to that. No problem, you say, as you can simply use an if-statement to fix things up. Here&#39;s a DataDet which will be cached to infinity (or untill memory is needed): 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-if (Cache.Get(&quot;myDataSet&quot;) == null) {<br />
-&nbsp;&nbsp;&nbsp; // Re-fetch data<br />
-&nbsp;&nbsp;&nbsp; // ... DataSet ds = .... <br />
-<br />
-&nbsp;&nbsp;&nbsp; Cache.Insert(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;myDataSet&quot;, ds, null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.Web.Caching.Cache.NoSlidingExpiration<br />
-&nbsp;&nbsp;&nbsp; );<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+if (Cache.Get("myDataSet") == null) {
+    // Re-fetch data
+    // ... DataSet ds = ....
+    Cache.Insert(
+        "myDataSet", ds, null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.Web.Caching.Cache.NoSlidingExpiration
+    );
+}
+```
+
 Great thing! But... What if I want to centralise cache creation? What if I want to log something everytime a cache item has been removed due to memory limits being reached? Luckily, ASP.NET provides an answer to that: the System.Web.Caching.CacheItemRemovedCallback delegate. This delegate can be used to ask ASP.NET to notigy you using a delegate of what is happening inside the cache when something is removed from it. Here&#39;s the delegate signature: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-void (string key, Object value, CacheItemRemovedReason reason); 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+void (string key, Object value, CacheItemRemovedReason reason);
+```
+
 As you can see, you can get the key that&#39;s being removed, its current value, and the reason why the item is being deleted. These reasons can be: Expired, Removed, Underused, and DependencyChanged. I think these speak for themselves, no? 
 </p>
 <p>
 Now let&#39;s implement this: I&#39;ll create a CacheRetrievalManager which will update my cache whenever an item is removed from cache: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-using System;<br />
-using System.Web.Caching; 
-</p>
-<p>
-public class CacheRetrievalManager<br />
-{<br />
-&nbsp;&nbsp;&nbsp; public void RemovedCacheItemHandler(string key, Object value, CacheItemRemovedReason reason)<br />
-&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch (key)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &quot;myDataSet&quot;:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // call method to re-fetch data and re-set cache<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ...<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
-&nbsp;&nbsp;&nbsp; }<br />
-} 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+using System;
+using System.Web.Caching;
+public class CacheRetrievalManager
+{
+    public void RemovedCacheItemHandler(string key, Object value, CacheItemRemovedReason reason)
+    {
+        switch (key)
+        {
+            case "myDataSet":
+                // call method to re-fetch data and re-set cache
+                // ...
+                break;
+        }
+    }
+}
+```
+
 One thing left is to specify that this method should be called whenever a cache item is removed: 
-</p>
-<p>
-[code:c#] 
-</p>
-<p>
-// Insert in cache ONCE, recreation will be handled by CacheRetrievalManager<br />
-DataSet ds = ...;<br />
-Cache.Insert(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&quot;myDataSet&quot;, ds, null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.Web.Caching.Cache.NoSlidingExpiration, CacheRetrievalManager.RemoveCacheItemHandler<br />
-); 
-</p>
-<p>
-[/code] 
-</p>
-<p>
+```csharp
+// Insert in cache ONCE, recreation will be handled by CacheRetrievalManager
+DataSet ds = ...;
+Cache.Insert(
+    "myDataSet", ds, null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.Web.Caching.Cache.NoSlidingExpiration, CacheRetrievalManager.RemoveCacheItemHandler
+);
+```
+
 Now I know exactly why something is removed, and that I can even log when this happens. You can now further extend this into separate CacheRetrievalManagers for every object you which to cache, fetch data inside that manager, ... 
 </p>
-
-
 
 

@@ -27,51 +27,156 @@ redirect_from:
 <h2>The back-end</h2>
 <p>The worker role will monitor the table storage for scheduled Tweets. If it&rsquo;s time to send them, the Tweet will be added to a queue. This queue is then processed by another thread in the worker role, which will publish the Tweet to Twitter. Well be using two threads for this:</p>
 <p><img style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TwitterMatic worker role" src="/images/WorkerRole.png" border="0" alt="TwitterMatic worker role" width="350" height="232" /></p>
-<p>We&rsquo;ll fire up these treads in the worker role&rsquo;s <em>Start</em> method:</p>
-<p>[code:c#]</p>
-<p>public class WorkerRole : RoleEntryPoint <br />{ <br />&nbsp;&nbsp;&nbsp; protected Thread enqueueingThread; <br />&nbsp;&nbsp;&nbsp; protected Thread publishingThread;</p>
-<p>&nbsp;&nbsp;&nbsp; public override void Start() <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Started TwitterMatic worker process.");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Creating enqueueing thread..."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enqueueingThread = new Thread(new ThreadStart(EnqueueUpdates)); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Created enqueueing thread.");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Creating publishing thread..."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; publishingThread = new Thread(new ThreadStart(PublishUpdates)); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Created publishing thread.");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Starting worker threads..."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enqueueingThread.Start(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; publishingThread.Start(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Started worker threads.");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enqueueingThread.Join(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; publishingThread.Join();</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Stopped worker threads.");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "Stopped TwitterMatic worker process."); <br />&nbsp;&nbsp;&nbsp; }</p>
-<p>&nbsp;&nbsp;&nbsp; // ...
-<br />}</p>
-<p>[/code]</p>
+<p>We&rsquo;ll fire up these treads in the worker role&rsquo;s <em>Start</em> method:
+
+```csharp
+public class WorkerRole : RoleEntryPoint
+{
+    protected Thread enqueueingThread;
+    protected Thread publishingThread;
+    public override void Start()
+    {
+        RoleManager.WriteToLog("Information", "Started TwitterMatic worker process.");
+        RoleManager.WriteToLog("Information", "Creating enqueueing thread...");
+        enqueueingThread = new Thread(new ThreadStart(EnqueueUpdates));
+        RoleManager.WriteToLog("Information", "Created enqueueing thread.");
+        RoleManager.WriteToLog("Information", "Creating publishing thread...");
+        publishingThread = new Thread(new ThreadStart(PublishUpdates));
+        RoleManager.WriteToLog("Information", "Created publishing thread.");
+        RoleManager.WriteToLog("Information", "Starting worker threads...");
+        enqueueingThread.Start();
+        publishingThread.Start();
+        RoleManager.WriteToLog("Information", "Started worker threads.");
+        enqueueingThread.Join();
+        publishingThread.Join();
+        RoleManager.WriteToLog("Information", "Stopped worker threads.");
+        RoleManager.WriteToLog("Information", "Stopped TwitterMatic worker process.");
+    }
+    // ...
+
+}
+```
+
 <p>Note that we are also logging events to the <em>RoleManager</em>, which is the logging infrastructure provided by Windows Azure. These logs can be viewed from the Windows Azure deployment interface.</p>
 <h3>EnqueueUpdates Thread</h3>
 <p>The steps EnqueueUpdates will take are simple:</p>
 <p><img style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="EnqueueUpdates Thread" src="/images/T1.png" border="0" alt="EnqueueUpdates Thread" width="239" height="240" /></p>
-<p>Here&rsquo;s how to do that in code:</p>
-<p>[code:c#]</p>
-<p>protected void EnqueueUpdates() <br />{ <br />&nbsp;&nbsp;&nbsp; StorageAccountInfo info = StorageAccountInfo.GetDefaultQueueStorageAccountFromConfiguration(true); <br />&nbsp;&nbsp;&nbsp; QueueStorage queueStorage = QueueStorage.Create(info); <br />&nbsp;&nbsp;&nbsp; MessageQueue updateQueue = queueStorage.GetQueue("updatequeue"); <br />&nbsp;&nbsp;&nbsp; if (!updateQueue.DoesQueueExist()) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; updateQueue.CreateQueue();</p>
-<p>&nbsp;&nbsp;&nbsp; while (true) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Enqueue] Checking for due tweets..."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;TimedTweet&gt; dueTweets = Repository.RetrieveDue(DateTime.Now.ToUniversalTime()); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (dueTweets.Count &gt; 0) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Enqueue] " + dueTweets.Count.ToString() + " due tweets.");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (var tweet in dueTweets) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (tweet.SendStatus != "Pending delivery") <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; updateQueue.PutMessage(new Message(tweet.RowKey)); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet.SendStatus = "Pending delivery"; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Repository.Update(tweet); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Enqueue] Enqueued tweet " + tweet.RowKey + " for publishing."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Enqueue] Finished processing due tweets."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Enqueue] No due tweets."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thread.Sleep(120000); <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>Here&rsquo;s how to do that in code:
+
+```csharp
+protected void EnqueueUpdates()
+{
+    StorageAccountInfo info = StorageAccountInfo.GetDefaultQueueStorageAccountFromConfiguration(true);
+    QueueStorage queueStorage = QueueStorage.Create(info);
+    MessageQueue updateQueue = queueStorage.GetQueue("updatequeue");
+    if (!updateQueue.DoesQueueExist())
+        updateQueue.CreateQueue();
+    while (true)
+    {
+        RoleManager.WriteToLog("Information", "[Enqueue] Checking for due tweets...");
+        List<TimedTweet> dueTweets = Repository.RetrieveDue(DateTime.Now.ToUniversalTime());
+        if (dueTweets.Count > 0)
+        {
+            RoleManager.WriteToLog("Information", "[Enqueue] " + dueTweets.Count.ToString() + " due tweets.");
+            foreach (var tweet in dueTweets)
+            {
+                if (tweet.SendStatus != "Pending delivery")
+                {
+                    updateQueue.PutMessage(new Message(tweet.RowKey));
+                    tweet.SendStatus = "Pending delivery";
+                    Repository.Update(tweet);
+                    RoleManager.WriteToLog("Information", "[Enqueue] Enqueued tweet " + tweet.RowKey + " for publishing.");
+                }
+            }
+            RoleManager.WriteToLog("Information", "[Enqueue] Finished processing due tweets.");
+        }
+        else
+        {
+            RoleManager.WriteToLog("Information", "[Enqueue] No due tweets.");
+        }
+        Thread.Sleep(120000);
+    }
+}
+```
+
 <h3>PublishUpdates Thread</h3>
 <p>The steps PublishUpdates will take are simple:</p>
 <p><img style="border-right-width: 0px; margin: 5px auto; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="PublishUpdates Thread" src="/images/T2.png" border="0" alt="PublishUpdates Thread" width="239" height="240" /></p>
-<p>Here&rsquo;s how to do that in code:</p>
-<p>[code:c#]</p>
-<p>protected void PublishUpdates() <br />{ <br />&nbsp;&nbsp;&nbsp; StorageAccountInfo info = StorageAccountInfo.GetDefaultQueueStorageAccountFromConfiguration(true); <br />&nbsp;&nbsp;&nbsp; QueueStorage queueStorage = QueueStorage.Create(info); <br />&nbsp;&nbsp;&nbsp; MessageQueue updateQueue = queueStorage.GetQueue("updatequeue"); <br />&nbsp;&nbsp;&nbsp; if (!updateQueue.DoesQueueExist()) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; updateQueue.CreateQueue();</p>
-<p>&nbsp;&nbsp;&nbsp; while (true) <br />&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Publish] Checking for pending tweets..."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (updateQueue.PeekMessage() != null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Message queueItem = updateQueue.GetMessage(120);</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Publish] Preparing to send pending message " + queueItem.ContentAsString() + "...");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TimedTweet tweet = null; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet = Repository.RetrieveById("", queueItem.ContentAsString()); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; finally <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (tweet == null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Publish] Pending message " + queueItem.ContentAsString() + " has been deleted. Cancelling publish..."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; updateQueue.DeleteMessage(queueItem); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (tweet == null) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IOAuthTwitter oAuthTwitter = new OAuthTwitter(); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthConsumerKey = Configuration.ReadSetting("OAuthConsumerKey"); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthConsumerSecret = Configuration.ReadSetting("OAuthConsumerSecret"); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthToken = tweet.Token; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oAuthTwitter.OAuthTokenSecret = tweet.TokenSecret;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TwitterContext ctx = new TwitterContext(oAuthTwitter); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!string.IsNullOrEmpty(ctx.UpdateStatus(tweet.Status).ID)) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Publish] Published tweet " + tweet.RowKey + ".");</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet.SentOn = DateTime.Now; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet.SendStatus = "Published"; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet.RetriesLeft = 0; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; updateQueue.DeleteMessage(queueItem); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Repository.Update(tweet); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet.RetriesLeft--; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (tweet.RetriesLeft &gt; 0) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet.SendStatus = "Retrying";</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Publish] Error publishing tweet " + tweet.RowKey + ". Retries left: " + tweet.RetriesLeft.ToString()); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet.RetriesLeft = 0;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tweet.SendStatus = "Failed";</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoleManager.WriteToLog("Information", "[Publish] Error publishing tweet " + tweet.RowKey + ". Out of retries."); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; updateQueue.DeleteMessage(queueItem); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Repository.Update(tweet); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thread.Sleep(60000); <br />&nbsp;&nbsp;&nbsp; } <br />}</p>
-<p>[/code]</p>
+<p>Here&rsquo;s how to do that in code:
+
+```csharp
+protected void PublishUpdates()
+{
+    StorageAccountInfo info = StorageAccountInfo.GetDefaultQueueStorageAccountFromConfiguration(true);
+    QueueStorage queueStorage = QueueStorage.Create(info);
+    MessageQueue updateQueue = queueStorage.GetQueue("updatequeue");
+    if (!updateQueue.DoesQueueExist())
+        updateQueue.CreateQueue();
+    while (true)
+    {
+        RoleManager.WriteToLog("Information", "[Publish] Checking for pending tweets...");
+        while (updateQueue.PeekMessage() != null)
+        {
+            Message queueItem = updateQueue.GetMessage(120);
+            RoleManager.WriteToLog("Information", "[Publish] Preparing to send pending message " + queueItem.ContentAsString() + "...");
+            TimedTweet tweet = null;
+            try
+            {
+        tweet = Repository.RetrieveById("", queueItem.ContentAsString());
+            }
+            finally
+            {
+                if (tweet == null)
+                {
+                    RoleManager.WriteToLog("Information", "[Publish] Pending message " + queueItem.ContentAsString() + " has been deleted. Cancelling publish...");
+                    updateQueue.DeleteMessage(queueItem);
+                }
+            }
+            if (tweet == null)
+                continue;
+            IOAuthTwitter oAuthTwitter = new OAuthTwitter();
+            oAuthTwitter.OAuthConsumerKey = Configuration.ReadSetting("OAuthConsumerKey");
+            oAuthTwitter.OAuthConsumerSecret = Configuration.ReadSetting("OAuthConsumerSecret");
+            oAuthTwitter.OAuthToken = tweet.Token;
+            oAuthTwitter.OAuthTokenSecret = tweet.TokenSecret;
+            TwitterContext ctx = new TwitterContext(oAuthTwitter);
+            if (!string.IsNullOrEmpty(ctx.UpdateStatus(tweet.Status).ID))
+            {
+                RoleManager.WriteToLog("Information", "[Publish] Published tweet " + tweet.RowKey + ".");
+                tweet.SentOn = DateTime.Now;
+                tweet.SendStatus = "Published";
+                tweet.RetriesLeft = 0;
+                updateQueue.DeleteMessage(queueItem);
+                Repository.Update(tweet);
+            }
+            else
+            {
+                tweet.RetriesLeft--;
+                if (tweet.RetriesLeft > 0)
+                {
+                    tweet.SendStatus = "Retrying";
+                    RoleManager.WriteToLog("Information", "[Publish] Error publishing tweet " + tweet.RowKey + ". Retries left: " + tweet.RetriesLeft.ToString());
+                }
+                else
+                {
+                    tweet.RetriesLeft = 0;
+                    tweet.SendStatus = "Failed";
+                    RoleManager.WriteToLog("Information", "[Publish] Error publishing tweet " + tweet.RowKey + ". Out of retries.");
+                }
+                updateQueue.DeleteMessage(queueItem);
+                Repository.Update(tweet);
+            }
+        }
+        Thread.Sleep(60000);
+    }
+}
+```
+
 <h2>Conclusion</h2>
 <p>We now have an overview of worker roles, and how they can be leveraged to perform background tasks in a Windows Azure application.</p>
 <p>In the next part of this series, we&rsquo;ll have a look at the deployment of Twitter<em>Matic</em>.</p>
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-6-The-back-end.aspx&amp;title=How we built TwitterMatic.net - Part 6: The back-end">
                     <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/07/02/How-we-built-TwitterMaticnet-Part-6-The-back-end.aspx" border="0" alt="kick it on DotNetKicks.com" />
                   </a></p>
-
 
 
