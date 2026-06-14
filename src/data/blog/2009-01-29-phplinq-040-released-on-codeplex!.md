@@ -16,7 +16,7 @@ redirect_from:
 <p>PHPLinq is a class library for PHP, based on the idea of <a href="http://msdn.microsoft.com/en-us/vbasic/aa904594.aspx" target="_blank">Microsoft&rsquo;s LINQ technology</a>. LINQ is short for <em>language integrated query</em>, a component in the .NET framework which enables you to perform queries on a variety of data sources like arrays, XML, SQL server, ... These queries are defined using a syntax which is very similar to SQL.</p>
 <p>Using PHPLinq, the same functionality is created in PHP. Since regular LINQ applies to enumerators, SQL, datasets, XML, ..., I decided PHPLinq should provide the same infrastructure. Here&rsquo;s an example PHPLinq query, which retrieves all names with a length less than 5 from an array of strings:
 
-```csharp
+```php
 // Create data source
 $names = array("John", "Peter", "Joe", "Patrick", "Donald", "Eric");
 $result = from('$name')->in($names)
@@ -33,7 +33,7 @@ $result = from('$name')->in($names)
 <h3>Querying data from an array</h3>
 <p>Let&rsquo;s have a look at an example. The following array will be a dataset which we&rsquo;ll be working with. It is a list of <em>Employee</em> objects.
 
-```csharp
+```php
 // Employee data source
 $employees = array(
     new Employee(1, 1, 5, 'Maarten', 'maarten@example.com', 24),
@@ -46,7 +46,7 @@ $employees = array(
 
 <p>I would like to have the name and e-mail address of employees named &ldquo;Bill&rdquo;. Here&rsquo;s a PHPLinq query:
 
-```csharp
+```php
 $result = from('$employee')->in($employees)
             ->where('$employee => substr($employee->Name, 0, 4) == "Bill"')
             ->select('new {
@@ -91,7 +91,7 @@ CREATE TABLE employees (
 
 <p>We&rsquo;ll be using this table in a <em>Zend_Db_Table</em> class:
 
-```csharp
+```php
 // EmployeeTable class
 class EmployeeTable extends Zend_Db_Table {
     protected $_name = 'employees'; // table name
@@ -104,7 +104,7 @@ $employeeTable->setRowClass('Employee');
 <p>Allright, what happened here? We&rsquo;ve created a database table, and told <em>Zend_Db_Table</em> to look in the <em>employees</em> table for data, and map these to the <em>Employee</em> class we created before. The <em>Zend_Db_Table</em> employee table will be accessible trough the <em>$employeesTable</em> variable.</p>
 <p>Ok, let&rsquo;s issue a query:
 
-```csharp
+```php
 $result = from('$employee')->in($employeesTable)
             ->where('$employee => substr($employee->Name, 0, 4) == "Bill"')
             ->select('new {
@@ -140,13 +140,13 @@ PHPLinq_LinqToZendDb::setQueryCallback('print');
 
 <p>Let&rsquo;s run the previous query again. The console will now also display the generated SQL statement:
 
-```csharp
+```php
 SELECT "$employee".* FROM "employees" AS "$employee" WHERE (SUBSTR('$employee'."Name",  0,  4)  =  "Bill")
 ```
 
 <p><img style="border: 0px none ; margin: 5px 0px 5px 5px; display: inline" title="Cool!" src="/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/seal_a42ed2b4-ba56-4a05-a02c-b2937d428dcc.gif" border="0" alt="Cool!" width="211" height="284" align="right" /> Are you kidding me?!? PHPLinq just <em>knew</em> that the PHP code in my where clause translates to the above SQL statement! It&rsquo;s even cooler than this: PHPLinq also knows about different databases. The above example will translate to another query on a different database engine. For that, let&rsquo;s look at another example. Here&rsquo;s the PHPLinq query:
 
-```csharp
+```php
 $result = from('$employee')->in($employeeTable)
             ->where('$employee => trim($employee->Name) == "Bill"')
             ->select('$employee->Name');
@@ -154,13 +154,13 @@ $result = from('$employee')->in($employeeTable)
 
 <p>The generated SQL statement in SQLite:
 
-```csharp
+```php
 SELECT "$employee".* FROM "employees" AS "$employee" WHERE (TRIM('$employee'."Name")  =  "Bill")
 ```
 
 <p>The generated SQL statement in Microsoft SQL Server (only knows LTRIM() and RTRIM(), not TRIM()):
 
-```csharp
+```php
 SELECT "$employee".* FROM "employees" AS "$employee" WHERE (LTRIM(RTRIM('$employee'."Name"))  =  "Bill")
 ```
 
@@ -168,7 +168,7 @@ SELECT "$employee".* FROM "employees" AS "$employee" WHERE (LTRIM(RTRIM('$employ
 <h3>Querying data from an XML source</h3>
 <p>Here&rsquo;s another short example, just to be complete. Let's fetch all posts on my blog's RSS feed, order them by publication date (descending), and select an anonymous type containing title and author. Here's how:
 
-```csharp
+```php
 $rssFeed = simplexml_load_string(file_get_contents('/syndication.axd'));
 $result = from('$item')->in($rssFeed->xpath('//channel/item'))
             ->orderByDescending('$item => strtotime((string)$item->pubDate)')

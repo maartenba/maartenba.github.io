@@ -15,7 +15,7 @@ redirect_from:
 <p align="center"><img style="margin: 5px; border-width: 0px" src="/images/WindowsLiveWriter/PHPLinqversion0.2.0released_108B9/image_3.png" border="0" alt="PHPLinq class diagram" width="431" height="168" />&nbsp;</p>
 <p>Being able to query PHP arrays is actually very handy! Let's say you have a mixed array containing <em>Employee</em> objects and some other data types. Want only Employee objects? Try this one!
 
-```csharp
+```php
 $result = from('$employee')->in($employees)
             ->ofType('Employee')
             ->select();
@@ -23,13 +23,13 @@ $result = from('$employee')->in($employees)
 
 <p>Want to know if there's any employee age 12? Easy! The following query returns true/false:
 
-```csharp
+```php
 $result = from('$employee')->in($employees)->any('$employee => $employee->Age == 12');
 ```
 
 <p>Let's do something a little more advanced... Let's fetch all posts on my blog's RSS feed, order them by publication date (descending), and select an anonymous type containing title and author. Here's how:
 
-```csharp
+```php
 $rssFeed = simplexml_load_string(file_get_contents('/syndication.axd'));
 $result = from('$item')->in($rssFeed->xpath('//channel/item'))
             ->orderByDescending('$item => strtotime((string)$item->pubDate)')

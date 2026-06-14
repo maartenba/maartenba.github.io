@@ -17,7 +17,7 @@ redirect_from:
 <h2>Working with Azure Table Storage from PHP</h2>
 <p>Let&rsquo;s provide a small example on the new Table Storage support in the PHP SDK for Windows Azure. The first thing to do when you have a clean storage account on the Azure platform is to create a new table:
 
-```csharp
+```php
 /** Microsoft_Azure_Storage_Table */
 require_once 'Microsoft/Azure/Storage/Table.php';
 $storageClient = new Microsoft_Azure_Storage_Table('table.core.windows.net', 'myaccount', 'myauthkey');
@@ -27,7 +27,7 @@ $storageClient->createTable('mynewtable');
 <p>Easy, no? Note that we did not provide any schema information here as you would do in a regular database. Windows Azure Table Storage can actually contain entities with different properties in the same table. You can work with an enforced schema, but this will be client-side. More info on that matter is available <a href="http://phpazure.codeplex.com/Wiki/View.aspx?title=Defining%20entities%20for%20Table%20Storage&amp;referringTitle=Getting%20Started" target="_blank">here</a>.</p>
 <p>Now let&rsquo;s add a person to the &ldquo;mynewtable&rdquo; in the cloud:
 
-```csharp
+```php
 $person = new Microsoft_Azure_Storage_DynamicTableEntity('partition1', 'row1');
 $person->Name = "Maarten";
 $person->Age  = 25;
@@ -37,7 +37,7 @@ $storageClient->insertEntity('mynewtable', $person);
 <p>Again, no rocket science. The <em>Microsoft_Azure_Storage_DynamicTableEntity</em> class used provides fluent access to entities in Table Storage. More info on this class is available <a href="http://phpazure.codeplex.com/Wiki/View.aspx?title=Defining%20entities%20for%20Table%20Storage&amp;referringTitle=Getting%20Started" target="_blank">here</a>.</p>
 <p>Now let&rsquo;s add a property to this <em>$person</em> instance and merge it into Table Storage:
 
-```csharp
+```php
 $person->Blog = "www.maartenballiauw.be";
 $storageClient->mergeEntity('mynewtable', $person);
 ```
@@ -45,7 +45,7 @@ $storageClient->mergeEntity('mynewtable', $person);
 <p>Wow! We just added a <em>Blog</em> property to this object! I could have also used <em>updateEnity</em> for this, but that one would have overwritten eventual changes that were made to my <em>$person</em> in the meantime.</p>
 <p>Now for some querying. Let&rsquo;s retrieve all entities in <em>&ldquo;mynewtable&rdquo;</em> that have an <em>Age</em> of 25:
 
-```csharp
+```php
 $entities = $storageClient->storageClient->retrieveEntities(
     'mynewtable',
     $storageClient->select()
@@ -61,7 +61,7 @@ foreach ($entities as $entity)
 <p>I guess this al looks quite straightforward. The fluent query building API provides a syntax similar to how you would build a query in SQL.</p>
 <p>Another nice feature of the PHP SDK for Windows Azure is support for batch transactions. Here&rsquo;s an example of how to work with transactions on Table Storage:
 
-```csharp
+```php
 // Start batch
 $batch = $storageClient->startBatch();
 // Insert entities in batch

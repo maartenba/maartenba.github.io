@@ -14,7 +14,7 @@ redirect_from:
 <p>Just like with PHPExcel, <a href="http://www.phppowerpoint.net" target="_blank">PHPPowerPoint</a> can be used to generate PPTX files from a PHP application. This can be done by creating an in-memory presentation that consists of slides and different shapes, which can then be written to disk using a writer (of which there&rsquo;s currently only one for PowerPoint 2007).</p>
 <p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="Simple PHPPowerPoint demo" src="/images/pres1.jpg" border="0" alt="Simple PHPPowerPoint demo" width="244" height="184" align="right" /> Here&rsquo;s some sample code:
 
-```csharp
+```php
 /* Create new PHPPowerPoint object */
 $objPHPPowerPoint = new PHPPowerPoint();
 /* Create slide */

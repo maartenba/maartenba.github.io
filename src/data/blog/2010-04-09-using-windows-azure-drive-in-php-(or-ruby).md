@@ -196,7 +196,7 @@ public class AzureDriveModule : IHttpModule
 <h3>Use the thing!</h3>
 <p>Next thing to do is use your virtual Windows Azure Drive. The HTTP module adds an entry in the <em>$_SERVER</em> variable, named after the CloudDrive0-9 settings defined earlier. The following code example stores a file on a virtual Windows Azure Drive and reads it back afterwards:
 
-```csharp
+```php
 <?php
 file_put_contents($_SERVER['CloudDrive0'] . '\sample.txt', 'Hello World!');
 echo file_get_contents($_SERVER['CloudDrive0'] . '\sample.txt');

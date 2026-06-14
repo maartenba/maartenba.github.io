@@ -10,5 +10,5 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/05/18/extension-methods-for-php.html
 ---
-```csharp
+```php
 ```

@@ -53,7 +53,7 @@ $employees = array(
 
 Now for the PHPLinq query:
 
-```csharp
+```php
 $result = from('$employee')->in($employees)
             ->where('$employee => strlen($employee->Name) == 4')
             ->orderBy('$employee => $employee->Name')

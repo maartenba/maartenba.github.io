@@ -28,7 +28,7 @@ class PHPExcel_Writer_GoogleDocs extends PHPExcel_Writer_Excel5 implements PHPEx
 
 <p>Since Google requires to log in prior to being able to interact with the documents stored on Google Documents, let&rsquo;s also add a username and password field.
 
-```csharp
+```php
 class PHPExcel_Writer_GoogleDocs extends PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter {
     private $_username;
     private $_password;
@@ -42,7 +42,7 @@ class PHPExcel_Writer_GoogleDocs extends PHPExcel_Writer_Excel5 implements PHPEx
 
 <p>Next, let&rsquo;s override the <em>save()</em> method. This method will save the document as an XLS spreadsheet somewhere, upload it to Google Docs and afterwards remove it from the file system. Here we go:
 
-```csharp
+```php
 public function save($pFilename = null) {
         parent::save($pFilename);
         $googleDocsClient = Zend_Gdata_ClientLogin::getHttpClient($this->_username,
@@ -58,14 +58,14 @@ public function save($pFilename = null) {
 <h2>Using the GoogleDocs writer</h2>
 <p>Now let&rsquo;s try saving a spreadsheet to Google Docs. First of all, we load a document we have stored somewhere on the file system:
 
-```csharp
+```php
 $objReader = PHPExcel_IOFactory::createReader('Excel2007');
 $objPHPExcel = $objReader->load("05featuredemo.xlsx");
 ```
 
 <p>Next, let&rsquo;s use PHPExcel&rsquo;s <em>IOFactory</em> class to load our<em> PHPExcel_Writer_GoogleDocs</em> class. We will also set credentials on it. Afterwards, we save.
 
-```csharp
+```php
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'GoogleDocs');
 $objWriter->setCredentials('xxxxxxxx@gmail.com', 'xxxxxxxx');
 $objWriter->save('somefile.xls');

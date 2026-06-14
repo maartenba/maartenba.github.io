@@ -34,7 +34,7 @@ require_once('PHPExcel/Reader/Excel2007.php');
 <p>PHPExcel is the base library which represents an in-memory spreadsheet. Since we need to interface with an Excel2007 file, we also include the required reader class.</p>
 <p>Now load the Excel sheet into a PHPExcel object:
 
-```csharp
+```php
 // Load price calculation spreadsheet
 $objReader = new PHPExcel_Reader_Excel2007();
 $objPHPExcel = $objReader->load("price_calculation.xlsx");
@@ -42,7 +42,7 @@ $objPHPExcel = $objReader->load("price_calculation.xlsx");
 
 <p>All data from the web form is passed in via the <em>$_REQUEST</em> array. Let's pass these to the Excel sheet. I named all form fields equal to my defined names in Excel which makes coincidence of all array keys and cell names being the same intentional.
 
-```csharp
+```php
 // Set active sheet
 $objPHPExcel->setActiveSheetIndex(0);
 // Assign data
@@ -54,7 +54,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('sportsSeats', $_REQUEST['sportsSea
 
 <p><img style="margin: 5px; border: 0px;" src="/images/WindowsLiveWriter/ReuseExcelbusinesslogicwithPHPExcel_119BE/image_6.png" border="0" alt="PHPExcel is great success!" width="197" height="210" align="right" />This is actually about it. The only thing left is to fetch the formula's calculated values and we're done!
 
-```csharp
+```php
 // Perform calculations
 $_VIEWDATA['totalPrice'] = $objPHPExcel->getActiveSheet()->getCell('totalPrice')->getCalculatedValue();
 $_VIEWDATA['discount'] = $objPHPExcel->getActiveSheet()->getCell('discount')->getCalculatedValue();
@@ -63,7 +63,7 @@ $_VIEWDATA['grandTotal'] = $objPHPExcel->getActiveSheet()->getCell('grandTotal')
 
 <p>You can use these values to print the result on your web page:
 
-```csharp
+```php
 Based on your chosen preferences, your car will cost <?php echo number_format($_VIEWDATA['grandTotal'], 2); ?> EUR.
 ```
 

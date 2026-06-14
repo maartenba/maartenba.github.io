@@ -19,25 +19,25 @@ redirect_from:
 <h2>Show me the good stuff!</h2>
 <p>Will do! Currently, I have only implemented Azure blob storage in PHP, so that's what the following code snippets will be using. Enough blahblah now, here's how you connect with Azure:
 
-```csharp
+```php
 $storage = new Zend_Azure_Storage_Blob();
 ```
 
 <p>This actually sets up a connection with the local Azure storage service from the <a href="http://www.azure.com" target="_blank">Windows Azure SDK</a>. You can, however, also pass in an account name and shared key from the real, cloud hosted Azure, too. Next: I want to create a storage container. A storage container is a logical group in which I can store any data. Let's name the container "azuretest":
 
-```csharp
+```php
 $storage->createContainer('azuretest');
 ```
 
 <p>Easy? Yup! Azure now has created some space on their distributed storage for my files to be dumped in. Speaking of which: let's upload a file!
 
-```csharp
+```php
 $storage->putBlob('azuretest', 'images/WindowsAzure.gif', './WindowsAzure.gif');
 ```
 
 <p>There we go. I've uploaded my local <em>WindowsAzure.gif</em> file to the <em>azuretest</em> container and named the file "images/WindowsAzure.gif'". Don't be confused: it is NOT stored in the images/ folder (there's no such thing on Azure), this is really the full filename. But don't worry, you can mimic a regular filesystem with folders, for example by retrieving all files that are prefixed with "images/":
 
-```csharp
+```php
 $storage->listBlobs('azuretest', '/', 'images/');
 ```
 

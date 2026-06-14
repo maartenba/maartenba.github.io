@@ -15,7 +15,7 @@ redirect_from:
 <p>MEF is a .NET library, targeting extensibility of projects. It allows you to declaratively extend your application instead of requiring you to do a lot of plumbing. All this is done with three concepts in mind: export, import and compose. (<a href="http://blogs.msdn.com/gblock/archive/2009/11/29/mef-has-landed-in-silverlight-4-we-come-in-the-name-of-extensibility.aspx" target="_blank">Glenn</a>, I stole the previous sentence from your blog). &ldquo;PHPMEF&rdquo; uses the same concepts in order to provide this extensibility features.</p>
 <p>Let&rsquo;s start with a story&hellip; Imagine you are building a <em>Calculator</em>. Yes, shoot me, this is not a sexy sample. Remember I wrote this one a plane with snoring people next to me&hellip;The <em>Calculator</em> is built of zero or more <em>ICalculationFunction</em> instances. Think command pattern. Here&rsquo;s how such an interface can look like:
 
-```csharp
+```php
 interface ICalculationFunction
 {
     public function execute($a, $b);
@@ -24,7 +24,7 @@ interface ICalculationFunction
 
 <p>Nothing special yet. Now let&rsquo;s implement an instance which does sums:
 
-```csharp
+```php
 class Sum implements ICalculationFunction
 {
     public function execute($a, $b)
@@ -36,7 +36,7 @@ class Sum implements ICalculationFunction
 
 <p>Now how would you go about using this in the following <em>Calculator</em> class:
 
-```csharp
+```php
 class Calculator
 {
     public $CalculationFunctions;
@@ -47,7 +47,7 @@ class Calculator
 <h3>Export</h3>
 <p>Exports are one of the three fundaments of PHPMEF. Basically, you can specify that you want class X to be &ldquo; exported&rdquo;&nbsp; for extensibility. Let&rsquo;s export <em>Sum</em>:
 
-```csharp
+```php
 /**
   * @export ICalculationFunction
   */
@@ -64,7 +64,7 @@ class Sum implements ICalculationFunction
 <h3>Import</h3>
 <p>Import is a concept required for PHPMEF to know where to instantiate specific objects. Here&rsquo;s an example:
 
-```csharp
+```php
 class Calculator
 {
     /**
@@ -76,7 +76,7 @@ class Calculator
 
 <p>In this case, PHPMEF will simply instantiate the first <em>ICalculationFunction</em> instance it can find and assign it to the <em>Calculator::SomeFunction</em> variable. Now think of our first example: we want different calculation functions in our calculator! Here&rsquo;s how:
 
-```csharp
+```php
 class Calculator
 {
     /**
@@ -90,7 +90,7 @@ class Calculator
 <h3>Compose</h3>
 <p>Composing matches all exports and imports in a specific application path. How? Easy! Use the <em>PartInitializer</em>!
 
-```csharp
+```php
 // Create new Calculator instance
 $calculator = new Calculator();
 // Satisfy dynamic imports
@@ -104,7 +104,7 @@ $partInitializer->satisfyImports($calculator);
 <h3>Single instance exports</h3>
 <p>By default, PHPMEF instantiates a new object every time an import has to be satisfied. However, imagine you want our <em>Sum</em> class to be re-used. You want PHPMEF to assign the same instance over and over again, no matter where and how much it is being imported. Again, no plumbing. Just add a declarative comment:
 
-```csharp
+```php
 /**
   * @export ICalculationFunction
   * @export-metadata singleinstance
@@ -122,7 +122,7 @@ class Sum implements ICalculationFunction
 <p>Imagine you want to work with interfaces like mentioned above, but want to use a specific implementation that has certain metadata defined. Again: easy and no plumbing!</p>
 <p>My calculator might look like the following:
 
-```csharp
+```php
 class Calculator
 {
     /**
@@ -139,7 +139,7 @@ class Calculator
 
 <p><em>Calculator::SomeThingThatCanDoSums</em> is now constrained: I only want to import something that has the metadata &ldquo;CanDoSums&rdquo; attached. Here&rsquo;s how to create such an export:
 
-```csharp
+```php
 /**
   * @export ICalculationFunction
   * @export-metadata CanDoSums
@@ -156,7 +156,7 @@ class Sum implements ICalculationFunction
 <p>Here&rsquo;s an answer to a question you may have: yes, multiple metadata definitions are possible and will be used to determine if an export matches an import.</p>
 <p>One small note left: you can also ask the <em>PartInitializer</em> for the metadata defined on a class.
 
-```csharp
+```php
 // Create new Calculator instance
 $calculator = new Calculator();
 // Satisfy dynamic imports

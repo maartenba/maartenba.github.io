@@ -15,7 +15,7 @@ redirect_from:
 <p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/08/04/Accessing-ServiceConfiguration-in-FastCGI-(PHP)-web-role.aspx&amp;title=Accessing ServiceConfiguration in FastCGI (PHP) web role"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/08/04/Accessing-ServiceConfiguration-in-FastCGI-(PHP)-web-role.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
 <p>I&rsquo;ll not be going into detail on how this module was built, but there is a native C++ RoleManager implementation in the Windows Azure samples. Using the resources listed below, I managed to create a PHP extension module, wrapping this RoleManager. The result? You can now retrieve configuration values from the ServiceConfiguration.
 
-```csharp
+```php
 $appName = azure_getconfig(“AppName”);
 $storageAccount = azure_getconfig(“StorageAccount”);
 // etc.
@@ -31,7 +31,7 @@ azure_log(AZURE_LOG_CRITICAL, “Critical errors are not cool…”);
 
 <p>Oh, you want to have the path where a localStorage is available? (see <a href="http://blogs.mscommunity.net/blogs/dadamec/archive/2008/12/11/azure-reading-and-writing-with-localstorage.aspx">here for info</a>)
 
-```csharp
+```php
 $rootPath = azure_getlocalresourcepath('teststore');
 $pathMaxSizeInMb = azure_getlocalresourcepathsize('teststore');
 // etc.
