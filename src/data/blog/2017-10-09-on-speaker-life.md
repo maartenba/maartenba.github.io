@@ -10,15 +10,16 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2017/10/09/on-speaker-life.html
 ---
-
 Last week, I did a tweet while at the Paris Charles de Gaulle airport, working on blog posts (part of my job) and drinking bad coffee.
 
-<blockquote class="twitter-tweet" data-lang="nl"><p lang="en" dir="ltr">At airport, working on blog posts with crappy coffee. If you ever thought speaker life is glamourous, think again. (but it&#39;s fun though)</p>&mdash; Maarten Balliauw (@maartenballiauw) <a href="https://twitter.com/maartenballiauw/status/916191768709943296?ref_src=twsrc%5Etfw">6 oktober 2017</a></blockquote>
+> At airport, working on blog posts with crappy coffee. If you ever thought speaker life is glamourous, think again. (but it's fun though)— Maarten Balliauw (@maartenballiauw) [6 oktober 2017](https://twitter.com/maartenballiauw/status/916191768709943296?ref_src=twsrc%5Etfw)
+
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 The backstory is I just finished a week of conference and speaking (Microsoft Experiences Paris, JetBrains Night Paris) and there is of course some real work to be done in between all the "glamour" of public speaking. Many people I talk with at user groups or conferences sometimes feel speakers at conferences are special and rockstars and have glamourous lifes. In this post I want to touch on that, and also on a reply I got to my tweet:
 
-<blockquote class="twitter-tweet" data-lang="nl"><p lang="en" dir="ltr">&quot;speaker life&quot; - interested in how that works, who&#39;s paying what and how you apply, have you any links about that? tnx</p>&mdash; Petar Repac (@prepac) <a href="https://twitter.com/prepac/status/916209204372869120?ref_src=twsrc%5Etfw">6 oktober 2017</a></blockquote>
+> "speaker life" - interested in how that works, who's paying what and how you apply, have you any links about that? tnx— Petar Repac (@prepac) [6 oktober 2017](https://twitter.com/prepac/status/916209204372869120?ref_src=twsrc%5Etfw)
+
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Before going into those, let's first look at how I started speaking at user groups and conferences, and go from there.
@@ -61,7 +62,8 @@ One thing I personally do not do, is pay to speak at conferences. There are a lo
 
 This post was more some sort of brainfart that was too large to respond on a single tweet (even with 280 characters now), just wanted to share some thoughts on the matter. With that, I'll follow [Julie's](https://www.twitter.com/julielerman) and start preparing for my talks at [TechDays.nl](https://www.techdays.nl) this week.
 
-<blockquote class="twitter-tweet" data-lang="nl"><p lang="en" dir="ltr">end of rant. Back to doing the work that doesn&#39;t pay any of my bills .... building demos for conferences.</p>&mdash; Julie Lerman (@julielerman) <a href="https://twitter.com/julielerman/status/917014861078499328?ref_src=twsrc%5Etfw">8 oktober 2017</a></blockquote>
+> end of rant. Back to doing the work that doesn't pay any of my bills .... building demos for conferences.— Julie Lerman (@julielerman) [8 oktober 2017](https://twitter.com/julielerman/status/917014861078499328?ref_src=twsrc%5Etfw)
+
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 (note the above tweet holds a nice thread of its own)

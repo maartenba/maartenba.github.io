@@ -12,13 +12,10 @@ redirect_from:
   - /post/2016/08/17/building-nuget-dotnet-core-using-atlassian-bitbucket-pipelines.html
   - /post/2016/08/17/building-nuget-netcore-using-atlassian-bitbucket-pipelines.html
 ---
-
 A while back, I signed up for the beta of [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines), a new continuous integration service from Atlassian, built into Bitbucket. The build system promises easy configuration using YAML files to describe the build steps.  It runs builds in a Docker image, so that means we can also use it for building and packaging .NET Core libraries. Let's see how.
 
-<p class="notice">
-  <strong>TL;DR:</strong>
-  Want to use <a href="https://bitbucket.org/product/features/pipelines">Bitbucket pipelines</a> to build .NET Core libraries? <a href="https://bitbucket.org/myget/sample-pipelines-dotnet/src/master/bitbucket-pipelines.yml?fileviewer=file-view-default">Grab this bitbucket-pipelines.yml</a> and add it to source control.
-</p>
+**TL;DR:**
+  Want to use [Bitbucket pipelines](https://bitbucket.org/product/features/pipelines) to build .NET Core libraries? [Grab this bitbucket-pipelines.yml](https://bitbucket.org/myget/sample-pipelines-dotnet/src/master/bitbucket-pipelines.yml?fileviewer=file-view-default) and add it to source control.
 
 ## Sample .NET Core library
 
@@ -64,7 +61,9 @@ Next, we'll add our build steps. Under the *pipelines \| default \| step \| scri
 
 * The next step is where packaging happens. We want to create a NuGet package for our library, based on the metadata from our `project.json` and the build number we created as the first step in this pipeline. Remember the version `1.0.0-*`? We'll replace the `*` with a suffix that holds our build number, so that the generated NuGet package has a nice, incrementing version number each time we have a change to our source code.
 
-* Pipelines do not have an artifact store, so we'll have to push our generated package to a NuGet feed somewhere. [MyGet provides NuGet hosting](http://www.myget.org), so let's push to a feed there. Unfortunately, the .NET Core command line does not have a `push` command (yet) for publishing the generated NuGet package to an external feed like [MyGet](http://www.myget.org).On the bright side, the NuGet API for pushing packages is not that complicated and we can do a simple HTTP POST using curl: `curl -X POST "https://www.myget.org/F/myfeed/api/v2/package" -H "X-NuGet-ApiKey: <api key goes here>" -T <package.nupkg>`
+* Pipelines do not have an artifact store, so we'll have to push our generated package to a NuGet feed somewhere. [MyGet provides NuGet hosting](http://www.myget.org), so let's push to a feed there. Unfortunately, the .NET Core command line does not have a `push` command (yet) for publishing the generated NuGet package to an external feed like [MyGet](http://www.myget.org).On the bright side, the NuGet API for pushing packages is not that complicated and we can do a simple HTTP POST using curl: `curl -X POST "https://www.myget.org/F/myfeed/api/v2/package" -H "X-NuGet-ApiKey: <api key goes here>" -T
+
+`
 
 In the below `bitbucket-pipelines.yml` file, I introduced some environment variables for specifying the build configuration, NuGet feed URL and API key. I also added a one-liner that pushes every generated NuGet package instead of just one, so that it's easier to copy/paste the below and get up and running fast.
 
@@ -74,17 +73,24 @@ In the below `bitbucket-pipelines.yml` file, I introduced some environment varia
 	    - step:
 	        script:
 	          # Generate build number
+
 	          - BUILD_NUMBER=`git log --oneline | wc -l`
 	          - echo "Build number':' ${BUILD_NUMBER}"
 	          # Restore packages
+
 	          - dotnet restore
 	          # Build project
+
 	          - dotnet build
 	          # Run tests
+
 	          # - dotnet test
+
 	          # Create package
+
 	          - dotnet pack --configuration ${BUILD_CONFIGURATION} --version-suffix=beta-$BUILD_NUMBER project.json
 	          # Push generated package(s)
+
 	          - "for file in bin/${BUILD_CONFIGURATION}/*.nupkg; do curl -X POST \"${MYGET_NUGET_URL}/package\" -H \"X-NuGet-ApiKey: ${MYGET_NUGET_APIKEY}\" -T $file; done"
 
 Are we there yet? Almost! Feel free to copy the [bitbucket-pipelines.yml](https://bitbucket.org/myget/sample-pipelines-dotnet/src/master/bitbucket-pipelines.yml?fileviewer=file-view-default) file into your project, and then...

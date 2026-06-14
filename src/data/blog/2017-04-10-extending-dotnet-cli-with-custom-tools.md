@@ -32,7 +32,7 @@ Or edit your `.csproj` and add:
 	<ItemGroup>
 		<DotNetCliToolReference Include="DotNetInit" Version="*" />
 	</ItemGroup>
-	
+
 After a package restore, simply run `dotnet init` and get prompted for basic NuGet properties like the package id, version, description and a few others. Once completed, the tool saves the project file and adds all properties into our `.csproj`:
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -75,12 +75,12 @@ Code for my `dotnet init` tool is [on GitHub](https://github.com/maartenba/dotne
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp1.0</TargetFramework>
         <AssemblyName>dotnet-init</AssemblyName>
-        
+
         <PackageId>DotNetInit</PackageId>
         <PackageVersion>1.0.3</PackageVersion>
         <Authors>Maarten Balliauw</Authors>
         <Description>...</Description>
-        
+
         <PackageType>DotnetCliTool</PackageType>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
       </PropertyGroup>

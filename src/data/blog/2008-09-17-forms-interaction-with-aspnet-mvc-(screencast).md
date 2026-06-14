@@ -10,21 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/09/17/forms-interaction-with-asp-net-mvc-screencast.html
 ---
-<p>
-Abstract: <em>&quot;<span>This screencast is a short demonstration on how you can handle form interactions using the ASP.NET MVC framework.</span>&quot;</em> 
-</p>
-<p>
-Download sample code: <a rel="enclosure" href="/files/MvcCommentForm.zip">MvcCommentForm.zip (593.58 kb)</a> 
-</p>
-<p style="text-align: center">
-<iframe src="http://www.microsoft.com/belux/msdn/nl/chopsticks/player.aspx?id=572&amp;e=1" width="493" height="385" frameborder="0"></iframe>
-</p>
-<p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/09/17/Forms-interaction-with-ASPNET-MVC-(screencast).aspx&amp;title=Forms interaction with ASP.NET MVC (screencast)">
-                    <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/09/17/Forms-interaction-with-ASPNET-MVC-(screencast).aspx" border="0" alt="kick it on DotNetKicks.com" />
-                  </a>
-</p>
+Abstract: *"This screencast is a short demonstration on how you can handle form interactions using the ASP.NET MVC framework."*
 
+Download sample code: [MvcCommentForm.zip (593.58 kb)](/files/MvcCommentForm.zip)
 
-
-
+<iframe src="http://www.microsoft.com/belux/msdn/nl/chopsticks/player.aspx?id=572&e=1" width="493" height="385" frameborder="0"></iframe>

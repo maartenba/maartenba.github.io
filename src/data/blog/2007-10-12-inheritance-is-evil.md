@@ -10,26 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/10/12/inheritance-is-evil.html
 ---
-<p>
-Read this on <a href="http://www.berniecode.com/blog/2007/09/29/inheritance-is-evil-and-must-be-destroyed/" target="_blank">Bernie</a>&#39;s blog:
-</p>
+Read this on [Bernie](http://www.berniecode.com/blog/2007/09/29/inheritance-is-evil-and-must-be-destroyed/)'s blog:
 
+> *"All of the pain caused by inheritance can be traced back to the fact that inheritance forces 'is-a' rather than 'has-a' relationships. If class R2Unit extends Droid, then a R2Unit is-a Droid. If class Jedi contains an instance variable of type Lightsabre, then a Jedi has-a Lightsabre.
 
-<blockquote>
-	<p>
-	<em>&quot;All of the pain caused by inheritance can be traced back to the fact that inheritance forces &#39;is-a&#39; rather than &#39;has-a&#39; relationships. If class R2Unit extends Droid, then a R2Unit is-a Droid. If class Jedi contains an instance variable of type Lightsabre, then a Jedi has-a Lightsabre.<br />
-	<br />
-	The difference between is-a and has-a relationships is well known and a fundamental part of OOAD, but what is less well known is that almost every is-a relationship would be better off re-articulated as a has-a relationship.&quot;</em>
-	</p>
+>
 
+> The difference between is-a and has-a relationships is well known and a fundamental part of OOAD, but what is less well known is that almost every is-a relationship would be better off re-articulated as a has-a relationship."*
 
-</blockquote>
-
-
-<p>
-I suggest you read the <a href="http://www.berniecode.com/blog/2007/09/29/inheritance-is-evil-and-must-be-destroyed/" target="_blank">full story</a>, as it&#39;s very interesting! Bottom line is that you should be careful using OO inheritance, and use the <a href="http://en.wikipedia.org/wiki/Strategy_pattern" target="_blank">Strategy pattern</a> instead.
-</p>
-
-
-
-
+I suggest you read the [full story](http://www.berniecode.com/blog/2007/09/29/inheritance-is-evil-and-must-be-destroyed/), as it's very interesting! Bottom line is that you should be careful using OO inheritance, and use the [Strategy pattern](http://en.wikipedia.org/wiki/Strategy_pattern) instead.

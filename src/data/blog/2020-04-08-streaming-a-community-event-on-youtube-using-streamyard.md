@@ -10,7 +10,6 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2020/04/08/streaming-a-community-event-on-youtube-using-streamyard.html
 ---
-
 Last week, I wrote ~~a blog post~~ a book about [Streaming a Community Event on YouTube - Sharing the Technologies and Learnings from Virtual Azure Community Day](/post/2020/04/02/streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day.html). I ended that post with an appendix of things I've looked into but have no experience with.
 
 That... changed! Our [Azure User Group](https://www.azug.be/) held its first virtual session yesterday. The social aspect of hanging out with a group of peers was definitely amiss, but the streaming went well! This ime, we streamed on YouTube, with the help of StreamYard. I'll write some observations and thoughts that [build on the previous blog post](/post/2020/04/02/streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day.html).
@@ -85,7 +84,8 @@ For future live streams, we may keep talking during the session switch and not m
 
 One thing StreamYard does really well, is aggregating questions & comments. We were streaming on YouTube and Facebook, and their UI showed questions, comments, and remarks from all channels. We could even show them on screen, to engage both audience & speaker!
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I turn on the TV and apparently we have a new channel <a href="https://twitter.com/hashtag/AZUGTV?src=hash&amp;ref_src=twsrc%5Etfw">#AZUGTV</a> complete with its year 2000 sms chatbox. <a href="https://t.co/rdU1sw2pmY">pic.twitter.com/rdU1sw2pmY</a></p>&mdash; Jordi Borghers (@JordiBorghers) <a href="https://twitter.com/JordiBorghers/status/1247565806067748865?ref_src=twsrc%5Etfw">April 7, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> I turn on the TV and apparently we have a new channel [#AZUGTV](https://twitter.com/hashtag/AZUGTV?src=hash&ref_src=twsrc%5Etfw) complete with its year 2000 sms chatbox. [pic.twitter.com/rdU1sw2pmY](https://t.co/rdU1sw2pmY)— Jordi Borghers (@JordiBorghers) [April 7, 2020](https://twitter.com/JordiBorghers/status/1247565806067748865?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Like with the OBS Streaming, we found that seeding the conversation a bit helps with interactivity. If you're ever joining a live stream, use the chat, as it's the only connection speakers have with the audience other than their own image in the reflection of their webcam!
 

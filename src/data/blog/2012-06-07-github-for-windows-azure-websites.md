@@ -10,27 +10,44 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/06/07/github-for-windows-azure-websites.html
 ---
-<p><a href="http://octodex.github.com/cloud/"><img style="background-image: none; margin: 5px 0px 5px 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; padding-top: 0px; border: 0px;" title="Windows Azure Websites Git Github for Windows" src="/images/image_184.png" border="0" alt="Windows Azure Websites Git Github for Windows" width="244" height="244" align="right" /></a>With the new release of Windows Azure and Windows Azure Websites, a lot of new scenarios with Windows Azure just became possible. One I like a lot, especially since <a href="http://www.appharbor.com" target="_blank">Appharbor</a> and <a href="http://www.heroku.com" target="_blank">Heroku</a> have similar offers too, is the possibility to push source code (ASP.NET or PHP) to Windows Azure instead of binaries using Windows Azure Websites.</p>
-<p>Not everyone out there is a command-line here though: if you want to use Git as a mechanism of pushing sources to Windows Azure Websites chances are you may go crazy if you are unfamiliar with command-line git commands. Luckily, a couple of weeks ago, GitHub released <a href="http://windows.github.com" target="_blank">GitHub for Windows</a>. It features an easy-to-use GUI on top of GitHub repositories. And with a small trick also on top of Windows Azure Websites.</p>
-<h2>Setting up a Windows Azure Website</h2>
-<p>Since you&rsquo;re probably still unfamiliar with Windows Azure Websites, let me guide you through the setup. It&rsquo;s a simple process. First of all, navigate to the new <a href="http://manage.windowsazure.com">Windows Azure portal</a>. It looks different than the one you&rsquo;re used to but it&rsquo;s way easier to use. In the toolbar at the bottom, click <em>New</em>, select <em>Web site</em>, <em>Quick Create</em> and enter a hostname of choice. I chose &ldquo;websiteswithgit&rdquo;:</p>
-<p><a href="/images/image_185.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="Creating a Windows Azure Website" src="/images/image_thumb_150.png" border="0" alt="Creating a Windows Azure Website" width="484" height="218" /></a></p>
-<p>After a couple of seconds, you&rsquo;ll be presented with the dashboard of your newly created Windows Azure Website. This dashboard features a lot of interesting metrics about your website such as data traffic, CPU usage, errors, &hellip; It also displays the available means for publishing a site to Windows Azure Websites: TFS deploy, Git deploy, Webdeploy and FTP publishing. That&rsquo;s it: your website has been set up and if you navigate to the newly created URL, you&rsquo;ll be greeted with the default Windows Azure Websites landing page.</p>
-<h2>Setting up Git publishing</h2>
-<p>Since we&rsquo;ll be using Git, click the <em>Set up Git Publishing</em> option.</p>
-<p><a href="/images/image_186.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="Windows Azure Websites Dashboard" src="/images/image_thumb_151.png" border="0" alt="Windows Azure Websites Dashboard" width="484" height="372" /></a></p>
-<p>If you haven&rsquo;t noticed already: Windows Azure Websites makes Windows Azure a lot easier. After a couple of seconds, Git publishing is configured and all it takes to deploy your website is commit your source code, whether ASP.NET, ASP.NET Webpages or PHP to the newly created Git repository. Windows Azure Websites will take care of the build process (cool!) and will deploy this to Windows Azure in just a couple of seconds. Whoever told you deploying to Windows Azure takes ages lied to you!</p>
-<h2>Connecting GitHub for Windows to Windows Azure Websites</h2>
-<p>After setting up Git publishing, you probably have noticed that there&rsquo;s a Git repository URL being displayed. Copy this one to your clipboard as we&rsquo;ll be needing it in a minute. Open <a href="http://windows.github.com">GitHub for Windows</a>, right-click the UI and choose to &ldquo;<em>open a shell here</em>&rdquo;. Make sure you&rsquo;re in the folder of choice. Next, issue a &ldquo;<em>git clone &lt;url&gt;</em>&rdquo; command, where &lt;url&gt; of course is the Git repository URL you&rsquo;ve just copied.</p>
-<p><a href="/images/image_187.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="Windows Azure Git Repository Build" src="/images/image_thumb_152.png" border="0" alt="Windows Azure Git Repository Build" width="484" height="246" /></a></p>
-<p>The (currently empty) Windows Azure Website Git repository will be cloned onto your system. Now close this command-line (I promised we would use GitHub for Windows instead).</p>
-<p><a href="/images/image_188.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="Git folder" src="/images/image_thumb_153.png" border="0" alt="Git folder" width="484" height="336" /></a></p>
-<p>Open the folder in which you cloned the Git repo and drag it onto GitHub for Windows. It will look kind of empty, still:</p>
-<p><a href="/images/image_189.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="A Windows Azure Websites repository in GitHub for Windows" src="/images/image_thumb_154.png" border="0" alt="A Windows Azure Websites repository in GitHub for Windows" width="484" height="86" /></a></p>
-<p>Next, add any file you want. A PHP file, a plain HTML file or a complete ASP.NET or ASP.NET MVC Web Application. GitHub for Windows will detect these changes and you can commit them to your local repository:</p>
-<p><a href="/images/image_190.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="GitHub commit Windows Azure" src="/images/image_thumb_155.png" border="0" alt="GitHub commit Windows Azure" width="484" height="106" /></a></p>
-<p>All that&rsquo;s left to do after a commit is clicking the <em>Publish</em> button. GitHub for Windows will now copy all changesets to the Windows Azure Websites GitHub repository which will in turn trigger an eventual build process for your web site. The result? A happy Windows Azure Websites dashboard and a site up and running. Rinse, repeat, commit. Happy deployments to Windows Azure Websites using GitHub for Windows!</p>
-<p><a href="/images/image_191.png"><img style="background-image: none; margin: 5px auto; padding-left: 0px; padding-right: 0px; display: block; float: none; padding-top: 0px; border: 0px;" title="Antares Windows Azure Websites Deployment History Build" src="/images/image_thumb_156.png" border="0" alt="Antares Windows Azure Websites Deployment History Build" width="484" height="124" /></a></p>
+[![](/images/image_184.png)](http://octodex.github.com/cloud/)With the new release of Windows Azure and Windows Azure Websites, a lot of new scenarios with Windows Azure just became possible. One I like a lot, especially since [Appharbor](http://www.appharbor.com) and [Heroku](http://www.heroku.com) have similar offers too, is the possibility to push source code (ASP.NET or PHP) to Windows Azure instead of binaries using Windows Azure Websites.
 
+Not everyone out there is a command-line here though: if you want to use Git as a mechanism of pushing sources to Windows Azure Websites chances are you may go crazy if you are unfamiliar with command-line git commands. Luckily, a couple of weeks ago, GitHub released [GitHub for Windows](http://windows.github.com). It features an easy-to-use GUI on top of GitHub repositories. And with a small trick also on top of Windows Azure Websites.
 
+## Setting up a Windows Azure Website
 
+Since you’re probably still unfamiliar with Windows Azure Websites, let me guide you through the setup. It’s a simple process. First of all, navigate to the new [Windows Azure portal](http://manage.windowsazure.com). It looks different than the one you’re used to but it’s way easier to use. In the toolbar at the bottom, click *New*, select *Web site*, *Quick Create* and enter a hostname of choice. I chose “websiteswithgit”:
+
+[![](/images/image_thumb_150.png)](/images/image_185.png)
+
+After a couple of seconds, you’ll be presented with the dashboard of your newly created Windows Azure Website. This dashboard features a lot of interesting metrics about your website such as data traffic, CPU usage, errors, … It also displays the available means for publishing a site to Windows Azure Websites: TFS deploy, Git deploy, Webdeploy and FTP publishing. That’s it: your website has been set up and if you navigate to the newly created URL, you’ll be greeted with the default Windows Azure Websites landing page.
+
+## Setting up Git publishing
+
+Since we’ll be using Git, click the *Set up Git Publishing* option.
+
+[![](/images/image_thumb_151.png)](/images/image_186.png)
+
+If you haven’t noticed already: Windows Azure Websites makes Windows Azure a lot easier. After a couple of seconds, Git publishing is configured and all it takes to deploy your website is commit your source code, whether ASP.NET, ASP.NET Webpages or PHP to the newly created Git repository. Windows Azure Websites will take care of the build process (cool!) and will deploy this to Windows Azure in just a couple of seconds. Whoever told you deploying to Windows Azure takes ages lied to you!
+
+## Connecting GitHub for Windows to Windows Azure Websites
+
+After setting up Git publishing, you probably have noticed that there’s a Git repository URL being displayed. Copy this one to your clipboard as we’ll be needing it in a minute. Open [GitHub for Windows](http://windows.github.com), right-click the UI and choose to “*open a shell here*”. Make sure you’re in the folder of choice. Next, issue a “*git clone <url>*” command, where <url> of course is the Git repository URL you’ve just copied.
+
+[![](/images/image_thumb_152.png)](/images/image_187.png)
+
+The (currently empty) Windows Azure Website Git repository will be cloned onto your system. Now close this command-line (I promised we would use GitHub for Windows instead).
+
+[![](/images/image_thumb_153.png)](/images/image_188.png)
+
+Open the folder in which you cloned the Git repo and drag it onto GitHub for Windows. It will look kind of empty, still:
+
+[![](/images/image_thumb_154.png)](/images/image_189.png)
+
+Next, add any file you want. A PHP file, a plain HTML file or a complete ASP.NET or ASP.NET MVC Web Application. GitHub for Windows will detect these changes and you can commit them to your local repository:
+
+[![](/images/image_thumb_155.png)](/images/image_190.png)
+
+All that’s left to do after a commit is clicking the *Publish* button. GitHub for Windows will now copy all changesets to the Windows Azure Websites GitHub repository which will in turn trigger an eventual build process for your web site. The result? A happy Windows Azure Websites dashboard and a site up and running. Rinse, repeat, commit. Happy deployments to Windows Azure Websites using GitHub for Windows!
+
+[![](/images/image_thumb_156.png)](/images/image_191.png)

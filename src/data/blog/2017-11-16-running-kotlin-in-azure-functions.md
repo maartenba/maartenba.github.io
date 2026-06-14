@@ -56,7 +56,7 @@ Next, we must add two additional properties: `package` and `appName`. These will
 
 In the next step we can choose where on disk we want to save our project, then *Finish*  and let IntelliJ IDEA create the new Azure functions project for us.
 
-One more thing: since we'll use Maven as the project system, IntelliJ IDEA will ask us to manually import the Maven project or auto-import it. Let's *Enable Auto-Import* here. 
+One more thing: since we'll use Maven as the project system, IntelliJ IDEA will ask us to manually import the Maven project or auto-import it. Let's *Enable Auto-Import* here.
 
 ![Auto-import Maven project](/images/2017/11/auto-import-maven.png)
 
@@ -194,7 +194,7 @@ Before running, make sure to edit the `local.settings.json` and add the required
 
 ## 5. Running our Kotlin Azure Function
 
-We're there. All set. Ready to roll! We can double-click the `azure-functions \| azure-functions:run` Maven goal and run our function in the emulator. 
+We're there. All set. Ready to roll! We can double-click the `azure-functions \| azure-functions:run` Maven goal and run our function in the emulator.
 
 ![Run Kotlin Azure Function in emulator](/images/2017/11/run-azure-function-kotlin.png)
 

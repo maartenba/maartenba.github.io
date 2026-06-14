@@ -143,7 +143,7 @@ public class StripApiKeyFromUrlTelemetryProcessor : ITelemetryProcessor
     private static Regex _guidRegex = new Regex(
         @"\b[A-F0-9]{8}(?:-[A-F0-9]{4}){3}-[A-F0-9]{12}\b",
         RegexOptions.IgnoreCase | RegexOptions.Compiled);
-            
+
     private readonly ITelemetryProcessor _next;
 
     public StripApiKeyFromUrlTelemetryProcessor(ITelemetryProcessor next)
@@ -174,7 +174,7 @@ public class DropDataWhenApiKeyPresentTelemetryProcessor : ITelemetryProcessor
     private static Regex _guidRegex = new Regex(
         @"\b[A-F0-9]{8}(?:-[A-F0-9]{4}){3}-[A-F0-9]{12}\b",
         RegexOptions.IgnoreCase | RegexOptions.Compiled);
-            
+
     private readonly ITelemetryProcessor _next;
 
     public DropDataWhenApiKeyPresentTelemetryProcessor(ITelemetryProcessor next)
@@ -196,7 +196,7 @@ public class DropDataWhenApiKeyPresentTelemetryProcessor : ITelemetryProcessor
 }
 ```
 
-There are many more things that can be done, for example excluding synthetic traffic - traffic that was identified as a search engine spider by the AppInsights SDK (in that case, `item.Context.Operation.SyntheticSource` will not be `null`). 
+There are many more things that can be done, for example excluding synthetic traffic - traffic that was identified as a search engine spider by the AppInsights SDK (in that case, `item.Context.Operation.SyntheticSource` will not be `null`).
 
 ## Conclusion
 

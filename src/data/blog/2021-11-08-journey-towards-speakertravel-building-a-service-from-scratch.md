@@ -11,7 +11,6 @@ redirect_from:
   - /post/2021/11/08/a-journey-towards-speakertravel-building-a-service-from-scratch.html
   - /post/2021/11/08/journey-towards-speakertravel-building-a-service-from-scratch.html
 ---
-
 For close to two years now, I've had [SpeakerTravel](https://speaker.travel/) up & running. It's a tool that helps conference organizers to book flights for speakers. You invite speakers, they pick their flight of choice (within a budget the organizer can specify), and the organizer can then approve and book the flight with a single click.
 
 In this post, I want to go a bit into the process of building this tool. Why I started it in the first place, how it works, a look at it from the business side, and maybe a follow-up post that covers any questions you may have after reading.
@@ -30,7 +29,8 @@ When we started, we did all of this for 5 speakers, which was doable. Then we gr
 
 That got me thinking, and almost pleading for someone to come up with a solution:
 
-<blockquote class="twitter-tweet" data-lang="en" data-dnt="true"><p lang="en" dir="ltr">Startup idea: &quot;Give travel site a bunch of e-mail addresses and budgets. Site lets those people select flights within that budget. I say yes/no and get billed.&quot; - Would love this for conference organizing!</p>&mdash; Maarten Balliauw (@maartenballiauw) <a href="https://twitter.com/maartenballiauw/status/1014515650902089731?ref_src=twsrc%5Etfw">July 4, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> Startup idea: "Give travel site a bunch of e-mail addresses and budgets. Site lets those people select flights within that budget. I say yes/no and get billed." - Would love this for conference organizing!— Maarten Balliauw (@maartenballiauw) [July 4, 2018](https://twitter.com/maartenballiauw/status/1014515650902089731?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Alas, by the time we had that 19 speaker booking coming up, no such solution came about, and we were once again doing the manual process.
 
@@ -228,13 +228,15 @@ The app was deployed (targeting AllMyles staging), and I requested certification
 
 This was right on time for our CloudBrew conference in 2019, and it was really exciting to see folks request flights, booking them via the API, and seeing actual flight tickets sent out by airlines. Not to mention, much easier in terms of workload and back-and-forth compared to the manual process that triggered this entire endeavour! And speakers themselves also enjoyed this workflow:
 
-<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Massive props to <a href="https://twitter.com/CloudBrewConf?ref_src=twsrc%5Etfw">@CloudBrewConf</a> - their travel booking system for the speakers has really raised the bar!</p>&mdash; Paul Stack (@stack72) <a href="https://twitter.com/stack72/status/1161543315218739201?ref_src=twsrc%5Etfw">August 14, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> Massive props to [@CloudBrewConf](https://twitter.com/CloudBrewConf?ref_src=twsrc%5Etfw) - their travel booking system for the speakers has really raised the bar!— Paul Stack (@stack72) [August 14, 2019](https://twitter.com/stack72/status/1161543315218739201?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Thanks, Paul 🤗
 
 Very quickly, a couple of organizer-friends jumped aboard as well. And for a conference I was attending myself, I used it to book a flight in my own name. Pretty cool!
 
-<blockquote class="twitter-tweet" data-lang="en" data-dnt="true"><p lang="en" dir="ltr">First time taking a flight booked through my own <a href="https://twitter.com/SpeakerTravel_?ref_src=twsrc%5Etfw">@SpeakerTravel_</a> - pretty cool to fly on a ticket you issued yourself 😎</p>&mdash; Maarten Balliauw (@maartenballiauw) <a href="https://twitter.com/maartenballiauw/status/1217352024091766785?ref_src=twsrc%5Etfw">January 15, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> First time taking a flight booked through my own [@SpeakerTravel_](https://twitter.com/SpeakerTravel_?ref_src=twsrc%5Etfw) - pretty cool to fly on a ticket you issued yourself 😎— Maarten Balliauw (@maartenballiauw) [January 15, 2020](https://twitter.com/maartenballiauw/status/1217352024091766785?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 A couple of conferences later, some bugs were ironed out, some  feature requests were handled, and the certification fee was covered. Business-wise, and conveniently brushing aside time spent building this thing, SpeakerTravel was break-even!
 

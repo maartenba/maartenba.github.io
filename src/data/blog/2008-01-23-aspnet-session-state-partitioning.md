@@ -10,14 +10,22 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/01/23/asp-net-session-state-partitioning.html
 ---
-<p><img style="width: 316px; height: 502px;" src="/images/session_state_partitioning.png" border="1" alt="" hspace="5" vspace="5" width="316" height="502" align="right" />After my previous blog post on <a href="/post/2007/11/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx" target="_blank">ASP.NET Session State</a>, someone asked me if I knew anything about ASP.NET Session State Partitioning. Since this is a little known feature of ASP.NET, here's a little background and a short how-to.</p>
-<p>When scaling out an ASP.NET application's session state to a dedicated session server (SQL server or the ASP.NET state server), you might encounter a new problem: what if this dedicated session server can't cope with a large amount of sessions? One option might be to create a SQL server cluster for storing session state. A cheaper way is to implement a custom partitioning algorithm which redirects session X to state server A and session Y to state server B. In short, partitioning provides a means to divide session information on multiple session state servers, which all handle "their" part of the total amount of sessions.</p>
-<h2>Download example&nbsp;</h2>
-<p>Want an instant example? Download it here: <a href="/files/2012/11/SessionPartitioning.zip">SessionPartitioning.zip (2.70 kb)</a><br />&nbsp;Want to know what's behind all this? Please, continue reading.</p>
-<h2>1. Set up ASP.NET session mode</h2>
-<p>Follow all steps in my <a href="/post/2007/11/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx" target="_blank">previous blog post</a> to set up the ASP.NET state service / SQL state server database and the necessary web.config setup. We'll customise this afterwards.</p>
-<h2>2.&nbsp;&nbsp; Create your own session state partitioning class</h2>
-<p>The "magic" of this el-cheapo solution to multiple session servers will be your own session state partitioning class. Here's an example:
+![](/images/session_state_partitioning.png)After my previous blog post on [ASP.NET Session State](/post/2007/11/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx), someone asked me if I knew anything about ASP.NET Session State Partitioning. Since this is a little known feature of ASP.NET, here's a little background and a short how-to.
+
+When scaling out an ASP.NET application's session state to a dedicated session server (SQL server or the ASP.NET state server), you might encounter a new problem: what if this dedicated session server can't cope with a large amount of sessions? One option might be to create a SQL server cluster for storing session state. A cheaper way is to implement a custom partitioning algorithm which redirects session X to state server A and session Y to state server B. In short, partitioning provides a means to divide session information on multiple session state servers, which all handle "their" part of the total amount of sessions.
+
+## Download example
+
+Want an instant example? Download it here: [SessionPartitioning.zip (2.70 kb)](/files/2012/11/SessionPartitioning.zip)
+ Want to know what's behind all this? Please, continue reading.
+
+## 1. Set up ASP.NET session mode
+
+Follow all steps in my [previous blog post](/post/2007/11/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx) to set up the ASP.NET state service / SQL state server database and the necessary web.config setup. We'll customise this afterwards.
+
+## 2.   Create your own session state partitioning class
+
+The "magic" of this el-cheapo solution to multiple session servers will be your own session state partitioning class. Here's an example:
 
 ```csharp
 using System;
@@ -52,11 +60,14 @@ public class PartitionResolver : System.Web.IPartitionResolver
      }
     #endregion
  }
+
 ```
 
-<p>Basically, you just have to implement the interface <em>System.Web.IPartitionResolver</em>, which is the contract ASP.NET uses to determine the session state server's connection string. The <em>ResolvePartition</em> method is called with the current session id in it, and allows you to return the connection string that should be used for that specific session id.</p>
-<h2>3. Update your web.config</h2>
-<p>Most probably, you'll have a web.config which looks like this:
+Basically, you just have to implement the interface *System.Web.IPartitionResolver*, which is the contract ASP.NET uses to determine the session state server's connection string. The *ResolvePartition* method is called with the current session id in it, and allows you to return the connection string that should be used for that specific session id.
+
+## 3. Update your web.config
+
+Most probably, you'll have a web.config which looks like this:
 
 ```xml
 <configuration>
@@ -68,9 +79,10 @@ public class PartitionResolver : System.Web.IPartitionResolver
      <!-- ... -->
    </system.web>
  </configuration>
+
 ```
 
-<p>In order for ASP.NET to use our custom class, modify web.config into:
+In order for ASP.NET to use our custom class, modify web.config into:
 
 ```xml
 <configuration>
@@ -82,10 +94,9 @@ public class PartitionResolver : System.Web.IPartitionResolver
      <!-- ... -->
    </system.web>
  </configuration>
+
 ```
 
-<p>You may have noticed that the <em>stateConnectionString</em> attribute was replaced by a <em>partitionResolverType</em> attribute. From now on, ASP.NET will use the class specified in the <em>partitionResolverType</em> attribute for distributing sessions across state servers.</p>
-<p><strong>UPDATE 2008-01-24:</strong> Also check out my blog post on <a href="/post/2008/01/aspnet-session-state-partitioning-using-state-server-load-balancing.aspx" target="_blank">Session State Partitioning using load balancing</a>!</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2008/01/ASPNET-Session-State-Partitioning.aspx&amp;title=ASP.NET Session State Partitioning"> <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/01/ASPNET-Session-State-Partitioning.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
+You may have noticed that the *stateConnectionString* attribute was replaced by a *partitionResolverType* attribute. From now on, ASP.NET will use the class specified in the *partitionResolverType* attribute for distributing sessions across state servers.
 
-
+**UPDATE 2008-01-24:** Also check out my blog post on [Session State Partitioning using load balancing](/post/2008/01/aspnet-session-state-partitioning-using-state-server-load-balancing.aspx)!

@@ -10,37 +10,30 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/12/16/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.html
 ---
-<p>
-This post is part 2 of my series on <a href="http://www.microsoft.com/azure" target="_blank">Windows Azure</a>, in which I&#39;ll try to convert my ASP.NET MVC application into a cloud application. The current post is all about enabling the CarTrackr Visual Studio Solution file for Windows Azure. 
-</p>
-<p>
-Other parts: 
-</p>
-<ul>
-	<li><a href="/post/2008/12/09/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx" target="_blank">Part 1 - Introduction</a>, containg links to all other parts</li>
-	<li>Part 2 - Cloud-enabling CarTrackr (current part)</li>
-	<li><a href="/post/2008/12/09/cartrackr-on-windows-azure-part-3-data-storage.aspx" target="_blank">Part 3 - Data storage</a> </li>
-	<li><a href="/post/2008/12/11/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx" target="_blank">Part 4 - Membership and authentication</a> </li>
-	<li><a href="/post/2008/12/19/cartrackr-on-windows-azure-part-5-deploying-in-the-cloud.aspx" target="_blank">Part 5 - Deploying in the cloud</a></li>
-</ul>
-<h2>Adding CarTrackr_WebRole</h2>
-<p>
-For a blank Azure application, one would choose the Web Cloud Service type project (installed with teh Azure CTP), which brings up two projects in the solution: a &lt;project&gt; and &lt;project&gt;_WebRole. The first one is teh service definition, the latter is the actual application. Since CarTrackr is an existing project, let&#39;s add a new CarTrackr_Azure project containing the service definition. 
-</p>
-<p>
-Right-click the CarTrackr solution and add a new project. From the project templates, pick the &quot;Cloud Service -&gt; Blank Cloud Service&quot; item and name it &quot;CarTrackr_Azure&quot;. The CarTrackr_Azure project will contain all service definition data used by Windows Azure to determine the application&#39;s settings and environment. 
-</p>
-<p align="center">
-&nbsp;<img style="border: 0px" src="/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_6.png" border="0" alt="Creating CarTrackr_Azure" width="644" height="412" /> 
-</p>
-<p>
-<img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_9.png" border="0" alt="CarTrackr solution" width="244" height="171" align="right" /> 
-</p>
-<p>
-Great! My solution explorer now contains 3 projects: CarTrackr, CarTrackr.Tests and the newly created CarTrackr_Azure. Next thing to do is actually defining the CarTrackr project in CarTrackr_Azure as the WebRole project. Right-click &quot;Roles&quot;, &quot;Add&quot;, and notice... we can not promote CarTrackr to a WebRole project. Sigh! 
-</p>
-<p>
-Edit the CarTrackr.csproj file using notepad and merge the differences in (ProjectTypeGuids, RoleType and ServiceHostingSDKInstallDir): 
+This post is part 2 of my series on [Windows Azure](http://www.microsoft.com/azure), in which I'll try to convert my ASP.NET MVC application into a cloud application. The current post is all about enabling the CarTrackr Visual Studio Solution file for Windows Azure.
+
+Other parts:
+
+- [Part 1 - Introduction](/post/2008/12/09/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx), containg links to all other parts
+- Part 2 - Cloud-enabling CarTrackr (current part)
+- [Part 3 - Data storage](/post/2008/12/09/cartrackr-on-windows-azure-part-3-data-storage.aspx)
+- [Part 4 - Membership and authentication](/post/2008/12/11/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx)
+- [Part 5 - Deploying in the cloud](/post/2008/12/19/cartrackr-on-windows-azure-part-5-deploying-in-the-cloud.aspx)
+
+## Adding CarTrackr_WebRole
+
+For a blank Azure application, one would choose the Web Cloud Service type project (installed with teh Azure CTP), which brings up two projects in the solution: a <project> and <project>_WebRole. The first one is teh service definition, the latter is the actual application. Since CarTrackr is an existing project, let's add a new CarTrackr_Azure project containing the service definition.
+
+Right-click the CarTrackr solution and add a new project. From the project templates, pick the "Cloud Service -> Blank Cloud Service" item and name it "CarTrackr_Azure". The CarTrackr_Azure project will contain all service definition data used by Windows Azure to determine the application's settings and environment.
+
+ ![Creating CarTrackr_Azure](/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_6.png)
+
+![CarTrackr solution](/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_9.png)
+
+Great! My solution explorer now contains 3 projects: CarTrackr, CarTrackr.Tests and the newly created CarTrackr_Azure. Next thing to do is actually defining the CarTrackr project in CarTrackr_Azure as the WebRole project. Right-click "Roles", "Add", and notice... we can not promote CarTrackr to a WebRole project. Sigh!
+
+Edit the CarTrackr.csproj file using notepad and merge the differences in (ProjectTypeGuids, RoleType and ServiceHostingSDKInstallDir):
+
 ```xml
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
@@ -60,12 +53,13 @@ Edit the CarTrackr.csproj file using notepad and merge the differences in (Proje
   </PropertyGroup>
   <!-- ... -->
 </Project>
+
 ```
 
-Visual Studio will prompt to reload the project, allow this by clicking the &quot;Reload&quot; button. Now we can right-click &quot;Roles&quot;, &quot;Add&quot;, &quot;Web Role Project in Solution&quot; and pick CarTrackr. Note that the 2 files in CarTrackr_Azure now have been updated to reflect this. 
-</p>
-<p>
-ServiceDefinition.csdef now contains the following: 
+Visual Studio will prompt to reload the project, allow this by clicking the "Reload" button. Now we can right-click "Roles", "Add", "Web Role Project in Solution" and pick CarTrackr. Note that the 2 files in CarTrackr_Azure now have been updated to reflect this.
+
+ServiceDefinition.csdef now contains the following:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="CarTrackr_Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -75,12 +69,13 @@ ServiceDefinition.csdef now contains the following:
     </InputEndpoints>
   </WebRole>
 </ServiceDefinition>
+
 ```
 
-This file will later instruct the Azure platform to run a website on a HTTP endpoint, port 80. Optionally, I can also add a HTTPS endpoint here if required. For now, this definition wil do. 
-</p>
-<p>
-ServiceConfiguration.csdef now contains the following: 
+This file will later instruct the Azure platform to run a website on a HTTP endpoint, port 80. Optionally, I can also add a HTTPS endpoint here if required. For now, this definition wil do.
+
+ServiceConfiguration.csdef now contains the following:
+
 ```xml
 <?xml version="1.0"?>
 <ServiceConfiguration serviceName="CarTrackr_Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration">
@@ -89,28 +84,18 @@ ServiceConfiguration.csdef now contains the following:
     <ConfigurationSettings />
   </Role>
 </ServiceConfiguration>
+
 ```
 
-This file will inform Azure of the required environment for CarTrackr. First of all, one instance will be hosted. If it becomes a popular site and more &quot;servers&quot; are needed, I can simply increase this number and have more power in the cloud. The ConfigurationSettings element can contain some other configuration settings, for example where data will be stored. I think I&#39;ll be needing this in a future blog post, but for now, this will do. 
-</p>
-<p>
-&nbsp;
-</p>
-<div style="text-align: center">
-<img src="/images/ServiceDefConf.png" border="0" alt="Service Configuration" title="Service Configuration" hspace="5" vspace="5" width="550" height="357" /> 
-</div>
-<h2>It&#39;s in the cloud!</h2>
-<p>
-After doing all configuration steps, I can simply start the CarTrackr application in debug mode. 
-</p>
-<p align="center">
-<img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_12.png" border="0" alt="CarTrackr in the cloud!" width="549" height="484" /> 
-</p>
-<p>
-Nothing fancy here, everything still works! I just can&#39;t help the feeling that Windows Azure will not know my local SQL server for data storage... Which will be the subject of a next blog post! 
-</p>
-<p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx&amp;title=CarTrackr on Windows Azure - Part 2 - Cloud-enabling CarTrackr"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx.html" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>
-</p>
+This file will inform Azure of the required environment for CarTrackr. First of all, one instance will be hosted. If it becomes a popular site and more "servers" are needed, I can simply increase this number and have more power in the cloud. The ConfigurationSettings element can contain some other configuration settings, for example where data will be stored. I think I'll be needing this in a future blog post, but for now, this will do.
 
 
+![Service Configuration](/images/ServiceDefConf.png)
+
+## It's in the cloud!
+
+After doing all configuration steps, I can simply start the CarTrackr application in debug mode.
+
+![CarTrackr in the cloud!](/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_12.png)
+
+Nothing fancy here, everything still works! I just can't help the feeling that Windows Azure will not know my local SQL server for data storage... Which will be the subject of a next blog post!

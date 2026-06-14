@@ -10,16 +10,26 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/06/16/asp-net-mvc-mvcsitemapprovider-2-0-is-out.html
 ---
-<p>I&rsquo;m very proud to announce the release of the ASP.NET MVC MvcSiteMapProvider 2.0! I&rsquo;m also proud that the name of this product now exceeds the average length of Microsoft product names. In this blog post, I will give you a feel of what you can (and can not) do with this ASP.NET-specific SiteMapProvider.</p>
-<p>As a warning: if you&rsquo;ve used version 1 of this library, you will notice that I have not thought of backwards compatibility. A lot of principles have also changed. For good reasons though: this release is a rewrite of the original version with improved features, extensibility and stability.</p>
-<p>The example code is all based on the excellent <a href="http://www.asp.net/mvc/samples/mvc-music-store" target="_blank">ASP.NET MVC Music Store sample application</a> by <a href="http://weblogs.asp.net/jgalloway/" target="_blank">Jon Galloway</a>.</p>
-<h2>Getting the bits</h2>
-<p>As always, the bits are available on CodePlex: <a href="http://mvcsitemap.codeplex.com/releases/view/47019" target="_blank">MvcSiteMapProvider 2.0.0</a> <br />If you prefer to have the full source code, download the example application or check the <a href="http://mvcsitemap.codeplex.com/SourceControl/list/changesets" target="_blank">source code</a> tab on CodePlex.</p>
-<h2>Introduction</h2>
-<p>MvcSiteMapProvider is, as the name implies, an ASP.NET MVC SiteMapProvider implementation for the ASP.NET MVC framework. Targeted at ASP.NET MVC 2, it provides sitemap XML functionality and interoperability with the classic ASP.NET sitemap controls, like the SiteMapPath control for rendering breadcrumbs and the Menu control.</p>
-<p>Based on areas, controller and action method names rather than hardcoded URL references, sitemap nodes are completely dynamic based on the routing engine used in an application. The dynamic character of ASP.NET MVC is followed in the MvcSiteMapProvider: there are numerous extensibility points that allow you to extend the basic functionality offered.</p>
-<h2>Registering the provider</h2>
-<p>After downloading the MvcSiteMapProvider, you will have to add a reference to the assembly in your project. Also, you will have to register the provider in your Web.config file. Add the following code somewhere in the &lt;system.web&gt; section:
+I’m very proud to announce the release of the ASP.NET MVC MvcSiteMapProvider 2.0! I’m also proud that the name of this product now exceeds the average length of Microsoft product names. In this blog post, I will give you a feel of what you can (and can not) do with this ASP.NET-specific SiteMapProvider.
+
+As a warning: if you’ve used version 1 of this library, you will notice that I have not thought of backwards compatibility. A lot of principles have also changed. For good reasons though: this release is a rewrite of the original version with improved features, extensibility and stability.
+
+The example code is all based on the excellent [ASP.NET MVC Music Store sample application](http://www.asp.net/mvc/samples/mvc-music-store) by [Jon Galloway](http://weblogs.asp.net/jgalloway/).
+
+## Getting the bits
+
+As always, the bits are available on CodePlex: [MvcSiteMapProvider 2.0.0](http://mvcsitemap.codeplex.com/releases/view/47019)
+If you prefer to have the full source code, download the example application or check the [source code](http://mvcsitemap.codeplex.com/SourceControl/list/changesets) tab on CodePlex.
+
+## Introduction
+
+MvcSiteMapProvider is, as the name implies, an ASP.NET MVC SiteMapProvider implementation for the ASP.NET MVC framework. Targeted at ASP.NET MVC 2, it provides sitemap XML functionality and interoperability with the classic ASP.NET sitemap controls, like the SiteMapPath control for rendering breadcrumbs and the Menu control.
+
+Based on areas, controller and action method names rather than hardcoded URL references, sitemap nodes are completely dynamic based on the routing engine used in an application. The dynamic character of ASP.NET MVC is followed in the MvcSiteMapProvider: there are numerous extensibility points that allow you to extend the basic functionality offered.
+
+## Registering the provider
+
+After downloading the MvcSiteMapProvider, you will have to add a reference to the assembly in your project. Also, you will have to register the provider in your Web.config file. Add the following code somewhere in the <system.web> section:
 
 ```csharp
 <siteMap defaultProvider="MvcSiteMapProvider" enabled="true">
@@ -40,82 +50,28 @@ redirect_from:
          />
   </providers>
 </siteMap>
+
 ```
 
-<p>The following configuration directives can be specified:</p>
-<table  border="1" cellspacing="0" cellpadding="2">
-<tbody>
-<tr>
-<td width="199" valign="top"><strong>Directive</strong></td>
-<td width="65" valign="top"><strong>Required?</strong></td>
-<td width="341" valign="top"><strong>Default</strong></td>
-<td width="196" valign="top"><strong>Description</strong></td>
-</tr>
-<tr>
-<td width="199" valign="top">siteMapFile</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">~/Web.sitemap</td>
-<td width="196" valign="top">The sitemap XML file to use.</td>
-</tr>
-<tr>
-<td width="199" valign="top">securityTrimmingEnabled</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">false</td>
-<td width="196" valign="top">Use security trimming? When enabled, nodes that the user can not access will not be displayed in any sitemap control.</td>
-</tr>
-<tr>
-<td width="199" valign="top">enableLocalization</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">false</td>
-<td width="196" valign="top">Enables localization of sitemap nodes.</td>
-</tr>
-<tr>
-<td width="199" valign="top">scanAssembliesForSiteMapNodes</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">false</td>
-<td width="196" valign="top">Scan assemblies for sitemap nodes defined in code?</td>
-</tr>
-<tr>
-<td width="199" valign="top">skipAssemblyScanOn</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">(empty)</td>
-<td width="196" valign="top">Comma-separated list of assemblies that should be skipped when <em>scanAssembliesForSiteMapNodes</em> is enabled.</td>
-</tr>
-<tr>
-<td width="199" valign="top">attributesToIgnore</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">(empty)</td>
-<td width="196" valign="top">Comma-separated list of attributes defined on a sitemap node that should be ignored by the MvcSiteMapProvider.</td>
-</tr>
-<tr>
-<td width="199" valign="top">nodeKeyGenerator</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">MvcSiteMapProvider.DefaultNodeKeyGenerator, MvcSiteMapProvider</td>
-<td width="196" valign="top">Class that will be used to generate sitemap node keys.</td>
-</tr>
-<tr>
-<td width="199" valign="top">controllerTypeResolver</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">MvcSiteMapProvider.DefaultControllerTypeResolver, MvcSiteMapProvider</td>
-<td width="196" valign="top">Class that will be used to resolve the controller for a specific sitemap node.</td>
-</tr>
-<tr>
-<td width="199" valign="top">actionMethodParameterResolver</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">MvcSiteMapProvider.DefaultActionMethodParameterResolver, MvcSiteMapProvider</td>
-<td width="196" valign="top">Class that will be used to determine the list of parameters on a sitemap node.</td>
-</tr>
-<tr>
-<td width="199" valign="top">aclModule</td>
-<td width="65" valign="top">No</td>
-<td width="341" valign="top">MvcSiteMapProvider.DefaultAclModule, MvcSiteMapProvider</td>
-<td width="196" valign="top">Class that will be used to verify security and access rules for sitemap nodes.</td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<h2>Creating a first sitemap</h2>
-<p>The following is a simple sitemap XML file that can be used with the MvcSiteMapProvider:
+The following configuration directives can be specified:
+
+| Directive | Required? | Default | Description |
+|------|------|------|------|
+| siteMapFile | No | ~/Web.sitemap | The sitemap XML file to use. |
+| securityTrimmingEnabled | No | false | Use security trimming? When enabled, nodes that the user can not access will not be displayed in any sitemap control. |
+| enableLocalization | No | false | Enables localization of sitemap nodes. |
+| scanAssembliesForSiteMapNodes | No | false | Scan assemblies for sitemap nodes defined in code? |
+| skipAssemblyScanOn | No | (empty) | Comma-separated list of assemblies that should be skipped when scanAssembliesForSiteMapNodes is enabled. |
+| attributesToIgnore | No | (empty) | Comma-separated list of attributes defined on a sitemap node that should be ignored by the MvcSiteMapProvider. |
+| nodeKeyGenerator | No | MvcSiteMapProvider.DefaultNodeKeyGenerator, MvcSiteMapProvider | Class that will be used to generate sitemap node keys. |
+| controllerTypeResolver | No | MvcSiteMapProvider.DefaultControllerTypeResolver, MvcSiteMapProvider | Class that will be used to resolve the controller for a specific sitemap node. |
+| actionMethodParameterResolver | No | MvcSiteMapProvider.DefaultActionMethodParameterResolver, MvcSiteMapProvider | Class that will be used to determine the list of parameters on a sitemap node. |
+| aclModule | No | MvcSiteMapProvider.DefaultAclModule, MvcSiteMapProvider | Class that will be used to verify security and access rules for sitemap nodes. |
+
+
+## Creating a first sitemap
+
+The following is a simple sitemap XML file that can be used with the MvcSiteMapProvider:
 
 ```csharp
 <?xml version="1.0" encoding="utf-8" ?>
@@ -125,118 +81,34 @@ redirect_from:
     <mvcSiteMapNode title="Checkout" controller="Checkout" />
   </mvcSiteMapNode>
 </mvcSiteMap>
+
 ```
 
-<p>The following attributes can be given on an XML node element:</p>
-<table border="1" cellspacing="0" cellpadding="2">
-<tbody>
-<tr>
-<td width="198" valign="top"><strong>Attribute</strong></td>
-<td width="88" valign="top"><strong>Required?</strong></td>
-<td width="106" valign="top"><strong>Default</strong></td>
-<td width="202" valign="top"><strong>Description</strong></td>
-</tr>
-<tr>
-<td width="195" valign="top">title</td>
-<td width="91" valign="top">Yes</td>
-<td width="110" valign="top">(empty)</td>
-<td width="199" valign="top">The title of the node.</td>
-</tr>
-<tr>
-<td width="193" valign="top">description</td>
-<td width="93" valign="top">No</td>
-<td width="113" valign="top">(empty)</td>
-<td width="197" valign="top">Description of the node.</td>
-</tr>
-<tr>
-<td width="192" valign="top">area</td>
-<td width="94" valign="top">No</td>
-<td width="115" valign="top">(empty)</td>
-<td width="196" valign="top">The MVC area for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy.</td>
-</tr>
-<tr>
-<td width="191" valign="top">controller</td>
-<td width="94" valign="top">Yes</td>
-<td width="117" valign="top">(empty)</td>
-<td width="195" valign="top">The MVC controller for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy.</td>
-</tr>
-<tr>
-<td width="190" valign="top">action</td>
-<td width="94" valign="top">Yes</td>
-<td width="118" valign="top">(empty)</td>
-<td width="195" valign="top">The MVC action method for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy.</td>
-</tr>
-<tr>
-<td width="190" valign="top">key</td>
-<td width="94" valign="top">No</td>
-<td width="119" valign="top">(autogenerated)</td>
-<td width="194" valign="top">The unique identifier for the node.</td>
-</tr>
-<tr>
-<td width="190" valign="top">url</td>
-<td width="94" valign="top">No</td>
-<td width="120" valign="top">(autogenerated based on routes)</td>
-<td width="194" valign="top">The URL represented by the node.</td>
-</tr>
-<tr>
-<td width="189" valign="top">roles</td>
-<td width="94" valign="top">No</td>
-<td width="121" valign="top">(empty)</td>
-<td width="194" valign="top">Comma-separated list of roles allowed to access the node and its child nodes.</td>
-</tr>
-<tr>
-<td width="189" valign="top">resourceKey</td>
-<td width="94" valign="top">No</td>
-<td width="121" valign="top">(empty)</td>
-<td width="194" valign="top">Optional resource key.</td>
-</tr>
-<tr>
-<td width="189" valign="top">clickable</td>
-<td width="94" valign="top">No</td>
-<td width="121" valign="top">True</td>
-<td width="194" valign="top">Is the node clickable or just a grouping node?</td>
-</tr>
-<tr>
-<td width="189" valign="top">targetFrame</td>
-<td width="94" valign="top">No</td>
-<td width="121" valign="top">(empty)</td>
-<td width="194" valign="top">Optional target frame for the node link.</td>
-</tr>
-<tr>
-<td width="189" valign="top">imageUrl</td>
-<td width="94" valign="top">No</td>
-<td width="121" valign="top">(empty)</td>
-<td width="194" valign="top">Optional image to be shown by supported HtmlHelpers.</td>
-</tr>
-<tr>
-<td width="189" valign="top">lastModifiedDate</td>
-<td width="94" valign="top">No</td>
-<td width="121" valign="top">(empty)</td>
-<td width="194" valign="top">Last modified date for the node.</td>
-</tr>
-<tr>
-<td width="189" valign="top">changeFrequency</td>
-<td width="94" valign="top">No</td>
-<td width="121" valign="top">Undefined</td>
-<td width="194" valign="top">Change frequency for the node.</td>
-</tr>
-<tr>
-<td width="189" valign="top">updatePriority</td>
-<td width="94" valign="top">No</td>
-<td width="122" valign="top">Undefined</td>
-<td width="194" valign="top">Update priority for the node.</td>
-</tr>
-<tr>
-<td width="189" valign="top">dynamicNodeProvider</td>
-<td width="94" valign="top">No</td>
-<td width="122" valign="top">(empty)</td>
-<td width="194" valign="top">A class name implementing MvcSiteMapProvider.Extensibility.IDynamicNodeProvider and providing dynamic nodes for the site map.</td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<h2>Defining sitemap nodes in code</h2>
-<p>In some cases, defining a sitemap node in code is more convenient than defining it in a sitemap xml file. To do this, decorate an action method with the <em>MvcSiteMapNodeAttribute</em> attribute. For example:
+The following attributes can be given on an XML node element:
+
+| Attribute | Required? | Default | Description |
+|------|------|------|------|
+| title | Yes | (empty) | The title of the node. |
+| description | No | (empty) | Description of the node. |
+| area | No | (empty) | The MVC area for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy. |
+| controller | Yes | (empty) | The MVC controller for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy. |
+| action | Yes | (empty) | The MVC action method for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy. |
+| key | No | (autogenerated) | The unique identifier for the node. |
+| url | No | (autogenerated based on routes) | The URL represented by the node. |
+| roles | No | (empty) | Comma-separated list of roles allowed to access the node and its child nodes. |
+| resourceKey | No | (empty) | Optional resource key. |
+| clickable | No | True | Is the node clickable or just a grouping node? |
+| targetFrame | No | (empty) | Optional target frame for the node link. |
+| imageUrl | No | (empty) | Optional image to be shown by supported HtmlHelpers. |
+| lastModifiedDate | No | (empty) | Last modified date for the node. |
+| changeFrequency | No | Undefined | Change frequency for the node. |
+| updatePriority | No | Undefined | Update priority for the node. |
+| dynamicNodeProvider | No | (empty) | A class name implementing MvcSiteMapProvider.Extensibility.IDynamicNodeProvider and providing dynamic nodes for the site map. |
+
+
+## Defining sitemap nodes in code
+
+In some cases, defining a sitemap node in code is more convenient than defining it in a sitemap xml file. To do this, decorate an action method with the *MvcSiteMapNodeAttribute* attribute. For example:
 
 ```csharp
 // GET: /Checkout/Complete
@@ -245,18 +117,23 @@ public ActionResult Complete(int id)
 {
     // ...
 }
+
 ```
 
-<p>Note that the <em>ParentKey</em> property should be specified to ensure the MvcSiteMapProvider&nbsp; can determine the hierarchy for all nodes.</p>
-<h2>Dynamic sitemaps</h2>
-<p>In many web applications, sitemap nodes are directly related to content in a persistent store like a database.For example, in an e-commerce application, a list of product details pages in the sitemap maps directly to the list of products in the database. Using dynamic sitemaps, a small class can be provided to the MvcSiteMapProvider offering a list of dynamic nodes that should be incldued in the sitemap. This ensures the product pages do not have to be specified by hand in the sitemap XML.</p>
-<p>First of all, a sitemap node should be defined in XML. This node will serve as a template and tell the MvcSiteMapProvider infrastructure to use a custom dynamic node procider:
+Note that the *ParentKey* property should be specified to ensure the MvcSiteMapProvider  can determine the hierarchy for all nodes.
+
+## Dynamic sitemaps
+
+In many web applications, sitemap nodes are directly related to content in a persistent store like a database.For example, in an e-commerce application, a list of product details pages in the sitemap maps directly to the list of products in the database. Using dynamic sitemaps, a small class can be provided to the MvcSiteMapProvider offering a list of dynamic nodes that should be incldued in the sitemap. This ensures the product pages do not have to be specified by hand in the sitemap XML.
+
+First of all, a sitemap node should be defined in XML. This node will serve as a template and tell the MvcSiteMapProvider infrastructure to use a custom dynamic node procider:
 
 ```csharp
 <mvcSiteMapNode title="Details" action="Details" dynamicNodeProvider="MvcMusicStore.Code.StoreDetailsDynamicNodeProvider, MvcMusicStore" />
+
 ```
 
-<p>Next, a class implementing <em>MvcSiteMapProvider.Extensibility.IDynamicNodeProvider</em> or extending <em>MvcSiteMapProvider.Extensibility.DynamicNodeProviderBase</em> should be created in your application code. Here&rsquo;s an example:
+Next, a class implementing *MvcSiteMapProvider.Extensibility.IDynamicNodeProvider* or extending *MvcSiteMapProvider.Extensibility.DynamicNodeProviderBase* should be created in your application code. Here’s an example:
 
 ```csharp
 public class StoreDetailsDynamicNodeProvider
@@ -283,10 +160,12 @@ public class StoreDetailsDynamicNodeProvider
         return returnValue;
     }
 }
+
 ```
 
-<h3>Cache dependency</h3>
-<p>When providing dynamic sitemap nodes to the MvcSiteMapProvider, chances are that the hierarchy of nodes will become stale, for example when adding products in an e-commerce website. This can be solved by specifying a <em>CacheDescriptor</em> on your <em>MvcSiteMapProvider.Extensibility.IDynamicNodeProvider</em> implementation:
+### Cache dependency
+
+When providing dynamic sitemap nodes to the MvcSiteMapProvider, chances are that the hierarchy of nodes will become stale, for example when adding products in an e-commerce website. This can be solved by specifying a *CacheDescriptor* on your *MvcSiteMapProvider.Extensibility.IDynamicNodeProvider* implementation:
 
 ```csharp
 public class StoreDetailsDynamicNodeProvider
@@ -307,18 +186,20 @@ public class StoreDetailsDynamicNodeProvider
         };
     }
 }
+
 ```
 
-<h2>HtmlHelper functions</h2>
-<p>The MvcSiteMapProvider provides different HtmlHelper extension methods which you can use to generate SiteMap-specific HTML code on your ASP.NET MVC views. Here's a list of available HtmlHelper extension methods.</p>
-<ul>
-<li>Html.MvcSiteMap().Menu() - Can be used to generate a menu </li>
-<li>Html.MvcSiteMap().SubMenu() - Can be used to generate a submenu </li>
-<li>Html.MvcSiteMap().SiteMap() - Can be used to generate a list of all pages in your sitemap </li>
-<li>Html.MvcSiteMap().SiteMapPath() - Can be used to generate a so-called "breadcrumb trail" </li>
-<li>Html.MvcSiteMap().SiteMapTitle() - Can be used to render the current SiteMap node's title </li>
-</ul>
-<p>Note that these should be registered in Web.config, i.e. under &lt;pages&gt; add the following:
+## HtmlHelper functions
+
+The MvcSiteMapProvider provides different HtmlHelper extension methods which you can use to generate SiteMap-specific HTML code on your ASP.NET MVC views. Here's a list of available HtmlHelper extension methods.
+
+- Html.MvcSiteMap().Menu() - Can be used to generate a menu
+- Html.MvcSiteMap().SubMenu() - Can be used to generate a submenu
+- Html.MvcSiteMap().SiteMap() - Can be used to generate a list of all pages in your sitemap
+- Html.MvcSiteMap().SiteMapPath() - Can be used to generate a so-called "breadcrumb trail"
+- Html.MvcSiteMap().SiteMapTitle() - Can be used to render the current SiteMap node's title
+
+Note that these should be registered in Web.config, i.e. under <pages> add the following:
 
 ```csharp
 <pages>
@@ -330,12 +211,16 @@ public class StoreDetailsDynamicNodeProvider
         <add namespace="MvcSiteMapProvider.Web.Html" />
     </namespaces>
 </pages>
+
 ```
 
-<h2>Action Filter Attributes</h2>
-<h3>SiteMapTitle</h3>
-<p>In some situations, you may want to dynamically change the <em>SiteMap.CurrentNode.Title</em> in an action method. This can be done manually by setting <em>SiteMap.CurrentNode.Title</em>, or by adding the <em>SiteMapTitle</em> action filter attribute.</p>
-<p>Imagine you are building a blog and want to use the Blog's Headline property as the site map node title. You can use the following snippet:
+## Action Filter Attributes
+
+### SiteMapTitle
+
+In some situations, you may want to dynamically change the *SiteMap.CurrentNode.Title* in an action method. This can be done manually by setting *SiteMap.CurrentNode.Title*, or by adding the *SiteMapTitle* action filter attribute.
+
+Imagine you are building a blog and want to use the Blog's Headline property as the site map node title. You can use the following snippet:
 
 ```csharp
 [SiteMapTitle("Headline")]
@@ -343,9 +228,10 @@ public ViewResult Show(int blogId) {
    var blog = _repository.Find(blogIdId);
    return blog;
 }
+
 ```
 
-<p>You can also use a non-strong typed <em>ViewData</em> value as the site map node title:
+You can also use a non-strong typed *ViewData* value as the site map node title:
 
 ```csharp
 [SiteMapTitle("SomeKey")]
@@ -354,10 +240,12 @@ public ViewResult Show(int blogId) {
    var blog = _repository.Find(blogIdId);
    return blog;
 }
+
 ```
 
-<h2>Exporting the sitemap for search engine indexing</h2>
-<p>When building a website, chances are that you want to provide an XML sitemap used for search engine indexing. The <em>XmlSiteMapResult</em> class creates an XML sitemap that can be submitted to Google, Yahoo and other search engines to help them crawl your website better. The usage is very straightforward:
+## Exporting the sitemap for search engine indexing
+
+When building a website, chances are that you want to provide an XML sitemap used for search engine indexing. The *XmlSiteMapResult* class creates an XML sitemap that can be submitted to Google, Yahoo and other search engines to help them crawl your website better. The usage is very straightforward:
 
 ```csharp
 public class HomeController
@@ -367,13 +255,11 @@ public class HomeController
         return new XmlSiteMapResult();
     }
 }
+
 ```
 
-<p>Optionally, a starting node can also be specified in the constructor of the<em>XmlSiteMapResult</em> .</p>
-<h2>Conclusion</h2>
-<p>Get it while it&rsquo;s hot! <a href="http://mvcsitemap.codeplex.com/releases/view/47019" target="_blank">MvcSiteMapProvider 2.0.0</a> is available on CodePlex.</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2010/06/16/ASPNET-MVC-MvcSiteMapProvider-20-is-out!.aspx&amp;title=ASP.NET MVC - MvcSiteMapProvider 2.0 is out!">
-                    <img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2010/06/16/ASPNET-MVC-MvcSiteMapProvider-20-is-out!.aspx" border="0" alt="kick it on DotNetKicks.com" />
-                  </a></p>
+Optionally, a starting node can also be specified in the constructor of the*XmlSiteMapResult* .
 
+## Conclusion
 
+Get it while it’s hot! [MvcSiteMapProvider 2.0.0](http://mvcsitemap.codeplex.com/releases/view/47019) is available on CodePlex.

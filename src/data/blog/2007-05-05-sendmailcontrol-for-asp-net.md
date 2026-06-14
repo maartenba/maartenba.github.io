@@ -10,11 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/05/05/sendmailcontrol-for-asp-net.html
 ---
-<p>
-Have you ever used the ASP.NET PasswordRecovery control, or the CreateUserWizard? Probably, you used the mail capabilities of these controls too, and set up a MailDefinition to send an e-mail when the control did his job. Personally, I missed this functionality when wanting to send mails to users. 
-</p>
-<p>
+Have you ever used the ASP.NET PasswordRecovery control, or the CreateUserWizard? Probably, you used the mail capabilities of these controls too, and set up a MailDefinition to send an e-mail when the control did his job. Personally, I missed this functionality when wanting to send mails to users.
+
 Luckily, ASP.NET is very extensible. I decided to create my own control providing an easy and convenient way to sending templated e-mails. Just set the From, CC, Subject and Body properties in the designer, and use the Send() method from code. Not the cleanest implementation of catching SMTP errors, but it was sufficient for my use. If you need to catch SMTP errors, you still need to add that... Anyway, as a gift for anyone who needs it, please find my SendMailControl underneath:
+
 ```csharp
 using System;
 using System.Collections;
@@ -77,6 +76,5 @@ namespace MaartenBalliauw.WebControls
         #endregion
     }
 }
+
 ```
-
-

@@ -11,27 +11,22 @@ redirect_from:
   - /post/2008/05/13/asp-net-mvc-custom-actionresult-imageresult.html
   - /post/2008/05/13/aspnet-mvc-custom-actionresult.html
 ---
-<p>
-The ASP.NET MVC framework introduces the concept of returning an <em>ActionResult</em> in <em>Controller</em>s since the &quot;preview preview&quot; <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640" target="_blank">release on CodePlex</a>. The purpose of this concept is to return a generic <em>ActionResult</em> object for each <em>Controller</em> method, allowing different child classes returning different results. 
-</p>
-<p>
-An example ActionResult (built-in) is the <em>RenderViewResult</em>. Whenever you want to render a view, you can simply return an object of this class which will render a specific view in its <em>ExecuteResult</em> method. Another example is the <em>HttpRedirectResult</em> which will output an HTTP header (Location: /SomethingElse.aspx). 
-</p>
-<p>
-In my opinion, this is a great concept, because it allows you to develop ASP.NET MVC applications more transparently. In this blog post, I will build a custom <em>ActionResult</em> class which will render an image to the HTTP response stream. 
-</p>
-<p>
-<a href="/images/WindowsLiveWriter/ASP.NETMVCcustomActionResultImageResult_D717/image_6.png"><img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/ASP.NETMVCcustomActionResultImageResult_D717/image_thumb_2.png" border="0" alt="ASP.NET MVC Custom ActionResult" title="ASP.NET MVC Custom ActionResult" width="244" height="223" align="right" /></a>As an example, let&#39;s create a page which displays the current time as an image. 
-</p>
-<p>
-One option for implementing this would be creating an ASP.NET HttpHandler which renders this image and can be used inline with a simple HTML tag: <em>&lt;img src=&quot;DisplayTime.ashx&quot; /&gt;</em> 
-</p>
-<p>
-Wouldn&#39;t it be nice to be able to do something more ASP.NET MVC-like? Let&#39;s consider the following: <em>&lt;%=Html.Image&lt;HomeController&gt;(c =&gt; c.DisplayTime(), 200, 50, &quot;Current time&quot;)%&gt;</em> 
-</p>
-<h2>1. Creating the necessary HtmlHelper extension methods</h2>
-<p>
-The above example code is not available in standard ASP.NET MVC source code. We&#39;ll need an extension method for this, which will map a specific controller action, width, height and alternate text to a standard HTML image tag: 
+The ASP.NET MVC framework introduces the concept of returning an *ActionResult* in *Controller*s since the "preview preview" [release on CodePlex](http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640). The purpose of this concept is to return a generic *ActionResult* object for each *Controller* method, allowing different child classes returning different results.
+
+An example ActionResult (built-in) is the *RenderViewResult*. Whenever you want to render a view, you can simply return an object of this class which will render a specific view in its *ExecuteResult* method. Another example is the *HttpRedirectResult* which will output an HTTP header (Location: /SomethingElse.aspx).
+
+In my opinion, this is a great concept, because it allows you to develop ASP.NET MVC applications more transparently. In this blog post, I will build a custom *ActionResult* class which will render an image to the HTTP response stream.
+
+[![](/images/WindowsLiveWriter/ASP.NETMVCcustomActionResultImageResult_D717/image_thumb_2.png)](/images/WindowsLiveWriter/ASP.NETMVCcustomActionResultImageResult_D717/image_6.png)As an example, let's create a page which displays the current time as an image.
+
+One option for implementing this would be creating an ASP.NET HttpHandler which renders this image and can be used inline with a simple HTML tag: *![](DisplayTime.ashx)*
+
+Wouldn't it be nice to be able to do something more ASP.NET MVC-like? Let's consider the following: *<%=Html.Image<HomeController>(c => c.DisplayTime(), 200, 50, "Current time")%>*
+
+## 1. Creating the necessary HtmlHelper extension methods
+
+The above example code is not available in standard ASP.NET MVC source code. We'll need an extension method for this, which will map a specific controller action, width, height and alternate text to a standard HTML image tag:
+
 ```csharp
 public static class ImageResultHelper
 {
@@ -47,11 +42,13 @@ public static class ImageResultHelper
         return string.Format("<img src=\"{0}\" width=\"{1}\" height=\"{2}\" alt=\"{3}\" />", url, width, height, alt);
     }
 }
+
 ```
 
-<h2>2. The custom ActionResult class</h2>
-<p>
-Our new <em>ImageResult</em> class will inherit the abstract class <em>ActionResult</em> and implement its <em>ExecuteResult</em> method. This method basically performs communication over the HTTP response stream. 
+## 2. The custom ActionResult class
+
+Our new *ImageResult* class will inherit the abstract class *ActionResult* and implement its *ExecuteResult* method. This method basically performs communication over the HTTP response stream.
+
 ```csharp
 public class ImageResult : ActionResult
 {
@@ -81,11 +78,13 @@ public class ImageResult : ActionResult
         Image.Save(context.HttpContext.Response.OutputStream, ImageFormat);
     }
 }
+
 ```
 
-<h2>3. A &quot;DisplayTime&quot; action on the HomeController</h2>
-<p>
-We&#39;ll add a <em>DisplayTime</em> action on the <em>HomeController</em> class, which will return an instance of the newly created class <em>ImageResult</em>: 
+## 3. A "DisplayTime" action on the HomeController
+
+We'll add a *DisplayTime* action on the *HomeController* class, which will return an instance of the newly created class *ImageResult*:
+
 ```csharp
 public ActionResult DisplayTime()
 {
@@ -95,9 +94,11 @@ public ActionResult DisplayTime()
     g.DrawString(DateTime.Now.ToShortTimeString(), new Font("Arial", 32), Brushes.Red, new PointF(0, 0));
     return new ImageResult { Image = bmp, ImageFormat = ImageFormat.Jpeg };
 }
+
 ```
 
-And just to be complete, here&#39;s the markup of the index view on the <em>HomeController</em>: 
+And just to be complete, here's the markup of the index view on the *HomeController*:
+
 ```csharp
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="MvcApplication1.Views.Home.Index" %>
 <%@ Import Namespace="MvcApplication1.Code" %>
@@ -107,12 +108,7 @@ And just to be complete, here&#39;s the markup of the index view on the <em>Home
         <%=Html.Image<HomeController>(c => c.DisplayTime(), 200, 50, "Current time")%>
     </p>
 </asp:Content>
+
 ```
 
-Want the source code? <a href="/files/MvcImageResult.zip">Download it here!</a> You can use it with the <a href="http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640" target="_blank">current ASP.NET MVC framework source code drop</a>. 
-</p>
-<p>
-<a href="http://www.dotnetkicks.com/kick/?url=/post/2008/05/ASPNET-MVC-custom-ActionResult.aspx&amp;title=ASP.NET%20MVC%20custom%20ActionResult%20%28ImageResult%29"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2008/05/ASPNET-MVC-custom-ActionResult.aspx" border="0" alt="kick it on DotNetKicks.com" width="82" height="18" /> </a>&nbsp; 
-</p>
-
-
+Want the source code? [Download it here!](/files/MvcImageResult.zip) You can use it with the [current ASP.NET MVC framework source code drop](http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640).

@@ -64,7 +64,7 @@ var actionMethodsThatRequireValidateAntiForgeryTokenAttribute = assembly.GetType
         var attributes = m.GetCustomAttributes()
             .Where(a => a is HttpMethodAttribute || a is AcceptVerbsAttribute)
             .ToArray();
-        
+
         return attributes.Length == 0 || !(attributes
             .All(attribute =>
             {

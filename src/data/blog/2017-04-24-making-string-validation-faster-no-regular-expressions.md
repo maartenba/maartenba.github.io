@@ -108,8 +108,8 @@ var compilations = new []
         fullnamespace: "RegexVsCode.Compiled",
         ispublic: true)
 };
-            
-Regex.CompileToAssembly(compilations, 
+
+Regex.CompileToAssembly(compilations,
     new AssemblyName("RegexVsCode.Compiled, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
 ```
 
@@ -315,7 +315,7 @@ private static bool Matches(string value)
     }
 
     return matches;
-} 
+}
 ```
 
 Simple, readable. If the length is not ok, just return false. In other cases, check each character and when one does not match, return false early without validating the rest of the string. Looks good, easy to read.
@@ -356,7 +356,7 @@ private static bool MatchesASCII(string value)
     }
 
     return matches;
-} 
+}
 ```
 
 Still simple and readable. If the length is not ok, just return false. In other cases, check each character and when one does not match, return false early without validating the rest of the string. Let's see how all candidates rank against each other...
@@ -379,11 +379,11 @@ public class RegexVsCodeBenchmark
     {
         // code from above candidate 4
     }
-	
+
     private static bool MatchesASCII(string value)
     {
         // code from above candidate 5
-    } 
+    }
 
     [Benchmark(Description = "Regex.IsMatch - no options")]
     public bool RegexMatch()
@@ -439,7 +439,7 @@ Frequency=2240912 Hz, Resolution=446.2469 ns, Timer=TSC
   LongRun   : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.1637.0
   RyuJitX64 : Clr 4.0.30319.42000, 64bit RyuJIT-v4.6.1637.0
 
-Runtime=Clr  
+Runtime=Clr
 
 ```
 

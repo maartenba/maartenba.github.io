@@ -11,9 +11,11 @@ redirect_from:
   - /post/2009/11/26/supporting-multiple-submit-buttons-on-an-asp-net-mvc-view.html
   - /post/2009/11/26/supporting-multiple-submit-buttons-on-an-aspnet-mvc-view.html
 ---
-<p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="Multiple buttons on an ASP.NET MVC view" src="/images/image_23.png" border="0" alt="Multiple buttons on an ASP.NET MVC view" width="157" height="157" align="right" /> A while ago, I was asked for advice on how to support multiple submit buttons in an ASP.NET MVC application, preferably without using any JavaScript. The idea was that a form could contain more than one submit button issuing a form post to a different controller action.</p>
-<p>The above situation can be solved in many ways, one a bit cleaner than the other. For example, one could post the form back to one action method and determine which method should be called from that action method. Good solution, however: not standardized within a project and just not that maintainable&hellip; A better solution in this case was to create an <em>ActionNameSelectorAttribute</em>.</p>
-<p>Whenever you decorate an action method in a controller with the <em>ActionNameSelectorAttribute</em> (or a subclass), ASP.NET MVC will use this attribute to determine which action method to call. For example, one of the ASP.NET MVC <em>ActionNameSelectorAttribute</em> subclasses is the <em>ActionNameAttribute</em>. Guess what the action name for the following code snippet will be for ASP.NET MVC:
+![Multiple buttons on an ASP.NET MVC view](/images/image_23.png) A while ago, I was asked for advice on how to support multiple submit buttons in an ASP.NET MVC application, preferably without using any JavaScript. The idea was that a form could contain more than one submit button issuing a form post to a different controller action.
+
+The above situation can be solved in many ways, one a bit cleaner than the other. For example, one could post the form back to one action method and determine which method should be called from that action method. Good solution, however: not standardized within a project and just not that maintainable… A better solution in this case was to create an *ActionNameSelectorAttribute*.
+
+Whenever you decorate an action method in a controller with the *ActionNameSelectorAttribute* (or a subclass), ASP.NET MVC will use this attribute to determine which action method to call. For example, one of the ASP.NET MVC *ActionNameSelectorAttribute* subclasses is the *ActionNameAttribute*. Guess what the action name for the following code snippet will be for ASP.NET MVC:
 
 ```csharp
 public class HomeController : Controller
@@ -24,12 +26,14 @@ public class HomeController : Controller
         return View();
     }
 }
+
 ```
 
-<p>That&rsquo;s correct: this action method will be called <em>Index</em> instead of <em>Abcdefghij</em>. What happens at runtime is that ASP.NET MVC checks the <em>ActionNameAttribute</em> and asks if it applies for a specific request. Now let&rsquo;s see if we can use this behavior for our multiple submit button scenario.</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/11/26/Supporting-multiple-submit-buttons-on-an-ASPNET-MVC-view.aspx&amp;title=Supporting multiple submit buttons on an ASP.NET MVC view"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/11/26/Supporting-multiple-submit-buttons-on-an-ASPNET-MVC-view.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
-<h2>The view</h2>
-<p>Since our view should not be aware of the server-side plumbing, we can simply create a view that looks like this.
+That’s correct: this action method will be called *Index* instead of *Abcdefghij*. What happens at runtime is that ASP.NET MVC checks the *ActionNameAttribute* and asks if it applies for a specific request. Now let’s see if we can use this behavior for our multiple submit button scenario.
+
+## The view
+
+Since our view should not be aware of the server-side plumbing, we can simply create a view that looks like this.
 
 ```csharp
 <%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<MvcMultiButton.Models.Person>" %>
@@ -66,11 +70,14 @@ public class HomeController : Controller
 
 </body>
 </html>
+
 ```
 
-<p>Note the two submit buttons (namely &ldquo;Cancel&rdquo; and &ldquo;Create&rdquo;), both named &ldquo;action&rdquo; but with a different value attribute.</p>
-<h2>The controller</h2>
-<p>Our controller should also not contain too much logic for determining the correct action method to be called. Here&rsquo;s what I propose:
+Note the two submit buttons (namely “Cancel” and “Create”), both named “action” but with a different value attribute.
+
+## The controller
+
+Our controller should also not contain too much logic for determining the correct action method to be called. Here’s what I propose:
 
 ```csharp
 public class HomeController : Controller
@@ -92,17 +99,20 @@ public class HomeController : Controller
         return Content("Create clicked");
     }
 }
+
 ```
 
-<p>Some things to note:</p>
-<ul>
-<li>There&rsquo;s the <em>Index</em> action method which just renders the view described previously.</li>
-<li>There&rsquo;s a <em>Cancel</em> action method which will trigger when clicking the Cancel button.</li>
-<li>There&rsquo;s a <em>Create</em> action method which will trigger when clicking the Create button.</li>
-</ul>
-<p>Now how do these last two work&hellip; You may also have noticed the <em>MultiButtonAttribute</em> being applied. We&rsquo;ll see the implementation in a minute. In short, this is a subclass for the <em>ActionNameSelectorAttribute</em>, triggering on the parameters <em>MatchFormKey</em> and <em>MatchFormValues</em>. Now let&rsquo;s see how the <em>MultiButtonAttribute</em> class is built&hellip;</p>
-<h2>The <em>MultiButtonAttribute</em> class</h2>
-<p>Now do be surprised of the amount of code that is coming&hellip;
+Some things to note:
+
+- There’s the *Index* action method which just renders the view described previously.
+- There’s a *Cancel* action method which will trigger when clicking the Cancel button.
+- There’s a *Create* action method which will trigger when clicking the Create button.
+
+Now how do these last two work… You may also have noticed the *MultiButtonAttribute* being applied. We’ll see the implementation in a minute. In short, this is a subclass for the *ActionNameSelectorAttribute*, triggering on the parameters *MatchFormKey* and *MatchFormValues*. Now let’s see how the *MultiButtonAttribute* class is built…
+
+## The *MultiButtonAttribute* class
+
+Now do be surprised of the amount of code that is coming…
 
 ```csharp
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
@@ -116,9 +126,7 @@ public class MultiButtonAttribute : ActionNameSelectorAttribute
             controllerContext.HttpContext.Request[MatchFormKey] == MatchFormValue;
     }
 }
+
 ```
 
-<p>When applying the <em>MultiButtonAttribute</em> to an action method, ASP.NET MVC will come and call the <em>IsValidName</em> method. Next, we just check if the <em>MatchFormKey</em> value is one of the request keys, and the <em>MatchFormValue</em> matches the value in the request. Simple, straightforward and re-usable.</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/11/26/Supporting-multiple-submit-buttons-on-an-ASPNET-MVC-view.aspx&amp;title=Supporting multiple submit buttons on an ASP.NET MVC view"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/11/26/Supporting-multiple-submit-buttons-on-an-ASPNET-MVC-view.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
-
-
+When applying the *MultiButtonAttribute* to an action method, ASP.NET MVC will come and call the *IsValidName* method. Next, we just check if the *MatchFormKey* value is one of the request keys, and the *MatchFormValue* matches the value in the request. Simple, straightforward and re-usable.

@@ -11,24 +11,28 @@ redirect_from:
   - /post/2009/05/20/asp-net-mvc-domain-routing.html
   - /post/2009/05/20/aspnet-mvc-domain-routing.html
 ---
-<p style="padding: 10px; border-left-color: navy; border-left-width: 5px; border-left-style: solid; background-color: rgb(238, 238, 238);">Looking for an ASP.NET MVC 6 version? Check <a href="/post/2015/02/17/Domain-Routing-and-resolving-current-tenant-with-ASPNET-MVC-6-ASPNET-5.aspx" target="_blank">this post</a>.</p>
-<p><img width="160" height="240" title="Routing" align="right" style="margin: 5px 0px 5px 5px; border: 0px currentColor; border-image: none; display: inline;" alt="Routing" src="/images/routing.jpg" border="0"> Ever since the release of ASP.NET MVC and its routing engine (<em>System.Web.Routing</em>), Microsoft has been trying to convince us that you have full control over your URL and routing. This is true to a certain extent: as long as it’s related to your application path, everything works out nicely. If you need to take care of data tokens in your (sub)domain, you’re screwed by default.</p>
-<p>Earlier this week, <a href="http://blogs.securancy.com/post/ASPNET-MVC-Subdomain-Routing.aspx" target="_blank">Juliën Hanssens did a blog post</a> on his approach to subdomain routing. While this is a good a approach, it has some drawbacks:</p>
-<ul>
-<li>All routing logic is hard-coded: if you want to add a new possible route, you’ll have to code for it. </li>
-<li>The <em>VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)</em> method is not implemented, resulting in “strange” urls when using <em>HtmlHelper</em> <em>ActionLink</em> helpers. Think of <a title="http://live.localhost/Home/Index/?liveMode=false" href="http://live.localhost/Home/Index/?liveMode=false">http://live.localhost/Home/Index/?liveMode=false</a> where you would have just wanted <a href="http://develop.localhost/Home/Index">http://develop.localhost/Home/Index</a>. </li>
-</ul>
-<p>Unfortunately, the ASP.NET MVC infrastructure is based around this <em>VirtualPathData </em>class. That’s right: only tokens in the URL’s path are used for routing… Check my <a href="http://forums.asp.net/t/1410892.aspx" target="_blank">entry on the ASP.NET MVC forums</a> on that one.</p>
-<p>Now for a solution… Here are some scenarios we would like to support:</p>
-<ul>
-<li><strong>Scenario 1:</strong> Application is multilingual, where <a href="http://www.nl-be.example.com">www.nl-be.example.com</a> should map to a route like “www.{language}-{culture}.example.com”. </li>
-<li><strong>Scenario 2:</strong> Application is multi-tenant, where <a href="http://www.acmecompany.example.com">www.acmecompany.example.com</a> should map to a route like “www.{clientname}.example.com”. </li>
-<li><strong>Scenario 3:</strong> Application is using subdomains for controller mapping: <a href="http://www.store.example.com">www.store.example.com</a> maps to "www.{controller}.example.com/{action}...." </li>
-</ul>
-<p>Sit back, have a deep breath and prepare for some serious ASP.NET MVC plumbing…</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/05/18/ASPNET-MVC-Domain-Routing.aspx&amp;title=ASP.NET MVC Domain Routing"><img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/05/18/ASPNET-MVC-Domain-Routing.aspx" border="0"> </a></p>
-<h2>Defining routes</h2>
-<p>Here are some sample route definitions we want to support. An example where we do not want to specify the controller anywhere, as long as we are on <em>home.example.com</em>:
+Looking for an ASP.NET MVC 6 version? Check [this post](/post/2015/02/17/Domain-Routing-and-resolving-current-tenant-with-ASPNET-MVC-6-ASPNET-5.aspx).
+
+![Routing](/images/routing.jpg) Ever since the release of ASP.NET MVC and its routing engine (*System.Web.Routing*), Microsoft has been trying to convince us that you have full control over your URL and routing. This is true to a certain extent: as long as it’s related to your application path, everything works out nicely. If you need to take care of data tokens in your (sub)domain, you’re screwed by default.
+
+Earlier this week, [Juliën Hanssens did a blog post](http://blogs.securancy.com/post/ASPNET-MVC-Subdomain-Routing.aspx) on his approach to subdomain routing. While this is a good a approach, it has some drawbacks:
+
+- All routing logic is hard-coded: if you want to add a new possible route, you’ll have to code for it.
+- The *VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)* method is not implemented, resulting in “strange” urls when using *HtmlHelper* *ActionLink* helpers. Think of [http://live.localhost/Home/Index/?liveMode=false](http://live.localhost/Home/Index/?liveMode=false) where you would have just wanted [http://develop.localhost/Home/Index](http://develop.localhost/Home/Index).
+
+Unfortunately, the ASP.NET MVC infrastructure is based around this *VirtualPathData *class. That’s right: only tokens in the URL’s path are used for routing… Check my [entry on the ASP.NET MVC forums](http://forums.asp.net/t/1410892.aspx) on that one.
+
+Now for a solution… Here are some scenarios we would like to support:
+
+- **Scenario 1:** Application is multilingual, where [www.nl-be.example.com](http://www.nl-be.example.com) should map to a route like “www.{language}-{culture}.example.com”.
+- **Scenario 2:** Application is multi-tenant, where [www.acmecompany.example.com](http://www.acmecompany.example.com) should map to a route like “www.{clientname}.example.com”.
+- **Scenario 3:** Application is using subdomains for controller mapping: [www.store.example.com](http://www.store.example.com) maps to "www.{controller}.example.com/{action}...."
+
+Sit back, have a deep breath and prepare for some serious ASP.NET MVC plumbing…
+
+## Defining routes
+
+Here are some sample route definitions we want to support. An example where we do not want to specify the controller anywhere, as long as we are on *home.example.com*:
 
 ```csharp
 routes.Add("DomainRoute", new DomainRoute(
@@ -36,9 +40,10 @@ routes.Add("DomainRoute", new DomainRoute(
     "{action}/{id}",    // URL with parameters
     new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
 ));
+
 ```
 
-<p>Another example where we have our controller in the domain name:
+Another example where we have our controller in the domain name:
 
 ```csharp
 routes.Add("DomainRoute", new DomainRoute(
@@ -46,9 +51,10 @@ routes.Add("DomainRoute", new DomainRoute(
 br />    "{action}/{id}",    // URL with parameters
     new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
 ));
+
 ```
 
-<p>Want the full controller and action in the domain?
+Want the full controller and action in the domain?
 
 ```csharp
 routes.Add("DomainRoute", new DomainRoute(
@@ -56,9 +62,10 @@ routes.Add("DomainRoute", new DomainRoute(
     "{id}",    // URL with parameters
     new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
 ));
+
 ```
 
-<p>Here’s the multicultural route:
+Here’s the multicultural route:
 
 ```csharp
 routes.Add("DomainRoute", new DomainRoute(
@@ -66,17 +73,21 @@ routes.Add("DomainRoute", new DomainRoute(
     "{controller}/{action}/{id}",    // URL with parameters
     new { language = "en", controller = "Home", action = "Index", id = "" }  // Parameter defaults
 ));
+
 ```
 
-<h2>HtmlHelper extension methods</h2>
-<p>Since we do not want all URLs generated by <em>HtmlHelper</em> <em>ActionLink</em> to be using full URLs, the first thing we’ll add is some new <em>ActionLink</em> helpers, containing a boolean flag whether you want full URLs or not. Using these, you can now add a link to an action as follows:
+## HtmlHelper extension methods
+
+Since we do not want all URLs generated by *HtmlHelper* *ActionLink* to be using full URLs, the first thing we’ll add is some new *ActionLink* helpers, containing a boolean flag whether you want full URLs or not. Using these, you can now add a link to an action as follows:
 
 ```csharp
 <%= Html.ActionLink("About", "About", "Home", true)%>
+
 ```
 
-<p>Not too different from what you are used to, no?</p>
-<p>Here’s a snippet of code that powers the above line of code:
+Not too different from what you are used to, no?
+
+Here’s a snippet of code that powers the above line of code:
 
 ```csharp
 public static class LinkExtensions
@@ -104,12 +115,16 @@ public static class LinkExtensions
         return htmlHelper.ActionLink(linkText, actionName, controllerName, routeValues, htmlAttributes);
     }
 }
+
 ```
 
-<p>Nothing special in here: a lot of extension methods, and some logic to add the domain name into the generated URL. Yes, this is one of the default <em>ActionLink</em> helpers I’m abusing here, getting some food from my <em>DomainRoute</em> class (see: Dark Magic).</p>
-<h2>Dark magic</h2>
-<p>You may have seen the <em>DomainRoute</em> class in my code snippets from time to time. This class is actually what drives the extraction of (sub)domain and adds token support to the domain portion of your incoming URLs.</p>
-<p>We will be extending the <em>Route</em> base class, which already gives us some properties and methods we don’t want to implement ourselves. Though there are some we will define ourselves:
+Nothing special in here: a lot of extension methods, and some logic to add the domain name into the generated URL. Yes, this is one of the default *ActionLink* helpers I’m abusing here, getting some food from my *DomainRoute* class (see: Dark Magic).
+
+## Dark magic
+
+You may have seen the *DomainRoute* class in my code snippets from time to time. This class is actually what drives the extraction of (sub)domain and adds token support to the domain portion of your incoming URLs.
+
+We will be extending the *Route* base class, which already gives us some properties and methods we don’t want to implement ourselves. Though there are some we will define ourselves:
 
 ```csharp
 public class DomainRoute : Route
@@ -219,11 +234,11 @@ public class DomainRoute : Route
     // ...
 
 }
+
 ```
 
-<p>Wow! That’s a bunch of code! What we are doing here is converting the incoming request URL into tokens we defined in our route, on the domain level and path level. We do this by converting <em>{controller}</em> and things like that into a regex which we then try to match into the route values dictionary. There are some other helper methods in our <em>DomainRoute</em> class, but these are the most important.</p>
-<p>Download the full code here: <a href="/files/2009/5/MvcDomainRouting.zip">MvcDomainRouting.zip (250.72 kb)</a></p>
-<p>(if you want to try this using the development web server in Visual Studio, make sue to add some fake (sub)domains in your <a href="http://en.wikipedia.org/wiki/Hosts_file" target="_blank">hosts</a> file)</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/05/18/ASPNET-MVC-Domain-Routing.aspx&amp;title=ASP.NET MVC Domain Routing"><img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/05/18/ASPNET-MVC-Domain-Routing.aspx" border="0"> </a></p>
+Wow! That’s a bunch of code! What we are doing here is converting the incoming request URL into tokens we defined in our route, on the domain level and path level. We do this by converting *{controller}* and things like that into a regex which we then try to match into the route values dictionary. There are some other helper methods in our *DomainRoute* class, but these are the most important.
 
+Download the full code here: [MvcDomainRouting.zip (250.72 kb)](/files/2009/5/MvcDomainRouting.zip)
 
+(if you want to try this using the development web server in Visual Studio, make sue to add some fake (sub)domains in your [hosts](http://en.wikipedia.org/wiki/Hosts_file) file)

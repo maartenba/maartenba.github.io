@@ -12,7 +12,6 @@ redirect_from:
   - /post/2017/01/03/exploring-dotnet-managed-heap-with-clrmd.html
   - /post/2017/01/03/exploring-.net-managed-heap-with-clrmd.html
 ---
-
 Since my posts on [making code allocate less memory](/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html) and [memory allocation for strings](/post/2016/11/15/exploring-memory-allocation-and-strings.html) were quite well received, I decided to add another post to the series: ***Exploring .NET managed heap with ClrMD***. In this post, we'll explore what is inside .NET's managed heap (you know, the thing where we alocate our objects), how it's structured and how we can do some cool tricks with it. We'll even replicate [dotMemory's dominators/path to root](https://www.jetbrains.com/help/dotmemory/Retained_by.html) feature.
 
 So what is ClrMD? ClrMD is the short name for the [Microsoft.Diagnostics.Runtime](http://www.nuget.org/packages/Microsoft.Diagnostics.Runtime) package which lets us inspect a crash dump or attach to a live process and perform all sorts of queries against the runtime. For example walking the heap (which we'll do later), inspecting the finalizer queue, and more.
@@ -29,10 +28,8 @@ To get started with ClrMD, create a new Console Application and [`Install-Packag
 
 ![Using ClrMD DataTarget to attach to a process](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/datatarget-attachtoprocess.png)
 
-<p class="notice">
-  <strong>Quick note:</strong>
-  For this blog post, I created a <a href="https://github.com/maartenba/memory-demos">sample project and published it to GitHub (ClrMD folder)</a>. In the <code>ClrMd.Explorer</code> project, I added a small helper method which launches a process and creates the <code>DataTarget</code> based on the process that was just launched.
-</p>
+**Quick note:**
+  For this blog post, I created a [sample project and published it to GitHub (ClrMD folder)](https://github.com/maartenba/memory-demos). In the `ClrMd.Explorer` project, I added a small helper method which launches a process and creates the `DataTarget` based on the process that was just launched.
 
 Once we created the `DataTarget`, the entry point to the crash dump or live .NET process, we can start working with it. `DataTarget` has some info on which processor architecture is used by the dump or process and knows where to find symbols to provide additional information. It also provides access to the Common Language Runtime (CLR) version used, which gives us some additional information:
 
@@ -42,18 +39,21 @@ using (var dataTarget = DataTarget.AttachToProcess(demoProcess.Id, 10000, Attach
 	// Dump CLR info
 	var clrVersion = dataTarget.ClrVersions.First();
 	var dacInfo = clrVersion.DacInfo;
-	
+
 	Console.WriteLine("# CLR Info");
+
 	Console.WriteLine("Version:   {0}",clrVersion.Version);
 	Console.WriteLine("Filesize:  {0:X}", dacInfo.FileSize);
 	Console.WriteLine("Timestamp: {0:X}", dacInfo.TimeStamp);
 	Console.WriteLine("Dac file:  {0}", dacInfo.FileName);
 }
+
 ```
 
 If we run this against a process, we'll get output similar to the following:
 
 	# CLR Info
+
 	Version:   v4.6.1586.00
 	Filesize:  6E1000
 	Timestamp: 575A139F
@@ -68,15 +68,18 @@ var runtime = clrVersion.CreateRuntime();
 var appDomain = runtime.AppDomains.First();
 
 Console.WriteLine("# Runtime Info");
+
 Console.WriteLine("AppDomain:      {0}", appDomain.Name);
 Console.WriteLine("Address:        {0}", appDomain.Address);
 Console.WriteLine("Configuration:  {0}", appDomain.ConfigurationFile);
 Console.WriteLine("Directory:      {0}", appDomain.ApplicationBase);
+
 ```
 
 Looks like we can! The above snippet will output something like this:
 
 	# Runtime Info
+
 	AppDomain:      ClrMd.Target.exe
 	Address:        18576272
 	Configuration:  C:\Users\maart\Desktop\ClrMd\ClrMd.Target\bin\Debug\ClrMd.Target.exe.Config
@@ -87,14 +90,16 @@ The `AppDomain` gives us access to the modules loaded and lets us explore things
 ```csharp
 // Dump thread info
 Console.WriteLine("## Threads");
+
 Console.WriteLine("Thread count:   {0}", runtime.Threads.Count);
 Console.WriteLine("");
 foreach (var thread in runtime.Threads)
 {
     Console.WriteLine("### Thread {0}", thread.OSThreadId);
-    Console.WriteLine("Thread type: {0}", 
-							thread.IsBackground ? "Background" 
-					      : thread.IsGC ? "GC" 
+
+    Console.WriteLine("Thread type: {0}",
+							thread.IsBackground ? "Background"
+					      : thread.IsGC ? "GC"
 					      : "Foreground");
     Console.WriteLine("");
     Console.WriteLine("Stack trace:");
@@ -103,16 +108,19 @@ foreach (var thread in runtime.Threads)
         Console.WriteLine("* {0}", stackFrame.DisplayString);
     }
 }
+
 ```
 
 Here's the output:
 
 	## Threads
+
 	Thread count:   4
-	
+
 	### Thread 692
+
 	Thread type: Foreground
-	
+
 	Stack trace:
 	* InlinedCallFrame
 	* DomainNeutralILStubClass.IL_STUB_PInvoke(Microsoft.Win32.SafeHandles.SafeFileHandle, Byte*, Int32, Int32 ByRef, IntPtr)
@@ -125,21 +133,24 @@ Here's the output:
 	* System.Console.ReadLine()
 	* ClrMd.Target.Program.Main(System.String[])
 	* GCFrame
-	
+
 	### Thread 2968
+
 	Thread type: Background
-	
+
 	Stack trace:
 	* DebuggerU2MCatchHandlerFrame
-	
+
 	### Thread 9748
+
 	Thread type: Background
-	
+
 	Stack trace:
-	
+
 	### Thread 3412
+
 	Thread type: Background
-	
+
 	Stack trace:
 
 Not very spectacular as an example, as the application we're attached to is just a simple console application which occupies the foreground thread with waiting for input (`System.Console.ReadLine()`), but nevertheless quite cool to be able to access that information.
@@ -150,10 +161,8 @@ Now, I opened this post saying we'd explore the .NET memory heap, and so far we'
 
 How would you write a managed type system and store it in memory? Store full objects with type information? Store values and type information separately? In another way? I often joke to people that programming is nothing more than mapping one data structure to another and then to another, with some logic in between. The CLR is not that different from this claim: it hold several tables of data and has some logic to map and combine them into what we as developers work with while writing code.
 
-<p class="notice">
-  <strong>Quick note:</strong>
-  The below information is based on structures displayed when working with the various debugger tools and ClrMD. I found <a href="https://www.codeproject.com/Articles/20481/NET-Type-Internals-From-a-Microsoft-CLR-Perspecti">.NET Type Internals - From a Microsoft CLR Perspective</a> a good resource to validate some of my assumptions. There is some info <a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-335.pdf">in the ECMA-335</a> standard as well, but the CLR implementation does seem to be hard to find... If you find any mistakes or any documentation to back up these assumptions, please let me know in the comments below.
-</p>
+**Quick note:**
+  The below information is based on structures displayed when working with the various debugger tools and ClrMD. I found [.NET Type Internals - From a Microsoft CLR Perspective](https://www.codeproject.com/Articles/20481/NET-Type-Internals-From-a-Microsoft-CLR-Perspecti) a good resource to validate some of my assumptions. There is some info [in the ECMA-335](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-335.pdf) standard as well, but the CLR implementation does seem to be hard to find... If you find any mistakes or any documentation to back up these assumptions, please let me know in the comments below.
 
 There is much more to the type system than what I will explain here, but it's good to have this simplified model in mind when we'll be working with the heap from ClrMD. I recommend reading [.NET Type Internals - From a Microsoft CLR Perspective](https://www.codeproject.com/Articles/20481/NET-Type-Internals-From-a-Microsoft-CLR-Perspecti) for more background.
 
@@ -161,7 +170,7 @@ When writing code, we always have the choice to work with Value Types (allocated
 
 ![Stack allocation of value types](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/stack.png)
 
-For reference types, things are slightly more complicated. They are allocated on the heap, which we'll explore in a bit, and contain a bunch or references to metadata about the reference type, such as which interfaces are defined, where to find the methods that can be executed, ... 
+For reference types, things are slightly more complicated. They are allocated on the heap, which we'll explore in a bit, and contain a bunch or references to metadata about the reference type, such as which interfaces are defined, where to find the methods that can be executed, ...
 
 ![Heap allocation of reference types](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/heap.png)
 
@@ -183,6 +192,7 @@ if (heap.CanWalkHeap)
 {
 	// ... walk the heap ...
 }
+
 ```
 
 Next, we can start enumerating object addresses (the left table in the last diagram above). For every object, we'll get the runtime type information (by using the address in the left table to find the entry in the middle table to fetch the runtime type info from the bottom table). We'll then check if the type is a string, and if so, use the metadata tables again to find the address to the actual string value and read that one.
@@ -218,6 +228,7 @@ foreach (var ptr in heap.EnumerateObjectAddresses())
 }
 
 Console.WriteLine("## String info");
+
 Console.WriteLine("String count:     {0}", numberOfStrings);
 Console.WriteLine("");
 
@@ -226,13 +237,15 @@ foreach (var keyValuePair in uniqueStrings.OrderByDescending(kvp => kvp.Value).T
 {
     Console.WriteLine("* {0} usages: {1}", keyValuePair.Value, keyValuePair.Key);
 }
+
 ```
 
 The output:
 
 	## String info
+
 	String count:     586
-	
+
 	Most duplicated strings (top 5):
 	* 16 usages: May
 	* 8 usages: Su
@@ -276,24 +289,22 @@ class Clock
     {
     }
 }
+
 ```
 
-Even though we are disposing the `Clock` object, its `OnTick` method is still referenced from the `Timer` class' `Tick` event, essentially preventing it from being garbage collected. In other words: this is a simple example of a potential memory leak, as our `Clock` will not be collected until we clean up that event handler. When using a profiler like [JetBrains dotMemory](http://www.jetbrains.com/dotmemory), we'd be able to visualize the retention path of our `Clock` object. 
+Even though we are disposing the `Clock` object, its `OnTick` method is still referenced from the `Timer` class' `Tick` event, essentially preventing it from being garbage collected. In other words: this is a simple example of a potential memory leak, as our `Clock` will not be collected until we clean up that event handler. When using a profiler like [JetBrains dotMemory](http://www.jetbrains.com/dotmemory), we'd be able to visualize the retention path of our `Clock` object.
 The profiler shows us the path from the GC root to our object, helping us in figuring out why it is in memory:
 
 ![Object retention path in JetBrains dotMemory](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/dotmemory-retention.png)
 
-<p class="notice">
-  <strong>Quick note:</strong>
-  What's this <em>GC root</em> you speak about, Maarten? Remember that <a href="/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html">the Garbage Collector (GC) checks if an object is still referenced or not</a> and cleans up memory based on that information? The GC root is the highest level in our memory stack from which an object can be referenced. They, in turn, can reference other objects. Think of GC roots as the entry point into a tree of other referenced objects, where the GC root is a parent of all the objects in this tree if we'd walk it entirely.
-</p>
+**Quick note:**
+  What's this *GC root* you speak about, Maarten? Remember that [the Garbage Collector (GC) checks if an object is still referenced or not](/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html) and cleans up memory based on that information? The GC root is the highest level in our memory stack from which an object can be referenced. They, in turn, can reference other objects. Think of GC roots as the entry point into a tree of other referenced objects, where the GC root is a parent of all the objects in this tree if we'd walk it entirely.
 
 Now let's see if we can find out which object is keeping our `Clock` in memory using ClrMD! First of all, we'd need to acquire a reference to our heap again. Next, we'll enumerate all object addresses in the heap and get type information for them. If the runtime type is our `Clock`, we'll investigate the retention path.
 
 ```csharp
 // Dump heap info
 var heap = runtime.GetHeap();
-
 
 if (heap.CanWalkHeap)
 {
@@ -304,11 +315,12 @@ if (heap.CanWalkHeap)
         {
             continue;
         }
-        
-        
+
+
         // todo: retention path
     }
 }
+
 ```
 
 So far so good. Now what do we need to do to find out the retention path? Unfortunately, there is no way to walk "up" the tree, so all we can do is enumerate all GC roots and walk "down" the tree to find our `Clock` instance referenced by `ptr`:
@@ -339,6 +351,7 @@ foreach (var root in heap.EnumerateRoots())
         break;
     }
 }
+
 ```
 
 We'll look into the real magic (`GetPathToObject`) in a bit, but just to explain what is happening here: for each GC root, we store the GC root's object address in a stack, and then walk the entire tree below that GC root and push additional object addresses on that stack. If we do find our object in the tree based on the GC root, we simply walk each address in that stack and print the "path" to our `Clock` object.
@@ -362,7 +375,6 @@ private static bool GetPathToObject(ClrHeap heap, ulong objectPointer, Stack<ulo
     {
         return true;
     }
-
 
     // Enumerate internal references of the object
     var found = false;
@@ -391,6 +403,7 @@ private static bool GetPathToObject(ClrHeap heap, ulong objectPointer, Stack<ulo
 
     return found;
 }
+
 ```
 
 Et voila! If we now run this code, we'll get the same information dotMemory provided us with earlier (added profiler's diagram here as well):

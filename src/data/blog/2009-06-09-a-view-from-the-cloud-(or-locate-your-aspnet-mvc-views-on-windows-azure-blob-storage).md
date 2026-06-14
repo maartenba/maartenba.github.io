@@ -10,18 +10,27 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/06/09/a-view-from-the-cloud-or-locate-your-asp-net-mvc-views-on-windows-azure-blob-storage.html
 ---
-<p>Hosting and deploying ASP.NET MVC applications on <a href="http://www.azure.com/" target="_blank">Windows Azure</a> works like a charm. However, if you have been reading my blog for a while, you <a href="/post/2008/12/19/CarTrackr-on-Windows-Azure-Part-5-Deploying-in-the-cloud.aspx" target="_blank">might have seen</a> that I don&rsquo;t like the fact that my ASP.NET MVC views are stored in the deployed package as well&hellip; Why? If I want to change some text or I made a typo, I would have to re-deploy my entire application for this. Takes a while, application is down during deployment, &hellip; And all of that for a typo&hellip;</p>
-<p>Luckily, Windows Azure also provides blob storage, on which you can host any blob of data (or any file, if you don&rsquo;t like saying &ldquo;blob&rdquo;). These blobs can easily be managed with a tool like <a href="http://www.codeplex.com/blobexplorer" target="_blank">Azure Blob Storage Explorer</a>. Now let&rsquo;s see if we can abuse blob storage for storing the views of an ASP.NET MVC web application, making it easier to modify the text and stuff. We&rsquo;ll do this by creating a new <a href="http://msdn.microsoft.com/en-us/library/system.web.hosting.virtualpathprovider.aspx" target="_blank">VirtualPathProvider</a>.</p>
-<p>Note that this approach can also be used to create a CMS based on ASP.NET MVC and Windows Azure.</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/06/08/A-view-from-the-cloud-(or-locate-your-ASPNET-MVC-views-on-Windows-Azure-Blob-Storage).aspx&amp;title=A view from the cloud (or: locate your ASP.NET MVC views on Windows Azure Blob Storage)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/06/08/A-view-from-the-cloud-(or-locate-your-ASPNET-MVC-views-on-Windows-Azure-Blob-Storage).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
-<h2>Putting our views in the cloud</h2>
-<p>Of course, we need a new ASP.NET MVC web application. You can prepare this for Azure, but that&rsquo;s not really needed for testing purposes. Download and run <a href="http://www.codeplex.com/blobexplorer" target="_blank">Azure Blob Storage Explorer</a>, and put all views in a blob storage container. Make sure to incldue the full virtual path in the blob&rsquo;s name, like so:</p>
-<p><a href="/images/blobexplorer.png"><img style="border-bottom: 0px; border-left: 0px; margin: 5px auto; display: block; float: none; border-top: 0px; border-right: 0px" title="Azure Blob Storage Explorer" src="/images/blobexplorer_thumb.png" border="0" alt="Azure Blob Storage Explorer" width="644" height="152" /></a></p>
-<p>Note I did not upload every view to blob storage. In the approach we&rsquo;ll take, you do not need to put every view in there: we&rsquo;ll support mixed-mode where some views are deployed and some others are in blob storage.</p>
-<h2>Creating a VirtualPathProvider</h2>
-<p>You may or may not know the concept of ASP.NET <em>VirtualPathProvider</em>s. Therefore, allow me to quickly explain quickly: ASP.NET 2.0 introduced the concept of <em>VirtualPathProvider</em>s, where you can create a virtual filesystem that can be sued by your application. A <em>VirtualPathProvider</em> has to be registered before ASP.NET will make use of it. After registering, ASP.NET will automatically iterate all <em>VirtualPathProvider</em>s to check whether it can provide the contents of a specific virtual file or not. In ASP.NET MVC for example, the <em>VirtualPathProviderViewEngine</em> (default) will use this concept to look for its views. Ideal, since we do not have to plug the ASP.NET MVC view engine when we create our <em>BlobStorageVirtualPathProvider</em>!</p>
-<p>A <em>VirtualPathProvider</em> contains some methods that are used to determine if it can serve a specific virtual file. We&rsquo;ll only be implementing <em>FileExists()</em> and <em>GetFile()</em>, but there are also methods like <em>DirectoryExists()</em> and <em>GetDirectory()</em>. I suppose you&rsquo;ll know what all this methods are doing by looking at the name&hellip;</p>
-<p>In order for our <em>BlobStorageVirtualPathProvider</em> class to access Windows Azure Blob Storage, we need to reference the StorageClient project you can find in the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=11b451c4-7a7b-4537-a769-e1d157bad8c6&amp;displaylang=en" target="_blank">Windows Azure SDK</a>. Next, our class will have to inherit from <em>VirtualPathProvider</em> and need some fields holding useful information:
+Hosting and deploying ASP.NET MVC applications on [Windows Azure](http://www.azure.com/) works like a charm. However, if you have been reading my blog for a while, you [might have seen](/post/2008/12/19/CarTrackr-on-Windows-Azure-Part-5-Deploying-in-the-cloud.aspx) that I don’t like the fact that my ASP.NET MVC views are stored in the deployed package as well… Why? If I want to change some text or I made a typo, I would have to re-deploy my entire application for this. Takes a while, application is down during deployment, … And all of that for a typo…
+
+Luckily, Windows Azure also provides blob storage, on which you can host any blob of data (or any file, if you don’t like saying “blob”). These blobs can easily be managed with a tool like [Azure Blob Storage Explorer](http://www.codeplex.com/blobexplorer). Now let’s see if we can abuse blob storage for storing the views of an ASP.NET MVC web application, making it easier to modify the text and stuff. We’ll do this by creating a new [VirtualPathProvider](http://msdn.microsoft.com/en-us/library/system.web.hosting.virtualpathprovider.aspx).
+
+Note that this approach can also be used to create a CMS based on ASP.NET MVC and Windows Azure.
+
+## Putting our views in the cloud
+
+Of course, we need a new ASP.NET MVC web application. You can prepare this for Azure, but that’s not really needed for testing purposes. Download and run [Azure Blob Storage Explorer](http://www.codeplex.com/blobexplorer), and put all views in a blob storage container. Make sure to incldue the full virtual path in the blob’s name, like so:
+
+[![](/images/blobexplorer_thumb.png)](/images/blobexplorer.png)
+
+Note I did not upload every view to blob storage. In the approach we’ll take, you do not need to put every view in there: we’ll support mixed-mode where some views are deployed and some others are in blob storage.
+
+## Creating a VirtualPathProvider
+
+You may or may not know the concept of ASP.NET *VirtualPathProvider*s. Therefore, allow me to quickly explain quickly: ASP.NET 2.0 introduced the concept of *VirtualPathProvider*s, where you can create a virtual filesystem that can be sued by your application. A *VirtualPathProvider* has to be registered before ASP.NET will make use of it. After registering, ASP.NET will automatically iterate all *VirtualPathProvider*s to check whether it can provide the contents of a specific virtual file or not. In ASP.NET MVC for example, the *VirtualPathProviderViewEngine* (default) will use this concept to look for its views. Ideal, since we do not have to plug the ASP.NET MVC view engine when we create our *BlobStorageVirtualPathProvider*!
+
+A *VirtualPathProvider* contains some methods that are used to determine if it can serve a specific virtual file. We’ll only be implementing *FileExists()* and *GetFile()*, but there are also methods like *DirectoryExists()* and *GetDirectory()*. I suppose you’ll know what all this methods are doing by looking at the name…
+
+In order for our *BlobStorageVirtualPathProvider* class to access Windows Azure Blob Storage, we need to reference the StorageClient project you can find in the [Windows Azure SDK](http://www.microsoft.com/downloads/details.aspx?FamilyID=11b451c4-7a7b-4537-a769-e1d157bad8c6&displaylang=en). Next, our class will have to inherit from *VirtualPathProvider* and need some fields holding useful information:
 
 ```csharp
 public class BlobStorageVirtualPathProvider : VirtualPathProvider
@@ -38,10 +47,12 @@ public class BlobStorageVirtualPathProvider : VirtualPathProvider
     }
     // ...
 }
+
 ```
 
-<p>Allright! We can now hold everyhting that is needed for accessing Windows Azure Blob Storage: the account info (including credentials) and a BlobContainer holding our views. Our constructor accepts these things and makes sure verything is prepared for accessing blob storage.</p>
-<p>Next, we&rsquo;ll have to make sure we can serve a file, by adding <em>FileExists()</em> and <em>GetFile()</em> method overrides:
+Allright! We can now hold everyhting that is needed for accessing Windows Azure Blob Storage: the account info (including credentials) and a BlobContainer holding our views. Our constructor accepts these things and makes sure verything is prepared for accessing blob storage.
+
+Next, we’ll have to make sure we can serve a file, by adding *FileExists()* and *GetFile()* method overrides:
 
 ```csharp
 public override bool FileExists(string virtualPath)
@@ -72,9 +83,10 @@ public override VirtualFile GetFile(string virtualPath)
         return Previous.GetFile(virtualPath);
     }
 }
+
 ```
 
-<p>These methods simply check the <em>BlobContainer</em> for the existance of a virtualFile path passed in.&nbsp; <em>GetFile()</em> returns a new <em>BlobStorageVirtualPath</em> instance. This class provides all functionality for really returning the file&rsquo;s contents, in its <em>Open()</em> method:
+These methods simply check the *BlobContainer* for the existance of a virtualFile path passed in.  *GetFile()* returns a new *BlobStorageVirtualPath* instance. This class provides all functionality for really returning the file’s contents, in its *Open()* method:
 
 ```csharp
 public override System.IO.Stream Open()
@@ -85,10 +97,12 @@ public override System.IO.Stream Open()
     contents.AsStream.Seek(0, SeekOrigin.Begin);
     return contents.AsStream;
 }
+
 ```
 
-<p>We&rsquo;ve just made it possible to download a blob from Windows Azure Blob Storage into a <em>MemoryStream</em> and pass this on to ASP.NET for further action.</p>
-<p>Here&rsquo;s the full <em>BlobStorageVirtualPathProvider</em> class:
+We’ve just made it possible to download a blob from Windows Azure Blob Storage into a *MemoryStream* and pass this on to ASP.NET for further action.
+
+Here’s the full *BlobStorageVirtualPathProvider* class:
 
 ```csharp
 public class BlobStorageVirtualPathProvider : VirtualPathProvider
@@ -142,9 +156,10 @@ public class BlobStorageVirtualPathProvider : VirtualPathProvider
 
     }
 }
+
 ```
 
-<p>And here&rsquo;s <em>BlobStorageVirtualFile</em>:
+And here’s *BlobStorageVirtualFile*:
 
 ```csharp
 public class BlobStorageVirtualFile : VirtualFile
@@ -163,10 +178,12 @@ public class BlobStorageVirtualFile : VirtualFile
         return contents.AsStream;
     }
 }
+
 ```
 
-<h2>Registering BlobStorageVirtualPathProvider with ASP.NET</h2>
-<p>We&rsquo;re not completely ready yet. We still have to tell ASP.NET that it can possibly get virtual files using the <em>BlobStorageVirtualPathProvider</em>. We&rsquo;ll do this in the Application_Start event in Global.asax.cs:
+## Registering BlobStorageVirtualPathProvider with ASP.NET
+
+We’re not completely ready yet. We still have to tell ASP.NET that it can possibly get virtual files using the *BlobStorageVirtualPathProvider*. We’ll do this in the Application_Start event in Global.asax.cs:
 
 ```csharp
 protected void Application_Start()
@@ -182,16 +199,16 @@ protected void Application_Start()
             "your_storage_account_key_here"),
             "your_container_name_here"));
 }
+
 ```
 
-<p>Add your own Azure storage account name, key and the container name that you&rsquo;ve put your views in and you are set! Development storage will work as well as long as you enter the required info.</p>
-<h2>Running the example code</h2>
-<p>Download the sample code here: <a href="/files/2009/6/MvcViewInTheCloud.zip">MvcViewInTheCloud.zip (58.72 kb)</a></p>
-<p>Some instructions for running the sample code:</p>
-<ul>
-<li>Upload all views from the ____Views folder to a blob container (as described earlier in this post)</li>
-<li>Change your Azure credetials in Application_Start</li>
-</ul>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/06/08/A-view-from-the-cloud-(or-locate-your-ASPNET-MVC-views-on-Windows-Azure-Blob-Storage).aspx&amp;title=A view from the cloud (or: locate your ASP.NET MVC views on Windows Azure Blob Storage)"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/06/08/A-view-from-the-cloud-(or-locate-your-ASPNET-MVC-views-on-Windows-Azure-Blob-Storage).aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
+Add your own Azure storage account name, key and the container name that you’ve put your views in and you are set! Development storage will work as well as long as you enter the required info.
 
+## Running the example code
 
+Download the sample code here: [MvcViewInTheCloud.zip (58.72 kb)](/files/2009/6/MvcViewInTheCloud.zip)
+
+Some instructions for running the sample code:
+
+- Upload all views from the ____Views folder to a blob container (as described earlier in this post)
+- Change your Azure credetials in Application_Start

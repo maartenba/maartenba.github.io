@@ -49,7 +49,7 @@ public struct FilePath
     {
         Path = path ?? throw new ArgumentNullException(nameof(path));
     }
-        
+
     public static FilePath operator /(FilePath left, FilePath right)
     {
         return new FilePath(System.IO.Path.Combine(left.Path, right.Path));

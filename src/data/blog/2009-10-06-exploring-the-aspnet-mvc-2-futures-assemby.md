@@ -11,12 +11,15 @@ redirect_from:
   - /post/2009/10/06/exploring-the-asp-net-mvc-2-futures-assemby.html
   - /post/2009/10/06/exploring-the-aspnet-mvc-2-futures-assemby.html
 ---
-<p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 0px 5px 5px; display: inline; border-top: 0px; border-right: 0px" title="The future is cloudy!" src="/images/image_14.png" border="0" alt="The future is cloudy!" width="240" height="213" align="right" /> The latest preview of <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=33836" target="_blank">ASP.NET MVC 2, preview 2</a>, has been released on CodePlex last week. All <a href="/post/2009/07/31/ASPNET-MVC-2-Preview-1-released!.aspx" target="_blank">features of the preview 1 version</a> are still in, as well as some nice novelties like client-side validation, single project areas, the model metadata model, &hellip; You can read more about these <a href="http://suhair.in/Blog/aspnet-areas-in-depth" target="_blank">here</a>, <a href="ttp://codingndesign.com/blog/?p=76" target="_blank">here</a> and <a href="http://codingndesign.com/blog/?p=96" target="_blank">here</a>.</p>
-<p>Sure, the official preview contains some great features of which I&rsquo;m already a fan: the model and validation metadata model is quite extensible, allowing the use of DataAnnotations, EntLib, NHibernate or your own custom validation logic in your application, while still being able to use standard model binders and client-side validation. Next to all this, a new version of the MVC 2 futures assembly was <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=33836" target="_blank">released on CodePlex</a>. And oh boy, there&rsquo;s some interesting stuff in there as well! Let&rsquo;s dive in&hellip;</p>
-<p><em>Quick note: the &ldquo;piece de resistance&rdquo; is near the end of this post. Also make sure to post your thoughts on this &ldquo;piece&rdquo;.</em></p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx&amp;title=Exploring the ASP.NET MVC 2 futures assemby"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
-<h2>Controls</h2>
-<p>There&rsquo;s not much that has changed here since my previous <a href="/post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx" target="_blank">blog post on the MVC futures</a>. Want to use a lightweight TextBox or Repeater control? Feel free to do so:
+![The future is cloudy!](/images/image_14.png) The latest preview of [ASP.NET MVC 2, preview 2](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=33836), has been released on CodePlex last week. All [features of the preview 1 version](/post/2009/07/31/ASPNET-MVC-2-Preview-1-released!.aspx) are still in, as well as some nice novelties like client-side validation, single project areas, the model metadata model, … You can read more about these [here](http://suhair.in/Blog/aspnet-areas-in-depth), [here](ttp://codingndesign.com/blog/?p=76) and [here](http://codingndesign.com/blog/?p=96).
+
+Sure, the official preview contains some great features of which I’m already a fan: the model and validation metadata model is quite extensible, allowing the use of DataAnnotations, EntLib, NHibernate or your own custom validation logic in your application, while still being able to use standard model binders and client-side validation. Next to all this, a new version of the MVC 2 futures assembly was [released on CodePlex](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=33836). And oh boy, there’s some interesting stuff in there as well! Let’s dive in…
+
+*Quick note: the “piece de resistance” is near the end of this post. Also make sure to post your thoughts on this “piece”.*
+
+## Controls
+
+There’s not much that has changed here since my previous [blog post on the MVC futures](/post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx). Want to use a lightweight TextBox or Repeater control? Feel free to do so:
 
 ```csharp
 <p>
@@ -32,30 +35,44 @@ redirect_from:
         </EmptyDataTemplate>
         <ItemTemplate>
             <li><%# Eval("Name") %></li>
+
         </ItemTemplate>
     </mvc:Repeater>
     </ul>
+
 ```
 
-<h2>Asynchronous controllers</h2>
-<p>Yes, I also <a href="/post/2009/04/08/using-the-aspnet-mvc-futures-asynccontroller.aspx" target="_blank">blogged about these before</a>. Basically, asynchronous controllers allow you to overcome the fact that processing-intensive action methods may consume all of your web server&rsquo;s worker threads, making your webserver a slow piece of software while it is on top-notch hardware.</p>
-<p>When using asynchronous controllers, the web server schedules a worker thread to handle an incoming request. This worker thread will start a new thread and call the action method on there. The worker thread is now immediately available to handle a new incoming request again.</p>
-<h2>Get some REST!</h2>
-<p>Again: I already blogged on this one: <a href="/post/2009/08/19/rest-for-aspnet-mvc-sdk.aspx" target="_blank">REST for ASP.NET MVC SDK</a>. This SDK now seems to become a part of the ASP.NET MVC core, which I really think is great! The REST for ASP.NET MVC SDK adds &ldquo;discovery&rdquo; functionality to your ASP.NET MVC application, returning the client the correct data format he requested. From the official documentation:</p>
-<ol>
-<li>It includes support for machine-readable formats (XML, JSON) and support for content negotiation, making it easy to add POX APIs to existing MVC controllers with minimal changes. </li>
-<li>It includes support for dispatching requests based on the HTTP verb, enabling &ldquo;resource&rdquo; controllers that implement the uniform HTTP interface to perform CRUD (Create, Read, Update and Delete) operations on the model. </li>
-<li>Provides T4 controller and view templates that make implementing the above scenarios easier.</li>
-</ol>
-<p>Let&rsquo;s come down to business: the REST SDK is handy because you do not have to care about returning a specific ActionResult: the SDK will automatically check whether a ViewResult, JsonResult, XML output or even an Atom feed is requested by the client. ViewData will automatically be returned in the requested format. Result: cleaner code, less mistakes. As long as you follow conventions of course.</p>
-<h2>Other stuff&hellip;</h2>
-<p>Yeah, I&rsquo;m lazy. I also blogged on this one before. Check my previous <a href="/post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx" target="_blank">blog post on the MVC futures</a> for nice stuff like more action method selectors (like <em>[AcceptAjax]</em> and others), more <em>HtmlHelper</em> extensions for images, mailto links, buttons, CSS, &hellip; There&rsquo;s more action filters as well, like <em>[ContentType]</em> which specifies the content-type headers being sent out with an action method.</p>
-<p>There&rsquo;s also donut caching, allowing you to cache all output for an action method except a specific part of the output. This allows you to combine cached views with dynamic content in quite an easy manner.</p>
-<p>More new stuff: the <em>CookieTempDataProvider</em>, allowing you to turn of session state when using <em>TempData</em>. There&rsquo;s also the <em>[SkipBinding]</em> attribute, which tells the ModelBinder infrasructure to bind all action method parameters except the ones decorated with this attribute.</p>
-<h2>ViewState!</h2>
-<p><img style="border-bottom: 0px; border-left: 0px; margin: 5px 5px 5px 0px; display: inline; border-top: 0px; border-right: 0px" title="ViewState gone evil!" src="/images/image_15.png" border="0" alt="ViewState gone evil!" width="145" height="99" align="left" /> Got you there, right? The ASP.NET MVC team has been screaming in every presentation they gave in the past year that there was no such thing as ViewState in ASP.NE MVC. Well, there is now&hellip; And maybe, i will be part of the future MVC 2 release as well. Let&rsquo;s first have a look at it and afterwards discuss this all&hellip;</p>
-<p>On every view, a new <em>HtmlHelper</em> extension method named &ldquo;Serialize&rdquo; is present. This one can be used to create a hidden field inside a HTML form, containing a serialized version of an object. The extension method also allows you to pass a parameter specifying how the object should be serialized. The default option, <em>SerializationMode.PlainText</em>, simply serializes the object to a string and puts it inside of a hidden field. When using <em>SerializationMode.Encrypted </em>and/or <em>SerializationMode.Signed</em>, you are really using ASP.NET Webforms ViewState under the covers.</p>
-<p>The call in your view source code is easy:
+## Asynchronous controllers
+
+Yes, I also [blogged about these before](/post/2009/04/08/using-the-aspnet-mvc-futures-asynccontroller.aspx). Basically, asynchronous controllers allow you to overcome the fact that processing-intensive action methods may consume all of your web server’s worker threads, making your webserver a slow piece of software while it is on top-notch hardware.
+
+When using asynchronous controllers, the web server schedules a worker thread to handle an incoming request. This worker thread will start a new thread and call the action method on there. The worker thread is now immediately available to handle a new incoming request again.
+
+## Get some REST!
+
+Again: I already blogged on this one: [REST for ASP.NET MVC SDK](/post/2009/08/19/rest-for-aspnet-mvc-sdk.aspx). This SDK now seems to become a part of the ASP.NET MVC core, which I really think is great! The REST for ASP.NET MVC SDK adds “discovery” functionality to your ASP.NET MVC application, returning the client the correct data format he requested. From the official documentation:
+
+1. It includes support for machine-readable formats (XML, JSON) and support for content negotiation, making it easy to add POX APIs to existing MVC controllers with minimal changes.
+2. It includes support for dispatching requests based on the HTTP verb, enabling “resource” controllers that implement the uniform HTTP interface to perform CRUD (Create, Read, Update and Delete) operations on the model.
+3. Provides T4 controller and view templates that make implementing the above scenarios easier.
+
+Let’s come down to business: the REST SDK is handy because you do not have to care about returning a specific ActionResult: the SDK will automatically check whether a ViewResult, JsonResult, XML output or even an Atom feed is requested by the client. ViewData will automatically be returned in the requested format. Result: cleaner code, less mistakes. As long as you follow conventions of course.
+
+## Other stuff…
+
+Yeah, I’m lazy. I also blogged on this one before. Check my previous [blog post on the MVC futures](/post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.aspx) for nice stuff like more action method selectors (like *[AcceptAjax]* and others), more *HtmlHelper* extensions for images, mailto links, buttons, CSS, … There’s more action filters as well, like *[ContentType]* which specifies the content-type headers being sent out with an action method.
+
+There’s also donut caching, allowing you to cache all output for an action method except a specific part of the output. This allows you to combine cached views with dynamic content in quite an easy manner.
+
+More new stuff: the *CookieTempDataProvider*, allowing you to turn of session state when using *TempData*. There’s also the *[SkipBinding]* attribute, which tells the ModelBinder infrasructure to bind all action method parameters except the ones decorated with this attribute.
+
+## ViewState!
+
+![ViewState gone evil!](/images/image_15.png) Got you there, right? The ASP.NET MVC team has been screaming in every presentation they gave in the past year that there was no such thing as ViewState in ASP.NE MVC. Well, there is now… And maybe, i will be part of the future MVC 2 release as well. Let’s first have a look at it and afterwards discuss this all…
+
+On every view, a new *HtmlHelper* extension method named “Serialize” is present. This one can be used to create a hidden field inside a HTML form, containing a serialized version of an object. The extension method also allows you to pass a parameter specifying how the object should be serialized. The default option, *SerializationMode.PlainText*, simply serializes the object to a string and puts it inside of a hidden field. When using *SerializationMode.Encrypted *and/or *SerializationMode.Signed*, you are really using ASP.NET Webforms ViewState under the covers.
+
+The call in your view source code is easy:
 
 ```csharp
 <% using (Html.BeginForm()) {>
@@ -78,9 +95,10 @@ redirect_from:
         </p>
     </fieldset>
 <% } %>
+
 ```
 
-<p>When posting this form back to a controller action, a new <em>ModelBinder</em> can be used: The <em>DeserializeAttribute</em> can be placed next to an action method parameter:
+When posting this form back to a controller action, a new *ModelBinder* can be used: The *DeserializeAttribute* can be placed next to an action method parameter:
 
 ```csharp
 [HttpPost]
@@ -88,10 +106,9 @@ public ActionResult Edit([Deserialize]Person person, string Email)
 {
     // ...
 }
+
 ```
 
-<p>There you go: <em>Person</em> is the same object as the one you serialized in your view. Combine this with the <em>RenderAction</em> feature (yes, check my previous <a href="/post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx" target="_blank">blog post on the MVC futures</a>), and you have a powerful model for creating something like controls, which still follows the model-view-controller pattern mostly.</p>
-<p>Now release the hounds: I think this new &ldquo;ViewState&rdquo; feature is cool. There are definitely situations where you may want to use this, but&hellip; Will it be a best practice to use this? What is your opinion on this?</p>
-<p><a href="http://www.dotnetkicks.com/kick/?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx&amp;title=Exploring the ASP.NET MVC 2 futures assemby"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx" border="0" alt="kick it on DotNetKicks.com" /> </a></p>
+There you go: *Person* is the same object as the one you serialized in your view. Combine this with the *RenderAction* feature (yes, check my previous [blog post on the MVC futures](/post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx)), and you have a powerful model for creating something like controls, which still follows the model-view-controller pattern mostly.
 
-
+Now release the hounds: I think this new “ViewState” feature is cool. There are definitely situations where you may want to use this, but… Will it be a best practice to use this? What is your opinion on this?

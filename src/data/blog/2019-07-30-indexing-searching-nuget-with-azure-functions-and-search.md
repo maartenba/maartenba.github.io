@@ -11,7 +11,6 @@ redirect_from:
   - /post/2019/07/30/indexing-and-searching-nuget-org-with-azure-functions-and-search.html
   - /post/2019/07/30/indexing-searching-nuget-with-azure-functions-and-search.html
 ---
-
 In an application I'm writing, I need to deserialize some JSON. I know the class to use is `JsonConvert`, but which NuGet package was that type in again?
 
 Granted, that's an obvious one. Yet, there are many uses for a **"NuGet reverse package search"** that helps finding the correct NuGet package based on a public type.
@@ -79,7 +78,8 @@ In short: we retrieved just the fields we were interested in (Id, Version and so
 
 Now, between 2015 and now a number of things happened... First, increased NuGet usage and number of NuGet packages! The daily upload counts were increasing, and our indexer kept receiving more and more work.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">huh, <a href="https://t.co/tn7WCIynaN">nuget.org</a> repo is 1.9Tb now... was like 250Gb in a year 2015 <a href="https://t.co/aP73rbgq9J">pic.twitter.com/aP73rbgq9J</a></p>&mdash; Alexander Shvedov (@controlflow) <a href="https://twitter.com/controlflow/status/1067724815958777856?ref_src=twsrc%5Etfw">November 28, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> huh, [nuget.org](https://t.co/tn7WCIynaN) repo is 1.9Tb now... was like 250Gb in a year 2015 [pic.twitter.com/aP73rbgq9J](https://t.co/aP73rbgq9J)— Alexander Shvedov (@controlflow) [November 28, 2018](https://twitter.com/controlflow/status/1067724815958777856?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Second, over the 2018/2019 holiday season, [NuGet started repository-signing packages](https://blog.nuget.org/20180810/Introducing-Repository-Signatures.html). A good thing, with one caveat: during that period every single package that had been on NuGet.org was updated (a new editing timestamp, plus a fresh binary with that repository signature attached). In other words, sort of a complete re-index was happening on our end.
 
@@ -129,8 +129,10 @@ Using a timestamp as a cursor, and traversing some JSON... That seems easy enoug
 The `NuGet.Services.Metadata.Catalog` package comes with a `CatalogProcessor` class which reads the catalog between a start and end timestamp, and allows plugging in an `ICatalogLeafProcessor` that we can implement:
 
 ```
+
 Task<bool> ProcessPackageDetailsAsync(PackageDetailsCatalogLeaf leaf);
 Task<bool> ProcessPackageDeleteAsync(PackageDeleteCatalogLeaf leaf);
+
 ```
 
 That seems easy enough! These two methods get called whenever the `CatalogProcessor` processes a leaf from the catalog, and gives us details about add/update, and delete operations.
@@ -140,6 +142,7 @@ That seems easy enough! These two methods get called whenever the `CatalogProces
 The following code snippet should be enough to dump every package addition and removal on NuGet.org to our console output window:
 
 ```
+
 class Program
 {
     static async Task Main(string[] args)
@@ -173,6 +176,7 @@ class Program
         await processor.ProcessAsync(CancellationToken.None);
     }
 }
+
 ```
 
 > Note: `DelegatingCatalogLeafProcessor` is an implementation of `ICatalogLeafProcessor` that is pluggable with actions that are executed on add/update or delete. I found this makes the processing code slightly more readable. And it all fits in one code example on my blog, that's an advantage as well!
@@ -230,6 +234,7 @@ Since everything in the catalog is cursor based, and that cursor is a timestamp,
 A rough outline could be this:
 
 ```
+
 [FunctionName("Catalog Watch")]
 public static async Task Run(
     [TimerTrigger("* */1 * * * *", RunOnStartup = true)] TimerInfo timer,
@@ -238,6 +243,7 @@ public static async Task Run(
 {
     // ...
 }
+
 ```
 
 Every minute, our function will be triggered, and we'll write package operation data to the `queueCollector` so we can later handle indexing and all that.
@@ -249,6 +255,7 @@ The function body will be pretty similar to the catalog reader example shown ear
 Here goes:
 
 ```
+
 [FunctionName("Enqueuer")]
 public static async Task Run(
     [TimerTrigger("* */1 * * * *", RunOnStartup = true)] TimerInfo timer,
@@ -295,6 +302,7 @@ public static async Task Run(
 
     await processor.ProcessAsync(CancellationToken.None);
 }
+
 ```
 
 This piece of code runs through the catalog, starting from the last time our timer triggered until the next timestamp our timer will be triggered.
@@ -339,6 +347,7 @@ But ehm... "Not officially" means it *should* work, right?
 Ideally our function would look like this:
 
 ```
+
 [FunctionName("PopulateQueueAndTable")]
 [Singleton(Mode = SingletonMode.Listener)]
 public static async Task RunAsync(
@@ -348,6 +357,7 @@ public static async Task RunAsync(
 {
     indexingQueueCollector.Add(packageOperation);
 }
+
 ```
 
 That's doing exactly one thing!
@@ -355,6 +365,7 @@ That's doing exactly one thing!
 Now how would we go about building the `[NuGetCatalogTrigger(...)]` binding... First of all, we need the binding attribute itself created. This attribute shouldn't be too complex: it will contain just the info we need to be able to work with whatever we want to work with.
 
 ```
+
 [AttributeUsage(AttributeTargets.Parameter)]
 [DebuggerDisplay("{ServiceIndexUrl}")]
 [Binding]
@@ -368,6 +379,7 @@ public class NuGetCatalogTriggerAttribute : Attribute, IConnectionProvider
 
     public string CursorBlobName { get; set; } = "cursor.json";
 }
+
 ```
 
 We want to know which service index to work with, and we want some place to store the current timestamp of our catalog processor to use as a cursor. We'll store it in a blob container, with a given name, and available via some connection (which can be loaded from application settings automatically, since it's decorated with the `[AppSetting]` attribute).
@@ -382,6 +394,7 @@ Now that's not enough. Will it be a trigger binding? Input? Output? We'll have t
 That first one is easy. We can register our extension using a class like this:
 
 ```
+
 [Extension("NuGetCatalog")]
 internal class NuGetCatalogTriggerExtensionConfigProvider : IExtensionConfigProvider
 {
@@ -398,6 +411,7 @@ internal class NuGetCatalogTriggerExtensionConfigProvider : IExtensionConfigProv
             .BindToTrigger(_triggerBindingProvider);
     }
 }
+
 ```
 
 In the `Initialize` method, we're telling the runtime that whenever it encounters the `NuGetCatalogTriggerAttribute` we created earlier, it should be considered a trigger binding. And `NuGetCatalogTriggerAttributeBindingProvider` will be the trigger implementation.
@@ -405,6 +419,7 @@ In the `Initialize` method, we're telling the runtime that whenever it encounter
 One thing left, and that is **not super-clear from the Azure Functions docs**, is that we must register our `NuGetCatalogTriggerExtensionConfigProvider` during application startup. Similar to how things work in ASP.NET MVC/Web API/...
 
 ```
+
 [assembly: WebJobsStartup(typeof(Startup))]
 
 namespace NuGetTypeSearch.Bindings
@@ -419,6 +434,7 @@ namespace NuGetTypeSearch.Bindings
         }
     }
 }
+
 ```
 
 Next up is that `NuGetCatalogTriggerAttributeBindingProvider`. I invite you to [check the sources on GitHub](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Catalog/Bindings/NuGetCatalogTriggerAttributeBindingProvider.cs), as it's some glue code that sets up the storage connection where the cursor will be stored, and instantiates a `NuGetCatalogTriggerBinding` with those objects created.
@@ -428,6 +444,7 @@ Which brings us to the `NuGetCatalogTriggerBinding`, an `ITriggerBinding` implem
 As mentioned, the `NuGetCatalogTriggerBinding` creates an `IListener`, in this case `NuGetCatalogListener`, which will listen for messages and triggers function execution. [Full code on GitHub](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Catalog/Listeners/NuGetCatalogListener.cs), but let's look at a (simplified) snippet as well:
 
 ```
+
 var minCommitTimeStamp = DateTimeOffset.MinValue;
 _processor = new BatchCatalogProcessor(
     new CloudBlobCursor(cursorBlob),
@@ -435,6 +452,7 @@ _processor = new BatchCatalogProcessor(
     new DelegatingCatalogLeafProcessor(PackageAdded, PackageDeleted),
     new CatalogProcessorSettings { ServiceIndexUrl = serviceIndexUrl, MinCommitTimestamp = minCommitTimeStamp },
     loggerFactory.CreateLogger<BatchCatalogProcessor>());
+
 ```
 
 We have our `BatchCatalogProcessor` which traverses the NuGet catalog and calls the `PackageAdded`/`PackageDeleted` function, roughly like we did before. It uses a `CloudBlobCursor` to keep track of the last timestamp that was processed.
@@ -442,6 +460,7 @@ We have our `BatchCatalogProcessor` which traverses the NuGet catalog and calls 
 The processor is started when our listener starts. Nothing special: we execute it, and if/when it returns we pause for 5 seconds and start again.
 
 ```
+
 public async Task StartAsync(CancellationToken cancellationToken)
 {
     while (!cancellationToken.IsCancellationRequested)
@@ -451,11 +470,13 @@ public async Task StartAsync(CancellationToken cancellationToken)
         await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken);
     }
 }
+
 ```
 
 Now, how does our function know when to execute, and where does it get the data? Whenever our listener has something to process, it should call `executor.TryExecuteAsync()` with the data to be passed into our function. Here's the `PackageAdded` function. The Azure Functions runtime takes care of the actual execution.
 
 ```
+
 async Task<bool> PackageAdded(PackageDetailsCatalogLeaf added)
 {
     var packageVersion = added.ParsePackageVersion();
@@ -475,11 +496,13 @@ async Task<bool> PackageAdded(PackageDetailsCatalogLeaf added)
 
     return true;
 }
+
 ```
 
 A lot of code for something that is relatively simple, but our enqueuer function can now focus on processing (enqueing items...) instead of collecting data!
 
 ```
+
 [FunctionName("Approach3-01-PopulateQueueAndTable")]
 [Singleton(Mode = SingletonMode.Listener)]
 public static async Task RunAsync(
@@ -491,6 +514,7 @@ public static async Task RunAsync(
     indexingQueueCollector.Add(packageOperation);
     downloadingQueueCollector.Add(packageOperation);
 }
+
 ```
 
 Yes, I snuck in the `downloadingQueueCollector` since the previous time I showed this example. We want to download package binaries, so let's fan that out to a separate queue.
@@ -507,13 +531,14 @@ We'll have our function triggered by a `QueueTrigger`, that provides us with the
 
 Here's the signature:
 
-
 ```
+
 [FunctionName("DownloadToStorage")]
 public static async Task RunAsync(
     [QueueTrigger(Constants.DownloadingQueue, Connection = Constants.DownloadingQueueConnection)] PackageOperation packageOperation,
     [Blob("packages/{Id}/{VersionNormalized}/{Id}.{VersionNormalized}.nupkg", FileAccess.ReadWrite, Connection = Constants.DownloadsConnection)] CloudBlockBlob packageBlob,
     ILogger log)
+
 ```
 
 Now what is that `Blob` attribute doing here... Remember those binding types? This is, in this case, an *output* binding. We want to download a NuGet package binary and store it in Azure blob storage. Rather than handle all that blob uploading ourselves, we can ask the Azure Functions runtime to provide us with a `CloudBlockBlob` that we can write to.
@@ -527,6 +552,7 @@ So, we have input, we have an output, on to processing! When a message triggers 
 Simplified:
 
 ```
+
 if (packageOperation.IsAdd())
 {
     using (var packageInputStream = await HttpClient.GetStreamAsync(packageOperation.PackageUrl))
@@ -538,6 +564,7 @@ else if (packageOperation.IsDelete())
 {
     await packageBlob.DeleteIfExistsAsync();
 }
+
 ```
 
 Note that again, I'm using a shared `HttpClient` here. If you're skimming this blog post, skim up to find the reasoning.
@@ -587,6 +614,7 @@ Fields can be searchable, facetable, filterable, sortable and/or retrievable, an
 In our case, we'll use an `Identifier` as the `Key`, so we could later on update documents if required. We'll store package id, version, authors, tags, ... - not all of them will be searchable,but most of them will be retrievable as we want to syrface that data in the ReSharper user interface. Our document format will be the following:
 
 ```
+
 [SerializePropertyNamesAsCamelCase]
 public class PackageDocument
 {
@@ -643,16 +671,19 @@ public class PackageDocument
     [IsSearchable, IsRetrievable(true), Analyzer("simple")]
     public HashSet<string> TypeNames { get; set; } = new HashSet<string>();
 }
+
 ```
 
 We can create an index based on this class, and the Azure Search SDK can automatically make the required document formats etc. based on the attributes we specified. We can do this once, for example at function startup.
 
 ```
+
 SearchServiceClient.Indexes.CreateOrUpdate(new Index
 {
     Name = Constants.SearchServiceIndexName,
     Fields = FieldBuilder.BuildForType<PackageDocument>()
 });
+
 ```
 
 Once that's done, we can start adding documents into our index.
@@ -662,11 +693,13 @@ Once that's done, we can start adding documents into our index.
 The indexing function will look very similar to the downloading function. Its input will be another `PackageOperation` message. And we'll also output a `Blob` here. Remember it would be nice if we could re-index fast if needed? Turns out Azure Search can populate an index from a container of blobs containing documents to index - so if we write the `PackageDocument` to a blob in JSON format, we can use that later on if we want to.
 
 ```
+
 [FunctionName("PackageIndexer")]
 public static async Task RunAsync(
     [QueueTrigger(Constants.IndexingQueue, Connection = Constants.IndexingQueueConnection)] PackageOperation packageOperation,
     [Blob("index/{Id}.{VersionNormalized}.json", FileAccess.ReadWrite, Connection = Constants.IndexConnection)] CloudBlockBlob packageBlob,
     ILogger log)
+
 ```
 
 The indexing part itself is roughly the following (and can be seen as code [on GitHub](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs)):
@@ -685,6 +718,7 @@ We already know the drill of writing custom bindings a little, so let's start wi
 Code is [on GitHub](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Search/AzureSearchIndexAttribute.cs):
 
 ```
+
 [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.ReturnValue)]
 [DebuggerDisplay("{SearchServiceName} {IndexName}")]
 [Binding]
@@ -702,6 +736,7 @@ public class AzureSearchIndexAttribute : Attribute
 
     public bool CreateOrUpdateIndex { get; set; } = false;
 }
+
 ```
 
 Once again, we'll have to tell the Azure Functions runtime how this binding is handled, by [defining it as an extension](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Search/Configuration/AzureSearchExtensionConfigProvider.cs).
@@ -709,6 +744,7 @@ Once again, we'll have to tell the Azure Functions runtime how this binding is h
 This time though, instead of registering ourselves as a trigger binding, we're registering a binding rule that tells the Azure Functions runtime we can provide a collector (`BindToCollector`) that handles data of the type `OpenType`. Since we may at some point want to index other document types than the one we have for our use case, we can use `OpenType` to tell the runtime that the binding can be for any type of object - so if we want to index `PackageDocument`, that will work. But it would also work with a hypothetical `CustomerDocument` type.
 
 ```
+
 [Extension("AzureSearch")]
 internal class AzureSearchExtensionConfigProvider : IExtensionConfigProvider
 {
@@ -720,11 +756,13 @@ internal class AzureSearchExtensionConfigProvider : IExtensionConfigProvider
         bindingRule.BindToCollector<OpenType>(typeof(AzureSearchAsyncCollectorBuilder<>));
     }
 }
+
 ```
 
 Now, we do need to help the Azure Functions runtime a bit with binding that `OpenType` to a concrete type and craft a proper collector handling the binding logic. Meet `AzureSearchAsyncCollectorBuilder<T>` which does that.
 
 ```
+
 internal class AzureSearchAsyncCollectorBuilder<T> : IConverter<AzureSearchIndexAttribute, IAsyncCollector<T>>
     where T : class
 {
@@ -733,14 +771,15 @@ internal class AzureSearchAsyncCollectorBuilder<T> : IConverter<AzureSearchIndex
         return new AzureSearchAsyncCollector<T>(attribute);
     }
 }
+
 ```
 
 > Note: don't forget to register the extension [at startup](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Startup.cs#L20) again.
 
-
 The [`AzureSearchAsyncCollector<T>` class](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Search/Bindings/AzureSearchAsyncCollector.cs) is where binding magic happens. It can setup the index in search, and whenever there's data to process, the Azure Functions runtime calls into the `AddAsync` method:
 
 ```
+
 public async Task AddAsync(T item, CancellationToken cancellationToken = new CancellationToken())
 {
     async Task IndexItemAsync()
@@ -766,6 +805,7 @@ public async Task AddAsync(T item, CancellationToken cancellationToken = new Can
         }
     }
 }
+
 ```
 
 Whenever we get data to be indexed, we'll try [adding/deleting/updating/...](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Search/Bindings/AzureSearchAsyncCollector.cs#L31) the document in the index. If that fails, and we enable `CreateOrUpdateIndex` on our binding, we'll try creating the index first and then retry the indexing operation.
@@ -773,6 +813,7 @@ Whenever we get data to be indexed, we'll try [adding/deleting/updating/...](htt
 Our indexing function itself can now make use of this newly created binding to easily write documents to the index, without having to execute all of that logic itself: ([full code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexerWithCustomBinding.cs))
 
 ```
+
 [FunctionName("Indexer")]
 public static async Task RunAsync(
     [QueueTrigger(Constants.IndexingQueue, Connection = Constants.IndexingQueueConnection)]
@@ -800,6 +841,7 @@ public static async Task RunAsync(
     CloudBlockBlob packageBlob,
 
     ILogger log)
+
 ```
 
 New package added? Build a `PackageDocument` with its metadata, and call `documentAddCollector.AddAsync(packageDocument)` - the Azure Functions runtime and our custom output binding will handle the rest.
@@ -818,6 +860,7 @@ The API has two endpoints, namely:
 We can create two functions that will handle these calls. Both will be triggered by incoming HTTP traffic - or as I like to think of it, incoming HTTP messages.
 
 ```
+
 [FunctionName("Web-FindTypeApi")]
 public static Task<IActionResult> RunFindTypeApiAsync(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/find-type")] HttpRequest request,
@@ -835,6 +878,7 @@ public static Task<IActionResult> RunFindNamespaceAsync(
     var name = request.Query["name"].ToString();
     return RunInternalAsync(request, null, name, log);
 }
+
 ```
 
 The `RunInternalAsync` method will be generating output for both, depending on the name/namespace we're looking for. Full implementation is [on GitHub](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Web/FindTypeApi.cs), but let's touch on a few things.
@@ -842,9 +886,11 @@ The `RunInternalAsync` method will be generating output for both, depending on t
 Search starts with a query. We have seen `PackageDocument` before, and we'll be searching for data in that format. Our search query will become the following:
 
 ```
+
 var searchText = !string.IsNullOrEmpty(typeName)
     ? $"typeNames:.{typeName}"
     : $"typeNames:{typeNamespace}.";
+
 ```
 
 The `TypeNames` field in our index is an array of stings, yet thanks to [complex field support in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-howto-complex-data-types), we can search in that array. For types, we'll find any matches that are prefixed with a `.`, for namespaces we'll search for a `.` suffix. Data in the `TypeNames` field is something like `NewtonSoft.Json.JsonConvert`, so searching for `.JsonConvert` will match here if we're searching for type names.
@@ -852,12 +898,14 @@ The `TypeNames` field in our index is an array of stings, yet thanks to [complex
 Next, search parameters. Our results will be filtered based on fields that are filterable, for example `IsPrerelease` can be used to filter out (or include) packages with a prerelease version. Ordering is done by best match, and then by version.
 
 ```
+
 new SearchParameters
 {
     Filter = "isListed eq true" + (!allowPrerelease ? " and isPreRelease eq false" : ""),
     OrderBy = new List<string> { "search.score() desc", "packageVersion desc" },
     QueryType = QueryType.Full
 }
+
 ```
 
 After retrieving matching documents from the search index, we'll return them in the API:

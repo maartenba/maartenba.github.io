@@ -10,7 +10,84 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/02/14/authenticate-orchard-users-with-appfabric-access-control-service.html
 ---
-<p>From the initial release of <a href="http://www.orchardproject.net/" target="_blank">Orchard</a>, the new .NET CMS, I have been wondering how difficult (or easy) it would be to integrate external (“federated”) authentication like Windows Azure AppFabric Access Control Service with it. After a few attempts, I managed to wrap-up a module for Orchard which does that: <a href="http://www.orchardproject.net/gallery/Packages/Search?packageType=Modules&amp;searchCategory=All+Categories&amp;searchTerm=authentication.federated" target="_blank">Authentication.Federated</a>.</p>  <p>After installing, configuring and enabling this module, Orchard’s logon page is replaced with any SAML 2.0 STS that you configure. To give you a quick idea of what this looks like, here are a few screenshots:</p>  <p align="center"><a href="/images/17.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Orchard Log On link is being overridden" border="0" alt="Orchard Log On link is being overridden" src="/images/17_thumb.png" width="229" height="164" /></a><a href="/images/18.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Orchard authentication via AppFabric" border="0" alt="Orchard authentication via AppFabric" src="/images/18_thumb.png" width="229" height="164" /></a><a href="/images/19.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Orchard authenticated via SAML - Username is from the username claim" border="0" alt="Orchard authenticated via SAML - Username is from the username claim" src="/images/19_thumb.png" width="229" height="164" /></a></p>  <p>As you can see from the sequence above, <a href="http://www.orchardproject.net/gallery/Packages/Search?packageType=Modules&amp;searchCategory=All+Categories&amp;searchTerm=authentication.federated" target="_blank">Authentication.Federated</a> does the following:</p>  <ul>   <li>Override the default logon link</li>    <li>Redirect to the configured STS issuer URL</li>    <li>Use claims like username or nameidentifier to register the external user with Orchard. Optionally, it is also possible to configure roles through claims.</li> </ul>  <p>Just as a reference, I’ll show you how to configure the module.</p>  <h2>Configuring Authentication.Federated – Windows Azure AppFabric side</h2>  <p>In my tests, I’ve been using the AppFabric LABS release, over at <a href="https://portal.appfabriclabs.com">https://portal.appfabriclabs.com</a>. From there, create a new namespace and configure Access Control Service with the following settings:</p>  <h3>Identity Providers</h3>  <ul>   <li>Pick the ones you want… I chose Windows Live ID and Google</li> </ul>  <h3>Relying Party Applications</h3>  <p>Add your application here, using the following settings:</p>  <ul>   <li><strong>Name:</strong> pick one :-)</li>    <li><strong>Realm:</strong> The http(s) root URL for your site. When using a local Orchard CMS installation on localhost, enter a non-localhost URL here, e.g. <a href="https://www.examle.org">https://www.examle.org</a></li>    <li><strong>Return URL:</strong> The root URL of your site. I chose <a href="http://localhost:12758/">http://localhost:12758/</a> here to test my local Orchard CMS installation</li>    <li><strong>Error URL:</strong> anything you want</li>    <li><strong>Token format:</strong> SAML 2.0</li>    <li><strong>Token encryption:</strong> none</li>    <li><strong>Token lifetime:</strong> anything you want</li>    <li><strong>Identity providers:</strong> the ones you want</li>    <li><strong>Rule groups:</strong> Create new rule group</li>    <li><strong>Token signing certificate:</strong> create a Service Namespace token and upload a certificate for it. This can be self-signed. Ensure you know the certificate thumbprint as we will need this later on.</li> </ul>  <h3>Edit Rule Group</h3>  <p>Edit the newly created rule group. Click “generate” to generate some default rules for the identity providers chosen, so that nameidentifier and email claims are passed to Orchard CMS. Also, if you want to be the site administrator later on, ensure you issue a roles claim for your Google/Windows Live ID, like so:</p>  <p><a href="/images/image_102.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px; padding-top: 0px" title="Add a role claim for your administrator" border="0" alt="Add a role claim for your administrator" src="/images/image_thumb_72.png" width="642" height="772" /></a></p>  <h2>Configuring Authentication.Federated – Orchard side</h2>  <p>In Orchard, download Authentication.Federated from the modules gallery and enable it. After that, you’ll find the configuration settings under the general “Settings” menu item in the Orchard dashboard:</p>  <p><a href="/images/image_103.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px; padding-top: 0px" title="Authentication.Federated configuration" border="0" alt="Authentication.Federated configuration" src="/images/image_thumb_73.png" width="644" height="317" /></a></p>  <p>These settings speak for themselves mostly, but I want to give you some pointers:</p>  <ul>   <li><strong>Enable federated authentication?</strong> – Enables the module. Ensure you’ve first tested the configuration before enabling it. If you don’t, you may lose access to your Orchard installation unless you do some database fiddling…</li>    <li><strong>Translate claims to Orchard user properties? </strong>– Will use claims values to enrich user data.</li>    <li><strong>Translate claims to Orchard roles?</strong> – Will assign Orchard roles based on the Roles claim</li>    <li><strong>Prefix for federated usernames (e.g. &quot;federated_&quot;)</strong> – Just a prefix for federated users.</li>    <li><strong>STS issuer URL</strong> – The STS issuer URL, most likely the root for your STS, e.g. <a href="https://&lt;account&gt;.accesscontrol.appfabriclabs.com">.accesscontrol.appfabriclabs.com&quot;&gt;https://&lt;account&gt;.accesscontrol.appfabriclabs.com</a></li>    <li><strong>STS login page URL</strong> – The STS’ login page, e.g. <a href="https://&lt;account&gt;.accesscontrol.appfabriclabs.com:443/v2/wsfederation">.accesscontrol.appfabriclabs.com:443/v2/wsfederation&quot;&gt;https://&lt;account&gt;.accesscontrol.appfabriclabs.com:443/v2/wsfederation</a></li>    <li><strong>Realm</strong> – The realm configured in the Windows Azure AppFabric Access Control Service settings</li>    <li><strong>Return URL base</strong> – The root URL for your website</li>    <li><strong>Audience URL</strong> – Best to set this identical to the realm URL</li>    <li><strong>X509 certificate thumbprint (used for issuer URL token signing)</strong> – The token signing certificate thumbprint</li> </ul>
+From the initial release of [Orchard](http://www.orchardproject.net/), the new .NET CMS, I have been wondering how difficult (or easy) it would be to integrate external (“federated”) authentication like Windows Azure AppFabric Access Control Service with it. After a few attempts, I managed to wrap-up a module for Orchard which does that: [Authentication.Federated](http://www.orchardproject.net/gallery/Packages/Search?packageType=Modules&searchCategory=All+Categories&searchTerm=authentication.federated).
 
 
+After installing, configuring and enabling this module, Orchard’s logon page is replaced with any SAML 2.0 STS that you configure. To give you a quick idea of what this looks like, here are a few screenshots:
 
+
+[![](/images/17_thumb.png)](/images/17.png)[![](/images/18_thumb.png)](/images/18.png)[![](/images/19_thumb.png)](/images/19.png)
+
+
+As you can see from the sequence above, [Authentication.Federated](http://www.orchardproject.net/gallery/Packages/Search?packageType=Modules&searchCategory=All+Categories&searchTerm=authentication.federated) does the following:
+
+
+- Override the default logon link
+- Redirect to the configured STS issuer URL
+- Use claims like username or nameidentifier to register the external user with Orchard. Optionally, it is also possible to configure roles through claims.
+
+
+Just as a reference, I’ll show you how to configure the module.
+
+
+## Configuring Authentication.Federated – Windows Azure AppFabric side
+
+
+In my tests, I’ve been using the AppFabric LABS release, over at [https://portal.appfabriclabs.com](https://portal.appfabriclabs.com). From there, create a new namespace and configure Access Control Service with the following settings:
+
+
+### Identity Providers
+
+
+- Pick the ones you want… I chose Windows Live ID and Google
+
+
+### Relying Party Applications
+
+
+Add your application here, using the following settings:
+
+
+- **Name:** pick one :-)
+- **Realm:** The http(s) root URL for your site. When using a local Orchard CMS installation on localhost, enter a non-localhost URL here, e.g. [https://www.examle.org](https://www.examle.org)
+- **Return URL:** The root URL of your site. I chose [http://localhost:12758/](http://localhost:12758/) here to test my local Orchard CMS installation
+- **Error URL:** anything you want
+- **Token format:** SAML 2.0
+- **Token encryption:** none
+- **Token lifetime:** anything you want
+- **Identity providers:** the ones you want
+- **Rule groups:** Create new rule group
+- **Token signing certificate:** create a Service Namespace token and upload a certificate for it. This can be self-signed. Ensure you know the certificate thumbprint as we will need this later on.
+
+
+### Edit Rule Group
+
+
+Edit the newly created rule group. Click “generate” to generate some default rules for the identity providers chosen, so that nameidentifier and email claims are passed to Orchard CMS. Also, if you want to be the site administrator later on, ensure you issue a roles claim for your Google/Windows Live ID, like so:
+
+
+[![](/images/image_thumb_72.png)](/images/image_102.png)
+
+
+## Configuring Authentication.Federated – Orchard side
+
+
+In Orchard, download Authentication.Federated from the modules gallery and enable it. After that, you’ll find the configuration settings under the general “Settings” menu item in the Orchard dashboard:
+
+
+[![](/images/image_thumb_73.png)](/images/image_103.png)
+
+
+These settings speak for themselves mostly, but I want to give you some pointers:
+
+
+- **Enable federated authentication?** – Enables the module. Ensure you’ve first tested the configuration before enabling it. If you don’t, you may lose access to your Orchard installation unless you do some database fiddling…
+- **Translate claims to Orchard user properties? **– Will use claims values to enrich user data.
+- **Translate claims to Orchard roles?** – Will assign Orchard roles based on the Roles claim
+- **Prefix for federated usernames (e.g. "federated_")** – Just a prefix for federated users.
+- **STS issuer URL** – The STS issuer URL, most likely the root for your STS, e.g. [.accesscontrol.appfabriclabs.com">https://<account>.accesscontrol.appfabriclabs.com](https://<account>.accesscontrol.appfabriclabs.com)
+- **STS login page URL** – The STS’ login page, e.g. [.accesscontrol.appfabriclabs.com:443/v2/wsfederation">https://<account>.accesscontrol.appfabriclabs.com:443/v2/wsfederation](https://<account>.accesscontrol.appfabriclabs.com:443/v2/wsfederation)
+- **Realm** – The realm configured in the Windows Azure AppFabric Access Control Service settings
+- **Return URL base** – The root URL for your website
+- **Audience URL** – Best to set this identical to the realm URL
+- **X509 certificate thumbprint (used for issuer URL token signing)** – The token signing certificate thumbprint

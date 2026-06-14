@@ -12,7 +12,6 @@ redirect_from:
   - /post/2016/10/19/making-dotnet-code-less-allocatey-allocations-and-the-garbage-collector.html
   - /post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html
 ---
-
 The .NET Garbage Collector (GC) is quite cool. In combination with the runtime's virtual memory, it helps providing our applications with virtually unlimited memory, by reclaiming memory that is no longer in use and making it available to our code again. By doing so, it also takes away the burden of having to allocate and free memory explicitly. But sometimes, it still matters to understand when and where memory is allocated. The reason for that is simple: if we can use efficient coding to help our GC spend less CPU time allocating and freeing memory we can make our applications faster and less "allocatey".
 
 In this series:
@@ -43,14 +42,15 @@ There are a lot of other situations though, where allocations do occur. For exam
 
 ```csharp
 int i = 42;
-	
+
 // boxing - wraps the value type in an "object box"
 // (allocating a System.Object)
 object o = i;
-	
+
 // unboxing - unpacking the "object box" into an int again
 // (CPU effort to unwrap)
-int j = (int)o; 
+int j = (int)o;
+
 ```
 
 Boxing creates a new `System.Object` and places the value inside, then stores it on the managed heap. Now the GC has to clean up this mess!
@@ -63,15 +63,14 @@ I'll use [ReSharper's IL viewer](https://www.jetbrains.com/help/resharper/2016.1
 
 Brave souls could make use of `ildasm.exe`, .NET's [IL disassembler](https://msdn.microsoft.com/en-us/library/f7dy01k1(v=vs.110).aspx). It's a bit more Spartan, but you can always use it to impress friends and colleagues!
 
-<p class="notice">
-  <strong>Quick note:</strong>
+**Quick note:**
   When using any IL viewer to look at allocations, make sure to build using the Release build configuration. Debug builds usually do not run any/all compiler optimizations, making for different IL code from what you would see with a Release build.
-</p>
 
 So here goes. How about this line of code?
 
 ```csharp
 Console.WriteLine(string.Concat("Answer", 42, true));
+
 ```
 
 In IL, this is compiled to:
@@ -95,6 +94,7 @@ private static void ParamsArrayImpl(params string[] data)
         Console.WriteLine(x);
     }
 }
+
 ```
 
 There's a hidden allocation in here... The call to `ParamsArrayImpl()` looks like this in IL:
@@ -103,10 +103,8 @@ There's a hidden allocation in here... The call to `ParamsArrayImpl()` looks lik
 
 Essentially, we are allocating an empty array of strings, and then passing that to our `ParamsArrayImpl()` method. This empty array has to be cleaned up by the GC. Better would be to create an overload that takes no arguments, or one argument, or two. This allocation is the reason [`string.Format` has a few overloads](https://referencesource.microsoft.com/#mscorlib/system/string.cs,2906) - fewer required allocations of that array.
 
-<p class="notice">
-  <strong>Quick note:</strong>
-  Starting with .NET 4.6, no empty array will be allocated. Instead, <code>Array.Empty&lt;T&gt;</code> will be passed which is a cached, empty array.
-</p>
+**Quick note:**
+  Starting with .NET 4.6, no empty array will be allocated. Instead, `Array.Empty<T>` will be passed which is a cached, empty array.
 
 Next up: using LINQ and anonymous functions. Have a look at this snippet and try to spot the hidden allocation:
 
@@ -119,16 +117,15 @@ private static double AverageWithinBounds(int[] inputs, int min, int max)
 
     return filtered.Average();
 }
+
 ```
 
 In this example, we need to store the values of `min` and `max` for use in our LINQ statement. If you look at the IL, we're actually creating a new instance of `<>c__DisplayClass1_0`, a compiler-generated class, for further use. That's an allocation right there!
 
 ![Capturing variable](/images/2016-10-19-making-net-code-less-allocatey-garbage-collector/variable-capture.png)
 
-<p class="notice--info">
-  <strong>Quick note:</strong>
-  Matt Warren has <a href="http://mattwarren.org/2016/09/29/Optimising-LINQ/" target="_blank">a nice overview of LINQ-specific cases</a>. Also, <a href="https://github.com/antiufo/roslyn-linq-rewrite" target="_blank">roslyn-linq-rewrite</a> is something to keep an eye on. It's a tool that changes C# compilation in such a way that syntax trees of LINQ expressions are rewritten using plain procedural code, minimizing allocations and dynamic dispatching.
-</p>
+**Quick note:**
+  Matt Warren has [a nice overview of LINQ-specific cases](http://mattwarren.org/2016/09/29/Optimising-LINQ/). Also, [roslyn-linq-rewrite](https://github.com/antiufo/roslyn-linq-rewrite) is something to keep an eye on. It's a tool that changes C# compilation in such a way that syntax trees of LINQ expressions are rewritten using plain procedural code, minimizing allocations and dynamic dispatching.
 
 There are many more examples, try looking at this piece of code's IL:
 
@@ -138,6 +135,7 @@ foreach (var s in strings)
 {
     Task.Run(() => Console.WriteLine(s));
 }
+
 ```
 
 *(spoiler alert: a new `<>c__DisplayClass0_0` will be allocated, capturing `s` for use in the `System.Action`)*
@@ -181,7 +179,7 @@ Loading this into .NET poco's is a bit silly, as we need a different object mode
 public static void LoadBeers()
 {
     Beers = new Dictionary<string, Dictionary<string, double>>();
-        
+
     using (var reader = new JsonTextReader(
         new StreamReader(File.OpenRead("beers.json"))))
     {
@@ -213,6 +211,7 @@ public static void LoadBeers()
         }
     }
 }
+
 ```
 
 This code is pretty fast: it loads the beer list into memory in about a second on my machine, and memory consumption should be okay as we're not loading the entire file as a string and using `JObject.Parse()` on it. That would be insane as we'd need our full JSON file in memory as a string, again as a tree of `JToken` and once more in our final dictionary. So yes, the above is cool! It's fast and only stores everything in memory once (plus some casual allocations for temporary values).
@@ -225,6 +224,7 @@ for (var i = 0; i < 10; i++)
     BeerLoader.LoadBeers();
     Console.ReadLine();
 }
+
 ```
 
 Here's an overview of taking a couple of memory snapshots:
@@ -277,6 +277,7 @@ public static void LoadBeers()
         }
     }
 }
+
 ```
 
 Here's what dotMemory tells us:

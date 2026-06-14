@@ -10,10 +10,13 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/10/22/generic-arrays-in-php.html
 ---
-<p>Assuming everyone knows what <a href="http://en.wikipedia.org/wiki/Generic_programming" target="_blank">generics</a> are, let's get down to business right away. PHP does not support generics or something similar, though it could be very useful in PHP development.&nbsp; Luckily, using some standard OO-practises, a semi-generic array can easily be created, even in multiple ways! Here's&nbsp;the road to PHP generics.&nbsp;</p>
-<h1>The hard way...</h1>
-<p><img src="/images/20071022-generics-hardway.png" border="0" alt="" hspace="5" vspace="5" width="451" height="381" align="right" /></p>
-<p>One of the roads to PHP generics is some simple inheritance and type hinting. Let's have a look at PHP's <a href="http://nl2.php.net/manual/en/function.ArrayObject-construct.php" target="_blank">ArrayObject</a>. This class has 2 interesting methods, namely offsetSet() and append(). This would mean I can simply create a new class which inherits from ArrayObject, and uses type hinting to restrict some additions:
+Assuming everyone knows what [generics](http://en.wikipedia.org/wiki/Generic_programming) are, let's get down to business right away. PHP does not support generics or something similar, though it could be very useful in PHP development.  Luckily, using some standard OO-practises, a semi-generic array can easily be created, even in multiple ways! Here's the road to PHP generics.
+
+# The hard way...
+
+![](/images/20071022-generics-hardway.png)
+
+One of the roads to PHP generics is some simple inheritance and type hinting. Let's have a look at PHP's [ArrayObject](http://nl2.php.net/manual/en/function.ArrayObject-construct.php). This class has 2 interesting methods, namely offsetSet() and append(). This would mean I can simply create a new class which inherits from ArrayObject, and uses type hinting to restrict some additions:
 
 ```php
 // Example class
@@ -35,10 +38,12 @@ class ExampleArrayObject extends ArrayObject {
 $myArray = new ExampleArrayObject();
 $myArray->append( new Example() ); // Works fine
 $myArray->append( "Some data..." ); // Will throw an Exception!
+
 ```
 
-<h1>The flexible way</h1>
-<p><img src="/images/20071022-generics-flexibleway.png" alt="" width="211" height="433" align="right" /> There are some disadvantages to the above solution. For a start, you can't create a generic "string" array unless you encapsulate strings in a specific object type. Same goes for other primitive types. Let's counter this problem! Here's the same code as above using a "GenericArrayObject":
+# The flexible way
+
+![](/images/20071022-generics-flexibleway.png) There are some disadvantages to the above solution. For a start, you can't create a generic "string" array unless you encapsulate strings in a specific object type. Same goes for other primitive types. Let's counter this problem! Here's the same code as above using a "GenericArrayObject":
 
 ```php
 // Example class
@@ -137,8 +142,7 @@ $myArray = new GenericArrayObject();
 $myArray->setValidationFunction('is_class_example');
 $myArray->append( new Example() ); // Works fine
 $myArray->append( "Some data..." ); // Will throw an Exception!
+
 ```
 
-<p>Using this flexible class, you can set a validation function on the GenericArrayObject, which enables you to use PHP's built-in functions like is_string (string-only ArrayObject), is_int, ... You can even write a small validation function which matches a string against a regular expression and for example create an e-mail address ArrayObject rejecting any string that does not match this regular expression.</p>
-
-
+Using this flexible class, you can set a validation function on the GenericArrayObject, which enables you to use PHP's built-in functions like is_string (string-only ArrayObject), is_int, ... You can even write a small validation function which matches a string against a regular expression and for example create an e-mail address ArrayObject rejecting any string that does not match this regular expression.

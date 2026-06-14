@@ -10,7 +10,6 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2020/06/18/a-sustainable-nuget-marketplace-will-have-to-compete-with-the-nuget-gallery.html
 ---
-
 Yesterday, [Aaron Stannard](https://twitter.com/Aaronontheweb) posted some **awesome news for the .NET community:
 the [introduction of Sdkbin](https://www.aaronstannard.com/sdkbin-marketplace/)**. Sdkbin is targeted at solving
 the OSS sustainability problem by automating the majority of the sales, fulfillment, licensing, and accounting
@@ -39,7 +38,23 @@ This is where sustainability comes in. How can core contributors sustain their i
 promoting it and getting others to use it, responding to bug reports, and all other things involved? What's their incentive for working
 for free? This often starts with trying to build name and reputation, but that wears off. Their interest may fade over time.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Wanted!<br><br>10x rockstar developer 🔥<br><br>Responsibilities include:<br>* Merging PRs immediately<br>* Making new features on demand<br>* Fixing bugs right now<br><br>Compensation:<br>* Stars<br>* +1&#39;s<br>* Threats, general and specific<br>* Public shaming<br><br>Apply at OSS Inc today</p>&mdash; Ryan Chenkie (@ryanchenkie) <a href="https://twitter.com/ryanchenkie/status/1067801413974032385?ref_src=twsrc%5Etfw">November 28, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> Wanted!
+
+10x rockstar developer 🔥
+
+Responsibilities include:
+* Merging PRs immediately
+* Making new features on demand
+* Fixing bugs right now
+
+Compensation:
+* Stars
+* +1's
+* Threats, general and specific
+* Public shaming
+
+Apply at OSS Inc today— Ryan Chenkie (@ryanchenkie) [November 28, 2018](https://twitter.com/ryanchenkie/status/1067801413974032385?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 How can open source contributors involve and interest others? How can they prevent burning out? Things happen, where the
 project is no longer being maintained. Their users are disappointed and have to replace project A with project B.
@@ -123,9 +138,19 @@ dreaming this up for a long, long time.
 
 Some recent calls for this:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">An idea.<br><br>A managed NuGet[org] alternative for selling your NuGet packages.<br><br>A web interface for discovering paid-for packages. After purchase, they are made available (forever) in a private feed.<br><br>Subscriptions and payment are managed by the platform.</p>&mdash; Paul Knopf (@pauldotknopf) <a href="https://twitter.com/pauldotknopf/status/1179129145235820544?ref_src=twsrc%5Etfw">October 1, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> An idea.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We basically need to transform our NuGet, Npm, VSCode plugin marketplace whatever into AppStore. <br><br>If dual licensing is not supported out of the box it will never become mainstream solution for sustaining OSS <a href="https://t.co/oRllcH0qYA">https://t.co/oRllcH0qYA</a></p>&mdash; Krzysztof Cieślak @ #BlackLivesMatter (@k_cieslak) <a href="https://twitter.com/k_cieslak/status/1222217476051742720?ref_src=twsrc%5Etfw">January 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+A managed NuGet[org] alternative for selling your NuGet packages.
+
+A web interface for discovering paid-for packages. After purchase, they are made available (forever) in a private feed.
+
+Subscriptions and payment are managed by the platform.— Paul Knopf (@pauldotknopf) [October 1, 2019](https://twitter.com/pauldotknopf/status/1179129145235820544?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+> We basically need to transform our NuGet, Npm, VSCode plugin marketplace whatever into AppStore.
+
+If dual licensing is not supported out of the box it will never become mainstream solution for sustaining OSS [https://t.co/oRllcH0qYA](https://t.co/oRllcH0qYA)— Krzysztof Cieślak @ #BlackLivesMatter (@k_cieslak) [January 28, 2020](https://twitter.com/k_cieslak/status/1222217476051742720?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I know when I was building [MyGet](https://www.myget.org/) with [Xavier](https://twitter.com/xavierdecoster),
 we dreamt up something like a NuGet marketplace as well. Will have to check but I think I still have `nugetmarketplace.com`
@@ -167,7 +192,8 @@ There is one additional aspect a NuGet marketplace will have to help with: estab
 their abuse. What if I have an MIT-licensed project, and someone sells it with a dual license on this
 marketplace?
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It will be perfectly legal and valid for someone to sell your MIT licence code. You expressly permitted that.</p>&mdash; Damian Hickey (@randompunter) <a href="https://twitter.com/randompunter/status/1273173878752370688?ref_src=twsrc%5Etfw">June 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> It will be perfectly legal and valid for someone to sell your MIT licence code. You expressly permitted that.— Damian Hickey (@randompunter) [June 17, 2020](https://twitter.com/randompunter/status/1273173878752370688?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Morally, this is "not done", but legally, this may happen. The marketplace will have to prevent this and have
 rules and guidance on how to go about this. We want sustainability!
@@ -204,6 +230,7 @@ A NuGet marketplace will need to support various purchasing options. Some exampl
 * Trial versions (30 days of usage)
 * Subscriptions (containing one or multiple packages)
 * Licenses with # seats, ideally also where enterprises can manage who can consume packages
+
 * Perpetual licenses
 * Licenses that are valid for major versions of a package only, etc.
 
@@ -215,7 +242,8 @@ to accommodate the bigger customers with lengthier processes, and take that out 
 
 Since many open source projects don't have a legal entity, where do funds go? As [Khalid Abuhakmeh](https://twitter.com/buhakmeh/) mentioned:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I think the stickier topic is how are funds appropriated to contributors. At some point these projects grow passed their creators.</p>&mdash; Khalid (@buhakmeh) <a href="https://twitter.com/buhakmeh/status/1273220645346856960?ref_src=twsrc%5Etfw">June 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> I think the stickier topic is how are funds appropriated to contributors. At some point these projects grow passed their creators.— Khalid (@buhakmeh) [June 17, 2020](https://twitter.com/buhakmeh/status/1273220645346856960?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 When there are 4 core contributors, who gets the proceeds? This is one a NuGet marketplace could solve
 by requiring all core contributors to link their account, and get an even portion of proceeds. But maybe a
@@ -236,7 +264,8 @@ and consumers here, and make it crystal clear what may happen with edge cases.
 
 Something like [@DHH](https://twitter.com/DHH)'s story would be bad for an emerging NuGet marketplace:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Wow. I&#39;m literally stunned. Apple just doubled down on their rejection of HEY&#39;s ability to provide bug fixes and new features, unless we submit to their outrageous demand of 15-30% of our revenue. Even worse: We&#39;re told that unless we comply, they&#39;ll REMOVE THE APP.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/1272968382329942017?ref_src=twsrc%5Etfw">June 16, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> Wow. I'm literally stunned. Apple just doubled down on their rejection of HEY's ability to provide bug fixes and new features, unless we submit to their outrageous demand of 15-30% of our revenue. Even worse: We're told that unless we comply, they'll REMOVE THE APP.— DHH (@dhh) [June 16, 2020](https://twitter.com/dhh/status/1272968382329942017?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Policies matter, and enforcing them properly is equally important.
 
@@ -256,7 +285,8 @@ In short, a NuGet marketplace will have to think about vetting and curation, and
 Having open source producers commercialize on a NuGet marketplace is one thing, but there can be more.
 If this NuGet marketplace goes beyond just packages and licenses, others can sell value added services.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">An interesting case that I could see popping up: if I&#39;m an expert at a package, could I sell support for that package that specifies it can&#39;t guarantee code changes? I think there&#39;s a market for that and I could see myself applying as a vendor for that sort of thing...</p>&mdash; Sean Killeen (@sjkilleen) <a href="https://twitter.com/sjkilleen/status/1273252987788496897?ref_src=twsrc%5Etfw">June 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> An interesting case that I could see popping up: if I'm an expert at a package, could I sell support for that package that specifies it can't guarantee code changes? I think there's a market for that and I could see myself applying as a vendor for that sort of thing...— Sean Killeen (@sjkilleen) [June 17, 2020](https://twitter.com/sjkilleen/status/1273252987788496897?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 While not a key component of this NuGet marketplace, it may be a good incentive for consumers to flock here
 and find those services.
@@ -356,7 +386,8 @@ of multiple authoritative package registries, instead of just one.
 A NuGet marketplace will need some good exclusives, and make sure some of the popular ones that were previously
 available on NuGet.org will now be available only on this marketplace.*
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Ah gotcha, so competition isn’t so much about replicating functionality as it is a driver for adoption by creating packages exclusivity on the alternative, which drives/forces use - and without which the marketplace wouldn’t thrive. Not unlike the console wars and exclusive games</p>&mdash; Dave Glick 😷 (@daveaglick) <a href="https://twitter.com/daveaglick/status/1273648829104095232?ref_src=twsrc%5Etfw">June 18, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> Ah gotcha, so competition isn’t so much about replicating functionality as it is a driver for adoption by creating packages exclusivity on the alternative, which drives/forces use - and without which the marketplace wouldn’t thrive. Not unlike the console wars and exclusive games— Dave Glick 😷 (@daveaglick) [June 18, 2020](https://twitter.com/daveaglick/status/1273648829104095232?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### Competition will come anyway
 
@@ -387,13 +418,17 @@ and business issues.
 
 As Aaron concluded, there are a lot of things to consider:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This was one of the things the discussion yesterday made clear to me.<br><br>20% of the costs of this venture = actually delivering packages to customers<br>40% of the cost = dealing with accounting / tax / payments<br>40% of the cost = having to train / educate the market to transition</p>&mdash; Aaron Stannard (@Aaronontheweb) <a href="https://twitter.com/Aaronontheweb/status/1273250663900864516?ref_src=twsrc%5Etfw">June 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> This was one of the things the discussion yesterday made clear to me.
+
+20% of the costs of this venture = actually delivering packages to customers
+40% of the cost = dealing with accounting / tax / payments
+40% of the cost = having to train / educate the market to transition— Aaron Stannard (@Aaronontheweb) [June 17, 2020](https://twitter.com/Aaronontheweb/status/1273250663900864516?ref_src=twsrc%5Etfw)
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I have no idea yet what [Sdkbin](https://sdkbin.com) will look like, and whether all of the above will be accounted for.
 What I do know is that his and Petabridge's drive and passion for .NET open source are a guarantee that this project will
 be delivered, in one form or another. Especially given their track record in making [Akka.NET a sustainable open source
 project](https://petabridge.com/services/) by making it a business.
-
 
 Whoever builds it out, whether Aaron and Petabridge or other parties, they will have to compete with the NuGet
 gallery from day one. Doing so will matter more for sustainability of a NuGet marketplace as a whole,

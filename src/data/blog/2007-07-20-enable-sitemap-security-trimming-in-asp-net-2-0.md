@@ -10,11 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/07/20/enable-sitemap-security-trimming-in-asp-net-2-0.html
 ---
-<p>
-Want to enable security trimming for your ASP.NET sitemap? Here&#39;s how...
-</p>
-<p>
+Want to enable security trimming for your ASP.NET sitemap? Here's how...
+
 First of all, you need a new section in your web.config system.web element:
+
 ```xml
 <system.web>
   <!-- ... other system.web configuration stuff ... -->
@@ -28,9 +27,11 @@ First of all, you need a new section in your web.config system.web element:
     </providers>
   </siteMap>
 </system.web>
+
 ```
 
 Next, you should specify which pages are visible to who:
+
 ```xml
 <location path="ForgotPassword.aspx">
   <system.web>
@@ -48,9 +49,7 @@ Next, you should specify which pages are visible to who:
     </authorization>
   </system.web>
 </location>
+
 ```
 
-In this example, the page ForgotPassword.aspx is visible to anonymous users, while authenticated users do not need this page (as they already knew their password while logging in...). ModifyPassword.aspx is only visible to authenticated users, as anonymous users can&#39;t do that.
-</p>
-
-
+In this example, the page ForgotPassword.aspx is visible to anonymous users, while authenticated users do not need this page (as they already knew their password while logging in...). ModifyPassword.aspx is only visible to authenticated users, as anonymous users can't do that.

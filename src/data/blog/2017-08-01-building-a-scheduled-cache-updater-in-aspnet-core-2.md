@@ -72,11 +72,11 @@ In our hosted service, we can then import these `IScheduledTask` and work with t
 public class SchedulerHostedService : HostedService
 {
     // ...
-    
+
     public SchedulerHostedService(IEnumerable<IScheduledTask> scheduledTasks)
     {
         var referenceTime = DateTime.UtcNow;
-        
+
         foreach (var scheduledTask in scheduledTasks)
         {
             _scheduledTasks.Add(new SchedulerTaskWrapper
@@ -102,17 +102,17 @@ Next up: deciding whether to run our schedule tasks. That's pretty straightforwa
 public class SchedulerHostedService : HostedService
 {
     // ...
-    
+
     protected override async Task ExecuteAsync(CancellationToken cancellationToken)
     {
         while (!cancellationToken.IsCancellationRequested)
         {
             await ExecuteOnceAsync(cancellationToken);
-                
+
             await Task.Delay(TimeSpan.FromMinutes(1), cancellationToken);
         }
     }
-    
+
     // ...
 }
 ```
@@ -128,7 +128,7 @@ public class SchedulerHostedService : HostedService
     {
         var taskFactory = new TaskFactory(TaskScheduler.Current);
         var referenceTime = DateTime.UtcNow;
-            
+
         var tasksThatShouldRun = _scheduledTasks.Where(t => t.ShouldRun(referenceTime)).ToList();
 
         foreach (var taskThatShouldRun in tasksThatShouldRun)
@@ -146,9 +146,9 @@ public class SchedulerHostedService : HostedService
                     {
                         var args = new UnobservedTaskExceptionEventArgs(
                             ex as AggregateException ?? new AggregateException(ex));
-                        
+
                         UnobservedTaskException?.Invoke(this, args);
-                        
+
                         if (!args.Observed)
                         {
                             throw;
@@ -172,7 +172,7 @@ As an example application, I want to display a "quote of the day" which is loade
 public class QuoteOfTheDayTask : IScheduledTask
 {
     public string Schedule => "* */6 * * *";
-        
+
     public async Task ExecuteAsync(CancellationToken cancellationToken)
     {
         var httpClient = new HttpClient();
@@ -197,7 +197,7 @@ public void ConfigureServices(IServiceCollection services)
 
     // Add scheduled tasks & scheduler
     services.AddSingleton<IScheduledTask, QuoteOfTheDayTask>();
-    
+
     services.AddScheduler((sender, args) =>
     {
         Console.Write(args.Exception.Message);

@@ -94,13 +94,13 @@ return new ChunkedFileStreamResult("application/json",
             {
                 writer.Formatting = Formatting.None;
                 writer.WriteStartObject();
-            
+
                 foreach (...)
                 {
                     writer.WritePropertyName("someproperty");
                     writer.WriteValue("somevalue");
                 }
-            
+
                 writer.WriteEndObject();
             }
         }
@@ -169,7 +169,7 @@ What `ExplicitFlush` [does under the hood](https://referencesource.microsoft.com
 Wait. PInvoke??? That's okay to use, but if it gets called many many many times, [PInvoke may be the source of the performance penalty](https://msdn.microsoft.com/en-us/library/ms235282.aspx) we are seeing. As per the docs:
 
 > PInvoke has an overhead of between 10 and 30 x86 instructions per call. In addition to this fixed cost, marshaling creates additional overhead. There is no marshaling cost between blittable types that have the same representation in managed and unmanaged code. For example, there is no cost to translate between int and Int32.
-> 
+>
 > For better performance, have fewer PInvoke calls that marshal as much data as possible, instead of more calls that marshal less data per call.
 
 Let's repeat that last one: **For better performance, have fewer PInvoke calls that marshal as much data as possible, instead of more calls that marshal less data per call.**
@@ -186,9 +186,9 @@ using (var streamWriter = new StreamWriter(outputStream, new UTF8Encoding(false)
     using (var writer = new JsonTextWriter(streamWriter))
     {
         // ...
-        
+
         writer.WriteStartObject();
-        
+
         // ...
     }
 }

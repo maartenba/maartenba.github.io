@@ -10,24 +10,19 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2017/03/15/using-dotpeek-to-figure-out-why-iis-crashed.html
 ---
-
 Here's a story on how I once used [dotPeek](https://www.jetbrains.com/decompiler) to provide debugger symbols and (decompiled) source code for a crashed application for which we had nothing but the application assemblies available. Namespaces have been altered to protect the innocent.
 
 Nothing better than a good cup of coffee in the morning! Opening up the issue tracker, "the folks from IT" logged an issue about an application server crashing over night. They [automatically captured a crash dump of the IIS worker process](https://blogs.msdn.microsoft.com/chaun/2013/11/12/steps-to-catch-a-simple-crash-dump-of-a-crashing-process/) and attached it to the issue - this should help in diagnosing the root cause of that crash. One more coffee refill, and then let's dive in!
 
-<p class="notice">
-  <strong>Quick note:</strong>
-  This is a cross-post of a blog post I wrote on the <a href="https://blog.jetbrains.com/dotnet/2017/03/14/using-dotpeek-figure-iis-crashed/">JetBrains blog</a>.
-</p>
+**Quick note:**
+  This is a cross-post of a blog post I wrote on the [JetBrains blog](https://blog.jetbrains.com/dotnet/2017/03/14/using-dotpeek-figure-iis-crashed/).
 
 ## Opening a crash dump
 
 The attached crash dump is a `.dmp`file, which means it could be a full crash dump or a minidump. The difference is in the amount of data contained in the dump: a full crash dump has all sorts of details, including the data that was in memory at the time of the crash. A minidump contains enough information to perform basic debugging operations, such as looking at stack traces, loaded modules and so on. File size is just over 40MB, so it's definitely not a full crash dump.
 
-<p class="notice">
-  <strong>Note:</strong>
-  Not sure how to capture a crash dump? Check <a href="https://blogs.msdn.microsoft.com/chaun/2013/11/12/steps-to-catch-a-simple-crash-dump-of-a-crashing-process/" target="_blank">automatically capturing crash dumps</a> to have Windows create a crash dump whenever a given application crashes. Another option would be using <a href="https://technet.microsoft.com/en-us/sysinternals/dd996900.aspx">SysInternals ProcDump</a> - <code>procdump processname -ma -e -x output_file.dmp</code> will capture a dump when the application gives up.
-</p>
+**Note:**
+  Not sure how to capture a crash dump? Check [automatically capturing crash dumps](https://blogs.msdn.microsoft.com/chaun/2013/11/12/steps-to-catch-a-simple-crash-dump-of-a-crashing-process/) to have Windows create a crash dump whenever a given application crashes. Another option would be using [SysInternals ProcDump](https://technet.microsoft.com/en-us/sysinternals/dd996900.aspx) - `procdump processname -ma -e -x output_file.dmp` will capture a dump when the application gives up.
 
 Now where do we start? Exploring the contents of a dump file can be done with various tools, such as [WinDbg](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) (part of the Windows SDK) or using Visual Studio. The first offers die-hard functionality, but usually loading the crash dump in Visual Studio will provide us with enough information. Already halfway through our coffee, this is what we can see after opening the `w3wp.exe.3192.dmp` file:
 

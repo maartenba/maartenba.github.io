@@ -86,6 +86,6 @@ Save it, remove the `.vs/config/applicationhost.config` or `.idea/config/applica
 
 I hope this helps you, or my future self, in case ASP.NET Core on IIS Express doesn't work first-time.
 
-A big thank you to Ivan Migalev, my colleague who helped troubleshoot! 
+A big thank you to Ivan Migalev, my colleague who helped troubleshoot!
 
 Enjoy!

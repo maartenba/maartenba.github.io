@@ -84,7 +84,7 @@ We'll need to create another HTTP step in our Azure LogicApp, and specify the fo
   * `Accept` - `application/json`
   * `Content-Type` - `application/json`
 * Body:
-  ```  
+  ```
   {
     "text": "https://twitter.com/@{triggerBody()?['UserDetails']?['UserName']}/status/@{triggerBody()?['TweetId']}"
   }

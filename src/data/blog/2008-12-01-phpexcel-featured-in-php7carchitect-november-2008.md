@@ -11,19 +11,10 @@ redirect_from:
   - /post/2008/12/01/phpexcel-featured-in-php-architect-november-2008.html
   - /post/2008/12/01/phpexcel-featured-in-php7carchitect-november-2008.html
 ---
-<p>
-<img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/PHPExcelfeaturedinphparchitectNovember20_7DB5/image_3.png" border="0" alt="Cover of php|architect / November 2008" width="104" height="134" align="right" /> Nice to see that there&#39;s a lot of activity going on related to <a href="http://www.phpexcel.net" target="_blank">PHPExcel</a>! This weekend, I receievd my electronic copy of <a href="http://www.phparch.com/c/magazine/issue/86" target="_blank">php|architect / November 2008</a> featuring an article on generating PDF and Excel files using PHP. Guess which library is being used in the second part of the article...
-</p>
-<p>
-While reading the article, I noticed a very cool thing: the author, <a href="http://www.wormus.com/aaron/" target="_blank">Aaron Wormus</a>, is using a convenient way to generate charts in PHPExcel using <a href="http://code.google.com/apis/chart/" target="_blank">Google Charts API</a>. Since PHPExcel currently does not support creating graphs, this is really a good method to use charts in PHPExcel generated Excel files. Here&#39;s a screenshot of the generated file in the magazine:
-</p>
-<p>
-<img style="margin: 5px; border: 0px" src="/images/WindowsLiveWriter/PHPExcelfeaturedinphparchitectNovember20_7DB5/image_6.png" border="0" alt="image" width="434" height="313" />&nbsp;
-</p>
-<p>
+![Cover of php|architect / November 2008](/images/WindowsLiveWriter/PHPExcelfeaturedinphparchitectNovember20_7DB5/image_3.png) Nice to see that there's a lot of activity going on related to [PHPExcel](http://www.phpexcel.net)! This weekend, I receievd my electronic copy of [php|architect / November 2008](http://www.phparch.com/c/magazine/issue/86) featuring an article on generating PDF and Excel files using PHP. Guess which library is being used in the second part of the article...
+
+While reading the article, I noticed a very cool thing: the author, [Aaron Wormus](http://www.wormus.com/aaron/), is using a convenient way to generate charts in PHPExcel using [Google Charts API](http://code.google.com/apis/chart/). Since PHPExcel currently does not support creating graphs, this is really a good method to use charts in PHPExcel generated Excel files. Here's a screenshot of the generated file in the magazine:
+
+![image](/images/WindowsLiveWriter/PHPExcelfeaturedinphparchitectNovember20_7DB5/image_6.png)
+
 Sweet!
-</p>
-
-
-
-

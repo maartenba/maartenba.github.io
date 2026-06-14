@@ -18,13 +18,13 @@ Being "on the other side" of a Call for Papers has been very interesting, and ta
 
 Having been a speaker for a long time, and having submitted talks to lots of conferences, I have been part of both. I've had sessions accepted, but more often had sessions rejected.
 
-Whether you are a beginning speaker or a well-seasoned one, those rejections may be discouraging. Why didn't they accept this session I submitted? Is it because I have never spoken before? Do they not like me? Was it because my previous talk was not well received? Why did they pick speaker X and not me? All questions I have seen people ask themselves. 
+Whether you are a beginning speaker or a well-seasoned one, those rejections may be discouraging. Why didn't they accept this session I submitted? Is it because I have never spoken before? Do they not like me? Was it because my previous talk was not well received? Why did they pick speaker X and not me? All questions I have seen people ask themselves.
 
 In this post, I want to open the curtain a bit, and talk from experience on various agenda committees.
 
-## Disclaimer 
+## Disclaimer
 
-Before we start: this is all based on my own experiences and thoughts being part of different agenda committees, and does not reflect the views of any particular company or conference. I hope sharing this experience will help aspiring and seasoned speakers understand the Call for Papers (CfP) and agenda-building process better. 
+Before we start: this is all based on my own experiences and thoughts being part of different agenda committees, and does not reflect the views of any particular company or conference. I hope sharing this experience will help aspiring and seasoned speakers understand the Call for Papers (CfP) and agenda-building process better.
 
 ## The Process
 
@@ -106,7 +106,7 @@ And with some conferences, we've jointly decided to "go for an extra session roo
 
 ## Agenda draft - Checks and balance
 
-Have you heard of [Hadi Hariri's Speaker Maturity Model](https://hadihariri.com/2013/11/12/the-speaker-maturity-model/)? I share Hadi's view, in that there should never be a level 0. As an organizer of a conference that has sponsors, an attendee entry fee or both, covering travel and expenses for speakers is good practice (think flights, hotel and a train ticket from/to the airport). 
+Have you heard of [Hadi Hariri's Speaker Maturity Model](https://hadihariri.com/2013/11/12/the-speaker-maturity-model/)? I share Hadi's view, in that there should never be a level 0. As an organizer of a conference that has sponsors, an attendee entry fee or both, covering travel and expenses for speakers is good practice (think flights, hotel and a train ticket from/to the airport).
 
 That means, of course, that there are financials involved! And the more expensive the agenda becomes, the more sponsorships are needed or the more tickets have to be sold.
 
@@ -116,7 +116,7 @@ Cost is also tied to the conference's focus. If a conference just wants an agend
 
 Some companies cover expenses for their employees, when they are selected as a speaker. Many conferences like to fill some agenda spots with "sponsored" speakers, as they are low-cost. Who wouldn't want to have some international speakers at low cost? Regardless of your thoughts about this, it happens.
 
-Running a conference and putting people on a stage/pedestal brings a responsibility towards making sure a safe environment for learning and communicating is created. So that is another part of the "checks and balance". Does the agenda represent that thought, in terms of speakers and topics? If not, adjustments are made. 
+Running a conference and putting people on a stage/pedestal brings a responsibility towards making sure a safe environment for learning and communicating is created. So that is another part of the "checks and balance". Does the agenda represent that thought, in terms of speakers and topics? If not, adjustments are made.
 
 ## Big names
 
@@ -133,7 +133,7 @@ So, there is a chance that the headliner's session will be chosen over yours if 
 Sending out those acceptance and rejection e-mails is a happy and sad moment.
 
 You submitted the perfect session proposal title and abstract and got selected? Awesome!
- 
+
 You didn't get selected? In my 10 years of speaking at conferences, I have been rejected more than I was accepted. For every accepted talk, there have been multiple rejections. Don't be sad or mad when a talk is rejected. Keep submitting to user groups, smaller and larger conferences.
 
 Check [Niall Merrigan's post](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/) for tips on making your title and abstract more attractive, but keep in mind other aspects like similar topics, budget in terms of number of available agenda spots and monetary budgets are a big influence, too.

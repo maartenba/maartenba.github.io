@@ -24,9 +24,9 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         // ...
-        
+
         services.AddTransient<ICustomerService, DefaultCustomerService>();
-        
+
         // ...
     }
 }
@@ -136,7 +136,7 @@ Let's also add some hardening: if the previous registration already is registere
 
 ```csharp
 var implementationType = GetImplementationType(lastRegistration);
-		    
+
 // When the last registration service type was already registered
 // as its implementation type, bail out.
 if (lastRegistration.ServiceType == implementationType)
@@ -156,7 +156,7 @@ if (lastRegistration.ImplementationInstance != null)
 {
 	// Register "self" registration as the same instance
 	services.Add(new ServiceDescriptor(
-		implementationType, 
+		implementationType,
 		lastRegistration.ImplementationInstance));
 }
 ```
@@ -221,7 +221,7 @@ if (lastRegistration.ImplementationFactory != null)
         // Type-based
         services.Add(new ServiceDescriptor(
             implementationType,
-            implementationType, 
+            implementationType,
             lastRegistration.Lifetime));
     }
 ```
@@ -232,7 +232,7 @@ Since we removed the original registration, let's re-add it with a small modific
 // Re-register last registration, proxying our specific registration
     services.Add(new ServiceDescriptor(
         lastRegistration.ServiceType,
-        provider => provider.GetService(implementationType), 
+        provider => provider.GetService(implementationType),
         lastRegistration.Lifetime));
 ```
 
@@ -259,26 +259,26 @@ public static class ServiceCollectionHostedServiceExtensions
 		if (lastRegistration != null)
 		{
 		    var implementationType = GetImplementationType(lastRegistration);
-		    
+
             // When the last registration service type was already registered
             // as its implementation type, bail out.
             if (lastRegistration.ServiceType == implementationType)
             {
                 return services;
             }
-		    
+
 			if (lastRegistration.ImplementationInstance != null)
 			{
 				// Register "self" registration as the same instance
 				services.Add(new ServiceDescriptor(
-					implementationType, 
+					implementationType,
 					lastRegistration.ImplementationInstance));
 			}
-			else 
+			else
 			{
 				// Remove last registration
 				services.Remove(lastRegistration);
-			
+
 				// Register "self" registration first
 				if (lastRegistration.ImplementationFactory != null)
 				{
@@ -293,21 +293,21 @@ public static class ServiceCollectionHostedServiceExtensions
 					// Type-based
 					services.Add(new ServiceDescriptor(
 						lastRegistration.ImplementationType,
-						lastRegistration.ImplementationType, 
+						lastRegistration.ImplementationType,
 						lastRegistration.Lifetime));
 				}
 
 				// Re-register last registration, proxying our specific registration
 				services.Add(new ServiceDescriptor(
 					lastRegistration.ServiceType,
-					provider => provider.GetService(implementationType), 
+					provider => provider.GetService(implementationType),
 					lastRegistration.Lifetime));
 			}
 		}
 
 		return services;
 	}
-	
+
 	private static Type GetImplementationType(ServiceDescriptor descriptor)
 	{
 		if (descriptor.ImplementationType != null)
@@ -319,7 +319,7 @@ public static class ServiceCollectionHostedServiceExtensions
 		{
 			return descriptor.ImplementationInstance.GetType();
 		}
-		
+
 		if (descriptor.ImplementationFactory != null)
 		{
 			return descriptor.ImplementationFactory.GetType().GenericTypeArguments[1];
