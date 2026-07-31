@@ -57,4 +57,4 @@ I'll just copy in the synopsys, and you go [give the book a read](https://amzn.t
 
 After three non-fiction books, I said "no more". Compared against my day job, the fiction-writing process requires different muscles than technical writing, which I enjoyed. The world building, getting the atmosphere right, all was pretty fun and rewarding. I guess what I am saying is I might try it again (I have an idea for a second story that I think is worth pursuing).
 
-In any case, [go check it out on Amazon](https://amzn.to/4fmLkrK) if you're interested to read! And if you do, enjoy it and let me know what you think (ideally in the book reviews so others can learn about it).
+ [Go check it out on Amazon](https://amzn.to/4fmLkrK) if you're interested to read! And if you do, enjoy it and let me know what you think (ideally in the book reviews so others can learn about it).
