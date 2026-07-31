@@ -45,7 +45,7 @@ On the programming front, absolutely! I wrote the book in Markdown, and needed a
 
 ## So what's it about?
 
-I'll just copy in the synopsys, and you go [give the book a read](https://amzn.to/4fmLkrK if you like it!
+I'll just copy in the synopsys, and you go [give the book a read](https://amzn.to/4fmLkrK) if you like it!
 
 > James Kirby built TeamKeeper for the simplest of reasons: his son's under-7s football club needed a better way to organize practice schedules and collect subs. A side project. A few evenings of coding after the kids were in bed, his wife Claire on the sofa next to him.
 >
