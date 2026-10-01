@@ -155,7 +155,7 @@ builder.Services
     .AddTokenProvider<PasskeyTwoFactorTokenProvider<IdentityUser>>(PasskeyTwoFactorTokenProvider<IdentityUser>.ProviderName);
 ```
 
-> **Note:** The default ASP.NET Core Identity UI assumes the second factor is an authenticator app code. Its `LoginWith2fa` page only asks for a code, so a user whose only second factor is a passkey can't get past it. Point your login flow to a page that runs the passkey ceremony instead, or check `GetValidTwoFactorProvidersAsync()` (which now includes `"Passkey"` for users with a passkey) to decide which option to show. The default "Disable 2FA" page also clears `TwoFactorEnabled`, which turns off the passkey second factor as well.
+**Note:** The default ASP.NET Core Identity UI assumes the second factor is an authenticator app code. Its `LoginWith2fa` page only asks for a code, so a user whose only second factor is a passkey can't get past it. Point your login flow to a page that runs the passkey ceremony instead, or check `GetValidTwoFactorProvidersAsync()` (which now includes `"Passkey"` for users with a passkey) to decide which option to show. The default "Disable 2FA" page also clears `TwoFactorEnabled`, which turns off the passkey second factor as well.
 
 ### The endpoints
 
