@@ -156,6 +156,28 @@ const websiteStructuredData = {
       set:html={JSON.stringify(websiteStructuredData)}
     />
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3H6PHFSRVX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      // Page views are sent manually so ClientRouter navigations are tracked too
+      gtag("config", "G-3H6PHFSRVX", { send_page_view: false });
+      document.addEventListener("astro:page-load", () => {
+        gtag("event", "page_view", {
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+          page_title: document.title,
+        });
+      });
+    </script>
+
     <slot name="head" />
 
     <!-- Enable RSS feed auto-discovery  -->
