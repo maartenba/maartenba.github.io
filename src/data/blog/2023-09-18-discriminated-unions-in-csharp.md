@@ -96,3 +96,5 @@ The [`OneOf` package (docs)](https://github.com/mcintyre321/OneOf) lets you work
 
 For me, the reason of writing this blog post was mainly that I wanted to show you the clever use of implicit operators in the `Results<>` class.
 I hope, however, that you got something more out of it as well: a short introduction to discriminated unions, and two alternatives (using F#, and the [`OneOf` package](https://github.com/mcintyre321/OneOf)) if you do want to use them in your code.
+
+If you want to deserialize JSON into one of several types today, I covered that in [System.Text.Json polymorphic deserialization](/posts/2020-01-29-deserializing-json-into-polymorphic-classes-with-systemtextjson/).

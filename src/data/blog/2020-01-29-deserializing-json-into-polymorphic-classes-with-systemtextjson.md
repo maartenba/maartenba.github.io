@@ -230,4 +230,6 @@ And yes, it passes:
 
 ![JsonConverter test in Rider](/images/2020/01/rider-json-deserializer-test.png)
 
+If the DTOs you deserialize into also trigger compiler warnings, I wrote up how to [fix CS8618 nullable warnings in C# JSON models](/posts/2023-01-12-getting-rid-of-warnings-with-nullable-reference-types-and-json-object-models-in-csharp/).
+
 Enjoy!

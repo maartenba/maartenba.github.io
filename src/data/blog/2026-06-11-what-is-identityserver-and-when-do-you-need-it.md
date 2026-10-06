@@ -70,3 +70,5 @@ If any of these resemble your situation, you need a central identity provider. W
 It also fits when deployment constraints rule out SaaS entirely (on-premises, air-gapped, data sovereignty), or when you're an ISV embedding identity into a product you redistribute to customers.
 
 As with everything in our industry, knowing which situation you're in before you start building is worth more than any individual tool choice. I hope this post gave you some insights into the considerations to make when deciding whether you need an identity provider, and whether IdentityServer is the right fit for your architecture.
+
+If you're curious how an ASP.NET Core app can use access and refresh tokens from an identity provider, I wrote about [making API calls using the access token and refresh token from an authentication handler](/posts/2020-01-13-making-api-calls-using-the-access-token-and-refresh-token-from-an-aspnet-core-authentication-handler/).

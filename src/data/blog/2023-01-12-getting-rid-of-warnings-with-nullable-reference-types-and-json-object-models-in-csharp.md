@@ -131,3 +131,5 @@ Personally, I like this approach the most. It clearly sets expectations, without
 Do keep in mind it is important that the JSON document you are deserializing always contains a value and is not `null`. The `required` modifier is enforced at compile time, and not at runtime. If a `null` reference is set by the JSON framework you are using, there's no guarantee `NullReferenceException` can't occur.
 
 If you expect `null` in some cases, annotating the property as nullable (`string?`) and performing `null` checks where applicable is the recommended approach.
+
+If your JSON models are part of a type hierarchy, my post on [System.Text.Json polymorphic deserialization](/posts/2020-01-29-deserializing-json-into-polymorphic-classes-with-systemtextjson/) shows how to deserialize into the right derived class.

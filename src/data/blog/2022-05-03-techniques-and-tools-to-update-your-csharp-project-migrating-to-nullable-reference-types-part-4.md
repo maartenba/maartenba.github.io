@@ -356,6 +356,8 @@ With C# nullable reference types enabled, a warning will be shown for the `Name`
 
 Let's look at how we can fix these warnings...
 
+For a more recent take with the C# 11 `required` modifier, see my post on how to [fix CS8618 nullable warnings in C# JSON models](/posts/2023-01-12-getting-rid-of-warnings-with-nullable-reference-types-and-json-object-models-in-csharp/).
+
 ### Make the property nullable - Bad!
 
 Following the compiler's advice, you can update the property and make it nullable:
