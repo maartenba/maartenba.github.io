@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Rate limiting in ASP.NET Core: a practical guide (updated for .NET 10)"
-date: 2022-09-26 03:44:05 +0100
+pubDatetime: 2022-09-26T03:44:05Z
 comments: true
 published: true
 categories: ["post"]
 tags: ["General", "Web", "ASP.NET"]
 author: Maarten Balliauw
-modified: 2026-10-05
-excerpt: "A practical guide to the ASP.NET Core rate limiting middleware: fixed window, sliding window, token bucket and concurrency limiters, per-IP limits, and returning a 429."
+modDatetime: 2026-10-05T00:00:00Z
+description: "A practical guide to the ASP.NET Core rate limiting middleware: fixed window, sliding window, token bucket and concurrency limiters, per-IP limits, and returning a 429."
 redirect_from:
   - /post/2022/09/26/asp-net-core-rate-limiting-middleware-in-net-7.html
   - /post/2022/09/26/aspnet-core-rate-limiting-middleware.html
