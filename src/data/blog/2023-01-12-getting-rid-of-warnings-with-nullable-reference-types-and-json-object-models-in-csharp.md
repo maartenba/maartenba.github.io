@@ -22,7 +22,7 @@ We ended the series with a curious case: [how to annotate classes to deserialize
 
 ## CS8618: Non-nullable property must contain a non-null value when exiting constructor
 
-The full message reads: *Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.* Older compilers say *Consider declaring the property as nullable* only, and the docs list it as *Non-nullable variable must contain a non-null value when exiting constructor*.
+The compiler reports: *Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.*
 
 The cause is a non-nullable property that nothing initializes. For a JSON DTO, that's every property the deserializer fills in later. The compiler can't see that, so it complains.
 
@@ -140,18 +140,17 @@ If you expect `null` in some cases, annotating the property as nullable (`string
 
 ### `required` versus `[JsonRequired]`
 
-With `System.Text.Json`, the C# `required` modifier does more than silence the compiler. Since .NET 7, the serializer treats it as a requirement on the JSON as well. If the property is missing from the payload, `JsonSerializer.Deserialize` throws a `JsonException`.
-
-`[JsonRequired]` ends up as the same metadata for the serializer, so it behaves the same at runtime. The difference is that it's not a C# language feature. You can use it on older language versions, and when you only want the rule to apply to JSON and not to every place your own code creates the object.
+With `System.Text.Json`, the C# `required` modifier does more than silence the compiler. The serializer treats it as a requirement on the JSON as well. If the property is missing from the payload, `JsonSerializer.Deserialize` throws a `JsonException`.
 
 ```csharp
 public class User
 {
-    [JsonRequired]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 }
 ```
 
-Both only check that the property is present. `{ "name": null }` has the property, so it still deserializes, and you're back to a `null` in a non-nullable property. If the JSON can contain `null`, make the property nullable.
+`[JsonRequired]` maps to the same metadata, so it behaves the same at runtime. The difference is that it's not a C# language feature. Use it when you can't use `required`, for example on an older language version, or when you only want the rule to apply to JSON deserialization. Keep in mind that `[JsonRequired]` on its own does not silence CS8618. The compiler still warns on a non-nullable property without `required`, so put both on the property if you want a clean build.
+
+Both only check that the property is present. `{ "Name": null }` has the property, so it still deserializes, and you're back to a `null` in a non-nullable property. If the JSON can contain `null`, make the property nullable.
 
 If your JSON models are part of a type hierarchy, my post on [System.Text.Json polymorphic deserialization](/posts/2020-01-29-deserializing-json-into-polymorphic-classes-with-systemtextjson/) shows how to deserialize into the right derived class.
