@@ -16,6 +16,8 @@ redirect_from:
 
 I wanted a Mastodon address on my own domain without running a server. The trick is WebFinger: serve your Mastodon instance's WebFinger JSON at /.well-known/webfinger on your domain, and @you@yourdomain resolves to your existing account. I use it as a forwarding address that survives switching servers.
 
+_Updated October 2026: Mastodon and the instances running it have changed since 2022, so the UI may not match what you see in the screenshots or my descriptions. The WebFinger part works the same way._
+
 Like many in the past week, I have been having a serious look at [Mastodon](https://joinmastodon.org/) as an alternative to Twitter.
 
 Mastodon is a social network that is distributed across many servers that have their own smaller communities, and federate with other servers to provide a more "global" social network.
@@ -89,16 +91,29 @@ The next thing I tried was simply copy-pasting this JSON output to my own server
 
 In other words, if you want to be discovered on Mastodon using your own domain, you can do so by copying the contents of `https://<your mastodon server>/.well-known/webfinger?resource=acct:<your account>@<your mastodon server>` to `https://<your domain>/.well-known/webfinger`.
 
+The steps:
+
+1. Request `https://<your mastodon server>/.well-known/webfinger?resource=acct:<your account>@<your mastodon server>` and save the JSON you get back.
+2. Serve that JSON from `https://<your domain>/.well-known/webfinger`.
+3. Search for `@<anything>@<your domain>` in Mastodon. It should resolve to your account on the server you joined.
+
 One caveat: this approach works much like a catch-all e-mail address. `@anything@yourdomain.com` will match, unless you add a bit more scripting to only show a result for resources you want to be discoverable.
+
+### How this differs from WEB_DOMAIN and LOCAL_DOMAIN
+
+If you run your own Mastodon server, the [configuration docs](https://docs.joinmastodon.org/admin/config/) describe a split-domain setup. Set `LOCAL_DOMAIN` to `example.com` and `WEB_DOMAIN` to `mastodon.example.com`, and the server serves `@alice@example.com` while living on `mastodon.example.com`. For that to work, `https://example.com/.well-known/webfinger` has to redirect to the same path on `mastodon.example.com`, with CORS headers.
+
+That's a different thing from what's in this post. There, the server is yours and the handle is on your domain from day one. Here, someone else runs the server, and your domain only answers WebFinger lookups with a copy of your account's JSON.
 
 ## Bonus: Discovering folks from Twitter
 
 Discoverability, at this stage, is one of the things that matter to get a proper social graph going.
+
 Over the past days, there were a couple of tools I found very useful in finding Twitter folks on Mastodon:
 
 * [Twitodon](https://twitodon.com/) learns about which Twitter account matches a Mastodon account, from folks using this service.
 * [Fedifinder](https://fedifinder.glitch.me/) and [Debirdify](https://pruvisto.org/debirdify/) scan Twitter accounts and checks if there is a Mastodon account in their profile data.
-*
+
 Do make sure to add your Mastodon address somewhere on your Twitter profile as well.
 
 Good luck! And give `@maarten@balliauw.be` a follow if you make the jump to Mastodon.
