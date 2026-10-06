@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Deserializing JSON into polymorphic classes with System.Text.Json"
+title: "System.Text.Json Polymorphic Deserialization"
+description: "Deserialize JSON into derived or abstract types: $type discriminators, [JsonPolymorphic] in .NET 7+, and a custom JsonConverter for legacy payloads."
 pubDatetime: 2020-01-29T03:44:05Z
+modDatetime: 2026-10-06T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -11,6 +13,8 @@ redirect_from:
   - /post/2020/01/29/deserializing-json-into-polymorphic-classes-with-system-text-json.html
   - /post/2020/01/29/deserializing-json-into-polymorphic-classes-with-systemtextjson.html
 ---
+
+The easiest way I know to deserialize JSON into polymorphic classes with System.Text.Json is `[JsonPolymorphic]` plus `[JsonDerivedType]` and a type discriminator. For full control, or payloads that don't fit that shape, I write a custom `JsonConverter`, which is what this post shows.
 
 While working on SpaceDotNet, a strong-typed client SDK to access the [JetBrains Space HTTP API](https://blog.jetbrains.com/space/2020/01/28/getting-started-with-the-space-http-api/), I came across a scenario to deserialize JSON into polymorphic classes. In this post, I'll explain how to write a custom `JsonConverter` for `System.Text.Json` to help with deserialization for such cases.
 

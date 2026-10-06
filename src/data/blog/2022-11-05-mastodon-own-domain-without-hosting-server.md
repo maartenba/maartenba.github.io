@@ -2,6 +2,7 @@
 layout: post
 title: "Mastodon on your own domain without hosting a server"
 pubDatetime: 2022-11-05T03:44:05Z
+modDatetime: 2026-10-06T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -12,6 +13,8 @@ redirect_from:
   - /post/2022/11/05/mastodon-on-your-own-domain-without-hosting-a-server.html
   - /post/2022/11/05/mastodon-own-donain-without-hosting-server.html
 ---
+
+I wanted a Mastodon address on my own domain without running a server. The trick is WebFinger: serve your Mastodon instance's WebFinger JSON at /.well-known/webfinger on your domain, and @you@yourdomain resolves to your existing account. I use it as a forwarding address that survives switching servers.
 
 Like many in the past week, I have been having a serious look at [Mastodon](https://joinmastodon.org/) as an alternative to Twitter.
 

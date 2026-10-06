@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Getting rid of warnings with nullable reference types and JSON object models in C#"
+title: "Fix CS8618 Nullable Warnings in C# JSON Models"
+description: "Fix CS8618 non-nullable property warnings in C# JSON DTOs: compare nullable properties, constructors, default values and required, and why default! is risky."
 pubDatetime: 2023-01-12T03:44:05Z
+modDatetime: 2026-10-06T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -11,6 +13,8 @@ redirect_from:
   - /post/2023/01/12/getting-rid-of-warnings-with-nullable-reference-types-and-json-object-models-in-c.html
   - /post/2023/01/12/getting-rid-of-warnings-with-nullable-reference-types-and-json-object-models-in-csharp.html
 ---
+
+To get rid of CS8618 on JSON DTOs, I like marking the property with the C# 11 `required` modifier. It keeps the property non-nullable without lying to the compiler. If the JSON can contain nulls, make the property nullable instead, and please avoid silencing the warning with `default!`.
 
 In my blog series, *[Nullable reference types in C# - Migrating to nullable reference types](/post/2022/04/11/nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1.html)*, we discussed the benefits of enabling nullable reference types in your C# code, and annotating your code so the compiler and IDE can give you more reliable hints about whether a particular variable or property may need to be checked for being `null` before using it.
 

@@ -2,12 +2,15 @@
 layout: post
 title: "What is IdentityServer and When Do You Need it?"
 pubDatetime: 2026-06-11T08:00:00Z
+modDatetime: 2026-10-06T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
 tags: ["General", ".NET", "dotnet", "security", "identityserver", "oauth", "oidc"]
 author: Maarten Balliauw
 ---
+
+IdentityServer is a .NET SDK for building an OpenID Connect and OAuth 2.0 identity provider on ASP.NET Core, issuing tokens to multiple clients and APIs. You need it for several apps or APIs, single sign-on, federation, or standards-based tokens. A single app with local users doesn't; ASP.NET Core Identity suffices.
 
 Earlier this week at [Duende Software](https://duendesoftware.com/), we had a prospect reach out that wanted to implement IdentityServer in their solution. Their application consisted of one ASP.NET Core application with local users, no mobile applications or other clients, no API surface, and no plans in the roadmap to move towards an architecture with any of these. All they wanted was to add external authentication to Google.
 
