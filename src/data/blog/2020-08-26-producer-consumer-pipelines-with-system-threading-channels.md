@@ -315,6 +315,8 @@ so it can wait for I/O and consume CPU at the same time.
 those ourselves. The [`Open.ChannelExtensions`](https://github.com/Open-NET-Libraries/Open.ChannelExtensions) helps here
 by providing extensions on top of `System.Threading.Channels`.
 
+If you want to host a channel-based worker like this as a long-running process, I wrote about how to [run a .NET app as a Linux service with systemd](/posts/2021-05-25-running-a-net-application-as-a-service-on-linux-with-systemd/).
+
 ## Further reading
 
 While I only covered some concepts, there's much more to explore in the realm of channels and pipelines!

@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Deserializing JSON into polymorphic classes with System.Text.Json"
+title: "System.Text.Json Polymorphic Deserialization"
+description: "Deserialize JSON into derived or abstract types: $type discriminators, [JsonPolymorphic] in .NET 7+, and a custom JsonConverter for legacy payloads."
 pubDatetime: 2020-01-29T03:44:05Z
+modDatetime: 2026-10-06T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -12,7 +14,87 @@ redirect_from:
   - /post/2020/01/29/deserializing-json-into-polymorphic-classes-with-systemtextjson.html
 ---
 
+The easiest way I know to deserialize JSON into polymorphic classes with System.Text.Json is `[JsonPolymorphic]` plus `[JsonDerivedType]` and a type discriminator. For full control, or payloads that don't fit that shape, I write a custom `JsonConverter`, which is what this post shows.
+
 While working on SpaceDotNet, a strong-typed client SDK to access the [JetBrains Space HTTP API](https://blog.jetbrains.com/space/2020/01/28/getting-started-with-the-space-http-api/), I came across a scenario to deserialize JSON into polymorphic classes. In this post, I'll explain how to write a custom `JsonConverter` for `System.Text.Json` to help with deserialization for such cases.
+
+**Update:** .NET 7 added built-in support for polymorphic types, so check the next section first. The converter approach further down is for when that isn't enough.
+
+## The modern way: `[JsonPolymorphic]` and `[JsonDerivedType]`
+
+If your JSON has a type discriminator, this is the one. Put attributes on the base type, list the derived types with a discriminator value each, and deserialize to the base type:
+
+```csharp
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
+[JsonDerivedType(typeof(Circle), "circle")]
+[JsonDerivedType(typeof(Square), "square")]
+public abstract class Shape
+{
+}
+
+public class Circle : Shape
+{
+    public double Radius { get; set; }
+}
+
+public class Square : Shape
+{
+    public double Side { get; set; }
+}
+
+// Usage
+var json = """{ "$type": "circle", "Radius": 2.5 }""";
+
+Shape? shape = JsonSerializer.Deserialize<Shape>(json);
+Console.WriteLine(shape is Circle); // True
+
+// And back again, using the base type as the type argument
+Console.WriteLine(JsonSerializer.Serialize<Shape>(new Square { Side = 3 }));
+// {"$type":"square","Side":3}
+```
+
+`$type` is already the default discriminator name. You only need `TypeDiscriminatorPropertyName` if you want something else, like `kind`.
+
+To get the discriminator in the output, the declared type has to be the base type, like `Serialize<Shape>(...)` or a `Shape` property. Serialize it as a `Circle` and you won't see `$type`. Unregistered derived types throw unless you set `UnknownDerivedTypeHandling`.
+
+By default, the discriminator has to be the first property in the JSON object. Some APIs put it somewhere in the middle. Set `JsonSerializerOptions.AllowOutOfOrderMetadataProperties` to `true` for those (added in .NET 9). It makes the deserializer buffer the object.
+
+If you can't add attributes because you don't own the types, set `PolymorphismOptions` on the type info from a `DefaultJsonTypeInfoResolver` modifier:
+
+```csharp
+// Note: needs using System.Text.Json.Serialization.Metadata;
+
+var options = new JsonSerializerOptions
+{
+    TypeInfoResolver = new DefaultJsonTypeInfoResolver
+    {
+        Modifiers =
+        {
+            static typeInfo =>
+            {
+                if (typeInfo.Type != typeof(Shape)) return;
+
+                typeInfo.PolymorphismOptions = new JsonPolymorphismOptions
+                {
+                    TypeDiscriminatorPropertyName = "$type",
+                    DerivedTypes =
+                    {
+                        new JsonDerivedType(typeof(Circle), "circle"),
+                        new JsonDerivedType(typeof(Square), "square")
+                    }
+                };
+            }
+        }
+    }
+};
+```
+
+The details are in the [Microsoft docs on System.Text.Json polymorphism](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism).
+
+The rest of this post covers the custom converter I wrote for SpaceDotNet.
 
 ## Background
 
@@ -86,6 +168,8 @@ public class ApiEndpoint
 Notice the line that says `[JsonConverter(typeof(ApiFieldTypeConverter))]`? That's what we want to create: a custom JSON converter for `System.Text.Json` that deserializes the JSON metadata into a concrete class.
 
 ## Building a custom `JsonConverter`
+
+A custom converter makes sense for payloads that have no `$type` or an unusual discriminator, like the Space API.
 
 Kudos to the Microsoft Docs team for providing [an example of polymorphic deserialization](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-converters-how-to#support-polymorphic-deserialization)! This example supports deserializing a type hierarchy of `Customer|Employee : Person`. However, the example `JsonConverter` is really built around the shape of those `Customer` and `Employee` types. If a third child class needs to be supported, there's a lot of work that needs to happen...
 
@@ -225,5 +309,7 @@ public void ReadKnownValuesTests()
 And yes, it passes:
 
 ![JsonConverter test in Rider](/images/2020/01/rider-json-deserializer-test.png)
+
+If the DTOs you deserialize into also trigger compiler warnings, I wrote up how to [fix CS8618 nullable warnings in C# JSON models](/posts/2023-01-12-getting-rid-of-warnings-with-nullable-reference-types-and-json-object-models-in-csharp/).
 
 Enjoy!

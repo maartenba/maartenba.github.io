@@ -120,3 +120,5 @@ While I'm happy I can grab the access/refresh tokens, have the library refresh t
 Right now, I'm keeping a close eye on what Dominick and others are doing with [IdentityModel.AspNetCore](https://github.com/IdentityModel/IdentityModel.AspNetCore). They [don't have the access/refresh token infrastructure in calling code](https://github.com/IdentityModel/IdentityModel.AspNetCore/blob/master/samples/TokenManagement3/Controllers/HomeController.cs#L27), but instead provide [a service that manages access tokens transparently](https://github.com/IdentityModel/IdentityModel.AspNetCore/blob/master/samples/TokenManagement3/Startup.cs#L67).
 
 Work-in-progress.
+
+If you're wondering whether you need a central identity provider for this kind of token handling, I wrote about [what IdentityServer is and when you need it](/posts/2026-06-11-what-is-identityserver-and-when-do-you-need-it/).

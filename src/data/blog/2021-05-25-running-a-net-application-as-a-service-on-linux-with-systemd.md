@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Running a .NET application as a service on Linux with Systemd"
+title: "Run a .NET App as a Linux Service with systemd"
+description: "Run a .NET app as a Linux service: add Microsoft.Extensions.Hosting.Systemd, call UseSystemd(), write a Type=notify unit file, and read logs via journald."
 pubDatetime: 2021-05-25T03:44:05Z
+modDatetime: 2026-10-05T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -11,6 +13,8 @@ redirect_from:
   - /post/2021/05/25/running-a-net-application-as-a-service-on-linux-with-systemd.html
   - /post/2021/05/25/running-a-dotnet-application-as-a-service-on-linux-with-systemd.html
 ---
+
+Short answer: add the `Microsoft.Extensions.Hosting.Systemd` NuGet package and call `UseSystemd()` on your host builder. Then write a `.service` unit file with `Type=notify`, drop it in `/etc/systemd/system/`, and run `systemctl enable --now`. Here's how I set it up for a small DNS server.
 
 In this post, let's see how you can run a .NET Core / .NET 5 application as a service on Linux. We'll use [Systemd](https://en.wikipedia.org/wiki/Systemd) to integrate our application with the operating system and make it possible to start and stop our service, and get logs from it.
 
