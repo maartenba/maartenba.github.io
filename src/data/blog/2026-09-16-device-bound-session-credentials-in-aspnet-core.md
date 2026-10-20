@@ -2,6 +2,7 @@
 layout: post
 title: "Device Bound Session Credentials in ASP.NET Core"
 pubDatetime: 2026-09-16T07:00:00Z
+modDatetime: 2026-10-20T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -12,6 +13,8 @@ author: Maarten Balliauw
 A session cookie is a bearer token, which is a polite way of saying that whoever holds it is you. Copy the cookie, replay it from another machine, and the server happily serves your account. Nothing about the request proves which device it came from, so a cookie lifted by malware, an XSS payload, or a stray database backup keeps working until it expires. For a long-lived session, that can be weeks.
 
 [Device Bound Session Credentials](https://w3c.github.io/webappsec-dbsc/) (DBSC) is a draft web standard that goes after exactly this gap, and .NET 11 ships an experimental server-side implementation for ASP.NET Core. The idea is to tie a session to a private key that never leaves the device, so a copied cookie on its own is no longer enough to keep the session alive.
+
+> **Update (October 2026):** DBSC has been pulled from .NET 11. The ASP.NET Core team [removed the implementation](https://github.com/dotnet/aspnetcore/pull/69462) after RC1 because it was incomplete and they were not happy with it, and the removal was backported to RC2. The `Microsoft.AspNetCore.Authentication.DeviceBoundSessions` package will not ship with .NET 11 GA. The plan is to rework it and possibly bring it back in .NET 12, so follow [dotnet/aspnetcore#66478](https://github.com/dotnet/aspnetcore/issues/66478) if you want to track it. The protocol explanation below still holds, but the code only works against the RC1 package.
 
 > **Note:** This is experimental on both ends. The ASP.NET Core package is prerelease for all of .NET 11, and browser support currently means Chrome with an experimental flag. This is a "understand it now, ship it later" feature, not something to go build and deploy today.
 
@@ -111,9 +114,9 @@ That's pretty much it. Your authentication code does not change: you still call 
 
 The server has to remember each session's public key to verify future refreshes, but I never configured a database, a distributed cache, or a session store. Where does the key go?
 
-Digging through the [source](https://github.com/dotnet/aspnetcore/tree/main/src/Security/Authentication/DeviceBoundSessions/src), the answer is "more cookies" and ASP.NET Core Data Protection.
+Digging through the [source](https://github.com/dotnet/aspnetcore/tree/b3d5795c6f/src/Security/Authentication/DeviceBoundSessions/src), the answer is "more cookies" and ASP.NET Core Data Protection.
 
-`AddDeviceBoundSession` sits over three cookie schemes: your original sign-in cookie, a short-lived session cookie, and a path-scoped refresh cookie. At registration, the [handler](https://github.com/dotnet/aspnetcore/blob/main/src/Security/Authentication/DeviceBoundSessions/src/DeviceBoundSessionHandler.cs) reads the public key out of the proof JWT and adds it into the refresh cookie's authentication properties:
+`AddDeviceBoundSession` sits over three cookie schemes: your original sign-in cookie, a short-lived session cookie, and a path-scoped refresh cookie. At registration, the [handler](https://github.com/dotnet/aspnetcore/blob/b3d5795c6f/src/Security/Authentication/DeviceBoundSessions/src/DeviceBoundSessionHandler.cs) reads the public key out of the proof JWT and adds it into the refresh cookie's authentication properties:
 
 ```csharp
 refreshProperties.Items["DbscPublicKeyJwk"] = jwtResult.PublicKeyJwk;
@@ -123,7 +126,7 @@ await Context.SignInAsync(Options.RefreshScheme, principal, refreshProperties);
 
 Those items are serialized into the cookie ticket and encrypted with Data Protection, so the public key rides along inside the encrypted, `HttpOnly` refresh cookie. On the next refresh, the handler authenticates that cookie and reads the key straight back out. The client carries the key material the server needs, and cannot read or tamper with it, because it is encrypted with a key only the server holds.
 
-The challenge works the same way. Rather than remembering which nonces it issued, the [challenge protector](https://github.com/dotnet/aspnetcore/blob/main/src/Security/Authentication/DeviceBoundSessions/src/DeviceBoundSessionChallengeProtector.cs) mints each one as a time-limited Data Protection token that encodes the user's identity and the session id, with an expiry baked in. Validating it means decrypting it and checking those fields, so "a challenge I issued recently" needs no server-side list. Registration and refresh even use separate Data Protection purposes, so a challenge from one flow cannot be decrypted by the other.
+The challenge works the same way. Rather than remembering which nonces it issued, the [challenge protector](https://github.com/dotnet/aspnetcore/blob/b3d5795c6f/src/Security/Authentication/DeviceBoundSessions/src/DeviceBoundSessionChallengeProtector.cs) mints each one as a time-limited Data Protection token that encodes the user's identity and the session id, with an expiry baked in. Validating it means decrypting it and checking those fields, so "a challenge I issued recently" needs no server-side list. Registration and refresh even use separate Data Protection purposes, so a challenge from one flow cannot be decrypted by the other.
 
 The upside is that it scales across servers with no shared session state, as long as the Data Protection keys are shared, which is the same requirement cookie authentication already has. It also means there is no session store for someone to flood with junk sessions: a database-backed store grows with every registration and has to be held and pruned, while here each session lives in the client's own cookie. The downside is session revocation: with no session table, there is no simple "kill session X" button, so if you need one you have to track it yourself and act on it at the next refresh.
 
