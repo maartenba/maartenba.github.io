@@ -14,7 +14,7 @@ redirect_from:
 
 
 - The [Heathman Hotel](http://www.heathmankirkland.com/) in Kirkland is a nice hotel!
-- Traveling towards the US is far more productive than flying back: I did [PHPMEF](/post/2009/12/02/PHP-Managed-Extensibility-Framework-e28093-PHPMEF.aspx) traveling westbound, I crashed (half sleep/half awake) on the eastbound flight…
+- Traveling towards the US is far more productive than flying back: I did [PHPMEF](/posts/2009-12-02-php-managed-extensibility-framework-e28093-phpmef/) traveling westbound, I crashed (half sleep/half awake) on the eastbound flight…
 - If you just traveled over 26 hours: do NOT go shopping immediately when you arrive home! It’s really frustrating and tiring.
 - Did a session on [Windows Azure SDK for PHP](http://phpazure.codeplex.com/), [PHPExcel](http://www.phpexcel.net) and [PHPLinq](http://www.phplinq.net).
 - Did an interview for the [Connected Show](http://www.connectedshow.com)

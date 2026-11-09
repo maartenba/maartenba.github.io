@@ -11,7 +11,7 @@ redirect_from:
   - /post/2014/12/19/building-future-net-projects-is-quite-pleasant.html
   - /post/2014/12/19/building-future-dotnet-projects-is-quite-pleasant.html
 ---
-You may remember my ranty post from a couple of months back. If not, read about how [building .NET projects is a world of pain and here’s how we should solve it](/post/2014/04/11/Building-NET-projects-is-a-world-of-pain-and-heres-how-we-should-solve-it.aspx). With <strike>Project K</strike> <strike>ASP.NET vNext</strike> ASP.NET 5 around the corner, I thought I had to look into it again and see if things will actually get better… So here goes!
+You may remember my ranty post from a couple of months back. If not, read about how [building .NET projects is a world of pain and here’s how we should solve it](/posts/2014-04-11-building-net-projects-is-a-world-of-pain-and-heres-how-we-should-solve-it/). With <strike>Project K</strike> <strike>ASP.NET vNext</strike> ASP.NET 5 around the corner, I thought I had to look into it again and see if things will actually get better… So here goes!
 
 
 ## Setting up a build agent is no longer a world of pain

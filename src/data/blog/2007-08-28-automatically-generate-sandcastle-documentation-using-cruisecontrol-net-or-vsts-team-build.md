@@ -41,7 +41,7 @@ Next, make sure that your application build outputs XML code comment files. To d
 ## Create a SHFB configuration file
 
 
-Now, create a SHFB configuration file for your solution. Make sure you include the necessary libraries and XML comment files. Also, try building the configuration file you just created. It often occurs you need to add a link to another assembly in your configuration too. If that assembly does not have any XML comments, you can use this one: [Unknown.XML](/files/WindowsLiveWriter/AutomaticallygenerateSandCastledocumenta_D1E3/Unknown.XML) (right-click, Save As...).
+Now, create a SHFB configuration file for your solution. Make sure you include the necessary libraries and XML comment files. Also, try building the configuration file you just created. It often occurs you need to add a link to another assembly in your configuration too. If that assembly does not have any XML comments, you can use this one: [Unknown.XML](/images/WindowsLiveWriter/AutomaticallygenerateSandCastledocumenta_D1E3/Unknown.XML) (right-click, Save As...).
 
 Use the "Namespaces" button on the top-right of the SHFB screen to include/exclude specific namespaces (useful for external assemblies!), and to provide a short description of those namespaces for use in the help file.
 

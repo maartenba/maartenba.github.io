@@ -11,17 +11,17 @@ redirect_from:
   - /post/2008/12/15/track-your-car-expenses-in-the-cloud-cartrackr-on-windows-azure-part-1-introduction.html
   - /post/2008/12/15/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.html
 ---
-As you may see in the title, I will be starting a series on modifying my [CarTrackr sample application](/post/2008/10/21/cartrackr-sample-aspnet-mvc-application.aspx) to a cloud-based, [Windows Azure](http://www.microsoft.com/azure) application. At this point, I don't know if it's easy nor do I know what it takes to achieve this goal. I only have some assumtions on how CarTrackr can be converted to a cloud application.
+As you may see in the title, I will be starting a series on modifying my [CarTrackr sample application](/posts/2008-10-21-cartrackr-sample-aspnet-mvc-application/) to a cloud-based, [Windows Azure](http://www.microsoft.com/azure) application. At this point, I don't know if it's easy nor do I know what it takes to achieve this goal. I only have some assumtions on how CarTrackr can be converted to a cloud application.
 
 This post is part 1 of the series, in which I'll describe the architecture of [Windows Azure](http://www.microsoft.com/azure) and what I think it takes to convert my ASP.NET MVC application into a cloud application.
 
 Other parts:
 
-- [Part 1 - Introduction](/post/2008/12/09/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx), containg links to all other parts
-- [Part 2 - Cloud-enabling CarTrackr](/post/2008/12/09/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.aspx)
-- [Part 3 - Data storage](/post/2008/12/09/cartrackr-on-windows-azure-part-3-data-storage.aspx)
-- [Part 4 - Membership and authentication](/post/2008/12/11/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx)
-- [Part 5 - Deploying in the cloud](/post/2008/12/19/cartrackr-on-windows-azure-part-5-deploying-in-the-cloud.aspx)
+- [Part 1 - Introduction](/posts/2008-12-15-track-your-car-expenses-in-the-cloud-cartrackr-on-windows-azure-part-1-introduction/), containg links to all other parts
+- [Part 2 - Cloud-enabling CarTrackr](/posts/2008-12-16-cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr/)
+- [Part 3 - Data storage](/posts/2008-12-17-cartrackr-on-windows-azure-part-3-data-storage/)
+- [Part 4 - Membership and authentication](/posts/2008-12-18-cartrackr-on-windows-azure-part-4-membership-and-authentication/)
+- [Part 5 - Deploying in the cloud](/posts/2008-12-19-cartrackr-on-windows-azure-part-5-deploying-in-the-cloud/)
 
 ## Microsoft Azure
 
@@ -31,7 +31,7 @@ You can currently download the Windows Azure SDK from [www.azure.com](http://www
 
 ## CarTrackr
 
-From my [previous blog post](/post/2008/10/21/cartrackr-sample-aspnet-mvc-application.aspx): "CarTrackr is a sample application for the ASP.NET MVC framework using the repository pattern and dependency injection using the Unity application block. It was written for various demos in presentations done by Maarten Balliauw. CarTrackr is an online software application designed to help you understand and track your fuel usage and kilometers driven."
+From my [previous blog post](/posts/2008-10-21-cartrackr-sample-aspnet-mvc-application/): "CarTrackr is a sample application for the ASP.NET MVC framework using the repository pattern and dependency injection using the Unity application block. It was written for various demos in presentations done by Maarten Balliauw. CarTrackr is an online software application designed to help you understand and track your fuel usage and kilometers driven."
 
 [![](/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_806C/image_thumb_2.png)](/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_806C/image_6.png) That being said: what will it take to port this onto the [Azure](http://www.azure.com) platform? First of all, a new logo applies. I now want a logo with clouds in it. Since it's still no official release, I'll also keep the "beta" label in place. Looks nice, eh? :-)
 

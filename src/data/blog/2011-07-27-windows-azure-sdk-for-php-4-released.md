@@ -29,8 +29,8 @@ Some interesting links on some of the new features:
 - [Setup the Windows Azure SDK for PHP](http://azurephp.interoperabilitybridges.com/articles/setup-the-windows-azure-sdk-for-php)
 - [Packaging applications](http://azurephp.interoperabilitybridges.com/articles/packaging-applications)
 - [Using scaffolds](http://azurephp.interoperabilitybridges.com/articles/using-scaffolds)
-- [A hidden gem in the Windows Azure SDK for PHP: command line parsing](/post/2011/07/11/a-hidden-gem-in-the-windows-azure-sdk-for-php-command-line-parsing.aspx)
-- [Scaffolding and packaging a Windows Azure project in PHP](/post/2011/05/30/scaffolding-and-packaging-a-windows-azure-project-in-php.aspx)
+- [A hidden gem in the Windows Azure SDK for PHP: command line parsing](/posts/2011-07-11-a-hidden-gem-in-the-windows-azure-sdk-for-php-command-line-parsing/)
+- [Scaffolding and packaging a Windows Azure project in PHP](/posts/2011-05-30-scaffolding-and-packaging-a-windows-azure-project-in-php/)
 
 Also keep an eye on [www.sdn.nl](http://www.sdn.nl) where I’ll be posting an article on scripting a complete application deployment to Windows Azure, including SQL Azure, storage and firewalls.
 

@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/04/15/asp-net-mvc-membership-starter-kit-alternative-authentication.html
 ---
-Last week, I blogged about the [ASP.Net MVC Membership Starter Kit](/post/2008/04/aspnet-mvc-membership-starter-kit.aspx) and some of its features. Since then, [Troy Goode](http://www.squaredroot.com/post/2008/04/MVC-Membership-Starter-Kit.aspx) and I are developing at warp-speed to provide a complete (Forms)Authentication starter kit for the MVC framework. Scott Guthrie also [noticed our efforts](http://weblogs.asp.net/scottgu/archive/2008/04/11/april-11th-links-asp-net-asp-net-ajax-asp-net-mvc-visual-studio-silverlight.aspx), which forced us to do an [official release](http://www.squaredroot.com/post/2008/04/MVC-Membership-Starter-Kit-11.aspx) earlier than planned.
+Last week, I blogged about the [ASP.Net MVC Membership Starter Kit](/posts/2008-04-04-aspnet-mvc-membership-starter-kit/) and some of its features. Since then, [Troy Goode](http://www.squaredroot.com/post/2008/04/MVC-Membership-Starter-Kit.aspx) and I are developing at warp-speed to provide a complete (Forms)Authentication starter kit for the MVC framework. Scott Guthrie also [noticed our efforts](http://weblogs.asp.net/scottgu/archive/2008/04/11/april-11th-links-asp-net-asp-net-ajax-asp-net-mvc-visual-studio-silverlight.aspx), which forced us to do an [official release](http://www.squaredroot.com/post/2008/04/MVC-Membership-Starter-Kit-11.aspx) earlier than planned.
 
 Now when I say warp-speed, here's what to think of: we added Visual Studio item templates, a nice setup program, a demo application, ... We started with FormsAuthentication, but we have evolved into some alternatives...
 

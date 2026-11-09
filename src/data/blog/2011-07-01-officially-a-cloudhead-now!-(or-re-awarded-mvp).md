@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/07/01/officially-a-cloudhead-now-or-re-awarded-mvp.html
 ---
-[![](/pics/mvp-aspnet-aspnetmvc.gif)](https://mvp.support.microsoft.com/profile/Maarten.Balliauw)Woohoo! I just received the great mail I expect yearly on the first of July:
+Woohoo! I just received the great mail I expect yearly on the first of July:
 
 
 > Dear Maarten Balliauw,

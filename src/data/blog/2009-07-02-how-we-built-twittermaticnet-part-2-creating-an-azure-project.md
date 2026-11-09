@@ -14,13 +14,13 @@ redirect_from:
 
 This post is part of a series on how we built [TwitterMatic.net](http://www.twittermatic.net/). Other parts:
 
-- [Part 1: Introduction](/post/2009/07/02/how-we-built-twittermaticnet-part-1-introduction.aspx)
-- [Part 2: Creating an Azure project](/post/2009/07/02/how-we-built-twittermaticnet-part-2-creating-an-azure-project.aspx)
-- [Part 3: Store data in the cloud](/post/2009/07/02/how-we-built-twittermaticnet-part-3-store-data-in-the-cloud.aspx)
-- [Part 4: Authentication and membership](/post/2009/07/02/how-we-built-twittermaticnet-part-4-authentication-and-membership.aspx)
-- [Part 5: The front end](/post/2009/07/02/how-we-built-twittermaticnet-part-5-the-front-end.aspx)
-- [Part 6: The back-end](/post/2009/07/02/how-we-built-twittermaticnet-part-6-the-back-end.aspx)
-- [Part 7: Deploying to the cloud](/post/2009/07/02/how-we-built-twittermaticnet-part-7-deploying-to-the-cloud.aspx)
+- [Part 1: Introduction](/posts/2009-07-02-how-we-built-twittermaticnet-part-1-introduction/)
+- [Part 2: Creating an Azure project](/posts/2009-07-02-how-we-built-twittermaticnet-part-2-creating-an-azure-project/)
+- [Part 3: Store data in the cloud](/posts/2009-07-02-how-we-built-twittermaticnet-part-3-store-data-in-the-cloud/)
+- [Part 4: Authentication and membership](/posts/2009-07-02-how-we-built-twittermaticnet-part-4-authentication-and-membership/)
+- [Part 5: The front end](/posts/2009-07-02-how-we-built-twittermaticnet-part-5-the-front-end/)
+- [Part 6: The back-end](/posts/2009-07-02-how-we-built-twittermaticnet-part-6-the-back-end/)
+- [Part 7: Deploying to the cloud](/posts/2009-07-02-how-we-built-twittermaticnet-part-7-deploying-to-the-cloud/)
 
 ## Creating an Azure project
 
@@ -36,11 +36,11 @@ The web role project should be able to run ASP.NET, but not yet ASP.NET MVC. Add
 
 Visual Studio will prompt to reload the project, allow this by clicking the "Reload" button.
 
-(Note: we could have also created a web role from an ASP.NET MVC project, check my [previous series on Azure](/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx) to see how to do this.)
+(Note: we could have also created a web role from an ASP.NET MVC project, check my [previous series on Azure](/posts/2008-12-16-cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr/) to see how to do this.)
 
 ## Sightseeing
 
-True, I ran over the previous stuff a bit fast, as it is just plumbing ASP.NET MVC in a Windows Azure Web Role. I have written about this in more detail before, check my [previous series on Azure](/post/2008/12/09/CarTrackr-on-Windows-Azure-Part-2-Cloud-enabling-CarTrackr.aspx). There are some other things I would like to show you though.
+True, I ran over the previous stuff a bit fast, as it is just plumbing ASP.NET MVC in a Windows Azure Web Role. I have written about this in more detail before, check my [previous series on Azure](/posts/2008-12-16-cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr/). There are some other things I would like to show you though.
 
 The startup project in a Windows Azure solution contains some strange stuff:
 

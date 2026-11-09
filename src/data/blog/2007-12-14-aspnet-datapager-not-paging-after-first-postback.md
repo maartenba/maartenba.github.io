@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/12/14/asp-net-datapager-not-paging-after-first-postback.html
 ---
-A few posts ago, I [mentioned](/post/2007/11/advanced-aspnet-caching-events.aspx) that I am currently giving a classroom training on ASP.NET. People attending are currently working on a project I gave them, and today one of them came up to me with a strange problem...
+A few posts ago, I [mentioned](/posts/2007-11-05-advanced-aspnet-caching-events/) that I am currently giving a classroom training on ASP.NET. People attending are currently working on a project I gave them, and today one of them came up to me with a strange problem...
 
 Here's the situation: in VS 2008, a web page was created containing 2 controls: a DataList and a DataPager. This DataPager serves as the paging control for the DataList. Databinding is done in the codebehind:
 

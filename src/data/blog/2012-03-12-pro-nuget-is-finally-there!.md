@@ -13,7 +13,7 @@ redirect_from:
 ---
 Short version: Install-Package ProNuget or [http://amzn.to/pronuget](http://amzn.to/pronuget)
 
-[![](/images/image_170.png)](http://amzn.to/pronuget)It’s been a while since I wrote my [first book](/post/2009/02/17/Announcing-my-book-ASPNET-MVC-10-Quickly.aspx.html). After I’ve been telling that writing a book is horrendous (try writing a chapter per week after your office hours…) and that I would never write on again, my partner-in-crime [Xavier Decoster](http://www.xavierdecoster.com) and I had the same idea at the same time: what about a book on NuGet? So here it is: [Pro NuGet](http://amzn.to/pronuget) is fresh off the presses (or on Kindle).
+[![](/images/image_170.png)](http://amzn.to/pronuget)It’s been a while since I wrote my [first book](/posts/2009-02-17-announcing-my-book-aspnet-mvc-10-quickly/). After I’ve been telling that writing a book is horrendous (try writing a chapter per week after your office hours…) and that I would never write on again, my partner-in-crime [Xavier Decoster](http://www.xavierdecoster.com) and I had the same idea at the same time: what about a book on NuGet? So here it is: [Pro NuGet](http://amzn.to/pronuget) is fresh off the presses (or on Kindle).
 
 Special thanks go out to [Scott Hanselman](http://www.hanselman.com) and [Phil Haack](http://www.haacked.com) for writing our foreword. Also big kudos to all who’ve helped us out now and then and did some small reviews. Yes Rob, Paul, David, Phil, Hadi: that’s you guys.
 

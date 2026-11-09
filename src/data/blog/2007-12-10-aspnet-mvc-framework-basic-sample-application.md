@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/12/10/asp-net-mvc-framework-basic-sample-application.html
 ---
-![ASP.NET MVC Framework](/images/visualstudiomvcframework.jpg)You [might](/post/2007/11/aspnet-mvc-framework-preview-to-be-released-next-week.aspx) [have](/post/2007/12/aspnet-35-extensions-ctp-preview-released.aspx) noticed that I'm quite enhousiast about the new ASP.NET MVC framework.
+![ASP.NET MVC Framework](/images/visualstudiomvcframework.jpg)You [might](/posts/2007-11-30-aspnet-mvc-framework-preview-to-be-released-next-week/) [have](/posts/2007-12-10-aspnet-35-extensions-ctp-preview-released/) noticed that I'm quite enhousiast about the new ASP.NET MVC framework.
 
 ## What are you talking about?
 

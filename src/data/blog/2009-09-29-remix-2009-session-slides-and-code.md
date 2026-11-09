@@ -19,6 +19,6 @@ Abstract: *"Building a Twitter clone in 60 minutes, featuring what's new in ASP.
 
 <embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=asp-netmvcwisdom-090929123237-phpapp01&stripped_title=aspnet-mvc-wisdom" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object>
 
-Example code can be downloaded here: [ASP.NET MVC Wisdom - ReMix.zip (8.91 mb)](/files/2009/9/ASP.NET+MVC+Wisdom+-+ReMix.zip)
+Example code can be downloaded here: [ASP.NET MVC Wisdom - ReMix.zip (8.91 mb)](/files/2009/9/ASP.NET%20MVC%20Wisdom%20-%20ReMix.zip)
 
 Thank you for attending!

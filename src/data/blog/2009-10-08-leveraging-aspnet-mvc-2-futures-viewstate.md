@@ -11,7 +11,7 @@ redirect_from:
   - /post/2009/10/08/leveraging-asp-net-mvc-2-futures-viewstate.html
   - /post/2009/10/08/leveraging-aspnet-mvc-2-futures-viewstate.html
 ---
-Let’s start this blog post with a confession: yes, I abused a feature in the ASP.NET MVC 2 futures assembly to fire up discussion. In my [previous blog post](/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx#comment), I called something “ViewState in MVC” while it is not really ViewState. To be honest, I did this on purpose, wanting to see people discuss this possibly new feature in MVC 2. Discussion started quite fast: most people do not like the word ViewState, especially when it is linked to ASP.NET MVC. As [Phil Haack](http://www.haacked.com) pointed out in a [comment on my previous blog post](/post/2009/10/06/Exploring-the-ASPNET-MVC-2-futures-assemby.aspx#comment), I used this foul word where it was not appropriate.
+Let’s start this blog post with a confession: yes, I abused a feature in the ASP.NET MVC 2 futures assembly to fire up discussion. In my [previous blog post](/posts/2009-10-06-exploring-the-aspnet-mvc-2-futures-assemby/), I called something “ViewState in MVC” while it is not really ViewState. To be honest, I did this on purpose, wanting to see people discuss this possibly new feature in MVC 2. Discussion started quite fast: most people do not like the word ViewState, especially when it is linked to ASP.NET MVC. As [Phil Haack](http://www.haacked.com) pointed out in a [comment on my previous blog post](/posts/2009-10-06-exploring-the-aspnet-mvc-2-futures-assemby/), I used this foul word where it was not appropriate.
 
 > (…) I think calling it ViewState is very misleading. (…) what your serializing is the state of the Model, not the View. (…)
 

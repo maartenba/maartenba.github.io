@@ -27,7 +27,7 @@ The slide deck:
 </object>
 View more [presentations](http://www.slideshare.net/) from [Maarten Balliauw](http://www.slideshare.net/maartenba).
 
-The demo code: [2011-04-14 Fun with ASP.NET MVC 3 MEF.zip (6.76 mb)](/files/2011/4/2011-04-14+Fun+with+ASP.NET+MVC+3+MEF.zip)
+The demo code: [2011-04-14 Fun with ASP.NET MVC 3 MEF.zip (6.76 mb)](/files/2011/4/2011-04-14%20Fun%20with%20ASP.NET%20MVC%203%20MEF.zip)
 
 Enjoy! And thanks for joining!
 

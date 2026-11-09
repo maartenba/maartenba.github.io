@@ -109,7 +109,7 @@ public class PackageFeedHandler
 
 ## Working with URL routing
 
-A while ago, I posted about [Using dynamic WCF service routes](/post/2011/05/09/Using-dynamic-WCF-service-routes.aspx). The technique described below is also appropriate for services created using that technique. When working with that implementation, the source code for the inspector would be slightly different.
+A while ago, I posted about [Using dynamic WCF service routes](/posts/2011-05-09-using-dynamic-wcf-service-routes/). The technique described below is also appropriate for services created using that technique. When working with that implementation, the source code for the inspector would be slightly different.
 
 ```csharp
 public class RewriteBaseUrlMessageInspector

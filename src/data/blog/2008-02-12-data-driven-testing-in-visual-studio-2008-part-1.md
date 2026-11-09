@@ -10,12 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/02/12/data-driven-testing-in-visual-studio-2008-part-1.html
 ---
-Last week, I blogged about [code performance analysis in visual studio 2008](/post/2008/02/code-performance-analysis-in-visual-studio-2008.aspx). since that topic provoked [lots of comments](/post/2008/02/code-performance-analysis-in-visual-studio-2008.aspx#comment) (thank you [Bart](http://www.bartonline.be) for associating "hotpaths" with "hotpants"), thought about doing another post on code quality in .NET.
+Last week, I blogged about [code performance analysis in visual studio 2008](/posts/2008-02-07-code-performance-analysis-in-visual-studio-2008/). since that topic provoked [lots of comments](/posts/2008-02-07-code-performance-analysis-in-visual-studio-2008/) (thank you [Bart](http://www.bartonline.be) for associating "hotpaths" with "hotpants"), thought about doing another post on code quality in .NET.
 
 This post will be the first of two on Data Driven Testing. This part will focus on Data Driven Testing in regular Unit Tests. The second part will focus on the same in web testing.
 
-- [Data Driven Testing in Visual Studio 2008 - Part 1 - Unit testing](/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx)
-- [Data Driven Testing in Visual Studio 2008 - Part 2 - Web testing](/post/2008/02/data-driven-testing-in-visual-studio-2008---part-2.aspx)
+- [Data Driven Testing in Visual Studio 2008 - Part 1 - Unit testing](/posts/2008-02-12-data-driven-testing-in-visual-studio-2008-part-1/)
+- [Data Driven Testing in Visual Studio 2008 - Part 2 - Web testing](/posts/2008-02-13-data-driven-testing-in-visual-studio-2008-part-2/)
 
 ## Data Driven Testing?
 

@@ -14,10 +14,10 @@ This post is part 5 (and the final part) of my series on [Windows Azure](http://
 
 Other parts:
 
-- [Part 1 - Introduction](/post/2008/12/09/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.aspx), containg links to all other parts
-- [Part 2 - Cloud-enabling CarTrackr](/post/2008/12/09/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.aspx)
-- [Part 3 - Data storage](/post/2008/12/09/cartrackr-on-windows-azure-part-3-data-storage.aspx)
-- [Part 4 - Membership and authentication](/post/2008/12/11/cartrackr-on-windows-azure-part-4-membership-and-authentication.aspx)
+- [Part 1 - Introduction](/posts/2008-12-15-track-your-car-expenses-in-the-cloud-cartrackr-on-windows-azure-part-1-introduction/), containg links to all other parts
+- [Part 2 - Cloud-enabling CarTrackr](/posts/2008-12-16-cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr/)
+- [Part 3 - Data storage](/posts/2008-12-17-cartrackr-on-windows-azure-part-3-data-storage/)
+- [Part 4 - Membership and authentication](/posts/2008-12-18-cartrackr-on-windows-azure-part-4-membership-and-authentication/)
 - Part 5 - Deploying in the cloud (current part)
 
 ## Deploying CarTrackr on Azure

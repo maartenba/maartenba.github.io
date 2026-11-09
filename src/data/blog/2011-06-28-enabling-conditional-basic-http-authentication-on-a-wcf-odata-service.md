@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/06/28/enabling-conditional-basic-http-authentication-on-a-wcf-odata-service.html
 ---
-[![](/images/image_thumb_91.png)](/images/image_121.png)Yes, a long title, but also something I was not able to find too easily using [Google](http://www.bing.com). Here’s the situation: for [MyGet](http://www.myget.org), we are implementing basic authentication to the OData feed serving available NuGet packages. If you recall my post [Using dynamic WCF service routes](/post/2011/05/09/Using-dynamic-WCF-service-routes.aspx), you may have deducted that MyGet uses that technique to have one WCF OData service serving the feeds of all our users. It’s just convenient! Unless you want basic HTTP authentication for some feeds and not for others…
+[![](/images/image_thumb_91.png)](/images/image_121.png)Yes, a long title, but also something I was not able to find too easily using [Google](http://www.bing.com). Here’s the situation: for [MyGet](http://www.myget.org), we are implementing basic authentication to the OData feed serving available NuGet packages. If you recall my post [Using dynamic WCF service routes](/posts/2011-05-09-using-dynamic-wcf-service-routes/), you may have deducted that MyGet uses that technique to have one WCF OData service serving the feeds of all our users. It’s just convenient! Unless you want basic HTTP authentication for some feeds and not for others…
 
 
 After doing some research, I thought the easiest way to resolve this was to use WCF intercepting. Convenient, but how would you go about this? And moreover: how to make it extensible so we can use this for other WCF OData (or WebAPi) services in the future?

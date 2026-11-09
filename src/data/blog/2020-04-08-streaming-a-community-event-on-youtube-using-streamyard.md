@@ -10,9 +10,9 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2020/04/08/streaming-a-community-event-on-youtube-using-streamyard.html
 ---
-Last week, I wrote ~~a blog post~~ a book about [Streaming a Community Event on YouTube - Sharing the Technologies and Learnings from Virtual Azure Community Day](/post/2020/04/02/streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day.html). I ended that post with an appendix of things I've looked into but have no experience with.
+Last week, I wrote ~~a blog post~~ a book about [Streaming a Community Event on YouTube - Sharing the Technologies and Learnings from Virtual Azure Community Day](/posts/2020-04-02-streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day/). I ended that post with an appendix of things I've looked into but have no experience with.
 
-That... changed! Our [Azure User Group](https://www.azug.be/) held its first virtual session yesterday. The social aspect of hanging out with a group of peers was definitely amiss, but the streaming went well! This ime, we streamed on YouTube, with the help of StreamYard. I'll write some observations and thoughts that [build on the previous blog post](/post/2020/04/02/streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day.html).
+That... changed! Our [Azure User Group](https://www.azug.be/) held its first virtual session yesterday. The social aspect of hanging out with a group of peers was definitely amiss, but the streaming went well! This ime, we streamed on YouTube, with the help of StreamYard. I'll write some observations and thoughts that [build on the previous blog post](/posts/2020-04-02-streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day/).
 
 ## What is StreamYard?
 
@@ -91,7 +91,7 @@ Like with the OBS Streaming, we found that seeding the conversation a bit helps 
 
 ## Conclusion
 
-A lot of the conclusions from [that previous post](/post/2020/04/02/streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day.html) hold true with StreamYard as well. So I'll focus on the good & bad of our experience yesterday.
+A lot of the conclusions from [that previous post](/posts/2020-04-02-streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day/) hold true with StreamYard as well. So I'll focus on the good & bad of our experience yesterday.
 
 In no particular order...
 

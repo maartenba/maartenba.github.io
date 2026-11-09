@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/03/19/sample-chapter-from-asp-net-mvc-1-0-quickly.html
 ---
-[![](/images/WindowsLiveWriter/SamplechapterfromASP.NETMVC1.0Quickly_9D27/image_5901a146-a266-4df7-ba3d-09cbd5073314.png)](http://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book) Here’s a shameless, commercial blogpost… With [yesterday’s 1.0 release of the ASP.NET MVC framework](/post/2009/03/18/ASPNET-MVC-10-has-been-released!.aspx), I’m sure the following sample chapter from my book [ASP.NET MVC 1.0 Quickly](http://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book) will be of use for people starting ASP.NET MVC development: [Your first ASP.NET MVC application](http://www.packtpub.com/files/asp-net-mvc-1-0-quickly-sample-chapter-2-your-first-asp-net-mvc-application.pdf).
+[![](/images/WindowsLiveWriter/SamplechapterfromASP.NETMVC1.0Quickly_9D27/image_5901a146-a266-4df7-ba3d-09cbd5073314.png)](http://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book) Here’s a shameless, commercial blogpost… With [yesterday’s 1.0 release of the ASP.NET MVC framework](/posts/2009-03-18-aspnet-mvc-10-has-been-released/), I’m sure the following sample chapter from my book [ASP.NET MVC 1.0 Quickly](http://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book) will be of use for people starting ASP.NET MVC development: [Your first ASP.NET MVC application](http://www.packtpub.com/files/asp-net-mvc-1-0-quickly-sample-chapter-2-your-first-asp-net-mvc-application.pdf).
 
 *When downloading and installing the ASP.NET MVC framework SDK, a new project template is installed in Visual Studio. This chapter describes how to use the ASP.NET MVC project template that is installed in Visual Studio. All ASP.NET MVC aspects are touched briefly by creating a new ASP.NET MVC web application based on this Visual Studio template. Besides view, controller, and model, new concepts including ViewData—a means of transferring data between controller and view, routing—the link between a web browser URL and a specific action method inside a controller, and unit testing of a controller are also illustrated here.*
 
@@ -26,4 +26,4 @@ redirect_from:
 
 Download the free sample chapter [here](http://www.packtpub.com/files/asp-net-mvc-1-0-quickly-sample-chapter-2-your-first-asp-net-mvc-application.pdf). Or order the full book, [here](http://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book). That’s a better option ;-)
 
-By the way, if you are interested in the book writing process itself, check my [previous blog post](/post/2009/02/17/Announcing-my-book-ASPNET-MVC-10-Quickly.aspx) on that.
+By the way, if you are interested in the book writing process itself, check my [previous blog post](/posts/2009-02-17-announcing-my-book-aspnet-mvc-10-quickly/) on that.

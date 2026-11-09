@@ -34,7 +34,7 @@ Time for action! But what…
 When we started MyGet, our idea was to leverage table storage and blob storage, and avoid SQL completely. The reason for that is back then MyGet was a simple proof-of-concept and we wanted to play with new technology. Growing, getting traction and onboarding users we found out that what we had in place to work on this back-end was very nice to work with and we’ve since evolved to a more CQRS-ish and event driven (-ish) architecture.
 
 
-But with all good things come some bad things as well. Adding features, improving code, implementing quota so we could actually meter what our users were doing and put a price tag on it had added quite some calls to table storage. And while it’s blazingly fast [if you know what you are doing](/post/2012/10/08/What-PartitionKey-and-RowKey-are-for-in-Windows-Azure-Table-Storage.aspx), they are still calls to an external system that have to open up a TCP connection, do an SSL handshake and so on. Not so many milliseconds, but summing them all together they do add up. So how do you find out what is happening? Let’s see…
+But with all good things come some bad things as well. Adding features, improving code, implementing quota so we could actually meter what our users were doing and put a price tag on it had added quite some calls to table storage. And while it’s blazingly fast [if you know what you are doing](/posts/2012-10-08-what-partitionkey-and-rowkey-are-for-in-windows-azure-table-storage/), they are still calls to an external system that have to open up a TCP connection, do an SSL handshake and so on. Not so many milliseconds, but summing them all together they do add up. So how do you find out what is happening? Let’s see…
 
 
 ## Analyzing Azure storage traffic
@@ -55,7 +55,7 @@ Great! Now we have Fiddler to analyze our traffic to Azure storage. All requests
 
 The picture above is not coming from MyGet but just to illustrate the idea. You can clear the list of requests, load a specific page or action in your application and see the calls going out to storage. And we had some critical paths where we did over 7 requests. If each of them is 30ms on average, that is 210ms just to grab some data. And then you’ve not even done anything with it… So we decided to tackle that in our code.
 
-Another thing we noticed by looking at URLs here is that we had some of those requests filtering only using the table storage RowKey, resulting in a +/- 2 second roundtrip on some requests. That is bad. And so we also fixed that (on some occasions by adding some caching, on others by restructuring the way data is stored and moving our filter to PartitionKey or a combination of PartitionKey and RowKey [as you should](/post/2012/10/08/What-PartitionKey-and-RowKey-are-for-in-Windows-Azure-Table-Storage.aspx)).
+Another thing we noticed by looking at URLs here is that we had some of those requests filtering only using the table storage RowKey, resulting in a +/- 2 second roundtrip on some requests. That is bad. And so we also fixed that (on some occasions by adding some caching, on others by restructuring the way data is stored and moving our filter to PartitionKey or a combination of PartitionKey and RowKey [as you should](/posts/2012-10-08-what-partitionkey-and-rowkey-are-for-in-windows-azure-table-storage/)).
 
 The result of this? Well have a look at that picture above where our response times are shown: we managed to drastically reduce response times, making ourselves happy (we could kill some VM’s), and our users as well because everything is faster.
 

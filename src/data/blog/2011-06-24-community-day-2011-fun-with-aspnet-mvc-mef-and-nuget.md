@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/06/24/community-day-2011-fun-with-asp-net-mvc-mef-and-nuget.html
 ---
-To start the blog post: AWESOME! That’s what I have to say about the latest edition of [Community Day 2011](http://www.communityday.be). I had the privilege of doing a session on ASP.NET MVC 3, MEF and NuGet, and as promised to the audience: here are the slides. For those who want to see the session, the recording [can be found on Channel 9](/post/2011/04/14/Slides-for-my-talk-at-MIX11-Fun-with-ASPNET-MVC-3-MEF-and-NuGet.aspx) from a previous event.
+To start the blog post: AWESOME! That’s what I have to say about the latest edition of [Community Day 2011](http://www.communityday.be). I had the privilege of doing a session on ASP.NET MVC 3, MEF and NuGet, and as promised to the audience: here are the slides. For those who want to see the session, the recording [can be found on Channel 9](/posts/2011-04-14-slides-for-my-talk-at-mix11-fun-with-aspnet-mvc-3-mef-and-nuget/) from a previous event.
 
 **“Fun with ASP.NET MVC3, MEF and NuGet”
 **Community Day 2011, Mechelen, Belgium, 23/06/2011
@@ -23,7 +23,7 @@ Here’s the slides:
 
 <embed name="__sse8411592" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=funwithasp-netmvc3mef-communityday2011-110624065700-phpapp02&stripped_title=fun-with-aspnet-mvc-3-mef-and-nuget-comdaybe&userName=maartenba" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object>View more [presentations](http://www.slideshare.net/) from [Maarten Balliauw](http://www.slideshare.net/maartenba).
 
-Here’s the example code: [Fun with ASP.NET MVC 3 MEF - CommunityDay 2011.zip (6.79 mb)](/files/2011/6/Fun+with+ASP.NET+MVC+3+MEF+-+CommunityDay+2011.zip)
+Here’s the example code: [Fun with ASP.NET MVC 3 MEF - CommunityDay 2011.zip (6.79 mb)](/files/2011/6/Fun%20with%20ASP.NET%20MVC%203%20MEF%20-%20CommunityDay%202011.zip)
 
 Some resources:
 

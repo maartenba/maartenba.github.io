@@ -11,7 +11,7 @@ redirect_from:
   - /post/2009/05/20/asp-net-mvc-domain-routing.html
   - /post/2009/05/20/aspnet-mvc-domain-routing.html
 ---
-Looking for an ASP.NET MVC 6 version? Check [this post](/post/2015/02/17/Domain-Routing-and-resolving-current-tenant-with-ASPNET-MVC-6-ASPNET-5.aspx).
+Looking for an ASP.NET MVC 6 version? Check [this post](/posts/2015-02-17-domain-routing-and-resolving-current-tenant-with-aspnet-mvc-6-aspnet-5/).
 
 ![Routing](/images/routing.jpg) Ever since the release of ASP.NET MVC and its routing engine (*System.Web.Routing*), Microsoft has been trying to convince us that you have full control over your URL and routing. This is true to a certain extent: as long as it’s related to your application path, everything works out nicely. If you need to take care of data tokens in your (sub)domain, you’re screwed by default.
 

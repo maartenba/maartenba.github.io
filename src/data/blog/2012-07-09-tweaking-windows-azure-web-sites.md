@@ -16,7 +16,7 @@ I’ve issued a simple *phpinfo();* on Windows Azure Websites, simply outputting
 
 [![](/images/image_thumb_171.png)](/images/image_206.png)
 
-Aha! That’s an interesting one! It’s basically the configuration of the IIS web server you are running. It contains which configuration sections can be overridden using your own *Web.config* file and which ones can not. I’ve read the file (it seems you have access to this path) and have placed the output of it here: [applicationhost.config (70.04 kb)](/files/2012/7/applicationhost.config). There’s also a file called *rootweb.config*: [rootweb.config (36.66 kb)](/files/2012/7/rootweb.config)
+Aha! That’s an interesting one! It’s basically the configuration of the IIS web server you are running. It contains which configuration sections can be overridden using your own *Web.config* file and which ones can not. I’ve read the file (it seems you have access to this path) and have placed the output of it here: [applicationhost.config (70.04 kb)](/images/2012/7/applicationhost.config). There’s also a file called *rootweb.config*: [rootweb.config (36.66 kb)](/images/2012/7/rootweb.config)
 
 ## Overridable configuration parameters
 
@@ -48,7 +48,7 @@ All others are *probably* not possible.
 
 ## Project Kudu
 
-There are some interesting things in the [applicationhost.config (70.04 kb)](/files/2012/7/applicationhost.config). Of course, you decide what’s interesting so read for yourself. Here’s what I found interesting: [project Kudu](https://github.com/projectkudu/kudu/) is in there! Project Kudu? Yes, the open-source engine behind Windows Azure Web Sites (which implies that you can in fact host your own Windows Azure Web Sites-like service).
+There are some interesting things in the [applicationhost.config (70.04 kb)](/images/2012/7/applicationhost.config). Of course, you decide what’s interesting so read for yourself. Here’s what I found interesting: [project Kudu](https://github.com/projectkudu/kudu/) is in there! Project Kudu? Yes, the open-source engine behind Windows Azure Web Sites (which implies that you can in fact host your own Windows Azure Web Sites-like service).
 
 If you look at the [architectural details](https://github.com/projectkudu/kudu/wiki/Kudu-architecture), here’s an interesting statement:
 
@@ -59,7 +59,7 @@ If you look at the [architectural details](https://github.com/projectkudu/kudu/w
 
 Proof can be found in *applicationhost.config. *If you look at the* <sites />* definition, you’ll see two sites are defined. Your site, and a companion site named *~1yoursitename*. The first one, of course, runs your site. The latter runs project Kudu which allows you to *git push* and use webdeploy.
 
-In [rootweb.config (36.66 kb)](/files/2012/7/rootweb.config), you’ll find the loadbalanced nature of Windows Azure Web Sites. A machine key is defined there which will be the same for all your web sites instances, allowing you to share session state, forms authentication cookies etc.
+In [rootweb.config (36.66 kb)](/images/2012/7/rootweb.config), you’ll find the loadbalanced nature of Windows Azure Web Sites. A machine key is defined there which will be the same for all your web sites instances, allowing you to share session state, forms authentication cookies etc.
 
 ## My PHP HTTP verbs override
 

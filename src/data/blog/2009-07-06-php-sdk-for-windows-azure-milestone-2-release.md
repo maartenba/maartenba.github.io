@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/07/06/php-sdk-for-windows-azure-milestone-2-release.html
 ---
-[![](/images/WindowsAzure.gif)](http://www.azure.com) I’m proud to announce our second milestone for the [PHP SDK for Windows Azure](http://phpazure.codeplex.com) project that [Microsoft](http://www.microsoft.com) and [RealDolmen](http://www.realdolmen.com) started back in [May](/post/2009/05/13/Announcing-PHP-SDK-for-Windows-Azure.aspx). Next to our regular releases on [CodePlex](http://phpazure.codeplex.com), we’ll also be shipping a [Zend Framework](http://framework.zend.com) version of the PHP SDK for Windows Azure. Announcements on this will be made later.
+[![](/images/WindowsAzure.gif)](http://www.azure.com) I’m proud to announce our second milestone for the [PHP SDK for Windows Azure](http://phpazure.codeplex.com) project that [Microsoft](http://www.microsoft.com) and [RealDolmen](http://www.realdolmen.com) started back in [May](/posts/2009-05-13-announcing-php-sdk-for-windows-azure/). Next to our regular releases on [CodePlex](http://phpazure.codeplex.com), we’ll also be shipping a [Zend Framework](http://framework.zend.com) version of the PHP SDK for Windows Azure. Announcements on this will be made later.
 
 The current milestone is focused on Windows Azure Table Storage, enabling you to use all features this service offers from any PHP application, be it hosted in-premise or on [Windows Azure](http://www.azure.com).
 

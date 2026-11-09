@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/07/01/fourth-year-as-an-mvp-second-year-for-windows-azure.html
 ---
-[![](/pics/mvp.gif)](http://mvp.microsoft.com/en-US/findanmvp/Pages/profile.aspx?MVPID=4189ebb3-33ef-4ffa-81ab-ef7035fbe019)Woohoo! I just received the great mail I expect yearly on the first of July:
+Woohoo! I just received the great mail I expect yearly on the first of July:
 
 > Dear Maarten Balliauw,
 

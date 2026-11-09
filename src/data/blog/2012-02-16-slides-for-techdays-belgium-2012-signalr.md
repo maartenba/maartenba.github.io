@@ -12,7 +12,7 @@ redirect_from:
 ---
 It was the last session on the last day of TechDays 2012 so I was expecting almost nobody to show up. Still, a packed room came to have a look at how to make the web realtime using SignalR. Thanks for joining and for being very cooperative during the demos!
 
-As promised, here are the slides. You can also find the demo code here: [SignalR. Code, not toothpaste - TechDays Belgium 2012.zip (2.74 mb)](/files/2012/2/SignalR.+Code%2c+not+toothpaste+-+TechDays+Belgium+2012.zip)
+As promised, here are the slides. You can also find the demo code here: [SignalR. Code, not toothpaste - TechDays Belgium 2012.zip (2.74 mb)](/files/2012/2/SignalR.%20Code%2C%20not%20toothpaste%20-%20TechDays%20Belgium%202012.zip)
 
 A [recording on Channel9](Interested in #signalr? My #techdaysbe session is online! http://bit.ly/zSMocz) is available as well.
 

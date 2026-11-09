@@ -13,15 +13,15 @@ redirect_from:
 ---
 One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:
 
-- [Put your cloud on a diet (or: Windows Azure and scaling: why?)](/post/2011/03/09/put-your-cloud-on-a-diet-(or-windows-azure-and-scaling-why).aspx)
-- [Windows Azure and scaling: how? (.NET)](/post/2011/03/21/windows-azure-and-scaling-how-(net).aspx)
+- [Put your cloud on a diet (or: Windows Azure and scaling: why?)](/posts/2011-03-09-put-your-cloud-on-a-diet-or-windows-azure-and-scaling-why/)
+- [Windows Azure and scaling: how? (.NET)](/posts/2011-03-21-windows-azure-and-scaling-how-net/)
 - Windows Azure and scaling: how? (PHP) – the post you are currently reading
 
 ## Creating and uploading a management certificate
 
-In order to keep things DRY (Don’t Repeat Yourself), I’ll just link you to the previous post ([Windows Azure and scaling: how? (.NET)](/post/2011/03/09/windows-azure-and-scaling-how-(net).aspx)) for this one.
+In order to keep things DRY (Don’t Repeat Yourself), I’ll just link you to the previous post ([Windows Azure and scaling: how? (.NET)](/posts/2011-03-21-windows-azure-and-scaling-how-net/)) for this one.
 
-For PHP however, you’ll be needing a .pem certificate. Again, for the lazy, here’s mine ([management.pfx (4.05 kb)](/files/2011/3/management.pfx), [management.cer (1.18 kb)](/files/2011/3/management.cer) and [management.pem (5.11 kb)](/files/2011/3/management.pem)). If you want to create one yourself, check [this site where you can convert and generate certificates](https://www.sslshopper.com/ssl-converter.html).
+For PHP however, you’ll be needing a .pem certificate. Again, for the lazy, here’s mine ([management.pfx (4.05 kb)](/images/2011/3/management.pfx), [management.cer (1.18 kb)](/images/2011/3/management.cer) and [management.pem (5.11 kb)](/images/2011/3/management.pem)). If you want to create one yourself, check [this site where you can convert and generate certificates](https://www.sslshopper.com/ssl-converter.html).
 
 ## Building a small command-line scaling tool (in PHP)
 
@@ -60,7 +60,7 @@ require_once 'Microsoft/WindowsAzure/Management/Client.php';
 
 ```
 
-This is just making sure all necessary libraries have been loaded. next, call out to the *Microsoft_WindowsAzure_Management_Client* class’ *setInstanceCountBySlot()* method to set the instance count to the requested number. Easy! And in fact even easier than Microsoft's [.NET version of this](/post/2011/03/09/Windows-Azure-and-scaling-how-(NET).aspx).
+This is just making sure all necessary libraries have been loaded. next, call out to the *Microsoft_WindowsAzure_Management_Client* class’ *setInstanceCountBySlot()* method to set the instance count to the requested number. Easy! And in fact even easier than Microsoft's [.NET version of this](/posts/2011-03-21-windows-azure-and-scaling-how-net/).
 
 ```php
 // Do the magic
@@ -121,4 +121,4 @@ echo "Finished.\r\n";
 
 Now schedule or cron this (when needed) and enjoy the benefits of scaling your Windows Azure service.
 
-So you’re lazy? Here’s my sample project ([AutoScale-PHP.zip (181.67 kb)](/files/2011/3/AutoScale-PHP.zip)) and the certificates used ([management.pfx (4.05 kb)](/files/2011/3/management.pfx), [management.cer (1.18 kb)](/files/2011/3/management.cer) and [management.pem (5.11 kb)](/files/2011/3/management.pem)).
+So you’re lazy? Here’s my sample project ([AutoScale-PHP.zip (181.67 kb)](/files/2011/3/AutoScale-PHP.zip)) and the certificates used ([management.pfx (4.05 kb)](/images/2011/3/management.pfx), [management.cer (1.18 kb)](/images/2011/3/management.cer) and [management.pem (5.11 kb)](/images/2011/3/management.pem)).

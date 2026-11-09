@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/04/11/symbolsource-support-for-nuget-package-source-discovery.html
 ---
-A couple of weeks, I told you about [NuGet Package Source Discovery](/post/2013/03/18/NuGet-Package-Source-Discovery.aspx). In short, it allows you to add some meta information to your website and use your website as a discovery document for NuGet feeds. And thanks to a [contribution to the spec](https://github.com/myget/PackageSourceDiscovery) by Marcin from [SymbolSource.org](http://www.SymbolSource.org), Package Source Discovery (PSD) now supports configuring Visual Studio for consuming symbols as well. Nifty!
+A couple of weeks, I told you about [NuGet Package Source Discovery](/posts/2013-03-18-nuget-package-source-discovery/). In short, it allows you to add some meta information to your website and use your website as a discovery document for NuGet feeds. And thanks to a [contribution to the spec](https://github.com/myget/PackageSourceDiscovery) by Marcin from [SymbolSource.org](http://www.SymbolSource.org), Package Source Discovery (PSD) now supports configuring Visual Studio for consuming symbols as well. Nifty!
 
 
 ## An example

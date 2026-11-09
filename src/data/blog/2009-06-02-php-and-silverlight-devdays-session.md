@@ -12,7 +12,7 @@ redirect_from:
 ---
 ![](/images/2009/6/devdays.jpg)
 
-I just returned from The Hague where [Kevin](http://kevindockx.blogspot.com/) and I delivered a session on PHP and Silverlight. As promised, we are putting our slides and demos online. Download the demo code from here: [PHP and Silverlight - DevDays.zip (1.00 mb)](/files/2009/6/PHP+and+Silverlight+-+DevDays.zip)
+I just returned from The Hague where [Kevin](http://kevindockx.blogspot.com/) and I delivered a session on PHP and Silverlight. As promised, we are putting our slides and demos online. Download the demo code from here: [PHP and Silverlight - DevDays.zip (1.00 mb)](/files/2009/6/PHP%20and%20Silverlight%20-%20DevDays.zip)
 
 Abstract:
 

@@ -11,9 +11,9 @@ redirect_from:
   - /post/2008/07/01/extending-asp-net-mvc-outputcache-actionfilterattribute-adding-substitution.html
   - /post/2008/07/01/extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution.html
 ---
-In my [previous blog post on ASP.NET MVC OutputCache](/post/2008/06/creating-an-aspnet-mvc-outputcache-actionfilterattribute.aspx), not all aspects of "classic" ASP.NET output caching were covered. For instance, substitution of cached pages. Allow me to explain...
+In my [previous blog post on ASP.NET MVC OutputCache](/posts/2008-06-26-creating-an-aspnet-mvc-outputcache-actionfilterattribute/), not all aspects of "classic" ASP.NET output caching were covered. For instance, substitution of cached pages. Allow me to explain...
 
-When using output caching you might want to have everything cached, except, for example, a user's login name or a time stamp. When caching a full HTTP response, it is not really possible to inject dynamic data. ASP.NET introduced the *Substitution* control, which allows parts of a cached response to be dynamic. The contents of the Substitution control are dynamically injected after retrieving cached data, by calling a certain static method which returns string data. Now let's build this into my *[OutputCache ActionFilterAttribute](/post/2008/06/Creating-an-ASPNET-MVC-OutputCache-ActionFilterAttribute.aspx)*...
+When using output caching you might want to have everything cached, except, for example, a user's login name or a time stamp. When caching a full HTTP response, it is not really possible to inject dynamic data. ASP.NET introduced the *Substitution* control, which allows parts of a cached response to be dynamic. The contents of the Substitution control are dynamically injected after retrieving cached data, by calling a certain static method which returns string data. Now let's build this into my *[OutputCache ActionFilterAttribute](/posts/2008-06-26-creating-an-aspnet-mvc-outputcache-actionfilterattribute/)*...
 
 **UPDATE:** Also check Phil Haack's approach to this: [http://haacked.com/archive/2008/11/05/donut-caching-in-asp.net-mvc.aspx](http://haacked.com/archive/2008/11/05/donut-caching-in-asp.net-mvc.aspx)
 
@@ -97,7 +97,7 @@ public partial class Index : ViewPage
 
 ## 3. Extending the OutputCache ActionFilterAttribute
 
-[Previously](/post/2008/06/creating-an-aspnet-mvc-outputcache-actionfilterattribute.aspx), we did server-side output caching by implementing 2 overrides of the ActionFilterAttribute, namely *OnResultExecuting* and *OnResultExecuted*. To provide substitution support, we'll have to modify these 2 overloads a little. Basically, just pass all output through the *ResolveSubstitutions* method. Here's the updated *OnResultExecuted* overload:
+[Previously](/posts/2008-06-26-creating-an-aspnet-mvc-outputcache-actionfilterattribute/), we did server-side output caching by implementing 2 overrides of the ActionFilterAttribute, namely *OnResultExecuting* and *OnResultExecuted*. To provide substitution support, we'll have to modify these 2 overloads a little. Basically, just pass all output through the *ResolveSubstitutions* method. Here's the updated *OnResultExecuted* overload:
 
 ```csharp
 public override void OnResultExecuted(ResultExecutedContext filterContext)

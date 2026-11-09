@@ -107,4 +107,4 @@ GlobalConfiguration.Configuration.MessageHandlers.Add(new AuthorizationHeaderHan
 
 From now on, any request coming in with the *X-ApiKey* header will be translated into an *IPrincipal* which you can easily use throughout your web API. Enjoy!
 
-*PS: if you’re looking into OAuth2, I’ve used a similar approach in  “*[*ASP.NET Web API OAuth2 delegation with Windows Azure Access Control Service*](/post/2012/08/07/aspnet-web-api-oauth2-delegation-with-windows-azure-access-control-service.aspx)*” to handle OAuth2 tokens.*
+*PS: if you’re looking into OAuth2, I’ve used a similar approach in  “*[*ASP.NET Web API OAuth2 delegation with Windows Azure Access Control Service*](/posts/2012-08-07-aspnet-web-api-oauth2-delegation-with-windows-azure-access-control-service/)*” to handle OAuth2 tokens.*

@@ -12,7 +12,7 @@ redirect_from:
 ---
 <!-- {EAV_BLOG_VER:eb87d9403f2dec17} -->
 
-A few months ago, my colleague [Xavier Decoster](http://www.xavierdecoster.com) and I [introduced](/post/2011/05/31/Creating-your-own-private-NuGet-feed-myget.aspx) MyGet as a tool where you can create your own, private NuGet feeds. A couple of weeks later we introduced some options to [delegate feed privileges](/post/2011/06/29/Delegate-feed-privileges-to-other-users-on-MyGet.aspx) to other [MyGet](http://www.myget.org) users allowing you to make another MyGet user “co-admin” or “contributor” to a feed. Since then we’ve expanded our view on the NuGet ecosystem and moved MyGet from a solution to create your private feeds to a service that allows you to set up a NuGet feed, whether private or public.
+A few months ago, my colleague [Xavier Decoster](http://www.xavierdecoster.com) and I [introduced](/posts/2011-05-31-creating-your-own-private-nuget-feed-myget/) MyGet as a tool where you can create your own, private NuGet feeds. A couple of weeks later we introduced some options to [delegate feed privileges](/posts/2011-06-29-delegate-feed-privileges-to-other-users-on-myget/) to other [MyGet](http://www.myget.org) users allowing you to make another MyGet user “co-admin” or “contributor” to a feed. Since then we’ve expanded our view on the NuGet ecosystem and moved MyGet from a solution to create your private feeds to a service that allows you to set up a NuGet feed, whether private or public.
 
 Supporting public feeds allows you to set up a structure similar to [www.nuget.org](http://www.nuget.org): you can give any user privileges to publish a package to your feed while the user can never manage other packages on your feed. This is great in several scenarios:
 

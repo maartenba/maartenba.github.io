@@ -54,4 +54,4 @@ public class ContactBinder : IModelBinder
 
 **UPDATE:** Also check [Timothy's blog](http://www.singingeels.com/Articles/Model_Binders_in_ASPNET_MVC.aspx) post on this one.
 
-**UPpubDatetime: **And my [follow-up blog post](/post/2008/10/02/using-the-aspnet-mvc-modelbinder-attribute-second-part.aspx).
+**UPpubDatetime: **And my [follow-up blog post](/posts/2008-10-02-using-the-aspnet-mvc-modelbinder-attribute-second-part/).

@@ -57,7 +57,7 @@ On the ASP.NET MVC side, I’ve used this repository pattern and LINQ to SQL gen
 
 ![image](/images/WindowsLiveWriter/Creatin.NETMVCapplicationwithGoogleGears_7484/image_2f31ee79-7c39-4014-818b-8111cc98d610.png)
 
-Feel free to download the source code of the ASP.NET MVC – only application: [GearsForMvcDemo - MVC only.zip (4.12 mb)](/files/GearsForMvcDemo+-+MVC+only.zip)
+Feel free to download the source code of the ASP.NET MVC – only application: [GearsForMvcDemo - MVC only.zip (4.12 mb)](/files/GearsForMvcDemo%20-%20MVC%20only.zip)
 
 Next steps: deciding the road to follow and implementing it in the ASP.NET MVC application…
 
@@ -167,7 +167,7 @@ First, we call a simple method on the GearsController class (abstarcted in the *
 
 This approach is quite easy. It’s actually instructing Google Gears to cache some stuff periodically, backed up by an “is online” checker in the ASP.NET MVC application. This approach does feel cheap… I’m just creating local copies of all my rendered pages, probably consuming too much disk space and probably putting too much load on the server in the update checks.
 
-Want to download and play? Here it is: [GearsForMvcDemo - Offline copy.zip (4.11 mb)](/files/GearsForMvcDemo+-+Offline+copy.zip)
+Want to download and play? Here it is: [GearsForMvcDemo - Offline copy.zip (4.11 mb)](/files/GearsForMvcDemo%20-%20Offline%20copy.zip)
 
 ## Adding Google Gears support (“go offline”) – Synchronized offline access
 

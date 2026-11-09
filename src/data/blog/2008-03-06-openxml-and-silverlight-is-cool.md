@@ -14,7 +14,7 @@ redirect_from:
 Mix '08 announced some nice things, among them the release of [Silverlight 2.0 (beta)](http://silverlight.net/), [ASP.NET MVC framework (CTP 2)](http://www.asp.net/mvc). This morning, I saw one very cool thing in my RSS reader: [TextGlow](http://james.newtonking.com/archive/2008/03/06/silverlight-2-0-ooxml-textglow.aspx).
 
 
-[TextGlow](http://www.textglow.net/) is [James Newton-King](http://james.newtonking.com/)'s newest exciting project which basically combines Silverlight 2.0 and OpenXML into a fancy web-based Word 2007 document viewer. Think about combining this with my own [Word 2007 document preview handler](/post/2008/01/Preview-Word-files-(docx)-in-HTML-using-ASPNET-OpenXML-and-LINQ-to-XML.aspx)...
+[TextGlow](http://www.textglow.net/) is [James Newton-King](http://james.newtonking.com/)'s newest exciting project which basically combines Silverlight 2.0 and OpenXML into a fancy web-based Word 2007 document viewer. Think about combining this with my own [Word 2007 document preview handler](/posts/2008-01-11-preview-word-files-docx-in-html-using-aspnet-openxml-and-linq-to-xml/)...
 
 
 [![](/images/WindowsLiveWriter/OpenXMLSilverlight2.0cool_DAAE/image_thumb_2.png)](/images/WindowsLiveWriter/OpenXMLSilverlight2.0cool_DAAE/image_6.png)

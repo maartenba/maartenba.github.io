@@ -49,5 +49,5 @@ Just for fun (and yes, I have a crazy definition of “fun”), I started workin
 
 The application is packed into one large PHP file and coded against every best-practice around, but it does the job. Simply download it and add it to your application. Once deployed (on dev fabric or Windows Azure), you can navigate to *diagnostics.php*, log in with the credentials you specified and start configuring your diagnostics infrastructure. Easy, no?
 
-Here’s the download: [diagnostics.php (27.78 kb)](/files/2010/9/diagnostics.php)
+Here’s the download: [diagnostics.php (27.78 kb)](/images/2010/9/diagnostics.php)
 (note that it is best to get the [latest source code commit](http://phpazure.codeplex.com/SourceControl/list/changesets) for the Windows Azure SDK for PHP if you want to configure custom directory logging)

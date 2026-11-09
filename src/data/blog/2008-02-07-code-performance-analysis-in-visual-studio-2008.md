@@ -90,4 +90,4 @@ In theory, this should perform better. Let’s run our performance session again
 
 **Update 2008-02-14:** Some people commented on not finding the *Analyze* menu. This is only available in the *Developer* or *Team Edition* of Visual Studio. [Click here for a full comparison](http://msdn2.microsoft.com/en-us/vstudio/products/cc149003.aspx) of all versions.
 
-**Update 2008-05-29:** Make sure to check [my post on NDepend](/post/2008/05/detailed-code-metrics-with-ndepend.aspx) as well, as it offers even more insight in your code!
+**Update 2008-05-29:** Make sure to check [my post on NDepend](/posts/2008-05-29-detailed-code-metrics-with-ndepend/) as well, as it offers even more insight in your code!

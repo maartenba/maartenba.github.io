@@ -16,7 +16,7 @@ This release is BETA software, which means it is feature complete. However, sinc
 
 A comment we received a lot for previous versions was the fact that for table storage, datetime values were returned as strings and parsing of them was something you as a developer should do. In this release, we’ve broken that: table storage entities now return native PHP DateTime objects instead of strings for Edm.DateTime properties.
 
-The feature we’re most proud of is the support for the management API: you can now instruct WIndows Azure from PHP, where you would normally do this through the web portal. This means that you can fully automate your Windows Azure deployment, scaling, … from a PHP script. I even have sample of this, check my blog post “[Windows Azure and scaling: how? (PHP)](/post/2011/03/24/Windows-Azure-and-scaling-how-(PHP).aspx)”.
+The feature we’re most proud of is the support for the management API: you can now instruct WIndows Azure from PHP, where you would normally do this through the web portal. This means that you can fully automate your Windows Azure deployment, scaling, … from a PHP script. I even have sample of this, check my blog post “[Windows Azure and scaling: how? (PHP)](/posts/2011-03-24-windows-azure-and-scaling-how-php/)”.
 
 Another nice feature is the new logging infrastructure: if you are used to working with loggers and appenders (like for example in [Zend Framework](http://framework.zend.com)), this should be familiar. It is used to provide logging capabilities in a mayor production site, [www.hotelpeeps.com](http://www.hotelpeeps.com) (yes, that is PHP on Windows Azure you’re seeing there!). Thanks, Lucian, for contributing this!
 

@@ -11,7 +11,7 @@ redirect_from:
   - /post/2007/12/31/asp-net-mvc-framework-security.html
   - /post/2007/12/31/aspnet-mvc-framework-security.html
 ---
-Some [posts ago](/post/2007/12/aspnet-mvc-framework---basic-sample-application.aspx), I started playing with the ASP.NET MVC framework. In an example I'm creating, I'm trying to add Forms-based security.
+Some [posts ago](/posts/2007-12-10-aspnet-mvc-framework-basic-sample-application/), I started playing with the ASP.NET MVC framework. In an example I'm creating, I'm trying to add Forms-based security.
 
 "Classic" ASP.NET offers a nice and easy way to set security on different pages in a web application, trough Web.config. In the example I'm building, I wanted to allow access to "/Entry/Delete/" only to users with the role "Administrator". So I gave the following snip a try:
 

@@ -18,7 +18,7 @@ Short answer: add the `Microsoft.Extensions.Hosting.Systemd` NuGet package and c
 
 In this post, let's see how you can run a .NET Core / .NET 5 application as a service on Linux. We'll use [Systemd](https://en.wikipedia.org/wiki/Systemd) to integrate our application with the operating system and make it possible to start and stop our service, and get logs from it.
 
-To build my [supply chain attack with .NET](/post/2021/05/05/building-a-supply-chain-attack-with-dotnet-nuget-dns-source-generators-and-more.html), I needed to host a DNS server to capture the hostnames sent to me. Let's use that as an example!
+To build my [supply chain attack with .NET](/posts/2021-05-05-building-a-supply-chain-attack-with-dotnet-nuget-dns--source-generators-and-more/), I needed to host a DNS server to capture the hostnames sent to me. Let's use that as an example!
 
 ## Creating a .NET application to run as a service
 
@@ -54,7 +54,7 @@ Let's start with the first, and implement a DNS server that we'll run as a servi
 
 ## Implement a .NET DNS server as a service
 
-The DNS server [mentioned in my previous post](/post/2021/05/05/building-a-supply-chain-attack-with-dotnet-nuget-dns-source-generators-and-more.html) is built in .NET using [Mirza Kapetanovic's excellent DNS package](https://github.com/kapetan/dns), and hosted as a service on Linux, using Systemd.
+The DNS server [mentioned in my previous post](/posts/2021-05-05-building-a-supply-chain-attack-with-dotnet-nuget-dns--source-generators-and-more/) is built in .NET using [Mirza Kapetanovic's excellent DNS package](https://github.com/kapetan/dns), and hosted as a service on Linux, using Systemd.
 
 Let's build a simple DNS service that returns the current time as a `TXT` record.
 

@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/11/21/how-i-push-googleanalyticstracker-to-nuget.html
 ---
-If you check my blog post [Tracking API usage with Google Analytics](/post/2012/01/20/Tracking-API-usage-with-Google-Analytics.aspx), you’ll see that a small open-source component evolved from [MyGet](http://www.myget.org). This component, GoogleAnalyticsTracker, lives on [GitHub](https://github.com/maartenba/GoogleAnalyticsTracker) and [NuGet](http://nuget.org/packages/GoogleAnalyticsTracker) and has since evolved into something that supports Windows Phone and Windows RT as well. But let’s not focus on the open-source aspect.
+If you check my blog post [Tracking API usage with Google Analytics](/posts/2012-01-20-tracking-api-usage-with-google-analytics/), you’ll see that a small open-source component evolved from [MyGet](http://www.myget.org). This component, GoogleAnalyticsTracker, lives on [GitHub](https://github.com/maartenba/GoogleAnalyticsTracker) and [NuGet](http://nuget.org/packages/GoogleAnalyticsTracker) and has since evolved into something that supports Windows Phone and Windows RT as well. But let’s not focus on the open-source aspect.
 
 
 It’s funny how things evolve. GoogleAnalyticsTracker started as a small component inside MyGet, and since a couple of weeks it uses MyGet to publish itself to NuGet. Say what? In this blog post, I’ll elaborate a bit on the development tools used on this tiny component.

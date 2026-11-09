@@ -12,12 +12,12 @@ redirect_from:
 ---
 This is the second post in my series on Data Driven Testing in Visual Studio 2008. The first post focusses on Data Driven Testing in regular Unit Tests. This part will focus on the same in web testing.
 
-- [Data Driven Testing in Visual Studio 2008 - Part 1 - Unit testing](/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx)
-- [Data Driven Testing in Visual Studio 2008 - Part 2 - Web testing](/post/2008/02/data-driven-testing-in-visual-studio-2008---part-2.aspx)
+- [Data Driven Testing in Visual Studio 2008 - Part 1 - Unit testing](/posts/2008-02-12-data-driven-testing-in-visual-studio-2008-part-1/)
+- [Data Driven Testing in Visual Studio 2008 - Part 2 - Web testing](/posts/2008-02-13-data-driven-testing-in-visual-studio-2008-part-2/)
 
 ## Web Testing
 
-I assume you have read my [previous post](/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx) and saw the cool user interface I created. Let's first add some code to that, focussing on the *TextBox_TextChanged* event handler that is linked to *TextBox1* and *TextBox2*.
+I assume you have read my [previous post](/posts/2008-02-12-data-driven-testing-in-visual-studio-2008-part-1/) and saw the cool user interface I created. Let's first add some code to that, focussing on the *TextBox_TextChanged* event handler that is linked to *TextBox1* and *TextBox2*.
 
 ```csharp
 public partial class _Default : System.Web.UI.Page
@@ -51,7 +51,7 @@ You'll notice an entry on the left for each request that is being fired. When th
 
 ## Data Driven Web testing
 
-There's our web test! But it's not data driven yet... First thing to do is linking the database we created in [part 1](/post/2008/02/data-driven-testing-in-visual-studio-2008---part-1.aspx) by clicking the "![Add datasource](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part2_A33C/image_bcfa582e-41f3-49f2-9168-926d5981bed1.png)  Add Datasource" button. Finish the wizard by selecting the database and the correct table. Afterwards, you can pick one of the Form Post Parameters and assign the value from our newly added datasource. Do this for each step in our test: the first step should fill TextBox1, the second should fill TextBox1 and TextBox2.
+There's our web test! But it's not data driven yet... First thing to do is linking the database we created in [part 1](/posts/2008-02-12-data-driven-testing-in-visual-studio-2008-part-1/) by clicking the "![Add datasource](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part2_A33C/image_bcfa582e-41f3-49f2-9168-926d5981bed1.png)  Add Datasource" button. Finish the wizard by selecting the database and the correct table. Afterwards, you can pick one of the Form Post Parameters and assign the value from our newly added datasource. Do this for each step in our test: the first step should fill TextBox1, the second should fill TextBox1 and TextBox2.
 
 ![Bind Form Post Parameters](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part2_A33C/image_b1a618a0-1642-4b2e-85fd-4a0997f272b8.png)
 

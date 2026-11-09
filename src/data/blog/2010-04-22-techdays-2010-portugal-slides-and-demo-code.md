@@ -43,4 +43,4 @@ Abstract: *“So you have an existing PHP application and would like to spice it
 
 <embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=wux210maartenballiauwandkevindockx-100422095307-phpapp01&stripped_title=php-and-silverlight-3818309" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object>View more [presentations](http://www.slideshare.net/) from [Maarten Balliauw](http://www.slideshare.net/maartenba).
 
-Demo code: [PHP and Silverlight - DevDays.zip (1.00 mb)](/files/2009/6/PHP+and+Silverlight+-+DevDays.zip) (based on Silverlight 2, bug [Kevin](http://blog.kevindockx.com/) for a recent version :-))
+Demo code: [PHP and Silverlight - DevDays.zip (1.00 mb)](/files/2009/6/PHP%20and%20Silverlight%20-%20DevDays.zip) (based on Silverlight 2, bug [Kevin](http://blog.kevindockx.com/) for a recent version :-))

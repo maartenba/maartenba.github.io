@@ -16,6 +16,6 @@ A recorded version of this presentation will be available later, for the moment 
 
 ## Downloads
 
-Presentation materials: [VISUG ASP.NET MVC materials.zip (5.63 mb)](/files/VISUG+ASP.NET+MVC+materials.zip)
+Presentation materials: [VISUG ASP.NET MVC materials.zip (5.63 mb)](/files/VISUG%20ASP.NET%20MVC%20materials.zip)
 
 CarTrackr sample application: [http://www.codeplex.com/CarTrackr/](http://www.codeplex.com/CarTrackr/)

@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/01/22/phpmef-0-1-0-released.html
 ---
-[![](/images/image%5B1%5D.png)](http://phpmef.codeplex.com) A while ago, I did a conceptual blog post on [PHP Managed Extensibility Framework – PHPMEF](/post/2009/12/02/PHP-Managed-Extensibility-Framework-e28093-PHPMEF.aspx). Today, I’m proud to announce the first public release of PHPMEF! After [PHPExcel](http://www.phpexcel.net), [PHPLinq](http://www.phplinq.net), [PHPPowerPoint](http://www.phppowerpoint.net) and the [Windows Azure SDK for PHP](http://phpazure.codeplex.com), [PHPMEF](http://phpmef.codeplex.com) is the 5th open-source project I started on interoperability (or conceptual interoperability) between the Microsoft world and the PHP world. Noble price for peace upcoming :-)
+[![](/images/image%5B1%5D.png)](http://phpmef.codeplex.com) A while ago, I did a conceptual blog post on [PHP Managed Extensibility Framework – PHPMEF](/posts/2009-12-02-php-managed-extensibility-framework-e28093-phpmef/). Today, I’m proud to announce the first public release of PHPMEF! After [PHPExcel](http://www.phpexcel.net), [PHPLinq](http://www.phplinq.net), [PHPPowerPoint](http://www.phppowerpoint.net) and the [Windows Azure SDK for PHP](http://phpazure.codeplex.com), [PHPMEF](http://phpmef.codeplex.com) is the 5th open-source project I started on interoperability (or conceptual interoperability) between the Microsoft world and the PHP world. Noble price for peace upcoming :-)
 
 
 ## What is this thing?

@@ -13,7 +13,7 @@ redirect_from:
 ---
 [![](/images/image_thumb_170.png)](/images/image_205.png)Imagine you are building an API which is “multi-tenant”: the domain name defines the tenant or customer name and should be passed as a route value to your API. An example would be [http://customer1.mydomain.com/api/v1/users/1](http://customer1.mydomain.com/api/v1/users/1). Customer 2 can use the same API, using [http://customer2.mydomain.com/api/v1/users/1](http://customer2.mydomain.com/api/v1/users/1). How would you solve routing based on a (sub)domain in your ASP.NET Web API projects?
 
-Almost 2 years ago (wow, time flies), I’ve written a blog post on [ASP.NET MVC Domain Routing](/post/2009/05/20/ASPNET-MVC-Domain-Routing.aspx). Unfortunately, that solution does not work out-of-the-box with ASP.NET Web API. The good news is: it *almost* works out of the box. The only thing required is adding one simple class:
+Almost 2 years ago (wow, time flies), I’ve written a blog post on [ASP.NET MVC Domain Routing](/posts/2009-05-20-aspnet-mvc-domain-routing/). Unfortunately, that solution does not work out-of-the-box with ASP.NET Web API. The good news is: it *almost* works out of the box. The only thing required is adding one simple class:
 
 ```csharp
 public class HttpDomainRoute

@@ -14,4 +14,4 @@ redirect_from:
 
 My recommendation: if you are using BlogEngine.NET: [go patch](http://dannydouglass.com/post/2008/04/BlogEngine-and-the-JavaScript-HttpHandler-Serious-Security-Issue.aspx)!
 
-(and yes, I patched it ![Cool](/admin/tiny_mce/plugins/emotions/images/smiley-cool.gif)  [/js.axd?path=app_data\users.xml](/js.axd?path=app_data\users.xml))
+(and yes, I patched it 😎 `/js.axd?path=app_data\users.xml`)
