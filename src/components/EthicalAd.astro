@@ -3,3 +3,21 @@
 
 <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <div class="adaptive-css" data-ea-publisher="blog-maartenballiauw-be" data-ea-type="text"></div>
+<script is:inline>
+  // ClientRouter swaps pages without a full reload, so the ad client never
+  // sees the new placement. Ask it to fill the placement after navigation.
+  // https://ethical-ad-client.readthedocs.io/en/latest/#single-page-apps
+  if (!window.__eaReloadBound) {
+    window.__eaReloadBound = true;
+    let firstLoad = true;
+    document.addEventListener("astro:page-load", () => {
+      if (firstLoad) {
+        firstLoad = false; // the client loads the ad itself on a full page load
+        return;
+      }
+      if (window.ethicalads && document.querySelector("[data-ea-publisher]")) {
+        window.ethicalads.reload();
+      }
+    });
+  }
+</script>
