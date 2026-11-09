@@ -14,7 +14,7 @@
     }
 
     h2 {
-      @apply border-s-4 border-b border-s-accent border-b-border ps-3 pb-2;
+      @apply border-b border-border pb-2;
     }
 
     h3 {
