@@ -136,18 +136,66 @@ html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#5F7E97"] {
   color: #8aa6bd !important;
 }
 
-/* ===== A11y: EthicalAds text/link contrast, scoped to the ad container ===== */
-[data-ea-publisher] .ea-body,
-[data-ea-publisher] .ea-body * {
-  color: var(--foreground) !important;
+/* ===== EthicalAds: styled as a clickable card via the client's documented ===== */
+/* ===== --ea-* custom properties (https://ethical-ad-client.readthedocs.io/en/latest/#customizing-styles). */
+/* Site tokens flip with the theme, so light/dark/toggle all stay AA without the ad client's own dark mode. */
+[data-ea-publisher] {
+  --ea-bgcolor: var(--muted);
+  --ea-bgcolor-dark: var(--muted);
+  --ea-color-link: var(--foreground);
+  --ea-color-link-dark: var(--foreground);
+  --ea-color-link-active: var(--foreground);
+  --ea-color-link-dark-active: var(--foreground);
+  --ea-color-link-bold: var(--accent);
+  --ea-color-link-bold-dark: var(--accent);
+  --ea-color-link-callout: color-mix(in srgb, var(--foreground) 78%, var(--background));
+  --ea-color-link-callout-dark: color-mix(in srgb, var(--foreground) 78%, var(--background));
+  --ea-color-link-callout-active: var(--accent);
+  --ea-color-link-callout-dark-active: var(--accent);
+  --ea-font-family: inherit;
+  --ea-font-size: 0.875rem;
+  /* Reserve the ad's rendered height (text placement) to avoid layout shift. */
+  min-height: 8.5rem;
 }
-[data-ea-publisher] .ea-body a,
-[data-ea-publisher] .ea-callout a {
-  color: var(--accent) !important;
+@media (min-width: 640px) {
+  [data-ea-publisher] {
+    min-height: 6rem;
+  }
+}
+/* Card (specificity beats the client's injected stylesheet) */
+div[data-ea-publisher].loaded.adaptive-css .ea-content {
+  @apply relative rounded-xl border border-border shadow-none transition-[transform,border-color,box-shadow] duration-200 motion-reduce:transition-none;
+  margin: 0;
+  padding: 1rem 1.25rem;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content:hover {
+  @apply -translate-y-0.5 border-accent shadow-md motion-reduce:translate-y-0;
+}
+/* Whole card clickable: stretch the ad link over the card */
+div[data-ea-publisher].loaded.adaptive-css .ea-content a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content a:hover .ea-body,
+div[data-ea-publisher].loaded.adaptive-css .ea-content a:hover {
+  text-decoration: none;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content a strong {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
-[data-ea-publisher] .ea-placement,
-[data-ea-publisher] .ea-content {
-  background: var(--muted) !important;
-  border-color: var(--border) !important;
+div[data-ea-publisher].loaded.adaptive-css .ea-callout {
+  margin: 0.375rem 0 0;
+  padding: 0 0.25rem;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-callout a {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 0.25rem 0;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
