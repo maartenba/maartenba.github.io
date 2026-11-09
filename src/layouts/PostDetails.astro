@@ -36,7 +36,8 @@ const {
   hideEditPost,
 } = post.data;
 
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter } = await render(post);
+const minutesRead: number | undefined = remarkPluginFrontmatter?.minutesRead;
 
 let ogImageUrl: string | undefined;
 
@@ -159,6 +160,12 @@ const breadcrumbData = {
             <span class="text-sm text-white/80 font-medium">{author}</span>
             <span class="hidden sm:inline text-white/40">&middot;</span>
             <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
+            {minutesRead && (
+              <>
+                <span class="hidden sm:inline text-white/40">&middot;</span>
+                <span class="text-sm text-white/80 sm:text-base">{minutesRead} min read</span>
+              </>
+            )}
           </div>
         </div>
       </div>

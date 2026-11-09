@@ -11,6 +11,7 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import rehypeImgAttrs from "./src/utils/rehype-img-attrs";
+import remarkReadingTime from "./src/utils/remark-reading-time";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import { SITE } from "./src/config";
@@ -80,7 +81,7 @@ export default defineConfig({
       ],
     },
     processor: unified({
-      remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+      remarkPlugins: [remarkReadingTime, remarkToc, [remarkCollapse, { test: "Table of contents" }]],
       // Images in /public/images/ bypass Astro's sharp optimization pipeline. Lazy loading is the primary improvement here.
       rehypePlugins: [rehypeImgAttrs],
     }),
