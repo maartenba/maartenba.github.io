@@ -17,6 +17,8 @@ export interface Props {
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
   ogType?: string;
+  /** Set to true to emit `noindex, nofollow` instead of the default robots meta */
+  noindex?: boolean;
 }
 
 const {
@@ -30,6 +32,7 @@ const {
   modDatetime,
   scrollSmooth = false,
   ogType = "website",
+  noindex = false,
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
@@ -106,6 +109,14 @@ const websiteStructuredData = {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
+    <meta
+      name="robots"
+      content={
+        noindex
+          ? "noindex, nofollow"
+          : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      }
+    />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->

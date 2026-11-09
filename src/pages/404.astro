@@ -14,7 +14,7 @@ const posts = await getCollection("blog");
 const recentPosts = getSortedPosts(posts).slice(0, 5);
 ---
 
-<Layout title={`404 Not Found | ${SITE.title}`}>
+<Layout title={`404 Not Found | ${SITE.title}`} noindex>
   <Header />
 
   <main id="main-content" class="mx-auto flex max-w-app flex-1 flex-col px-4 py-12">
