@@ -121,3 +121,33 @@
     }
   }
 }
+
+/* ===== A11y: raise low-contrast Shiki token colors to WCAG AA (>= 4.5:1) ===== */
+html:not([data-theme="dark"]) .astro-code span[style*="--shiki-light:#C2C3C5"] {
+  color: #6a6e75 !important;
+}
+html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#637777"] {
+  color: #8da3a3 !important;
+}
+html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#D3423E"] {
+  color: #f0645f !important;
+}
+html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#5F7E97"] {
+  color: #8aa6bd !important;
+}
+
+/* ===== A11y: EthicalAds text/link contrast, scoped to the ad container ===== */
+[data-ea-publisher] .ea-body,
+[data-ea-publisher] .ea-body * {
+  color: var(--foreground) !important;
+}
+[data-ea-publisher] .ea-body a,
+[data-ea-publisher] .ea-callout a {
+  color: var(--accent) !important;
+  text-decoration: underline;
+}
+[data-ea-publisher] .ea-placement,
+[data-ea-publisher] .ea-content {
+  background: var(--muted) !important;
+  border-color: var(--border) !important;
+}
