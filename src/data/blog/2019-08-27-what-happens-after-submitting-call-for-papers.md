@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "What happens after submitting a session in a Call for Papers?"
+title: "Call for Papers meaning: what happens after you submit"
 pubDatetime: 2019-08-27T03:44:05Z
+modDatetime: 2026-11-09T08:00:00Z
+description: "A call for papers (CFP) invites speakers to submit talks to a conference. Here is what happens after you submit, from committee to acceptance or rejection."
 comments: true
 published: true
 categories: ["post"]
@@ -22,11 +24,13 @@ Whether you are a beginning speaker or a well-seasoned one, those rejections may
 
 In this post, I want to open the curtain a bit, and talk from experience on various agenda committees.
 
+In short: a Call for Papers (CfP) is an open invitation for speakers to submit talk titles and abstracts to a conference. After it closes, an agenda committee reads the submissions, builds shortlists, balances topics, budget and speakers, and sends out acceptance and rejection e-mails.
+
 ## Disclaimer
 
 Before we start: this is all based on my own experiences and thoughts being part of different agenda committees, and does not reflect the views of any particular company or conference. I hope sharing this experience will help aspiring and seasoned speakers understand the Call for Papers (CfP) and agenda-building process better.
 
-## The Process
+## What is a Call for Papers, and what happens after you submit?
 
 Most often, a couple of months before a conference happens, a "Call for Papers" is opened where speakers can submit one or more talk titles and abstracts. This Call for Papers, or CfP, stays open for a few weeks. Once it closes, the conference organizers sift through all submissions and start building out an agenda for their conference.
 
@@ -114,7 +118,7 @@ So, almost every conference uses "cost" as an additional motivation to keep a se
 
 Cost is also tied to the conference's focus. If a conference just wants an agenda, cost will probably be a bigger factor in the final decision making. If a conference wants to focus on "international speakers", local speakers may not be the first choice. Familiarize yourself with a conference's agenda from previous years if you want to know the focus, as it can often be deduced from there.
 
-Some companies cover expenses for their employees, when they are selected as a speaker. Many conferences like to fill some agenda spots with "sponsored" speakers, as they are low-cost. Who wouldn't want to have some international speakers at low cost? Regardless of your thoughts about this, it happens.
+Some companies cover expenses for their employees, when they are selected as a speaker. Many conferences like to fill some agenda spots with "sponsored" speakers, as they are low-cost. Who wouldn't want to have some international speakers at low cost? Regardless of your thoughts about this, it happens. I have written more about the cost side in [A journey towards SpeakerTravel](/posts/2021-11-08-journey-towards-speakertravel-building-a-service-from-scratch/).
 
 Running a conference and putting people on a stage/pedestal brings a responsibility towards making sure a safe environment for learning and communicating is created. So that is another part of the "checks and balance". Does the agenda represent that thought, in terms of speakers and topics? If not, adjustments are made.
 
@@ -151,6 +155,7 @@ Here are some more resources you may want to check (some already features previo
 * [Don't fear the CfP](https://medium.com/@mattstratton/dont-fear-the-cfp-e8272910972b)
 * [Make me an offer I can't refuse - writing abstracts for a CfP](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/)
 * [The Speaker Maturity Model](https://hadihariri.com/2013/11/12/the-speaker-maturity-model/) - aim at least for level 1. Even and especially if you are just starting out. Your session and insights provide value that a paid-for conference capitalizes on.
+* [On speaker life...](/posts/2017-10-09-on-speaker-life/), my own thoughts on the speaking side of things.
 * Trisha Gee has several good posts on speaking. Start with [Speaker Tips - Focus on Either Content or Delivery](http://trishagee.github.io/post/st_content_or_delivery/) and follow related posts.
 
 Also, feel free to reach out to any speaker you have seen at a conference or elsewhere. They are not unapproachable rock stars, they are your peers and will be happy to help review a session abstract.
