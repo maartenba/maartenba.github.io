@@ -89,7 +89,7 @@ const nextPost =
   currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
 
 const cardClass =
-  "group flex flex-col gap-2 rounded-xl border border-border bg-background p-4 no-underline transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-md focus-visible:border-accent motion-reduce:transition-none motion-reduce:hover:translate-y-0";
+  "group flex flex-col gap-2 rounded-xl border border-border bg-background p-4 no-underline transition-[border-color,box-shadow] duration-200 hover:border-accent hover:shadow-md focus-visible:border-accent motion-reduce:transition-none";
 
 const postPath = getPostHref(post.id, post.filePath);
 const postUrl = new URL(postPath, SITE.website).href;

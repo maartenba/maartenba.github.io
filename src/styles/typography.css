@@ -164,12 +164,12 @@ html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#5F7E97"] {
 }
 /* Card (specificity beats the client's injected stylesheet) */
 div[data-ea-publisher].loaded.adaptive-css .ea-content {
-  @apply relative rounded-xl border border-border shadow-none transition-[transform,border-color,box-shadow] duration-200 motion-reduce:transition-none;
+  @apply relative rounded-xl border border-border shadow-none transition-[border-color,box-shadow] duration-200 motion-reduce:transition-none;
   margin: 0;
   padding: 1rem 1.25rem;
 }
 div[data-ea-publisher].loaded.adaptive-css .ea-content:hover {
-  @apply -translate-y-0.5 border-accent shadow-md motion-reduce:translate-y-0;
+  @apply border-accent shadow-md;
 }
 /* Whole card clickable: stretch the ad link over the card */
 div[data-ea-publisher].loaded.adaptive-css .ea-content a::after {
