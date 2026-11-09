@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner"
+title: "ValidateAntiForgeryToken in ASP.NET Core: unit test for it"
 pubDatetime: 2019-01-11T04:44:05Z
+modDatetime: 2026-11-09T08:00:00Z
+description: "How to validate an anti forgery token in ASP.NET Core with [ValidateAntiForgeryToken], and unit test that every POST action has it, plus Rider navigation."
 comments: true
 published: true
 categories: ["post"]
@@ -22,6 +24,16 @@ In this series:
 * [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/)
 * [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)
 * [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/posts/2019-01-11-unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner/)
+
+## How do you validate an anti forgery token in ASP.NET Core?
+
+Put `[ValidateAntiForgeryToken]` on a POST action, or on a controller, and ASP.NET Core rejects the request unless it carries a valid antiforgery token. Forms using the form tag helper or `@Html.AntiForgeryToken()` emit that token as a hidden `__RequestVerificationToken` field.
+
+Instead of decorating every action, you can use `[AutoValidateAntiforgeryToken]` (also as a global filter). It validates tokens for every HTTP method except `GET`, `HEAD`, `OPTIONS` and `TRACE`. Use `[IgnoreAntiforgeryToken]` to opt out of it for an action or controller. The [ASP.NET Core docs on preventing CSRF attacks](https://learn.microsoft.com/en-us/aspnet/core/security/anti-request-forgery) cover all three.
+
+In minimal APIs, call `builder.Services.AddAntiforgery()` and `app.UseAntiforgery()`. Endpoints that bind a form are then validated, and you can call `.DisableAntiforgery()` on an endpoint that should not be.
+
+The rest of this post is the approach I took for the inherited code base: explicit attributes, enforced by a unit test.
 
 ## What's the plan? Which action methods are we after?
 
