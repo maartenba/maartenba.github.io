@@ -11,7 +11,7 @@ redirect_from:
   - /post/2009/04/02/back-to-the-future-exploring-asp-net-mvc-futures.html
   - /post/2009/04/02/back-to-the-future!-exploring-aspnet-mvc-futures.html
 ---
-[![](/images/image_thumb.png)](/images/image.png)For those of you who did not know yet: next to the [ASP.NET MVC 1.0](http://www.microsoft.com/downloads/details.aspx?FamilyID=53289097-73ce-43bf-b6a6-35e00103cb4b&displaylang=en) version and its [source code](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471), there’s also an interesting assembly available if you can not wait for next versions of the ASP.NET MVC framework: the [MVC Futures assembly](/admin/Pages/aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471). In this blog post, I’ll provide you with a quick overview of what is available in this assembly and how you can already benefit from… “the future”.
+[![](/images/image_thumb.png)](/images/image.png)For those of you who did not know yet: next to the [ASP.NET MVC 1.0](http://www.microsoft.com/downloads/details.aspx?FamilyID=53289097-73ce-43bf-b6a6-35e00103cb4b&displaylang=en) version and its [source code](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471), there’s also an interesting assembly available if you can not wait for next versions of the ASP.NET MVC framework: the [MVC Futures assembly](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471). In this blog post, I’ll provide you with a quick overview of what is available in this assembly and how you can already benefit from… “the future”.
 
 First things first: where to get this thing? You can download the assembly from the [CodePlex releases page](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471). Afterwards, reference this assembly in your ASP.NET MVC web application. Also add some things to the Web.config file of your application:
 
@@ -43,7 +43,7 @@ You are now ready to go! Buckle up and start your De Lorean DMC-12…
 
 ## Donut caching (a.k.a. substitution)
 
-If you have never heard of the term “donut caching” or “substitution”, now is a good time to [read a previous blog post of mine](/post/2008/07/01/Extending-ASPNET-MVC-OutputCache-ActionFilterAttribute-Adding-substitution.aspx). Afterwards, return here. If you don’t want to click that link: fine! Here’s in short: “With donut caching, most of the page is cached, except for some regions which are able to be substituted with other content.”
+If you have never heard of the term “donut caching” or “substitution”, now is a good time to [read a previous blog post of mine](/posts/2008-07-01-extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution/). Afterwards, return here. If you don’t want to click that link: fine! Here’s in short: “With donut caching, most of the page is cached, except for some regions which are able to be substituted with other content.”
 
 You’ll be needing an *OutputCache*-enabled action method in a controller:
 

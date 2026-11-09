@@ -14,7 +14,7 @@ redirect_from:
 So you’re building a multi-tenant application. And just like many multi-tenant applications out there, the application will use a single (sub)domain per tenant and the application will use that to select the correct database connection, render the correct stylesheet and so on. Great! But how to do this with ASP.NET MVC 6?
 
 
-A few years back, I wrote about [ASP.NET MVC Domain Routing](/post/2009/05/20/aspnet-mvc-domain-routing.aspx). It seems that post was more popular than I thought, as people have been asking me how to do this with the new ASP.NET MVC 6. In this blog post, I’ll do exactly that, as well as provide an alternative way of resolving the current tenant based on the current request URL.
+A few years back, I wrote about [ASP.NET MVC Domain Routing](/posts/2009-05-20-aspnet-mvc-domain-routing/). It seems that post was more popular than I thought, as people have been asking me how to do this with the new ASP.NET MVC 6. In this blog post, I’ll do exactly that, as well as provide an alternative way of resolving the current tenant based on the current request URL.
 
 
 **Disclaimer:** ASP.NET MVC 6 still evolves, and a big chance exists that this blog post is outdated when you are reading it. I’ve used the following dependencies to develop this against:
@@ -39,7 +39,7 @@ The route would match any request that uses a hostname similar to **.localtest.m
 ## Domain routing – let’s do it!
 
 
-Just like in my old post on [ASP.NET MVC Domain Routing](/post/2009/05/20/aspnet-mvc-domain-routing.aspx), we will be using the existing magic of ASP.NET routing and extend it a bit with what we need. In ASP.NET MVC 6, this means we’ll be creating a new *IRouter* implementation that encapsulates a *TemplateRoute*. Let’s call ours *DomainTemplateRoute*.
+Just like in my old post on [ASP.NET MVC Domain Routing](/posts/2009-05-20-aspnet-mvc-domain-routing/), we will be using the existing magic of ASP.NET routing and extend it a bit with what we need. In ASP.NET MVC 6, this means we’ll be creating a new *IRouter* implementation that encapsulates a *TemplateRoute*. Let’s call ours *DomainTemplateRoute*.
 
 
 The *DomainTemplateRoute* has a similar constructor to MVC’s *TemplateRoute*, with one exception which is that we also want a *domainTemplate* parameter in which we can define the template that the host name should match. We will create a new *TemplateRoute* that’s held in a private field, so we can easily match the request path against that if the domain matches. This means we only need some logic to match the incoming domain, something which we need a *TemplateMatcher* for. This guy will parse *{tenant}.localtest.me* into a dictionary that contains the actual value of the *tenant* placeholder. Not deal, as the *TemplateMatcher* usually does its thing on a path, but since it treats a dot (.) as a separator we should be good there.

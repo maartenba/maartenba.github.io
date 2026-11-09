@@ -89,4 +89,4 @@ Also check [MS KB 325056](http://support.microsoft.com/kb/325056), this was an i
 
 Our solution now works! Only problem left is that we have a new single point of failure (SPOF): the ASP.NET state service. But we might just set up 2 of those and fail over both session service machines.
 
-**UPDATE 2008-01-23:** Also check out my blog post on [Session State Partitioning](/post/2008/01/aspnet-session-state-partitioning.aspx)!
+**UPDATE 2008-01-23:** Also check out my blog post on [Session State Partitioning](/posts/2008-01-23-aspnet-session-state-partitioning/)!

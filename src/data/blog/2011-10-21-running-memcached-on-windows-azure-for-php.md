@@ -16,15 +16,15 @@ After three conferences in two weeks with a lot of “airport time”, which typ
 
 **Related downloads:**
 The scaffolder source code: [MemcachedScaffolderSource.zip (1.12 mb)](/files/2011/10/MemcachedScaffolderSource.zip)
-The scaffolder, packaged and ready for use: [MemcachedScaffolder.phar (2.87 mb)](/files/2011/10/MemcachedScaffolder.phar)
+The scaffolder, packaged and ready for use: [MemcachedScaffolder.phar (2.87 mb)](/images/2011/10/MemcachedScaffolder.phar)
 
 ## The short version: use my scaffolder
 
-As you may know, when working with PHP on Windows Azure and when making use of the Windows Azure SDK, you can use and create [scaffolders](/post/2011/05/30/Scaffolding-and-packaging-a-Windows-Azure-project-in-PHP.aspx). The [Windows Azure SDK for PHP](http://phpazure.codeplex.com) includes a powerful scaffolding feature that allows users to quickly setup a pre-packaged and configured website ready for Windows Azure.
+As you may know, when working with PHP on Windows Azure and when making use of the Windows Azure SDK, you can use and create [scaffolders](/posts/2011-05-30-scaffolding-and-packaging-a-windows-azure-project-in-php/). The [Windows Azure SDK for PHP](http://phpazure.codeplex.com) includes a powerful scaffolding feature that allows users to quickly setup a pre-packaged and configured website ready for Windows Azure.
 
 If you want to use Memcached in your project, do the following:
 
-- Download my custom MemcacheScaffolder ([MemcachedScaffolder.phar (2.87 mb)](/files/2011/10/MemcachedScaffolder.phar)) and make sure it is located either under the *scaffolders* folder of the Windows Azure SDK for PHP, or that you remember the path to this scaffolder
+- Download my custom MemcacheScaffolder ([MemcachedScaffolder.phar (2.87 mb)](/images/2011/10/MemcachedScaffolder.phar)) and make sure it is located either under the *scaffolders* folder of the Windows Azure SDK for PHP, or that you remember the path to this scaffolder
 - Run the scaffolder from the command line: (note: best use the latest SVN version of the command line tools)
 
 ```

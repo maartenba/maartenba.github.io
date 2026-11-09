@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/09/04/asp-net-mvc-mvcsitemapprovider-1-0-released.html
 ---
-[![](/images/image_13.png)](http://mvcsitemap.codeplex.com/) Back in March, I blogged about an experimental MvcSiteMap provider I [was building](/post/2009/03/24/New-CodePlex-project-MvcSiteMap-ndash3b-ASPNET-MVC-sitemap-provider.aspx). Today, I am proud to announce that it is stable enough to call it version 1.0! Download [MvcSiteMapProvider 1.0](http://mvcsitemap.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=32395) over at CodePlex.
+[![](/images/image_13.png)](http://mvcsitemap.codeplex.com/) Back in March, I blogged about an experimental MvcSiteMap provider I [was building](/posts/2009-03-24-new-codeplex-project-mvcsitemap-ndash3b-aspnet-mvc-sitemap-provider/). Today, I am proud to announce that it is stable enough to call it version 1.0! Download [MvcSiteMapProvider 1.0](http://mvcsitemap.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=32395) over at CodePlex.
 
 Ever since the source code release I did back in March, a lot of new features have been added, such as *HtmlHelper* extension methods, attributes, dynamic parameters, … I’ll leave most of them up to you to discover, but there are some I want to quickly highlight.
 

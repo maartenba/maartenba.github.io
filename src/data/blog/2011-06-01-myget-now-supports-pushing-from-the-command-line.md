@@ -12,7 +12,7 @@ redirect_from:
 ---
 One of the [work items](http://myget.codeplex.com/workitem/5) we had opened for [MyGet](http://www.myget.org) was the ability to push packages to a private feed from the command line. Only a few hours after our initial launch, [David Fowler](http://twitter.com/davidfowl) provided us with [example code](http://j.mp/mICG8u) on how to implement NuGet command line pushes on the server side. An evening of coding later, I quickly hacked this into [MyGet](http://www.myget.org), which means that we now support pushing packages from the command line!
 
-For those that did not catch up with my [blog post overload](/post/2011/05/31/creating-your-own-private-nuget-feed-myget.aspx) of the past week: *My*Get offers you the possibility to create your own, private, filtered [NuGet](http://nuget.org) feed for use in the Visual Studio Package Manager.  It can contain packages from the official [NuGet](http://nuget.org) feed as well as your private packages, hosted on *My*Get. Want a sample? Add this feed to your Visual Studio package manager: [http://www.myget.org/F/chucknorris](http://www.myget.org/F/chucknorris)
+For those that did not catch up with my [blog post overload](/posts/2011-05-31-creating-your-own-private-nuget-feed-myget/) of the past week: *My*Get offers you the possibility to create your own, private, filtered [NuGet](http://nuget.org) feed for use in the Visual Studio Package Manager.  It can contain packages from the official [NuGet](http://nuget.org) feed as well as your private packages, hosted on *My*Get. Want a sample? Add this feed to your Visual Studio package manager: [http://www.myget.org/F/chucknorris](http://www.myget.org/F/chucknorris)
 
 ## Pushing a package from the command line to MyGet
 

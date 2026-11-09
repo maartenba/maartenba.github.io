@@ -12,7 +12,7 @@ redirect_from:
 ---
 It was great speaking at NDC2011! As promised during the sessions I gave, here are the slide decks:
 
-- [Cost architecting for Windows Azure - NDC 2011.pptx (714.40 kb)](/files/2011/6/Cost+architecting+for+Windows+Azure+-+NDC+2011.pptx)
-- [Windows Azure - Under the hood - NDC 2011.pptx (2.37 mb)](/files/2011/6/Windows+Azure+-+Under+the+hood+-+NDC+2011.pptx)
+- [Cost architecting for Windows Azure - NDC 2011.pptx (714.40 kb)](/files/Cost%20architecting%20for%20Windows%20Azure%20-%20NDC%202011.pptx)
+- [Windows Azure - Under the hood - NDC 2011.pptx (2.37 mb)](/files/Windows%20Azure%20-%20Under%20the%20hood%20-%20NDC%202011.pptx)
 
 Going for noodles now. Cheers!

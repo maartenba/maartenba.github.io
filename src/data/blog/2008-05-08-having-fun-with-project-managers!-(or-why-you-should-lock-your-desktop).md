@@ -27,7 +27,7 @@ My project manager is one of those people who do not lock their computer when aw
 	Remove all real icons from the user's desktop (copy them somewhere to cause no real harm!)
 
 -
-	Wait till the user gets back and starts clicking on his desktop "icons"... NOT ![Cool](/admin/tiny_mce/plugins/emotions/images/smiley-cool.gif)
+	Wait till the user gets back and starts clicking on his desktop "icons"... NOT 😎
 
 
 ## 2. Cake for everyone!
@@ -39,7 +39,7 @@ My project manager is one of those people who do not lock their computer when aw
 	Send a message to the entire team saying "I'm treating everyone with cake!" (other option: "I'm buying a beer for everyone!")
 
 -
-	Keep reminding the user of his nice e-mail ![Cool](/admin/tiny_mce/plugins/emotions/images/smiley-cool.gif)
+	Keep reminding the user of his nice e-mail 😎
 
 
 ## 3. Right-click here...

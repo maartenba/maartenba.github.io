@@ -14,7 +14,7 @@ redirect_from:
 
 If you're building workloads on Azure Functions, there's a good chance you've looked at building custom bindings. Custom bindings can greatly reduce the boilerplate code you have to write in an Azure Function, so you can focus on the logic in your function instead.
 
-There are various examples of custom bindings out there, including several that I wrote while working on [*Indexing and searching NuGet.org with Azure Functions and Search*](/post/2019/07/30/indexing-searching-nuget-with-azure-functions-and-search.html).
+There are various examples of custom bindings out there, including several that I wrote while working on [*Indexing and searching NuGet.org with Azure Functions and Search*](/posts/2019-07-30-indexing-searching-nuget-with-azure-functions-and-search/).
 
 And then .NET 5 came, along with the new [Azure Functions .NET Isolated Worker](https://github.com/Azure/azure-functions-dotnet-worker). Not a lot of documentation out there, and custom bindings don't seem to work anymore...
 
@@ -86,7 +86,7 @@ Bindings can *trigger* functions (e.g. a timer interval, or when a message is av
 
 You can also create custom bindings. For example, [Christan Weyer created a SQL Input binding](https://github.com/thinktecture/azure-functions-extensibility) that lets us grab data from a SQL query, there's a [sample binding to send messages to Slack](https://github.com/lindydonna/SlackOutputBinding), and many more exist.
 
-> **Note:** I recommend reading my earlier post, [Indexing and searching NuGet.org with Azure Functions and Search](/post/2019/07/30/indexing-searching-nuget-with-azure-functions-and-search.html), to get some practical examples of custom bindings.
+> **Note:** I recommend reading my earlier post, [Indexing and searching NuGet.org with Azure Functions and Search](/posts/2019-07-30-indexing-searching-nuget-with-azure-functions-and-search/), to get some practical examples of custom bindings.
 
 ## Azure Functions vs. Azure Functions .NET Isolated Worker
 

@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/10/30/creating-a-generic-linq-to-sql-modelbinder-for-the-asp-net-mvc-framework.html
 ---
-You are right! This is indeed my third post on ASP.NET MVC ModelBinders. The first one focussed on creating a [ModelBinder from scratch](/post/2008/09/01/using-the-aspnet-mvc-modelbinder-attribute.aspx) in an older preview release, the second post did something similar trying to do [some dirty ViewState-like stuff](/post/2008/10/02/using-the-aspnet-mvc-modelbinder-attribute-second-part.aspx). Good news! There's more of this dirty stuff coming!
+You are right! This is indeed my third post on ASP.NET MVC ModelBinders. The first one focussed on creating a [ModelBinder from scratch](/posts/2008-09-01-using-the-aspnet-mvc-modelbinder-attribute/) in an older preview release, the second post did something similar trying to do [some dirty ViewState-like stuff](/posts/2008-10-02-using-the-aspnet-mvc-modelbinder-attribute-second-part/). Good news! There's more of this dirty stuff coming!
 
 How about this action method, using a *Person* class which is a Linq to SQL entity type:
 

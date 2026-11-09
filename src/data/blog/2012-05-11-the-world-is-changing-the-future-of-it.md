@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/05/11/the-world-is-changing-the-future-of-it.html
 ---
-[![](/images/image_thumb_138.png)](/images/image_172.png)I’ve had my say on cloud and the new world of IT already in an earlier post, [Predictions for the future](/post/2011/12/15/Predictions-for-the-future.aspx). Today, I’m seeing signs the world is in fact starting to change. Sites like [Instagram](http://www.instagram.com) started small and grew big in no time. Were the founders IT wonders? No. And you don’t have to be.
+[![](/images/image_thumb_138.png)](/images/image_172.png)I’ve had my say on cloud and the new world of IT already in an earlier post, [Predictions for the future](/posts/2011-12-15-predictions-for-the-future/). Today, I’m seeing signs the world is in fact starting to change. Sites like [Instagram](http://www.instagram.com) started small and grew big in no time. Were the founders IT wonders? No. And you don’t have to be.
 
 
 Not so long ago, it would have taken you a lot of time and resources to get your idea up and running on the Internet. Especially if it required multiple datacenters and scalability. You would have to deploy a bunch of servers and make sure you had an agile IT environment in place in order to get things running and keep things flexible, a key requirement for many startups but also for large organizations.

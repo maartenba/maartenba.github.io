@@ -12,9 +12,9 @@ redirect_from:
 ---
 One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:
 
-- [Put your cloud on a diet (or: Windows Azure and scaling: why?)](/post/2011/03/09/Put-your-cloud-on-a-diet-(or-Windows-Azure-and-scaling-why).aspx)
+- [Put your cloud on a diet (or: Windows Azure and scaling: why?)](/posts/2011-03-09-put-your-cloud-on-a-diet-or-windows-azure-and-scaling-why/)
 - Windows Azure and scaling: how? (.NET) – the post you are currently reading
-- [Windows Azure and scaling: how? (PHP)](/post/2011/03/24/Windows-Azure-and-scaling-how-(PHP).aspx)
+- [Windows Azure and scaling: how? (PHP)](/posts/2011-03-24-windows-azure-and-scaling-how-php/)
 
 ## Creating and uploading a management certificate
 
@@ -25,7 +25,7 @@ makecert -sky exchange -r -n "CN=<CertificateName>" -pe -a sha1 -len 2048 -ss My
 
 ```
 
-Too anxious to try this out? Download my certificate files ([management.pfx (4.05 kb)](/files/2011/3/management.pfx) and [management.cer (1.18 kb)](/files/2011/3/management.cer)) and feel free to use it (password: phpazure). Beware that it’s not safe to use in production as I just shared this with the world (and you may be sharing your Windows Azure subscription with the world :-)).
+Too anxious to try this out? Download my certificate files ([management.pfx (4.05 kb)](/images/2011/3/management.pfx) and [management.cer (1.18 kb)](/images/2011/3/management.cer)) and feel free to use it (password: phpazure). Beware that it’s not safe to use in production as I just shared this with the world (and you may be sharing your Windows Azure subscription with the world :-)).
 
 Uploading the certificate through the management portal can be done under *Hosted Services > Management Certificates*.
 
@@ -195,6 +195,6 @@ namespace AutoScale
 
 Now schedule this (when needed) and enjoy the benefits of scaling your Windows Azure service.
 
-So you’re lazy? Here’s my sample project ([AutoScale.zip (26.31 kb)](/files/2011/3/AutoScale.zip)) and the certificates used ([management.pfx (4.05 kb)](/files/2011/3/management.pfx) and [management.cer (1.18 kb)](/files/2011/3/management.cer)).
+So you’re lazy? Here’s my sample project ([AutoScale.zip (26.31 kb)](/files/2011/3/AutoScale.zip)) and the certificates used ([management.pfx (4.05 kb)](/images/2011/3/management.pfx) and [management.cer (1.18 kb)](/images/2011/3/management.cer)).
 
 **Note: I use the .cer file here because I generated it on my machine. If you are using a certificate created on another machine, a .pfx file and it's key should be used.**

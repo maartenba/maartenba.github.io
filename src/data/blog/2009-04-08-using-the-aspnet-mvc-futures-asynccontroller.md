@@ -11,7 +11,7 @@ redirect_from:
   - /post/2009/04/08/using-the-asp-net-mvc-futures-asynccontroller.html
   - /post/2009/04/08/using-the-aspnet-mvc-futures-asynccontroller.html
 ---
-Last week, [I blogged about all stuff that is included in the ASP.NET MVC Futures assembly](/post/2009/04/02/Back-to-the-future!-Exploring-ASPNET-MVC-Futures.aspx), which is an assembly [available on CodePlex](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471) and contains possible future features (tonguetwister!) for the [ASP.NET MVC framework](http://www.asp.net/mvc). One of the comments asked for more information on the *AsyncController* that is introduced in the MVC Futures. So here goes!
+Last week, [I blogged about all stuff that is included in the ASP.NET MVC Futures assembly](/posts/2009-04-02-back-to-the-future-exploring-aspnet-mvc-futures/), which is an assembly [available on CodePlex](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471) and contains possible future features (tonguetwister!) for the [ASP.NET MVC framework](http://www.asp.net/mvc). One of the comments asked for more information on the *AsyncController* that is introduced in the MVC Futures. So here goes!
 
 ## Asynchronous pages
 

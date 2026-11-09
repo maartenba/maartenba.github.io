@@ -63,7 +63,7 @@ foreach (var postPath in postPaths)
 
 If all goes well, I should get a directory filled with Twitter cards for all of my blog posts, images like this:
 
-[![Example Twitter card](/images/cards/2020-04-14-building-an-aspnet-core-tag-helper-to-show-hide-ui-elements-based-on-authorization.markdown.png)](/post/2020/04/14/building-an-aspnet-core-tag-helper-to-show-hide-ui-elements-based-on-authorization.html)
+[![Example Twitter card](/images/cards/2020-04-14-building-an-aspnet-core-tag-helper-to-show-hide-ui-elements-based-on-authorization.markdown.png)](/posts/2020-04-14-building-an-aspnet-core-tag-helper-to-show-hide-ui-elements-based-on-authorization/)
 
 We're done here, right? Well, yes and no...
 

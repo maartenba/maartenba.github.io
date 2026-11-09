@@ -14,7 +14,7 @@ Back from PDC 2009 with a lot of information on [Windows Azure](http://www.azure
 
 Abstract: *"Put your stuff in the cloud! Windows Azure allows you to take advantage of cloud computing infranstructure for hosting, computing, and storage of your applications. In this demo filled session we take an existing ASP.Net Application and move it to be hosted in Windows Azure, while taking advantage of Windows Azure storage."*
 
-Example code can be downloaded here: [MSDN - Converting an existing ASP.NET application to Windows Azure.zip (2.01 mb)](/files/2009/11/MSDN+-+Converting+an+existing+ASP.NET+application+to+Windows+Azure.zip)
+Example code can be downloaded here: [MSDN - Converting an existing ASP.NET application to Windows Azure.zip (2.01 mb)](/files/2009/11/MSDN%20-%20Converting%20an%20existing%20ASP.NET%20application%20to%20Windows%20Azure.zip)
 
 [MSDN - Converting an existing ASP.NET application to Windows Azure](http://www.slideshare.net/maartenba/msdn-converting-an-existing-aspnet-application-to-windows-azure)<object style="margin:0px" width="425" height="355">
 

@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/01/29/phplinq-0-4-0-released-on-codeplex.html
 ---
-![PHPLinq](/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/phplinq_logo.png) I’m pleased to announce that [PHPLinq 0.4.0](http://www.phplinq.net) has been released on CodePlex. PHPLinq is currently [one year old](/post/2008/01/LINQ-for-PHP-Language-Integrated-Query-for-PHP.aspx), and I decided to add a huge step in functionality for the 0.4.0 release. This blog post will focus on the current status of PHPLinq and what it is capable of doing for you in a PHP project.
+![PHPLinq](/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/phplinq_logo.png) I’m pleased to announce that [PHPLinq 0.4.0](http://www.phplinq.net) has been released on CodePlex. PHPLinq is currently [one year old](/posts/2008-01-22-linq-for-php-language-integrated-query-for-php/), and I decided to add a huge step in functionality for the 0.4.0 release. This blog post will focus on the current status of PHPLinq and what it is capable of doing for you in a PHP project.
 
 
 ## What is PHPLinq?
@@ -212,6 +212,6 @@ $result = from('$item')->in($rssFeed->xpath('//channel/item'))
 
 ## Where to go now?
 
-There’s lots of other features in PHPLinq which I covered partially in previous blog posts ([this one](/post/2008/01/linq-for-php-language-integrated-query-for-php.aspx) and [this one](/post/2008/03/04/phplinq-version-020-released!.aspx)). For full examples, download PHPLinq from [www.phplinq.net](http://www.phplinq.net) and see for yourself.
+There’s lots of other features in PHPLinq which I covered partially in previous blog posts ([this one](/posts/2008-01-22-linq-for-php-language-integrated-query-for-php/) and [this one](/posts/2008-03-04-phplinq-version-020-released/)). For full examples, download PHPLinq from [www.phplinq.net](http://www.phplinq.net) and see for yourself.
 
 By the way, [PHPExcel](http://www.phpexcel.net) (another project of mine) and [PHPLinq](http://www.phplinq.net) seem to be listed in [Smashing Magazine's Top 50 list of extremely useful PHP tools](http://www.smashingmagazine.com/2009/01/20/50-extremely-useful-php-tools/). Thanks for this recognition!

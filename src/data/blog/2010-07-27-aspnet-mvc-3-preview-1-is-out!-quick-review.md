@@ -102,7 +102,7 @@ GlobalFilters.Filters.Add(new HandleErrorAttribute());
 
 This will automatically register that action filter attribute for every controller and action method.
 
-> **Fun fact:** I blogged about exactly this feature about a year ago: [Application-wide action filters in ASP.NET MVC](/post/2009/06/24/Application-wide-action-filters-in-ASPNET-MVC.aspx). Want it in ASP.NET MVC 2? [Go and get it](/post/2009/06/24/Application-wide-action-filters-in-ASPNET-MVC.aspx) :-)
+> **Fun fact:** I blogged about exactly this feature about a year ago: [Application-wide action filters in ASP.NET MVC](/posts/2009-06-24-application-wide-action-filters-in-aspnet-mvc/). Want it in ASP.NET MVC 2? [Go and get it](/posts/2009-06-24-application-wide-action-filters-in-aspnet-mvc/) :-)
 
 Cool, eh? Well… I do have mixed feelings about this… I can imagine there are situations where you want to do this more selectively. Here’s my call-out to the ASP.NET MVC team:
 
@@ -126,7 +126,7 @@ I’m going to be short on this one: there’s 4 new hooks for injecting depende
 
 More on that in my next post on ASP.NET MVC 3, as I think it deserves a full post rather than jut some smaller paragraphs.
 
-**Update:** Here's that next post on [ASP.NET MVC 3 and dependency injection / MEF](/post/2010/07/22/aspnet-mvc-3-and-mef-sitting-in-a-tree.aspx)
+**Update:** Here's that next post on [ASP.NET MVC 3 and dependency injection / MEF](/posts/2010-07-27-aspnet-mvc-3-and-mef-sitting-in-a-tree/)
 
 ## New action result types
 
@@ -142,4 +142,4 @@ I only touched the tip of the iceberg. There’s more to ASP.NET MVC 3 preview 1
 
 In short, I’m very positive about the amount of progress being made in this framework! Very pleased with the DI portion of it, on which I’ll do a blog post later.
 
-**Update:** Here's that next post on [ASP.NET MVC 3 and dependency injection / MEF](/post/2010/07/22/aspnet-mvc-3-and-mef-sitting-in-a-tree.aspx)
+**Update:** Here's that next post on [ASP.NET MVC 3 and dependency injection / MEF](/posts/2010-07-27-aspnet-mvc-3-and-mef-sitting-in-a-tree/)

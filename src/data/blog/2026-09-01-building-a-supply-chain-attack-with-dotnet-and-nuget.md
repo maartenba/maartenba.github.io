@@ -125,7 +125,7 @@ A takeaway here: be rigorous in checking pull requests. Use [Copilot code review
 
 ## Dropper
 
-With some infection vectors covered, let's move on to the dropper. How can you run code on a victim's machine, merely by installing a NuGet package? I covered most of these techniques in [a 2021 blog post](/post/2021/05/05/building-a-supply-chain-attack-with-dotnet-nuget-dns-source-generators-and-more.html) as well, but they've only gotten more powerful since then.
+With some infection vectors covered, let's move on to the dropper. How can you run code on a victim's machine, merely by installing a NuGet package? I covered most of these techniques in [a 2021 blog post](/posts/2021-05-05-building-a-supply-chain-attack-with-dotnet-nuget-dns--source-generators-and-more/) as well, but they've only gotten more powerful since then.
 
 ### Module Initializers
 
@@ -162,7 +162,7 @@ The only downside to `[ModuleInitializer]` is that the assembly/module must be l
 
 ### Source Generators
 
-Source generators are even more interesting. A NuGet package can ship a source generator that runs at compile time and injects code directly into the consuming project's compilation output. The generated code lives in the `obj/` folder, not in source control, so it's invisible in the repository. I used this technique in [my 2021 post](/post/2021/05/05/building-a-supply-chain-attack-with-dotnet-nuget-dns-source-generators-and-more.html) too, but here's the updated version with a CI-only trigger:
+Source generators are even more interesting. A NuGet package can ship a source generator that runs at compile time and injects code directly into the consuming project's compilation output. The generated code lives in the `obj/` folder, not in source control, so it's invisible in the repository. I used this technique in [my 2021 post](/posts/2021-05-05-building-a-supply-chain-attack-with-dotnet-nuget-dns--source-generators-and-more/) too, but here's the updated version with a CI-only trigger:
 
 ```csharp
 [Generator]

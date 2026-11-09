@@ -12,10 +12,10 @@ redirect_from:
 ---
 ![](/images/session_state_load_balancing.png)It seems like amount of posts on ASP.NET's Session State keeps growing. Here's the list:
 
-- [ASP.NET Session State Partitioning](/post/2008/01/aspnet-session-state-partitioning.aspx)
-- [ASP.NET load balancing and ASP.NET state server (aspnet_state)](/post/2007/11/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).aspx)
+- [ASP.NET Session State Partitioning](/posts/2008-01-23-aspnet-session-state-partitioning/)
+- [ASP.NET load balancing and ASP.NET state server (aspnet_state)](/posts/2007-11-22-aspnet-load-balancing-and-aspnet-state-server-aspnet_state/)
 
-Yesterday's [post on Session State Partitioning](/post/2008/01/aspnet-session-state-partitioning.aspx) used a round-robin method for partitioning session state over different state server machines. The solution I presented actually works, but can still lead to performance bottlenecks.
+Yesterday's [post on Session State Partitioning](/posts/2008-01-23-aspnet-session-state-partitioning/) used a round-robin method for partitioning session state over different state server machines. The solution I presented actually works, but can still lead to performance bottlenecks.
 
 Let's say you have a web farm running multiple applications, all using the same pool of state server machines. When having multiple sessions in each application, the situation where one state server handles much more sessions than another state server could occur. For that reason, ASP.NET supports real load balancing of all session state servers.
 
@@ -113,7 +113,7 @@ The class we created will have to be registered in *web.config*. Here's how:
 
 ```
 
-You notice our custom *SessionIdManager* class is now registered to be the *sessionIDManager*. The *PartitionResolver* I [blogged about](/post/2008/01/aspnet-session-state-partitioning.aspx) is also present in a modified version.
+You notice our custom *SessionIdManager* class is now registered to be the *sessionIDManager*. The *PartitionResolver* I [blogged about](/posts/2008-01-23-aspnet-session-state-partitioning/) is also present in a modified version.
 
 ### 3. Using the correct state server for a specific session id
 

@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/01/04/working-with-windows-azure-command-line-tools-from-within-visual-studio.html
 ---
-Right after my last post ([Working with Windows Azure command line tools from PhpStorm](/post/2013/01/03/working-with-windows-azure-from-within-phpstorm.aspx)), the obvious question came to mind… Can I do Windows Azure things using the command line tools from within Visual Studio as well? Sure you can! At least if you have the NuGet Package Manager Console installed into your Visual Studio.
+Right after my last post ([Working with Windows Azure command line tools from PhpStorm](/posts/2013-01-03-working-with-windows-azure-from-within-phpstorm/)), the obvious question came to mind… Can I do Windows Azure things using the command line tools from within Visual Studio as well? Sure you can! At least if you have the NuGet Package Manager Console installed into your Visual Studio.
 
 For good order: you can use either the [PowerShell cmdlets](http://www.windowsazure.com/en-us/manage/downloads/) that are available or use the [Node-based tools](http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409) available ([how-to](http://fabriccontroller.net/blog/posts/using-the-windows-azure-cli-on-windows-and-from-within-visual-studio/)). In this post we’ll be using the PowerShell cmdlets. And once those are installed… there’s nothing you have to do to get these working in Visual Studio!
 

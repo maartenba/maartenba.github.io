@@ -9,7 +9,7 @@ tags: ["General", ".NET", "dotnet", "csharp"]
 author: Maarten Balliauw
 ---
 
-Back in 2023, [I wrote about discriminated unions in C#](/post/2023/09/18/discriminated-unions-in-csharp.html) and how C# developers had to work around the lack of language support using things like ASP.NET Core's `Results<>` type or the [OneOf](https://github.com/mcintyre321/OneOf) NuGet package. [Real C# language support (csharplang issue #113)](https://github.com/dotnet/csharplang/issues/113) had been open for years with no sign of a proper solution.
+Back in 2023, [I wrote about discriminated unions in C#](/posts/2023-09-18-discriminated-unions-in-csharp/) and how C# developers had to work around the lack of language support using things like ASP.NET Core's `Results<>` type or the [OneOf](https://github.com/mcintyre321/OneOf) NuGet package. [Real C# language support (csharplang issue #113)](https://github.com/dotnet/csharplang/issues/113) had been open for years with no sign of a proper solution.
 
 Well, the wait is over. C# 15, shipping with .NET 11 (preview), introduces first-class union types. Let's have a look.
 

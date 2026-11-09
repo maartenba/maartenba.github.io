@@ -23,4 +23,4 @@ Here are some additional links to get you started:
 - Videos of the worldwide [OpenXML workshops](http://openxmldeveloper.org/archive/2007/08/29/2066.aspx) by [Doug](http://blogs.msdn.com/dmahugh) and several others
 - [Brian Jones' blog](http://blogs.msdn.com/brian_jones), Office rogram manager
 - A small [Wordpad-alike C# project](http://www.openxml.biz/OpenXMLWriter.html) spitting out WordML, source code included!
-- My [own](/archive/tags/OpenXML/default.aspx) [blog posts](/archive/tags/XML/default.aspx) [Y]
+- My [own](/tags/open-xml/) [blog posts](/tags/open-xml/) [Y]

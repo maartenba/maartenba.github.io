@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/12/16/microsoft-launches-implementation-notes-for-odf.html
 ---
-![Document Interop Initiative](/images/WindowsLiveWriter/MicrosoftlaunchesImplementationNotesforO_DE6A/image_3.png) Just a quick post: at the [Document Operability workshop in Brussels on December 2](/post/2008/12/02/OpenXML-DII-workshop-Brussels-Quick-summary.aspx), Microsoft already announced they were going to do something with implementation notes. Here’s a scoop from my blog post on that:
+![Document Interop Initiative](/images/WindowsLiveWriter/MicrosoftlaunchesImplementationNotesforO_DE6A/image_3.png) Just a quick post: at the [Document Operability workshop in Brussels on December 2](/posts/2008-12-02-openxml-dii-workshop-brussels-quick-summary/), Microsoft already announced they were going to do something with implementation notes. Here’s a scoop from my blog post on that:
 
 “Here's another scoop: there will be a website containing implementer notes on Office 2007! The file format specification documents all file format features, the implemente notes actually document how a specific application is implementing the file format. Some examples: the file format specifies XLSX documents can have an error message specified in data validation scenarios. The implementer notes will tell that in Excel, the size of this error message is actually limited. Another example is that in Office 2007, the OpenXML can specify custom ribbons related to the document. This is not an OpenXML feature, but it allows to customise documents for a specific application. Sweet!”
 

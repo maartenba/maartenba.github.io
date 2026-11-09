@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/06/20/enlisting-an-ado-net-command-in-an-nhibernate-transaction.html
 ---
-For everyone who has read my [article on NHibernate](/archive/2006/12/26/article-in-net-magazine.aspx), here's a story for you...
+For everyone who has read my [article on NHibernate](/posts/2006-12-26-article-in-net-magazine/), here's a story for you...
 
 When building an application, everyone comes to a point where one needs to batch-update records in a database table, based on one or more criteria. Let's say, for example, there's a table "User" containing an activation date. And you want to remove all users that have activated in 1999. In a regular database environment, or when using ADO coding, one would write a DbCommand "DELETE FROM User WHERE activationdate < '2000-01-01'".
 

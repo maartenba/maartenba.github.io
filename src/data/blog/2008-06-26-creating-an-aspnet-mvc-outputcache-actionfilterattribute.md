@@ -199,4 +199,4 @@ private string GenerateKey(ControllerContext filterContext)
 
 There you go! Now note that you can add this *OutputCache* attribute to any controller and any controller action you  have in your application. The full source code is available for download here: [MvcCaching.zip (211.33 kb)](/files/2012/11/MvcCaching.zip) (full sample) or [OutputCache.zip (1.59 kb)](/files/2012/11/OutputCache.zip) (only attribute).
 
-**UPDATE:** Make sure to read part 2, available [here](/post/2008/07/extending-aspnet-mvc-outputcache-actionfilterattribute---adding-substitution.aspx).
+**UPDATE:** Make sure to read part 2, available [here](/posts/2008-07-01-extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution/).

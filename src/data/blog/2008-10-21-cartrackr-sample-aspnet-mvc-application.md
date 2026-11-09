@@ -11,7 +11,7 @@ redirect_from:
   - /post/2008/10/21/cartrackr-sample-asp-net-mvc-application.html
   - /post/2008/10/21/cartrackr-sample-aspnet-mvc-application.html
 ---
-[![](/images/WindowsLiveWriter/CarTrackrSampleASP.NETMVCapplication_C12F/CarTrackr_3.png)](http://www.codeplex.com/CarTrackr) Some people may have already noticed the link in my [VISUG session blog post](/post/2008/10/15/Introduction-to-ASPNET-MVC-for-VISUG-Presentation-materials.aspx.html), but for those who didn't... I've released my sample application [CarTrackr on CodePlex](http://www.codeplex.com/CarTrackr).
+[![](/images/WindowsLiveWriter/CarTrackrSampleASP.NETMVCapplication_C12F/CarTrackr_3.png)](http://www.codeplex.com/CarTrackr) Some people may have already noticed the link in my [VISUG session blog post](/posts/2008-10-15-introduction-to-aspnet-mvc-for-visug-presentation-materials/), but for those who didn't... I've released my sample application [CarTrackr on CodePlex](http://www.codeplex.com/CarTrackr).
 
 CarTrackr is a sample application for the ASP.NET MVC framework using the repository pattern and dependency injection using the Unity application block. It was written for various demos in presentations done by Maarten Balliauw.
 
@@ -34,7 +34,7 @@ Here's a list of technologies and techniques used:
 - Form validation is included on most forms, leveraging the ViewData.ModelState class
 - It is possible to sign in using [OpenID](http://openid.net/), for which the [ASP.NET MVC Membership](http://www.codeplex.com/MvcMembership) starter kit was used
 - LinqToSQL is used as the persistence layer
-- CarTrackr uses my [ASP.NET MVC sitemap provider](/post/2008/08/29/building-an-aspnet-mvc-sitemap-provider-with-security-trimming.aspx)
+- CarTrackr uses my [ASP.NET MVC sitemap provider](/posts/2008-08-29-building-an-aspnet-mvc-sitemap-provider-with-security-trimming/)
 - [Configuration Section Designer](http://www.codeplex.com/csd) was used to create a custom configuration section
 - Extension methods are created for including Silverlight charts (rendered with [Visifire](http://www.visifire.com/))
 - [Web 2.0 logo creator](http://creatr.cc/creatr/) was used to generate a classy logo

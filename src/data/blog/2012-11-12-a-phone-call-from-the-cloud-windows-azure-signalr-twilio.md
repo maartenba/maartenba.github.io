@@ -10,11 +10,11 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/11/12/a-phone-call-from-the-cloud-windows-azure-signalr-twilio.html
 ---
-*Note: this blog post used to be an article for the Windows Azure Roadtrip website. Since that one no longer exists, I decided to post the articles on my blog as well. Find the source code for this post here: [05 ConfirmPhoneNumberDemo.zip (1.32 mb)](/files/2012/11/05+ConfirmPhoneNumberDemo.zip).
+*Note: this blog post used to be an article for the Windows Azure Roadtrip website. Since that one no longer exists, I decided to post the articles on my blog as well. Find the source code for this post here: [05 ConfirmPhoneNumberDemo.zip (1.32 mb)](/files/2012/11/05%20ConfirmPhoneNumberDemo.zip).
 It has been written earlier this year, some versions of packages used (like jQuery or SignalR) may be outdated in this post. Live with it.*
 
 
-In the [previous blog post](/post/2012/11/12/Sending-e-mail-from-Windows-Azure.aspx) we saw how you can send e-mails from Windows Azure. Why not take communication a step further and make a phone call from Windows Azure? I’ve already mentioned that Windows Azure is a platform which will run your code, topped with some awesomesauce in the form of a large number of components that will speed up development. One of those components is the API provided by [Twilio](http://ahoy.twilio.com/azure), a third-party service.
+In the [previous blog post](/posts/2012-11-12-sending-e-mail-from-windows-azure/) we saw how you can send e-mails from Windows Azure. Why not take communication a step further and make a phone call from Windows Azure? I’ve already mentioned that Windows Azure is a platform which will run your code, topped with some awesomesauce in the form of a large number of components that will speed up development. One of those components is the API provided by [Twilio](http://ahoy.twilio.com/azure), a third-party service.
 
 
 Twilio is a telephony web-service API that lets you use your existing web languages and skills to build voice and SMS applications. Twilio Voice allows your applications to make and receive phone calls. Twilio SMS allows your applications to make and receive SMS messages. We’ll use Twilio Voice in conjunction with [jQuery](http://www.jquery.com) and [SignalR](http://www.github.com/signalr/signalr) to spice up a sign-up process.
@@ -261,4 +261,4 @@ Another action we’re doing here is generating some more TwiML (it’s fun!). W
 
 You see? Working with voice (and text messages too, if you want) isn’t that hard. It enables additional scenarios that can make your application stand out from all the many others out there. Enjoy!
 
-[05 ConfirmPhoneNumberDemo.zip (1.32 mb)](/files/2012/11/05+ConfirmPhoneNumberDemo.zip)
+[05 ConfirmPhoneNumberDemo.zip (1.32 mb)](/files/2012/11/05%20ConfirmPhoneNumberDemo.zip)

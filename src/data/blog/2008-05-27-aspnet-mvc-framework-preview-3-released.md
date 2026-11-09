@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/05/27/asp-net-mvc-framework-preview-3-released.html
 ---
-Don't know how I do it, but I think this blog post is [yet again](/post/2008/03/aspnet-mvc-framework-out-on-codeplex.aspx) the first one out there mentioning a new release of the ASP.NET framework (preview 3) ![Cool](/admin/tiny_mce/plugins/emotions/images/smiley-cool.gif)
+Don't know how I do it, but I think this blog post is [yet again](/posts/2008-03-21-aspnet-mvc-framework-out-on-codeplex/) the first one out there mentioning a new release of the ASP.NET framework (preview 3) 😎
 
 The official installation package can be [downloaded from the Microsoft site](http://www.microsoft.com/downloads/details.aspx?FamilyId=92F2A8F0-9243-4697-8F9A-FCF6BC9F66AB&displaylang=en). Source code is also [available from CodePlex](http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=13792).
 

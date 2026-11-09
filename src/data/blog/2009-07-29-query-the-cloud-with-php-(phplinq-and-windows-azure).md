@@ -21,8 +21,8 @@ $result = from('$employee')->in( array($storageClient, 'employees', 'AzureEmploy
 
 ```
 
-The Windows Azure Table Storage layer is provided by Microsoft’s [PHP SDK for Windows Azure](/post/2009/07/06/php-sdk-for-windows-azure-milestone-2-release.aspx) and leveraged by PHPLinq to enable querying “the cloud”.
+The Windows Azure Table Storage layer is provided by Microsoft’s [PHP SDK for Windows Azure](/posts/2009-07-06-php-sdk-for-windows-azure-milestone-2-release/) and leveraged by PHPLinq to enable querying “the cloud”.
 
 - More on [Windows Azure](http://www.azure.com/)?
-- More on [PHP SDK for Windows Azure](http://phpazure.codeplex.com)? (also see my [previous blog post](/post/2009/07/06/PHP-SDK-for-Windows-Azure-Milestone-2-release.aspx))
-- More on [PHPLinq](http://phplinq.codeplex.com/)? (also see my [previous blog post](/post/2009/01/29/PHPLinq-040-released-on-CodePlex!.aspx))
+- More on [PHP SDK for Windows Azure](http://phpazure.codeplex.com)? (also see my [previous blog post](/posts/2009-07-06-php-sdk-for-windows-azure-milestone-2-release/))
+- More on [PHPLinq](http://phplinq.codeplex.com/)? (also see my [previous blog post](/posts/2009-01-29-phplinq-040-released-on-codeplex/))

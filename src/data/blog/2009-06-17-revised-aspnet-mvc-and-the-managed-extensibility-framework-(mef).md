@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/06/17/revised-asp-net-mvc-and-the-managed-extensibility-framework-mef.html
 ---
-A while ago, I did a [blog post on combining ASP.NET MVC and MEF (Managed Extensibility Framework)](/post/2009/04/21/ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx), making it possible to “plug” controllers and views into your application as a module. I received a lot of positive feedback as well as a hard question from [Dan Swatik](http://www.danswatik.com/) who was experiencing a Server Error with this approach… Here’s a better approach to ASP.NET MVC and MEF.
+A while ago, I did a [blog post on combining ASP.NET MVC and MEF (Managed Extensibility Framework)](/posts/2009-04-21-aspnet-mvc-and-the-managed-extensibility-framework-mef/), making it possible to “plug” controllers and views into your application as a module. I received a lot of positive feedback as well as a hard question from [Dan Swatik](http://www.danswatik.com/) who was experiencing a Server Error with this approach… Here’s a better approach to ASP.NET MVC and MEF.
 
 ## The Exception
 

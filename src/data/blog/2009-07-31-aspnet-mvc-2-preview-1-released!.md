@@ -70,7 +70,7 @@ public class Person {
 
 Easy no? Now just use the model binder inside your controller and validation will occur “automagically”.
 
-Also check my [blog post on TwitterMatic](/post/2009/07/02/how-we-built-twittermaticnet-part-5-the-front-end.aspx) for another example.
+Also check my [blog post on TwitterMatic](/posts/2009-07-02-how-we-built-twittermaticnet-part-5-the-front-end/) for another example.
 
 ## HttpPost attribute
 

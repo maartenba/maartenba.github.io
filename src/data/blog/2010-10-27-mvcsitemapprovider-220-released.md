@@ -13,7 +13,7 @@ redirect_from:
 ---
 [![](http://download.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=mvcsitemap&DownloadId=137766&Build=17275)](http://mvcsitemap.codeplex.com/)
 
-I’m proud to announce that [MvcSiteMapProvider 2.2.0](http://mvcsitemap.codeplex.com/releases/view/54661) has just been uploaded to CodePlex. It should also be [available through NuPack](/post/2010/10/08/Using-MvcSiteMapProvider-throuh-NuPack.aspx) in the coming hours. This release has taken a while, but that’s because I’ve been making some important changes...
+I’m proud to announce that [MvcSiteMapProvider 2.2.0](http://mvcsitemap.codeplex.com/releases/view/54661) has just been uploaded to CodePlex. It should also be [available through NuPack](/posts/2010-10-08-using-mvcsitemapprovider-throuh-nupack/) in the coming hours. This release has taken a while, but that’s because I’ve been making some important changes...
 
 MvcSiteMapProvider is, as the name implies, an ASP.NET MVC SiteMapProvider implementation for the ASP.NET MVC framework. Targeted at ASP.NET MVC 2, it provides sitemap XML functionality and interoperability with the classic ASP.NET sitemap controls, like the SiteMapPath control for rendering breadcrumbs and the Menu control.
 
@@ -62,7 +62,7 @@ The following template is an example for rendering a sitemap node represented by
 
 ## New extensibility point
 
-In the previous release, a number of [extensibility points](/post/2010/08/03/MvcSiteMapProvider-210-released!.aspx) have been introduced. I [blogged about them before](/post/2010/08/03/MvcSiteMapProvider-210-released!.aspx). A newly introduced extensibility point is the *ISiteMapProviderEventHandler* . A class implementing *MvcSiteMapProvider.Extensibility.ISiteMapProviderEventHandler* can be registered to handle specific events, such as when adding a SiteMapNode.
+In the previous release, a number of [extensibility points](/posts/2010-08-03-mvcsitemapprovider-210-released/) have been introduced. I [blogged about them before](/posts/2010-08-03-mvcsitemapprovider-210-released/). A newly introduced extensibility point is the *ISiteMapProviderEventHandler* . A class implementing *MvcSiteMapProvider.Extensibility.ISiteMapProviderEventHandler* can be registered to handle specific events, such as when adding a SiteMapNode.
 
 Here’s an example to log all the nodes that are being added to an MVC sitemap:
 

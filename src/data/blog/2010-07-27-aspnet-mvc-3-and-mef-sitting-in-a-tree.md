@@ -24,7 +24,7 @@ First of all, there’s 4 new hooks for injecting dependencies:
 - When creating views (might be interesting!)
 - When using action filters
 
-In ASP.NET MVC 2, only one of these hooks was used for dependency injection: a controller factory was implemented, using a dependency injection framework under the covers. I did this once, [creating a controller factory that wired up MEF](/post/2009/06/17/Revised-ASPNET-MVC-and-the-Managed-Extensibility-Framework-(MEF).aspx) and made sure everything in the application was composed through a MEF container. That is, everything that is a controller or part thereof. No easy options for DI-ing things like action filters or views…
+In ASP.NET MVC 2, only one of these hooks was used for dependency injection: a controller factory was implemented, using a dependency injection framework under the covers. I did this once, [creating a controller factory that wired up MEF](/posts/2009-06-17-revised-aspnet-mvc-and-the-managed-extensibility-framework-mef/) and made sure everything in the application was composed through a MEF container. That is, everything that is a controller or part thereof. No easy options for DI-ing things like action filters or views…
 
 ASP.NET MVC 3 shuffled the cards a bit. ASP.NET MVC 3 now contains and uses the [Common Service Locator](http://commonservicelocator.codeplex.com/)’s *IServiceLocator* interface, which is used for resolving services required by the ASP.NET MVC framework. The IServiceLocator implementation should be registered in Global.asax using just one line of code:
 

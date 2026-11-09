@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2014/07/31/developing-for-the-tessel-with-webstorm.html
 ---
-[![](/images/image_thumb%5B1%5D_thumb.png)](/images/image_thumb%5B1%5D.png)In a [previous post](/post/2014/07/30/Getting-Started-with-the-Tessel.aspx), I mentioned that (finally) my [Tessel](http://tessel.io) arrived, “an internet-connected microcontroller programmable in JavaScript”. I like [WebStorm](http://www.jetbrains.com/webstorm) a lot as an IDE, and since the Tessel runs on JavaScript code (via node), why not see if WebStorm can be more than just an editor for Tessel development…
+[![](/images/image_thumb%5B1%5D_thumb.png)](/images/image_thumb%5B1%5D.png)In a [previous post](/posts/2014-07-30-getting-started-with-the-tessel/), I mentioned that (finally) my [Tessel](http://tessel.io) arrived, “an internet-connected microcontroller programmable in JavaScript”. I like [WebStorm](http://www.jetbrains.com/webstorm) a lot as an IDE, and since the Tessel runs on JavaScript code (via node), why not see if WebStorm can be more than just an editor for Tessel development…
 
 
 ## Developing JavaScript

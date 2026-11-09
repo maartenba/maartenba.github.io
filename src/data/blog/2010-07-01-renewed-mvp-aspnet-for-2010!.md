@@ -19,10 +19,10 @@ General Manager
 Community Support Services
 
 
-I wish to thank everyone who has been supporting me, encouraging me, challenging me and thus bringing me to a second year of MVP duty. I will try to achieve the same for next year: do a lot of [sessions](/page/Talks-Presentations.aspx), work on open-source, do blog posts, …
+I wish to thank everyone who has been supporting me, encouraging me, challenging me and thus bringing me to a second year of MVP duty. I will try to achieve the same for next year: do a lot of [sessions](/talks-presentations/), work on open-source, do blog posts, …
 
 
 With that: if you are not yet at lest challenging me, please do start doing this. It only helps me to learn from your problems which will in turn help the whole community to learn from it.
 
 
-I can almost copy my [blog post from last year](/post/2009/07/02/Im-an-MVP-ASPNET!.aspx) on the next part: I will leave the community for the next weeks to enjoy a nice vacation in Austria. No, not traveling for work this time. My next two weeks community will be a community of mountains, sun, große Bier and rest (not REST!). See you!
+I can almost copy my [blog post from last year](/posts/2009-07-02-im-an-mvp-aspnet/) on the next part: I will leave the community for the next weeks to enjoy a nice vacation in Austria. No, not traveling for work this time. My next two weeks community will be a community of mountains, sun, große Bier and rest (not REST!). See you!

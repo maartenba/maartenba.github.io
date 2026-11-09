@@ -10,7 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/05/30/scaffolding-and-packaging-a-windows-azure-project-in-php.html
 ---
-[![](/images/image_thumb_84.png)](/images/image_114.png)With the fresh release of the [Windows Azure SDK for PHP v3.0](/post/2011/05/26/Windows-Azure-SDK-for-PHP-v30-released.aspx), it’s time to have a look at the future. One of the features we’re playing with is creating a full-fledged replacement for the current [Windows Azure Command-Line tools](http://azurephptools.codeplex.com/) available. These tools sometimes are a life saver and sometimes a big PITA due to baked-in defaults and lack of customization options. And to overcome that last one, here’s what we’re thinking of: scaffolders.
+[![](/images/image_thumb_84.png)](/images/image_114.png)With the fresh release of the [Windows Azure SDK for PHP v3.0](/posts/2011-05-26-windows-azure-sdk-for-php-v30-released/), it’s time to have a look at the future. One of the features we’re playing with is creating a full-fledged replacement for the current [Windows Azure Command-Line tools](http://azurephptools.codeplex.com/) available. These tools sometimes are a life saver and sometimes a big PITA due to baked-in defaults and lack of customization options. And to overcome that last one, here’s what we’re thinking of: scaffolders.
 
 Basically what we’ll be doing is splitting the packaging process into two steps:
 
@@ -25,7 +25,7 @@ By the way: feedback is very welcome! Just comment on this post and I’ll get i
 
 Scaffolding a Windows Azure project consists of creating a “template” for your Windows Azure project. The idea is that we can provide one or more default scaffolders that can generate a template for you, but there’s no limitation on creating your own scaffolders (or using third party scaffolders).
 
-The default scaffolder currently included is based on a [blog post I did earlier about having a lightweight deployment](/post/2011/04/04/Lightweight-PHP-application-deployment-to-Windows-Azure.aspx). Creating a template for a Windows Azure project is pretty simple:
+The default scaffolder currently included is based on a [blog post I did earlier about having a lightweight deployment](/posts/2011-04-04-lightweight-php-application-deployment-to-windows-azure/). Creating a template for a Windows Azure project is pretty simple:
 
 ```
 

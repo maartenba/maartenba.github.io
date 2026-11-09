@@ -12,7 +12,7 @@ redirect_from:
   - /post/2017/01/03/exploring-dotnet-managed-heap-with-clrmd.html
   - /post/2017/01/03/exploring-.net-managed-heap-with-clrmd.html
 ---
-Since my posts on [making code allocate less memory](/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html) and [memory allocation for strings](/post/2016/11/15/exploring-memory-allocation-and-strings.html) were quite well received, I decided to add another post to the series: ***Exploring .NET managed heap with ClrMD***. In this post, we'll explore what is inside .NET's managed heap (you know, the thing where we alocate our objects), how it's structured and how we can do some cool tricks with it. We'll even replicate [dotMemory's dominators/path to root](https://www.jetbrains.com/help/dotmemory/Retained_by.html) feature.
+Since my posts on [making code allocate less memory](/posts/2016-10-19-making-net-code-less-allocatey-garbage-collector/) and [memory allocation for strings](/posts/2016-11-15-exploring-memory-allocation-and-strings/) were quite well received, I decided to add another post to the series: ***Exploring .NET managed heap with ClrMD***. In this post, we'll explore what is inside .NET's managed heap (you know, the thing where we alocate our objects), how it's structured and how we can do some cool tricks with it. We'll even replicate [dotMemory's dominators/path to root](https://www.jetbrains.com/help/dotmemory/Retained_by.html) feature.
 
 So what is ClrMD? ClrMD is the short name for the [Microsoft.Diagnostics.Runtime](http://www.nuget.org/packages/Microsoft.Diagnostics.Runtime) package which lets us inspect a crash dump or attach to a live process and perform all sorts of queries against the runtime. For example walking the heap (which we'll do later), inspecting the finalizer queue, and more.
 
@@ -298,7 +298,7 @@ The profiler shows us the path from the GC root to our object, helping us in fig
 ![Object retention path in JetBrains dotMemory](/images/2017-01-03-exploring-.net-managed-heap-with-clrmd/dotmemory-retention.png)
 
 **Quick note:**
-  What's this *GC root* you speak about, Maarten? Remember that [the Garbage Collector (GC) checks if an object is still referenced or not](/post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html) and cleans up memory based on that information? The GC root is the highest level in our memory stack from which an object can be referenced. They, in turn, can reference other objects. Think of GC roots as the entry point into a tree of other referenced objects, where the GC root is a parent of all the objects in this tree if we'd walk it entirely.
+  What's this *GC root* you speak about, Maarten? Remember that [the Garbage Collector (GC) checks if an object is still referenced or not](/posts/2016-10-19-making-net-code-less-allocatey-garbage-collector/) and cleans up memory based on that information? The GC root is the highest level in our memory stack from which an object can be referenced. They, in turn, can reference other objects. Think of GC roots as the entry point into a tree of other referenced objects, where the GC root is a parent of all the objects in this tree if we'd walk it entirely.
 
 Now let's see if we can find out which object is keeping our `Clock` in memory using ClrMD! First of all, we'd need to acquire a reference to our heap again. Next, we'll enumerate all object addresses in the heap and get type information for them. If the runtime type is our `Clock`, we'll investigate the retention path.
 

@@ -13,7 +13,7 @@ redirect_from:
 ---
 [![](/images/WindowsLiveWriter/UpdatedCarTrackrtoASP.NETMVCRC_7A3D/image_6a85bd63-e0f1-4e0a-a1bb-4a2143240f0e.png)](http://www.cartrackr.net) As you may have noticed, [ASP.NET MVC 1.0 Release Candidate](http://go.microsoft.com/fwlink/?LinkID=141184&clcid=0x409) has been released over the night. You can read all about it in [ScottGu’s blog post](http://weblogs.asp.net/scottgu/archive/2009/01/27/asp-net-mvc-1-0-release-candidate-now-available.aspx), covering all new tools that have been released with the RC.
 
-Since I’ve been trying to [maintain a small reference application for ASP.NET MVC known as CarTrackr](/post/2008/10/21/cartrackr-sample-aspnet-mvc-application.aspx), I have updated the source code to reflect some changes in the ASP.NET MVC RC. You can download it directly from the CodePlex project page at [www.cartrackr.net](http://www.cartrackr.net).
+Since I’ve been trying to [maintain a small reference application for ASP.NET MVC known as CarTrackr](/posts/2008-10-21-cartrackr-sample-aspnet-mvc-application/), I have updated the source code to reflect some changes in the ASP.NET MVC RC. You can download it directly from the CodePlex project page at [www.cartrackr.net](http://www.cartrackr.net).
 
 Here’s what I have updated (copied from the [release notes](http://go.microsoft.com/fwlink/?LinkID=137661&clcid=0x409)):
 

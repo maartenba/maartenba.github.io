@@ -38,4 +38,4 @@ This deck talks about the different storage concepts and how to use them in PHP.
 
 ## Sample code
 
-As a demo, I had *ImageCloud*, a web application similar to [Flickr](http://www.flickr.com). Here’s the sample code: [ImageCloud.rar (5.00 mb)](/files/2010/2/ImageCloud.rar)
+As a demo, I had *ImageCloud*, a web application similar to [Flickr](http://www.flickr.com). Here’s the sample code: [ImageCloud.rar (5.00 mb)](/images/2010/2/ImageCloud.rar)
