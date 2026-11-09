@@ -13,6 +13,7 @@ import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import EthicalAd from "@/components/EthicalAd.astro";
+import { getRelatedPosts } from "@/utils/getRelatedPosts";
 import { SITE } from "@/config";
 
 export interface Props {
@@ -69,6 +70,8 @@ const layoutProps = {
   tags,
   ogImageGenerated: !!ogImageUrl && ogImageUrl.endsWith("/index.png"),
 };
+
+const relatedPosts = getRelatedPosts(post, posts, 3);
 
 /* ========== Prev/Next Posts ========== */
 
@@ -208,6 +211,28 @@ const breadcrumbData = {
     </script>
 
     <hr class="my-6 border-dashed" />
+
+    {
+      relatedPosts.length > 0 && (
+        <section data-pagefind-ignore class="mb-8" aria-labelledby="related-posts">
+          <h2 id="related-posts" class="mb-3 text-xl font-semibold">
+            Related posts
+          </h2>
+          <ul class="list-disc ps-5">
+            {relatedPosts.map(related => (
+              <li class="my-1.5">
+                <a
+                  href={getPath(related.id, related.filePath)}
+                  class="text-accent decoration-dashed underline-offset-4 hover:underline"
+                >
+                  {related.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     <!-- Previous/Next Post Buttons -->
     <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">
