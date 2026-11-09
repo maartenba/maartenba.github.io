@@ -7,7 +7,7 @@ import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import Datetime from "@/components/Datetime.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
-import { getPath } from "@/utils/getPath";
+import { getPostHref } from "@/utils/getPath";
 import { SITE } from "@/config";
 
 const posts = await getCollection("blog");
@@ -48,7 +48,7 @@ const recentPosts = getSortedPosts(posts).slice(0, 5);
             {recentPosts.map(post => (
               <li class="flex flex-col gap-1">
                 <a
-                  href={getPath(post.id, post.filePath)}
+                  href={getPostHref(post.id, post.filePath)}
                   class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80 focus-visible:no-underline focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-accent"
                 >
                   {post.data.title}
