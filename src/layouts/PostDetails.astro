@@ -88,6 +88,9 @@ const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
 const nextPost =
   currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
 
+const cardClass =
+  "group flex flex-col gap-2 rounded-xl border border-border bg-background p-4 no-underline transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-md focus-visible:border-accent motion-reduce:transition-none motion-reduce:hover:translate-y-0";
+
 const postPath = getPostHref(post.id, post.filePath);
 const postUrl = new URL(postPath, SITE.website).href;
 
@@ -187,24 +190,29 @@ const breadcrumbData = {
 
     <hr class="my-8 border-dashed" />
 
-    <EditPost {hideEditPost} {post} class="mb-6" />
+    <div
+      data-pagefind-ignore
+      class="flex flex-col gap-5 rounded-xl border border-border bg-muted/40 p-5 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div class="flex flex-col items-start gap-3">
+        <EditPost {hideEditPost} {post} />
+        <p class="text-sm text-foreground/80">
+          <a
+            href="https://www.google.com/preferences/source?q=blog.maartenballiauw.be"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Add blog.maartenballiauw.be as a preferred source on Google"
+            aria-label="Prefer this blog on Google: add blog.maartenballiauw.be as a preferred source"
+            class="inline-block py-1 hover:text-accent"
+          >
+            &#9733; Prefer this blog on Google
+          </a>
+        </p>
+      </div>
+      <ShareLinks />
+    </div>
 
     <BackToTopButton />
-
-    <ShareLinks />
-
-    <p data-pagefind-ignore class="mt-4 text-sm opacity-70">
-      <a
-        href="https://www.google.com/preferences/source?q=blog.maartenballiauw.be"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Add blog.maartenballiauw.be as a preferred source on Google"
-        aria-label="Add blog.maartenballiauw.be as a preferred source on Google"
-        class="hover:text-accent"
-      >
-        &#9733; Prefer this blog on Google
-      </a>
-    </p>
 
     <script is:inline src="https://giscus.app/client.js"
             data-repo="maartenba/maartenba.github.io"
@@ -223,22 +231,51 @@ const breadcrumbData = {
             async>
     </script>
 
-    <hr class="my-6 border-dashed" />
+    <hr class="my-8 border-dashed" />
+
+    <!-- Previous/Next Post Cards -->
+    <nav data-pagefind-ignore aria-label="Previous and next posts" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {
+        prevPost && (
+          <a href={getPostHref(prevPost.id, prevPost.filePath)} class={`${cardClass} items-start`}>
+            <span class="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-foreground/80">
+              <IconChevronLeft class="size-5 flex-none rtl:rotate-180" />
+              Previous post
+            </span>
+            <span class="line-clamp-2 font-medium text-accent">{prevPost.title}</span>
+          </a>
+        )
+      }
+      {
+        nextPost && (
+          <a href={getPostHref(nextPost.id, nextPost.filePath)} class={`${cardClass} items-end text-end sm:col-start-2`}>
+            <span class="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-foreground/80">
+              Next post
+              <IconChevronRight class="size-5 flex-none rtl:rotate-180" />
+            </span>
+            <span class="line-clamp-2 font-medium text-accent">{nextPost.title}</span>
+          </a>
+        )
+      }
+    </nav>
 
     {
       relatedPosts.length > 0 && (
-        <section data-pagefind-ignore class="mb-8" aria-labelledby="related-posts">
-          <h2 id="related-posts" class="mb-3 text-xl font-semibold">
+        <section data-pagefind-ignore class="mt-10 !px-0" aria-labelledby="related-posts">
+          <h2 id="related-posts" class="mb-4 text-xl font-semibold">
             Related posts
           </h2>
-          <ul class="list-disc ps-5">
+          <ul class="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {relatedPosts.map(related => (
-              <li class="my-1.5">
-                <a
-                  href={getPostHref(related.id, related.filePath)}
-                  class="text-accent decoration-dashed underline-offset-4 hover:underline"
-                >
-                  {related.data.title}
+              <li class="flex">
+                <a href={getPostHref(related.id, related.filePath)} class={`${cardClass} w-full`}>
+                  <span class="line-clamp-3 text-sm font-medium text-accent">{related.data.title}</span>
+                  <span class="mt-auto flex flex-wrap items-center gap-x-2 text-xs text-foreground/80">
+                    <time datetime={new Date(related.data.pubDatetime).toISOString()}>
+                      {new Date(related.data.pubDatetime).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}
+                    </time>
+                    {related.data.tags[0] && <span># {related.data.tags[0]}</span>}
+                  </span>
                 </a>
               </li>
             ))}
@@ -246,38 +283,6 @@ const breadcrumbData = {
         </section>
       )
     }
-
-    <!-- Previous/Next Post Buttons -->
-    <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-      {
-        prevPost && (
-          <a
-            href={getPostHref(prevPost.id, prevPost.filePath)}
-            class="flex w-full gap-1 hover:opacity-75"
-          >
-            <IconChevronLeft class="inline-block flex-none rtl:rotate-180" />
-            <div>
-              <span>Previous Post</span>
-              <div class="text-sm text-accent/85">{prevPost.title}</div>
-            </div>
-          </a>
-        )
-      }
-      {
-        nextPost && (
-          <a
-            href={getPostHref(nextPost.id, nextPost.filePath)}
-            class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"
-          >
-            <div>
-              <span>Next Post</span>
-              <div class="text-sm text-accent/85">{nextPost.title}</div>
-            </div>
-            <IconChevronRight class="inline-block flex-none rtl:rotate-180" />
-          </a>
-        )
-      }
-    </div>
   </main>
   <Footer />
 </Layout>
@@ -336,6 +341,7 @@ const breadcrumbData = {
       link.className =
         "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
       link.href = "#" + heading.id;
+      link.setAttribute("aria-label", "Link to section: " + heading.textContent);
 
       const span = document.createElement("span");
       span.ariaHidden = "true";
