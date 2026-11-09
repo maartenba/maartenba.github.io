@@ -1,7 +1,8 @@
 ---
 layout: post
-title: "Discriminated unions in C# and .NET 11 (for real this time)"
+title: "Union types in C# 15: discriminated unions in .NET 11"
 pubDatetime: 2026-06-16T03:44:05Z
+description: "C# 15 adds a union keyword for discriminated unions in .NET 11: declaring union types, implicit conversions, exhaustive switch and null handling."
 comments: true
 published: true
 categories: ["post"]
@@ -11,7 +12,9 @@ author: Maarten Balliauw
 
 Back in 2023, [I wrote about discriminated unions in C#](/post/2023/09/18/discriminated-unions-in-csharp.html) and how C# developers had to work around the lack of language support using things like ASP.NET Core's `Results<>` type or the [OneOf](https://github.com/mcintyre321/OneOf) NuGet package. [Real C# language support (csharplang issue #113)](https://github.com/dotnet/csharplang/issues/113) had been open for years with no sign of a proper solution.
 
-Well, the wait is over. C# 15, shipping with .NET 11 (preview), introduces first-class union types. Let's have a look.
+Well, the wait is over. C# 15, shipping with .NET 11, introduces first-class union types. Let's have a look.
+
+The short version: a union type in C# is a type that is exactly one of a fixed set of case types, declared with `public union Pet(Cat, Dog, Bird);`. Each case converts implicitly to the union, and a `switch` over it must handle every case or the compiler warns you.
 
 ## A quick recap: the problem
 
@@ -202,7 +205,6 @@ Union types in C# 15 are currently in preview. To try them, you need a [.NET 11 
 </PropertyGroup>
 ```
 
-The [.NET 11 Preview 5 release notes](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview5/csharp.md) cover what's shipped so far, and the feature is still evolving before the final release.
 
 I'm genuinely excited about this one. [F# has had discriminated unions](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions) since the beginning, and C# developers have been asking for something equivalent since [csharplang issue #113](https://github.com/dotnet/csharplang/issues/113) was opened. Now that it's here, with exhaustiveness checking, implicit conversions, and clean pattern matching, it changes how you model domain concepts in C#. Not every problem needs a class hierarchy, and now you have a language-level way to say so.
 
