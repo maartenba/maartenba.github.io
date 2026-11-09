@@ -17,6 +17,19 @@ import { SITE } from "./src/config";
 import redirectFrom from "astro-redirect-from";
 import rewriteRedirects from "./src/utils/rewriteRedirects.js";
 import path from "node:path";
+import fs from "node:fs";
+
+// Map of post URL slug -> last modified date, used for <lastmod> in the sitemap
+const postLastMod = new Map<string, string>();
+for (const file of fs.readdirSync("src/data/blog")) {
+  if (!file.endsWith(".md")) continue;
+  const fm = fs.readFileSync(path.join("src/data/blog", file), "utf-8").split("---")[1] ?? "";
+  const date = (fm.match(/^modDatetime:\s*(\S+)/m) ?? fm.match(/^pubDatetime:\s*(\S+)/m))?.[1];
+  if (date && !Number.isNaN(Date.parse(date))) {
+    postLastMod.set(file.replace(/\.md$/, "").toLowerCase(), new Date(date).toISOString());
+  }
+}
+
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
@@ -43,6 +56,11 @@ export default defineConfig({
     rewriteRedirects(),
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
+      serialize: item => {
+        const slug = item.url.match(/\/posts\/([^/]+)\/?$/)?.[1]?.toLowerCase();
+        const lastmod = slug && postLastMod.get(slug);
+        return lastmod ? { ...item, lastmod } : item;
+      },
     }),
   ],
   markdown: {
