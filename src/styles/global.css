@@ -151,11 +151,22 @@ section#recent-posts li,
 section#recent-posts li:hover,
 .post-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 1px var(--accent), 0 4px 12px rgba(0, 0, 0, 0.08);
   background: var(--muted);
 }
 
 html[data-theme="dark"] section#recent-posts li:hover,
 html[data-theme="dark"] .post-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px var(--accent), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  section#recent-posts li,
+  .post-card {
+    transition: none;
+  }
+  section#recent-posts li:hover,
+  .post-card:hover {
+    transform: none;
+  }
 }

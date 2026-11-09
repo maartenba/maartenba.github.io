@@ -14,7 +14,7 @@
     }
 
     h2 {
-      @apply border-b border-border pb-2;
+      @apply border-s-4 border-b border-s-accent border-b-border ps-3 pb-2;
     }
 
     h3 {
@@ -32,7 +32,7 @@
     }
 
     a {
-      @apply break-words text-foreground decoration-dashed underline-offset-4 hover:text-accent focus-visible:no-underline;
+      @apply break-words text-foreground decoration-accent/60 decoration-dashed underline-offset-4 hover:text-accent hover:decoration-accent focus-visible:no-underline;
     }
 
     ul {
@@ -44,11 +44,11 @@
     }
 
     hr {
-      @apply border-border;
+      @apply border-dashed border-border;
     }
 
     img {
-      @apply mx-auto border border-border;
+      @apply mx-auto rounded-xl border border-border shadow-sm;
     }
 
     figcaption {
@@ -71,15 +71,15 @@
     }
 
     code {
-      @apply rounded bg-muted/75 p-1 break-words text-foreground before:content-none after:content-none;
+      @apply rounded-md border border-border bg-muted px-1.5 py-0.5 text-[0.875em] break-words text-foreground before:content-none after:content-none;
     }
 
     .astro-code code {
-      @apply flex-[1_0_100%] bg-inherit p-0;
+      @apply flex-[1_0_100%] rounded-none border-0 bg-inherit p-0 text-[1em];
     }
 
     blockquote {
-      @apply border-s-4 border-s-accent/80 break-words pl-4 opacity-80;
+      @apply rounded-e-xl border-s-4 border-s-accent bg-accent/5 py-1 pr-4 pl-4 break-words not-italic;
     }
 
     details {
@@ -97,7 +97,7 @@
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   .astro-code {
-    @apply flex border bg-(--shiki-light-bg) text-(--shiki-light) outline-border [&_span]:text-(--shiki-light);
+    @apply flex rounded-xl border shadow-sm bg-(--shiki-light-bg) text-(--shiki-light) outline-border [&_span]:text-(--shiki-light);
   }
 
   html[data-theme="dark"] .astro-code {
