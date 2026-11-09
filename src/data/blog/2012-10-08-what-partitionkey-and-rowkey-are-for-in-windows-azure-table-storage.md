@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "What PartitionKey and RowKey are for in Windows Azure Table Storage"
+title: "PartitionKey and RowKey in Azure Table Storage explained"
 pubDatetime: 2012-10-08T08:24:00Z
+modDatetime: 2026-11-09T08:00:00Z
+description: "PartitionKey picks the partition and RowKey identifies an entity within it. How to choose both in Azure Table Storage and Cosmos DB for Table, with C# code."
 comments: true
 published: true
 categories: ["post"]
@@ -10,9 +12,59 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/10/08/what-partitionkey-and-rowkey-are-for-in-windows-azure-table-storage.html
 ---
+
+PartitionKey decides which partition an entity lives in, and RowKey identifies the entity within that partition. Together they form the primary key of every entity in Azure Table Storage (and Azure Cosmos DB for Table). Both are strings of up to 1024 characters, you set them yourself, and your choice drives query speed and scalability.
+
+## PartitionKey and RowKey with Azure.Data.Tables
+
+This post started life in 2012, when it was still called Windows Azure. The concepts haven't changed, but the code has. Today you use the `Azure.Data.Tables` package, which works against both Azure Table Storage and Azure Cosmos DB for Table. A custom entity implements `ITableEntity` (or you use the dictionary-like `TableEntity`):
+
+```csharp
+using Azure;
+using Azure.Data.Tables;
+
+public class Order : ITableEntity
+{
+    public string PartitionKey { get; set; } = default!; // customer id
+    public string RowKey { get; set; } = default!;       // order id
+    public DateTimeOffset? Timestamp { get; set; }
+    public ETag ETag { get; set; }
+
+    public double Total { get; set; }
+}
+
+var table = new TableClient(connectionString, "Order");
+await table.CreateIfNotExistsAsync();
+
+await table.AddEntityAsync(new Order
+{
+    PartitionKey = "customer-42",
+    RowKey = "order-0001",
+    Total = 99.95
+});
+
+// Point query: PartitionKey + RowKey, the fastest way to read
+Order order = await table.GetEntityAsync<Order>("customer-42", "order-0001");
+
+// Partition scan: every order in one partition
+var orders = table.QueryAsync<Order>(o => o.PartitionKey == "customer-42");
+await foreach (var o in orders)
+{
+    Console.WriteLine(o.RowKey);
+}
+```
+
+Some limits from the Microsoft docs worth knowing: keys can't contain `/`, `\`, `#`, `?` or control characters, an entity is limited to 1 MB in Azure Table Storage (2 MB in Cosmos DB for Table), and the target throughput for a single partition is up to 2000 entities per second for 1 KB entities. If you hit a partition's limit, the service starts returning 503 (Server Busy) and you should retry with exponential backoff. Spreading data over more partitions is the fix.
+
+The docs rank queries as follows: a point query (PartitionKey and RowKey) is the most efficient, a range query on one partition is second, a partition scan filtering on another property is third, and a table scan without PartitionKey is very inefficient. Note that filtering on RowKey alone is still a table scan. Results come back sorted by PartitionKey and then RowKey, as strings, so pad numbers (`00000123`) if you want numeric order.
+
+The rest of this post is the original explanation. The partitioning story below still holds, even if the product has a new name.
+
+## Background: what PartitionKey and RowKey are for
+
 For the past few months, I’ve been coaching a “Microsoft Student Partner” (who has a great blog on [Kinect for Windows](http://www.kinectingforwindows.com/) by the way!) on Windows Azure. One of the questions he recently had was around *PartitionKey* and *RowKey* in Windows Azure Table Storage. What are these for? Do I have to specify them manually? Let’s explain…
 
-## Windows Azure storage partitions
+## Azure storage partitions
 
 All Windows Azure storage abstractions (Blob, Table, Queue) are built upon the same stack (whitepaper [here](http://www.sigops.org/sosp/sosp11/current/2011-Cascais/11-calder-online.pdf)). While there’s much more to tell about it, the reason why it scales is because of its partitioning logic. Whenever you store something on Windows Azure storage, it is located on some partition in the system. Partitions are used for scale out in the system. Imagine that there’s only 3 physical machines that are used for storing data in Windows Azure storage:
 
@@ -87,6 +139,6 @@ Having a Customer table containing all customers may be interesting to search wi
 
 And there's one more: your account name. Split data over multiple storage accounts and you have yet another "partition".
 
-## Conclusion
+## Choose them wisely
 
 In conclusion? Choose PartitionKey and RowKey wisely. The more meaningful to your application or business domain, the faster querying will be and the more efficient table storage will work in the long run.
