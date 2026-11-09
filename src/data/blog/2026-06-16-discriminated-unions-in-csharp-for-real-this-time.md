@@ -208,6 +208,4 @@ I'm genuinely excited about this one. [F# has had discriminated unions](https://
 
 Give it a spin on a codebase you're working on. I suspect you'll find a few places where a union type fits better than what you have today.
 
-If you want to take unions further, Khalid Abuhakmeh shows how to [build a serializable workflow with C# 15 union types](https://khalidabuhakmeh.com/posts/csharp-15-union-workflows/), including persisting and rehydrating union state as JSON, which the concepts above don't cover.
-
-If you need to read JSON payloads into a closed set of types, I covered that with a custom converter in [System.Text.Json polymorphic deserialization](/posts/2020-01-29-deserializing-json-into-polymorphic-classes-with-systemtextjson/).
+If you want to take unions further, Khalid Abuhakmeh shows how to [build a serializable workflow with C# 15 union types](https://khalidabuhakmeh.com/posts/csharp-15-union-workflows/), including persisting and rehydrating union state as JSON. And if you're stuck on an older .NET version and need to read JSON payloads into a closed set of types, I covered that with a custom converter in [System.Text.Json polymorphic deserialization](/posts/2020-01-29-deserializing-json-into-polymorphic-classes-with-systemtextjson/).
