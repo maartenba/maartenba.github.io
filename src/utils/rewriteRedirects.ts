@@ -40,6 +40,27 @@ function wrapInHtmlElement(content: string): string {
     return `<!doctype html><html><head>${headContent}</head><body>${bodyContent}</body></html>`;
 }
 
+/**
+ * Ensures redirect targets point at the final, trailing-slash URL.
+ * Without this, legacy URLs redirect to /posts/slug, which the host then
+ * 301s to /posts/slug/ (an extra hop), and the redirect's canonical tag
+ * disagrees with the canonical on the actual post page.
+ */
+function addTrailingSlashToTargets(content: string): string {
+    if (!/http-equiv="refresh"/i.test(content)) {
+        return content;
+    }
+    const fix = (target: string) => {
+        const [pathPart, rest = ""] = target.split(/(?=[?#])/);
+        if (pathPart.endsWith("/") || /\.[a-z0-9]+$/i.test(pathPart)) return target;
+        return `${pathPart}/${rest}`;
+    };
+    return content
+        .replace(/(content="\d+;url=)([^"]+)"/gi, (_, p, t) => `${p}${fix(t)}"`)
+        .replace(/(<link rel="canonical" href=")([^"]+)"/gi, (_, p, t) => `${p}${fix(t)}"`)
+        .replace(/(<a href=")([^"]+)"/gi, (_, p, t) => `${p}${fix(t)}"`);
+}
+
 export async function renameRedirectFiles(hookOptions: any) {
     const outDir: string = url.fileURLToPath(hookOptions.dir);
     const logger: AstroIntegrationLogger = hookOptions.logger;
@@ -70,7 +91,7 @@ export async function renameRedirectFiles(hookOptions: any) {
     // Perform rename (and wrap in <html>)
     for (const [from, to] of renameRedirects) {
         let fileContents = await fs.readFile(from, "utf-8");
-        fileContents = wrapInHtmlElement(fileContents);
+        fileContents = addTrailingSlashToTargets(wrapInHtmlElement(fileContents));
 
         await fs.rm(to, { recursive: true });
         await fs.writeFile(to, fileContents);
@@ -82,8 +103,9 @@ export async function renameRedirectFiles(hookOptions: any) {
     let wrappedCount = 0;
     for (const filePath of redirectFiles) {
         const content = await fs.readFile(filePath, "utf-8");
-        if (!content.includes("<html")) {
-            await fs.writeFile(filePath, wrapInHtmlElement(content));
+        const updated = addTrailingSlashToTargets(wrapInHtmlElement(content));
+        if (updated !== content) {
+            await fs.writeFile(filePath, updated);
             wrappedCount++;
         }
     }
