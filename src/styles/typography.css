@@ -162,14 +162,18 @@ html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#5F7E97"] {
     min-height: 6rem;
   }
 }
-/* Card (specificity beats the client's injected stylesheet) */
+/* Card (specificity beats the client's injected stylesheet).
+   A light accent tint and accent border make it visible without shouting. */
 div[data-ea-publisher].loaded.adaptive-css .ea-content {
-  @apply relative rounded-xl border border-border shadow-none transition-[border-color,box-shadow] duration-200 motion-reduce:transition-none;
+  @apply relative rounded-xl border shadow-sm transition-[border-color,box-shadow,background-color] duration-200 motion-reduce:transition-none;
   margin: 0;
   padding: 1rem 1.25rem;
+  background: color-mix(in srgb, var(--accent) 7%, var(--background));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
 }
 div[data-ea-publisher].loaded.adaptive-css .ea-content:hover {
   @apply border-accent shadow-md;
+  background: color-mix(in srgb, var(--accent) 11%, var(--background));
 }
 /* Whole card clickable: stretch the ad link over the card */
 div[data-ea-publisher].loaded.adaptive-css .ea-content a::after {
@@ -178,13 +182,40 @@ div[data-ea-publisher].loaded.adaptive-css .ea-content a::after {
   inset: 0;
   border-radius: inherit;
 }
-div[data-ea-publisher].loaded.adaptive-css .ea-content a:hover .ea-body,
-div[data-ea-publisher].loaded.adaptive-css .ea-content a:hover {
+div[data-ea-publisher].loaded.adaptive-css .ea-content a,
+div[data-ea-publisher].loaded.adaptive-css .ea-content a:hover .ea-body {
   text-decoration: none;
+  color: var(--foreground);
 }
-div[data-ea-publisher].loaded.adaptive-css .ea-content a strong {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-headline {
+  color: color-mix(in srgb, var(--accent) 80%, var(--foreground));
+  font-weight: 700;
+}
+/* Call to action (e.g. "Try TeamCity"): a small pill so it reads as a button */
+div[data-ea-publisher].loaded.adaptive-css .ea-content strong:not(.ea-headline),
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta {
+  display: inline-block;
+  margin-inline-start: 0.375rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 600;
+  white-space: nowrap;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content strong:not(.ea-headline)::after,
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta::after {
+  content: " \2192";
+}
+/* Ads without their own call to action get a subtle arrow after the body */
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-body::after {
+  content: " \2192";
+  color: var(--accent);
+  font-weight: 600;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-body:has(strong)::after,
+div[data-ea-publisher].loaded.adaptive-css .ea-content:has(.ea-cta, strong:not(.ea-headline)) .ea-body::after {
+  content: none;
 }
 div[data-ea-publisher].loaded.adaptive-css .ea-callout {
   margin: 0.375rem 0 0;
