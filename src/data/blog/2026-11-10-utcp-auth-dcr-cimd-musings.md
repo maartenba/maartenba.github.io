@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "UTCP vs MCP: how AI agent authentication would work (DCR, CIMD)"
+title: "UTCP vs MCP: what happens to agent auth without a server in the middle?"
 pubDatetime: 2026-11-10T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
 tags: ["General", "AI", "security", "OAuth"]
-description: "UTCP vs MCP and WebMCP: what MCP authorization looks like when AI agents call APIs directly, and whether agent auth still needs DCR or CIMD."
+description: "What MCP authorization looks like when AI agents call APIs directly, and whether agent auth still needs DCR or CIMD."
 author: Maarten Balliauw
 ---
 
@@ -18,7 +18,7 @@ UTCP is still a fairly small, community-driven open source project, without one 
 
 So consider this post as me thinking out loud: what would change if this model caught on?
 
-In short, UTCP lets AI agents call existing APIs straight from a JSON manual, without an MCP server in between. Authentication reuses whatever the API already supports, like API keys or OAuth client credentials, so agents acting on behalf of a user would still need the building blocks MCP authorization uses today, such as CIMD and protected resource metadata.
+UTCP lets AI agents call existing APIs straight from a JSON manual, without an MCP server in between. Authentication reuses whatever the API already supports, like API keys or OAuth client credentials, so agents acting on behalf of a user would still need the building blocks MCP authorization uses today, such as CIMD and protected resource metadata.
 
 ## Manuals instead of wrapper servers
 
@@ -114,7 +114,7 @@ The manual never contains the secret itself. The `${...}` placeholders tell the 
 
 For those placeholders to resolve, though, someone had to go to a developer portal first, register an app, and copy a client ID and secret (or an API key) into the agent's configuration. If you're building an agent that talks to your own APIs, that's fine. We've been wiring up backend integrations like that for twenty years, and it works.
 
-Where that breaks down is when the agent isn't yours. Picture a user installing an off-the-shelf agent that finds a tool its developer has never heard of, and wants to call it as that user. Nobody registered a client up front, so there's nothing to paste in. That's exactly the scenario that made MCP auth so painful in the first place (and is being solved by the industry).
+Where that breaks down is when the agent isn't yours. Picture a user installing an off-the-shelf agent that finds a tool its developer has never heard of, and wants to call it as that user. Nobody registered a client up front, so there's nothing to paste in. That's exactly the scenario that made MCP auth so painful in the first place (CIMD, which I get to below, is the industry's current answer).
 
 ## Client credentials don't represent the user
 
@@ -132,7 +132,7 @@ The newer answer, now recommended in the MCP authorization spec (which deprecate
 
 So what if UTCP catches on? As long as you stick to pre-configured credentials, it needs neither, because registration happens out of band the old-fashioned way. Once you want an agent to discover a manual and get a user-delegated token without a human copying secrets around, you hit the same wall MCP hit, since the agent needs a client identity at an authorization server it has never worked with.
 
-If anything, direct calls make this matter more for UTCP than for MCP. An MCP server sits in the middle and can broker authentication, but a UTCP agent calls your resource server directly and has to be a proper OAuth client itself. CIMD seems the natural fit because it scales to any agent calling any API without every API owner opening up a registration endpoint.
+If anything, direct calls make this matter more for UTCP than for MCP. An MCP server sits in the middle and can broker authentication, but a UTCP agent calls your resource server directly and has to be a proper OAuth client itself. CIMD seems the natural fit because it scales to any agent calling any API without every API owner opening up a registration endpoint. If you're on the side that issues the tokens, I wrote about [what an identity provider like IdentityServer does and when you need one](/posts/2026-06-11-what-is-identityserver-and-when-do-you-need-it/).
 
 I could see a UTCP manual pointing to [OAuth Protected Resource Metadata](https://datatracker.ietf.org/doc/html/rfc9728) instead of hardcoding a `token_url`. The resource tells the agent which authorization server to use, the agent identifies itself with a CIMD URL, and the user consents in a browser. All of those pieces exist already, they just aren't wired into the manual format.
 
@@ -144,14 +144,13 @@ A manual tells your agent where to send requests, and potentially where to send 
 
 UTCP's reference clients already guard against the obvious variants, such as plain HTTP and credential forwarding across origins. Still, the trust model differs from MCP, where you at least installed a specific server on purpose. With UTCP, whether a manual was actually published by the API owner matters a lot. Serving it from the API's own origin, at a well-known path, goes a long way, and signed manuals would go further.
 
-Binding tokens to an audience helps as well. If a token is restricted to one resource (using [resource indicators](https://datatracker.ietf.org/doc/html/rfc8707)) or sender-constrained with DPoP (the same idea behind [Device Bound Session Credentials](/posts/2026-09-16-device-bound-session-credentials-in-aspnet-core/) for browser cookies), a malicious manual that redirects calls elsewhere ends up with a token that's useless at the destination. None of that is specific to UTCP. It's standard OAuth practice, with a bit more at stake when agents call your API directly based on a manual someone else wrote.
+Binding tokens to an audience helps as well. If a token is restricted to one resource (using [resource indicators](https://datatracker.ietf.org/doc/html/rfc8707)) or sender-constrained with DPoP (the same idea behind [Device Bound Session Credentials](/posts/2026-09-16-device-bound-session-credentials-in-aspnet-core/) for browser cookies), a malicious manual that redirects calls elsewhere ends up with a token that's useless at the destination. It's standard OAuth practice, but the stakes go up when an agent calls your API based on a manual someone else wrote.
 
 ## Where this leaves us
 
-Whether or not UTCP itself becomes widely used, I like its core idea. Plenty of APIs don't need a wrapper server to be useful to an agent, just a machine-readable description and a working auth story. UTCP covers the description well and reuses existing auth where it can. If you're on the side that issues the tokens, I wrote about [what an identity provider like IdentityServer does and when you need one](/posts/2026-06-11-what-is-identityserver-and-when-do-you-need-it/).
+Whether or not UTCP itself becomes widely used, I like its core idea. Plenty of APIs don't need a wrapper server to be useful to an agent, just a machine-readable description and a working auth story. UTCP covers the description well and reuses existing auth where it can.
 
 What it doesn't have (yet?) is a big name behind it, and I suspect that will matter more for adoption than the merits of the format. MCP and WebMCP both have the large AI and browser vendors involved, and the standards around them have been moving quickly. MCP went stateless and moved from DCR to CIMD, and OAuth Protected Resource Metadata became an RFC. CIMD and ID-JAG are still IETF drafts, yet identity providers and agent platforms are already shipping support for them.
 
-Those products exist because companies need agents to act with the right user's permissions and leave an audit trail of who did what. If UTCP wants to work in that environment, its manuals will need to hook into those same OAuth standards.
+Those identity providers and platforms exist because companies need agents to act with the right user's permissions and leave an audit trail of who did what. If UTCP wants to work in that environment, its manuals will need to hook into those same OAuth standards.
 
-Still, I like the question UTCP asks. If you already run an HTTP API, why run another server just to describe it to an agent? Whether UTCP wins or MCP absorbs the idea, it's something to watch.
