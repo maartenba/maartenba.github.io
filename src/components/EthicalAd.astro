@@ -9,6 +9,17 @@
   // https://ethical-ad-client.readthedocs.io/en/latest/#single-page-apps
   if (!window.__eaReloadBound) {
     window.__eaReloadBound = true;
+    // The ad client injects its stylesheet into <head> once. ClientRouter
+    // replaces <head> on navigation, which drops it (unstyled ad, visible
+    // tracking pixel). Carry those <style> tags over into the incoming page.
+    document.addEventListener("astro:before-swap", event => {
+      document.head.querySelectorAll("style").forEach(style => {
+        const css = style.textContent || "";
+        if (css.includes(".ea-") || css.includes("[data-ea-")) {
+          event.newDocument.head.appendChild(style.cloneNode(true));
+        }
+      });
+    });
     let firstLoad = true;
     document.addEventListener("astro:page-load", () => {
       if (firstLoad) {
