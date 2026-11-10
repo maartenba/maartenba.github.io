@@ -5,15 +5,16 @@ pubDatetime: 2009-09-29T19:38:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "Events", "General", "MVC", "Presentations", "Testing"]
+tags:
+  ["ASP.NET", "CSharp", "Events", "General", "MVC", "Presentations", "Testing"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2009/09/29/remix-2009-session-slides-and-code.html
 ---
+
 [![](/images/2009/9/maartenatremix.jpg)](/images/2009/9/maartenatremix.jpg)As promised during the session at Remix 2009, here’s my example code and slide deck.
 
-
-Abstract: *"Building a Twitter clone in 60 minutes, featuring what's new in ASP.NET MVC 2 preview 1 and focusing on some of the core ASP.NET MVC features like security and routing."*
+Abstract: _"Building a Twitter clone in 60 minutes, featuring what's new in ASP.NET MVC 2 preview 1 and focusing on some of the core ASP.NET MVC features like security and routing."_
 
 [ASP.NET MVC Wisdom](http://www.slideshare.net/maartenba/aspnet-mvc-wisdom)<object style="margin:0px" width="425" height="355">
 

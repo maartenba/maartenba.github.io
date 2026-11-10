@@ -26,9 +26,9 @@ Before we dive into how the development and release side of things work, let's f
 
 The project essentially contains two applications:
 
-* Our SPA application, which lives under the `ClientApp` folder, including its `package.json`, `node_modules` and so on. In this case, a React app.
+- Our SPA application, which lives under the `ClientApp` folder, including its `package.json`, `node_modules` and so on. In this case, a React app.
 
-* Our server-side application, which is a regular ASP.NET Core application with its `Startup.cs` to bootstrap its behaviour.
+- Our server-side application, which is a regular ASP.NET Core application with its `Startup.cs` to bootstrap its behaviour.
 
 ## Development experience
 
@@ -79,8 +79,8 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 What's happening here?
 
-* `UseSpaStaticFiles()` registers the middleware that will serve up the files from the path we just configured in `ConfigureServices`.
-* `UseSpa()` registers the middleware that ensures our app is built. If you publish without there being any files in `ClientApp/build`, it will render a nice error message inforing us about that fact.
+- `UseSpaStaticFiles()` registers the middleware that will serve up the files from the path we just configured in `ConfigureServices`.
+- `UseSpa()` registers the middleware that ensures our app is built. If you publish without there being any files in `ClientApp/build`, it will render a nice error message inforing us about that fact.
 
 The most interesting thing here for the development experience is this:
 
@@ -128,11 +128,11 @@ As we have seen, during development, ASP.NET Core runs `npm run start` and proxi
 
 Ideally when publishing our application, we want to run `npm run build` so that all artifacts required by our SPA are generated in `ClientApp/build`, then include that folder in our ASP.NET Core build output so it can be served by the middleware we registered using `UseSpaStaticFiles()` earlier.
 
-As it turns out, this is *exactly* what happens! Again in our project file, an MSBuild target named `PublishRunWebpack` was added, which will, as part of running `msbuild /t:Publish`, do a couple of things for us:
+As it turns out, this is _exactly_ what happens! Again in our project file, an MSBuild target named `PublishRunWebpack` was added, which will, as part of running `msbuild /t:Publish`, do a couple of things for us:
 
-* Run `npm install` to ensure dependencies are up-to-date
-* Run `npm run build` to perform anything React needs to do in order to generate the static ouput for our SPA
-* Add all files from the `ClientApp/build` folder into the ASP.NET Core application distribution.
+- Run `npm install` to ensure dependencies are up-to-date
+- Run `npm run build` to perform anything React needs to do in order to generate the static ouput for our SPA
+- Add all files from the `ClientApp/build` folder into the ASP.NET Core application distribution.
 
 Again, suprisingly simple(ish) and elegant!
 

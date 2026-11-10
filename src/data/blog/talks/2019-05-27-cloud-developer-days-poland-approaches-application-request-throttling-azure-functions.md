@@ -13,8 +13,8 @@ redirect_from:
 
 Thanks to the folks organizing [Cloud Developer Days Poland](https://cloud.developerdays.pl), I had the opportunity to give two talks in Krakow, Poland this week:
 
-* Approaches for application request throttling
-* Indexing and searching NuGet.org with Azure Functions and Search
+- Approaches for application request throttling
+- Indexing and searching NuGet.org with Azure Functions and Search
 
 As promised, here are the slides for both.
 

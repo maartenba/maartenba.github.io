@@ -11,6 +11,7 @@ redirect_from:
   - /post/2008/08/29/form-validation-with-asp-net-mvc-preview-5.html
   - /post/2008/08/29/form-validation-with-aspnet-mvc-preview-5.html
 ---
+
 In earlier ASP.NET MVC previews, form validation was something that should be implemented "by hand". Since the new [ASP.NET MVC preview 5](http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=16775), form validation has become more handy. Let me show you how you can add validation in such a ridiculously easy manner.
 
 Here's an example controller:
@@ -65,11 +66,11 @@ namespace ValidationExample.Controllers
 
 ```
 
-You may notice an starnge thing here... Why is Contact defined twice, and why is it with this strange *AcceptVerbs* attribute? The *AcceptVerbs* attribute determines which action method to call, based on the HTTP method of the request. In this case, when I do not post a form, the first action method will be called, simply rendering a view. When posting a form, the second action method will be called, allowing me to do some validations.
+You may notice an starnge thing here... Why is Contact defined twice, and why is it with this strange _AcceptVerbs_ attribute? The _AcceptVerbs_ attribute determines which action method to call, based on the HTTP method of the request. In this case, when I do not post a form, the first action method will be called, simply rendering a view. When posting a form, the second action method will be called, allowing me to do some validations.
 
-Speaking of validations... Notice that I can set errors on the *ViewData.ModelState* collection, and use this *ViewData.ModelState.IsValid* property to check if everything is OK.
+Speaking of validations... Notice that I can set errors on the _ViewData.ModelState_ collection, and use this _ViewData.ModelState.IsValid_ property to check if everything is OK.
 
-**UPDATE:** You can also use the controller's *UpdateModel* method (which updates a model object with form values) for setting data on the model. If the model throws an exception, this will be added to the *ViewData.ModelState* dictionary too.
+**UPDATE:** You can also use the controller's _UpdateModel_ method (which updates a model object with form values) for setting data on the model. If the model throws an exception, this will be added to the _ViewData.ModelState_ dictionary too.
 
 One thing left with validation: the view itself!
 
@@ -119,6 +120,6 @@ One thing left with validation: the view itself!
 
 ```
 
-Notice that there are 2 new *HtmlHelper* extension methods: *ValidationMessage* and *ValidationSummary*. The first one displays a validation message for one key in the *ViewData.ModelState* collection, while the latter displays a validation summary of all messages. Here's what my invalid post looks like:
+Notice that there are 2 new _HtmlHelper_ extension methods: _ValidationMessage_ and _ValidationSummary_. The first one displays a validation message for one key in the _ViewData.ModelState_ collection, while the latter displays a validation summary of all messages. Here's what my invalid post looks like:
 
 ![Validation example](/images/WindowsLiveWriter/FormvalidationwithASP.NETMVCpreview5_DB70/image_7ee0385b-42a6-476b-85fe-03ee588e36b4.png)

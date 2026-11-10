@@ -27,9 +27,9 @@ In this post, I'll cover a number of things. Use the table of contents to pick t
 
 Let's come up with a list of tools first. I would like to do a periodic one-way sync of my personal calendar (Office 365) to my work calendar ([JetBrains Space](https://jetbrains.com/space/)).
 
-* Periodic - We will need a tool to schedule execution
-* Office 365 - How to read entries from my personal calendar?
-* JetBrains Space - How to create/remove entries in my work calendar?
+- Periodic - We will need a tool to schedule execution
+- Office 365 - How to read entries from my personal calendar?
+- JetBrains Space - How to create/remove entries in my work calendar?
 
 For scheduling this task, I could use something like Azure Functions, but since I'll be pushing source code of this tool to a Space-hosted Git repository anyway, I can [use a Space automation task](https://blog.jetbrains.com/space/2020/10/08/space-automation-running-scripts-in-a-container/) for this.
 
@@ -51,15 +51,15 @@ This agenda sync application will run as a standalone "daemon", so make yourself
 
 For this to work, you will need to [register an application in your Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-daemon-app-registration) first. In the [app registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps), create a new application:
 
-* Name - This can be anything, I used "SpaceAgenda"
-* Supported account types - Make it a single-tenant application, so only users in your Azure AD can make use of it.
-* Redirect URI - Not needed.
+- Name - This can be anything, I used "SpaceAgenda"
+- Supported account types - Make it a single-tenant application, so only users in your Azure AD can make use of it.
+- Redirect URI - Not needed.
 
 Once created, gather the following keys:
 
-* Application (client) ID
-* Directory (tenant) ID
-* An access token - this can be created in the **Certificates & secrets** blade, as [decribed here](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-daemon-app-registration#add-a-client-secret-or-certificate).
+- Application (client) ID
+- Directory (tenant) ID
+- An access token - this can be created in the **Certificates & secrets** blade, as [decribed here](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-daemon-app-registration#add-a-client-secret-or-certificate).
 
 Almost there! In the **API permissions** blade, you will need to enable the `Calendars.Read` permission as an _application permission_, so that our application can actually read calendar data:
 
@@ -71,8 +71,8 @@ That's it. it should now be possible to access calendar data. Let's see how!
 
 In a new .NET 5 console application, add the following NuGet packages:
 
-* [`Microsoft.Graph`](https://www.nuget.org/packages/Microsoft.Graph/)
-* [`Microsoft.Identity.Client`](https://www.nuget.org/packages/Microsoft.Identity.Client/)
+- [`Microsoft.Graph`](https://www.nuget.org/packages/Microsoft.Graph/)
+- [`Microsoft.Identity.Client`](https://www.nuget.org/packages/Microsoft.Identity.Client/)
 
 With those two packages available, we can get to work. The first thing you need is a way to access the calendar.
 This can be done by creating a new `GraphServiceClient` that uses the application id, tenant id and client secret that you created earlier:
@@ -126,7 +126,7 @@ Note that I have used target-typed `new` expressions in C# 9 to add query option
 
 ### 3. Which events to synchronize?
 
-Most probably, you don't want to export _all_  calendar items. In my case, I decided to not export weekends, and to use a category to decide whether an event should be exported:
+Most probably, you don't want to export _all_ calendar items. In my case, I decided to not export weekends, and to use a category to decide whether an event should be exported:
 
 ```csharp
 // Filter weekends
@@ -150,8 +150,8 @@ On the [JetBrains Space](https://www.jetbrains.com/space/) side, steps are simil
 I'm synchronizing events with _my_ calendar in Space, so the application can use my account as well.
 You can [create a personal token](https://www.jetbrains.com/help/space/personal-tokens.html) for this, and give it the permissions it needs:
 
-* `ViewProfile`, which will be used to get my profile identifier
-* `ManageMeetings`, which will be used to create and remove meetings from my calendar
+- `ViewProfile`, which will be used to get my profile identifier
+- `ManageMeetings`, which will be used to create and remove meetings from my calendar
 
 ![Create Space personal token](/images/2020/12/create-space-token.png)
 
@@ -246,8 +246,8 @@ foreach (var office365Meeting in office365Meetings)
 
 A couple of things to note about this snippet:
 
-* I'm creating events as "private" (`visibility: MeetingVisibility.PARTICIPANTS`) so only I can see their details.
-* The `CalendarEventSpec` needs a time zone. Since UTC information is available in Office 365, I'm using this as the time zone for Space, too.
+- I'm creating events as "private" (`visibility: MeetingVisibility.PARTICIPANTS`) so only I can see their details.
+- The `CalendarEventSpec` needs a time zone. Since UTC information is available in Office 365, I'm using this as the time zone for Space, too.
 
 ## Periodically running an agenda synchronization with Space automation
 
@@ -257,9 +257,9 @@ I'm hosting the source code of this example in a Git repository, in Space. So wh
 
 In the root of the repository, add a file named `.space.kts`. In this script, you can use the [Space Automation DSL](https://www.jetbrains.com/help/space/automation-getting-started.html) to define:
 
-* A `job` that runs on a schedule (e.g. every day at 8 AM)
-* A step inside that job that creates a new Docker container from the [.NET 5 SDK image - `mcr.microsoft.com/dotnet/sdk:5.0`](https://hub.docker.com/_/microsoft-dotnet-sdk)
-* A shell script that runs `dotnet restore`, `dotnet build`, and then `dotnet run --project SpaceAgenda` to run the application.
+- A `job` that runs on a schedule (e.g. every day at 8 AM)
+- A step inside that job that creates a new Docker container from the [.NET 5 SDK image - `mcr.microsoft.com/dotnet/sdk:5.0`](https://hub.docker.com/_/microsoft-dotnet-sdk)
+- A shell script that runs `dotnet restore`, `dotnet build`, and then `dotnet run --project SpaceAgenda` to run the application.
 
 Here's the full snippet, that also uses [secrets and parameters](https://www.jetbrains.com/help/space/secrets-and-parameters.html) so I can keep all secrets separate from the source code of this calendar synchronization tool.
 

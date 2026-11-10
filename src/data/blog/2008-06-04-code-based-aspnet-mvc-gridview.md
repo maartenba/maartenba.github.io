@@ -11,9 +11,10 @@ redirect_from:
   - /post/2008/06/04/code-based-asp-net-mvc-gridview.html
   - /post/2008/06/04/code-based-aspnet-mvc-gridview.html
 ---
-[![](/images/WindowsLiveWriter/CodebasedASP.NETMVCGridView_111F3/image_658875b0-e15a-420c-bf5a-e710ce144b34.png)](http://examples.maartenballiauw.be/MvcGridView)Earlier this week a colleague of mine asked me if there was such thing as a  DataGrid or GridView or something like that in the ASP.NET MVC framework. My first answer was: "Nope!". I advised him to look for a nice *foreach* implementation or using [ExtJS](http://extjs.com/deploy/dev/examples/grid/edit-grid.html), [Dojo](http://dojotoolkit.org/book/dojo-book-0-9/docx-documentation-under-development/grid) or similar. Which made me think... Why not create a simple GridView extension method which generates a nice looking, plain-HTML grid with all required features like paging, editing, deleting, alternating rows, ...?
 
-The idea was simple: an extension method to the *HtmlHelper* class would be enough. Required parameters: a header and footer template, item template, edit item template, ... But how to pass in these templates using a simple C# parameter... Luckily,  C# 3.0 introduced lambdas! Why? They are super-flexible and versatile! For instance, take the following code:
+[![](/images/WindowsLiveWriter/CodebasedASP.NETMVCGridView_111F3/image_658875b0-e15a-420c-bf5a-e710ce144b34.png)](http://examples.maartenballiauw.be/MvcGridView)Earlier this week a colleague of mine asked me if there was such thing as a DataGrid or GridView or something like that in the ASP.NET MVC framework. My first answer was: "Nope!". I advised him to look for a nice _foreach_ implementation or using [ExtJS](http://extjs.com/deploy/dev/examples/grid/edit-grid.html), [Dojo](http://dojotoolkit.org/book/dojo-book-0-9/docx-documentation-under-development/grid) or similar. Which made me think... Why not create a simple GridView extension method which generates a nice looking, plain-HTML grid with all required features like paging, editing, deleting, alternating rows, ...?
+
+The idea was simple: an extension method to the _HtmlHelper_ class would be enough. Required parameters: a header and footer template, item template, edit item template, ... But how to pass in these templates using a simple C# parameter... Luckily, C# 3.0 introduced lambdas! Why? They are super-flexible and versatile! For instance, take the following code:
 
 ```csharp
 // C# code:
@@ -94,11 +95,11 @@ public class GridViewData<T>
 
 ```
 
-By the way, the *PagedList<T>* I'm using is actually a shameless copy from [Rob Conery's blog](http://blog.wekeroad.com/2007/12/10/aspnet-mvc-pagedlistt/) a while ago.
+By the way, the _PagedList<T>_ I'm using is actually a shameless copy from [Rob Conery's blog](http://blog.wekeroad.com/2007/12/10/aspnet-mvc-pagedlistt/) a while ago.
 
 ## 3. The View
 
-Of course, no rendered HTML without some sort of View. Here's a simplified version in which I pass the *GridView<T>* extension method the required data, header template, item template, edit item template and footer template. Also noice the alternating rows are simply alternating CSS styles (item and item-alternating).
+Of course, no rendered HTML without some sort of View. Here's a simplified version in which I pass the _GridView<T>_ extension method the required data, header template, item template, edit item template and footer template. Also noice the alternating rows are simply alternating CSS styles (item and item-alternating).
 
 ```csharp
 <%Html.GridView<Employee>(
@@ -136,7 +137,7 @@ Of course, no rendered HTML without some sort of View. Here's a simplified versi
 
 ## 4. The Controller
 
-The Controller is perhaps the hardest part: it contains all methods that handle actions which are requested by the View. I have a *Show* action which simply shows the View with current data. Also, I have implemented an *Edit* and *Save* action. Make sure to check my example code download for the full example (earlier in this post).
+The Controller is perhaps the hardest part: it contains all methods that handle actions which are requested by the View. I have a _Show_ action which simply shows the View with current data. Also, I have implemented an _Edit_ and _Save_ action. Make sure to check my example code download for the full example (earlier in this post).
 
 ```csharp
 // ...

@@ -10,8 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/09/06/creating-office2007-documents-in-c.html
 ---
-I've been too busy implementing [SpreadsheetML](http://www.phpexcel.net/) in PHP, that I completely forgot to write something on OpenXML and C# on my blog. Luckily, Joris did now: [Generating Office 2007 documents in C#](http://jopx.blogspot.com/2007/09/generating-office-2007-documents-in-c.html). Now learn some PHP too, Joris, I can use a hand on PHPExcel [:P]
 
+I've been too busy implementing [SpreadsheetML](http://www.phpexcel.net/) in PHP, that I completely forgot to write something on OpenXML and C# on my blog. Luckily, Joris did now: [Generating Office 2007 documents in C#](http://jopx.blogspot.com/2007/09/generating-office-2007-documents-in-c.html). Now learn some PHP too, Joris, I can use a hand on PHPExcel [:P]
 
 Here are some additional links to get you started:
 

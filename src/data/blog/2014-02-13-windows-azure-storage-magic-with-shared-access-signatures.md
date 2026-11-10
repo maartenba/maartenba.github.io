@@ -10,28 +10,22 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2014/02/13/windows-azure-storage-magic-with-shared-access-signatures.html
 ---
+
 When building cloud applications on Windows Azure, it’s always a good thing to delegate as much work to specialized services as possible. File downloads would be one good example: these can be streamed directly from Windows Azure blob storage to your client, without having to pass a web application hosted on Windows Azure Cloud Services or Web Sites. Why occupy the web server with copying data from a request stream to a response stream? Let blob storage handle it!
 
-
 When thinking this through there may be some issues you may think of. Here are a few:
-
 
 - How can I keep this blob secure? I don’t want to give everyone access to it!
 - How can I keep the download URL on my web server, track the number of downloads (or enforce other security rules) and still benefit from offloading the download to blob storage?
 - How can the blob be stored in a way that is clear to my application (e.g. a customer ID or something), yet give it a friendly name when downloading?
 
-
 Let’s answer these!
-
 
 ## Meet Shared Access Signatures
 
-
 Keeping blobs secure is pretty easy on Windows Azure Blob Storage, but it’s also sort of an all-or-nothing story… Either you make all blobs in a container private, or you make them public.
 
-
-Not to worry though! Using Shared Access Signatures it is possible to grant temporary privileges on a blob, for read and write access. Here’s a code snippet that will grant read access to the blob named *helloworld.txt*, residing in a private container named *files*, during the next minute:
-
+Not to worry though! Using Shared Access Signatures it is possible to grant temporary privileges on a blob, for read and write access. Here’s a code snippet that will grant read access to the blob named _helloworld.txt_, residing in a private container named _files_, during the next minute:
 
 ```csharp
 CloudStorageAccount account = // your storage account connection here
@@ -52,9 +46,9 @@ var signedBlobUrl = builder.Uri;
 
 ```
 
-*Note I’m giving access starting 5 minutes ago, just to make sure any clock skew along the way is ignored within a reasonable time window.*
+_Note I’m giving access starting 5 minutes ago, just to make sure any clock skew along the way is ignored within a reasonable time window._
 
-There we go: our blob is secured and by passing along the *signedBlobUrl* to our user, he or she can start downloading our blob without having access to any other blobs at all.
+There we go: our blob is secured and by passing along the _signedBlobUrl_ to our user, he or she can start downloading our blob without having access to any other blobs at all.
 
 ## Meet HTTP redirects
 
@@ -101,9 +95,9 @@ This gives us the best of both worlds: our web application can still verify acce
 
 ## Meet Shared Access Signatures content disposition header
 
-Often, storage is a technical thing where we choose technical filenames for the things we store, instead of human-readable or human-friendly file names. In the example above, users will get a very strange filename to be downloaded: the customer id + invoice id, concatenated. No *.pdf* file extension, nothing else either. Users may get confused by this, or have problems opening the file because teir browser will not recognize this is a PDF.
+Often, storage is a technical thing where we choose technical filenames for the things we store, instead of human-readable or human-friendly file names. In the example above, users will get a very strange filename to be downloaded: the customer id + invoice id, concatenated. No _.pdf_ file extension, nothing else either. Users may get confused by this, or have problems opening the file because teir browser will not recognize this is a PDF.
 
-Last November, [a feature was added to blob storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/11/27/windows-azure-storage-release-introducing-cors-json-minute-metrics-and-more.aspx) which enables us to let a blob be whatever we want it to be: support for setting some additional headers on a blob *through* the Shared Access Signature.
+Last November, [a feature was added to blob storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/11/27/windows-azure-storage-release-introducing-cors-json-minute-metrics-and-more.aspx) which enables us to let a blob be whatever we want it to be: support for setting some additional headers on a blob _through_ the Shared Access Signature.
 
 The following headers can be specified on-the-fly, through the shared access signature:
 
@@ -133,7 +127,7 @@ builder.Query = blob.GetSharedAccessSignature(
 
 ```
 
-*Note: for this feature to work, the service version for the storage account must be set to the latest one, using the DefaultServiceVersion on the blob client. Here’s an example:*
+_Note: for this feature to work, the service version for the storage account must be set to the latest one, using the DefaultServiceVersion on the blob client. Here’s an example:_
 
 ```csharp
 CloudStorageAccount account = // your storage account connection here

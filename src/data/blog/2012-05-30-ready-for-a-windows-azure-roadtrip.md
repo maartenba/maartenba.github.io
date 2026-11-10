@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/05/30/ready-for-a-windows-azure-roadtrip.html
 ---
+
 [![](/images/image_thumb_139.png)](/images/image_173.png)
 
 A while ago, [Michelangelo van Dam](http://www.dragonbe.com) (a hardcore PHP guy), [Fran&ccedil;ois Hertay](https://www.azure-roadtrip.be/?page_id=96) (a hardcore Java guru) and myself (a .NET guy) were asked if we wanted to write about some of our experiences with the Windows Azure platform.

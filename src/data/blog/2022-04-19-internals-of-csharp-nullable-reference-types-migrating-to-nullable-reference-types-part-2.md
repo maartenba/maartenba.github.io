@@ -18,10 +18,11 @@ While nullable reference types don't give you runtime safety, the design-time an
 In this post, we'll look at some internals of how C# nullable reference types work, and how the C# compiler and IDE use the nullable annotation context.
 
 In this series:
-* [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)
-* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/) (this post)
-* [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/)
-* [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/)
+
+- [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)
+- [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/) (this post)
+- [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/)
+- [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/)
 
 ## Under the hood - Intermediate Language (IL)
 
@@ -66,10 +67,10 @@ These two methods are compiled into the following Intermediate Language (IL):
 
 Let's break this down.
 
-* `int? GetInt() => 1;` is compiled into a `.method` that returns a value type ```[System.Runtime]System.Nullable`1<int32>```.
-The method body pushes the value `1` onto the stack, and creates a new ```System.Nullable`1<int32>``` that takes the first element from the stack (the `1` that was just pushed).
-Finally, this new object is returned.
-* `string? GetString() => "";` is compiled into a `.method` that returns a `string`. The method body pushes a new object reference to a string literal stored in the assembly metadata (see [this post about string literals](https://blog.maartenballiauw.be/posts/2016-11-15-exploring-memory-allocation-and-strings/) for more background), and returns it.
+- `int? GetInt() => 1;` is compiled into a `.method` that returns a value type ``[System.Runtime]System.Nullable`1<int32>``.
+  The method body pushes the value `1` onto the stack, and creates a new ``System.Nullable`1<int32>`` that takes the first element from the stack (the `1` that was just pushed).
+  Finally, this new object is returned.
+- `string? GetString() => "";` is compiled into a `.method` that returns a `string`. The method body pushes a new object reference to a string literal stored in the assembly metadata (see [this post about string literals](https://blog.maartenballiauw.be/posts/2016-11-15-exploring-memory-allocation-and-strings/) for more background), and returns it.
 
 The difference between value types and reference types is very clear in IL: the method that returns a value type, returns a `Nullable<int>`.
 The method that returns a reference type returns, well, a reference type.
@@ -82,9 +83,10 @@ Or is there... In the IL code, `GetString()` defines a `.custom` attribute of ty
 The [`NullableContextAttribute`](https://github.com/dotnet/roslyn/blob/main/docs/features/nullable-metadata.md#nullablecontextattribute) is used to provide code that consumes this method with some extra metadata, that can then be used by flow analysis.
 
 The C# compiler can add this attribute on types and methods, and supports 3 values:
-* `0` - Oblivious - Use the default, pre-C#8 behaviour (everything is maybe `null`)
-* `1` - Not annotated - Consider the scope as not annotated by default (in other words, every reference type is non-nullable by default)
-* `2` - Annotated - Consider the scope as annotated by default (in other words, every reference type has an implicit `?` slapped onto it)
+
+- `0` - Oblivious - Use the default, pre-C#8 behaviour (everything is maybe `null`)
+- `1` - Not annotated - Consider the scope as not annotated by default (in other words, every reference type is non-nullable by default)
+- `2` - Annotated - Consider the scope as annotated by default (in other words, every reference type has an implicit `?` slapped onto it)
 
 In our previous example, the value of `2` tells the flow analysis that the method return is annotated, in other words, it has a `?` annotation.
 
@@ -161,15 +163,15 @@ This nullable context gives consuming code an idea of how to treat nullable refe
 The next step is telling flow analysis and the compiler what you want to do with that information, by setting the nullable annotation context.
 The nullable annotation context has 4 settings, and can be defined project-wide, or for every file separately:
 
-* `disable` - makes the compiler behave like it did pre-C# 8.0 (no NRT). You can not use `?` on reference types.
-* `enable` - enables null reference analysis and all language features.
-* `warnings` - enables null reference analysis, and shows warnings when code might dereference `null`.
-* `annotations` - enables language features and lets you use `?`, but does not enable null reference analysis.
+- `disable` - makes the compiler behave like it did pre-C# 8.0 (no NRT). You can not use `?` on reference types.
+- `enable` - enables null reference analysis and all language features.
+- `warnings` - enables null reference analysis, and shows warnings when code might dereference `null`.
+- `annotations` - enables language features and lets you use `?`, but does not enable null reference analysis.
 
 ### Defining nullable annotation context project-wide
 
 To define the nullable annotation context project-wide, you can use the `<Nullable>...</Nullable>` property in your project file (or any MSBuild file that is included).
-Here's an example of a project that sets the nullable annotation context to *enable* for the entire project:
+Here's an example of a project that sets the nullable annotation context to _enable_ for the entire project:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -188,11 +190,11 @@ Here's an example of a project that sets the nullable annotation context to *ena
 
 You can also define the nullable annotation context in individual files, using the `#nullable` preprocessor directive:
 
-* `#nullable enable` - enable nullable annotation context and nullable warning context
-* `#nullable disable` - disable nullable annotation context and nullable warning context
-* `#nullable restore` - set the nullable annotation context and nullable warning context to the project-level setting
-* `#nullable enable/disable/restore warnings` - enable/disable/restore just the nullable warning context
-* `#nullable enable/disable/restore annotations` - enable/disable/restore just the nullable annotation context
+- `#nullable enable` - enable nullable annotation context and nullable warning context
+- `#nullable disable` - disable nullable annotation context and nullable warning context
+- `#nullable restore` - set the nullable annotation context and nullable warning context to the project-level setting
+- `#nullable enable/disable/restore warnings` - enable/disable/restore just the nullable warning context
+- `#nullable enable/disable/restore annotations` - enable/disable/restore just the nullable annotation context
 
 It's also possible to use the `#nullable` directive multiple times per file, and to enable/disable a specific context at various places in the same file.
 This may be useful when migrating large files to using nullable reference types, as you can split bits that you have already migrated from those you haven't yet.
@@ -211,7 +213,7 @@ string? SomeOtherMethod() => "";
 
 ### Which nullable annotation context should you use?
 
-Good question! As always, *"it depends"*.
+Good question! As always, _"it depends"_.
 
 For new projects, it's a good idea to fully enable the nullable annotation context at the project level.
 This way, you get the benefits of better static flow analysis from the first line of code you start writing.
@@ -244,6 +246,7 @@ It will make your project safer in terms of nullability, but unless you change t
 > **Tip:** The `warnings` context helps improve existing code bases with better flow analysis.
 > To make sure you and your fellow developers address these warnings, you can treat these nullable warnings as errors.
 > Set the following two properties in your project file:
+>
 > ```xml
 > <Nullable>warnings</Nullable>
 > <WarningsAsErrors>Nullable</WarningsAsErrors>

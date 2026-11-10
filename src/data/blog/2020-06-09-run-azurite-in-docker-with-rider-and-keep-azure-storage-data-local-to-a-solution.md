@@ -23,10 +23,10 @@ Ever since I started playing with Azure back in 2008, I've been using the [Azure
 
 I felt it was time to retire the Azure Storage Emulator in favor of its successor: [Azurite](https://github.com/Azure/Azurite). Microsoft has since marked the old emulator as deprecated, and its docs say Azurite supersedes it. There are various reasons for this:
 
-* Azurite supports newer storage API's, and keeps being updated for the latest ones.
-* It runs on Windows, Linux and macOS, where the old emulator was Windows-only.
-* It can run as a Docker container.
-* By setting its volume path to something relative to the solution we're working on, we can keep blobs and queues around. Different solution? Different path! The blobs and queues related to that solution in Azurite.
+- Azurite supports newer storage API's, and keeps being updated for the latest ones.
+- It runs on Windows, Linux and macOS, where the old emulator was Windows-only.
+- It can run as a Docker container.
+- By setting its volume path to something relative to the solution we're working on, we can keep blobs and queues around. Different solution? Different path! The blobs and queues related to that solution in Azurite.
 
 ## Setting up Azurite
 
@@ -79,7 +79,7 @@ For Azure Functions, `UseDevelopmentStorage=true` is also what you'd put in `Azu
 
 ## Setting up an Azurite run configuration in Rider
 
-In Rider, we can create a new Run Configuration (**Run \| Edit Configurations**), of the type *Docker Image*, and enter the image ID as `mcr.microsoft.com/azure-storage/azurite`. Optionally, we can name the container (I picked `azurite` here).
+In Rider, we can create a new Run Configuration (**Run \| Edit Configurations**), of the type _Docker Image_, and enter the image ID as `mcr.microsoft.com/azure-storage/azurite`. Optionally, we can name the container (I picked `azurite` here).
 
 We'll also have to specify the port bindings (port `10000` and `10001`).
 
@@ -87,7 +87,7 @@ Since we want to preserve the Azurite data locally with our solution, we can cre
 
 ![Run Azurite - storage emulator, using JetBrains Rider](/images/2020/06/azurite-azure-storage-in-rider.png)
 
-*Note: The `D:\Projects\Git\NuGetTypeSearch\.idea\azurite` path was added into `.gitignore` to make sure blobs/queue messages are not committed to Git.*
+_Note: The `D:\Projects\Git\NuGetTypeSearch\.idea\azurite` path was added into `.gitignore` to make sure blobs/queue messages are not committed to Git._
 
 Once this run configuration is created, we can select and run it. This can be done from the toolbar, but I personally prefer using the <kbd>Ctrl+Alt+Shift+R</kbd> keyboard shortcut, where it's possible to immediately select the run configuration to execute (<kbd>Enter</kbd>) or debug (<kbd>Shift</kbd>, then <kbd>Enter</kbd>).
 

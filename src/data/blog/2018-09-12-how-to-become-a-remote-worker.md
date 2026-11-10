@@ -19,11 +19,11 @@ Having been a remote worker for 7 years now, there are a few tips that I can sha
 
 ## Job types and communication lines
 
-While it will be easy to introduce remote work for some job types, for others this will be more difficult. As always, *"it depends"*, and mileage will vary. For me, remote work is relatively easy. I am a lone worker! Most of my tasks don't require much collaboration with others, so I can pretty much sail my own course every single day.
+While it will be easy to introduce remote work for some job types, for others this will be more difficult. As always, _"it depends"_, and mileage will vary. For me, remote work is relatively easy. I am a lone worker! Most of my tasks don't require much collaboration with others, so I can pretty much sail my own course every single day.
 
 For my wife, things are different. She works in a team of 10, where everyone has their own tasks inside that team, but a lot of communication with other teams is required.
 
-The type of job, the organization itself and the lines of communication required to do your job will influence how things work out. But there's already one word here that is important: ***communication***.
+The type of job, the organization itself and the lines of communication required to do your job will influence how things work out. But there's already one word here that is important: _**communication**_.
 
 Remember that word, it will come back a few times, as it is the most influential concept to how things will work out.
 
@@ -33,7 +33,6 @@ Let's start with personal things. I remember when my boss told me I could work r
 
 <div class="tenor-gif-embed" data-postid="4700420" data-share-method="host" data-width="100%" data-aspect-ratio="1.324468085106383"><a href="https://tenor.com/view/suck-yousuck-sucka-sucker-simpsons-gif-4700420">So Long, Suckers! - The Simpsons GIF</a> from <a href="https://tenor.com/search/suck-gifs">Suck GIFs</a></div>
 <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-
 
 And then you get home. Now what do you do...
 
@@ -53,7 +52,7 @@ Communicate your expected office hours with colleagues who are at the office. Th
 
 Now, my plan is to stop at 4 PM. This works out maybe once a week. My job type means I work with people in different timezones. And those that work in earlier timezones seem to start later than me as well. So to have a window of communication, I often have to do some things after 4 PM.
 
-I'll dive into communication tools a bit later, but while those tools are a blessing, they can also be a curse. I don't *have* to communicate in that after-4 PM window every single day. Yet, interruptions come via the different tools and me being friendly (and stupid) usually responds to those interruptions, whether during the day or when I should consider my work day finished. 7 years of remote working, and I haven't tackled *"not now, tomorrow is another day"* yet.
+I'll dive into communication tools a bit later, but while those tools are a blessing, they can also be a curse. I don't _have_ to communicate in that after-4 PM window every single day. Yet, interruptions come via the different tools and me being friendly (and stupid) usually responds to those interruptions, whether during the day or when I should consider my work day finished. 7 years of remote working, and I haven't tackled _"not now, tomorrow is another day"_ yet.
 
 Again, communicate the times you are there and the times you are not. Your day ends at 4 PM? Let colleagues know, set expectations.
 
@@ -61,7 +60,7 @@ If you are just starting remote work, try to adhere to this as much as you can. 
 
 ### Guilt
 
-Being a remote worker can be a guilt trip. Am I doing enough work? My boss can't see me, so let's make sure that I respond to e-mails as soon as I can, even after the time I consider my work day finished! Don't. It's a guilt trip. And you'll end up like me, ignoring *"not now, tomorrow is another day"* too often.
+Being a remote worker can be a guilt trip. Am I doing enough work? My boss can't see me, so let's make sure that I respond to e-mails as soon as I can, even after the time I consider my work day finished! Don't. It's a guilt trip. And you'll end up like me, ignoring _"not now, tomorrow is another day"_ too often.
 
 Don't overdo it. Working at home, at least to me, feels much more productive and usually is, too. Which means I sometimes feel like I'm done, 7h into my work day. Now what! I am supposed to work 8h! At the office, you would go and have a coffee, chat with a co-worker, maybe do some mails from last week, and when the clock strikes 8h in, you're off towards home! When working remote, this is a dangerous moment. You may start doing more things, making sure you do 8h30 or even 9h, because who knows, a manager may be looking over my remote shoulder! Better work!
 
@@ -88,7 +87,7 @@ I like my family. My parents live on the other side of the village, and they pas
 
 I tried explaining using the above chart, and after a few years they now politely give me a call if they plan to stop by. That's great! There is still the perk of a quick visit, but now there is also the perk of focus time when an interruption would be too costly.
 
-I heard others explain this to relatives by saying *"you didn't drive 50km to Brussels when I was working at the office!"*, and that seems to work, too. Again: communicate.
+I heard others explain this to relatives by saying _"you didn't drive 50km to Brussels when I was working at the office!"_, and that seems to work, too. Again: communicate.
 
 ## Remote work gear
 
@@ -152,6 +151,6 @@ Linked to guilt you may feel for not doing enough, there's the other side as wel
 
 You are not working remote alone. When one is working remote, everyone is! You happen to work from home, others happen to work from the office. Use collaboration tools, take notes in meetings, and include your remote peers that don't have a face-to-face presence.
 
-*"But **they** are working remote, why should I care?"* - that's one I have heard before... Trust me, you want to care. Tracing  discussions in the form of notes, communicating using a searchable tool like Slack or Microsoft Teams will allow you to trace decisions and earlier communications, even when everyone was at the office at that time. It's a small effort, and everyone benefits, even those who are always at the office,
+_"But **they** are working remote, why should I care?"_ - that's one I have heard before... Trust me, you want to care. Tracing discussions in the form of notes, communicating using a searchable tool like Slack or Microsoft Teams will allow you to trace decisions and earlier communications, even when everyone was at the office at that time. It's a small effort, and everyone benefits, even those who are always at the office,
 
 I hope you can get something out of this post. Feel free to add comments around things that work and don't work for you!

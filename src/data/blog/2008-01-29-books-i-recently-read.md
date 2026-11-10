@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/01/29/books-i-recently-read.html
 ---
+
 A while ago, I was contacted by the people of [Packt Publishing](http://www.packtpub.com/) asking me to review two of their latest books, [ASP.NET Data Presentation Controls Essentials](http://www.packtpub.com/asp-net-data-presentation-controls/book) (by [Joydip Kanjilal](http://aspadvice.com/blogs/joydip/)) and [LINQ Quickly](http://www.packtpub.com/linq-quick-starter/book) (by N. Satheesh Kumar). Since both books stated something about LINQ on the back-cover, and me wanting to read more on that matter, I engaged into reviewing them.
 
 ## ASP.NET Data Presentation Controls Essentials

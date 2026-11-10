@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/09/23/windows-azure-diagnostics-in-php.html
 ---
+
 [![](/images/image_thumb_34.png)](/images/image_63.png)When working with PHP on Windows Azure, chances are you may want to have a look at what’s going on: log files, crash dumps, performance counters, … All this is valuable information when investigating application issues or doing performance tuning.
 
 Windows Azure is slightly different in diagnostics from a regular web application. Usually, you log into a machine via remote desktop or SSH and inspect the log files: management tools (remote desktop or SSH) and data (log files) are all on the same machine. This approach also works with 2 machines, maybe even with 3. However on Windows Azure, you may scale beyond that and have a hard time looking into what is happening in your application if you would have to use the above approach. A solution for this? Meet the Diagnostics Monitor.
@@ -47,7 +48,7 @@ Just for fun (and yes, I have a crazy definition of “fun”), I started workin
 
 [![](/images/image_thumb_35.png)](/images/image_64.png)
 
-The application is packed into one large PHP file and coded against every best-practice around, but it does the job. Simply download it and add it to your application. Once deployed (on dev fabric or Windows Azure), you can navigate to *diagnostics.php*, log in with the credentials you specified and start configuring your diagnostics infrastructure. Easy, no?
+The application is packed into one large PHP file and coded against every best-practice around, but it does the job. Simply download it and add it to your application. Once deployed (on dev fabric or Windows Azure), you can navigate to _diagnostics.php_, log in with the credentials you specified and start configuring your diagnostics infrastructure. Easy, no?
 
 Here’s the download: [diagnostics.php (27.78 kb)](/images/2010/9/diagnostics.php)
 (note that it is best to get the [latest source code commit](http://phpazure.codeplex.com/SourceControl/list/changesets) for the Windows Azure SDK for PHP if you want to configure custom directory logging)

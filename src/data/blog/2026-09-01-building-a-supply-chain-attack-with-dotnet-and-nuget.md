@@ -9,7 +9,7 @@ tags: ["General", ".NET", "dotnet", "NuGet", "security"]
 author: Maarten Balliauw
 ---
 
-Every time npm has a supply chain incident, it's tempting to think "haha, npm had *yet another* supply chain attack!" and feel safe in .NET land. But the tools to do the same thing in .NET, or at least similar things, are all there. Module initializers, source generators, MSBuild targets, startup hooks. A number of techniques exist to smuggle code into someone's codebase, and most of them run before your application's `Main` method is even called.
+Every time npm has a supply chain incident, it's tempting to think "haha, npm had _yet another_ supply chain attack!" and feel safe in .NET land. But the tools to do the same thing in .NET, or at least similar things, are all there. Module initializers, source generators, MSBuild targets, startup hooks. A number of techniques exist to smuggle code into someone's codebase, and most of them run before your application's `Main` method is even called.
 
 After I jokingly published a NuGet package that would be a fake "Microsoft version of Automapper", I found that using a Turkish i (we'll look at this later) allowed me to publish a package that one could see as "Microsoft" (even if the i would be different).
 
@@ -68,7 +68,7 @@ A supply chain attack typically has three parts:
 
 The rest of this post walks through how to build each component in .NET, and how to defend against them.
 
-## Infection 
+## Infection
 
 First, let's look at how you can get someone to install a malicious package.
 
@@ -101,7 +101,7 @@ In addition, you can use [package signing and verification](https://learn.micros
 
 Back to this blog post's introduction... Back when I uploaded `Mİcrosoft.Extensions.AutoMapper` to NuGet.org (note the Turkish İ), I was surprised this was at all possible. I reported the issue, and it was remediated. However, it got me thinking about how far Unicode lookalikes could go.
 
-I started experimenting. The first attempt was the classic "`rn` looks like `m`" trick: `Microsoft.EntityFrarneworkCore`. That worked, but I wasn't convinced this would be a good way to forge a fake package. Next, I tried `Mіcrosoft.EntityFrameworkCore` (with only one substitution), and NuGet.org's internal [TypoSquattingService](https://github.com/NuGet/NuGetGallery/blob/main/src/NuGetGallery/Services/TyposquattingService.cs ) caught that one immediately. NuGet.org presented me with an error ("The uploaded package's id is too similar to the already existing packages: Microsoft.EntityFrameworkCore"). Good!
+I started experimenting. The first attempt was the classic "`rn` looks like `m`" trick: `Microsoft.EntityFrarneworkCore`. That worked, but I wasn't convinced this would be a good way to forge a fake package. Next, I tried `Mіcrosoft.EntityFrameworkCore` (with only one substitution), and NuGet.org's internal [TypoSquattingService](https://github.com/NuGet/NuGetGallery/blob/main/src/NuGetGallery/Services/TyposquattingService.cs) caught that one immediately. NuGet.org presented me with an error ("The uploaded package's id is too similar to the already existing packages: Microsoft.EntityFrameworkCore"). Good!
 
 Then I tried [lookalike Unicode characters](https://gist.github.com/StevenACoffman/a5f6f682d94e38ed804182dc2693ed4b). Ukrainian dotted і (which looks identical to Latin i), Armenian ո (looks like n), Greek ο (looks like o), Greek е (looks like e). With enough substitutions, I was able to upload `Mіcrosοft.EոtityFramewοrkCorе` to NuGet.org. It looked legitimate: version 10.0.0, the real EF Core description copied verbatim, package icon matching. [See for yourself!](https://www.nuget.org/packages/M%D1%96cros%CE%BFft.E%D5%B8tityFramew%CE%BFrkCor%D0%B5/#readme-body-tab)
 
@@ -364,6 +364,7 @@ And if you ever thought malware doesn't have its own ready-made components and s
 Think of this as the Swiss Cheese model: every layer of defense has holes, but stacked together they're effective. No single mitigation is enough, but the combination makes attacks much harder.
 
 **Package management:**
+
 - [Package source mapping](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping) in `nuget.config`
 - [Package signing and verification](https://learn.microsoft.com/en-us/nuget/reference/signed-packages-reference)
 - [ID prefix reservation](https://learn.microsoft.com/en-us/nuget/nuget-org/id-prefix-reservation) for your company's packages
@@ -371,16 +372,19 @@ Think of this as the Swiss Cheese model: every layer of defense has holes, but s
 - [Software Bill of Materials (SBOM)](https://learn.microsoft.com/en-us/nuget/concepts/generating-sbom) generation and monitoring
 
 **Code review and analysis:**
+
 - Rigorous pull request reviews (especially for .csproj and lock file changes)
 - [GitHub Copilot PR review](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review) (catches homoglyphs, suspicious patterns)
 - Dependency analysis tools: [Trivy](https://trivy.dev/), [Aikido Security](https://www.aikido.dev/), [Snyk](https://snyk.io/)
 
 **Runtime protection:**
+
 - Endpoint detection tools that flag environment variable changes (especially `DOTNET_STARTUP_HOOKS`)
 - Network monitoring for unusual DNS patterns
 - [Pin GitHub Actions to commit SHAs](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions), not mutable tags
 
 **General:**
+
 - If you see something suspicious in a dependency, dig in. The [xz-utils backdoor](https://www.theguardian.com/commentisfree/2024/apr/06/xz-utils-linux-malware-open-source-software-cyber-attack-andres-freund) was discovered because one Microsoft engineer noticed SSH logins were slightly slower than usual and decided to investigate. That curiosity may have prevented a devastating attack on virtually every Linux server on the internet. Better safe than sorry.
 - Remember that your supply chain includes everything your build touches: NuGet packages, npm packages in your JS tooling, IDE plugins, GitHub Actions, and now AI/MCP tool servers too.
 

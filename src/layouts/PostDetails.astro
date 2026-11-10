@@ -129,25 +129,35 @@ const breadcrumbData = {
     data-pagefind-body
   >
     <!-- Post header banner (matches OG image gradient style) -->
-    <div class="post-hero mb-8 rounded-xl bg-gradient-to-br from-[#1e3a5f] via-[#2563eb] to-[#7c3aed] px-6 py-8 sm:px-8 sm:py-10 relative overflow-hidden dark:from-[#1a1b2e] dark:via-[#1e40af] dark:to-[#5b21b6]">
-      <div class="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/[0.06]"></div>
-      <div class="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-white/[0.04]"></div>
+    <div
+      class="post-hero relative mb-8 overflow-hidden rounded-xl bg-gradient-to-br from-[#1e3a5f] via-[#2563eb] to-[#7c3aed] px-6 py-8 sm:px-8 sm:py-10 dark:from-[#1a1b2e] dark:via-[#1e40af] dark:to-[#5b21b6]"
+    >
+      <div
+        class="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/[0.06]"
+      >
+      </div>
+      <div
+        class="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-white/[0.04]"
+      >
+      </div>
       <div class="relative">
         <ul class="mb-3 flex flex-wrap gap-1.5">
-          {tags.slice(0, 3).map(tag => (
-            <li class="inline-block">
-              <a
-                href={`/tags/${slugifyStr(tag)}/`}
-                class="inline-flex items-center rounded-full border border-white/25 bg-white/[0.12] px-2.5 py-0.5 text-xs text-white/90 no-underline hover:bg-white/20 transition-colors"
-              >
-                # {tag}
-              </a>
-            </li>
-          ))}
+          {
+            tags.slice(0, 3).map(tag => (
+              <li class="inline-block">
+                <a
+                  href={`/tags/${slugifyStr(tag)}/`}
+                  class="inline-flex items-center rounded-full border border-white/25 bg-white/[0.12] px-2.5 py-0.5 text-xs text-white/90 no-underline transition-colors hover:bg-white/20"
+                >
+                  # {tag}
+                </a>
+              </li>
+            ))
+          }
         </ul>
         <h1
           transition:name={slugifyStr(title)}
-          class="text-2xl font-bold text-white sm:text-3xl leading-tight"
+          class="text-2xl leading-tight font-bold text-white sm:text-3xl"
         >
           {title}
         </h1>
@@ -163,18 +173,22 @@ const breadcrumbData = {
             <a
               href="/about/"
               rel="author"
-              class="text-sm text-white/80 font-medium no-underline hover:text-white hover:underline underline-offset-4"
+              class="text-sm font-medium text-white/80 no-underline underline-offset-4 hover:text-white hover:underline"
             >
               {author}
             </a>
-            <span class="hidden sm:inline text-white/40">&middot;</span>
+            <span class="hidden text-white/40 sm:inline">&middot;</span>
             <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
-            {minutesRead && (
-              <>
-                <span class="hidden sm:inline text-white/40">&middot;</span>
-                <span class="text-sm text-white/80 sm:text-base">{minutesRead} min read</span>
-              </>
-            )}
+            {
+              minutesRead && (
+                <>
+                  <span class="hidden text-white/40 sm:inline">&middot;</span>
+                  <span class="text-sm text-white/80 sm:text-base">
+                    {minutesRead} min read
+                  </span>
+                </>
+              )
+            }
           </div>
         </div>
       </div>
@@ -214,46 +228,62 @@ const breadcrumbData = {
 
     <BackToTopButton />
 
-    <script is:inline src="https://giscus.app/client.js"
-            data-repo="maartenba/maartenba.github.io"
-            data-repo-id="MDEwOlJlcG9zaXRvcnk2NDcxNDE5Mw=="
-            data-category="General"
-            data-category-id="DIC_kwDOA9t10c4CyCS_"
-            data-mapping="url"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="bottom"
-            data-theme="preferred_color_scheme"
-            data-lang="en"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async>
-    </script>
+    <script
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo="maartenba/maartenba.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnk2NDcxNDE5Mw=="
+      data-category="General"
+      data-category-id="DIC_kwDOA9t10c4CyCS_"
+      data-mapping="url"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="en"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async
+    ></script>
 
     <hr class="my-8 border-dashed" />
 
     <!-- Previous/Next Post Cards -->
-    <nav data-pagefind-ignore aria-label="Previous and next posts" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <nav
+      data-pagefind-ignore
+      aria-label="Previous and next posts"
+      class="grid grid-cols-1 gap-4 sm:grid-cols-2"
+    >
       {
         prevPost && (
-          <a href={getPostHref(prevPost.id, prevPost.filePath)} class={`${cardClass} items-start`}>
-            <span class="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-foreground/80">
+          <a
+            href={getPostHref(prevPost.id, prevPost.filePath)}
+            class={`${cardClass} items-start`}
+          >
+            <span class="flex items-center gap-1 text-xs font-medium tracking-wide text-foreground/80 uppercase">
               <IconChevronLeft class="size-5 flex-none rtl:rotate-180" />
               Previous post
             </span>
-            <span class="line-clamp-2 font-medium text-accent">{prevPost.title}</span>
+            <span class="line-clamp-2 font-medium text-accent">
+              {prevPost.title}
+            </span>
           </a>
         )
       }
       {
         nextPost && (
-          <a href={getPostHref(nextPost.id, nextPost.filePath)} class={`${cardClass} items-end text-end sm:col-start-2`}>
-            <span class="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-foreground/80">
+          <a
+            href={getPostHref(nextPost.id, nextPost.filePath)}
+            class={`${cardClass} items-end text-end sm:col-start-2`}
+          >
+            <span class="flex items-center gap-1 text-xs font-medium tracking-wide text-foreground/80 uppercase">
               Next post
               <IconChevronRight class="size-5 flex-none rtl:rotate-180" />
             </span>
-            <span class="line-clamp-2 font-medium text-accent">{nextPost.title}</span>
+            <span class="line-clamp-2 font-medium text-accent">
+              {nextPost.title}
+            </span>
           </a>
         )
       }
@@ -261,20 +291,43 @@ const breadcrumbData = {
 
     {
       relatedPosts.length > 0 && (
-        <section data-pagefind-ignore class="mt-10 !px-0" aria-labelledby="related-posts">
+        <section
+          data-pagefind-ignore
+          class="mt-10 !px-0"
+          aria-labelledby="related-posts"
+        >
           <h2 id="related-posts" class="mb-4 text-xl font-semibold">
             Related posts
           </h2>
           <ul class="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {relatedPosts.map(related => (
               <li class="flex">
-                <a href={getPostHref(related.id, related.filePath)} class={`${cardClass} w-full`}>
-                  <span class="line-clamp-3 text-sm font-medium text-accent">{related.data.title}</span>
+                <a
+                  href={getPostHref(related.id, related.filePath)}
+                  class={`${cardClass} w-full`}
+                >
+                  <span class="line-clamp-3 text-sm font-medium text-accent">
+                    {related.data.title}
+                  </span>
                   <span class="mt-auto flex flex-wrap items-center gap-x-2 text-xs text-foreground/80">
-                    <time datetime={new Date(related.data.pubDatetime).toISOString()}>
-                      {new Date(related.data.pubDatetime).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}
+                    <time
+                      datetime={new Date(
+                        related.data.pubDatetime
+                      ).toISOString()}
+                    >
+                      {new Date(related.data.pubDatetime).toLocaleDateString(
+                        "en-GB",
+                        {
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                          timeZone: "UTC",
+                        }
+                      )}
                     </time>
-                    {related.data.tags[0] && <span># {related.data.tags[0]}</span>}
+                    {related.data.tags[0] && (
+                      <span># {related.data.tags[0]}</span>
+                    )}
                   </span>
                 </a>
               </li>
@@ -341,7 +394,10 @@ const breadcrumbData = {
       link.className =
         "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
       link.href = "#" + heading.id;
-      link.setAttribute("aria-label", "Link to section: " + heading.textContent);
+      link.setAttribute(
+        "aria-label",
+        "Link to section: " + heading.textContent
+      );
 
       const span = document.createElement("span");
       span.ariaHidden = "true";

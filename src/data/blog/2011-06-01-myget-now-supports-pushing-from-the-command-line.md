@@ -5,14 +5,25 @@ pubDatetime: 2011-06-01T10:06:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "Azure", "CSharp", "General", "MEF", "MVC", "Projects", "Software"]
+tags:
+  [
+    "ASP.NET",
+    "Azure",
+    "CSharp",
+    "General",
+    "MEF",
+    "MVC",
+    "Projects",
+    "Software",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2011/06/01/myget-now-supports-pushing-from-the-command-line.html
 ---
+
 One of the [work items](http://myget.codeplex.com/workitem/5) we had opened for [MyGet](http://www.myget.org) was the ability to push packages to a private feed from the command line. Only a few hours after our initial launch, [David Fowler](http://twitter.com/davidfowl) provided us with [example code](http://j.mp/mICG8u) on how to implement NuGet command line pushes on the server side. An evening of coding later, I quickly hacked this into [MyGet](http://www.myget.org), which means that we now support pushing packages from the command line!
 
-For those that did not catch up with my [blog post overload](/posts/2011-05-31-creating-your-own-private-nuget-feed-myget/) of the past week: *My*Get offers you the possibility to create your own, private, filtered [NuGet](http://nuget.org) feed for use in the Visual Studio Package Manager.  It can contain packages from the official [NuGet](http://nuget.org) feed as well as your private packages, hosted on *My*Get. Want a sample? Add this feed to your Visual Studio package manager: [http://www.myget.org/F/chucknorris](http://www.myget.org/F/chucknorris)
+For those that did not catch up with my [blog post overload](/posts/2011-05-31-creating-your-own-private-nuget-feed-myget/) of the past week: *My*Get offers you the possibility to create your own, private, filtered [NuGet](http://nuget.org) feed for use in the Visual Studio Package Manager. It can contain packages from the official [NuGet](http://nuget.org) feed as well as your private packages, hosted on *My*Get. Want a sample? Add this feed to your Visual Studio package manager: [http://www.myget.org/F/chucknorris](http://www.myget.org/F/chucknorris)
 
 ## Pushing a package from the command line to MyGet
 
@@ -20,7 +31,7 @@ The first thing you’ll be needing is an API key for your private feed. This ca
 
 [![](/images/image_thumb_90.png)](/images/image_120.png)
 
-Once you have the API key, it can be stored into the NuGet executable’s settings by running the following command, including *your* private API key and *your* private feed URL:
+Once you have the API key, it can be stored into the NuGet executable’s settings by running the following command, including _your_ private API key and _your_ private feed URL:
 
 ```
 

@@ -10,10 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/12/08/cloud-computing-and-the-windows-azure-services-platform-ku-leuven.html
 ---
-It was a fun session yesterday at KU Leuven university! I did a session on cloud computing and Windows Azure there for the [IEEE Student Branch Leuven](http://www.ieee-sb-leuven.be
-).
 
-Abstract: *"This session covers the basics of the Windows Azure Services Platform and drills into some architectural challenges. Learn what components the Windows Azure Services Platform is built of and how they can be leveraged in building a scalable and reliable application."*
+It was a fun session yesterday at KU Leuven university! I did a session on cloud computing and Windows Azure there for the [IEEE Student Branch Leuven](http://www.ieee-sb-leuven.be).
+
+Abstract: _"This session covers the basics of the Windows Azure Services Platform and drills into some architectural challenges. Learn what components the Windows Azure Services Platform is built of and how they can be leveraged in building a scalable and reliable application."_
 
 [Cloud computing and the Windows Azure Services Platform (KU Leuven)](http://www.slideshare.net/maartenba/cloud-computing-and-the-windows-azure-services-platform-ku-leuven)<object style="margin:0px" width="425" height="355">
 

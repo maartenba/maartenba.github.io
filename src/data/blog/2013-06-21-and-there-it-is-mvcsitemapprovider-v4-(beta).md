@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/06/21/and-there-it-is-mvcsitemapprovider-v4-beta.html
 ---
+
 [![](/images/image_thumb_247.png)](/images/image_286.png)It has been a while since a new major update has been done to the [MvcSiteMapProvider project](https://github.com/maartenba/MvcSiteMapProvider), but today is the day! MvcSiteMapProvider is a tool that provides flexible menus, breadcrumb trails, and SEO features for the ASP.NET MVC framework, similar to the ASP.NET SiteMapProvider model.
 
 To be honest, I have not done a lot of work. Thanks to the power of open source (and [Shad](http://www.shiningtreasures.com/) who did a massive job on refactoring the whole, thanks!), MvcSiteMapProvider v4 is around the corner.

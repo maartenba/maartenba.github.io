@@ -10,8 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/07/01/officially-a-cloudhead-now-or-re-awarded-mvp.html
 ---
-Woohoo! I just received the great mail I expect yearly on the first of July:
 
+Woohoo! I just received the great mail I expect yearly on the first of July:
 
 > Dear Maarten Balliauw,
 
@@ -23,11 +23,8 @@ Toby Richards
 General Manager
 Community & Online Support
 
-
 This e-mail is not that clear about what technology one is an MVP, so I dug in… It seems that I will be leaving the largest group of MVP’s around: ASP.NET (sorry guys, you were great!) and joining the cloudheads of the Windows Azure group.
 
-
 Thanks everyone for keeping me motivated in working with the community, sharing knowledge and providing me time to do all this. That last one means: thank you, [boss](http://www.realdolmen.com), and thank you to my lovely wife!
-
 
 Let’s start working on earning the award for next year…

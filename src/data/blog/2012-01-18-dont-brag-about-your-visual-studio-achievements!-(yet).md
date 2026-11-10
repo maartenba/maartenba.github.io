@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/01/18/dont-brag-about-your-visual-studio-achievements-yet.html
 ---
+
 [![](/images/image_thumb_131.png)](/images/image_164.png)The Channel 9 folks seem to have released the first beta of their Visual Studio Achievements project. The idea of Visual Studio Achievements is pretty awesome:
 
 > **Bring Some Game To Your Code!**
@@ -37,9 +38,9 @@ There’s a number of bad coding habits in the [list of achievements](http://cha
 
 ## The good
 
-The good thing is: there *are* some positive achievements. For example, stimulating people to [organize usings](http://channel9.msdn.com/achievements/visualstudio/UsedOrganizedUsings50Achievement). Or to [try out some extensions](http://channel9.msdn.com/achievements/visualstudio/ExtensionsAchievement5). Unfortunately, there are almost no “good” achievements. What I would like to see is a bunch more extensions that make it fun to discover new features in Visual Studio or learn about good coding habits.
+The good thing is: there _are_ some positive achievements. For example, stimulating people to [organize usings](http://channel9.msdn.com/achievements/visualstudio/UsedOrganizedUsings50Achievement). Or to [try out some extensions](http://channel9.msdn.com/achievements/visualstudio/ExtensionsAchievement5). Unfortunately, there are almost no “good” achievements. What I would like to see is a bunch more extensions that make it fun to discover new features in Visual Studio or learn about good coding habits.
 
-Don’t get me wrong: I do like the idea of achievements very much. In fact, I feel an urge to have the [Go To Hell achievement](http://channel9.msdn.com/achievements/visualstudio/GotoAchievement) (and delete the code afterwards, promise!), but why not use them to teach people to be better at coding or be more productive? How about achievements that stimulate people to use *CTRL + ,* which a lot of people don’t know about. Or teach people to write a unit test. Heck, you can even become *Disposable* by correctly implementing *IDisposable*!
+Don’t get me wrong: I do like the idea of achievements very much. In fact, I feel an urge to have the [Go To Hell achievement](http://channel9.msdn.com/achievements/visualstudio/GotoAchievement) (and delete the code afterwards, promise!), but why not use them to teach people to be better at coding or be more productive? How about achievements that stimulate people to use _CTRL + ,_ which a lot of people don’t know about. Or teach people to write a unit test. Heck, you can even become _Disposable_ by correctly implementing _IDisposable_!
 
 So in conclusion: your resume will look very bad if you are a Regional Manager or gained the Turtles All The Way Down achievement. Don’t brag about those. Come up with some good habits that can be rewarded with achievements and please, ask the Channel 9 guys to include those.
 

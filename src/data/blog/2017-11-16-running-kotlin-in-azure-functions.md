@@ -35,16 +35,16 @@ In this blog post, I will use [IntelliJ IDEA](https://www.jetbrains.com/idea/) a
 
 For the Azure Functions side, we'll need:
 
-* [.NET Core](https://www.microsoft.com/net/core), latest version
-* [Azure CLI](https://docs.microsoft.com/cli/azure)
-* [Node.js](https://nodejs.org/download/), version 8.6 or higher
-* [Azure Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) - install them using npm: `npm install -g azure-functions-core-tools@core`
+- [.NET Core](https://www.microsoft.com/net/core), latest version
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Node.js](https://nodejs.org/download/), version 8.6 or higher
+- [Azure Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) - install them using npm: `npm install -g azure-functions-core-tools@core`
 
 Ready? Then let's start!
 
 ## 1. Creating a new Azure Functions project in IntelliJ IDEA
 
-The Azure folks have created a Maven Archetype which we can use. If you're familiar with .NET Core, a Maven Archetype is like a `dotnet new` template we can use to bootstrap a project. When creating a new project in IntelliJ IDEA, we can pick **Maven** as the project type, then *Create from archetype*, then pick (or add, first) the `com.microsoft.azure/azure-functions-archetype` archetype version 1.0:
+The Azure folks have created a Maven Archetype which we can use. If you're familiar with .NET Core, a Maven Archetype is like a `dotnet new` template we can use to bootstrap a project. When creating a new project in IntelliJ IDEA, we can pick **Maven** as the project type, then _Create from archetype_, then pick (or add, first) the `com.microsoft.azure/azure-functions-archetype` archetype version 1.0:
 
 ![Create Azure Functions project from Maven Archetype using IntelliJ IDEA](/images/2017/11/intellij-idea-create-from-archetype.png)
 
@@ -54,17 +54,17 @@ Next, we must add two additional properties: `package` and `appName`. These will
 
 ![Maven project properties](/images/2017/11/maven-project-properties.png)
 
-In the next step we can choose where on disk we want to save our project, then *Finish*  and let IntelliJ IDEA create the new Azure functions project for us.
+In the next step we can choose where on disk we want to save our project, then _Finish_ and let IntelliJ IDEA create the new Azure functions project for us.
 
-One more thing: since we'll use Maven as the project system, IntelliJ IDEA will ask us to manually import the Maven project or auto-import it. Let's *Enable Auto-Import* here.
+One more thing: since we'll use Maven as the project system, IntelliJ IDEA will ask us to manually import the Maven project or auto-import it. Let's _Enable Auto-Import_ here.
 
 ![Auto-import Maven project](/images/2017/11/auto-import-maven.png)
 
-*Note: if you prefer command-line for the above steps, check the [Azure Functions with Maven tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven#generate-a-new-functions-project) Microsoft created.*
+_Note: if you prefer command-line for the above steps, check the [Azure Functions with Maven tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven#generate-a-new-functions-project) Microsoft created._
 
 ## 2. Enabling Kotlin in our project
 
-We now have an Azure Functions project that uses Java. Let's enable Kotlin! This requires either a few manual steps fiddling in our [Maven `pom.xml` file](https://kotlinlang.org/docs/reference/using-maven.html), or a few clicks in the IDE. Let's go for the latter and use the **Tools \| Kotlin \| Configure Kotlin in Project...**  menu. A dialog will ask us to specify which modules we want to enable it in, let's just keep the defaults and make it happen.
+We now have an Azure Functions project that uses Java. Let's enable Kotlin! This requires either a few manual steps fiddling in our [Maven `pom.xml` file](https://kotlinlang.org/docs/reference/using-maven.html), or a few clicks in the IDE. Let's go for the latter and use the **Tools \| Kotlin \| Configure Kotlin in Project...** menu. A dialog will ask us to specify which modules we want to enable it in, let's just keep the defaults and make it happen.
 
 ![Configure Kotlin in project](/images/2017/11/configure-kotlin-in-project.png)
 
@@ -74,13 +74,13 @@ We're now ready to write some Kotlin!
 
 If we look at the project structure, we already have two Java classes in our project:
 
-* `src/main/java/be.maartenballiauw.azure.ktfunction/Function` - a simple "Hello World" added by the Azure Functions archetype
-* `src/test/java/be.maartenballiauw.azure.ktfunction/Function` - a test for the above class
+- `src/main/java/be.maartenballiauw.azure.ktfunction/Function` - a simple "Hello World" added by the Azure Functions archetype
+- `src/test/java/be.maartenballiauw.azure.ktfunction/Function` - a test for the above class
 
 We can do two things now:
 
-* Open both classes in the editor, press **Ctrl+Shift+Alt+K** to let IntelliJ IDEA convert these classes to Kotlin.
-* Remove both classes and create our own from scratch.
+- Open both classes in the editor, press **Ctrl+Shift+Alt+K** to let IntelliJ IDEA convert these classes to Kotlin.
+- Remove both classes and create our own from scratch.
 
 While the first options is great and works mostly flawless to auto-convert Java to Kotlin, let's create a function from scratch. So drop the two classes, and then let's add a new class `HelloKotlin`:
 
@@ -105,8 +105,8 @@ This function is public, takes a non-nullable string ([Kotlin dislikes `null`](h
 
 One more thing to do: adding an `import` statement (the Java and Kotlin equivalent of .NET `using`), and some annotations (the Java and Kotlin equivalent of .NET attributes) that will help us generate the required Azure Functions metadata to make our project run. This is not required, but makes life easier.
 
-* Adding `@FunctionName("hello")` on the function level will tell the Azure Functions Maven plugin this method will be exposed as a function.
-* Adding `@HttpTrigger(name = "name", methods = arrayOf("get"), authLevel = AuthorizationLevel.ANONYMOUS)` on the `name` parameter will help the Azure Functions Maven plugin to determine this parameter is really called "name" and can be available on anonymous `GET` requests.
+- Adding `@FunctionName("hello")` on the function level will tell the Azure Functions Maven plugin this method will be exposed as a function.
+- Adding `@HttpTrigger(name = "name", methods = arrayOf("get"), authLevel = AuthorizationLevel.ANONYMOUS)` on the `name` parameter will help the Azure Functions Maven plugin to determine this parameter is really called "name" and can be available on anonymous `GET` requests.
 
 The full code:
 
@@ -179,8 +179,8 @@ Under the `<plugins>` element, we can add the following two plugins. Note these 
 
 What does this do? Glad to hear you care!
 
-* The [`maven-jar-plugin`](http://maven.apache.org/plugins/maven-jar-plugin/index.html) plugin builds a package based on what the `maven-assembly-plugin` provides us.
-* The [`maven-assembly-plugin`](http://maven.apache.org/plugins/maven-assembly-plugin/index.html) plugin builds the necessary files to be able to create a self-contained package containing all of our runtime dependencies. Note the `appendAssemblyId` element has to be set to `false`, so that the resulting JAR file name is correct for the Azure Functions tools to pick up!
+- The [`maven-jar-plugin`](http://maven.apache.org/plugins/maven-jar-plugin/index.html) plugin builds a package based on what the `maven-assembly-plugin` provides us.
+- The [`maven-assembly-plugin`](http://maven.apache.org/plugins/maven-assembly-plugin/index.html) plugin builds the necessary files to be able to create a self-contained package containing all of our runtime dependencies. Note the `appendAssemblyId` element has to be set to `false`, so that the resulting JAR file name is correct for the Azure Functions tools to pick up!
 
 Ready? We can now double-click the `package` Maven goal to generate our deployment artifacts. If you see any failures, execute the `clean` Maven goal first - it could be there are some leftover files lingering from before we enabled Kotlin in our project.
 
@@ -198,7 +198,7 @@ We're there. All set. Ready to roll! We can double-click the `azure-functions \|
 
 ![Run Kotlin Azure Function in emulator](/images/2017/11/run-azure-function-kotlin.png)
 
-Note: I have been struggling with an *Object reference not set to an instance of an object*  error at startup. Some back-an-forth e-mails with the Azure team learned this error typically means the `JAVA_HOME` environment variable is not set. If you encounter this error, make sure to set it! Check the prerequisites again!
+Note: I have been struggling with an _Object reference not set to an instance of an object_ error at startup. Some back-an-forth e-mails with the Azure team learned this error typically means the `JAVA_HOME` environment variable is not set. If you encounter this error, make sure to set it! Check the prerequisites again!
 
 After startup, we can now invoke our Kotlin Azure Function. Either from the browser, hitting [http://localhost:7071/api/hello?name=Maarten](http://localhost:7071/api/hello?name=Maarten), or using IntelliJ IDEA's built-in REST client (**Tools \| Test RESTFul Webservice**):
 

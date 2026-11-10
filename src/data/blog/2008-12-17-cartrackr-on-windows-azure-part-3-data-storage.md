@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/12/17/cartrackr-on-windows-azure-part-3-data-storage.html
 ---
+
 This post is part 3 of my series on [Windows Azure](http://www.microsoft.com/azure), in which I'll try to convert my ASP.NET MVC application into a cloud application. The current post is all about implementing cloud storage in CarTrackr.
 
 Other parts:
@@ -28,13 +29,13 @@ Other parts:
 
 CarTrackr will use table storage to store cars and refuellings. Table Storage is one of the simplest way to store data in Azure. All tables are accessed using a Uri in the form of [http://<applicationname>.tables.core.windows.net](http://<applicationname>.tables.core.windows.net). You need to have a storage cccount if you want to use the table storage. Waiting for an invitation? The [Azure SDK](http://go.microsoft.com/fwlink/?LinkID=130232) contains a development storage tool which simulates all cloud table storage features on your local host: [http://127.0.0.1:10002](http://127.0.0.1:10002)
 
-Each storage account has a *Table* containg an *Entity*. An *Entity* contains *Columns. *Entity can be considered to be the *row* and Columns as *values.* Each *Entity* always contains these properties: PartitionKey, RowKey and Timestamp . The PartitionKey and RowKey identify a *row* or an *Entity. ([source](http://www.chakkaradeep.com/blog/windows-azure-table-storage/))*
+Each storage account has a _Table_ containg an _Entity_. An _Entity_ contains *Columns. *Entity can be considered to be the _row_ and Columns as _values._ Each _Entity_ always contains these properties: PartitionKey, RowKey and Timestamp . The PartitionKey and RowKey identify a _row_ or an _Entity. ([source](http://www.chakkaradeep.com/blog/windows-azure-table-storage/))_
 
 ## Implementing Azure TableStorage in CarTrackr
 
 ### Configuring TableStorage
 
-First of all, we have to specify we are going to use storage in the CarTrackr application. This can be achieved by adding some configuration to the *CarTrackr_Azure*'s *ServiceConfiguration.cscfg*:
+First of all, we have to specify we are going to use storage in the CarTrackr application. This can be achieved by adding some configuration to the _CarTrackr_Azure_'s _ServiceConfiguration.cscfg_:
 
 ```csharp
 <?xml version="1.0"?>
@@ -57,9 +58,9 @@ When deploying, we should of course change the TableStorageEndpoint to the Azure
 
 ### Making sure all tables exist in TableStorage
 
-To make sure all tables exist in TableStorage, a *TableStorageDataServiceContext *should be defined. This *TableStorageDataServiceContext *should contain some *TableStorageEntity* items. We can easily make all domain objects in CarTrackr of type *TableStorageEntity. *Make sure to build the samples in the Azure SDK folder and add a reference to the StorageClient.dll in that folder.
+To make sure all tables exist in TableStorage, a *TableStorageDataServiceContext *should be defined. This *TableStorageDataServiceContext *should contain some _TableStorageEntity_ items. We can easily make all domain objects in CarTrackr of type *TableStorageEntity. *Make sure to build the samples in the Azure SDK folder and add a reference to the StorageClient.dll in that folder.
 
-Creating a class that is TableStorage aware is easy now: inherit the *Microsoft.Samples.ServiceHosting.StorageClient.Microsoft.Samples.ServiceHosting.StorageClient* class, modify the constructor and you're done. I've also modified the domain classes, making RowKey the identifier for the current object.
+Creating a class that is TableStorage aware is easy now: inherit the _Microsoft.Samples.ServiceHosting.StorageClient.Microsoft.Samples.ServiceHosting.StorageClient_ class, modify the constructor and you're done. I've also modified the domain classes, making RowKey the identifier for the current object.
 
 ```csharp
 namespace CarTrackr.Domain
@@ -78,7 +79,7 @@ namespace CarTrackr.Domain
 
 ```
 
-Also add the *CarTrackrCloudContext* class to the CarTrackr.Data namespace. This *CarTrackrCloudContext* class will implement a *TableStorageDataServiceContext*, defining which tables are in the TableStorage.
+Also add the _CarTrackrCloudContext_ class to the CarTrackr.Data namespace. This _CarTrackrCloudContext_ class will implement a _TableStorageDataServiceContext_, defining which tables are in the TableStorage.
 
 ```csharp
 using System.Data.Services.Client;
@@ -114,7 +115,7 @@ namespace CarTrackr.Data
 
 ```
 
-This *CarTrackrCloudContext* tells the application there are 3 types of tables, represented by 3 domain class types. Note that the class has been inherited from *TableStorageDataServiceContext*, which automatically connects to the TableStorage endpoint with the account information we stored previously in the Service Configuration file.
+This _CarTrackrCloudContext_ tells the application there are 3 types of tables, represented by 3 domain class types. Note that the class has been inherited from _TableStorageDataServiceContext_, which automatically connects to the TableStorage endpoint with the account information we stored previously in the Service Configuration file.
 
 To make sure tables exist and are up to date when the application is started, add the following to CarTrackr's Global.asax:
 
@@ -142,13 +143,13 @@ protected void Application_BeginRequest(object sender, EventArgs e)
 
 ```
 
-The *TableStorage* client will create all requried tables based on the *CarTrackrCloudContext* class's IQueryable properties. Note that I'm using double-check locking here to make sure tables are only created once (performance).
+The _TableStorage_ client will create all requried tables based on the _CarTrackrCloudContext_ class's IQueryable properties. Note that I'm using double-check locking here to make sure tables are only created once (performance).
 
 ### Querying data
 
 Luckily, my repository code is not subject to much changes. Linq queries just keep working on the Azure TableStorage. Only Insert, Update and Delete are a little bit different. The CarTrackrCloudContext class represents the runtime context of ADO.NET Data Services and enables to use AddObject(), DeleteObject(), UpdateObject(), followed by SaveChanges().
 
-Here's an example on adding a Car (*CarRepository*):
+Here's an example on adding a Car (_CarRepository_):
 
 ```csharp
 public void Add(Car car)

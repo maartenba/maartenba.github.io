@@ -23,12 +23,14 @@ Thanks to [policy-based authorization](https://docs.microsoft.com/en-us/aspnet/c
 Sometimes you may want to show or hide a UI element in a page or view, based on the current user's identity and privileges. The authorization docs [have some examples](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/views?view=aspnetcore-3.1) on how to do this, which essentially boil down to:
 
 1. Injecting an `IAuthorizationService` into your views:
+
 ```csharp
 @using Microsoft.AspNetCore.Authorization
 @inject IAuthorizationService AuthorizationService
 ```
 
 2. Writing an `if` statement to check authorization:
+
 ```csharp
 if ((await AuthorizationService.AuthorizeAsync(User, Model, "CanApproveBookingRequest")).Succeeded)
 {
@@ -40,10 +42,14 @@ if ((await AuthorizationService.AuthorizeAsync(User, Model, "CanApproveBookingRe
 That is perfectly fine, but having all of those nice [tag helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-3.1) for other things made me question putting `if`-statements in views. Instead, I wanted to make this look like the following:
 
 ```html
-<a class="btn btn-success" role="button"
-    asp-action="Approve"
-    asp-route-id="Model.Id"
-    asp-authpolicy="CanApproveBookingRequest">Approve booking</a>
+<a
+  class="btn btn-success"
+  role="button"
+  asp-action="Approve"
+  asp-route-id="Model.Id"
+  asp-authpolicy="CanApproveBookingRequest"
+  >Approve booking</a
+>
 ```
 
 Some will prefer the `if`-statement over this tag helper, as it is more visual. I was in that camp, yet after building this tag helper I can't say I miss those `if`s in view code. By all means, use what works for you.
@@ -98,9 +104,9 @@ What is very cool is that the properties that map to a tag helper HTML attribute
 
 The "business logic" of our tag helper will be in the `ProcessAsync` method. In here, we will do the following things:
 
-* Do whatever the `TagHelper` base class has to do.
-* If there is a current HTTP context, call `AuthorizeAsync` on the authorization service, passing in the resource id and the policy name.
-* If that succeeds, do nothing. If not, hide the current tag.
+- Do whatever the `TagHelper` base class has to do.
+- If there is a current HTTP context, call `AuthorizeAsync` on the authorization service, passing in the resource id and the policy name.
+- If that succeeds, do nothing. If not, hide the current tag.
 
 In code, this looks like the following:
 
@@ -123,8 +129,8 @@ public override async Task ProcessAsync(TagHelperContext context, TagHelperOutpu
 
 Some notes and thoughts:
 
-* If no HTTP context is available, theoretically the entire view will not work. This situation should never happen, but in case it happens, I don't care too much about the element still being visible. The Razor page/controller action still has an `[Authorize(...)]` attribute checking the authorization policy, so that's fine. If not, suppress the output for that edge case (?) as well.
-* My authorization handlers and policies work off a `ResourceDescriptor` class that, in reality, holds both the resource type and id. Your situation may be different, so this tag handler and how it calls into the authorization service will probably look different in your situation.
+- If no HTTP context is available, theoretically the entire view will not work. This situation should never happen, but in case it happens, I don't care too much about the element still being visible. The Razor page/controller action still has an `[Authorize(...)]` attribute checking the authorization policy, so that's fine. If not, suppress the output for that edge case (?) as well.
+- My authorization handlers and policies work off a `ResourceDescriptor` class that, in reality, holds both the resource type and id. Your situation may be different, so this tag handler and how it calls into the authorization service will probably look different in your situation.
 
 Also, suppressing the HTML tag's output is not the only thing you can do. Let's say that instead of hiding the HTML element, we want to strip its `href` attribute so it still renders, but no longer has a link. That's perfectly possible!
 
@@ -150,15 +156,19 @@ Before we can use our tag helper in any view, we'll have to register it in the `
 After compiling the project, we can now use our tag helper!
 
 ```html
-<a class="btn btn-success" role="button"
-    asp-action="Approve"
-    asp-route-id="Model.Id"
-    asp-authpolicy="CanApproveBookingRequest">Approve booking</a>
+<a
+  class="btn btn-success"
+  role="button"
+  asp-action="Approve"
+  asp-route-id="Model.Id"
+  asp-authpolicy="CanApproveBookingRequest"
+  >Approve booking</a
+>
 ```
 
 If the `Model.Id` matches the `CanApproveBookingRequest` policy, our hyperlink will be rendered. If not, no HTML is emitted, and our button will not be visible.
 
-When you are using ReSharper or Rider, try *Ctrl+click*-ing on the `asp-` attributes - it will show you which tag helper uses that specific attribute.
+When you are using ReSharper or Rider, try _Ctrl+click_-ing on the `asp-` attributes - it will show you which tag helper uses that specific attribute.
 
 ![Navigate from view to tag helper in ASP.NET Core and Razor pages](/images/2020/04/rider-navigate-view-to-tag-helper.png)
 

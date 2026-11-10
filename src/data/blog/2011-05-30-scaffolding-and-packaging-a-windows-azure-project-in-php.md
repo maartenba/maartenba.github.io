@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/05/30/scaffolding-and-packaging-a-windows-azure-project-in-php.html
 ---
+
 [![](/images/image_thumb_84.png)](/images/image_114.png)With the fresh release of the [Windows Azure SDK for PHP v3.0](/posts/2011-05-26-windows-azure-sdk-for-php-v30-released/), it’s time to have a look at the future. One of the features we’re playing with is creating a full-fledged replacement for the current [Windows Azure Command-Line tools](http://azurephptools.codeplex.com/) available. These tools sometimes are a life saver and sometimes a big PITA due to baked-in defaults and lack of customization options. And to overcome that last one, here’s what we’re thinking of: scaffolders.
 
 Basically what we’ll be doing is splitting the packaging process into two steps:
@@ -33,11 +34,11 @@ Package Scaffold -p:"C:\temp\Sample" --DiagnosticsConnectionString:"UseDevelopme
 
 ```
 
-This command will generate a folder structure in *C:\Temp\Sample* and uses the default scaffolder (which requires the parameter “DiagnosticsConnectionString to be specified). Nothing however prevents you from creating your own (later in this post).
+This command will generate a folder structure in _C:\Temp\Sample_ and uses the default scaffolder (which requires the parameter “DiagnosticsConnectionString to be specified). Nothing however prevents you from creating your own (later in this post).
 
 [![](/images/image_thumb_85.png)](/images/image_115.png)
 
-Once you have the folder structure in place, the only thing left is to copy your application contents into the “PhpOnAzure.Web” folder. In case of this default scaffolder, that is all that is required to create your Windows Azure project structure. Nothing complicated until now, and I promise you things will never get complicated. However if you are a brave soul, you *can* at this point customize the folder structure, add our custom configuration settings, …
+Once you have the folder structure in place, the only thing left is to copy your application contents into the “PhpOnAzure.Web” folder. In case of this default scaffolder, that is all that is required to create your Windows Azure project structure. Nothing complicated until now, and I promise you things will never get complicated. However if you are a brave soul, you _can_ at this point customize the folder structure, add our custom configuration settings, …
 
 ## Packaging a Windows Azure project
 
@@ -49,13 +50,13 @@ Package Create -p:"C:\temp\Sample" -dev:false
 
 ```
 
-The above will create a *Sample.cspkg* file which you can immediately deploy to Windows Azure. Either through the portal or using the Windows Azure command line tools that are included in the current version of the Windows Azure SDK for PHP.
+The above will create a _Sample.cspkg_ file which you can immediately deploy to Windows Azure. Either through the portal or using the Windows Azure command line tools that are included in the current version of the Windows Azure SDK for PHP.
 
 ## Building your own scaffolder
 
-Scaffolders are in fact *Phar* archives, a PHP packaging standard which is in essence a file containing executable PHP code as well as resources like configuration files, images, …
+Scaffolders are in fact _Phar_ archives, a PHP packaging standard which is in essence a file containing executable PHP code as well as resources like configuration files, images, …
 
-A scaffolder is typically a structure containing a *resources* folder containing configuration files or a complete PHP deployment or something like that, and a file named index.php, containing the scaffolding logic. Let’s have a look at *index.php*.
+A scaffolder is typically a structure containing a _resources_ folder containing configuration files or a complete PHP deployment or something like that, and a file named index.php, containing the scaffolding logic. Let’s have a look at _index.php_.
 
 ```php
 <?php
@@ -77,9 +78,9 @@ class Scaffolder
 
 ```
 
-Looks simple, right? It is. The *invoke* method is the only thing that you should implement: this can be a method extracting some content to the *$rootPath* as well as updating some files in there as well as… anything! If you can imagine ourself doing it in PHP, it’s possible in a scaffolder.
+Looks simple, right? It is. The _invoke_ method is the only thing that you should implement: this can be a method extracting some content to the _$rootPath_ as well as updating some files in there as well as… anything! If you can imagine ourself doing it in PHP, it’s possible in a scaffolder.
 
-Packaging a scaffolder is the last step in creating one: copying all files into a *.phar* file. And wouldn’t it be fun if that task was easy as well? Check this command:
+Packaging a scaffolder is the last step in creating one: copying all files into a _.phar_ file. And wouldn’t it be fun if that task was easy as well? Check this command:
 
 ```
 

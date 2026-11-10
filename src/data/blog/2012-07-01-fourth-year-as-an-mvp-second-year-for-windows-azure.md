@@ -5,11 +5,13 @@ pubDatetime: 2012-07-01T16:53:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "Azure", "CSharp", "General", "MVP", "Personal", "Azure Database"]
+tags:
+  ["ASP.NET", "Azure", "CSharp", "General", "MVP", "Personal", "Azure Database"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2012/07/01/fourth-year-as-an-mvp-second-year-for-windows-azure.html
 ---
+
 Woohoo! I just received the great mail I expect yearly on the first of July:
 
 > Dear Maarten Balliauw,

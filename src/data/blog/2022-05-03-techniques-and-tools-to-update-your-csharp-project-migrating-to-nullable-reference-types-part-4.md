@@ -17,10 +17,11 @@ Previously, [we saw how you can help the compiler's flow analysis understand you
 In this final post of our series, we'll have a look at the techniques and tools that are available to migrate to using nullable reference types in an existing code base.
 
 In this series:
-* [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)
-* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/)
-* [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/)
-* [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/) (this post)
+
+- [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)
+- [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/)
+- [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/)
+- [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/) (this post)
 
 ## Pick your approach: there is no silver bullet
 
@@ -31,9 +32,10 @@ Generally speaking, it's a good idea to fully enable the nullable annotation con
 This gets you the benefits of better static flow analysis from the start.
 
 For existing projects, the choice is yours:
-* For smaller projects, you can set `<Nullable>enable</Nullable>` at the project level and plow through.
-* For larger projects, you may want to leave the project level set to `disable`, and add `#nullable enable` file by file.
-* Alternatively, you can set `warnings` as the project level default, so you'll see warnings where the compiler's flow analysis infers potential `null` references. You can then add `#nullable enable` file by file, and gradually add the right annotations and nullable attributes.
+
+- For smaller projects, you can set `<Nullable>enable</Nullable>` at the project level and plow through.
+- For larger projects, you may want to leave the project level set to `disable`, and add `#nullable enable` file by file.
+- Alternatively, you can set `warnings` as the project level default, so you'll see warnings where the compiler's flow analysis infers potential `null` references. You can then add `#nullable enable` file by file, and gradually add the right annotations and nullable attributes.
 
 Regardless of the setting you choose at the project level, you'll be in the mode of working through all warnings incrementally.
 
@@ -74,11 +76,11 @@ Converting this class to using C# nullable reference types may be easy!
 
 Let's enable nullable reference types for this `LocationInfo` class!
 
-* Add `#nullable enable` to the class file
-* In the IDE, use **Find Usages** on every property, and determine if the properties are potentially set to `null` anywhere.
-  * If there's a value specified at every usage, keep the class as-is.
-  * If a `null` reference is passed in, you may need to annotate the property with `?`
-* In the IDE, use **Find Usages**  on the constructor, and determine if the constructor parameters are potentially set to `null` anywhere.
+- Add `#nullable enable` to the class file
+- In the IDE, use **Find Usages** on every property, and determine if the properties are potentially set to `null` anywhere.
+  - If there's a value specified at every usage, keep the class as-is.
+  - If a `null` reference is passed in, you may need to annotate the property with `?`
+- In the IDE, use **Find Usages** on the constructor, and determine if the constructor parameters are potentially set to `null` anywhere.
 
 Going through usages, I found this particular case in my code base:
 
@@ -99,8 +101,9 @@ Both R# and Rider caught that `result.Country.Name` and `result.City.Name` may b
 ![Possible 'null' assignment to non-nullable entity](/images/2022/04/rider-ide-non-nullable-entity.png)
 
 This is one of those cases where you'll have to decide on the approach to take...
-* Should you annotate the `LocationInfo` constructor parameters?
-* Should you keep the `LocationInfo` constructor parameters as non-nullable and update the call site?
+
+- Should you annotate the `LocationInfo` constructor parameters?
+- Should you keep the `LocationInfo` constructor parameters as non-nullable and update the call site?
 
 In this case there is only one call site that potentially passes a `null` reference, so let's keep the `LocationInfo` constructor parameters non-nullable and update the call site instead:
 
@@ -119,8 +122,9 @@ return LocationInfo.Unknown;
 ```
 
 The call site is updated with more thorough `null` checks, and a redesigned API:
-* When no `null` values are present, we still return `LocationInfo` with non-nullable properties.
-* When any values are `null`, we return `LocationInfo.Unknown` - a static property with both properties set to `"Unknown"`.
+
+- When no `null` values are present, we still return `LocationInfo` with non-nullable properties.
+- When any values are `null`, we return `LocationInfo.Unknown` - a static property with both properties set to `"Unknown"`.
   No need for `null` checks anywhere `LocationInfo` is used, there's always going to be a value.
 
 Much like with `async`/`await`, nullable annotations will flow through your entire project.
@@ -168,7 +172,7 @@ In many cases, **Find Usages** will be sufficient to get an idea of the direct u
 In other cases, you may need more information.
 
 ReSharper (R#) and JetBrains Rider come with [value tracking](https://www.jetbrains.com/help/resharper/Code_Analysis__Value_Tracking.html) and [call tracking](https://www.jetbrains.com/help/resharper/Code_Analysis__Call_Tracking.html) to help you out here.
-[Visual Studio 2022](https://www.visualstudio.com/) also has a *Track Value Source* command, but your mileage with it will vary.
+[Visual Studio 2022](https://www.visualstudio.com/) also has a _Track Value Source_ command, but your mileage with it will vary.
 
 With value tracking, you can follow the entire flow of a specific value and determine where it is originating from and where it is being used.
 
@@ -211,10 +215,11 @@ The original `[CanBeNull]` annotation can be removed, and converted to `string? 
 ![Use type annotation syntax](/images/2022/04/use-type-annotation-syntax.png)
 
 If you're using the 2022.1 version of ReSharper or JetBrains Rider, there is a new **Migrate to #nullable enable** quick fix that does a few things at once:
-* It inserts all `[NotNull]` and `[CanBeNull]` attributes inherited from base members such as implemented interfaces.
+
+- It inserts all `[NotNull]` and `[CanBeNull]` attributes inherited from base members such as implemented interfaces.
   JetBrains annotations can be inherited (unlike C#'s annotations), so they are pulled in.
-* It infers annotations, by looking at your code's branches. Are you returning `null`? A nullable return type will be inferred.
-* It converts all JetBrains Annotations in the current file to C# annotations.
+- It infers annotations, by looking at your code's branches. Are you returning `null`? A nullable return type will be inferred.
+- It converts all JetBrains Annotations in the current file to C# annotations.
 
 ![Migrate to #nullable enable](/images/2022/04/migrate-to-nullable-enable.png)
 
@@ -299,10 +304,10 @@ If you're using ReSharper or JetBrains Rider, you can enable pessimistic analysi
 
 ## Pessimistic analysis
 
-By default, ReSharper and JetBrains Rider analyze your code in *optimistic* mode.
+By default, ReSharper and JetBrains Rider analyze your code in _optimistic_ mode.
 In this mode, you will only see warnings about potentially dereferencing `null` if you explicitly checked it for `null` in the code path, or if it's annotated as nullable.
 
-The opposite mode is *pessimistic*.
+The opposite mode is _pessimistic_.
 Unless a value is annotated as non-nullable, the IDE will expect you do a `null` check.
 The web help has [more info about both modes](https://www.jetbrains.com/help/resharper/Code_Analysis__Value_Analysis.html#modes_).
 
@@ -352,7 +357,7 @@ public class User
 }
 ```
 
-With C# nullable reference types enabled, a warning will be shown for the `Name` property: *Non-nullable property is uninitialized. Consider declaring it as nullable.*
+With C# nullable reference types enabled, a warning will be shown for the `Name` property: _Non-nullable property is uninitialized. Consider declaring it as nullable._
 
 Let's look at how we can fix these warnings...
 

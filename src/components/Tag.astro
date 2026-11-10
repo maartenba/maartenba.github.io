@@ -10,12 +10,7 @@ export interface Props {
 const { tag, tagName, size = "sm" } = Astro.props;
 ---
 
-<li
-  class:list={[
-    "group inline-block",
-    size === "sm" ? "my-1" : "mx-1 my-3",
-  ]}
->
+<li class:list={["group inline-block", size === "sm" ? "my-1" : "mx-1 my-3"]}>
   <a
     href={`/tags/${tag}/`}
     transition:name={tag}

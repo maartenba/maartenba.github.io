@@ -11,7 +11,7 @@ redirect_from:
   - /post/2018/11/22/talk-exploring-nets-memory-management-a-trip-down-memory-lane-jetbrains-day-south-korea-seoul.html
 ---
 
-At JetBrains Day Seoul, I had the opportunity to speak about *Exploring .NET's memory management – a trip down memory lane*.
+At JetBrains Day Seoul, I had the opportunity to speak about _Exploring .NET's memory management – a trip down memory lane_.
 
 ## Session abstract
 

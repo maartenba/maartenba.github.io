@@ -11,6 +11,7 @@ redirect_from:
   - /post/2007/03/29/developer-amp-it-pro-days-ghent-day-2.html
   - /post/2007/03/29/developer-amp3b-it-pro-days-ghent-day-2.html
 ---
+
 Just got back from the second and last day at the DevDays. It's all more exhausting than I thought it would be. First of all: driving from Antwerp to Ghent and arrive there in time means to get up early. Second, a lot of information and understanding needs to be processed and absorbed.
 
 Today, I've attended a session on C#3.0 and what's next by [Raj Pai](http://blogs.msdn.com/rajpai/). Interesting material, seems to me that C# will evolve into something more declarative and flexible than it already is.

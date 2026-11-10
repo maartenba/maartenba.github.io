@@ -11,6 +11,7 @@ redirect_from:
   - /post/2019/07/30/indexing-and-searching-nuget-org-with-azure-functions-and-search.html
   - /post/2019/07/30/indexing-searching-nuget-with-azure-functions-and-search.html
 ---
+
 In an application I'm writing, I need to deserialize some JSON. I know the class to use is `JsonConvert`, but which NuGet package was that type in again?
 
 Granted, that's an obvious one. Yet, there are many uses for a **"NuGet reverse package search"** that helps finding the correct NuGet package based on a public type.
@@ -25,23 +26,23 @@ In this blog post, we'll build a "reverse package search" that helps finding the
 
 Since it's a long post, I'll start off with a table of contents:
 
-* [Recording](#recording)
-* [Introduction](#introduction)
-  * [NuGet API v3](#nuget-api-v3)
-  * [NuGet catalog](#nuget-catalog)
-  * [Migrating to V3](#migrating-to-v3)
-* [Azure Functions](#azure-functions)
-  * [Collecting data from the catalog](#collecting-data-from-the-catalog)
-  * [Custom trigger bindings](#custom-trigger-bindings)
-  * [Downloading packages](#downloading-packages)
-  * [Indexing packages](#indexing-packages)
-    * [System.Reflection.Metadata](#systemreflectionmetadata)
-    * [Azure Search](#azure-search)
-    * [Indexing on Azure Functions](#indexing-on-azure-functions)
-  * [Custom output bindings](#custom-output-bindings)
-  * [Reverse package search API](#reverse-package-search-api)
-  * [One more thing...](#one-more-thing)
-* [Conclusion](#conclusion)
+- [Recording](#recording)
+- [Introduction](#introduction)
+  - [NuGet API v3](#nuget-api-v3)
+  - [NuGet catalog](#nuget-catalog)
+  - [Migrating to V3](#migrating-to-v3)
+- [Azure Functions](#azure-functions)
+  - [Collecting data from the catalog](#collecting-data-from-the-catalog)
+  - [Custom trigger bindings](#custom-trigger-bindings)
+  - [Downloading packages](#downloading-packages)
+  - [Indexing packages](#indexing-packages)
+    - [System.Reflection.Metadata](#systemreflectionmetadata)
+    - [Azure Search](#azure-search)
+    - [Indexing on Azure Functions](#indexing-on-azure-functions)
+  - [Custom output bindings](#custom-output-bindings)
+  - [Reverse package search API](#reverse-package-search-api)
+  - [One more thing...](#one-more-thing)
+- [Conclusion](#conclusion)
 
 Now grab a nice beverage and a comfortable chair, almost 7000 words are awaiting you!
 
@@ -49,7 +50,7 @@ P.S.: Source code for this blog post [is on GitHub](https://github.com/maartenba
 
 ## Recording
 
-This blog post is a written version of my conference talk *"Indexing and searching NuGet.org with Azure Functions and Search"*. In case you prefer watching and listening, you can use the recording below (captured at [NDC Oslo 2019](https://www.ndcoslo.com)).
+This blog post is a written version of my conference talk _"Indexing and searching NuGet.org with Azure Functions and Search"_. In case you prefer watching and listening, you can use the recording below (captured at [NDC Oslo 2019](https://www.ndcoslo.com)).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s6rYDP1emUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -63,12 +64,12 @@ When using a type name, for example `JsonConvert`, a quick fix **"Find this type
 
 ReSharper 9 introduced this [back in 2015](https://www.jetbrains.com/resharper/whatsnew/whatsnew_9.html). Visual Studio did a similar thing [in 2017](https://www.hanselman.com/blog/VisualStudio2017CanAutomaticallyRecommendNuGetPackagesForUnknownTypes.aspx).
 
-> Story time! 2015 is not when the idea for this feature came about! At what must have been my first JetBrains New Year's party back in 2013, I was chatting with a couple of colleagues working on NuGet support in ReSharper back then. I pitched the idea of a reverse package search, thinking it was a novel idea. Granted, that thought might have been infused by party beverages, but still. Turns out I did *not* have a novel idea: "We're already working on this" was the answer I received.
+> Story time! 2015 is not when the idea for this feature came about! At what must have been my first JetBrains New Year's party back in 2013, I was chatting with a couple of colleagues working on NuGet support in ReSharper back then. I pitched the idea of a reverse package search, thinking it was a novel idea. Granted, that thought might have been infused by party beverages, but still. Turns out I did _not_ have a novel idea: "We're already working on this" was the answer I received.
 
 The end product that was released in ReSharper consisted of two things:
 
-* ReSharper functionality (quick fix and a tool window)
-* A service that indexes packages and powers search with an API
+- ReSharper functionality (quick fix and a tool window)
+- A service that indexes packages and powers search with an API
 
 The latter one was created as an Azure Cloud Service (Web role for the API, and Worker role for the indexing process). The indexer made use of the NuGet OData feed, running queries similar to this one:
 
@@ -79,6 +80,7 @@ In short: we retrieved just the fields we were interested in (Id, Version and so
 Now, between 2015 and now a number of things happened... First, increased NuGet usage and number of NuGet packages! The daily upload counts were increasing, and our indexer kept receiving more and more work.
 
 > huh, [nuget.org](https://t.co/tn7WCIynaN) repo is 1.9Tb now... was like 250Gb in a year 2015 [pic.twitter.com/aP73rbgq9J](https://t.co/aP73rbgq9J)— Alexander Shvedov (@controlflow) [November 28, 2018](https://twitter.com/controlflow/status/1067724815958777856?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Second, over the 2018/2019 holiday season, [NuGet started repository-signing packages](https://blog.nuget.org/20180810/Introducing-Repository-Signatures.html). A good thing, with one caveat: during that period every single package that had been on NuGet.org was updated (a new editing timestamp, plus a fresh binary with that repository signature attached). In other words, sort of a complete re-index was happening on our end.
@@ -89,36 +91,36 @@ Could there be a better way to fetch package metadata?
 
 ### NuGet API v3
 
-Turns out there *is* a better way to fetch package metadata. As we all know, NuGet talks to a repository - either a folder or network share, or a remote one over HTTP.
+Turns out there _is_ a better way to fetch package metadata. As we all know, NuGet talks to a repository - either a folder or network share, or a remote one over HTTP.
 
 Those HTTP(S) based ones have been evolving over time. NuGet.org, as well as other NuGet server implementations out there support either one or both of the supported HTTP API's:
 
-* V2 API – OData based (used by pretty much all NuGet servers out there)
-* V3 API – JSON based (NuGet.org, TeamCity, MyGet, Azure DevOps, GitHub repos, Sleet, ...)
+- V2 API – OData based (used by pretty much all NuGet servers out there)
+- V3 API – JSON based (NuGet.org, TeamCity, MyGet, Azure DevOps, GitHub repos, Sleet, ...)
 
 That V3 API is not really "one" API. It's a set of API's that are made available, for different use cases. If you look at [NuGet.org's V3 API URL](https://api.nuget.org/v3/index.json), we will see a number of "resources" listed:
 
-* V2 API URL
-* Package upload URL
-* V3 search URL
-* V3 autocompletion URL
-* Registrations (materialization of latest metadata state of a package)
-* Flat container (.NET Core package restore and basic version metadata)
-* Catalog (append-only event log, NuGet.org only)
-* Report abuse URL template
-* ...
+- V2 API URL
+- Package upload URL
+- V3 search URL
+- V3 autocompletion URL
+- Registrations (materialization of latest metadata state of a package)
+- Flat container (.NET Core package restore and basic version metadata)
+- Catalog (append-only event log, NuGet.org only)
+- Report abuse URL template
+- ...
 
 The NuGet client uses these depending on the scenario. Obviously, it uses search when looking for packages, but will use the flat container for package restore as that API is much better suited for quickly resolving package binaries.
 
 ### NuGet catalog
 
-One interesting resource in NuGet's V3 API, is the *Catalog*. It is really an event stream of package additions, updates and deletes. And it's chronological, which means that if we keep track of the atest timestamp we received from the cataog, we can use it to continue where we left off on the next run.
+One interesting resource in NuGet's V3 API, is the _Catalog_. It is really an event stream of package additions, updates and deletes. And it's chronological, which means that if we keep track of the atest timestamp we received from the cataog, we can use it to continue where we left off on the next run.
 
 Its structure is a tree. After finding the catalog root from [api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json), we will find:
 
-* Catalog root - [api.nuget.org/v3/catalog0/index.json](https://api.nuget.org/v3/catalog0/index.json)
-  * N catalog pages - [api.nuget.org/v3/catalog0/page0.json](https://api.nuget.org/v3/catalog0/page0.json)
-    * N catalog leafs - [api.nuget.org/v3/catalog0/data/2015.02.01.06.22.45/adam.jsgenerator.1.1.0.json](https://api.nuget.org/v3/catalog0/data/2015.02.01.06.22.45/adam.jsgenerator.1.1.0.json)
+- Catalog root - [api.nuget.org/v3/catalog0/index.json](https://api.nuget.org/v3/catalog0/index.json)
+  - N catalog pages - [api.nuget.org/v3/catalog0/page0.json](https://api.nuget.org/v3/catalog0/page0.json)
+    - N catalog leafs - [api.nuget.org/v3/catalog0/data/2015.02.01.06.22.45/adam.jsgenerator.1.1.0.json](https://api.nuget.org/v3/catalog0/data/2015.02.01.06.22.45/adam.jsgenerator.1.1.0.json)
 
 The catalog root contains a bunch of links to catalog pages, with the timestamp they were added/updated. We can then traverse each page, and find out URLs to all catalog leafs, which contain the operation type (update or delete), as well as basic package metadata.
 
@@ -201,11 +203,11 @@ Since you might have come here for the "Azure Functions" keyword in the title, l
 
 What I wanted to do was see whether our existing indexer and search engine could be replaced with something newer, preferrably a bit faster to re-index packages as well. In terms of requirements, we'll have a couple of responsabilities:
 
-* Watch the NuGet.org catalog for package changes
-* For every package change...
-  * ...scan all assemblies
-  * ...store relation between package id+version and namespace+type so we can search this later on
-* Search API compatible with all existing ReSharper and Rider versions
+- Watch the NuGet.org catalog for package changes
+- For every package change...
+  - ...scan all assemblies
+  - ...store relation between package id+version and namespace+type so we can search this later on
+- Search API compatible with all existing ReSharper and Rider versions
 
 Since that's a lot of data and the search index may always change shape, ideally there would also be an easy way to re-index everything later. So a 4th responsability might be copying all package binaries to storage and dump all indexed metadata there as well.
 
@@ -322,7 +324,7 @@ Our function is doing two things... It reads from the catalog, and writes to a q
 Out of the box, Azure Functions comes with [several bindings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings):
 
 |                  | Trigger | Input | Output |
-|------------------|---------|-------|--------|
+| ---------------- | ------- | ----- | ------ |
 | Timer            | ✔       |       |        |
 | HTTP             | ✔       |       | ✔      |
 | Blob             | ✔       | ✔     | ✔      |
@@ -336,13 +338,13 @@ Out of the box, Azure Functions comes with [several bindings](https://docs.micro
 | SendGrid, Twilio |         |       | ✔      |
 | ...              |         |       | ✔      |
 
-> Note: what's the difference between a trigger and input binding? Well, a trigger "triggers" the function to execute and *can* provide it with data to work with. An input binding only provides data when the function is triggered by something else. So for example, the Azure Table Storage input binding will only fetch data when the function is triggered based on a timer, a queue, ...
+> Note: what's the difference between a trigger and input binding? Well, a trigger "triggers" the function to execute and _can_ provide it with data to work with. An input binding only provides data when the function is triggered by something else. So for example, the Azure Table Storage input binding will only fetch data when the function is triggered based on a timer, a queue, ...
 
 Alas! There is no NuGet Catalog binding! The good news though, is that we can create custom bindings. For example, my good friend [Christan Weyer created a SQL Input binding](https://github.com/thinktecture/azure-functions-extensibility) that lets us grab data from a SQL query.
 
 Custom input and output bindings are supported by the platform, however trigger bindings are not, at least officially. No reason why, although I suspect that the reason is that trigger bindings have to run all the time, and that will only work on reserved Azure Functions instances.
 
-But ehm... "Not officially" means it *should* work, right?
+But ehm... "Not officially" means it _should_ work, right?
 
 Ideally our function would look like this:
 
@@ -388,8 +390,8 @@ Important to note here is that we have to specify that this attribute serves as 
 
 Now that's not enough. Will it be a trigger binding? Input? Output? We'll have to tell the runtime, by doing two things:
 
-* Implement `IExtensionConfigProvider` to tell the runtime that we're extending default functionality
-* Register our extension so the runtime picks it up
+- Implement `IExtensionConfigProvider` to tell the runtime that we're extending default functionality
+- Register our extension so the runtime picks it up
 
 That first one is easy. We can register our extension using a class like this:
 
@@ -439,7 +441,7 @@ namespace NuGetTypeSearch.Bindings
 
 Next up is that `NuGetCatalogTriggerAttributeBindingProvider`. I invite you to [check the sources on GitHub](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Catalog/Bindings/NuGetCatalogTriggerAttributeBindingProvider.cs), as it's some glue code that sets up the storage connection where the cursor will be stored, and instantiates a `NuGetCatalogTriggerBinding` with those objects created.
 
-Which brings us to the `NuGetCatalogTriggerBinding`, an `ITriggerBinding` implementation. This is where a lot of the magic happens, at least for the functions runtime. This class launches the "listener" that will check for new data, and if needed, triggers function execution. Next to that, it can also define the shape of the data returned when triggered, which could be useful if you plan on writing a custom trigger in C# and then consume it in a function written in TypeScript/JavaScript/Python/PHP. Not *strictly* required, but who not take this small extra step... [Check the code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Catalog/Bindings/NuGetCatalogTriggerBinding.cs) if you want to see the full implementation.
+Which brings us to the `NuGetCatalogTriggerBinding`, an `ITriggerBinding` implementation. This is where a lot of the magic happens, at least for the functions runtime. This class launches the "listener" that will check for new data, and if needed, triggers function execution. Next to that, it can also define the shape of the data returned when triggered, which could be useful if you plan on writing a custom trigger in C# and then consume it in a function written in TypeScript/JavaScript/Python/PHP. Not _strictly_ required, but who not take this small extra step... [Check the code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Catalog/Bindings/NuGetCatalogTriggerBinding.cs) if you want to see the full implementation.
 
 As mentioned, the `NuGetCatalogTriggerBinding` creates an `IListener`, in this case `NuGetCatalogListener`, which will listen for messages and triggers function execution. [Full code on GitHub](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch.Bindings/Catalog/Listeners/NuGetCatalogListener.cs), but let's look at a (simplified) snippet as well:
 
@@ -541,7 +543,7 @@ public static async Task RunAsync(
 
 ```
 
-Now what is that `Blob` attribute doing here... Remember those binding types? This is, in this case, an *output* binding. We want to download a NuGet package binary and store it in Azure blob storage. Rather than handle all that blob uploading ourselves, we can ask the Azure Functions runtime to provide us with a `CloudBlockBlob` that we can write to.
+Now what is that `Blob` attribute doing here... Remember those binding types? This is, in this case, an _output_ binding. We want to download a NuGet package binary and store it in Azure blob storage. Rather than handle all that blob uploading ourselves, we can ask the Azure Functions runtime to provide us with a `CloudBlockBlob` that we can write to.
 
 The name of the blob will be `packages/{Id}/{VersionNormalized}/{Id}.{VersionNormalized}.nupkg`. Those placeholders you think you are seeing, are indeed placeholders. The Azure Functions runtime, or rather, the `Blob` output binding, will use other inputs to fill in those placeholders. So a `PackageOperation` that represents `Newtonsoft.Json` version `12.0.1` will result in a blob named `packages/Newtonsoft.Json/12.0.1/Newtonsoft.Json.12.0.1.nupkg`.
 
@@ -569,7 +571,7 @@ else if (packageOperation.IsDelete())
 
 Note that again, I'm using a shared `HttpClient` here. If you're skimming this blog post, skim up to find the reasoning.
 
-> *"But Maarten, isn't this function doing too much? That download/delete is a separate operation, so you should split this function, no? And downloading using an `HttpClient`... Maybe create another binding for downloading streams and providing those as input to a function?*
+> _"But Maarten, isn't this function doing too much? That download/delete is a separate operation, so you should split this function, no? And downloading using an `HttpClient`... Maybe create another binding for downloading streams and providing those as input to a function?_
 
 Good ideas and valid questions. I decided to not go there for this blog post, but these are valid concerns. We could split functions by type of operation, and we could write a custom "HTTP client input binding". If you're done reading this blog post, feel free to go and create such binding! You could even [build based on Tomasz Pęczek's `HttpClientFactory` binding](https://www.tpeczek.com/2018/12/alternative-approach-to-httpclient-in.html) to get a bit of a head start.
 
@@ -585,7 +587,7 @@ So... Shall we do an assembly load and reflect over it? Rather not. Loading ever
 
 The [`System.Reflection.Metadata`](https://www.nuget.org/packages/System.Reflection.Metadata) package gives us low-level access to .NET metadata ([ECMA-335 for some light reading](https://www.ecma-international.org/publications/standards/Ecma-335.htm)). Every .NET assembly comes with a Portable Executable (PE) header that is a collection of tables describing everything in the assembly and where it is to be found.
 
-Using a [decompiler like dotPeek](https://www.jetbrains.com/dotpeek), we can peek (pun intended) into those PE headers. We'll need all public type names and public namespaces, so we can look at the *TypeDef* table and follow the pointers for every type to the *#Strings* table. Visually:
+Using a [decompiler like dotPeek](https://www.jetbrains.com/dotpeek), we can peek (pun intended) into those PE headers. We'll need all public type names and public namespaces, so we can look at the _TypeDef_ table and follow the pointers for every type to the _#Strings_ table. Visually:
 
 ![Exploring Portable Executable PE header with dotPeek](/images/2019/07/dotpeek-pe-header.png)
 
@@ -605,7 +607,7 @@ We'll use [Azure Search](https://azure.microsoft.com/services/search/) here, but
 
 I don't want to go too deep into Azure Search (this blog post will be long enough as it is), but there are a few basics I want to cover.
 
-Azure Search is "Search-as-a-Service", and it uses an *index* that holds *documents*, each containing various *fields*. This index can be scaled across partitions and replicas, which should be determined based on required index size and concurrent operations against the index.
+Azure Search is "Search-as-a-Service", and it uses an _index_ that holds _documents_, each containing various _fields_. This index can be scaled across partitions and replicas, which should be determined based on required index size and concurrent operations against the index.
 
 Documents and fields are important. A document would be, in our case, a package. Fields would be the data we want to be able to search for, such as the package id, version, type name, etc.
 
@@ -704,10 +706,10 @@ public static async Task RunAsync(
 
 The indexing part itself is roughly the following (and can be seen as code [on GitHub](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs)):
 
-* Download package binary from its source URL ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L103))
-* Open up the NuGet package (it's just a ZIP file) and find all assemblies in it, or use the `PackageArchiveReader` class from [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging/)  ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L112))
-* For every assembly we find in the package, run the snippet of code that extracts type names and namespaces ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L157))
-* Write that to the index ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L72)), as well as to the output blob ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L239))
+- Download package binary from its source URL ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L103))
+- Open up the NuGet package (it's just a ZIP file) and find all assemblies in it, or use the `PackageArchiveReader` class from [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging/) ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L112))
+- For every assembly we find in the package, run the snippet of code that extracts type names and namespaces ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L157))
+- Write that to the index ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L72)), as well as to the output blob ([code](https://github.com/maartenba/NuGetTypeSearch/blob/master/NuGetTypeSearch/Approach3/Indexing/PackageIndexer.cs#L239))
 
 Feel free to check it out, but let's jump a bit forward. Again, we're doing too much work in this function! All of the Azure Search work is too much - we could create an output binding and simplify our function.
 
@@ -854,8 +856,8 @@ The good news is that our search API is probably the easiest - we'll craft an AP
 
 The API has two endpoints, namely:
 
-* `api/v1/find-type?name={name}&caseSensitive=true&allowPrerelease=true&latestVersion=true`
-* `api/v1/find-namespace?name={name}&caseSensitive=true&allowPrerelease=true&latestVersion=true`
+- `api/v1/find-type?name={name}&caseSensitive=true&allowPrerelease=true&latestVersion=true`
+- `api/v1/find-namespace?name={name}&caseSensitive=true&allowPrerelease=true&latestVersion=true`
 
 We can create two functions that will handle these calls. Both will be triggered by incoming HTTP traffic - or as I like to think of it, incoming HTTP messages.
 

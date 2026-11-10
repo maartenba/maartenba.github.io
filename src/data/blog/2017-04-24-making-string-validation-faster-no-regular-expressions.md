@@ -16,7 +16,7 @@ A while back, we were performance profiling an application and noticed a big per
 
 ## The code was to blame
 
-Actually not the regular expression itself, but the regular expression *and* the number of times it was called. While mapping, the target class' `Identifier` property was obviously being set, and validating the incoming value using a regular expression.
+Actually not the regular expression itself, but the regular expression _and_ the number of times it was called. While mapping, the target class' `Identifier` property was obviously being set, and validating the incoming value using a regular expression.
 
 Not a super big deal in itself, except that while mapping this validation was executed for a few thousand objects, resulting in around one second (sometimes more) to map these objects. Not a happy place!
 
@@ -49,8 +49,8 @@ Aren't regular expressions, especially those with `RegexOptions.Compiled`, suppo
 
 Some [DuckDuckGo](https://www.duckduckgo.com)-ing (horrible as a verb...) later, we found a few interesting articles:
 
-* Back in 2005, [Jeff Atwood](https://blog.codinghorror.com/to-compile-or-not-to-compile/) wrote about using `RegexOptions.Compiled` and that it's not always the best thing to use. `RegexOptions.Compiled` emits IL code and precompiles the regular expression, but that comes with a bit of a startup cost. It's a tradeoff to make, and in our case we did expect this tradeoff to be one we could live with. Validation here happens quite a few times, so it makes sense to compile once and then reap the benefits later.
-* We read the excellent MSDN article "[Best Practices for Regular Expressions in the .NET Framework](https://msdn.microsoft.com/en-us/library/gg578045(v=vs.110).aspx)", describing common pitfalls in working with regular expressions and performance considerations. Make sure to read it, this is a really nice article about the Regex engine in .NET.
+- Back in 2005, [Jeff Atwood](https://blog.codinghorror.com/to-compile-or-not-to-compile/) wrote about using `RegexOptions.Compiled` and that it's not always the best thing to use. `RegexOptions.Compiled` emits IL code and precompiles the regular expression, but that comes with a bit of a startup cost. It's a tradeoff to make, and in our case we did expect this tradeoff to be one we could live with. Validation here happens quite a few times, so it makes sense to compile once and then reap the benefits later.
+- We read the excellent MSDN article "[Best Practices for Regular Expressions in the .NET Framework](<https://msdn.microsoft.com/en-us/library/gg578045(v=vs.110).aspx>)", describing common pitfalls in working with regular expressions and performance considerations. Make sure to read it, this is a really nice article about the Regex engine in .NET.
 
 Unfortunately, none of these seemed to explain the numbers we were seeing. And doing the math on the number of calls times regex execution time, the regex was actually fast enough, the number of calls was the big issue...
 
@@ -281,9 +281,9 @@ label_19:
 
 There is not a lot of documentaton on this [`Go()`](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexrunner.go?view=netframework-4.7) method, but reading through it we can see a few things:
 
-* It loops through the input string and checks various conditions
-* It makes a number of cals to `this.CheckTimeout()`, to verify the current processor tick count against a configured timeout tick count (so there are a few side-tracks in this code)
-* There are a few calls to `Capture()`and `Uncapture()`, the Regex-y stuff that keeps track of capture groups etc.
+- It loops through the input string and checks various conditions
+- It makes a number of cals to `this.CheckTimeout()`, to verify the current processor tick count against a configured timeout tick count (so there are a few side-tracks in this code)
+- There are a few calls to `Capture()`and `Uncapture()`, the Regex-y stuff that keeps track of capture groups etc.
 
 That's... a lot of code to power a simple validation. But nevertheless: it's all compiled, so performance may just be awesome!
 
@@ -324,9 +324,9 @@ Simple, readable. If the length is not ok, just return false. In other cases, ch
 
 **Edit** - Some people pointed out in the comments that `char.IsLetterOrDigit()` works on Unicode and thus the custom code is not 100% similar to the original regular expression. They also pointed out performance could be better, so here's an addition to the benchmark!
 
-The [`char.IsLetterOrDigit()`](https://referencesource.microsoft.com/#mscorlib/system/char.cs,360) is already optimized a bit. It checks for the character class (latin or not) and then determines if it's a letter or a digit base on the character class. That's important: it checks the *class*, not the value! And turns out [there are quite a few classes to loop trough](https://referencesource.microsoft.com/#mscorlib/system/char.cs,46).
+The [`char.IsLetterOrDigit()`](https://referencesource.microsoft.com/#mscorlib/system/char.cs,360) is already optimized a bit. It checks for the character class (latin or not) and then determines if it's a letter or a digit base on the character class. That's important: it checks the _class_, not the value! And turns out [there are quite a few classes to loop trough](https://referencesource.microsoft.com/#mscorlib/system/char.cs,46).
 
-So instead of using `char.IsLetterOrDigit()`, which [checks on Unicode](https://msdn.microsoft.com/en-us/library/system.char.isletterordigit(v=vs.110).aspx), let's take the [ASCII table](http://www.asciitable.com/) at hand and manually check for character ranges instead.
+So instead of using `char.IsLetterOrDigit()`, which [checks on Unicode](<https://msdn.microsoft.com/en-us/library/system.char.isletterordigit(v=vs.110).aspx>), let's take the [ASCII table](http://www.asciitable.com/) at hand and manually check for character ranges instead.
 
 Of course .NET is based on Unicode, but for the values from the ASCII character set the indexes in the character set match - so it's safe to do this here.
 
@@ -429,7 +429,7 @@ We did a long run of this benchmark, to flatten out any compilation or optimizat
 
 The results of our benchmark, run on my laptop:
 
-``` ini
+```ini
 
 BenchmarkDotNet=v0.10.3.0, OS=Microsoft Windows NT 6.2.9200.0
 Processor=Intel(R) Core(TM) i7-4712HQ CPU 2.30GHz, ProcessorCount=8
@@ -470,14 +470,14 @@ Runtime=Clr
 
 First of all, there is no real difference between JIT versions. We sort of expected that but still wanted to see if there were any big changes in selecting the JIT version.
 
-There *are* big differences in our different candidates, though. From slow to fast:
+There _are_ big differences in our different candidates, though. From slow to fast:
 
-* Candidate 1, `Regex.IsMatch` (not using `RegexOptions.Compiled`) is clearly slowest. We expected this but still wanted to try.
-* The baseline, `Regex.IsMatch` (using `RegexOptions.Compiled`) isn't significantly faster. It is faster, but the improvement is not spectacular.
-* Candidate 2, using an instance, only takes (roughly) 65% of the time our baseline takes. That's significantly faster, and would be a good improvement in our codebase.
-* Candidate 3, using a regular expression compiled into an external assembly, is only *slightly* faster than candidate 2. The difference could be in the startup time (where candidate 2 still has to be compiled at runtime), but we did not measure.
-* Candidate 4, our custom code is fast! Our focused piece of code runs in 21% of the time the baseline took to run. That's a massive improvement!
-* Candidate 5, our custom code that checks just ASCII characters, seems to outperform all others. It runs in 6% of the time the baseline took to run. Nice!
+- Candidate 1, `Regex.IsMatch` (not using `RegexOptions.Compiled`) is clearly slowest. We expected this but still wanted to try.
+- The baseline, `Regex.IsMatch` (using `RegexOptions.Compiled`) isn't significantly faster. It is faster, but the improvement is not spectacular.
+- Candidate 2, using an instance, only takes (roughly) 65% of the time our baseline takes. That's significantly faster, and would be a good improvement in our codebase.
+- Candidate 3, using a regular expression compiled into an external assembly, is only _slightly_ faster than candidate 2. The difference could be in the startup time (where candidate 2 still has to be compiled at runtime), but we did not measure.
+- Candidate 4, our custom code is fast! Our focused piece of code runs in 21% of the time the baseline took to run. That's a massive improvement!
+- Candidate 5, our custom code that checks just ASCII characters, seems to outperform all others. It runs in 6% of the time the baseline took to run. Nice!
 
 Based on these result, our custom validation logic was added into production code and proved much, much faster!
 
@@ -487,15 +487,15 @@ Based on this post, you may think regular expressions are bad. In reality, they 
 
 In the case at hand, though, custom code was the better path:
 
-* The validation logic was simple, and writing it in code is still very readable
-* We did not need capturing and all other features regular expressions give us
+- The validation logic was simple, and writing it in code is still very readable
+- We did not need capturing and all other features regular expressions give us
 
-So then what *is* the takeaway for this post? I'd say there are three:
+So then what _is_ the takeaway for this post? I'd say there are three:
 
-* Always be measuring. Use [a profiler](https://www.jetbrains.com/dottrace) and regularly measure different code paths in an application. If anything looks out of expected ranges, look at how it can be improved.
-* Always be learning. I had no idea `char.IsLetterOrDigit()` would be "slow" compared with just checking ASCII characters.
-* Use regular expressions! Just not for validating string length.
+- Always be measuring. Use [a profiler](https://www.jetbrains.com/dottrace) and regularly measure different code paths in an application. If anything looks out of expected ranges, look at how it can be improved.
+- Always be learning. I had no idea `char.IsLetterOrDigit()` would be "slow" compared with just checking ASCII characters.
+- Use regular expressions! Just not for validating string length.
 
 Enjoy!
 
-**Edit - April 29, 2017** - Daniel Hegener [took this a bit further](http://harponcsharp.blogspot.be/2017/04/going-harder-on-topic-of-string.html) and wrote another few alternative solutions that make string validation for the above case *really* fast. [Go check it out!](http://harponcsharp.blogspot.be/2017/04/going-harder-on-topic-of-string.html)
+**Edit - April 29, 2017** - Daniel Hegener [took this a bit further](http://harponcsharp.blogspot.be/2017/04/going-harder-on-topic-of-string.html) and wrote another few alternative solutions that make string validation for the above case _really_ fast. [Go check it out!](http://harponcsharp.blogspot.be/2017/04/going-harder-on-topic-of-string.html)

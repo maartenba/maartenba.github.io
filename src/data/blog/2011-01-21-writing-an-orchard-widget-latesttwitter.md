@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/01/21/writing-an-orchard-widget-latesttwitter.html
 ---
+
 Last week, Microsoft released [Orchard](http://www.orchardproject.net/), a new modular CMS system built on ASP.NET MVC and a lot of other, open source libraries available. I will not dive into the CMS itself, but after fiddling around with it I found a lot of things missing: there are only 40 modules and widgets available at the moment and the only way to have a more rich ecosystem of modules is: contributing!
 
 And that’s what I did. Feel the need to add a list of recent tweets by a certain user to your Orchard website? Try my [LatestTwitter](http://www.orchardproject.net/gallery/Packages/Search?packageType=Modules&searchCategory=All+Categories&searchTerm=latesttwitter) widget. Here’s a screenshot of the widget in action:
@@ -67,7 +68,7 @@ In order to build a widget, you need:
 - A record in which this can be stored
 - A database table in which the record can be stored
 
-Let’s start top down: model first. The model that I’m talking about is not an ASP.NET MVC “View Model”, it’s really the domain object you are working with in the rest of your widget’s back-end. I will be doing something bad here: I’ll just expose the domain model to the ASP.NET MVC view later on, for sake of simplicity and because it’s only one small class I’m using. Here’s how my *TwitterWidgetPart* model is coded:
+Let’s start top down: model first. The model that I’m talking about is not an ASP.NET MVC “View Model”, it’s really the domain object you are working with in the rest of your widget’s back-end. I will be doing something bad here: I’ll just expose the domain model to the ASP.NET MVC view later on, for sake of simplicity and because it’s only one small class I’m using. Here’s how my _TwitterWidgetPart_ model is coded:
 
 ```
 
@@ -113,7 +114,7 @@ public class TwitterWidgetPart : ContentPart<TwitterWidgetRecord>
 
 ```
 
-Just some properties that represent my widget’s settings. Do note that these all depend on a *TwitterWidgetRecord*, which is the persistency class used by Orchard. I’ll give you the code for that one as well:
+Just some properties that represent my widget’s settings. Do note that these all depend on a _TwitterWidgetRecord_, which is the persistency class used by Orchard. I’ll give you the code for that one as well:
 
 ```
 
@@ -128,7 +129,7 @@ public class TwitterWidgetRecord : ContentPartRecord
 
 ```
 
-See these “virtual” properties everywere? Ever worked with NHibernate and have a feeling that this *may* just be similar? Well, it is! Orchard uses NHibernate below the covers. Reason for these virtuals is that a proxy for your class instance will be created on the fly, overriding your properties with persistence specific actions.
+See these “virtual” properties everywere? Ever worked with NHibernate and have a feeling that this _may_ just be similar? Well, it is! Orchard uses NHibernate below the covers. Reason for these virtuals is that a proxy for your class instance will be created on the fly, overriding your properties with persistence specific actions.
 
 The last thing we need is a database table. This is done in a “migration” class, a class that is responsible for telling Orchard what your widget needs in terms of storage, content types and such. Return to your command prompt and run the following:
 
@@ -138,7 +139,7 @@ codegen datamigration LatestTwitter
 
 ```
 
-A file called “Migrations.cs” will be created in your module’s directory. Just add it to your solution and have a look at it. The *Create()* method you see is called initially when your module is installed. It creates a database table to hold your *TwitterWidgetRecord*.
+A file called “Migrations.cs” will be created in your module’s directory. Just add it to your solution and have a look at it. The _Create()_ method you see is called initially when your module is installed. It creates a database table to hold your _TwitterWidgetRecord_.
 
 Note that once you have an install base of your widget, never tamper with this code again or people may get stuck upgrading your widget over time. Been there, done that during development and it’s no fun at all…
 
@@ -196,9 +197,9 @@ public class Migrations : DataMigrationImpl {
 
 ```
 
-You see these *UpdateFromX()* methods? These are “upgrades” to your module. Whenever ou deploy a new version to the Orchard Gallery and someone updates the widget in their Orchard site, these methods will be used to upgrade the database schema and other things, if needed. Because I started small, I have some upgrades there already…
+You see these _UpdateFromX()_ methods? These are “upgrades” to your module. Whenever ou deploy a new version to the Orchard Gallery and someone updates the widget in their Orchard site, these methods will be used to upgrade the database schema and other things, if needed. Because I started small, I have some upgrades there already…
 
-The* UpdateFrom1()* is actually a required one (although I could have done this in the *Create()* method as well): I’m telling Orchard that my *TwitterWidget* is a new content type, that it contains a *TwitterWidgetPart*, is a *WidgetPart* and can be typed as a *Widget*. A lot of text, but basically I’m just telling Orchard to treat my *TwitterWidgetPart *as a widget rather than anything else.
+The* UpdateFrom1()* is actually a required one (although I could have done this in the _Create()_ method as well): I’m telling Orchard that my _TwitterWidget_ is a new content type, that it contains a _TwitterWidgetPart_, is a _WidgetPart_ and can be typed as a _Widget_. A lot of text, but basically I’m just telling Orchard to treat my *TwitterWidgetPart *as a widget rather than anything else.
 
 ## Drivers and handlers
 
@@ -216,7 +217,7 @@ public class TwitterWidgetRecordHandler : ContentHandler
 
 ```
 
-There’s really no magic to this: it’s just telling Orchard to use a repository fo accessing *TwitterWidgetRecord* data.
+There’s really no magic to this: it’s just telling Orchard to use a repository fo accessing _TwitterWidgetRecord_ data.
 
 Next, we need a driver. This is something that you can compare with an ASP.NET MVC controller. It’s used by Orchard to render administrative views, handle posts from the admin interface, … Here’s the code:
 
@@ -265,15 +266,15 @@ public class TwitterWidgetDriver
 
 ```
 
-What you see is a *Display()* method, used for really rendering my widget on the Orchard based website. What I do there is building a dynamic model consisting of the username, the list of tweets and some of the options that I have configured. There’s a view for this one as well, located in *Views/Parts/TwitterWidget.cshtml*:
+What you see is a _Display()_ method, used for really rendering my widget on the Orchard based website. What I do there is building a dynamic model consisting of the username, the list of tweets and some of the options that I have configured. There’s a view for this one as well, located in _Views/Parts/TwitterWidget.cshtml_:
 
 ```xml
 
 ```
 
-The above is the actual view rendered on the page where you place the LatestTwitter widget. Note: don’t specify the *@model* here or it will crash. Simple because the model passed in to this view is nothing you’d expect: it’s a dynamic object.
+The above is the actual view rendered on the page where you place the LatestTwitter widget. Note: don’t specify the _@model_ here or it will crash. Simple because the model passed in to this view is nothing you’d expect: it’s a dynamic object.
 
-Next, there’s the two *Editor()* implementations, one to render the “settings” and one to persist them. Prettyu standard code which you can just duplicate from any tutorial on Orchard modules. The view for this one is in *Views/EditorTemplates/Parts/TwitterWidget.cshtml*:
+Next, there’s the two _Editor()_ implementations, one to render the “settings” and one to persist them. Prettyu standard code which you can just duplicate from any tutorial on Orchard modules. The view for this one is in _Views/EditorTemplates/Parts/TwitterWidget.cshtml_:
 
 ```xml
 @model LatestTwitter.Models.TwitterWidgetPart
@@ -298,7 +299,7 @@ Done! Or not? Wel, there’s still some logic left: querying Twitter and making 
 
 ## Implementing ITweetRetrievalService
 
-Being prepared for change is injecting dependencies rather than hard-coding them. I’ve created a *ITweetRetrievalService* interface responsible for querying Twitter. The implementation will be injected by Orchard’s dependency injection infrastructure later on. Here’s the code:
+Being prepared for change is injecting dependencies rather than hard-coding them. I’ve created a _ITweetRetrievalService_ interface responsible for querying Twitter. The implementation will be injected by Orchard’s dependency injection infrastructure later on. Here’s the code:
 
 ```
 
@@ -310,7 +311,7 @@ public interface ITweetRetrievalService
 
 ```
 
-See the *IDependency* interface I’m inheriting? That’s the way to tell Orchard to look for an implementation of this interface at runtime. Who said dependency injection was hard?
+See the _IDependency_ interface I’m inheriting? That’s the way to tell Orchard to look for an implementation of this interface at runtime. Who said dependency injection was hard?
 
 Next, the implementation. Let’s first look at the code:
 
@@ -357,7 +358,7 @@ public class CachedTweetRetrievalService
 
 ```
 
-I’ll leave the part wher I actually query Twitter for you to discover. I only want to focus on two little things here: caching and signaling. The constructor of the *CachedTweetRetrievalService* is accepting two parameters that will be injected at runtime: an *ICacheManager* used for caching the tweet list for a certain amount of time, and an *ISignals* which is used to fire messages through Orchard. In order to cache the list of tweets, I will have to combine both. Here’s the caching part:
+I’ll leave the part wher I actually query Twitter for you to discover. I only want to focus on two little things here: caching and signaling. The constructor of the _CachedTweetRetrievalService_ is accepting two parameters that will be injected at runtime: an _ICacheManager_ used for caching the tweet list for a certain amount of time, and an _ISignals_ which is used to fire messages through Orchard. In order to cache the list of tweets, I will have to combine both. Here’s the caching part:
 
 ```csharp
 // Build cache key
@@ -372,7 +373,7 @@ return CacheManager.Get(cacheKey, ctx =>
 
 ```
 
-First, I’m building a cache key to uniquely identify the data for this particular widget’s Twitter stream by just basing it on the Twitter username. Next, I’m asking the cachemanager to get the data with that particular *cacheKey*. No data available? Well, in that case our lambda will be executed: a monitor is added for a signal with my cache key. Sounds complicated? I’m just telling Orchard to monitor for a particular message that can be triggered, and once it’s triggered, the cache will automatically expire.
+First, I’m building a cache key to uniquely identify the data for this particular widget’s Twitter stream by just basing it on the Twitter username. Next, I’m asking the cachemanager to get the data with that particular _cacheKey_. No data available? Well, in that case our lambda will be executed: a monitor is added for a signal with my cache key. Sounds complicated? I’m just telling Orchard to monitor for a particular message that can be triggered, and once it’s triggered, the cache will automatically expire.
 
 I’m also starting a new timer thread, which I just ask to send a signal through the application at a specific point in time: the moment where I want my cache to expire. And last but not least: data is returned.
 

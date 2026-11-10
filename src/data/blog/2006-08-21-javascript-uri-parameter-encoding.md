@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2006/08/21/javascript-uri-parameter-encoding.html
 ---
+
 When creating a HTTP request in JavaScript, I always used encode() and decode() to pass data between client and server. I also used this approach in [PRAjax](http://prajax.sf.net), my open-source Ajax helper library for PHP.
 
 A developer working with PRAjax on his site reported to me last week that Swedish characters like å, ä, ö, ... were not passed corerctly to and from the server.

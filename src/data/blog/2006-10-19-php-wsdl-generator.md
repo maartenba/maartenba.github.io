@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2006/10/19/php-wsdl-generator.html
 ---
+
 Everyone who has ever created a webservice in PHP, using the PHP5 native functions, NuSOAP, PEAR, ..., certainly has cursed a lot while creating WSDL files for those services. Today, I found a nice helper class, [Webservice Helper](http://www.jool.nl/new/index.php?file_id=1), which does a lot of tricks for you.
 
 Webservice helper creates the WSDL file for your service, and for related classes. Also, a basic authentication system is included.

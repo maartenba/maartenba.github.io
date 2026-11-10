@@ -22,8 +22,8 @@ Sweet! But... how? The blog post did not mention a lot of details on the debuggi
 
 First of all, we will need a number of things on our machine:
 
-* The latest version of the **[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)**
-* The latest `webapp` CLI extension preview. To get it, open a command prompt, make sure the `az` command is on the `PATH`, and run:
+- The latest version of the **[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)**
+- The latest `webapp` CLI extension preview. To get it, open a command prompt, make sure the `az` command is on the `PATH`, and run:
 
   > `az extension add --name webapp`
 
@@ -53,8 +53,8 @@ Or in the portal:
 
 The [blog post about setting up an SSH tunnel with App Service on Linux](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/remotedebugginglinux/) explains this in much more detail, but in order to be able to attach to the Node.js debugger, we will need two things:
 
-* An SSH connection to our App Service on Linux
-* Port forwarding from our own PC to the environment in Azure
+- An SSH connection to our App Service on Linux
+- Port forwarding from our own PC to the environment in Azure
 
 Let's start with the SSH connection. Azure has no way to SSH into an App Service on Linux directly. Instead, the Azure CLI 2.0 has a command that sets up a private tunnel and exposes SSH. Make sure to check the prerequisites in this post, and then run this command:
 
@@ -86,7 +86,7 @@ We can connect to `127.0.0.01` port `3008`. Under **Connection \| SSH \| Tunnels
 
 ## 3. Setting up the WebStorm side
 
-In WebStorm, we can create a new *Run/Debug configuration* of type *Attach to Node.js/Chrome*. Since we are port forwarding the remote debugger port over an SSH tunnel on our PC's local port `12345`, we can configure WebStorm as such:
+In WebStorm, we can create a new _Run/Debug configuration_ of type _Attach to Node.js/Chrome_. Since we are port forwarding the remote debugger port over an SSH tunnel on our PC's local port `12345`, we can configure WebStorm as such:
 
 ![Attach WebStorm to Node.js running in Azure App Service on Linux](/images/2018/05/attach-to-node-on-azure-webstorm.png)
 
@@ -98,14 +98,14 @@ Once done, all that is left is to set a breakpoint and run this new configuratio
 
 Too long? Did not read? Here's a gist of things to do:
 
-* Install [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
-* Add the latest webapp extension preview: `az extension add --name webapp`
-* Set our web app start command in App Service on Linux: `node --inspect=0.0.0.0:12345 /home/site/wwwroot/bin/www`
-* Run `az webapp remote-connection create -g RESOURCEGROUP_NAME_HERE -n WEBAPP_NAME_HERE -p 3008` to setup an SSH tunnel
-* Run `ssh -L 12345:127.0.01:12345 root@127.0.0.1 -p 3008` (or port forward in Putty) to setup a debugger tunnel on top of the SSH tunnel
-* In WebStorm, create a new *Attach to Node.js/Chrome* run configuration that connects to `localhost` port `12345`
-* Start debugging
+- Install [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
+- Add the latest webapp extension preview: `az extension add --name webapp`
+- Set our web app start command in App Service on Linux: `node --inspect=0.0.0.0:12345 /home/site/wwwroot/bin/www`
+- Run `az webapp remote-connection create -g RESOURCEGROUP_NAME_HERE -n WEBAPP_NAME_HERE -p 3008` to setup an SSH tunnel
+- Run `ssh -L 12345:127.0.01:12345 root@127.0.0.1 -p 3008` (or port forward in Putty) to setup a debugger tunnel on top of the SSH tunnel
+- In WebStorm, create a new _Attach to Node.js/Chrome_ run configuration that connects to `localhost` port `12345`
+- Start debugging
 
 Enjoy!
 
-*PS: You want to know about that IDE theme? It's the [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui).*
+_PS: You want to know about that IDE theme? It's the [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui)._

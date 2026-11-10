@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/10/12/inheritance-is-evil.html
 ---
+
 Read this on [Bernie](http://www.berniecode.com/blog/2007/09/29/inheritance-is-evil-and-must-be-destroyed/)'s blog:
 
 > *"All of the pain caused by inheritance can be traced back to the fact that inheritance forces 'is-a' rather than 'has-a' relationships. If class R2Unit extends Droid, then a R2Unit is-a Droid. If class Jedi contains an instance variable of type Lightsabre, then a Jedi has-a Lightsabre.

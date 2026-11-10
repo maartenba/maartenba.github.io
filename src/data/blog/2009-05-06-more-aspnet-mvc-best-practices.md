@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/05/06/more-asp-net-mvc-best-practices.html
 ---
+
 In this post, I’ll share some of the best practices and guidelines which I have come across while developing ASP.NET MVC web applications. I will not cover all best practices that are available, instead add some specific things that have not been mentioned in any blog post out there.
 
 Existing best practices can be found on Kazi Manzur Rashid’s blog and Simone Chiaretta’s blog:
@@ -22,7 +23,7 @@ After reading the best practices above, read the following best practices.
 
 ## Use model binders where possible
 
-I assume you are familiar with the concept of model binders. If not, here’s a quick model binder 101: instead of having to write action methods like this (or a variant using *FormCollection form[“xxxx”]*):
+I assume you are familiar with the concept of model binders. If not, here’s a quick model binder 101: instead of having to write action methods like this (or a variant using _FormCollection form[“xxxx”]_):
 
 ```csharp
 [AcceptVerbs(HttpVerbs.Post)]
@@ -68,13 +69,13 @@ public ActionResult Save(Person newPerson)
 What’s the point of writing action methods using model binders?
 
 - Your code is cleaner and less error-prone
-- They are LOTS easier to test (just test and pass in a *Person*)
+- They are LOTS easier to test (just test and pass in a _Person_)
 
 ## Be careful when using model binders
 
 I know, I’ve just said you should use model binders. And now, I still say it, except with a disclaimer: use them wisely! The model binders are extremely powerful, but they can cause severe damage…
 
-Let’s say we have a *Person* class that has an *Id* property. Someone posts data to your ASP.NET MVC application and tries to hurt you: that someone also posts an *Id* form field! Using the following code, you are screwed…
+Let’s say we have a _Person_ class that has an _Id_ property. Someone posts data to your ASP.NET MVC application and tries to hurt you: that someone also posts an _Id_ form field! Using the following code, you are screwed…
 
 ```csharp
 [AcceptVerbs(HttpVerbs.Post)]
@@ -148,7 +149,7 @@ public ActionResult Index()
 
 Ok, the first example I gave is not that bad if it only contains one paragraph… But if there are many paragraphs and huge snippets of HTML and ASP.NET syntax involved, then use the second approach. Really, it can be a [PITA](http://www.urbandictionary.com/define.php?term=PITA) when having to deal with large chunks of data in an if-then-else structure.
 
-Another option would be to create a *HtmlHelper* extension method that renders partial view X when condition is true, and partial view Y when condition is false. But still, having this logic in the controller is the best approach.
+Another option would be to create a _HtmlHelper_ extension method that renders partial view X when condition is true, and partial view Y when condition is false. But still, having this logic in the controller is the best approach.
 
 ## Don’t do lazy loading in your ViewData
 
@@ -159,7 +160,7 @@ I’ve seen this one often, mostly by people using Linq to SQL or Linq to Entiti
 
 ```
 
-This *Count()* method will go to your database if model is something that came out of a Linq to SQL data context… Instead of doing this, retrieve any value you will need on your view within the controller and create a model appropriate for this.
+This _Count()_ method will go to your database if model is something that came out of a Linq to SQL data context… Instead of doing this, retrieve any value you will need on your view within the controller and create a model appropriate for this.
 
 ```csharp
 public ActionResult Index()
@@ -175,7 +176,7 @@ public ActionResult Index()
 
 ```
 
-*Note: This one is really for illustration purpose only. Point is not to pass the datacontext-bound IQueryable to your view but instead pass a List or similar.*
+_Note: This one is really for illustration purpose only. Point is not to pass the datacontext-bound IQueryable to your view but instead pass a List or similar._
 
 And the view for that:
 

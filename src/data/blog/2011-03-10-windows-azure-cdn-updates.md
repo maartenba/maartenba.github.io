@@ -10,12 +10,13 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/03/10/windows-azure-cdn-updates.html
 ---
+
 The Windows Azure team has just put out the new [Windows Azure SDK 1.4 for download](http://www.microsoft.com/downloads/en/details.aspx?FamilyID=7a1089b6-4050-4307-86c4-9dadaa5ed018&displaylang=en). Next to that, I noticed some interesting new capabilities for the CDN (Content Delivery Network):
 
 - **Windows Azure CDN for Hosted Services**
-Developers can use the Windows Azure Web and VM roles as “origin” for objects to be delivered at scale via the Windows Azure Content Delivery Network. Static content in your website can be automatically edge-cached at locations throughout the United States, Europe, Asia, Australia and South America to provide maximum bandwidth and lower latency delivery of website content to users.
+  Developers can use the Windows Azure Web and VM roles as “origin” for objects to be delivered at scale via the Windows Azure Content Delivery Network. Static content in your website can be automatically edge-cached at locations throughout the United States, Europe, Asia, Australia and South America to provide maximum bandwidth and lower latency delivery of website content to users.
 - **Serve secure content from the Windows Azure CDN**
-A new checkbox option in the Windows Azure management portal to enable delivery of secure content via HTTPS through any existing Windows Azure CDN account.
+  A new checkbox option in the Windows Azure management portal to enable delivery of secure content via HTTPS through any existing Windows Azure CDN account.
 
 That first one looks very interesting: before today, if you wanted to use the CDN feature, you’d have to upload all static content that should be served by the CDN to your bob storage account. Today, you can just use any hosted service as your CDN “source data” provider. This means you can deploy your application on Windows Azure and have its static content (or cachable dynamic content) cached in the CDN and delivered from edge locations all over the world.
 

@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/12/28/windows-azure-websites-and-phpstorm.html
 ---
+
 In my new role as Technical Evangelist at [JetBrains](http://www.jetbrains.com), I’ve been experimenting with one of our products a lot: [PhpStorm](http://www.jetbrains.com/phpstorm/). I was kind of curious how this tool would integrate with [Windows Azure Web Sites](http://www.windowsazure.com/en-us/home/features/web-sites/). Now before you quit reading this post because of that acronym: if you are a Node-head you can also use [WebStorm](http://www.jetbrains.com/webstorm/) to do the same things I will describe in this post. Let’s see if we can get a simple PHP application running on Windows Azure right from within our IDE…
 
 ## Setting up a Windows Azure Web Site
@@ -28,7 +29,7 @@ From now on, we have a choice to make. We can opt to “deploy from GitHub”, w
 
 ## Creating a PhpStorm project
 
-After starting PhpStorm, go to *VCS > Checkout from Version Control > Git*. For repository URL, enter the repository that is listed in the Windows Azure management portal. It’s probably similar to [@.scm.azurewebsites.net/stormy.git">https://<yourusername>@<your web name>.scm.azurewebsites.net/stormy.git](https://<yourusername>@<your web name>.scm.azurewebsites.net/stormy.git).
+After starting PhpStorm, go to _VCS > Checkout from Version Control > Git_. For repository URL, enter the repository that is listed in the Windows Azure management portal. It’s probably similar to [@.scm.azurewebsites.net/stormy.git">https://<yourusername>@<your web name>.scm.azurewebsites.net/stormy.git](https://<yourusername>@<your web name>.scm.azurewebsites.net/stormy.git).
 
 [![](/images/image_thumb_199.png)](/images/image_235.png)
 
@@ -36,7 +37,7 @@ Once that’s done, simply click “Clone”. PhpStorm will ask for credentials 
 
 [![](/images/image_thumb_200.png)](/images/image_236.png)
 
-Let’s add a new file by right-clicking the project and clicking *New > File*. Name the file “index.php” since that is one of the root documents recognized by Windows Azure Web Sites. If PhpStorm asks you if you want to add he file to the Git repository, answer affirmative. We want this file to end up being deployed some day.
+Let’s add a new file by right-clicking the project and clicking _New > File_. Name the file “index.php” since that is one of the root documents recognized by Windows Azure Web Sites. If PhpStorm asks you if you want to add he file to the Git repository, answer affirmative. We want this file to end up being deployed some day.
 
 The following code will do:
 
@@ -50,15 +51,15 @@ Now let’s get this beauty online!
 
 ## Publishing the application to Windows Azure
 
-To commit the changes we’ve made earlier, press *CTRL + K* or use the menu *VCS > Commit Changes*. This will commit the created and modified files to our local copy of the remote Git repository.
+To commit the changes we’ve made earlier, press _CTRL + K_ or use the menu _VCS > Commit Changes_. This will commit the created and modified files to our local copy of the remote Git repository.
 
 [![](/images/image_thumb_201.png)](/images/image_237.png)
 
-On the “Commit” button, click the little arrow and go with *Commit and Push*. This will make PhpStorm do two things at once: create a changeset containing our modifications and push it to Windows Azure Web Sites. We’ll be asked for a final confirmation:
+On the “Commit” button, click the little arrow and go with _Commit and Push_. This will make PhpStorm do two things at once: create a changeset containing our modifications and push it to Windows Azure Web Sites. We’ll be asked for a final confirmation:
 
 [![](/images/image_thumb_202.png)](/images/image_238.png)
 
-After having clicked *Push*, PhpStorm will send our contents to Windows Azure Web Sites and create a new deployment as you can see from the management portal:
+After having clicked _Push_, PhpStorm will send our contents to Windows Azure Web Sites and create a new deployment as you can see from the management portal:
 
 [![](/images/image_thumb_203.png)](/images/image_239.png)
 

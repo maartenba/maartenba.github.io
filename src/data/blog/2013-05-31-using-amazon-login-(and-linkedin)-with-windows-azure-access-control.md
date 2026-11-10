@@ -5,12 +5,14 @@ pubDatetime: 2013-05-31T10:38:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "General", "Personal", "Projects", "Security", "Azure"]
+tags:
+  ["ASP.NET", "CSharp", "General", "Personal", "Projects", "Security", "Azure"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2013/05/31/using-amazon-login-and-linkedin-and-with-windows-azure-access-control.html
   - /post/2013/05/31/using-amazon-login-(and-linkedin)-with-windows-azure-access-control.html
 ---
+
 One of the services provided by the Windows Azure cloud computing platform is the [Windows Azure Access Control Service (ACS)](http://www.windowsazure.com/en-us/home/features/identity/). It is a service that provides federated authentication and rules-driven, claims-based authorization. It has some social providers like Microsoft Account, Google Account, Yahoo! and Facebook. But what about the other social identity providers out there? For example the newly introduced [Login with Amazon](http://login.amazon.com/), or [LinkedIn](http://www.linkedin.com)? As they are OAuth2 implementations they don’t really fit into ACS.
 
 Meet [SocialSTS.com](http://www.SocialSTS.com). It’s a service I created which does a protocol conversion and allows integrating ACS with other social identities. Currently it has support for integrating ACS with Twitter, GitHub, LinkedIn, BitBucket, StackExchange and Amazon. Let’s see how this works. There are 2 steps we have to take:
@@ -37,7 +39,7 @@ That’s basically all configuration there is to it. We can now add our Amazon, 
 
 ## Link our ACS namespace with SocialSTS
 
-In the Windows Azure Access Control Service management dashboard, we can register SocialSTS as an identity provider. SocialSTS will provide us with a *FederationMetadata.xml* URL which we can copy into ACS:
+In the Windows Azure Access Control Service management dashboard, we can register SocialSTS as an identity provider. SocialSTS will provide us with a _FederationMetadata.xml_ URL which we can copy into ACS:
 
 [![](/images/image_thumb_245.png)](/images/image_284.png)
 

@@ -22,8 +22,9 @@ var filePath = Path.Combine(rootPath, "subfolder", "another", "file.txt");
 ```
 
 This will generate a platform-specific path:
-* On Windows: *"...\subfolder\another\file.txt"*
-* On Linux: *".../subfolder/another/file.txt"*
+
+- On Windows: _"...\subfolder\another\file.txt"_
+- On Linux: _".../subfolder/another/file.txt"_
 
 Great! However, I found something else in the codebase I was working on (ReSharper):
 
@@ -35,7 +36,6 @@ var filePath = rootPath / "subfolder" / "another" / "file.txt";
 Whoa! This almost looks like path separators! And the great thing is that this also returns a platform-specific path.
 
 After looking at the code a bit, I realized this was just clever use of [operator overloading in C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/overloadable-operators). Some code to achieve the same result as the above:
-
 
 ```csharp
 var rootPath = new FilePath(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));

@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/10/30/creating-a-generic-linq-to-sql-modelbinder-for-the-asp-net-mvc-framework.html
 ---
+
 You are right! This is indeed my third post on ASP.NET MVC ModelBinders. The first one focussed on creating a [ModelBinder from scratch](/posts/2008-09-01-using-the-aspnet-mvc-modelbinder-attribute/) in an older preview release, the second post did something similar trying to do [some dirty ViewState-like stuff](/posts/2008-10-02-using-the-aspnet-mvc-modelbinder-attribute-second-part/). Good news! There's more of this dirty stuff coming!
 
-How about this action method, using a *Person* class which is a Linq to SQL entity type:
+How about this action method, using a _Person_ class which is a Linq to SQL entity type:
 
 ```csharp
 public ActionResult PersonDetails(Person id)
@@ -24,7 +25,7 @@ public ActionResult PersonDetails(Person id)
 
 ```
 
-This action method is called from a URL which looks like Home/PersonDetails/2. Nothing special about this? Read this whole post again, from the beginning! Yes, I said that the *Person* class is a Linq to SQL entity type, and yes, you are missing the *DataContext* here! The above method would normally look like this:
+This action method is called from a URL which looks like Home/PersonDetails/2. Nothing special about this? Read this whole post again, from the beginning! Yes, I said that the _Person_ class is a Linq to SQL entity type, and yes, you are missing the _DataContext_ here! The above method would normally look like this:
 
 ```csharp
 public ActionResult PersonDetails(int id)
@@ -40,11 +41,11 @@ public ActionResult PersonDetails(int id)
 
 ```
 
-Using the ASP.NET MVC *ModelBinder* infrastructure, I am actually able to bind action method parameters to real objects, based on simple query string parameters like, in this case, id. A custom *ModelBinder* maps this string id to a real *Person* instance from my Linq to SQL *DataContext*. Let me show you how I've created this *ModelBinder*.
+Using the ASP.NET MVC _ModelBinder_ infrastructure, I am actually able to bind action method parameters to real objects, based on simple query string parameters like, in this case, id. A custom _ModelBinder_ maps this string id to a real _Person_ instance from my Linq to SQL _DataContext_. Let me show you how I've created this _ModelBinder_.
 
 ## Registering the LinqToSqlBinder<T>
 
-As with any custom *ModelBinder*, the *LinqToSqlBinder* should be registered with the *ModelBinder* infrastructure:
+As with any custom _ModelBinder_, the _LinqToSqlBinder_ should be registered with the _ModelBinder_ infrastructure:
 
 ```csharp
 protected void Application_Start()
@@ -55,7 +56,7 @@ protected void Application_Start()
 
 ```
 
-The above piece of code registers every entity type (or table, whatever you like to call it) in my Linq to Sql data contextwith a new *LinqToSqlBinder<ApplicationDataContext>* instance.
+The above piece of code registers every entity type (or table, whatever you like to call it) in my Linq to Sql data contextwith a new _LinqToSqlBinder<ApplicationDataContext>_ instance.
 
 ```csharp
 public static void Register(IDictionary<Type, IModelBinder> bindersDictionary)
@@ -73,7 +74,7 @@ public static void Register(IDictionary<Type, IModelBinder> bindersDictionary)
 
 ## The LinqToSqlBinder<T> source code
 
-The LinqToSqlBinder<T> will make use of a small utility class, *TableDefinition*, in which some information about the entity type's table will be stored. This class looks like the following:
+The LinqToSqlBinder<T> will make use of a small utility class, _TableDefinition_, in which some information about the entity type's table will be stored. This class looks like the following:
 
 ```csharp
 private class TableDefinition
@@ -89,7 +90,7 @@ private class TableDefinition
 
 ```
 
-My *LinqToSqlBinder<T>* overloads ASP.NET MVC's *DefaultModelBinder* class, of which I'll override the BindModel method:
+My _LinqToSqlBinder<T>_ overloads ASP.NET MVC's _DefaultModelBinder_ class, of which I'll override the BindModel method:
 
 ```csharp
 public class LinqToSqlBinder<T> : DefaultModelBinder
@@ -102,7 +103,7 @@ public class LinqToSqlBinder<T> : DefaultModelBinder
 
 ```
 
-First of all, the *LinqToSqlBinder<T>* has to determine if it can actually perform binding for the requested model type. In this case, this is determined using the metadata my Linq to SQL data context provides. If it does not support mapping the requested type, model binding is further processed by the base class.
+First of all, the _LinqToSqlBinder<T>_ has to determine if it can actually perform binding for the requested model type. In this case, this is determined using the metadata my Linq to SQL data context provides. If it does not support mapping the requested type, model binding is further processed by the base class.
 
 ```csharp
 // Check if bindingContext.ModelType can be delivered from T
@@ -127,7 +128,7 @@ string objectId = valueProviderResult.AttemptedValue;
 
 ```
 
-Speaking of queries... Now is a good time to start filling my *TableDefinition* instance, on which I can generate a SQL query which will later retrieve the requested object. Filling the *TableDefinition* object is really an easy task when using the meta data Linq to SQL provides. Each member (or column) can be looped and queried for specific information such as type, name, primary key, ...
+Speaking of queries... Now is a good time to start filling my _TableDefinition_ instance, on which I can generate a SQL query which will later retrieve the requested object. Filling the _TableDefinition_ object is really an easy task when using the meta data Linq to SQL provides. Each member (or column) can be looped and queried for specific information such as type, name, primary key, ...
 
 ```csharp
 // Build table definition
@@ -162,7 +163,7 @@ queryBuffer.Append("SELECT ")
 
 ```
 
-A nice looking query is generated using this code: *SELECT id, name, email FROM dbo.person WHERE id = '2'*. This query can now be executed on the Linq to SQL data context. The first result will be returned to the action method.
+A nice looking query is generated using this code: _SELECT id, name, email FROM dbo.person WHERE id = '2'_. This query can now be executed on the Linq to SQL data context. The first result will be returned to the action method.
 
 ```csharp
 // Execute query

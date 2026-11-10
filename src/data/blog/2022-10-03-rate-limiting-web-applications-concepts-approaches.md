@@ -41,10 +41,11 @@ Nice and simple: a `GET /api/todos` that returns a list of todo items, and a `PO
 What could possibly go wrong with using these three endpoints?
 
 Off the top of my head:
-* The mobile app another team is building accidentally causes an infinite loop that keeps calling `POST`, and tries to create a new todo item 10.000 times over the course of a few seconds before it crashes. That's a lot of todo items in the database that should not be there.
-* You depend on an external system that throttles you for a number of requests. Frequent requests from one user to your API result in reaching that external limit, making your API unavailable for all your users.
-* Someone is brute-forcing the `GET` method, trying to get todo items for all your users. You have security in place, so they will never get in without valid credentials, but your database has to run a query to check credentials 10 times per second. That's rough on this small 0.5 vCPU database instance that seemed good on paper.
-* An aggressive search engine spider accidentally adding 20.000 items into a shopping cart that is stored in memory.
+
+- The mobile app another team is building accidentally causes an infinite loop that keeps calling `POST`, and tries to create a new todo item 10.000 times over the course of a few seconds before it crashes. That's a lot of todo items in the database that should not be there.
+- You depend on an external system that throttles you for a number of requests. Frequent requests from one user to your API result in reaching that external limit, making your API unavailable for all your users.
+- Someone is brute-forcing the `GET` method, trying to get todo items for all your users. You have security in place, so they will never get in without valid credentials, but your database has to run a query to check credentials 10 times per second. That's rough on this small 0.5 vCPU database instance that seemed good on paper.
+- An aggressive search engine spider accidentally adding 20.000 items into a shopping cart that is stored in memory.
 
 There are probably more things that could go wrong, but you get the picture.
 You, your team, or external factors may behave in ways you did not expect.
@@ -68,10 +69,10 @@ Regardless of the traffic being accidental or malicious.
 
 I will give you a quote that you can use in other places:
 
-> *Rate limit everything.*<br/>
-> *– Maarten Balliauw*
+> _Rate limit everything._<br/>
+> _– Maarten Balliauw_
 
-With *everything*, I mean every endpoint that uses resources that could slow down or break your application when exhausted or stressed.
+With _everything_, I mean every endpoint that uses resources that could slow down or break your application when exhausted or stressed.
 
 Typically, you'll want to rate limit endpoints that make use of the CPU, memory, disk I/O, the database, external APIs, and the likes.
 
@@ -85,11 +86,11 @@ If you wanted to add rate limiting to your ASP.NET Core web application, how wou
 
 Most probably, you will end up with a solution along these lines:
 
-* Add a database table `Events`, with three columns:
-  * `UserIdentifier` – who do we limit
-  * `ActionIdentifier` – what do we limit
-  * `When` – event timestamp so we can apply a query
-* Implement a request delegate to handle rate limits
+- Add a database table `Events`, with three columns:
+  - `UserIdentifier` – who do we limit
+  - `ActionIdentifier` – what do we limit
+  - `When` – event timestamp so we can apply a query
+- Implement a request delegate to handle rate limits
 
 The request delegate could look something like the following, storing events and then counting the number of events over a period of time:
 
@@ -133,7 +134,7 @@ app.Use(async (http, next) =>
 });
 ```
 
-That should be it, right? *RIGHT?!?*
+That should be it, right? _RIGHT?!?_
 
 Well... Let's start with the good.
 This would be very flexible in defining various limits and combinations of limits.
@@ -194,7 +195,7 @@ Does this matter? As always, "it depends".
 If you want to really lock things down and don't want to tolerate a potential overrun, then yes, this matters.
 If your goal is to impose rate limits to prevent accidental or intentional excessive resource usage, perhaps this potential overrun does not matter.
 
-In the case where you do need a sliding window limit, you could look into *sliding window limit* approaches.
+In the case where you do need a sliding window limit, you could look into _sliding window limit_ approaches.
 These usually combine multiple smaller fixed windows under the hood, to reduce the chance of overrunning the imposed limits.
 
 ### Token buckets
@@ -202,17 +203,17 @@ These usually combine multiple smaller fixed windows under the hood, to reduce t
 Widely used in telecommunications to deal with bandwidth usage and bandwidth bursts, are token buckets.
 Token buckets control flow rate, and they are called _buckets_ because buckets and water are a great analogy!
 
-> *"Imagine a bucket where water is poured in at the top and leaks from the bottom.
+> _"Imagine a bucket where water is poured in at the top and leaks from the bottom.
 > If the rate at which water is poured in exceeds the rate at which it leaks water out,
-> the bucket overflows and no new requests can be handled until there's capacity in the bucket again."*
+> the bucket overflows and no new requests can be handled until there's capacity in the bucket again."_
 
 If you don't like water, you could use tokens instead:
 
-> *"Imagine you have a bucket that's completely filled with tokens.
+> _"Imagine you have a bucket that's completely filled with tokens.
 > When a request comes in, you take a token out of the bucket.
 > After a predetermined amount of time, new tokens are added to the bucket.
 > If you take tokens out faster than they are added, the bucket will be empty at some point,
-> and no new requests can be handled until new tokens are added."*
+> and no new requests can be handled until new tokens are added."_
 
 In code, this could look like the following.
 The `GetCallsLeft()` method returns how many tokens are left in the bucket.
@@ -248,8 +249,8 @@ Now that we have seen the basic concepts of rate limiting, let's have a look at 
 
 Deciding which resources to rate limit is easy. Here's a quote from a famous blog author:
 
-> *Rate limit everything.*<br/>
-> *– Maarten Balliauw*
+> _Rate limit everything._<br/>
+> _– Maarten Balliauw_
 
 Your application typically employs a "time-sharing model".
 Much like a time-sharing vacation property, you don't want your guests to be hindered by other guests,
@@ -263,9 +264,10 @@ Given every request uses at least the CPU and memory of your server, and potenti
 Deciding on sensible limits is hard, and the only good answer here is to measure what typical usage looks like.
 
 Measurement brings knowledge! A good approach to decide on sensible limits is to:
-* Find out the current # of requests for a certain resource in your application.
-* Implement rate limiting, but don't block requests yet. When a limit is hit, log it. This will let you fine-tune the numbers.
-* Iterate on measurements and logs, and when you are certain you know what the limit should be, start enforcing it.
+
+- Find out the current # of requests for a certain resource in your application.
+- Implement rate limiting, but don't block requests yet. When a limit is hit, log it. This will let you fine-tune the numbers.
+- Iterate on measurements and logs, and when you are certain you know what the limit should be, start enforcing it.
 
 As an extra tip, make sure to constantly monitor rate limiting events, and adjust when needed.
 Perhaps a newer version of your mobile app makes more requests to your API, and this is expected traffic.
@@ -285,31 +287,31 @@ For example, when your mobile app starts, it performs some initial requests in r
 To handle these bursts, you may want to implement a "laddering" approach, and have multiple different limits in place:
 
 | Limit      | Operation A | Operation B | Operation C |
-|------------|-------------|-------------|-------------|
+| ---------- | ----------- | ----------- | ----------- |
 | Per second | 10          | 10          | 100         |
 | Per minute | 60          | 60          | 500         |
 | Per hour   | 3600        | 600         | 500         |
 
-In the above table, a client could make 10 requests per second to *Operation A*.
+In the above table, a client could make 10 requests per second to _Operation A_.
 10 per second would normally translate to 36000 request per hour, but maybe at the hourly level, only 3600 is a better number.
 
 Again, measure, and don't prematurely add laddering. There's a good chance a single limit for all endpoints in your application may be sufficient.
 
 ### What will be the partition/identifier?
 
-Previously, we used a *user identifier + action/operation identifier* to impose rate limits.
+Previously, we used a _user identifier + action/operation identifier_ to impose rate limits.
 There are many other request properties you can use to partition your requests:
 
-* Partition per endpoint
-* Partition per IP address
-  * Keep in mind users may be sharing an IP address, e.g. when behind a NAT/CGNAT/proxy
-* Partition per user
-  * Keep in mind you may have anonymous users, how will you distinguish those?
-* Partition per session
-  * What if your user starts a new session for every request?
-  * What if your user makes use of multiple devices with separate sessions?
-* Partition per browser
-* Partition per header (e.g. `X-Api-Token`), ...
+- Partition per endpoint
+- Partition per IP address
+  - Keep in mind users may be sharing an IP address, e.g. when behind a NAT/CGNAT/proxy
+- Partition per user
+  - Keep in mind you may have anonymous users, how will you distinguish those?
+- Partition per session
+  - What if your user starts a new session for every request?
+  - What if your user makes use of multiple devices with separate sessions?
+- Partition per browser
+- Partition per header (e.g. `X-Api-Token`), ...
 
 Also here, "it depends" on your application. A global rate limit per IP address may work for your application.
 More complex applications may need a combination of these, e.g. per-endpoint rate limiting combined with the current user.
@@ -322,14 +324,15 @@ A better question would be whether the same limits should apply for all types of
 There is no silver bullet, but here are some examples to think about.
 
 Good candidates to have different rate limits in place:
-* Your automated monitoring - the last thing you want is nightly PagerDuty alerts because of your monitoring system being rate limited.
-  * Counter point: maybe you do want to have a rate limit in place, so your monitoring can check rate limits are enabled?
-* Your admin/support team - your support team may make a lot of requests to your application to help out users, so it's best to not get in their way.
-  * Counter point: maybe a rate limit does make sense, so a disgruntled employee can't go and scrape lots of data or add swear words into lots of places with an automated script.
-* Web crawlers - your marketing folks won't be happy if your app is not visible in search engines!
-  * Counter point: there are aggressive crawlers, and you also don't want them to get in the way of your users. There are some `robots.txt` entries many spiders respect, but a rate limit could be needed.
-* "Datacenter IP ranges" - If you have a mobile app targeted at consumers, does traffic coming from AWS, Azure and other big hosters make sense? If you expect mostly "residential" and mobile traffic, perhaps you can reduce automated traffic from other sources with a more strict rate limit. There's a list of [datacenter IP ranges](https://github.com/client9/ipcat) that you can use for this.
-  * Counter point: VPN providers out there are often going to be in these IP ranges. Legitimate users may use datacenter IP addresses in those cases. Also at the time of writing, my dad's Starlink subscription runs over what looks like a Google Compute Engine IP address.
+
+- Your automated monitoring - the last thing you want is nightly PagerDuty alerts because of your monitoring system being rate limited.
+  - Counter point: maybe you do want to have a rate limit in place, so your monitoring can check rate limits are enabled?
+- Your admin/support team - your support team may make a lot of requests to your application to help out users, so it's best to not get in their way.
+  - Counter point: maybe a rate limit does make sense, so a disgruntled employee can't go and scrape lots of data or add swear words into lots of places with an automated script.
+- Web crawlers - your marketing folks won't be happy if your app is not visible in search engines!
+  - Counter point: there are aggressive crawlers, and you also don't want them to get in the way of your users. There are some `robots.txt` entries many spiders respect, but a rate limit could be needed.
+- "Datacenter IP ranges" - If you have a mobile app targeted at consumers, does traffic coming from AWS, Azure and other big hosters make sense? If you expect mostly "residential" and mobile traffic, perhaps you can reduce automated traffic from other sources with a more strict rate limit. There's a list of [datacenter IP ranges](https://github.com/client9/ipcat) that you can use for this.
+  - Counter point: VPN providers out there are often going to be in these IP ranges. Legitimate users may use datacenter IP addresses in those cases. Also at the time of writing, my dad's Starlink subscription runs over what looks like a Google Compute Engine IP address.
 
 An additional exception could be certain groups of customers. If your API is your product, it could be part of your business model to allow e.g. users of your "premium plan" to have different limits.
 
@@ -432,19 +435,19 @@ If you need more information about the user, then your serverless function may n
 
 Depending on what makes sense for your application, here are some resources:
 
-* In your application
-  * [Stefan Prodan's AspNetCoreRateLimit](https://github.com/stefanprodan/AspNetCoreRateLimit) (highly recommend, it has lots of options for every aspect discussed in this blog post)
-  * [ASP.NET Core Rate Limiting middleware in .NET 7](https://blog.maartenballiauw.be/posts/2022-09-26-aspnet-core-rate-limiting-middleware/)
-* Reverse proxy
-  * [NGinx](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-http/)
-  * [HAProxy](https://www.haproxy.com/blog/four-examples-of-haproxy-rate-limiting/)
-  * [Traefik](https://doc.traefik.io/traefik/middlewares/http/ratelimit/)
-  * [YARP reverse proxy + ASP.NET Core Rate Limiting middleware](https://blog.maartenballiauw.be/posts/2022-09-26-aspnet-core-rate-limiting-middleware/)
-* Content Delivery Network / API Gateway
-  * [Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/api-management-sample-flexible-throttling)
-  * [Azure Front Door](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-rate-limit)
-  * [CloudFlare](https://support.cloudflare.com/hc/en-us/articles/115001635128-Configuring-Cloudflare-Rate-Limiting)
-  * [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html)
+- In your application
+  - [Stefan Prodan's AspNetCoreRateLimit](https://github.com/stefanprodan/AspNetCoreRateLimit) (highly recommend, it has lots of options for every aspect discussed in this blog post)
+  - [ASP.NET Core Rate Limiting middleware in .NET 7](https://blog.maartenballiauw.be/posts/2022-09-26-aspnet-core-rate-limiting-middleware/)
+- Reverse proxy
+  - [NGinx](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-http/)
+  - [HAProxy](https://www.haproxy.com/blog/four-examples-of-haproxy-rate-limiting/)
+  - [Traefik](https://doc.traefik.io/traefik/middlewares/http/ratelimit/)
+  - [YARP reverse proxy + ASP.NET Core Rate Limiting middleware](https://blog.maartenballiauw.be/posts/2022-09-26-aspnet-core-rate-limiting-middleware/)
+- Content Delivery Network / API Gateway
+  - [Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/api-management-sample-flexible-throttling)
+  - [Azure Front Door](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-rate-limit)
+  - [CloudFlare](https://support.cloudflare.com/hc/en-us/articles/115001635128-Configuring-Cloudflare-Rate-Limiting)
+  - [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html)
 
 ### Monitoring and circuit breakers
 

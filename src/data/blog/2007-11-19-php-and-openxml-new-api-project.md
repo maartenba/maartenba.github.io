@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/11/19/php-and-openxml-new-api-project.html
 ---
+
 ![](/images/office2007logo.png)It's been a while since I posted something related to PHP and OpenXML, but I fixed that glitch in this blog post.
 
 Browsing CodePlex, I found a new PHP OpenXML project named [OpenXML API](http://www.codeplex.com/openxmlapi). From what I can see, this project is just in the "Hello world" stage of creating Word documents in PHP, but not so long ago my [PHPExcel](http://www.phpexcel.net) project was in that stage too...

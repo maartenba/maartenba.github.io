@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/10/22/scale-out-to-the-cloud-scale-back-to-your-rack.html
 ---
+
 That is a bad blog post title, really! If [Steve](http://blog.smarx.com) and [Ryan](http://dunnry.com/blog/) have this post in the [Cloud Cover show](http://channel9.msdn.com/shows/Cloud+Cover) news I bet they will make fun of the title. Anyway…
 
 Imagine you have an application running in your own datacenter. Everything works smoothly, except for some capacity spikes now and then. Someone has asked you for doing something about it with low budget. Not enough budget for new hardware, and frankly new hardware would be ridiculous to just ensure capacity for a few hours each month.
@@ -83,23 +84,23 @@ $global:label = Date
 
 Let’s explain these…
 
-| $global:wwwroot | The file path to the on-premise application. |
-|------|------|
-| $global:deployProduction | Deploy to Windows Azure? |
-| $global:deployDevFabric | Deploy to development fabric? |
-| $global:webFarmIndex | The 0-based index of your webfarm. Look at IIS manager and note the order of your web farm in the list of webfarms. |
-| $global:localUrl | The on-premise URL that is registered in ARR as the application server. |
-| $global:localPort | The on-premise port that is registered in ARR as the application server. |
-| $global:azureUrl | The Windows Azure URL that will be registered in ARR as the application server. |
-| $global:azurePort | The Windows Azure port that will be registered in ARR as the application server. |
-| $global:azureDeployedSite | The final URL of the deployed Windows Azre application. |
-| $global:numberOfInstances | Number of instances to run on Windows Azure. |
-| $global:subscriptionId | Your Windows Azure subscription ID. |
-| $global:certificate | Your certificate for managing Windows Azure. |
-| $global:serviceName | Your Windows Azure service name. |
-| $global:storageServiceName | The Windows Azure storage account that will be used for uploading the packaged application. |
-| $global:slot | The Windows Azure deployment slot (production/staging) |
-| $global:label | The label for the deployment. I chose the current date and time. |
+| $global:wwwroot            | The file path to the on-premise application.                                                                        |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| $global:deployProduction   | Deploy to Windows Azure?                                                                                            |
+| $global:deployDevFabric    | Deploy to development fabric?                                                                                       |
+| $global:webFarmIndex       | The 0-based index of your webfarm. Look at IIS manager and note the order of your web farm in the list of webfarms. |
+| $global:localUrl           | The on-premise URL that is registered in ARR as the application server.                                             |
+| $global:localPort          | The on-premise port that is registered in ARR as the application server.                                            |
+| $global:azureUrl           | The Windows Azure URL that will be registered in ARR as the application server.                                     |
+| $global:azurePort          | The Windows Azure port that will be registered in ARR as the application server.                                    |
+| $global:azureDeployedSite  | The final URL of the deployed Windows Azre application.                                                             |
+| $global:numberOfInstances  | Number of instances to run on Windows Azure.                                                                        |
+| $global:subscriptionId     | Your Windows Azure subscription ID.                                                                                 |
+| $global:certificate        | Your certificate for managing Windows Azure.                                                                        |
+| $global:serviceName        | Your Windows Azure service name.                                                                                    |
+| $global:storageServiceName | The Windows Azure storage account that will be used for uploading the packaged application.                         |
+| $global:slot               | The Windows Azure deployment slot (production/staging)                                                              |
+| $global:label              | The label for the deployment. I chose the current date and time.                                                    |
 
 ### Load dependencies
 
@@ -120,7 +121,6 @@ Add-PSSnapin AzureManagementToolsSnapIn
 ### Build a list of files to deploy
 
 In order to package the application, we need a text file containing all the files that should be packaged and deployed to Windows Azure. This is done by recursively traversing the directory where the on-premise application is hosted.
-
 
 ```php
 $filesToDeploy = Get-ChildItem $wwwroot -recurse | where {$_.extension -match "\..*"}
@@ -200,7 +200,7 @@ if ($deployProduction -eq 1) {
 
 ### Update IIS Application Request Routing servers
 
-[This](http://code.msdn.microsoft.com/azurecmdlets) one can be done by abusing the .NET class *Microsoft.Web.Administration.ServerManager*.
+[This](http://code.msdn.microsoft.com/azurecmdlets) one can be done by abusing the .NET class _Microsoft.Web.Administration.ServerManager_.
 
 ```php
 

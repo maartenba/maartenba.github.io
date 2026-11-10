@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2006/08/14/a-new-computer.html
 ---
+
 2 weeks ago, my previous computer died. A black screen with a white blinking cursor was the only thing it still did. Curious about that, I opened the case and saw... leaking capacitors. According to [Google searches](http://www.google.be/search?q=leaking+capacitors) about that, something went wrong with industrial espionage a few years ago. Nice, I had spied capacitors and a dead computer. Even more typical was the fact that my warranty had expired 2 years ago. And that all in a week I planned to develop on my blog and some other private projects. The best cure to quicly get to work: a new computer.
 
 So I went to [my local computer store](http://www.sysar.be) and ordered some new parts (motherboard, CPU, memory and a new graphics card). One week later, everithing arrived and I screwed everything in my computer case. Everything worked, I installed Windows and all other software, and decided to have a look at the internal temperatures... 71 degrees Celcius!!! Good to know that a Pentium D 915 gets hot when you have not enough ventilation in your case...

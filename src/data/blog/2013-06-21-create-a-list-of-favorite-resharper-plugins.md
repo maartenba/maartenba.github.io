@@ -5,14 +5,24 @@ pubDatetime: 2013-06-21T11:00:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "General", "NuGet", "Projects", "Publications", "Software"]
+tags:
+  [
+    "ASP.NET",
+    "CSharp",
+    "General",
+    "NuGet",
+    "Projects",
+    "Publications",
+    "Software",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2013/06/21/create-a-list-of-favorite-resharper-plugins.html
 ---
+
 With the latest version of the [ReSharper 8 EAP](http://confluence.jetbrains.com/display/ReSharper/ReSharper+8+EAP), JetBrains [shipped an extension manager](http://blogs.jetbrains.com/dotnet/?p=4691) for plugins, annotations and settings. Where it previously was a hassle and a suboptimal experience to install plugins into ReSharper, it’s really easy to do now. And what is really nice is that this extension manager is built on top of [NuGet](http://www.nuget.org)! Which means we can do all sorts of tricks…
 
-The first thing that comes to mind is creating a personal NuGet feed containing just those plugins that are of interest to me. And where better to create such feed than [MyGet](http://www.myget.org)? Create a new feed, navigate to the ***Package Sources*** pane and add a new package source. There’s a preset available for using the ReSharper extension gallery!
+The first thing that comes to mind is creating a personal NuGet feed containing just those plugins that are of interest to me. And where better to create such feed than [MyGet](http://www.myget.org)? Create a new feed, navigate to the _**Package Sources**_ pane and add a new package source. There’s a preset available for using the ReSharper extension gallery!
 
 [![](/images/image_thumb_240.png)](/images/image_279.png)
 

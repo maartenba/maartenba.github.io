@@ -5,12 +5,24 @@ pubDatetime: 2011-01-25T20:13:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "Events", "General", "jQuery", "MEF", "MVC", "Personal", "Presentations"]
+tags:
+  [
+    "ASP.NET",
+    "CSharp",
+    "Events",
+    "General",
+    "jQuery",
+    "MEF",
+    "MVC",
+    "Personal",
+    "Presentations",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2011/01/25/viva-las-vegas.html
   - /post/2011/01/25/viva-las-vegas!.html
 ---
+
 [![](/images/300x250_Mix11_011011_US_b.gif)](http://live.visitmix.com/OpenCall/Vote/Session/10)I have asked it last year, and I’ll ask it again. One of my session proposals made it to the “short”list for MIX11. One thing left though: votes are the only currency to get my session proposal in Vegas.
 
 Here’s the session abstract:

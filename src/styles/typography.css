@@ -1,4 +1,4 @@
-@plugin '@tailwindcss/typography';
+@plugin "@tailwindcss/typography";
 
 @layer base {
   /* ===== Override default Tailwind Typography styles ===== */
@@ -97,7 +97,7 @@
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   .astro-code {
-    @apply flex rounded-xl border shadow-sm bg-(--shiki-light-bg) text-(--shiki-light) outline-border [&_span]:text-(--shiki-light);
+    @apply flex rounded-xl border bg-(--shiki-light-bg) text-(--shiki-light) shadow-sm outline-border [&_span]:text-(--shiki-light);
   }
 
   html[data-theme="dark"] .astro-code {
@@ -148,8 +148,16 @@ html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#5F7E97"] {
   --ea-color-link-dark-active: var(--foreground);
   --ea-color-link-bold: var(--accent);
   --ea-color-link-bold-dark: var(--accent);
-  --ea-color-link-callout: color-mix(in srgb, var(--foreground) 78%, var(--background));
-  --ea-color-link-callout-dark: color-mix(in srgb, var(--foreground) 78%, var(--background));
+  --ea-color-link-callout: color-mix(
+    in srgb,
+    var(--foreground) 78%,
+    var(--background)
+  );
+  --ea-color-link-callout-dark: color-mix(
+    in srgb,
+    var(--foreground) 78%,
+    var(--background)
+  );
   --ea-color-link-callout-active: var(--accent);
   --ea-color-link-callout-dark-active: var(--accent);
   --ea-font-family: inherit;
@@ -203,7 +211,9 @@ div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta {
   font-weight: 600;
   white-space: nowrap;
 }
-div[data-ea-publisher].loaded.adaptive-css .ea-content strong:not(.ea-headline)::after,
+div[data-ea-publisher].loaded.adaptive-css
+  .ea-content
+  strong:not(.ea-headline)::after,
 div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta::after {
   content: " \2192";
 }
@@ -213,8 +223,12 @@ div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-body::after {
   color: var(--accent);
   font-weight: 600;
 }
-div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-body:has(strong)::after,
-div[data-ea-publisher].loaded.adaptive-css .ea-content:has(.ea-cta, strong:not(.ea-headline)) .ea-body::after {
+div[data-ea-publisher].loaded.adaptive-css
+  .ea-content
+  .ea-body:has(strong)::after,
+div[data-ea-publisher].loaded.adaptive-css
+  .ea-content:has(.ea-cta, strong:not(.ea-headline))
+  .ea-body::after {
   content: none;
 }
 div[data-ea-publisher].loaded.adaptive-css .ea-callout {

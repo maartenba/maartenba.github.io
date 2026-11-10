@@ -31,7 +31,7 @@ With those in place, let's start creating our LogicApp. After selecting the reso
 
 ## Configuring the Twitter trigger
 
-In Azure LogicApps, a workflow will typically be started with a triger. This can be an HTTP request coming in, a file being created somewhere, an e-mail being received, or... a Twitter search! Since we want to monitor Twitter, let's use this as the trigger for our flow. Pick *When a new tweet is posted...* as the trigger.
+In Azure LogicApps, a workflow will typically be started with a triger. This can be an HTTP request coming in, a file being created somewhere, an e-mail being received, or... a Twitter search! Since we want to monitor Twitter, let's use this as the trigger for our flow. Pick _When a new tweet is posted..._ as the trigger.
 
 The Azure portal will then ask us to authenticate with Twitter. We can use any account here, the only reason it's required is to be abe to use the Twitter API's under the hood.
 
@@ -59,11 +59,11 @@ Back on the Azure LogicApps side of things, we want to authenticate. The docs me
 
 Add an **HTTP** step, and specify the following:
 
-* Method: `POST`
-* URI: `https://{your-org}.jetbrains.space/oauth/token`
-* Headers: `Content-Type` - `application/x-www-form-urlencoded`
-* Body: `grant_type=client_credentials&scope=**`
-* Authentication: `Basic`, and add the Client ID as a username, and the Client secret as a password.
+- Method: `POST`
+- URI: `https://{your-org}.jetbrains.space/oauth/token`
+- Headers: `Content-Type` - `application/x-www-form-urlencoded`
+- Body: `grant_type=client_credentials&scope=**`
+- Authentication: `Basic`, and add the Client ID as a username, and the Client secret as a password.
 
 Visually (with some blurred fields so you don't post into our Space):
 
@@ -77,19 +77,19 @@ To post a message to a chat channel, we can use the Space API! Under **Administr
 
 We'll need to create another HTTP step in our Azure LogicApp, and specify the following:
 
-* Method: `POST`
-* URI: `https://{your-org}.jetbrains.space/api/http/chats/channels/{channel-id}/messages`\
+- Method: `POST`
+- URI: `https://{your-org}.jetbrains.space/api/http/chats/channels/{channel-id}/messages`\
   (grab the channel ID from the URL shown in the browser when using the Space chat channel)
-* Headers:
-  * `Accept` - `application/json`
-  * `Content-Type` - `application/json`
-* Body:
+- Headers:
+  - `Accept` - `application/json`
+  - `Content-Type` - `application/json`
+- Body:
   ```
   {
     "text": "https://twitter.com/@{triggerBody()?['UserDetails']?['UserName']}/status/@{triggerBody()?['TweetId']}"
   }
   ```
-* Authentication: `Raw`, and set `Bearer @{body('Authorize')['access_token']}`
+- Authentication: `Raw`, and set `Bearer @{body('Authorize')['access_token']}`
 
 The body of our HTTP request will be the full URL to the tweet we collected in the trigger to our Azure LogicApp. Space will unfurl its contents for us, so re-creating the Twitter URL is enough here.
 

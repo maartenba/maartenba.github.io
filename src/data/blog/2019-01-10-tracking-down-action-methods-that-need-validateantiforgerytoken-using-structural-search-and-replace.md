@@ -11,32 +11,32 @@ redirect_from:
   - /post/2019/01/10/tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace.html
 ---
 
-As discussed in the [previous post](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/), we all know it is important to perform validations to prevent a *Cross-Site Request Forgery (CSRF)* attack against our application. Imagine inheriting a code base that has *zero* measures implemented? How would you find which action methods need a `[ValidateAntiForgeryToken]`?
+As discussed in the [previous post](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/), we all know it is important to perform validations to prevent a _Cross-Site Request Forgery (CSRF)_ attack against our application. Imagine inheriting a code base that has _zero_ measures implemented? How would you find which action methods need a `[ValidateAntiForgeryToken]`?
 
 Today, we will look at using [ReSharper](https://www.jetbrains.com/resharper) to find all action methods that need `[ValidateAntiForgeryToken]` added.
 
 In this series:
 
-* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/)
-* [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)
-* [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/posts/2019-01-11-unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner/)
+- [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/)
+- [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)
+- [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/posts/2019-01-11-unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner/)
 
 ## What's the plan? Which action methods are we after?
 
 Let's start with our battle plan. We already know our inherited code base does not have `@Html.AntiForgeryToken()` in Razor, and does not have `[ValidateAntiForgeryToken]` attributes in any relevant action methods.
 
-So a good plan of action would probably be to *search for action methods*, where we can then:
+So a good plan of action would probably be to _search for action methods_, where we can then:
 
-* Add the `[ValidateAntiForgeryToken]` attribute
-* Navigate to the related view, find the form in there, and add `@Html.AntiForgeryToken()`
+- Add the `[ValidateAntiForgeryToken]` attribute
+- Navigate to the related view, find the form in there, and add `@Html.AntiForgeryToken()`
 
 Sounds like a plan! But there are over a thousand action methods in that code base! How do we find the ones that accept a `POST`?
 
 The prototypical action method we are after:
 
-* is in a class that extends `Controller`/`ControllerBase`/`IController`
-* is a `public` method (as that's what ASP.NET MVC exposes over HTTP)
-* has a `[HttpPost]` attribute
+- is in a class that extends `Controller`/`ControllerBase`/`IController`
+- is a `public` method (as that's what ASP.NET MVC exposes over HTTP)
+- has a `[HttpPost]` attribute
 
 Roughly speaking, the action methods we are after look like this:
 
@@ -96,7 +96,7 @@ public {ReturnType} {MethodName}({Arguments}})
 
 ... and that translates into a SSR pattern!
 
-> **Note:** Do make sure to set the type for `$HttpPost$` to `Microsoft.AspNetCore.Mvc.HttpPostAttribute`, otherwise we will find all public methods that have *any* attribute. Also note that I did not specify a type for `$ReturnType$`, so that it can match any return type. Optionally this could be set to a subtype of `IActionResult`, but then direct type returns like a simple `string` would not match.
+> **Note:** Do make sure to set the type for `$HttpPost$` to `Microsoft.AspNetCore.Mvc.HttpPostAttribute`, otherwise we will find all public methods that have _any_ attribute. Also note that I did not specify a type for `$ReturnType$`, so that it can match any return type. Optionally this could be set to a subtype of `IActionResult`, but then direct type returns like a simple `string` would not match.
 
 Our replace pattern will add `, ValidateAntiForgeryToken` as an attribute, done.
 
@@ -112,11 +112,11 @@ Excellent! Or is it...
 
 Our Structural Search and Replace (SSR) pattern misses some cases:
 
-* `public async Task<IActionResult> Register_Post(RegistrationModel model)` would be missed because of the `async` keyword.
-* `[AcceptVerbs("POST")]` would be missed because we explicitly search for `[HttpPost]`
-* If multiple attributes were defined (think `[HttpPost, ActionName("Register")]` or `[HttpPost][ActionName("Register")]`), those would be missed, too.
-* And of course, all those cases could be valid for `[HttpDelete]`, `PATCH`, `PUT`, ...
-* And (oh, the horror!) - if a `public` method in a controller does not specify which HTTP verbs it accepts, it accepts all of them.
+- `public async Task<IActionResult> Register_Post(RegistrationModel model)` would be missed because of the `async` keyword.
+- `[AcceptVerbs("POST")]` would be missed because we explicitly search for `[HttpPost]`
+- If multiple attributes were defined (think `[HttpPost, ActionName("Register")]` or `[HttpPost][ActionName("Register")]`), those would be missed, too.
+- And of course, all those cases could be valid for `[HttpDelete]`, `PATCH`, `PUT`, ...
+- And (oh, the horror!) - if a `public` method in a controller does not specify which HTTP verbs it accepts, it accepts all of them.
 
 > **Tip:** Read that last bullet once more.
 

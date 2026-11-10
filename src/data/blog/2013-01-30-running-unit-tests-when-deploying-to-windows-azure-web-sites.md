@@ -10,17 +10,14 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/01/30/running-unit-tests-when-deploying-to-windows-azure-web-sites.html
 ---
+
 When deploying an application to Windows Azure Web Sites, a number of deployment steps are executed. For .NET projects, msbuild is triggered. For node.js applications, a list of dependencies is restored. For PHP applications, files are copied from source control to the actual web root which is served publicly. Wouldn’t it be cool if Windows Azure Web Sites refused to deploy fresh source code whenever unit tests fail? In this post, I’ll show you how.
 
-
-<u>Disclaimer:</u>  I’m using PHP and PHPUnit here but the same approach can be used for node.js. .NET is a bit harder since most test runners out there are not supported by the Windows Azure Web Sites sandbox. I’m confident however that in the near future this issue will be resolved and the same technique can be used for .NET applications.
-
+<u>Disclaimer:</u> I’m using PHP and PHPUnit here but the same approach can be used for node.js. .NET is a bit harder since most test runners out there are not supported by the Windows Azure Web Sites sandbox. I’m confident however that in the near future this issue will be resolved and the same technique can be used for .NET applications.
 
 ## Our sample application
 
-
 First of all, let’s create a simple application. Here’s a very simple one using the [Silex](http://silex.sensiolabs.org/) framework which is similar to frameworks like [Sinatra](http://www.sinatrarb.com/) and [Nancy](http://www.nancyfx.org/).
-
 
 ```php
 <?php
@@ -80,7 +77,7 @@ As you can see from the following screenshot, this command allows us to specify 
 
 [![](/images/image_thumb_217.png)](/images/image_255.png)
 
-Running this command does two things: it creates a *.deployment *file which tells Windows Azure Web Sites which command should be run during the deployment process and a *deploy.cmd* (or *deploy.sh* if you’ve opted for a bash script) which contains the entire deployment process. Let’s first look at the *.deployment* file:
+Running this command does two things: it creates a *.deployment *file which tells Windows Azure Web Sites which command should be run during the deployment process and a _deploy.cmd_ (or _deploy.sh_ if you’ve opted for a bash script) which contains the entire deployment process. Let’s first look at the _.deployment_ file:
 
 ```
 
@@ -89,7 +86,7 @@ command = bash deploy.sh
 
 ```
 
-This is a very simple file which tells Windows Azure Web Sites to invoke the *deploy.sh* script using *bash* as the shell. The default *deploy.sh* will look like this:
+This is a very simple file which tells Windows Azure Web Sites to invoke the _deploy.sh_ script using _bash_ as the shell. The default _deploy.sh_ will look like this:
 
 ```php
 #!/bin/bash
@@ -178,9 +175,9 @@ echo "Finished successfully."
 
 ```
 
-This script does two things: setup a bunch of environment variables so our script has all the paths to the source code repository, the target web site root and some well-known commands, Next, it runs the *[KuduSync](https://github.com/projectkudu/KuduSync)* executable, a helper which copies files from the source code repository to the web site root using an optimized algorithm which only copies files that have been modified. For .NET, there would be a third action which is done: running msbuild to compile sources into binaries.
+This script does two things: setup a bunch of environment variables so our script has all the paths to the source code repository, the target web site root and some well-known commands, Next, it runs the _[KuduSync](https://github.com/projectkudu/KuduSync)_ executable, a helper which copies files from the source code repository to the web site root using an optimized algorithm which only copies files that have been modified. For .NET, there would be a third action which is done: running msbuild to compile sources into binaries.
 
-Right before the part that reads* # Deployment*, we can add some additional steps for running unit tests. We can invoke the *php.exe* executable (located on the D:\ drive in Windows Azure Web Sites) and run *phpunit.php* passing in the path to the test configuration file:
+Right before the part that reads* # Deployment*, we can add some additional steps for running unit tests. We can invoke the _php.exe_ executable (located on the D:\ drive in Windows Azure Web Sites) and run _phpunit.php_ passing in the path to the test configuration file:
 
 ```php
 ##################################################################################################################################
@@ -199,7 +196,7 @@ echo
 
 ```
 
-On a side note, we can also run other commands like issuing a *composer update*, similar to NuGet package restore in the .NET world:
+On a side note, we can also run other commands like issuing a _composer update_, similar to NuGet package restore in the .NET world:
 
 ```php
 echo Download composer.
@@ -213,7 +210,7 @@ cd "$DEPLOYMENT_SOURCE"
 
 ## Putting our deployment script to the test
 
-All that’s left to do now is commit and push our changes to Windows Azure Web Sites. If everything goes right, the output for the *git push* command should contain details of running our unit tests:
+All that’s left to do now is commit and push our changes to Windows Azure Web Sites. If everything goes right, the output for the _git push_ command should contain details of running our unit tests:
 
 [![](/images/image_thumb_218.png)](/images/image_256.png)
 

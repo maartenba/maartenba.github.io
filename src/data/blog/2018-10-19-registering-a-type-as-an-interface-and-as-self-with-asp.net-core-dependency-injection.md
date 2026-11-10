@@ -63,7 +63,7 @@ This will blow up with a nice exception!
 
 > **An unhandled exception occurred while processing the request.**
 > InvalidOperationException: Unable to resolve service for type 'DefaultCustomerService' while attempting to activate 'AnotherController'.
-> ```Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, bool isDefaultParameterRequired)```
+> `Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, bool isDefaultParameterRequired)`
 
 The reason for the `InvalidOperationException` we get is that the service collection only contains a registration for `ICustomerService`, and not for `DefaultCustomerService`.
 
@@ -145,11 +145,11 @@ if (lastRegistration.ServiceType == implementationType)
 }
 ```
 
-*Note that we use a `GetImplementationType()` helper method which is in the full extension method code below - it helps us find the implementation type regardless of whether the previous registration was a concrete instance registration, a type registration or a factory registration.*
+_Note that we use a `GetImplementationType()` helper method which is in the full extension method code below - it helps us find the implementation type regardless of whether the previous registration was a concrete instance registration, a type registration or a factory registration._
 
 ### Registering a single instance "as self"
 
-Next up, let's cover the easiest case first: *instance* registration. Concrete instances are always registered as a singleton in ASP.NET Core's dependency injection framework, so we can mimic this behavior:
+Next up, let's cover the easiest case first: _instance_ registration. Concrete instances are always registered as a singleton in ASP.NET Core's dependency injection framework, so we can mimic this behavior:
 
 ```csharp
 if (lastRegistration.ImplementationInstance != null)

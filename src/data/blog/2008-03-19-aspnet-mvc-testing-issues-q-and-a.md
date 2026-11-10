@@ -10,11 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/03/19/asp-net-mvc-testing-issues-q-and-a.html
 ---
+
 ![WTF?](/images/WindowsLiveWriter/ASP.NETMVCTestingissuesQA_784E/image_3.png) When playing around with the [ASP.NET MVC framework](http://www.asp.net/mvc) and automated tests using [Rhino Mocks](http://www.ayende.com/projects/rhino-mocks.aspx), you will probably find yourself close to throwing your computer trough the nearest window. Here are some common issues and answers:
 
-## Q: How to mock *Request.Form*?
+## Q: How to mock _Request.Form_?
 
-A: When testing a controller action which expects *Request.Form* to be a *NameValueCollection*, a *NullReferenceException* is thrown... This is due to the fact that *Request.Form* is null.
+A: When testing a controller action which expects _Request.Form_ to be a _NameValueCollection_, a _NullReferenceException_ is thrown... This is due to the fact that _Request.Form_ is null.
 
 Use Scott's [helper classes](http://www.hanselman.com/blog/ASPNETMVCSessionAtMix08TDDAndMvcMockHelpers.aspx) for [Rhino Mocks](http://www.ayende.com/projects/rhino-mocks.aspx) and add the following extension method:
 
@@ -45,9 +46,9 @@ public MembershipProvider MembershipProviderInstance {
 
 ```
 
-By doing this, you will enable the use of a mocked membership provider. Make sure you use this property in your controller instead of the standard *Membership* class (i.e. *MembershipProviderInstance.ValidateUser(userName, password) *instead of *Membership.ValidateUser(userName, password)*).
+By doing this, you will enable the use of a mocked membership provider. Make sure you use this property in your controller instead of the standard _Membership_ class (i.e. *MembershipProviderInstance.ValidateUser(userName, password) *instead of _Membership.ValidateUser(userName, password)_).
 
-Let's say you are testing a *LoginController* which should set an error message in the *ViewData* instance when authentication fails. You do this by creating a mocked *MembershipProvider* which is assigned to the controller. This mock object will be instructed to always shout "false" on the *ValidateUser* method of the *MembershipProvider*. Here's how:
+Let's say you are testing a _LoginController_ which should set an error message in the _ViewData_ instance when authentication fails. You do this by creating a mocked _MembershipProvider_ which is assigned to the controller. This mock object will be instructed to always shout "false" on the _ValidateUser_ method of the _MembershipProvider_. Here's how:
 
 ```csharp
 LoginController controller = new LoginController();

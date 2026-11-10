@@ -24,10 +24,11 @@ Throughout a series of blog posts, we'll learn more about C# nullability,
 and cover some techniques and approaches that worked for me when migrating an existing codebase to using nullable reference types.
 
 In this series:
-* [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/) (this post)
-* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/)
-* [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/)
-* [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/)
+
+- [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/) (this post)
+- [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/)
+- [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/)
+- [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/)
 
 Let's start at the beginning.
 
@@ -62,7 +63,7 @@ If `GetValue()` never returns `null`, how would you know if you need to check `s
 
 For value types, such as `int`, `bool`, `decimal`, `struct`s like `DateTime` or custom implementations, etc., you can make use of `Nullable<T>` to make those value types "nullable", and have a safe way of accessing them.
 
-> **Note:** value types can't *really* be null - they are values, not references. With `Nullable<T>`, you're wrapping the value to be able to keep track of this additional `null` state.
+> **Note:** value types can't _really_ be null - they are values, not references. With `Nullable<T>`, you're wrapping the value to be able to keep track of this additional `null` state.
 
 There is some compiler magic that converts `int?` into `Nullable<int>`. When accessing a nullable value type, you know it will either be `null` or contain a value, and that a check has to be made.
 With a nullable `DateTime`, we could write the above example as follows:
@@ -102,12 +103,12 @@ string? GetValue() => null;
 ...or can we? Surprisingly, you can compile and run the above code, even with `GetValue()` returning a `string` that is `null`.
 You’ll just see a `NullReferenceException` is thrown when accessing the `Length` property of... `null`.
 
-So what _are_ C#8 nullable reference types? I like to call them *nullable annotations* - NRT's annotate your code with what their nullability can be.
+So what _are_ C#8 nullable reference types? I like to call them _nullable annotations_ - NRT's annotate your code with what their nullability can be.
 
 When you compile the above code, or look at it in an IDE, you'll see several warnings that mention you are doing something that may haunt you when you run the application:
 
-* CS8600 - Converting null literal or possible null value to non-nullable type.
-* CS8602 - Dereference of a possibly null reference.
+- CS8600 - Converting null literal or possible null value to non-nullable type.
+- CS8602 - Dereference of a possibly null reference.
 
 ![Warnings when compiling code that is not null-safe](/images/2022/04/rider-ide-nullable-reference-warning.png)
 

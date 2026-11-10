@@ -11,6 +11,7 @@ redirect_from:
   - /post/2009/08/19/rest-for-asp-net-mvc-sdk.html
   - /post/2009/08/19/rest-for-aspnet-mvc-sdk.html
 ---
+
 ![REST - Representational State Transfer](/images/image_7.png) Earlier this week, [Phil Haack](http://www.haacked.com/archive/2009/08/17/rest-for-mvc.aspx) did a post on the newly released [REST for ASP.NET MVC SDK](http://aspnet.codeplex.com/Release/ProjectReleases.aspx.html?ReleaseId=24471#DownloadId=79561). I had the feeling though that this post did not really get the attention it deserved. I do not have the idea my blog gets more visitors than Phil’s, but I’ll try to give the SDK some more attention by blogging an example. But first things first…
 
 ## What is it?
@@ -23,7 +24,7 @@ Ok then. Now you know. It will get more clear after reading the next topic.
 
 There are of course features in WCF that enable you to build REST-ful services, but…
 
-> In many cases, the application itself is the only reason for development *of the service*. In other words, when the only reason for the service’s existence is to service the one application you’re currently building, it may make more sense  would stick with the simple case of using ASP.NET MVC. *(*[*Phil Haack*](http://www.haacked.com/archive/2009/08/17/rest-for-mvc.aspx)*)*
+> In many cases, the application itself is the only reason for development _of the service_. In other words, when the only reason for the service’s existence is to service the one application you’re currently building, it may make more sense would stick with the simple case of using ASP.NET MVC. _(_[_Phil Haack_](http://www.haacked.com/archive/2009/08/17/rest-for-mvc.aspx)_)_
 
 Quickly put: why bother setting up a true WCF service layer when the only reason for that is the web application you are building?
 
@@ -53,7 +54,7 @@ public class Person
 
 ```
 
-We can do CRUD operations on this in our ASP.NET MVC application, using the action methods in our *PersonController*:
+We can do CRUD operations on this in our ASP.NET MVC application, using the action methods in our _PersonController_:
 
 ```csharp
 public class PersonController : Controller
@@ -136,11 +137,11 @@ Any questions on this? [Read the book](http://www.amazon.com/dp/184719754X?tag=m
 
 Like all “free” things in life, there’s always at least a little catch. “Free” in this case means:
 
-1. Adding a reference to *System.Web.Mvc.Resources.dll* provided by the [REST for ASP.NET MVC SDK](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471#DownloadId=79561)
-2. Registering another controller factory in *Global.asax.cs* (more on that later)
-3. Adding the *[WebApiEnabled]* to every controller and/or action method you want to expose via REST.
+1. Adding a reference to _System.Web.Mvc.Resources.dll_ provided by the [REST for ASP.NET MVC SDK](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471#DownloadId=79561)
+2. Registering another controller factory in _Global.asax.cs_ (more on that later)
+3. Adding the _[WebApiEnabled]_ to every controller and/or action method you want to expose via REST.
 
-The first step is quite straightforward: get the bits from CodePlex, compile, and add it as a reference in your MVC project. Next, open *Global.asax.cs* and add the following in *Application_Start*:
+The first step is quite straightforward: get the bits from CodePlex, compile, and add it as a reference in your MVC project. Next, open _Global.asax.cs_ and add the following in _Application_Start_:
 
 ```csharp
 protected void Application_Start()
@@ -161,9 +162,9 @@ protected void Application_Start()
 
 ```
 
-What we do here is tell ASP.NET MVC to create controllers using the *ResourceControllerFactory* provided by the REST for ASP.NET MVC SDK.
+What we do here is tell ASP.NET MVC to create controllers using the _ResourceControllerFactory_ provided by the REST for ASP.NET MVC SDK.
 
-Next: add the *[WebApiEnabled]* to every controller and/or action method you want to expose via REST. And that’s about it. Here’s what I get in my application if I browse to [http://localhost:2681/Person](http://localhost:2681/Person):
+Next: add the _[WebApiEnabled]_ to every controller and/or action method you want to expose via REST. And that’s about it. Here’s what I get in my application if I browse to [http://localhost:2681/Person](http://localhost:2681/Person):
 
 ![image](/images/image_8.png)
 
@@ -173,7 +174,7 @@ Nothing fancy here, just a regular ASP.NET MVC application. But wait, let’s no
 
 Cool, no? And we only added 4 lines of code. But there’s more! I can also browse to [http://localhost:2681/Person?format=Json](http://localhost:2681/Person?format=Json) and get JSON data returned. But that’s not all. There’s more!
 
-- You can add custom *FormatHandler* classes and, for example, provide one that handles RSS data.
+- You can add custom _FormatHandler_ classes and, for example, provide one that handles RSS data.
 - There’s no need to always add the query string variable “format”: you can also specify the type of content you want in your HTTP request, by setting the HTTP “Accept” header. For example, if I set the Accept header to “application/json,text/xml”, REST for ASP.NET MVC will provide me with JSON if possible, and if not, it will send me XML. This approach is particularly useful when working with AJAX calls on your view.
 
 ## Downloads

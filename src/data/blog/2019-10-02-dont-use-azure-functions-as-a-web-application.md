@@ -10,11 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2019/10/02/dont-use-azure-functions-as-a-web-application.html
 ---
+
 I know, I know. That title is probably a bit too harsh and opinionated. But it got your attention, right?
 
 A friend of mine this week asked me whether they could use middleware in their HTTP-triggered Azure Functions, ideally even the same ones they use in ASP.NET Core applications. After all, the SDK comes with HTTP triggers that seem to use the same infrastructure, right?
 
-My immediate response was *"whyyyyyy?!?"*. And in this blog post, I'll try to explain.
+My immediate response was _"whyyyyyy?!?"_. And in this blog post, I'll try to explain.
 
 <iframe src="https://giphy.com/embed/mCClSS6xbi8us" width="100%" height="100%" style="position:absolute" frameBorder="0" allowFullScreen></iframe>
 

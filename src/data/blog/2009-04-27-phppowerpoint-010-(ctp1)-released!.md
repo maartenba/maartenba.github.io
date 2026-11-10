@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/04/27/phppowerpoint-0-1-0-ctp1-released.html
 ---
+
 [![](/images/phppowerpoint_logo.png)](http://www.phppowerpoint.net) People [following me on Twitter](http://twitter.com/maartenballiauw) could have already guessed, but here’s something I probably should not have done for my agenda: next to the well known [PHPExcel](http://www.phpexcel.net) class library, I’ve now also started something similar for PowerPoint: [PHPPowerPoint](http://www.phppowerpoint.net).
 
 Just like with PHPExcel, [PHPPowerPoint](http://www.phppowerpoint.net) can be used to generate PPTX files from a PHP application. This can be done by creating an in-memory presentation that consists of slides and different shapes, which can then be written to disk using a writer (of which there’s currently only one for PowerPoint 2007).

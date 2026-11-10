@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/12/16/cartrackr-on-windows-azure-part-2-cloud-enabling-cartrackr.html
 ---
+
 This post is part 2 of my series on [Windows Azure](http://www.microsoft.com/azure), in which I'll try to convert my ASP.NET MVC application into a cloud application. The current post is all about enabling the CarTrackr Visual Studio Solution file for Windows Azure.
 
 Other parts:
@@ -26,7 +27,7 @@ For a blank Azure application, one would choose the Web Cloud Service type proje
 
 Right-click the CarTrackr solution and add a new project. From the project templates, pick the "Cloud Service -> Blank Cloud Service" item and name it "CarTrackr_Azure". The CarTrackr_Azure project will contain all service definition data used by Windows Azure to determine the application's settings and environment.
 
- ![Creating CarTrackr_Azure](/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_6.png)
+![Creating CarTrackr_Azure](/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_6.png)
 
 ![CarTrackr solution](/images/WindowsLiveWriter/TrackyourcarexpensesinthecloudCarTrackro_8794/image_9.png)
 
@@ -88,7 +89,6 @@ ServiceConfiguration.csdef now contains the following:
 ```
 
 This file will inform Azure of the required environment for CarTrackr. First of all, one instance will be hosted. If it becomes a popular site and more "servers" are needed, I can simply increase this number and have more power in the cloud. The ConfigurationSettings element can contain some other configuration settings, for example where data will be stored. I think I'll be needing this in a future blog post, but for now, this will do.
-
 
 ![Service Configuration](/images/ServiceDefConf.png)
 

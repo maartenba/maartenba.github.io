@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2006/08/16/phalanger.html
 ---
+
 Today, I noticed that [Phalanger](http://www.php-compiler.net/) has released a new beta a few days ago (well OK, half a month ago [*-)]). Phalanger is an open-source project, aiming to provide tools to integrate PHP development in Visual Studio on one side, and aiming to provide a CLR compiler for PHP on the other side.
 
 In short, this means that Phalanger compiles PHP code to MSIL (Microsoft Intermediate Language) and thus can run PHP on the .NET Framework. I guess that would mean a huge PHP speed improvement!

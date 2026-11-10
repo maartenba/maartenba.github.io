@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/01/13/asp-net-mvc-and-jquery-mobile.html
 ---
+
 [![](/images/image_thumb_66.png)](/images/image_96.png)With the release of Windows Phone 7 last year, I’m really interested in mobile applications. Why? Well, developing for Windows Phone 7 did not require me to learn new things. I can use my current skill set and build cool apps for that platform. But what about the other platforms? If you look at all platforms from a web developer perspective, there’s one library that also allows you to use your existing skill set: [jQuery Mobile](http://jquerymobile.com/).
 
-Know HTML? Know jQuery? Know *any* web development language like PHP, RoR or ASP.NET (MVC)? Go ahead and build great looking mobile web apps!
+Know HTML? Know jQuery? Know _any_ web development language like PHP, RoR or ASP.NET (MVC)? Go ahead and build great looking mobile web apps!
 
 I’ll give you a very short tutorial, just enough to sparkle some interest. After that, it’s up to you.
 
@@ -72,7 +73,7 @@ Contents here
 
 ## Building a RSS reader
 
-I’ve been working on a simple sample which formats our [RealDolmen blogs](http://www.realdolmenblogs.com) into jQuery Mobile UI. Using [Argotic](http://argotic.codeplex.com/) as the RSS back-end, this was quite easy to do. First of all, here’s a *HomeController* that creates a list of posts in a view model. MVC like you’re used to work with:
+I’ve been working on a simple sample which formats our [RealDolmen blogs](http://www.realdolmenblogs.com) into jQuery Mobile UI. Using [Argotic](http://argotic.codeplex.com/) as the RSS back-end, this was quite easy to do. First of all, here’s a _HomeController_ that creates a list of posts in a view model. MVC like you’re used to work with:
 
 ```csharp
 using System;

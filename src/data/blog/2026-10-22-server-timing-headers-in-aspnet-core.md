@@ -87,7 +87,7 @@ The measurement starts where `UseServerTiming()` sits in the pipeline, so anythi
 
 > **Note:** In Chrome, the measurements appear under **Network > select a request > Timing**, in the **Server Timing** section below the browser's own timings. They belong to the response carrying the header, which might be an API call rather than the page itself.
 
-HTTP does have a way around that: [trailers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Trailer), which are headers sent *after* the response body. Tomasz's library can send `Server-Timing` as a trailer, so its metrics can include the time spent writing the body. Browser support is the catch, though. Only Firefox reads a `Server-Timing` trailer, and only in DevTools (**Network > select a request > Timings**). Chrome, Edge and Safari ignore it, and JavaScript can't read trailers through the Fetch API or `PerformanceServerTiming`. For this post, we'll stick to the regular response header.
+HTTP does have a way around that: [trailers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Trailer), which are headers sent _after_ the response body. Tomasz's library can send `Server-Timing` as a trailer, so its metrics can include the time spent writing the body. Browser support is the catch, though. Only Firefox reads a `Server-Timing` trailer, and only in DevTools (**Network > select a request > Timings**). Chrome, Edge and Safari ignore it, and JavaScript can't read trailers through the Fetch API or `PerformanceServerTiming`. For this post, we'll stick to the regular response header.
 
 ## Letting downstream code add its own metrics
 
@@ -285,7 +285,7 @@ A service handling the same request can get the context through [`IHttpContextAc
 
 With [OpenTelemetry](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/observability-with-otel), some of this work may already be instrumented using `Activity`. There are a couple of ways to reuse that information. If your code already has an elapsed duration, it can store it in a tag with a prefix we agree on.
 
-There is a catch, though: the tag has to end up on the *request* activity, the one ASP.NET Core creates for the incoming request. In your data access code, `Activity.Current` is often a child span (for example one created by EF Core or `SqlClient`), and the middleware won't see tags on that span. The [`IHttpActivityFeature`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.features.ihttpactivityfeature) gives you the request activity directly:
+There is a catch, though: the tag has to end up on the _request_ activity, the one ASP.NET Core creates for the incoming request. In your data access code, `Activity.Current` is often a child span (for example one created by EF Core or `SqlClient`), and the middleware won't see tags on that span. The [`IHttpActivityFeature`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.features.ihttpactivityfeature) gives you the request activity directly:
 
 ```csharp
 using Microsoft.AspNetCore.Http.Features;
@@ -416,10 +416,12 @@ The `total` metric then starts after authentication rather than at the very top.
 The timings are also available to JavaScript through the [Performance Timeline API](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming). Navigation and resource entries have a `serverTiming` collection. This example observes resource entries:
 
 ```javascript
-new PerformanceObserver((list) => {
+new PerformanceObserver(list => {
   for (const entry of list.getEntries()) {
     for (const timing of entry.serverTiming ?? []) {
-      console.log(`${entry.name}: ${timing.name} = ${timing.duration}ms (${timing.description})`);
+      console.log(
+        `${entry.name}: ${timing.name} = ${timing.duration}ms (${timing.description})`
+      );
     }
   }
 }).observe({ type: "resource", buffered: true });

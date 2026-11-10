@@ -10,11 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/10/14/windows-phone-7-first-impressions.html
 ---
+
 [![](/images/Photo_C5170B50-0CBE-E168-FCE4-BA3721A04E4D_thumb_thumb.jpg)](/images/Photo_C5170B50-0CBE-E168-FCE4-BA3721A04E4D_thumb_1.jpg)Back in june of this year, I received a very surprising e-mail stating that I would receive a Windows Phone 7 developer device. The reason for this? No, not that I’m handsome. But the fact that I paid $99 for listing an application in the marketplace that they were hoping me to port to Windows Phone 7. The wait continued: july? No phone. August? No phone. By september I thought I was not getting a Windows Phone 7 anymore. Until this week: another e-mail stating that the device was shipped. And today, [FedEx](http://www.fedex.com) kindly handed me over a developer device.
 
 After installing my SIM card and starting the phone, I was welcomed by the nice looking Windows Phone 7 tiles. And that is where the rest of my journey started…
 
-***Disclaimer: This device is not a production device. It is a prototype developed by ***[***LG***](http://www.lg.com)*** and I have absolutely no clue how this thing will look like and perform in the production model. Next, I have only used this phone for a few hours yet. Therefore do not base final judgements of the product on this blog post.***
+_**Disclaimer: This device is not a production device. It is a prototype developed by ***[***LG***](http://www.lg.com)*** and I have absolutely no clue how this thing will look like and perform in the production model. Next, I have only used this phone for a few hours yet. Therefore do not base final judgements of the product on this blog post.**_
 
 By the way, seems like [Scott Hanselman](http://www.hanselman.com/blog/WindowsPhone7FirstImpressions.aspx) also received a prototype phone and blogged about his experience.
 

@@ -12,11 +12,11 @@ redirect_from:
   - /post/2017/08/01/building-a-scheduled-cache-updater-in-aspnet-core-2.html
 ---
 
-In this post, we'll look at writing a simple system for scheduling tasks in ASP.NET Core 2.0. That's quite a big claim, so I want to add a disclaimer: this system is *mainly* meant to populate data in our application's cache in the background, although it can probably be used for other things as well. It builds on the ASP.NET Core 2.0 `IHostedService` interface. Before we dive in, I want to give some of the background about why I thought of writing this.
+In this post, we'll look at writing a simple system for scheduling tasks in ASP.NET Core 2.0. That's quite a big claim, so I want to add a disclaimer: this system is _mainly_ meant to populate data in our application's cache in the background, although it can probably be used for other things as well. It builds on the ASP.NET Core 2.0 `IHostedService` interface. Before we dive in, I want to give some of the background about why I thought of writing this.
 
 ## Background
 
-At [JetBrains](https://ww.jetbrains.com), various teams make use of a [Slack](https://www.slack.com) bot, which we write in [Kotlin](https://www.kotlinlang.org). This bot performs various tasks, ranging from saying *"Hi!"* to managing our stand-ups to keeping track of which developer manages which part of our IDE's. While working on the bot code, I found this little piece of code:
+At [JetBrains](https://ww.jetbrains.com), various teams make use of a [Slack](https://www.slack.com) bot, which we write in [Kotlin](https://www.kotlinlang.org). This bot performs various tasks, ranging from saying _"Hi!"_ to managing our stand-ups to keeping track of which developer manages which part of our IDE's. While working on the bot code, I found this little piece of code:
 
 ```
 @Scheduled(cron = "0 0/2 * * * *")
@@ -27,11 +27,11 @@ At [JetBrains](https://ww.jetbrains.com), various teams make use of a [Slack](ht
 
 Wondering what it did, I asked around and did some research. Turns out that the `@Scheduled` attribute is [part of the Spring framework](https://spring.io/guides/gs/scheduling-tasks/) and allows simple scheduling of background tasks. In this example, our bot uses the `releasesList` to return data about upcoming product releases when someone asks on Slack.
 
-For this case, I kind of like the approach of being able to populate a list of data every 2 hours (or whetever the cron string dictates), instead of doing what we typically do in .NET which is either coming up with our own scheduling system, or coming up with a crazy approach that uses timestamps, or use `ObjectCache` and check whether data expired or not. While those approaches all work, they are all more complex than what we see in the above code sample. We just tell our application to *refresh the list of releases every two hours*, without having to do this in a request path.
+For this case, I kind of like the approach of being able to populate a list of data every 2 hours (or whetever the cron string dictates), instead of doing what we typically do in .NET which is either coming up with our own scheduling system, or coming up with a crazy approach that uses timestamps, or use `ObjectCache` and check whether data expired or not. While those approaches all work, they are all more complex than what we see in the above code sample. We just tell our application to _refresh the list of releases every two hours_, without having to do this in a request path.
 
 This same approach is taken in various other places of the application. Twice a day, we fetch the list of employees for some other functionality. We have a few other occasions, but they all share one pattern: a simple background fetch of data, moving it outside of the request path.
 
-Then earlier this week, I saw [Steve Gordon blogged about using `IHostedService` in ASP.NET Core 2.0](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice), and I noticed this was potentially the same. Except: I find it *way* too cumbersome. Yes, it's a more powerful way of handling this type of background work, but look at that Kotlin sample above! It's short, simple, clean. So I thought of working on a system that would be more similar to the Kotlin approach above. Well, Spring approach actually - except for the `fun` in writing code (we *never* heard that joke before ;-)) the above sample will work in pretty much any Spring application.
+Then earlier this week, I saw [Steve Gordon blogged about using `IHostedService` in ASP.NET Core 2.0](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice), and I noticed this was potentially the same. Except: I find it _way_ too cumbersome. Yes, it's a more powerful way of handling this type of background work, but look at that Kotlin sample above! It's short, simple, clean. So I thought of working on a system that would be more similar to the Kotlin approach above. Well, Spring approach actually - except for the `fun` in writing code (we _never_ heard that joke before ;-)) the above sample will work in pretty much any Spring application.
 
 Before we dive in, please read [Steve's post about using `IHostedService` in ASP.NET Core 2.0](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice). I'll wait right here.
 
@@ -162,6 +162,7 @@ public class SchedulerHostedService : HostedService
     // ...
 }
 ```
+
 So `TaskFactory.StartNew()`... Why not simply await them here, you ask? Well, what if you schedule a task to run every minute but that task never returns (or returns after a couple of minutes)? Our scheduler would be useless. So instead we're spawning tasks outside of our scheduler so at least it can keep its promises (see what I did there). And what about this `UnobservedTaskException` stuff? We'll see that when we start using our little `SchedulerHostedService`.
 
 ## Using the scheduler

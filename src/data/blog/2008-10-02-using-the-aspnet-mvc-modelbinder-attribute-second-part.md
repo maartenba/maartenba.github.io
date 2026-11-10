@@ -10,7 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/10/02/using-the-asp-net-mvc-modelbinder-attribute-second-part.html
 ---
-Just after the ASP.NET MVC preview 5 was released, I made [a quick attempt to using the ModelBinder attribute](/posts/2008-09-01-using-the-aspnet-mvc-modelbinder-attribute/). In short, a *ModelBinder* allows you to use complex objects as action method parameters, instead of just basic types like strings and integers. While my aproach was correct, it did not really cover the whole picture. So here it is: the full picture.
+
+Just after the ASP.NET MVC preview 5 was released, I made [a quick attempt to using the ModelBinder attribute](/posts/2008-09-01-using-the-aspnet-mvc-modelbinder-attribute/). In short, a _ModelBinder_ allows you to use complex objects as action method parameters, instead of just basic types like strings and integers. While my aproach was correct, it did not really cover the whole picture. So here it is: the full picture.
 
 First of all, what are these model binders all about? By default, an action method would look like this:
 
@@ -36,7 +37,7 @@ Some advantages I see:
 - Easy to work with!
 - Some sort of viewstate-thing which just passes a complete object back and forth. Yes, I know, ViewState is BAD! But I recently had a question about how to manage concurrency, and using a version id as an hidden HTML field or a complete object as a hidden HTML field should not be that bad, no?
 
-Just one thing to do: implementing a *ModelBinder* which converts HTML serialized Persons into real Persons (well, objects, not "real" real persons...)
+Just one thing to do: implementing a _ModelBinder_ which converts HTML serialized Persons into real Persons (well, objects, not "real" real persons...)
 
 ## How to implement it...
 
@@ -72,7 +73,7 @@ namespace ModelBinderDemo.Util
 
 ### Creating a ModelBinder
 
-The ModelBinder itself should be quite simple to do. Just create a class which inherits *DefaultModelBinder* and have it ocnvert a string into an object. Beware! The passed in value might also be an array of strings, so make sure to verify that in code.
+The ModelBinder itself should be quite simple to do. Just create a class which inherits _DefaultModelBinder_ and have it ocnvert a string into an object. Beware! The passed in value might also be an array of strings, so make sure to verify that in code.
 
 ```csharp
 using System;
@@ -144,7 +145,7 @@ Nothing strange in the View: just a HTML form which generates a table to edit a 
 
 ```
 
-Wait! One thing to notice here! The *<%=Html.Hidden("person", ViewData["Person"]) %>* actually renders a hidden HTML field, containing a serialized version of my Person. Which might look like this:
+Wait! One thing to notice here! The _<%=Html.Hidden("person", ViewData["Person"]) %>_ actually renders a hidden HTML field, containing a serialized version of my Person. Which might look like this:
 
 ```csharp
 <input Length="340" id="person" name="person" type="hidden" value="AAEAAAD/////AQAAAAAAAAAMAgAAAEZNb2RlbEJpbmRlckRlbW8
@@ -156,7 +157,7 @@ GQAAQEIAgAAAAEAAAAGAwAAAAdNYWFydGVuBgQAAAAabWFhcnRlbkBtYWFydGVuYmFsbGlhdXcuYmUL"
 
 ### Creating the action method
 
-All preparations are done, it's time for some action (method)! Just accept a HTTP POST, accept a *Person* object in a variable named person, and Bob's your uncle! The person variable will contain a real *Person* instance, which has been converted from *AAEAAD....* into a real instance. Thank you, ModelBinder!
+All preparations are done, it's time for some action (method)! Just accept a HTTP POST, accept a _Person_ object in a variable named person, and Bob's your uncle! The person variable will contain a real _Person_ instance, which has been converted from _AAEAAD...._ into a real instance. Thank you, ModelBinder!
 
 ```csharp
 [AcceptVerbs("POST")]

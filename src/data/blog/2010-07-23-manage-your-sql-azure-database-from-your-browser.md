@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/07/23/manage-your-sql-azure-database-from-your-browser.html
 ---
+
 Yesterday, I noticed on Twitter that the [SQL Azure - Project “Houston” CTP 1](http://www.sqlazurelabs.com/houston.aspx) has been released online. For those who do not know Houston, this is a lightweight and easy to use database management tool for SQL Azure databases built in Silverlight. Translation: you can now easily manage your SQL Azure database using any browser. It’s not a replacement for SSMS, but it’s a viable, quick solution into connecting to your cloudy database.
 
 ## A quick look around

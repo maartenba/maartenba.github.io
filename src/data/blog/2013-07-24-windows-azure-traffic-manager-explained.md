@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/07/24/windows-azure-traffic-manager-explained.html
 ---
+
 [![](/images/image_thumb_260.png)](/images/image_299.png)With [yesterday’s announcement on Windows Azure Traffic Manager](http://weblogs.asp.net/scottgu/archive/2013/07/23/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines.aspx) surfacing in the management portal (as a preview), I thought it was a good moment to recap this more than 2 year old service. Windows Azure Traffic Manager allows you to control the distribution of network traffic to your Cloud Services and VMs hosted within Windows Azure.
 
 ##
@@ -46,4 +47,4 @@ In general, Traffic Manager has probably been the most stable service in the Win
 
 Enjoy!
 
-***Update:** Alexandre Brisebois, a colleague MVP, [has some additional insights to share](http://alexandrebrisebois.wordpress.com/2013/07/23/windows-azure-traffic-manager-high-performance-availability-resiliency/).*
+_**Update:** Alexandre Brisebois, a colleague MVP, [has some additional insights to share](http://alexandrebrisebois.wordpress.com/2013/07/23/windows-azure-traffic-manager-high-performance-availability-resiliency/)._

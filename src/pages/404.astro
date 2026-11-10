@@ -17,11 +17,14 @@ const recentPosts = getSortedPosts(posts).slice(0, 5);
 <Layout title={`404 Not Found | ${SITE.title}`} noindex>
   <Header />
 
-  <main id="main-content" class="mx-auto flex max-w-app flex-1 flex-col px-4 py-12">
+  <main
+    id="main-content"
+    class="mx-auto flex max-w-app flex-1 flex-col px-4 py-12"
+  >
     <div class="mb-10 flex flex-col items-center text-center">
       <h1 class="text-9xl font-bold text-accent">404</h1>
       <span aria-hidden="true" class="mt-2 text-3xl">¯\_(ツ)_/¯</span>
-      <p class="mt-4 text-2xl sm:text-3xl font-semibold">Page Not Found</p>
+      <p class="mt-4 text-2xl font-semibold sm:text-3xl">Page Not Found</p>
       <p class="mt-3 max-w-prose text-base opacity-80">
         The page you're looking for doesn't exist. Try searching below or check
         out these recent posts:
@@ -41,15 +44,13 @@ const recentPosts = getSortedPosts(posts).slice(0, 5);
     {
       recentPosts.length > 0 && (
         <section>
-          <h2 class="mb-4 text-xl font-semibold tracking-wide">
-            Recent Posts
-          </h2>
+          <h2 class="mb-4 text-xl font-semibold tracking-wide">Recent Posts</h2>
           <ul class="space-y-4">
             {recentPosts.map(post => (
               <li class="flex flex-col gap-1">
                 <a
                   href={getPostHref(post.id, post.filePath)}
-                  class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80 focus-visible:no-underline focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-accent"
+                  class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80 focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-dashed"
                 >
                   {post.data.title}
                 </a>
@@ -88,7 +89,7 @@ const recentPosts = getSortedPosts(posts).slice(0, 5);
         pageFindSearch.innerHTML = `
           <div class="bg-muted/75 rounded p-4 space-y-4 mb-4">
             <p><strong>DEV mode Warning!</strong> You need to build the project at least once to see the search results during development.</p>
-            <code class="block bg-black text-white px-2 py-1 rounded">pnpm run build</code>
+            <code class="block bg-black text-white px-2 py-1 rounded">npm run build</code>
           </div>
         `;
       }

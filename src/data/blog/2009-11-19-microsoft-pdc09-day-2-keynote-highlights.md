@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/11/19/microsoft-pdc09-day-2-keynote-highlights.html
 ---
+
 [![](/images/43721438-cc6489fc8dd8e92153b1720801840ff7_4b04827a-scaled_thumb.jpg)](/images/43721438-cc6489fc8dd8e92153b1720801840ff7_4b04827a-scaled.jpg)
 
 Day 2 keynote at Microsoft PDC 2009 was quite exciting. To sum things up: Silverlight 4 went beta, IE9 features were previewed, and we got [an external hard disk, nicely fitted in a tablet-pc format](http://www.microsoftpdc.com/tablet) case. How thoughtful!
@@ -18,7 +19,7 @@ Here’s some of the novelties:
 
 **Silverlight 4 Beta**
 
-This was a good starter… It’s really incredibly feature packed! In my opinion, I think WCF can now be called obsolete as well, but no announcements on that :-) Anyway, here’s a list of new features: webcam access, multicast streaming, offline DRM and output protection, printing, clipboard support, out-of-browser and out-of-sandbox support, drag and drop, implicit styling, a HTML control, rich-text editing, *breathe*, ability to share assemblies with .NET 4, data binding improvements, udp multicast, REST enhancements, TCP channel support, …
+This was a good starter… It’s really incredibly feature packed! In my opinion, I think WCF can now be called obsolete as well, but no announcements on that :-) Anyway, here’s a list of new features: webcam access, multicast streaming, offline DRM and output protection, printing, clipboard support, out-of-browser and out-of-sandbox support, drag and drop, implicit styling, a HTML control, rich-text editing, _breathe_, ability to share assemblies with .NET 4, data binding improvements, udp multicast, REST enhancements, TCP channel support, …
 
 Also check Tim Heuer’s blog post over at [http://timheuer.com/blog/archive/2009/11/18/whats-new-in-silverlight-4-complete-guide-new-features.aspx](http://timheuer.com/blog/archive/2009/11/18/whats-new-in-silverlight-4-complete-guide-new-features.aspx).
 

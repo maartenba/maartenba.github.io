@@ -15,30 +15,30 @@ Early December 2020, we released [JetBrains Space](https://www.jetbrains.com/spa
 
 This is another half-book blog post, so I've included a table of contents for you to jump to the parts you may be interested in. I've tried my best to build up the story, so of course, reading this post in full is highly appreciated.
 
--   [What is JetBrains Space?](#what-is-jetbrains-space)
--   [Out-of-the-box Integrations vs. Extensibility](#out-of-the-box-integrations-vs-extensibility)
--   [The Space HTTP API](#the-space-http-api)
-    -   [Shaping API responses](#shaping-api-responses)
--   [Hello, .NET! 👋](#hello-net-)
--   [How do you start?](#how-do-you-start)
-    -   [Building the SDK by hand?](#building-the-sdk-by-hand)
-    -   [Using OpenAPI?](#using-openapi)
-    -   [Using the Space API model!](#using-the-space-api-model)
--   [Generating code based on the Space API model](#generating-code-based-on-the-space-api-model)
-    -   [CodeDOM/Roslyn/Expression trees/StringBuilder/...](#codedomroslynexpression-treesstringbuilder)
-    -   [Strings all the way!](#strings-all-the-way)
-    -   [Extension methods everywhere!](#extension-methods-everywhere)
--   [About C# source generators...](#about-c-source-generators)
--   [About `System.Text.Json` in the SDK...](#about-systemtextjson-in-the-sdk)
--   [Development experience](#development-experience)
-    -   [Discoverability](#discoverability)
-    -   [Remember `$fields`?](#remember-fields)
-    -   [What if you don't remember `$fields`?](#what-if-you-dont-remember-fields)
-    -   [Batches and `IAsyncEnumerable`](#batches-and-iasyncenumerable)
-    -   [Request bodies are flattened](#request-bodies-are-flattened)
-    -   [Factory methods for inheritors](#factory-methods-for-inheritors)
-    -   [More!](#more)
--   [Conclusion](#conclusion)
+- [What is JetBrains Space?](#what-is-jetbrains-space)
+- [Out-of-the-box Integrations vs. Extensibility](#out-of-the-box-integrations-vs-extensibility)
+- [The Space HTTP API](#the-space-http-api)
+  - [Shaping API responses](#shaping-api-responses)
+- [Hello, .NET! 👋](#hello-net-)
+- [How do you start?](#how-do-you-start)
+  - [Building the SDK by hand?](#building-the-sdk-by-hand)
+  - [Using OpenAPI?](#using-openapi)
+  - [Using the Space API model!](#using-the-space-api-model)
+- [Generating code based on the Space API model](#generating-code-based-on-the-space-api-model)
+  - [CodeDOM/Roslyn/Expression trees/StringBuilder/...](#codedomroslynexpression-treesstringbuilder)
+  - [Strings all the way!](#strings-all-the-way)
+  - [Extension methods everywhere!](#extension-methods-everywhere)
+- [About C# source generators...](#about-c-source-generators)
+- [About `System.Text.Json` in the SDK...](#about-systemtextjson-in-the-sdk)
+- [Development experience](#development-experience)
+  - [Discoverability](#discoverability)
+  - [Remember `$fields`?](#remember-fields)
+  - [What if you don't remember `$fields`?](#what-if-you-dont-remember-fields)
+  - [Batches and `IAsyncEnumerable`](#batches-and-iasyncenumerable)
+  - [Request bodies are flattened](#request-bodies-are-flattened)
+  - [Factory methods for inheritors](#factory-methods-for-inheritors)
+  - [More!](#more)
+- [Conclusion](#conclusion)
 
 Let's start with the basics...
 
@@ -50,24 +50,23 @@ There's much more to it than that, and I encourage you to have a look at the dem
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7-UNfbEjcNM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-The TL;DR: it's *huge*! You don't have to integrate 10 third-party apps together using webhooks, it's all there. Space integrates and combines many types of tools for various teams in your organization, out of the box.
+The TL;DR: it's _huge_! You don't have to integrate 10 third-party apps together using webhooks, it's all there. Space integrates and combines many types of tools for various teams in your organization, out of the box.
 
 ## Out-of-the-box integrations vs. extensibility
 
 The more information you have available in Space, the more value you will get from it! Here are some examples:
 
-* Vacations are shown in your profile, so that whenever someone wants to open a code review they will know when you're unavailable.
-* Blog posts can be targeted to specific teams and/or locations, so if you have that data set up, you won't disturb folks with notifications that are not necessary.
-* Everything can be a ToDo item. Want to follow up on a chat message? ToDo. Read a blog post later? ToDo. Move a ToDo into an actual issue on a project? Sure thing!
+- Vacations are shown in your profile, so that whenever someone wants to open a code review they will know when you're unavailable.
+- Blog posts can be targeted to specific teams and/or locations, so if you have that data set up, you won't disturb folks with notifications that are not necessary.
+- Everything can be a ToDo item. Want to follow up on a chat message? ToDo. Read a blog post later? ToDo. Move a ToDo into an actual issue on a project? Sure thing!
 
 It's great to have all of these integrations out of the box, and from first-hand experience having used Space for a long time now, they are brilliant to have!
 
-Except, which additional integrations do *you* need?
+Except, which additional integrations do _you_ need?
 
 Do you need to import data? Post to chat channels whenever something happens in an external system? Manage users and teams in another system and synchronize that with Space? Or maybe you need a specific dashboard that aggregates data from various places in Space?
 
-Sure, we can make a guess, but it will never be right for every scenario for everyone. Which is why the team decided to open up *everything* in a rich HTTP API, webhooks, applications, and more.
+Sure, we can make a guess, but it will never be right for every scenario for everyone. Which is why the team decided to open up _everything_ in a rich HTTP API, webhooks, applications, and more.
 
 ## The Space HTTP API
 
@@ -90,9 +89,10 @@ Let's use "project" as an example. By default, roughly all top-level properties 
 ![Project entity](/images/2021/01/space-api-fields-projects.png)
 
 Some examples of `$fields` that you can pass in:
-* `$fields=id,icon,name` - get the `id`, `icon`, and `name` fields. All other properties will be omitted from the response.
-* `$fields=id,name,boards(id,description)` - get the `id` and `name` fields from project, and include issue `boards` with their `id` and `description`.
-* `$fields=*,boards(id,description)` - get all (`*`) fields from project, and include issue `boards` with their `id` and `description`.
+
+- `$fields=id,icon,name` - get the `id`, `icon`, and `name` fields. All other properties will be omitted from the response.
+- `$fields=id,name,boards(id,description)` - get the `id` and `name` fields from project, and include issue `boards` with their `id` and `description`.
+- `$fields=*,boards(id,description)` - get all (`*`) fields from project, and include issue `boards` with their `id` and `description`.
 
 We could go on all day with examples, but I hope you get the idea. Being able to retrieve just the information an integration requires, helps to reduce payload size, and results in a better integration performance overall.
 
@@ -145,8 +145,9 @@ public class Body
 ```
 
 Granted, finding the method that would give you all absence data is quite straightforward, but that's where things break down.
-* `Body` is quite non-descriptive. With 150+ endpoints, how do you figure out the right `Body` to send?
-* `string fields` makes shaping the response a bit *too* low-level. I explained `$fields` earlier, and while it's always good to have an idea on how this works when you target the Space API, this is a bit too close to HTTP and not close enough to intuitive C#.
+
+- `Body` is quite non-descriptive. With 150+ endpoints, how do you figure out the right `Body` to send?
+- `string fields` makes shaping the response a bit _too_ low-level. I explained `$fields` earlier, and while it's always good to have an idea on how this works when you target the Space API, this is a bit too close to HTTP and not close enough to intuitive C#.
 
 We tried to customize code generation a bit which seemed OK, but at some point it felt like shoehorning a custom code generator into another code generator. It felt wrong and overly complex.
 
@@ -160,10 +161,11 @@ Every Space organization has a URL that will return all there is to know about t
 ![Space API model](/images/2021/01/space-api-model.png)
 
 This API gives information about:
-* All enumerations that are there
-* All DTOs (the objects passed around)
-* All endpoints, their request parameters
-* Type information - is this a string or an integer? is it nullable? Is there a default value?
+
+- All enumerations that are there
+- All DTOs (the objects passed around)
+- All endpoints, their request parameters
+- Type information - is this a string or an integer? is it nullable? Is there a default value?
 
 That's sufficient information to generate code for many programming languages, so if you want to have some code generation fun in PHP, Go, TypeScript or other languages, you definitely could!
 
@@ -238,10 +240,10 @@ Some thinking has to go into all of this, such as making sure the `Name` does no
 
 In the previous example, code is generated using strings and `StringBuilder`. Generally speaking, there are 4 ways to generate code in .NET:
 
-* Using Intermediate Language (IL)
-* Using a code model
-* Using templates
-* Using strings
+- Using Intermediate Language (IL)
+- Using a code model
+- Using templates
+- Using strings
 
 It would be quite hardcore to generate code in Intermediate Language (IL), and use [`Reflection.Emit`](https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/emitting-dynamic-methods-and-assemblies). It's probably the best way to generate super efficient code, but it's also quite complex to use. If you think about it, we're generating simple data transfer objects mostly, so IL generation seems overly complex for that purpose.
 
@@ -322,11 +324,12 @@ With .NET 5, Microsoft introduced [C# source generators](https://devblogs.micros
 Well actually... [There is a branch where we implemented this](https://github.com/JetBrains/space-dotnet-sdk/tree/mb-dotnet-srcgen). There's [this commit](https://github.com/JetBrains/space-dotnet-sdk/commit/474156882a044814d540920b774f505127cd614e), which removes all previously generated code, and [implements a source generator](https://github.com/JetBrains/space-dotnet-sdk/commit/474156882a044814d540920b774f505127cd614e#diff-52af5eb8755eddf9aaa94f9b5b2e46d5896fc0b732352d774023c60ba7741224).
 
 There are some current downsides to adopting source generators for the .NET SDK for Space:
-* They are hard to debug. Yes, you can add a `Debugger.Launch()` to attach a debugger when the source generator runs. But it might run for every key you type in your code, so that will give you a lot of debugger prompts.
-* It's hard to inspect generated output. You can add `<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>` to your project to emit all generated files to the `obj` folder. But sources aren't cleaned up there, so you might up with leftover generated code from a previous run. A "clean" before build does wonders, but it's not very practical. And yes, you can do this as an MSBuild target, but sometimes you don't want to remove generated code just yet, to be able to compare different runs.
-* From all example C# Source Generators out there, it is evident they are designed to generate code based on other code changes. Just like regular analyzers, they run when code is changed. For the .NET SDK for Space, we really want to be able to run code generation on demand - without having to type-then-remove-a-character to run code generation.
 
-This branch might evolve, or might be removed at some point. It will be used as a playground to see if we could use source generators. Especially with on-premises Space coming at some point, it might be more interesting for us to ship the .NET SDK for Space without generated code, and always generate it on-the-fly for *your* Space version.
+- They are hard to debug. Yes, you can add a `Debugger.Launch()` to attach a debugger when the source generator runs. But it might run for every key you type in your code, so that will give you a lot of debugger prompts.
+- It's hard to inspect generated output. You can add `<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>` to your project to emit all generated files to the `obj` folder. But sources aren't cleaned up there, so you might up with leftover generated code from a previous run. A "clean" before build does wonders, but it's not very practical. And yes, you can do this as an MSBuild target, but sometimes you don't want to remove generated code just yet, to be able to compare different runs.
+- From all example C# Source Generators out there, it is evident they are designed to generate code based on other code changes. Just like regular analyzers, they run when code is changed. For the .NET SDK for Space, we really want to be able to run code generation on demand - without having to type-then-remove-a-character to run code generation.
+
+This branch might evolve, or might be removed at some point. It will be used as a playground to see if we could use source generators. Especially with on-premises Space coming at some point, it might be more interesting for us to ship the .NET SDK for Space without generated code, and always generate it on-the-fly for _your_ Space version.
 
 In short: C# source generators seem promising, but they need some further exploration. In case you are interested, there are some [great examples of C# source generators](https://github.com/amis92/csharp-source-generators) out there!
 
@@ -339,10 +342,11 @@ For JSON (de)serialization, this meant using `System.Text.Json`. It [was introdu
 The good news is `System.Text.Json` can do many things. The bad news is that it's not a full replacement for `Newtonsoft.Json`, nor is it a drop-in replacement. The [`System.Text.Json` documentation has a good overview on what's supported and what is not](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-migrate-from-newtonsoft-how-to).
 
 Luckily there's an extensibility point in creating custom `JsonConverter<T>`, to make some of our scenarios work. A number of custom `JsonConverter<T>` have gone into the .NET SDK for Space, and probably some more will over time. Here are a few:
-* [`EnumStringConverter`](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/EnumStringConverter.cs) to (de)serialize JSON strings to C# enumerations. This one was [borrowed from Macross Software JSON Extensions](https://github.com/Macross-Software/core/blob/develop/ClassLibraries/Macross.Json.Extensions/README.md), go check out their collection of converters as well!
-* [`SpaceDateConverter`](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/SpaceDateConverter.cs) and [`SpaceDateTimeConverter`](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/SpaceDateTimeConverter.cs) to support custom date/time types.
-* Converters for [`DateTime`](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/Internal/NonNullableDateTimeConverter.cs) and [`DateTime?` (nullable)](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/Internal/NullableDateTimeConverter.cs). Yes, you may need separate converters for nullable and non-nullable types.
-* Converters to [handle polymorphism/inherited classes](https://github.com/JetBrains/space-dotnet-sdk/tree/main/src/JetBrains.Space.Common/Json.Serialization/Polymorphism). Do check out the [blog post I did on this particular converter](https://blog.maartenballiauw.be/posts/2020-01-29-deserializing-json-into-polymorphic-classes-with-systemtextjson/) for more details.
+
+- [`EnumStringConverter`](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/EnumStringConverter.cs) to (de)serialize JSON strings to C# enumerations. This one was [borrowed from Macross Software JSON Extensions](https://github.com/Macross-Software/core/blob/develop/ClassLibraries/Macross.Json.Extensions/README.md), go check out their collection of converters as well!
+- [`SpaceDateConverter`](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/SpaceDateConverter.cs) and [`SpaceDateTimeConverter`](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/SpaceDateTimeConverter.cs) to support custom date/time types.
+- Converters for [`DateTime`](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/Internal/NonNullableDateTimeConverter.cs) and [`DateTime?` (nullable)](https://github.com/JetBrains/space-dotnet-sdk/blob/main/src/JetBrains.Space.Common/Json.Serialization/Internal/NullableDateTimeConverter.cs). Yes, you may need separate converters for nullable and non-nullable types.
+- Converters to [handle polymorphism/inherited classes](https://github.com/JetBrains/space-dotnet-sdk/tree/main/src/JetBrains.Space.Common/Json.Serialization/Polymorphism). Do check out the [blog post I did on this particular converter](https://blog.maartenballiauw.be/posts/2020-01-29-deserializing-json-into-polymorphic-classes-with-systemtextjson/) for more details.
 
 Most of these would be required if the SDK would use `Newtonsoft.Json`, but it still felt like some should ship out of the box with `System.text.Json`.
 
@@ -353,6 +357,7 @@ As mentioned earlier, the general idea for building out this .NET SDK for Space 
 1. [Register application in Space](https://www.jetbrains.com/help/space/applications.html)
 2. Install [`JetBrains.Space.Client`](https://www.nuget.org/packages/JetBrains.Space.Client) package
 3. Create connection instance:
+
 ```csharp
 var connection = new ClientCredentialsConnection(
     "https://your.jetbrains.space/",
@@ -360,6 +365,7 @@ var connection = new ClientCredentialsConnection(
     "client-secret",
     new HttpClient());
 ```
+
 4. Start building things with it
 
 I recommend having a look at the [JetBrains.Space README](https://github.com/JetBrains/space-dotnet-sdk/blob/main/README.md) for full examples, but I'll try to summarize a few things below and give you some extra background on them.
@@ -370,7 +376,7 @@ We figured the SDK should be very discoverable. If you're looking at the HTTP AP
 
 ![HTTP API playground mapping to SDK](/images/2021/01/space-api-client-discoverability.png)
 
-Clients for endpoints are mapped to the top level of endpoints in the HTTP API Playground. The top level *Team Directory* has a client class named `TeamDirectoryClient`, with methods that correspond to endpoints seen in the HTTP API Playground.
+Clients for endpoints are mapped to the top level of endpoints in the HTTP API Playground. The top level _Team Directory_ has a client class named `TeamDirectoryClient`, with methods that correspond to endpoints seen in the HTTP API Playground.
 
 ### Remember `$fields`?
 
@@ -544,16 +550,18 @@ This helps make these methods more discoverable and self-descriptive. Not to men
 For some API endpoints, inherited objects are supported. Sounds abstract, I know! Here's an example.
 
 Chat messages can be sent to multiple recipient types:
-* A channel
-* A member (direct message)
-* An issue (issue comments are really a chat channel as well)
-* ...
+
+- A channel
+- A member (direct message)
+- An issue (issue comments are really a chat channel as well)
+- ...
 
 The "recipient" will be one of those types, and these are generated as C# classes:
-* `MessageRecipientChannel`
-* `MessageRecipientMember`
-* `MessageRecipientIssue`
-* ...
+
+- `MessageRecipientChannel`
+- `MessageRecipientMember`
+- `MessageRecipientIssue`
+- ...
 
 You can use these in the .NET SDK for Space, like this:
 

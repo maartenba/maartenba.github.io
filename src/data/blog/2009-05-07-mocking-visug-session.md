@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/05/07/mocking-visug-session.html
 ---
+
 Thursday evening, I did a session on Mocking for the [VISUG](http://www.visug.be) (Visual Studio User Group Belgium). As promised, here is the slide deck I’ve used. The session will be available online soon, in the meantime you'll have to go with the slide deck.
 
 [Mocking - Visug session](http://www.slideshare.net/maartenba/mocking-visug-session?type=powerpoint)

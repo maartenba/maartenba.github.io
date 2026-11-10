@@ -10,13 +10,14 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/12/02/php-managed-extensibility-framework-phpmef.html
 ---
+
 ![image](/images/image_24.png) While flying sitting in the airplane to the Microsoft Web Developer Summit in Seattle, I was watching some PDC09 sessions on my laptop. During the [MEF](http://www.codeplex.com/MEF) session, an idea popped up: there is no MEF for PHP! 3500 kilometers after that moment, PHP got its own MEF…
 
 ## What is MEF about?
 
 MEF is a .NET library, targeting extensibility of projects. It allows you to declaratively extend your application instead of requiring you to do a lot of plumbing. All this is done with three concepts in mind: export, import and compose. ([Glenn](http://blogs.msdn.com/gblock/archive/2009/11/29/mef-has-landed-in-silverlight-4-we-come-in-the-name-of-extensibility.aspx), I stole the previous sentence from your blog). “PHPMEF” uses the same concepts in order to provide this extensibility features.
 
-Let’s start with a story… Imagine you are building a *Calculator*. Yes, shoot me, this is not a sexy sample. Remember I wrote this one a plane with snoring people next to me…The *Calculator* is built of zero or more *ICalculationFunction* instances. Think command pattern. Here’s how such an interface can look like:
+Let’s start with a story… Imagine you are building a _Calculator_. Yes, shoot me, this is not a sexy sample. Remember I wrote this one a plane with snoring people next to me…The _Calculator_ is built of zero or more _ICalculationFunction_ instances. Think command pattern. Here’s how such an interface can look like:
 
 ```php
 interface ICalculationFunction
@@ -39,7 +40,7 @@ class Sum implements ICalculationFunction
 
 ```
 
-Now how would you go about using this in the following *Calculator* class:
+Now how would you go about using this in the following _Calculator_ class:
 
 ```php
 class Calculator
@@ -49,11 +50,11 @@ class Calculator
 
 ```
 
-Yes, you would do plumbing. Either instantiating the *Sum* object and adding it into the *Calculator* constructor, or something similar. Imagine you also have a *Division* object. And other calculation functions. How would you go about building this in a maintainable and extensible way? Easy: use exports…
+Yes, you would do plumbing. Either instantiating the _Sum_ object and adding it into the _Calculator_ constructor, or something similar. Imagine you also have a _Division_ object. And other calculation functions. How would you go about building this in a maintainable and extensible way? Easy: use exports…
 
 ### Export
 
-Exports are one of the three fundaments of PHPMEF. Basically, you can specify that you want class X to be “ exported”  for extensibility. Let’s export *Sum*:
+Exports are one of the three fundaments of PHPMEF. Basically, you can specify that you want class X to be “ exported” for extensibility. Let’s export _Sum_:
 
 ```php
 /**
@@ -69,7 +70,7 @@ class Sum implements ICalculationFunction
 
 ```
 
-*Sum* is exported as *Sum* by default, but in this case I want PHPMEF to know that it is also exported as *ICalculationFunction*. Let’s see why this is in the import part…
+_Sum_ is exported as _Sum_ by default, but in this case I want PHPMEF to know that it is also exported as _ICalculationFunction_. Let’s see why this is in the import part…
 
 ### Import
 
@@ -86,7 +87,7 @@ class Calculator
 
 ```
 
-In this case, PHPMEF will simply instantiate the first *ICalculationFunction* instance it can find and assign it to the *Calculator::SomeFunction* variable. Now think of our first example: we want different calculation functions in our calculator! Here’s how:
+In this case, PHPMEF will simply instantiate the first _ICalculationFunction_ instance it can find and assign it to the _Calculator::SomeFunction_ variable. Now think of our first example: we want different calculation functions in our calculator! Here’s how:
 
 ```php
 class Calculator
@@ -99,11 +100,11 @@ class Calculator
 
 ```
 
-Easy, no? PHPMEF will ensure that all possible *ICalculationFunction* instances are added to the *Calculator::CalculationFunctions* array. Now how is all this being plumbed together? It’s not plumbed! It’s composed!
+Easy, no? PHPMEF will ensure that all possible _ICalculationFunction_ instances are added to the _Calculator::CalculationFunctions_ array. Now how is all this being plumbed together? It’s not plumbed! It’s composed!
 
 ### Compose
 
-Composing matches all exports and imports in a specific application path. How? Easy! Use the *PartInitializer*!
+Composing matches all exports and imports in a specific application path. How? Easy! Use the _PartInitializer_!
 
 ```php
 // Create new Calculator instance
@@ -114,7 +115,7 @@ $partInitializer->satisfyImports($calculator);
 
 ```
 
-Easy, no? Ask the *PartInitializer* to satisfy all imports and you are done!
+Easy, no? Ask the _PartInitializer_ to satisfy all imports and you are done!
 
 ## Advanced usage scenarios
 
@@ -122,7 +123,7 @@ The above sample was used to demonstrate what PHPMEF is all about. I’m sure yo
 
 ### Single instance exports
 
-By default, PHPMEF instantiates a new object every time an import has to be satisfied. However, imagine you want our *Sum* class to be re-used. You want PHPMEF to assign the same instance over and over again, no matter where and how much it is being imported. Again, no plumbing. Just add a declarative comment:
+By default, PHPMEF instantiates a new object every time an import has to be satisfied. However, imagine you want our _Sum_ class to be re-used. You want PHPMEF to assign the same instance over and over again, no matter where and how much it is being imported. Again, no plumbing. Just add a declarative comment:
 
 ```php
 /**
@@ -161,7 +162,7 @@ class Calculator
 
 ```
 
-*Calculator::SomeThingThatCanDoSums* is now constrained: I only want to import something that has the metadata “CanDoSums” attached. Here’s how to create such an export:
+_Calculator::SomeThingThatCanDoSums_ is now constrained: I only want to import something that has the metadata “CanDoSums” attached. Here’s how to create such an export:
 
 ```php
 /**
@@ -180,7 +181,7 @@ class Sum implements ICalculationFunction
 
 Here’s an answer to a question you may have: yes, multiple metadata definitions are possible and will be used to determine if an export matches an import.
 
-One small note left: you can also ask the *PartInitializer* for the metadata defined on a class.
+One small note left: you can also ask the _PartInitializer_ for the metadata defined on a class.
 
 ```php
 // Create new Calculator instance

@@ -11,6 +11,7 @@ redirect_from:
   - /post/2007/11/22/asp-net-load-balancing-and-asp-net-state-server-aspnet-state.html
   - /post/2007/11/22/aspnet-load-balancing-and-aspnet-state-server-(aspnet_state).html
 ---
+
 At one of our clients, we used to have only one server for ASP.NET applications (including web services). Since this machine is actually business-critical and load is constantly growing, the need for a second machine is higher than ever.
 
 This morning I was asked to set up a simple demo of a load-balanced ASP.NET environment. I already did this in PHP a couple of times, but in ASP.NET, this question was totally new to me. Things should not be very different, I thought. And this thought proved right!
@@ -25,11 +26,11 @@ Pick a server which will serve as the session state server. Fire up the services
 
 **<u>Caveat 1:</u>** state server will not listen on any public IP address. So fire up your registry editor, change the following key and restart the ASP.NET state service:
 
-*HKLM\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters\AllowRemoteConnections*
+_HKLM\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters\AllowRemoteConnections_
 
 Eventually change the port on which the state server will be listening:
 
-*HKLM\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters\Port* (default: 42424)
+_HKLM\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters\Port_ (default: 42424)
 
 **<u>Caveat 2:</u>** after changing the AllowRemoteConnections directive, make sure the server's port 42424 is NOT open for the Internet, just for your web servers!
 

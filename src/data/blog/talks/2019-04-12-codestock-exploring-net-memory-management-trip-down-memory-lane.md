@@ -14,7 +14,7 @@ redirect_from:
 
 That was fun! I had the opportunity to present at [CodeStock 2019](http://codestock.org/) in Knoxville, TN (USA). The conference is for the community, by the community, which means lots of enthusiast people around.
 
-The talk I did was *Exploring .NET memory management - a trip down memory lane*. Slides are available below. Demo code [is available from GitHub](https://github.com/maartenba/memory-demos).
+The talk I did was _Exploring .NET memory management - a trip down memory lane_. Slides are available below. Demo code [is available from GitHub](https://github.com/maartenba/memory-demos).
 
 ## Exploring .NET memory management - a trip down memory lane
 

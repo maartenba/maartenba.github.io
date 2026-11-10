@@ -11,6 +11,7 @@ redirect_from:
   - /post/2011/03/24/windows-azure-and-scaling-how-php.html
   - /post/2011/03/24/windows-azure-and-scaling-how-(php).html
 ---
+
 One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:
 
 - [Put your cloud on a diet (or: Windows Azure and scaling: why?)](/posts/2011-03-09-put-your-cloud-on-a-diet-or-windows-azure-and-scaling-why/)
@@ -45,7 +46,7 @@ php autoscale.php "management.cer" "subscription-id" "service-name" "role-name" 
 
 Will this work on Linux? Yup! Will this work on Windows? Yup! Now let’s get started.
 
-The [Windows Azure SDK for PHP](http://phpazure.codeplex.com/) will be quite handy to do this kind of thing. Download the [latest source code](http://phpazure.codeplex.com/SourceControl/list/changesets) (as the *Microsoft_WindowsAzure_Management_Client* class we’ll be using is not released officially yet).
+The [Windows Azure SDK for PHP](http://phpazure.codeplex.com/) will be quite handy to do this kind of thing. Download the [latest source code](http://phpazure.codeplex.com/SourceControl/list/changesets) (as the _Microsoft_WindowsAzure_Management_Client_ class we’ll be using is not released officially yet).
 
 Our script starts like this:
 
@@ -60,7 +61,7 @@ require_once 'Microsoft/WindowsAzure/Management/Client.php';
 
 ```
 
-This is just making sure all necessary libraries have been loaded. next, call out to the *Microsoft_WindowsAzure_Management_Client* class’ *setInstanceCountBySlot()* method to set the instance count to the requested number. Easy! And in fact even easier than Microsoft's [.NET version of this](/posts/2011-03-21-windows-azure-and-scaling-how-net/).
+This is just making sure all necessary libraries have been loaded. next, call out to the _Microsoft_WindowsAzure_Management_Client_ class’ _setInstanceCountBySlot()_ method to set the instance count to the requested number. Easy! And in fact even easier than Microsoft's [.NET version of this](/posts/2011-03-21-windows-azure-and-scaling-how-net/).
 
 ```php
 // Do the magic

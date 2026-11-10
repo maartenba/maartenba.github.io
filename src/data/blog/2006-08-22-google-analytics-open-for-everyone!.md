@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2006/08/22/google-analytics-open-for-everyone.html
 ---
+
 [![](/images/WindowsLiveWriter/GoogleAnalyticsopenforeveryone_8B87/google_analytics_thumb%5B2%5D.jpg)](/images/WindowsLiveWriter/GoogleAnalyticsopenforeveryone_8B87/google_analytics%5B2%5D.jpg) Almost a year ago, [Google](http://www.google.com) acquired Urchin, a company specialised in providing web site statistics. They renamed Urchin's project to [Google Analytics](http://www.google.com/analytics/) and started a beta for some. Today, it seems Google has opened Analytics for everyone. Get it while it's hot, they really provide in-depth statistics about what's happening on your website.
 
 I tried it out for a few days on my website [Holidayhome.be](http://www.holidayhome.be), and experienced all possibilities. Currently, I use [Statcounter](http://www.statcounter.com) there, which also provides detailed statistics, but only for the last 100 visits.

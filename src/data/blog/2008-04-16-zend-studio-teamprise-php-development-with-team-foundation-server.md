@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/04/16/zend-studio-teamprise-php-development-with-team-foundation-server.html
 ---
+
 Ever since I started developing [PHPExcel](http://www.phpexcel.net), I noticed this option of connecting to CodePlex's Team Foundation Server using [Teamprise for Eclipse](http://www.teamprise.com/) (free CodePlex license [here](http://www.codeplex.com/CodePlex/Wiki/View.aspx?title=Obtaining%20the%20Teamprise%20Client)). Back in the days, I was developing using Zend Studio 4, but I recently upgraded to [Zend Studio 6 for Eclipse](http://www.codeplex.com/CodePlex/Wiki/View.aspx?title=Obtaining%20the%20Teamprise%20Client).
 
 Now this "[Eclipse](http://www.eclipse.org/)" word triggered the idea that perhaps integration of Zend Studio and Team Foundation Server could be something that works. So I downloaded the [Teamprise Eclipse plugin package](http://www.teamprise.com/products/plugin), copied it to the Zend Studio plugins ditrectory. And yes: tight integration of Team Foundation Server with Zend Studio is possible!

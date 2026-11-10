@@ -28,7 +28,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           alt="Maarten Balliauw"
           width="80"
           height="80"
-          class="size-16 sm:size-20 rounded-full border-2 border-white/30 shadow-lg"
+          class="size-16 rounded-full border-2 border-white/30 shadow-lg sm:size-20"
         />
         <div>
           <h1 class="inline-block text-3xl font-bold sm:text-5xl">
@@ -38,7 +38,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           <a
             target="_blank"
             href="/feed.xml"
-            class="inline-block ml-2 align-middle"
+            class="ml-2 inline-block align-middle"
             aria-label="rss feed"
             title="RSS Feed"
           >
@@ -79,7 +79,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     <div class="my-8 text-center">
       <LinkButton
         href="/posts/"
-        class="rounded-full border border-accent/30 bg-accent/5 px-6 py-2 text-sm font-medium text-accent hover:bg-accent/10 transition-colors"
+        class="rounded-full border border-accent/30 bg-accent/5 px-6 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/10"
       >
         All Posts
         <IconArrowRight class="inline-block rtl:-rotate-180" />

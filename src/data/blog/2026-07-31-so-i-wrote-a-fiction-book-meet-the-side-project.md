@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "So, I wrote a fiction book. Meet \"The Side Project\"."
+title: 'So, I wrote a fiction book. Meet "The Side Project".'
 pubDatetime: 2026-07-31T03:44:05Z
 comments: true
 published: true
@@ -17,7 +17,7 @@ Early 2025, working on my own side project, I got the idea for a story, and... [
 
 My day-to-day work is explaining technical things. Here's how this API works, here's why your build breaks, here's a blog post about some .NET feature, here's a lesson learned from a project or a customer, ... I really enjoy that type of writing, especially when I can build a bit of a story into it and introduce concepts and thoughts incrementally.
 
-Fiction is different in that you're not trying to make someone *understand* something, you're trying to make them *feel* something. That intrigued me for years, and I wanted to try it but never got around to it (read: never got an idea that seemed to work). Early 2025, I got a rough idea for a story, what the setup and plot would be, and started writing.
+Fiction is different in that you're not trying to make someone _understand_ something, you're trying to make them _feel_ something. That intrigued me for years, and I wanted to try it but never got around to it (read: never got an idea that seemed to work). Early 2025, I got a rough idea for a story, what the setup and plot would be, and started writing.
 
 ## Where do you even begin?
 
@@ -37,9 +37,9 @@ Then two more friends read the book, and came back with a few minor things, but 
 
 As I mentioned, yes. On the AI front: I wrote the prose myself (because that was the itch I wanted to scratch), but have used various LLMs to help me with:
 
-* Spelling and grammar
-* Finding inconsistencies in the timeline (at some point I updated the protagonist's car with a different model, but apparently forgot a few references which the LLM flagged)
-* Help with reviewing structure and flow (including that insight that I needed to explain less, not more)
+- Spelling and grammar
+- Finding inconsistencies in the timeline (at some point I updated the protagonist's car with a different model, but apparently forgot a few references which the LLM flagged)
+- Help with reviewing structure and flow (including that insight that I needed to explain less, not more)
 
 On the programming front, absolutely! I wrote the book in Markdown, and needed a tool to convert all of that into the EPUB format. And then Amazon and Draft2Digital (2 publishers) needed a different EPUB version. And then one needed the cover image included while the other didn't. And then for the print book, I needed a Word document (`.docx`). Suffice to say: every revision of the book's contents is pushed to GitHub, and GitHub Actions runs to get the final deliverables out.
 

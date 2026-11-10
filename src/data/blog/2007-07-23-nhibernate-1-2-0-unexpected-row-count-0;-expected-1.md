@@ -11,6 +11,7 @@ redirect_from:
   - /post/2007/07/23/nhibernate-1-2-0-unexpected-row-count-0-expected-1.html
   - /post/2007/07/23/nhibernate-1-2-0-unexpected-row-count-0;-expected-1.html
 ---
+
 Great... I've been working with NHibernate and MySQL for a while now, without having any strange problems. For a project I'm working on, I'm using SqlClient instead of MySQL now, and strangeness occurs. When I try to Flush() a NHibernate session, here's what is thrown:
 
 Unexpected row count: 0; expected: 1

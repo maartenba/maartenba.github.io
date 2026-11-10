@@ -11,6 +11,7 @@ redirect_from:
   - /post/2009/01/28/updated-cartrackr-to-asp-net-mvc-rc.html
   - /post/2009/01/28/updated-cartrackr-to-aspnet-mvc-rc.html
 ---
+
 [![](/images/WindowsLiveWriter/UpdatedCarTrackrtoASP.NETMVCRC_7A3D/image_6a85bd63-e0f1-4e0a-a1bb-4a2143240f0e.png)](http://www.cartrackr.net) As you may have noticed, [ASP.NET MVC 1.0 Release Candidate](http://go.microsoft.com/fwlink/?LinkID=141184&clcid=0x409) has been released over the night. You can read all about it in [ScottGu’s blog post](http://weblogs.asp.net/scottgu/archive/2009/01/27/asp-net-mvc-1-0-release-candidate-now-available.aspx), covering all new tools that have been released with the RC.
 
 Since I’ve been trying to [maintain a small reference application for ASP.NET MVC known as CarTrackr](/posts/2008-10-21-cartrackr-sample-aspnet-mvc-application/), I have updated the source code to reflect some changes in the ASP.NET MVC RC. You can download it directly from the CodePlex project page at [www.cartrackr.net](http://www.cartrackr.net).
@@ -19,7 +20,7 @@ Here’s what I have updated (copied from the [release notes](http://go.microsof
 
 ## Specifying View Types in Page Directives
 
-The templates for *ViewPage*, *ViewMasterPage*, and *ViewUserControl* (and derived types) now support language-specific generic syntax in the main directive’s *Inherits* attribute. For example, you can specify the following type in the @ Master directive:
+The templates for _ViewPage_, _ViewMasterPage_, and _ViewUserControl_ (and derived types) now support language-specific generic syntax in the main directive’s _Inherits_ attribute. For example, you can specify the following type in the @ Master directive:
 
 ```xml
 <%@ Master Inherits="ViewMasterPage<IMasterInfo>" %>
@@ -37,7 +38,7 @@ The default MVC project templates for Visual Basic and C# views have been update
 
 ## ASP.NET Compiler Post-Build Step
 
-Currently, errors within a view file are not detected until run time. To let you detect these errors at compile time, ASP.NET MVC projects now include an *MvcBuildViews* property, which is disabled by default. To enable this property, open the project file and set the *MvcBuildViews* property to true, as shown in the following example:
+Currently, errors within a view file are not detected until run time. To let you detect these errors at compile time, ASP.NET MVC projects now include an _MvcBuildViews_ property, which is disabled by default. To enable this property, open the project file and set the _MvcBuildViews_ property to true, as shown in the following example:
 
 ```xml
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -53,7 +54,7 @@ You can update projects that were created with previous releases of MVC to inclu
 
 1. Open the project file in a text editor.
 
-2. Add the following element under the top-most *<PropertyGroup>* element:
+2. Add the following element under the top-most _<PropertyGroup>_ element:
 
 ```xml
 <MvcBuildViews>true</MvcBuildViews>

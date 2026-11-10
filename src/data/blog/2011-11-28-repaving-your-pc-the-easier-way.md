@@ -10,7 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/11/28/repaving-your-pc-the-easier-way.html
 ---
-It"’s been a while since I had to repave my laptop. I have a [Windows Home Server](http://www.microsoft.com/windows/products/winfamily/windowshomeserver/default.mspx) (WHS) at home which images my PC almost daily and allows restoring it to a given point in time in less than 30 minutes. Which is awesome! And which is how I usually “restore” my PC into a stable state.  Over the past year some hardware changes have been made of which the most noteworthy is the replacement of the existing hard drive with an SSD. A great addition, and it was easy to restore as well: swap the disks and restore the image from WHS. SSD and full system install? 30 minutes.
+
+It"’s been a while since I had to repave my laptop. I have a [Windows Home Server](http://www.microsoft.com/windows/products/winfamily/windowshomeserver/default.mspx) (WHS) at home which images my PC almost daily and allows restoring it to a given point in time in less than 30 minutes. Which is awesome! And which is how I usually “restore” my PC into a stable state. Over the past year some hardware changes have been made of which the most noteworthy is the replacement of the existing hard drive with an SSD. A great addition, and it was easy to restore as well: swap the disks and restore the image from WHS. SSD and full system install? 30 minutes.
 
 [![](/images/image_thumb_120.png)](/images/image_152.png)The downside of restoring an image which came from a non-SSD drive has been bugging me for a while though. My SSD did not feel as fast as it should have felt, resulting in me reinstalling Windows on it just to check if that led to any speed improvements. And it did. And I knew I was in trouble: that would be a load of software to re-install and reconfigure. Here’s a list of what I had on my system before and is absolutely required for me to be able to do my job:
 

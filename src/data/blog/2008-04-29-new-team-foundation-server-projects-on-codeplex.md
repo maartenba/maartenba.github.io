@@ -10,11 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/04/29/new-team-foundation-server-projects-on-codeplex.html
 ---
+
 Busy times... Lots of work, some holidays here in Belgium, ... But there's always time to browse [CodePlex](http://www.codeplex.com/)! It is actually a good thing to do that from time to time. In the past few days, I spotted two great new projects on Team Foundation Server. Thumbs up for their authors!
 
 ## TeamReview
 
-*"Use this Visual Studio Add-In to leverage Team System and the Visual Studio code object model for in-IDE code review feedback, demonstration, and review replay. The inspiration for this project are the many code reviews we've experienced that have been generally underwhelming experiences and less than optimal outcomes. To make code review less painful, and to greatly assist in distributed environment code reviews this project will add Code Review squarely into the VS.Net Team System tools."*
+_"Use this Visual Studio Add-In to leverage Team System and the Visual Studio code object model for in-IDE code review feedback, demonstration, and review replay. The inspiration for this project are the many code reviews we've experienced that have been generally underwhelming experiences and less than optimal outcomes. To make code review less painful, and to greatly assist in distributed environment code reviews this project will add Code Review squarely into the VS.Net Team System tools."_
 
 [TeamReview](http://www.codeplex.com/TeamReview) is, in my opinion, a great step forward regarding code reviews using Visual Studio and TFS. It consists of a new work item type (for code reviews) and a Visual Studio add-in. The presented workflow is quite easy: a developer creates a code review task for the code reviewer, he answers it with eventual comments. A complete example of this flow, including screenshots, can be found on [CodePlex](http://www.codeplex.com/TeamReview).
 

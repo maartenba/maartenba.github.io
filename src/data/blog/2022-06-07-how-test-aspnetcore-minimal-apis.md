@@ -22,9 +22,9 @@ By the end of this post, you will have a good understanding of how to make sure 
 
 ## Prerequisites
 
-* An OS that supports .NET (Windows/macOS/Linux)
-* A .NET IDE (such as [JetBrains Rider](https://www.jetbrains.com/rider/))
-* .NET 6.0 SDK or later
+- An OS that supports .NET (Windows/macOS/Linux)
+- A .NET IDE (such as [JetBrains Rider](https://www.jetbrains.com/rider/))
+- .NET 6.0 SDK or later
 
 You can find [the source code for this tutorial on GitHub](https://github.com/maartenba/TwilioTestingMinimalAPI). Use it as a reference if you run into any issues.
 
@@ -70,7 +70,6 @@ app.Run();
 ```
 
 The test project (_MyMinimalApi.Tests.csproj_) contains a template unit test file _UnitTest1.cs_ that you will replace later in this article.
-
 
 ## Update the test project
 
@@ -118,7 +117,6 @@ The _MyMinimalApi.Tests.csproj_ file now looks like this:
 
 You can now start writing unit tests for your Minimal API.
 
-
 ## “Hello World” and the ASP.NET Core test server
 
 In the Minimal API project, _Program.cs_ already defines a “Hello World!” endpoint. You will test this endpoint first. Before you can do this, you will need to add the following public partial class definition at the bottom of _Program.cs_:
@@ -148,14 +146,14 @@ public class HelloWorldTests
 
 The `TestRootEndpoint()` test will have to do a couple of things:
 
-* Start the ASP.NET Core Minimal API
-* Create an HTTP client for to connect to the application
-* Send an HTTP request to the `/` endpoint
-* Verify the response
+- Start the ASP.NET Core Minimal API
+- Create an HTTP client for to connect to the application
+- Send an HTTP request to the `/` endpoint
+- Verify the response
 
 Earlier in this post, you have added a reference to the `Microsoft.AspNetCore.Mvc.Testing` package. This package contains the `WebApplicationFactory<T>`, which is an important building block for testing ASP.NET Core applications.
 
-The `WebApplicationFactory<T>` class creates an in-memory application that you can test. It  handles bootstrapping of your application, and provides an `HttpClient` that you can use to make requests.
+The `WebApplicationFactory<T>` class creates an in-memory application that you can test. It handles bootstrapping of your application, and provides an `HttpClient` that you can use to make requests.
 
 Update the code in the `TestRootEndpoint()` method:
 
@@ -359,7 +357,6 @@ Transfer-Encoding: chunked
 
 After you confirm the endpoint works, you will convert this request into a test!
 
-
 ## Test different payloads and HTTP methods
 
 Your Minimal API now has a `/people` endpoint. It has two possible response types: a `200 OK` that returns a string value, and a `400 Bad Request` that returns problem details as a JSON payload.
@@ -390,8 +387,8 @@ public class PeopleTests
 
 The `PeopleTests` class now contains 2 test methods that you will need to implement:
 
-* `CreatePerson()` to test the `200 OK` scenario
-* `CreatePersonValidatesObject()` to test the `400 Bad Request` scenario
+- `CreatePerson()` to test the `200 OK` scenario
+- `CreatePersonValidatesObject()` to test the `400 Bad Request` scenario
 
 You will start with the `CreatePerson()` test method. The test will again make use of the `WebApplicationFactory<Program>` to create an in-memory HTTP client that you can use to validate the API.
 

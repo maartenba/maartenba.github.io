@@ -137,12 +137,12 @@ Seems feasible! Note the `className` property in the above JSON, it gives me inf
 
 Type information in that `className` property can be:
 
-* `HA_Type.Array`, describing a generic array (with type information for its elements), which I would like to deserialize into `ApiFieldType.Array`
-* `HA_Type.Dto`, describing a class with fields and their types, which I would like to deserialize into `ApiFieldType.Dto`
-* `HA_Type.Enum`, describing an `enum`, which I would like to deserialize into `ApiFieldType.Enum`
-* `HA_Type.Object`, describing an anonymous class with fields and their types, which I would like to deserialize into `ApiFieldType.Object`
-* `HA_Type.Primitive`, describing an primitive value (like the `String` above), which I would like to deserialize into `ApiFieldType.Primitive`
-* `HA_Type.Ref`, describing a reference to another object through an `id` property, which I would like to deserialize into `ApiFieldType.Ref`
+- `HA_Type.Array`, describing a generic array (with type information for its elements), which I would like to deserialize into `ApiFieldType.Array`
+- `HA_Type.Dto`, describing a class with fields and their types, which I would like to deserialize into `ApiFieldType.Dto`
+- `HA_Type.Enum`, describing an `enum`, which I would like to deserialize into `ApiFieldType.Enum`
+- `HA_Type.Object`, describing an anonymous class with fields and their types, which I would like to deserialize into `ApiFieldType.Object`
+- `HA_Type.Primitive`, describing an primitive value (like the `String` above), which I would like to deserialize into `ApiFieldType.Primitive`
+- `HA_Type.Ref`, describing a reference to another object through an `id` property, which I would like to deserialize into `ApiFieldType.Ref`
 
 The JSON that is returned by the HTTP API metdata endpoint will then be serialized into an object graph that represents the HTTP API structure Space provides, similar to:
 
@@ -175,8 +175,8 @@ Kudos to the Microsoft Docs team for providing [an example of polymorphic deseri
 
 Let's try something more generic! The custom `JsonConverter` will:
 
-* contain a type map (a dictionary of supported types);
-* support deserializing any type specified in that type map.
+- contain a type map (a dictionary of supported types);
+- support deserializing any type specified in that type map.
 
 Before we start, a quick side note... Remember where I mentioned `className`, and that it holds the type information I can deserialize into? Allowing a JSON payload to specify its own type information is a [common source of vulnerabilities in web applications](https://www.owasp.org/images/d/d7/Marshaller_Deserialization_Attacks.pdf.pdf). In our case here, this doesn't really matter too much, as we own both the API code as well as the code generator, but if you are reading this blog post you may be in a different situation. Using a type map that lists just those types we want to allow deserializing into, will reduce the risk of unsafe deserialization. Don't blindly trust type information provided in the JSON payload!
 
@@ -218,12 +218,12 @@ public class ApiFieldTypeConverter : JsonConverter<ApiFieldType>
 
 The interesting method for us will be `Read()`. In it, we want to do a couple of things:
 
-* check for `null` values;
-* read the `className` from our JSON document;
-* see if that class can be deserialized or not;
-* deserialize it.
+- check for `null` values;
+- read the `className` from our JSON document;
+- see if that class can be deserialized or not;
+- deserialize it.
 
-Regarding *"see if that class can be deserialized or not"*: this is the type map I mentioned earlier. A simple dictionary which lists the mapping between `className` and the concrete type we want to deserialize into:
+Regarding _"see if that class can be deserialized or not"_: this is the type map I mentioned earlier. A simple dictionary which lists the mapping between `className` and the concrete type we want to deserialize into:
 
 ```
 private static readonly Dictionary<string, Type> TypeMap = new Dictionary<string, Type>(StringComparer.OrdinalIgnoreCase)

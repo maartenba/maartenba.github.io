@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/03/09/put-your-cloud-on-a-diet-or-windows-azure-and-scaling-why.html
 ---
+
 [![](/images/image_thumb_76.png)](/images/image_106.png)One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:
 
 - Put your cloud on a diet (or: Windows Azure and scaling: why?) – the post you are currently reading
@@ -30,4 +31,4 @@ Interesting! If these values are extrapolated to a month, costs will be somewher
 
 Of course, this is a rough estimation, but it clearly shows there is value in scaling up and down at the right moments. The example I gave is based on a local application with clear demand differences during each day and could be scaled based on the time of day. And that’s what I will be demonstrating in the next 2 blog posts of this series: how to scale up and down automatically using the current tooling available for Windows Azure. Stay tuned!
 
-*PS: The Excel sheet I used to create the breakdown can be found here: *[*Scaling.xlsx (11.80 kb)*](/images/2011/3/Scaling.xlsx)
+*PS: The Excel sheet I used to create the breakdown can be found here: *[_Scaling.xlsx (11.80 kb)_](/images/2011/3/Scaling.xlsx)

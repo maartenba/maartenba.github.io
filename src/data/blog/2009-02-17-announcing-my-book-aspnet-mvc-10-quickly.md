@@ -5,11 +5,24 @@ pubDatetime: 2009-02-17T19:42:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "Book review", "Books", "CSharp", "General", "jQuery", "MVC", "Personal", "Publications", "Testing"]
+tags:
+  [
+    "ASP.NET",
+    "Book review",
+    "Books",
+    "CSharp",
+    "General",
+    "jQuery",
+    "MVC",
+    "Personal",
+    "Publications",
+    "Testing",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2009/02/17/announcing-my-book-asp-net-mvc-1-0-quickly.html
 ---
+
 [![](/images/WindowsLiveWriter/AnnouncingmybookASP.NETMVC1.0Quickly_D7E4/184719754X_9c5c7835-7f2b-41b1-a4b4-43be5f7704d7.jpg)](https://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book) It’s been quite a job, but there it is: Packt just [announced my very first book](https://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book) on their site. It is titled “[ASP.NET MVC 1.0 Quickly](https://www.packtpub.com/asp-net-model-view-controller-1-0-quickly/book)”, covering all aspects ASP.NET MVC offers in a to-the-point manner with hands-on examples. The book walks through the main concepts of the MVC framework to help existing ASP.NET developers to move on to a higher level. It includes clear instructions and lots of code examples. It takes a simple approach, thereby allowing you to work with all facets of web application development. Some keywords: Model-view-controller, ASP.NET MVC architecture and components, unit testing, mocking, AJAX using MS Ajax and jQuery, reference application and resources.
 
 That’s it for the marketing part: let’s do a retrospective on the writing process itself. Oh and yes, those are my glasses on the cover. Photo was taken on the [beach near Bray-Dunes (France)](http://maps.google.com/?ie=UTF8&ll=51.072067,2.485705&spn=0.001453,0.00324&t=h&z=19).

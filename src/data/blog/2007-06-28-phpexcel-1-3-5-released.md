@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/06/28/phpexcel-1-3-5-released.html
 ---
+
 Just a quick note on the new PHPExcel 1.3.5 release. There are some cool new features included!
 
-One of the new features is rich text: one can now write coloured and *styled* text in a cell. Here's an example of how the feature demo result file looks:
+One of the new features is rich text: one can now write coloured and _styled_ text in a cell. Here's an example of how the feature demo result file looks:
 
 [![](/images/WindowsLiveWriter/PHPExcel1.3.5released_972B/features_thumb%5B14%5D.gif)](/images/WindowsLiveWriter/PHPExcel1.3.5released_972B/features%5B14%5D.gif)
 

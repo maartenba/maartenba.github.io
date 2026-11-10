@@ -5,11 +5,22 @@ pubDatetime: 2009-04-06T14:06:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "Events", "General", "MVC", "PHP", "Presentations", "Publications"]
+tags:
+  [
+    "ASP.NET",
+    "CSharp",
+    "Events",
+    "General",
+    "MVC",
+    "PHP",
+    "Presentations",
+    "Publications",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2009/04/06/speaking-at-devdays-2009-the-hague-and-more.html
 ---
+
 ![DevDays09, The Netherlands](/images/logo.jpg)Some Great news (at least: I think this is great :-)): [Kevin Dockx](http://kevindockx.blogspot.com/) and I will be giving a session on PHP and Silverlight at the Netherlands [DevDays09](http://www.devdays.nl). This event, aimed totally at developers, will take place on May 28 and 29th in The Hague (Den Haag). It’s the first time the DevDays are hosting sessions related to PHP, and it’s also the first time I’ll be speaking at an event of this size.
 
 [Our session](https://www.devdays.nl/sessies/detail.aspx?code=PHP03IB) will cover the basics of Silverlight and show you how you can create rich web applications using the best of 2 worlds: Silverlight and PHP.

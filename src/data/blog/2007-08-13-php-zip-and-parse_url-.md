@@ -10,17 +10,18 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/08/13/php-zip-and-parse-url.html
 ---
+
 After having a few months of problems using PHP and fopen('zip://something.xlsx#xl/worksheets/sheet1.xml', 'r'), I finally found the reason of that exact line of code giving errors on some PC's... Assuming this uses a call to parse_url under the hood, I tried parsing this, resulting in the following URL parts:
 
 Array
 
 (
 
-   [scheme] => zip
+[scheme] => zip
 
-   [host] => something.xlsx#xl
+[host] => something.xlsx#xl
 
-   [path] => /worksheets/sheet1.xml
+[path] => /worksheets/sheet1.xml
 
 )
 

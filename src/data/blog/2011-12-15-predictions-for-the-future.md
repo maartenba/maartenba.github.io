@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/12/15/predictions-for-the-future.html
 ---
+
 It’s almost the end of 2011. Typically a time where bloggers start to write about their past year and what they’ll do in the next. A time where the Forrester, Gartner and McKinsey-alikes make predictions about next year. I know, normally I blog about technology in its technological sense, but today I feel like blogging about my vision on the future. Not 2012, but the future. And the present. Here’s my story in which I try to capture todays world and how this will influence technology.
 
 ## The world in which we work
@@ -38,7 +39,7 @@ Now how will this change happen? Well, through consumerization and technology. O
 
 - In my example earlier: people want to keep their pace. Why fight when all you need is a credit card to open up a cloud somewhere? Employees will do this. Managers as well: they too feel the fight and see easier, more efficient ways out. Why remove “your inbox is almost full” e-mails daily when there’s 25 GB of inbox space waiting to be unlocked for 5 EUR / month? **Prediction 2: Cloud momentum will rise**.
 
-- Silverlight is dead? The Web is dead? Apps are dead? If you’ve followed Twitter these days, those predictions were made. I say: nonsense. I see things converge. Smaller, less bloated but more agile ways of working, whether if it’s trough a small app or through a small, focused website. The actual technology will not matter, the way people work with it will. **Prediction 3: UX and *how* we use apps will matter, technology will be supportive**.
+- Silverlight is dead? The Web is dead? Apps are dead? If you’ve followed Twitter these days, those predictions were made. I say: nonsense. I see things converge. Smaller, less bloated but more agile ways of working, whether if it’s trough a small app or through a small, focused website. The actual technology will not matter, the way people work with it will. **Prediction 3: UX and _how_ we use apps will matter, technology will be supportive**.
 
 - People want to work together. Move forward, together. One way of doing that is to open up your silos. Create API’s which focus on exposing information. Don’t focus on the software consuming those. Maybe it’s better to create an API instead of creating an extranet application. Let the consumers decide how they’ll work with that data. **Prediction 4: API’s**.
 
@@ -48,6 +49,6 @@ Now how will this change happen? Well, through consumerization and technology. O
 
 Those are my predictions. And all are the result of consumerization and technology enabling people. I don’t know if 2012 will bring all of these. I do think some of them will start emerging. Be prepared for change.
 
-*PS: I promise, my next blog post will be about angle brackets again.*
+_PS: I promise, my next blog post will be about angle brackets again._
 
-*PS 2: I am not targeting any specific government or specific enterprise.*
+_PS 2: I am not targeting any specific government or specific enterprise._

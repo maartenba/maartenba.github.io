@@ -5,12 +5,23 @@ pubDatetime: 2012-03-12T09:59:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "Books", "CSharp", "General", "NuGet", "Projects", "Publications", "Source control"]
+tags:
+  [
+    "ASP.NET",
+    "Books",
+    "CSharp",
+    "General",
+    "NuGet",
+    "Projects",
+    "Publications",
+    "Source control",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2012/03/12/pro-nuget-is-finally-there.html
   - /post/2012/03/12/pro-nuget-is-finally-there!.html
 ---
+
 Short version: Install-Package ProNuget or [http://amzn.to/pronuget](http://amzn.to/pronuget)
 
 [![](/images/image_170.png)](http://amzn.to/pronuget)It’s been a while since I wrote my [first book](/posts/2009-02-17-announcing-my-book-aspnet-mvc-10-quickly/). After I’ve been telling that writing a book is horrendous (try writing a chapter per week after your office hours…) and that I would never write on again, my partner-in-crime [Xavier Decoster](http://www.xavierdecoster.com) and I had the same idea at the same time: what about a book on NuGet? So here it is: [Pro NuGet](http://amzn.to/pronuget) is fresh off the presses (or on Kindle).

@@ -10,4 +10,5 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/04/10/scalable-apps-with-asynchronous-programming-in-asp-net.html
 ---
+
 A while ago, I posted about the DevDays, and some interesting sessions I took. One of these sessions was "Scalable Apps with Asynchronous Programming in ASP.NET", by Jeff Prosise. Searching the Internet, I found that Jeff also published an article on this subject on MSDN, which can be found on the following URL: [http://msdn.microsoft.com/msdnmag/issues/07/03/WickedCode/default.aspx](http://msdn.microsoft.com/msdnmag/issues/07/03/WickedCode/default.aspx).

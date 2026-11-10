@@ -10,12 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/01/29/phplinq-0-4-0-released-on-codeplex.html
 ---
-![PHPLinq](/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/phplinq_logo.png) I’m pleased to announce that [PHPLinq 0.4.0](http://www.phplinq.net) has been released on CodePlex. PHPLinq is currently [one year old](/posts/2008-01-22-linq-for-php-language-integrated-query-for-php/), and I decided to add a huge step in functionality for the 0.4.0 release. This blog post will focus on the current status of PHPLinq and what it is capable of doing for you in a PHP project.
 
+![PHPLinq](/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/phplinq_logo.png) I’m pleased to announce that [PHPLinq 0.4.0](http://www.phplinq.net) has been released on CodePlex. PHPLinq is currently [one year old](/posts/2008-01-22-linq-for-php-language-integrated-query-for-php/), and I decided to add a huge step in functionality for the 0.4.0 release. This blog post will focus on the current status of PHPLinq and what it is capable of doing for you in a PHP project.
 
 ## What is PHPLinq?
 
-PHPLinq is a class library for PHP, based on the idea of [Microsoft’s LINQ technology](http://msdn.microsoft.com/en-us/vbasic/aa904594.aspx). LINQ is short for *language integrated query*, a component in the .NET framework which enables you to perform queries on a variety of data sources like arrays, XML, SQL server, ... These queries are defined using a syntax which is very similar to SQL.
+PHPLinq is a class library for PHP, based on the idea of [Microsoft’s LINQ technology](http://msdn.microsoft.com/en-us/vbasic/aa904594.aspx). LINQ is short for _language integrated query_, a component in the .NET framework which enables you to perform queries on a variety of data sources like arrays, XML, SQL server, ... These queries are defined using a syntax which is very similar to SQL.
 
 Using PHPLinq, the same functionality is created in PHP. Since regular LINQ applies to enumerators, SQL, datasets, XML, ..., I decided PHPLinq should provide the same infrastructure. Here’s an example PHPLinq query, which retrieves all names with a length less than 5 from an array of strings:
 
@@ -28,21 +28,21 @@ $result = from('$name')->in($names)
 
 ```
 
-Notice the *in()*-function? This is basically a clue for PHPLinq to determine how t query data. In this case, PHPLinq will work with a string array, but is perfectly possible to hint PHPLinq with a database table, for example. I’ll show you more on that later in this post.
+Notice the _in()_-function? This is basically a clue for PHPLinq to determine how t query data. In this case, PHPLinq will work with a string array, but is perfectly possible to hint PHPLinq with a database table, for example. I’ll show you more on that later in this post.
 
 ![PHPLinq components](/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/phplinq.png)
 
-This functionality is achieved by the fact that each PHPLinq query is initiated by the *PHPLinq_Initiator* class. Each *PHPLinq_ILinqProvider* implementation registers itself with this initiator class, which then determines the correct provider to use. This virtually means that you can write unlimited providers, each for a different data type!
+This functionality is achieved by the fact that each PHPLinq query is initiated by the _PHPLinq_Initiator_ class. Each _PHPLinq_ILinqProvider_ implementation registers itself with this initiator class, which then determines the correct provider to use. This virtually means that you can write unlimited providers, each for a different data type!
 
 ![PHPLinq architecture](/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/image_286b4565-1404-499a-bcc1-7d7fcca8fc5d.png)
 
 ## What can I do with PHPLinq?
 
-Basically, PHPLinq is all about querying data. No matter if it’s an array, XML tree or a database table, PHPLinq should be able to figure out what to do witht the data, without you being required to write complex *foreach* loops and stuff like that.
+Basically, PHPLinq is all about querying data. No matter if it’s an array, XML tree or a database table, PHPLinq should be able to figure out what to do witht the data, without you being required to write complex _foreach_ loops and stuff like that.
 
 ### Querying data from an array
 
-Let’s have a look at an example. The following array will be a dataset which we’ll be working with. It is a list of *Employee* objects.
+Let’s have a look at an example. The following array will be a dataset which we’ll be working with. It is a list of _Employee_ objects.
 
 ```php
 // Employee data source
@@ -68,7 +68,7 @@ $result = from('$employee')->in($employees)
 
 ```
 
-Wow! New things here! What’s this *$employee => …* thing? What’s this *new { … }* thing? The first is a lambda expression. This is actualy an anonymous PHP function we are creating, accepting a parameter *$employee*. This function returns a boolean (true/false), based on the employee’s name. The *new { … }* thing is an anonymous class constructor. What we are doing here is defining a new class on-the-fly, with properties *Name* and *Email*, based on data from the original *$employee*.
+Wow! New things here! What’s this _$employee => …_ thing? What’s this _new { … }_ thing? The first is a lambda expression. This is actualy an anonymous PHP function we are creating, accepting a parameter _$employee_. This function returns a boolean (true/false), based on the employee’s name. The _new { … }_ thing is an anonymous class constructor. What we are doing here is defining a new class on-the-fly, with properties _Name_ and _Email_, based on data from the original _$employee_.
 
 Here’s the output of the above query:
 
@@ -89,11 +89,11 @@ Array
 
 ```
 
-How cool is that! Things are getting a lot cooler when we use PHPLinq together with the [Zend Framework](http://framework.zend.com)’s *Zend_Db_Table*…
+How cool is that! Things are getting a lot cooler when we use PHPLinq together with the [Zend Framework](http://framework.zend.com)’s _Zend_Db_Table_…
 
 ### Querying data from a database
 
-PHPLinq has a second *PHPLinq_ILinqProvider* built in. This provider makes use of the [Zend Framework](http://framework.zend.com) *Zend_Db_Table *class to provide querying capabilities. First things first: let’s create a database table.
+PHPLinq has a second _PHPLinq_ILinqProvider_ built in. This provider makes use of the [Zend Framework](http://framework.zend.com) *Zend_Db_Table *class to provide querying capabilities. First things first: let’s create a database table.
 
 ```csharp
 CREATE TABLE employees (
@@ -107,7 +107,7 @@ CREATE TABLE employees (
 
 ```
 
-We’ll be using this table in a *Zend_Db_Table* class:
+We’ll be using this table in a _Zend_Db_Table_ class:
 
 ```php
 // EmployeeTable class
@@ -120,7 +120,7 @@ $employeeTable->setRowClass('Employee');
 
 ```
 
-Allright, what happened here? We’ve created a database table, and told *Zend_Db_Table* to look in the *employees* table for data, and map these to the *Employee* class we created before. The *Zend_Db_Table* employee table will be accessible trough the *$employeesTable* variable.
+Allright, what happened here? We’ve created a database table, and told _Zend_Db_Table_ to look in the _employees_ table for data, and map these to the _Employee_ class we created before. The _Zend_Db_Table_ employee table will be accessible trough the _$employeesTable_ variable.
 
 Ok, let’s issue a query:
 
@@ -153,9 +153,9 @@ Array
 
 ```
 
-Did you notice this query is actually the same as we used before? Except for the *$employeesTable* now being used instead of *$employees* this query is identical! The only thing that is different, is how PHPLinq handles the query internally. Using the array of objects, PHPLinq will simply loop the array and search for correct values. Using *Zend_Db_Table*, PHPLinq actually builds a SQL query which is executed directly on the database server, delegating performance and execution to the database engine.
+Did you notice this query is actually the same as we used before? Except for the _$employeesTable_ now being used instead of _$employees_ this query is identical! The only thing that is different, is how PHPLinq handles the query internally. Using the array of objects, PHPLinq will simply loop the array and search for correct values. Using _Zend_Db_Table_, PHPLinq actually builds a SQL query which is executed directly on the database server, delegating performance and execution to the database engine.
 
-We can have a look at the generated query by setting an option on PHPLinq, which will tell PHPLinq to pass the generated query to PHP’s *print* function.
+We can have a look at the generated query by setting an option on PHPLinq, which will tell PHPLinq to pass the generated query to PHP’s _print_ function.
 
 ```csharp
 PHPLinq_LinqToZendDb::setQueryCallback('print');
@@ -169,7 +169,7 @@ SELECT "$employee".* FROM "employees" AS "$employee" WHERE (SUBSTR('$employee'."
 
 ```
 
-![Cool!](/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/seal_a42ed2b4-ba56-4a05-a02c-b2937d428dcc.gif) Are you kidding me?!? PHPLinq just *knew* that the PHP code in my where clause translates to the above SQL statement! It’s even cooler than this: PHPLinq also knows about different databases. The above example will translate to another query on a different database engine. For that, let’s look at another example. Here’s the PHPLinq query:
+![Cool!](/images/WindowsLiveWriter/PHPLinq0.4.0releasedonCodePlex_9D63/seal_a42ed2b4-ba56-4a05-a02c-b2937d428dcc.gif) Are you kidding me?!? PHPLinq just _knew_ that the PHP code in my where clause translates to the above SQL statement! It’s even cooler than this: PHPLinq also knows about different databases. The above example will translate to another query on a different database engine. For that, let’s look at another example. Here’s the PHPLinq query:
 
 ```php
 $result = from('$employee')->in($employeeTable)

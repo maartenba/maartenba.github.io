@@ -5,20 +5,30 @@ pubDatetime: 2016-10-19T08:51:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", "CSharp", "Development", "Performance", "Memory", "Profiling"]
+tags:
+  [
+    "General",
+    "ICT",
+    "CSharp",
+    "Development",
+    "Performance",
+    "Memory",
+    "Profiling",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2016/10/19/making-net-code-less-allocatey-allocations-and-the-garbage-collector.html
   - /post/2016/10/19/making-dotnet-code-less-allocatey-allocations-and-the-garbage-collector.html
   - /post/2016/10/19/making-net-code-less-allocatey-garbage-collector.html
 ---
+
 The .NET Garbage Collector (GC) is quite cool. In combination with the runtime's virtual memory, it helps providing our applications with virtually unlimited memory, by reclaiming memory that is no longer in use and making it available to our code again. By doing so, it also takes away the burden of having to allocate and free memory explicitly. But sometimes, it still matters to understand when and where memory is allocated. The reason for that is simple: if we can use efficient coding to help our GC spend less CPU time allocating and freeing memory we can make our applications faster and less "allocatey".
 
 In this series:
 
-* [Making .NET code less allocatey - Allocations and the Garbage Collector](https://blog.maartenballiauw.be/posts/2016-10-19-making-net-code-less-allocatey-garbage-collector/)
-* [Exploring .NET managed heap with ClrMD](https://blog.maartenballiauw.be/posts/2017-01-03-exploring-net-managed-heap-with-clrmd/)
-* [Exploring memory allocation and strings](https://blog.maartenballiauw.be/posts/2016-11-15-exploring-memory-allocation-and-strings/)
+- [Making .NET code less allocatey - Allocations and the Garbage Collector](https://blog.maartenballiauw.be/posts/2016-10-19-making-net-code-less-allocatey-garbage-collector/)
+- [Exploring .NET managed heap with ClrMD](https://blog.maartenballiauw.be/posts/2017-01-03-exploring-net-managed-heap-with-clrmd/)
+- [Exploring memory allocation and strings](https://blog.maartenballiauw.be/posts/2016-11-15-exploring-memory-allocation-and-strings/)
 
 ## The Garbage Collector and Generations
 
@@ -28,7 +38,7 @@ To be fast and efficient, the GC was made "generational" - new objects are alloc
 
 The GC runs very often on `gen0`, as short-lived objects usually have few other objects pointing to them and making cleanup quite fast - think objects used within the scope of a method, or a web request that allocates some objects that are obsolete once the response is rendered. The longer an object remains in memory, the more difficult it tends to become to cleanup the object, so the garbage collector runs less on `gen1`, and even less on `gen2`. Objects in these generations may live longer, so it makes no sense to check them all every time the GC runs. Running the GC means consuming CPU and freezing your application. Usually very short, but I've seen GC cycles of several seconds on big server applications - blocking incoming requests.
 
-Another way of preventing objects from moving into further heap generations is by making use of `IDisposable` (to free  resources) and making sure `Dispose()` is called whenever the object is no longer needed (e.g. using a `using` statement). This ensures the GC has no reason to believe our objects' referenced objects can not be reclaimed. Be careful with finalizers: when the GC comes along and finds an object that is ready to be collected, it is moved into the finalizer queue (and thus promoted a generation as cleanup is postponed a cycle). Also remember [finalizers are not guaranteed to run](https://ericlippert.com/2015/05/18/when-everything-you-know-is-wrong-part-one/) and it's better to write no finalizer than a wrong finalizer.
+Another way of preventing objects from moving into further heap generations is by making use of `IDisposable` (to free resources) and making sure `Dispose()` is called whenever the object is no longer needed (e.g. using a `using` statement). This ensures the GC has no reason to believe our objects' referenced objects can not be reclaimed. Be careful with finalizers: when the GC comes along and finds an object that is ready to be collected, it is moved into the finalizer queue (and thus promoted a generation as cleanup is postponed a cycle). Also remember [finalizers are not guaranteed to run](https://ericlippert.com/2015/05/18/when-everything-you-know-is-wrong-part-one/) and it's better to write no finalizer than a wrong finalizer.
 
 To avoid long GC cycles, it makes sense to optimize allocations and make sure they can be collected quickly, preferrably while on `gen0`, or not allocating at all. Let's see if we can find out when allocations are made.
 
@@ -61,10 +71,10 @@ There are some other interesting cases where you would not expect allocations. L
 
 I'll use [ReSharper's IL viewer](https://www.jetbrains.com/help/resharper/2016.1/Viewing_Intermediate_Language.html) to view the Intermediate Language (IL) generated by the compiler. The nice thing with this IL viewer is that it lets us click C# code in the editor and shows us the IL for that statement (and vice-versa). If you're not familiar with IL, this makes it easier to understand what is going on when running compiled code.
 
-Brave souls could make use of `ildasm.exe`, .NET's [IL disassembler](https://msdn.microsoft.com/en-us/library/f7dy01k1(v=vs.110).aspx). It's a bit more Spartan, but you can always use it to impress friends and colleagues!
+Brave souls could make use of `ildasm.exe`, .NET's [IL disassembler](<https://msdn.microsoft.com/en-us/library/f7dy01k1(v=vs.110).aspx>). It's a bit more Spartan, but you can always use it to impress friends and colleagues!
 
 **Quick note:**
-  When using any IL viewer to look at allocations, make sure to build using the Release build configuration. Debug builds usually do not run any/all compiler optimizations, making for different IL code from what you would see with a Release build.
+When using any IL viewer to look at allocations, make sure to build using the Release build configuration. Debug builds usually do not run any/all compiler optimizations, making for different IL code from what you would see with a Release build.
 
 So here goes. How about this line of code?
 
@@ -104,7 +114,7 @@ There's a hidden allocation in here... The call to `ParamsArrayImpl()` looks lik
 Essentially, we are allocating an empty array of strings, and then passing that to our `ParamsArrayImpl()` method. This empty array has to be cleaned up by the GC. Better would be to create an overload that takes no arguments, or one argument, or two. This allocation is the reason [`string.Format` has a few overloads](https://referencesource.microsoft.com/#mscorlib/system/string.cs,2906) - fewer required allocations of that array.
 
 **Quick note:**
-  Starting with .NET 4.6, no empty array will be allocated. Instead, `Array.Empty<T>` will be passed which is a cached, empty array.
+Starting with .NET 4.6, no empty array will be allocated. Instead, `Array.Empty<T>` will be passed which is a cached, empty array.
 
 Next up: using LINQ and anonymous functions. Have a look at this snippet and try to spot the hidden allocation:
 
@@ -125,7 +135,7 @@ In this example, we need to store the values of `min` and `max` for use in our L
 ![Capturing variable](/images/2016-10-19-making-net-code-less-allocatey-garbage-collector/variable-capture.png)
 
 **Quick note:**
-  Matt Warren has [a nice overview of LINQ-specific cases](http://mattwarren.org/2016/09/29/Optimising-LINQ/). Also, [roslyn-linq-rewrite](https://github.com/antiufo/roslyn-linq-rewrite) is something to keep an eye on. It's a tool that changes C# compilation in such a way that syntax trees of LINQ expressions are rewritten using plain procedural code, minimizing allocations and dynamic dispatching.
+Matt Warren has [a nice overview of LINQ-specific cases](http://mattwarren.org/2016/09/29/Optimising-LINQ/). Also, [roslyn-linq-rewrite](https://github.com/antiufo/roslyn-linq-rewrite) is something to keep an eye on. It's a tool that changes C# compilation in such a way that syntax trees of LINQ expressions are rewritten using plain procedural code, minimizing allocations and dynamic dispatching.
 
 There are many more examples, try looking at this piece of code's IL:
 
@@ -138,7 +148,7 @@ foreach (var s in strings)
 
 ```
 
-*(spoiler alert: a new `<>c__DisplayClass0_0` will be allocated, capturing `s` for use in the `System.Action`)*
+_(spoiler alert: a new `<>c__DisplayClass0_0` will be allocated, capturing `s` for use in the `System.Action`)_
 
 ## Method 2 - Using plugins for Visual Studio and/or ReSharper
 
@@ -231,7 +241,7 @@ Here's an overview of taking a couple of memory snapshots:
 
 ![Memory snapshots showing GC and so on](/images/2016-10-19-making-net-code-less-allocatey-garbage-collector/memory-snapshot-1.png)
 
-There are a couple of interesting things. First, we can see the GC in action. Memory all of a sudden drops, which means the GC did its job. We can see memory is mostly allocated in `gen2`, which is logical as we are keeping our dictionary around. `gen0` and `gen1` also incur quite some allocations. If we look at memory traffic between two snapshots  at the bottom (make sure to collect allocations in the profiler), we can see almost the same amount of memory is allocated and reclaimed.
+There are a couple of interesting things. First, we can see the GC in action. Memory all of a sudden drops, which means the GC did its job. We can see memory is mostly allocated in `gen2`, which is logical as we are keeping our dictionary around. `gen0` and `gen1` also incur quite some allocations. If we look at memory traffic between two snapshots at the bottom (make sure to collect allocations in the profiler), we can see almost the same amount of memory is allocated and reclaimed.
 
 Looking at the details (and ignoring the fact that the one line of `JObject.Parse()` also does quite some string allocations and could also be rewritten using `JsonTextReader`), we can see that every time we reload our data, we are re-allocating our dictionaries over and over again!
 
@@ -290,7 +300,7 @@ On a side note, re-using objects is often a good way of optimizing allocations. 
 
 ## Don't optimize what should not be optimized
 
-There is an old adage in IT that says *"don't do premature optimization"*. In other words: maybe some allocations are okay to have, as the GC will take care of cleaning them up anyway. While [some do not agree with this](http://joeduffyblog.com/2010/09/06/the-premature-optimization-is-evil-myth/), I believe in the middle ground.
+There is an old adage in IT that says _"don't do premature optimization"_. In other words: maybe some allocations are okay to have, as the GC will take care of cleaning them up anyway. While [some do not agree with this](http://joeduffyblog.com/2010/09/06/the-premature-optimization-is-evil-myth/), I believe in the middle ground.
 
 The garbage collector is optimized for high memory traffic in short-lived objects, and I think it's okay to make use of what the .NET runtime has to offer us here. If it's in a critical path of a production application, fewer allocations are better, but we can't write software with zero allocations - it's what our high-level programming language uses to make our developer life easier. It's not okay to have objects go to `gen2` and stay there when in fact they should be gone from memory.
 

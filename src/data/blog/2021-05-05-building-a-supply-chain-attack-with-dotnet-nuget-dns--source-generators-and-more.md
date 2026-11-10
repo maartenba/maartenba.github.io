@@ -92,9 +92,9 @@ public static class PolicyDiscoveryManager
 
 Let's unpack some things you see here. There are quite a few attributes being used!
 
-* [`[EditorBrowsable(EditorBrowsableState.Never)]`](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.editorbrowsableattribute?view=net-5.0) -- used to *try* and hide the class and method from IntelliSense and code completion. Not all IDEs out there respect this attribute (it's designed to be a hint), but if this class remains hidden in the IDE, there's a good chance nobody will see it.
-* [`[CompilerGenerated]`](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.compilergeneratedattribute?view=net-5.0) -- used to exclude the class from code analysis tooling. Not sure this one is really needed, but it never hurts.
-* [`[DebuggerHidden]`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.debuggerhiddenattribute?view=net-5.0) -- used to give a hint to debugger tools that there's no need to debug this method. Some IDEs allow decompiling classes, so we want to make sure we never accidentally step into this method.
+- [`[EditorBrowsable(EditorBrowsableState.Never)]`](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.editorbrowsableattribute?view=net-5.0) -- used to _try_ and hide the class and method from IntelliSense and code completion. Not all IDEs out there respect this attribute (it's designed to be a hint), but if this class remains hidden in the IDE, there's a good chance nobody will see it.
+- [`[CompilerGenerated]`](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.compilergeneratedattribute?view=net-5.0) -- used to exclude the class from code analysis tooling. Not sure this one is really needed, but it never hurts.
+- [`[DebuggerHidden]`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.debuggerhiddenattribute?view=net-5.0) -- used to give a hint to debugger tools that there's no need to debug this method. Some IDEs allow decompiling classes, so we want to make sure we never accidentally step into this method.
 
 There are probably some more techniques to try and hide the class in the IDE, but this already goes a long way.
 
@@ -265,9 +265,9 @@ We already covered some aspects of source generators, but I want to return to th
 
 Some ideas:
 
-* You can find the `Program` class, see if it has a `CreateHostBuilder()` method, and if so, generate some code that calls it. If you have an instance of a `HostBuilder`, you have access to the service collection. That, in turn, has access to any `IConfiguration` instances in it, including what may be injected using a secret vault like Azure Key Vault, or with environment variables.
-* Similarly, you can try and find connection strings to access a database and see if there are any tables in there that contain interesting information.
-* You can [create a `Console` class in every namespace of your project](https://github.com/jakubsturc/talk-csharp-source-generators/blob/master/demo/SourceGeneratorSamples/ConsoleWritelineHighjack.cs), and do some "additional logging"...
+- You can find the `Program` class, see if it has a `CreateHostBuilder()` method, and if so, generate some code that calls it. If you have an instance of a `HostBuilder`, you have access to the service collection. That, in turn, has access to any `IConfiguration` instances in it, including what may be injected using a secret vault like Azure Key Vault, or with environment variables.
+- Similarly, you can try and find connection strings to access a database and see if there are any tables in there that contain interesting information.
+- You can [create a `Console` class in every namespace of your project](https://github.com/jakubsturc/talk-csharp-source-generators/blob/master/demo/SourceGeneratorSamples/ConsoleWritelineHighjack.cs), and do some "additional logging"...
 
 ## What can you do about any of this?
 
@@ -277,19 +277,19 @@ Ideally, somewhere in that supply chain, quality assurance steps in and discover
 That's also true for software development. We have a lot of great framework and language features that can be used to provide value, and that can be messed with, as we've seen in this post.
 So also in software development, somewhere in our supply chain, we want to have some quality control to prevent these things from happening.
 
-*"But NuGet should prevent this from happening!"* There's only so much they can do. I assume they scan packages for virus signatures and other known malware, but I managed to [upload the package from this blog post](https://www.nuget.org/packages/MaartenBalliauw.StringExtensions/) without any issue (no worries, it's deleted now). It's hard to automatically scan packages and flag them for making a DNS request. That said, perhaps a check for `ModuleInitializer` could be added, but then again, you can do similar things with MSBuild...
+_"But NuGet should prevent this from happening!"_ There's only so much they can do. I assume they scan packages for virus signatures and other known malware, but I managed to [upload the package from this blog post](https://www.nuget.org/packages/MaartenBalliauw.StringExtensions/) without any issue (no worries, it's deleted now). It's hard to automatically scan packages and flag them for making a DNS request. That said, perhaps a check for `ModuleInitializer` could be added, but then again, you can do similar things with MSBuild...
 
 The supply chain is you, your team, your IT folks, your hosting or cloud provider, package repositories themselves, and more. Everyone in the chain should be aware -- it's the [Swiss Cheese model](https://en.wikipedia.org/wiki/Swiss_cheese_model) of dependency management!
 
 Off the top of my head, here are some things to take into account:
 
-* If you see suspicious activity during development, or weird namespaces in the assembly explorer, have a look into it.
-* If your software makes unwanted DNS or HTTP requests, maybe your IT folks can catch that and report something is off.
-* The NuGet folks have been working on [best practices for a secure software supply chain](https://docs.microsoft.com/en-us/nuget/concepts/security-best-practices), where they give good advice on some things you may want to be aware of.
-* Be aware of [dependency confusion](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610), and [take measures to prevent it](https://azure.microsoft.com/en-gb/resources/3-ways-to-mitigate-risk-using-private-package-feeds/). There are many private feed vendors out there, use them!
-* Read through some recommendations [by the Linux Foundation](https://www.linuxfoundation.org/wp-content/uploads/oss_supply_chain_security.pdf).
-* Look into static analysis tools, and vendors like [WhiteSource](https://www.whitesourcesoftware.com/) and [Snyk](https://snyk.io/) to vet dependencies.
-* Don't fear source generators and all that - they have more upsides than downsides! [Here's a collection of useful source generators](https://github.com/amis92/csharp-source-generators).
+- If you see suspicious activity during development, or weird namespaces in the assembly explorer, have a look into it.
+- If your software makes unwanted DNS or HTTP requests, maybe your IT folks can catch that and report something is off.
+- The NuGet folks have been working on [best practices for a secure software supply chain](https://docs.microsoft.com/en-us/nuget/concepts/security-best-practices), where they give good advice on some things you may want to be aware of.
+- Be aware of [dependency confusion](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610), and [take measures to prevent it](https://azure.microsoft.com/en-gb/resources/3-ways-to-mitigate-risk-using-private-package-feeds/). There are many private feed vendors out there, use them!
+- Read through some recommendations [by the Linux Foundation](https://www.linuxfoundation.org/wp-content/uploads/oss_supply_chain_security.pdf).
+- Look into static analysis tools, and vendors like [WhiteSource](https://www.whitesourcesoftware.com/) and [Snyk](https://snyk.io/) to vet dependencies.
+- Don't fear source generators and all that - they have more upsides than downsides! [Here's a collection of useful source generators](https://github.com/amis92/csharp-source-generators).
 
 This is not an exhaustive checklist of measures to protect you from vulnerabilities and/or attacks. It provides some insights that I gathered along the way, but nothing more.
 

@@ -10,13 +10,14 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/03/04/phplinq-version-0-2-0-released.html
 ---
+
 Last friday, I released [PHPLinq](http://www.phplinq.net/) version 0.2.0. [LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query), or Language Integrated Query, is a component inside the .NET framework which enables you to perform queries on a variety of data sources like arrays, XML, SQL server, ... These queries are defined using a syntax which is very similar to SQL.
 
-This latest PHP version of LINQ provides almost all language constructs the "real" LINQ provides. Since regular LINQ applies to enumerators, SQL, datasets, XML, ..., I decided PHPLinq should provide the same infrastructure. Each PHPLinq query is therefore initiated by the *PHPLinq_Initiator* class. Each *PHPLinq_ILinqProvider* implementation registers itself with this initiator class, which then determines the correct provider to use. This virtually means that you can write unlimited providers, each for a different data type! Currently, an implementation on PHP arrays is included.
+This latest PHP version of LINQ provides almost all language constructs the "real" LINQ provides. Since regular LINQ applies to enumerators, SQL, datasets, XML, ..., I decided PHPLinq should provide the same infrastructure. Each PHPLinq query is therefore initiated by the _PHPLinq_Initiator_ class. Each _PHPLinq_ILinqProvider_ implementation registers itself with this initiator class, which then determines the correct provider to use. This virtually means that you can write unlimited providers, each for a different data type! Currently, an implementation on PHP arrays is included.
 
 ![PHPLinq class diagram](/images/WindowsLiveWriter/PHPLinqversion0.2.0released_108B9/image_3.png)
 
-Being able to query PHP arrays is actually very handy! Let's say you have a mixed array containing *Employee* objects and some other data types. Want only Employee objects? Try this one!
+Being able to query PHP arrays is actually very handy! Let's say you have a mixed array containing _Employee_ objects and some other data types. Want only Employee objects? Try this one!
 
 ```php
 $result = from('$employee')->in($employees)

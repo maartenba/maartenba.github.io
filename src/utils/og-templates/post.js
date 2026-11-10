@@ -5,7 +5,10 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 // Load avatar as base64 data URI at build time
-const avatarPath = resolve(process.cwd(), "public/images/avatars/maarten-2018-800x800.jpg");
+const avatarPath = resolve(
+  process.cwd(),
+  "public/images/avatars/maarten-2018-800x800.jpg"
+);
 const avatarBase64 = `data:image/jpeg;base64,${readFileSync(avatarPath).toString("base64")}`;
 
 export default async post => {
@@ -18,7 +21,8 @@ export default async post => {
       type: "div",
       props: {
         style: {
-          background: "linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #7c3aed 100%)",
+          background:
+            "linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #7c3aed 100%)",
           width: "100%",
           height: "100%",
           display: "flex",

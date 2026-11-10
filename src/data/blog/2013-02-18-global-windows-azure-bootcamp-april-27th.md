@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/02/18/global-windows-azure-bootcamp-april-27th.html
 ---
+
 On April 27th, 2013, you’ll have the ability to join a Windows Azure Bootcamp on a location close to you. We’ve started this with the idea of maybe having 10 or 15 locations world wide. We were wrong. Here’s what happened:
 
 [![](/images/image_thumb_221.png)](/images/image_259.png)

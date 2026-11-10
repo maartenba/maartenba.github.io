@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/10/10/enabling-http-proxy-for-net-webservice-client.html
 ---
+
 Have you ever written code that makes external (Soap) webservice calls? Tried that same code on your company network? Most of the time, this does not work very well due to a proxy server sitting in between, requiring authentication etc.
 
 You can start tweaking your Web.config file to set this proxy the right way, or you can override the generated web service class and include the following code snippet:

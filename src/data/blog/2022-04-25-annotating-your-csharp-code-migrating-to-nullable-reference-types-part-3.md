@@ -18,10 +18,11 @@ Today, let's look at the many options for annotating your code and various ways 
 As a result, you (and anyone consuming your libraries) will get better and more reliable hints from the IDE and the C# compiler.
 
 In this series:
-* [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)
-* [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/)
-* [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/) (this post)
-* [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/)
+
+- [Nullable reference types in C#](https://blog.maartenballiauw.be/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)
+- [Internals of C# nullable reference types](https://blog.maartenballiauw.be/posts/2022-04-19-internals-of-csharp-nullable-reference-types-migrating-to-nullable-reference-types-part-2/)
+- [Annotating your C# code](https://blog.maartenballiauw.be/posts/2022-04-25-annotating-your-csharp-code-migrating-to-nullable-reference-types-part-3/) (this post)
+- [Techniques and tools to update your project](https://blog.maartenballiauw.be/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/)
 
 ## The need for more fine-grained annotations
 
@@ -176,9 +177,9 @@ Conditional post-conditions can be used to make method arguments dependent on a 
 
 We've already seen [`NotNullWhen`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.notnullwhenattribute) and [`NotNullIfNotNull`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.notnullifnotnullattribute) earlier, and there is also [`MaybeNullWhen`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.maybenullwhenattribute).
 
-* [`MaybeNullWhen`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.maybenullwhenattribute) - A non-nullable argument may be null when the method returns the specified bool value.
-* [`NotNullWhen`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.notnullwhenattribute) - A nullable argument won't be null when the method returns the specified bool value.
-* [`NotNullIfNotNull`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.notnullifnotnullattribute) - A return value isn't null if the argument for the specified parameter isn't null.
+- [`MaybeNullWhen`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.maybenullwhenattribute) - A non-nullable argument may be null when the method returns the specified bool value.
+- [`NotNullWhen`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.notnullwhenattribute) - A nullable argument won't be null when the method returns the specified bool value.
+- [`NotNullIfNotNull`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.notnullifnotnullattribute) - A return value isn't null if the argument for the specified parameter isn't null.
 
 ### Helper methods
 
@@ -202,7 +203,7 @@ public class Person
 ```
 
 However, when compiling, you'll see a warning emitted:
-*CS8618 Non-nullable field '_id' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.*
+_CS8618 Non-nullable field '\_id' must contain a non-null value when exiting constructor. Consider declaring the field as nullable._
 
 This can be resolved by adding the [`MemberNotNull`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.membernotnullattribute) annotation on `EnsureIdentifier()`, telling the compiler that this method sets the `_id` field when it returns.
 
@@ -227,8 +228,9 @@ There's also [`MemberNotNullWhen`](https://docs.microsoft.com/en-us/dotnet/api/s
 ### Failure conditions
 
 Lastly, there are two attributes that you can use to specify when no result will be returned, and further analysis is not needed:
-* [`DoesNotReturn`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.doesnotreturnattribute) - The method or property always throws an exception, and thus never returns.
-* [`DoesNotReturnIf`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.doesnotreturnifattribute) - If the associated `bool` parameter has the specified value, the method or property always throws an exception, and thus never returns.
+
+- [`DoesNotReturn`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.doesnotreturnattribute) - The method or property always throws an exception, and thus never returns.
+- [`DoesNotReturnIf`](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.doesnotreturnifattribute) - If the associated `bool` parameter has the specified value, the method or property always throws an exception, and thus never returns.
 
 For example, this `WriteName()` method calls `ThrowArgumentNullException()` when `name` is null.
 Since that method is annotated with `DoesNotReturn`, the compiler's flow analysis now knows that the `Console.WriteLine` below will only run when `name` is not null.
@@ -265,7 +267,7 @@ For example, [Hangfire](https://www.hangfire.io/) and [Unity](https://forum.unit
 Here's a summary of the JetBrains Annotations attributes related to nullability:
 
 | Attribute                                                                                                                     | What does it mean?                                                                                                                                                                                                                                   |
-|-------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`CanBeNull`](https://www.jetbrains.com/help/resharper/Reference__Code_Annotation_Attributes.html#CanBeNullAttribute)         | Indicates that the value of the marked element could be `null` sometimes, so checking for `null` is required before its usage.                                                                                                                       |
 | [`NotNull`](https://www.jetbrains.com/help/resharper/Reference__Code_Annotation_Attributes.html#NotNullAttribute)             | Indicates that the value of the marked element can never be `null`.                                                                                                                                                                                  |
 | [`ItemNotNull`](https://www.jetbrains.com/help/resharper/Reference__Code_Annotation_Attributes.html#ItemNotNullAttribute)     | Can be applied to symbols of types derived from `IEnumerable` as well as to symbols of `Task` and `Lazy` classes to indicate that the value of a collection item, of the `Task.Result` property or of the `Lazy.Value` property can never be `null`. |
@@ -295,7 +297,7 @@ The JetBrains tools have several automated quick fixes to handle this migration 
 Second, you may be consuming a library that ships JetBrains Annotations with it.
 If you're using ReSharper or Rider, the IDE will use those annotations to help you determine whether reference types can be null (or not), even if you're using the C# annotations.
 
-I won't say they were first, but...  JetBrains were first in paving the road towards better expressing nullability in C# code bases.
+I won't say they were first, but... JetBrains were first in paving the road towards better expressing nullability in C# code bases.
 You can clearly see the similarities between JetBrains flow based analysis and the solution for nullability the C# compiler settled on.
 
 Having annotated libraries out there is of great value when migrating your own code base.
@@ -309,9 +311,9 @@ Do keep in mind that the C# compiler doesn't recognize the JetBrains Annotations
 
 The nullable annotations can also be applied to generics. Here are a few examples:
 
-* `List<string>` is a collection that contains non-null `string` elements.
-* `List<string?>` is a collection that may contain `null` elements.
-* `List<string?>?` is a collection that may be `null`, and may contain `null` elements.
+- `List<string>` is a collection that contains non-null `string` elements.
+- `List<string?>` is a collection that may contain `null` elements.
+- `List<string?>?` is a collection that may be `null`, and may contain `null` elements.
 
 But what with `List<T>`... Is `T` nullable or not? Is it a value type or a reference type?
 

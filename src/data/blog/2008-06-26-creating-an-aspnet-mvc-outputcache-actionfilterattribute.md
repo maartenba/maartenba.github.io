@@ -11,20 +11,21 @@ redirect_from:
   - /post/2008/06/26/creating-an-asp-net-mvc-outputcache-actionfilterattribute.html
   - /post/2008/06/26/creating-an-aspnet-mvc-outputcache-actionfilterattribute.html
 ---
+
 In every web application, there are situations where you want to cache the HTML output of a specific page for a certain amount of time, because underlying data and processing isn't really subject to changes a lot. This cached response is stored in the web server's memory and offers very fast responses because no additional processing is required.
 
-Using "classic" ASP.NET, one can use the *OutputCache* directive on a .aspx page to tell the ASP.NET runtime to cache the response data for a specific amount of time. Optionally, caching may vary by parameter, which results in different cached responses depending on the parameters that were passed in the URL.
+Using "classic" ASP.NET, one can use the _OutputCache_ directive on a .aspx page to tell the ASP.NET runtime to cache the response data for a specific amount of time. Optionally, caching may vary by parameter, which results in different cached responses depending on the parameters that were passed in the URL.
 
-As an extra feature, one can also send some HTTP headers to the client and tell him to load the page from  the web browser's cache until a specific amount of time has passed. Big advantage of this is that your web server will receive less requests from clients because they simply use their own caching.
+As an extra feature, one can also send some HTTP headers to the client and tell him to load the page from the web browser's cache until a specific amount of time has passed. Big advantage of this is that your web server will receive less requests from clients because they simply use their own caching.
 
-Using the ASP.NET MVC framework (preview 3, that is), output caching is still quite hard to do. Simply specifying the *OutputCache* directive in a view does not do the trick. Luckily, there's this thing called an *ActionFilterAttribute*, which lets you run code before and after a controller action executes. This *ActionFilterAttribute* class provides 4 extensibility points:
+Using the ASP.NET MVC framework (preview 3, that is), output caching is still quite hard to do. Simply specifying the _OutputCache_ directive in a view does not do the trick. Luckily, there's this thing called an _ActionFilterAttribute_, which lets you run code before and after a controller action executes. This _ActionFilterAttribute_ class provides 4 extensibility points:
 
 - OnActionExecuting occurs just before the action method is called
 - OnActionExecuted occurs after the action method is called, but before the result is executed (before the view is rendered)
 - OnResultExecuting occurs just before the result is executed (before the view is rendered)
 - OnResultExecuted occurs after the result is executed (after the view is rendered)
 
-Let's use this approach to create an *OutputCache* *ActionFilterAttribute* which allows you to decorate any controller and controller action, i.e.:
+Let's use this approach to create an _OutputCache_ _ActionFilterAttribute_ which allows you to decorate any controller and controller action, i.e.:
 
 ```csharp
 [OutputCache(Duration = 60, VaryByParam = "*", CachePolicy = CachePolicy.Server)]
@@ -35,7 +36,7 @@ Let's use this approach to create an *OutputCache* *ActionFilterAttribute* which
 
 ```
 
-We'll be using an enumeration called *CachePolicy* to tell the *OutputCache* attribute how and where to cache:
+We'll be using an enumeration called _CachePolicy_ to tell the _OutputCache_ attribute how and where to cache:
 
 ```csharp
 public enum CachePolicy
@@ -77,7 +78,7 @@ public class OutputCache : ActionFilterAttribute
 
 ## 2. Implementing server-side caching
 
-Server-side caching is a little more difficult, because there's some "dirty" tricks to use. First of all, we'll have to prepare the HTTP response to be readable for our *OutputCache* system. To do this, we first save the current HTTP context in a class variable. Afterwards, we set up a new one which writes its data to a *StringWriter* that allows reading to occur:
+Server-side caching is a little more difficult, because there's some "dirty" tricks to use. First of all, we'll have to prepare the HTTP response to be readable for our _OutputCache_ system. To do this, we first save the current HTTP context in a class variable. Afterwards, we set up a new one which writes its data to a _StringWriter_ that allows reading to occur:
 
 ```csharp
 existingContext = System.Web.HttpContext.Current;
@@ -91,7 +92,7 @@ existingContext = System.Web.HttpContext.Current;
 
 ```
 
-Using this in a *OnResultExecuting* override, the code would look like this:
+Using this in a _OnResultExecuting_ override, the code would look like this:
 
 ```csharp
 public override void OnResultExecuting(ResultExecutingContext filterContext)
@@ -164,7 +165,7 @@ public override void OnResultExecuted(ResultExecutedContext filterContext)
 
 ```
 
-Now you noticed I added a *VaryByParam* property to the *OutputCache* *ActionFilterAttribute*. When caching server-side, I can use this to vary cache storage by the parameters that are passed in. The *GenerateKey* method will actually generate a key depending on controller, action and the *VaryByParam* value:
+Now you noticed I added a _VaryByParam_ property to the _OutputCache_ _ActionFilterAttribute_. When caching server-side, I can use this to vary cache storage by the parameters that are passed in. The _GenerateKey_ method will actually generate a key depending on controller, action and the _VaryByParam_ value:
 
 ```csharp
 private string GenerateKey(ControllerContext filterContext)
@@ -197,6 +198,6 @@ private string GenerateKey(ControllerContext filterContext)
 
 ```
 
-There you go! Now note that you can add this *OutputCache* attribute to any controller and any controller action you  have in your application. The full source code is available for download here: [MvcCaching.zip (211.33 kb)](/files/2012/11/MvcCaching.zip) (full sample) or [OutputCache.zip (1.59 kb)](/files/2012/11/OutputCache.zip) (only attribute).
+There you go! Now note that you can add this _OutputCache_ attribute to any controller and any controller action you have in your application. The full source code is available for download here: [MvcCaching.zip (211.33 kb)](/files/2012/11/MvcCaching.zip) (full sample) or [OutputCache.zip (1.59 kb)](/files/2012/11/OutputCache.zip) (only attribute).
 
 **UPDATE:** Make sure to read part 2, available [here](/posts/2008-07-01-extending-aspnet-mvc-outputcache-actionfilterattribute-adding-substitution/).

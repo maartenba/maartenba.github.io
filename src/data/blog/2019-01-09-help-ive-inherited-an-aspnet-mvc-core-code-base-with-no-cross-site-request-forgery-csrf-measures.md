@@ -11,15 +11,15 @@ redirect_from:
   - /post/2019/01/09/help-ive-inherited-an-asp-net-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures.html
 ---
 
-As ASP.NET MVC developers, whether ASP.NET MVC 5 or ASP.NET MVC Core, we all know it is important to perform certain validations to prevent a *Cross-Site Request Forgery (CSRF)* attack against the application we are building. The ASP.NET MVC provides the `@Html.AntiForgeryToken()` helper which we can use to add a hidden field in the form we are posting, and a `[ValidateAntiForgeryToken]` attribute which we can decorate our action method with and instructs the framework to validate the posted token is valid (or was forged).
+As ASP.NET MVC developers, whether ASP.NET MVC 5 or ASP.NET MVC Core, we all know it is important to perform certain validations to prevent a _Cross-Site Request Forgery (CSRF)_ attack against the application we are building. The ASP.NET MVC provides the `@Html.AntiForgeryToken()` helper which we can use to add a hidden field in the form we are posting, and a `[ValidateAntiForgeryToken]` attribute which we can decorate our action method with and instructs the framework to validate the posted token is valid (or was forged).
 
-Now... Imagine inheriting a code base that has *zero* of these measures implemented? How would you find which action methods need a `[ValidateAntiForgeryToken]`? In this post series, let's look at two approaches to find those. But first, let's rewind a bit - in case you have never heard about CSRF before.
+Now... Imagine inheriting a code base that has _zero_ of these measures implemented? How would you find which action methods need a `[ValidateAntiForgeryToken]`? In this post series, let's look at two approaches to find those. But first, let's rewind a bit - in case you have never heard about CSRF before.
 
 In this series:
 
-* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/)
-* [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)
-* [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/posts/2019-01-11-unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner/)
+- [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/)
+- [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)
+- [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/posts/2019-01-11-unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner/)
 
 > **Note:** In this series, our goal is to find all places in our codebase where we need to add `[ValidateAntiForgeryToken]`. [Dominick Baier](https://twitter.com/leastprivilege) suggested that there is an [`[AutoValidateAntiforgeryTokenAttribute]`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) in ASP.NET Core which can be applied as a global filter to trigger validation of anti forgery tokens by default for an application and HTTP methods other than `GET`, `HEAD`, `OPTIONS`, and `TRACE`. And we can use the [`[IgnoreAntiforgeryTokenAttribute]`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute) for exceptional cases where no CSRF validation is required. However, I prefer being explicit in code - adding relevant attributes for CSRF validation but also those for supported HTTP methods. And that's what we will focus on in this series.
 
@@ -29,7 +29,7 @@ Let's look at the definition first:
 
 > Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated. CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request. With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker's choosing. If the victim is a normal user, a successful CSRF attack can force the user to perform state changing requests like transferring funds, changing their email address, and so forth. If the victim is an administrative account, CSRF can compromise the entire web application.
 >
-> --- [*OWASP* on *Cross-Site Request Forgery (CSRF)*](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))
+> --- [_OWASP_ on _Cross-Site Request Forgery (CSRF)_](<https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)>)
 
 There, now you know! But just in case that definition is not 100% clear, here's a quick example. Imagine you are a user of a banking application. You log in to the banking website, which typically sets a cookie so the website knows that you are you. Pretty much like any website out there.
 
@@ -50,20 +50,20 @@ Now, if our banking website does not do "CSRF validation" and accepts the post w
 
 Let's assume we are the banking website. There is a straightforward way of catching this and refusing the form post, as it did not originate from the transfer form we have on our website!
 
-> **Tip:** Read about the [synchronizer pattern](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#General_Recommendation:_Synchronizer_Token_Pattern) if you want to learn more about the ideas behind how a CSRF attack can be mitigated.
+> **Tip:** Read about the [synchronizer pattern](<https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#General_Recommendation:_Synchronizer_Token_Pattern>) if you want to learn more about the ideas behind how a CSRF attack can be mitigated.
 
-* Store another cookie value, the *session token*, an unpredictable identifier that is tied to our current session on the banking website.
-* For every form we want to post, add a hidden field with a *field token* that contains some other token related to our user and *session token*.
-* When a form post comes in, validate the *session token* and *field token*, and verify they relate to one another as expected, and if not, refuse the form post.
+- Store another cookie value, the _session token_, an unpredictable identifier that is tied to our current session on the banking website.
+- For every form we want to post, add a hidden field with a _field token_ that contains some other token related to our user and _session token_.
+- When a form post comes in, validate the _session token_ and _field token_, and verify they relate to one another as expected, and if not, refuse the form post.
 
-If I would now trick you into using my hidden form above, the post will be denied because there is no way I could come up with a proper *session token* and *field token* that corresponds to how our banking site wants to see it. Unless many people use that form while the banking website is still vulnerable, so I get some sponsorship to purchase a quantum computer and break encryption.
+If I would now trick you into using my hidden form above, the post will be denied because there is no way I could come up with a proper _session token_ and _field token_ that corresponds to how our banking site wants to see it. Unless many people use that form while the banking website is still vulnerable, so I get some sponsorship to purchase a quantum computer and break encryption.
 
 In ASP.NET MVC, this can be done by:
 
-* Adding `@Html.AntiForgeryToken()` in our form, which will add a *field token* in our form
-* Experience framework magic which will add a *session token* cookie
-* When a for is posted, call `@AntiForgery.Validate()` in Razor or add the `[ValidateAntiForgeryToken]` attribute to the action method receiving the post, which will throw an exception if these do not match.
-* There is no 4.
+- Adding `@Html.AntiForgeryToken()` in our form, which will add a _field token_ in our form
+- Experience framework magic which will add a _session token_ cookie
+- When a for is posted, call `@AntiForgery.Validate()` in Razor or add the `[ValidateAntiForgeryToken]` attribute to the action method receiving the post, which will throw an exception if these do not match.
+- There is no 4.
 
 Generally speaking, every action method that is callable from a URL (roughly speaking: `public` methods in a `Controller`) and is a `POST`, `PUT`, `PATCH`, `DELETE`, ... should do the above and validate the CSRF token.
 
@@ -71,14 +71,14 @@ Generally speaking, every action method that is callable from a URL (roughly spe
 
 Intrigued? Here are a few resources that may be of interest:
 
-* [Understand Antiforgery Token In ASP.NET MVC](https://www.c-sharpcorner.com/article/understand-antiforgeri-token-in-asp-net-mvc/), an article by Pradeep Yadav
-* [Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery), a deep-dive article that also covers Angular and AJAX calls in general.
-* Use your favorite search engine for queries like ["MVC anti forgery token"](https://duckduckgo.com/?q=mvc+anti+forgery+token&atb=v79-1__&ia=web) and the likes.
+- [Understand Antiforgery Token In ASP.NET MVC](https://www.c-sharpcorner.com/article/understand-antiforgeri-token-in-asp-net-mvc/), an article by Pradeep Yadav
+- [Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery), a deep-dive article that also covers Angular and AJAX calls in general.
+- Use your favorite search engine for queries like ["MVC anti forgery token"](https://duckduckgo.com/?q=mvc+anti+forgery+token&atb=v79-1__&ia=web) and the likes.
 
 ## What's next?
 
 Funnily enough, I started writing this post without wanting to dive into the above introduction, but that happened and this blog post became a short series...
 
-In the [next post](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/), we will look at the problem at hand: imagine inheriting a code base that has *zero* `[ValidateAntiForgeryToken]`. How can we find all action methods where this attribute should be added?
+In the [next post](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/), we will look at the problem at hand: imagine inheriting a code base that has _zero_ `[ValidateAntiForgeryToken]`. How can we find all action methods where this attribute should be added?
 
 Learn all about it in ["tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace"](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)!

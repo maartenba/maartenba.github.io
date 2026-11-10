@@ -10,11 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/11/30/windows-azure-remote-desktop-access.html
 ---
+
 The latest relase of the WIndows Azure platform, portal and tools (check [here](http://is.gd/hZVr7)) includes support for one of the features announced at PDC last month: remote desktop access to your role instances. This feature is pretty easy to use and currently allows you to deploy a preconfigured VM with IIS where you can play with the OS. No real application needed!
 
-
 Here’s how:
-
 
 1. Create a new Cloud Service and add one Web Role. This should be the result:
 

@@ -5,11 +5,24 @@ pubDatetime: 2011-12-06T13:08:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "General", "JavaScript", "jQuery", "MVC", "NuGet", "Projects", "Scalability", "Silverlight"]
+tags:
+  [
+    "ASP.NET",
+    "CSharp",
+    "General",
+    "JavaScript",
+    "jQuery",
+    "MVC",
+    "NuGet",
+    "Projects",
+    "Scalability",
+    "Silverlight",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2011/12/06/using-signalr-to-broadcast-a-slide-deck.html
 ---
+
 [![](/images/image_thumb_124.png)](/images/image_157.png)Last week, I’ve discussed [Techniques for real-time client-server communication on the web (SignalR to the rescue)](/posts/2011-11-29-techniques-for-real-time-client-server-communication/). We’ve seen that when building web applications, you often face the fact that HTTP, the foundation of the web, is a request/response protocol. A client issues a request, a server handles this request and sends back a response. All the time, with no relation between the first request and subsequent requests. Also, since it’s request-based, there is no way to send messages from the server to the client without having the client create a request first.
 
 We’ve had a look at how to tackle this problem: using Ajax polling, Long polling an WebSockets. the conclusion was that each of these solutions has it pros and cons. [SignalR](https://github.com/SignalR/SignalR), an open source project led by some Microsoft developers, is an ASP.NET library which leverages the three techniques described before to create a seamless experience between client and server.
@@ -44,7 +57,7 @@ One additional note: a Connection or a Hub are “transport agnostic”. This me
 
 ## Creating the server side
 
-First of all: make sure you have NuGet installed and install the *SignalR *package. *Install-Package SignalR* will bring down two additional packages: *SignalR.Server*, the server implementation, and *SignalR.Js*, the JavaScript libraries for communicating with the server. If your server implementation will not host the JavaScript client as well, installing *SignalR.Server* will do as well.
+First of all: make sure you have NuGet installed and install the *SignalR *package. _Install-Package SignalR_ will bring down two additional packages: _SignalR.Server_, the server implementation, and _SignalR.Js_, the JavaScript libraries for communicating with the server. If your server implementation will not host the JavaScript client as well, installing _SignalR.Server_ will do as well.
 
 We will make use of a SignalR Hub to distribute data between clients and server. A Hub has a type (the class that you create for it), a name (which is, by default, the same as the type) and inherits SignalR’s Hub class. The wireframe for our presentation Hub would look like this:
 
@@ -58,7 +71,7 @@ public class PresentationHub
 
 ```
 
-SignalR’s Hub class will do the heavy lifting for us. It will expose all public methods to any client connecting to the Hub, whether it’s a JavaScript, Console or Silverlight or even Windows Phone client. I see 4 methods for the *PresentationHub* class: *Join*, *GotoSlide*, *GotoCurrentSlide* and *GetDeckContents*. The first one serves as the starting point to identify a client is watching a specific slide deck. *GotoSlide* will be used by the presenter to navigate to slide 0, 1, 2 and so on. *GotoCurrentSlide* is one used by the viewer to go to the current slide selected by the presenter. *GetDeckContents* is one which returns the presentation structure to the client: the Title, all slides and their bullets. Let’s translate that to some C#:
+SignalR’s Hub class will do the heavy lifting for us. It will expose all public methods to any client connecting to the Hub, whether it’s a JavaScript, Console or Silverlight or even Windows Phone client. I see 4 methods for the _PresentationHub_ class: _Join_, _GotoSlide_, _GotoCurrentSlide_ and _GetDeckContents_. The first one serves as the starting point to identify a client is watching a specific slide deck. _GotoSlide_ will be used by the presenter to navigate to slide 0, 1, 2 and so on. _GotoCurrentSlide_ is one used by the viewer to go to the current slide selected by the presenter. _GetDeckContents_ is one which returns the presentation structure to the client: the Title, all slides and their bullets. Let’s translate that to some C#:
 
 ```csharp
 [HubName("presentation")]
@@ -133,16 +146,16 @@ public class PresentationHub
 
 The code should be pretty straightforward, although there are some things I would like to mention about SignalR Hubs:
 
-- The *Join* method does two things: it sets a property on the client calling into this method. That’s right: the *server* tells the *client* to set a specific property at the client side. It also adds the client to a group identified by the slide deck id. Reason for this is that we want to group clients based on the slide deck id so that we can broadcast to a group of clients instead of having to broadcast messages to all.
-- The *GotoSlide* method will be called by the presenter to advance the slide deck. It calls into *Clients[deckId]*. Remember the grouping we just did? Well, this method returns me the group of clients viewing slide deck *deckId*. We’re calling the method *showSlide* n his group. *showSlide*? That’s a method we will define on the *client* side! Again, the server is calling the client(s) here.
-- *GotoCurrentSlide* calls into one client’s *showSlide* method.
-- *GetDeckContents* just fetches the Deck from a database and returns the complete object tree to the client.
+- The _Join_ method does two things: it sets a property on the client calling into this method. That’s right: the _server_ tells the _client_ to set a specific property at the client side. It also adds the client to a group identified by the slide deck id. Reason for this is that we want to group clients based on the slide deck id so that we can broadcast to a group of clients instead of having to broadcast messages to all.
+- The _GotoSlide_ method will be called by the presenter to advance the slide deck. It calls into _Clients[deckId]_. Remember the grouping we just did? Well, this method returns me the group of clients viewing slide deck _deckId_. We’re calling the method _showSlide_ n his group. _showSlide_? That’s a method we will define on the _client_ side! Again, the server is calling the client(s) here.
+- _GotoCurrentSlide_ calls into one client’s _showSlide_ method.
+- _GetDeckContents_ just fetches the Deck from a database and returns the complete object tree to the client.
 
 Let’s continue with the web client side!
 
 ## Creating the web client side
 
-Assuming you have installed *SignalR.JS* and that you have already referenced jQuery, add the following two script references to your view:
+Assuming you have installed _SignalR.JS_ and that you have already referenced jQuery, add the following two script references to your view:
 
 ```xml
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.signalR.min.js")"></script>
@@ -165,7 +178,7 @@ The viewer of a presentation will then have to connect to the Hub on the server 
 
 ```
 
-We’ve just established a connection with the *PresentationHub* on the server side. We also start the hub connection (one call, even if you are connecting to multiple hubs at once). Of course, the code above will not do a lot. Let’s add some more body.
+We’ve just established a connection with the _PresentationHub_ on the server side. We also start the hub connection (one call, even if you are connecting to multiple hubs at once). Of course, the code above will not do a lot. Let’s add some more body.
 
 ```javascript
 <script type="text/javascript">
@@ -180,7 +193,7 @@ We’ve just established a connection with the *PresentationHub* on the server s
 
 ```
 
-Remember the *showSlide* method we were calling from the server? This is the one. We’re allowing SignalR to call into the JavaScript method *showSlide* from the server side. This will call into Deck.JS and advance the presentation. The only thing left to do is tell the server which slide deck we are interested in. We do this immediately after the connection to the hub has been established using a callback function:
+Remember the _showSlide_ method we were calling from the server? This is the one. We’re allowing SignalR to call into the JavaScript method _showSlide_ from the server side. This will call into Deck.JS and advance the presentation. The only thing left to do is tell the server which slide deck we are interested in. We do this immediately after the connection to the hub has been established using a callback function:
 
 ```javascript
 <script type="text/javascript">
@@ -211,13 +224,13 @@ Remember the *showSlide* method we were calling from the server? This is the one
 
 ```
 
-Cool, no? The presenter side of things is very similar, except that it also calls into the server’s *GotoSlide* method.
+Cool, no? The presenter side of things is very similar, except that it also calls into the server’s _GotoSlide_ method.
 
-Let’s see if we can convert this JavaScript code into come C#as well.  I promised to add a Console application to the mix to show you SignalR is not just about web. It’s also about desktop apps, Silverlight apps and Windows Phone apps. And since it’s open source, I also expect someone to contribute client libraries for Android or iPhone. David, if you are reading this: you have work to do ;-)
+Let’s see if we can convert this JavaScript code into come C#as well. I promised to add a Console application to the mix to show you SignalR is not just about web. It’s also about desktop apps, Silverlight apps and Windows Phone apps. And since it’s open source, I also expect someone to contribute client libraries for Android or iPhone. David, if you are reading this: you have work to do ;-)
 
 ## Creating the console client side
 
-Install the NuGet package *SignalR.Client*. This will add the required client library for the console application. If you’re creating a Windows Phone client, *SignalR.WP71* will do (Mango).
+Install the NuGet package _SignalR.Client_. This will add the required client library for the console application. If you’re creating a Windows Phone client, _SignalR.WP71_ will do (Mango).
 
 The first thing to do would be connecting to SignalR’s Hub metadata and creating a proxy for the presentation Hub. Note that I am using the root URL this time (which is enough) and the full type name for the Hub (important!).
 
@@ -228,7 +241,7 @@ dynamic presentation = presentationHub;
 
 ```
 
-Note that I’m also using a *dynamic* representation of this proxy. It may facilitate the rest of my code later.
+Note that I’m also using a _dynamic_ representation of this proxy. It may facilitate the rest of my code later.
 
 Next up: connecting our client to the server. SignalR makes extensive use of the Task Parallel Library (TPL) and there’s no escaping there for you. Start the connection and if something fails, let’s show the client:
 
@@ -246,7 +259,7 @@ connection.Start()
 
 ```
 
-Just like with the JavaScript client, we have to join the presentation of our choice. Again, the TPL is used here but I’m explicitly telling it to *Wait* for the result before continuing my code.
+Just like with the JavaScript client, we have to join the presentation of our choice. Again, the TPL is used here but I’m explicitly telling it to _Wait_ for the result before continuing my code.
 
 ```
 
@@ -264,7 +277,7 @@ var deck = getDeckContents.Result;
 
 ```
 
-We also want to respond to the *showSlide* method. Since there’s no means of defining that method on the client in C#in the same fashion as we did it on the JavaScript side, let’s simply use the *On* method exposed by the hub proxy. It subscribes to a server-side event (such as *showSlide*) and takes action whenever that occurs. Here’s the code:
+We also want to respond to the _showSlide_ method. Since there’s no means of defining that method on the client in C#in the same fashion as we did it on the JavaScript side, let’s simply use the _On_ method exposed by the hub proxy. It subscribes to a server-side event (such as _showSlide_) and takes action whenever that occurs. Here’s the code:
 
 ```
 

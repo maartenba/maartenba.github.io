@@ -16,7 +16,7 @@ Usually on my development machine, I run ASP.NET Core applications in Kestrel. I
 
 However, I was asked to help someone out with hosting ASP.NET Core in IIS Express. Great! The default `launchSettings.json` contain an entry for that as well, so I ran `dotnet run --launch-profile "IIS Express"`.
 
-Stupid me! .NET Core does not support IIS Express from the command-line! (it will fail, saying *The launch profile type 'IISExpress' is not supported.*, then use Kestrel anyway). In Visual Studio though, we can select the IIS Express launch profile and run it from there.
+Stupid me! .NET Core does not support IIS Express from the command-line! (it will fail, saying _The launch profile type 'IISExpress' is not supported._, then use Kestrel anyway). In Visual Studio though, we can select the IIS Express launch profile and run it from there.
 
 To my surprise, not a lot happened. IIS Express did not launch, and the IDE was quite silent as well. So I tried in a nightly build of [JetBrains Rider](https://www.jetbrains.com/rider), seeing the same.
 
@@ -32,9 +32,9 @@ Ehm. Thanks? Windows Error logs and other places were not really helpful either.
 
 So, something was wrong in IIS Express, but it refused to tell me what. Taking a step back is always a good idea: what do we need to run ASP.NET Core on IIS Express?
 
-* IIS Express, obviously
-* The .NET Core runtime ([get it here](https://dotnet.microsoft.com/download))
-* The .NET Core hosting bundle ([more info here](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#install-the-net-core-hosting-bundle))
+- IIS Express, obviously
+- The .NET Core runtime ([get it here](https://dotnet.microsoft.com/download))
+- The .NET Core hosting bundle ([more info here](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2#install-the-net-core-hosting-bundle))
 
 To be sure I had all of them installed, I re-installed them all. Only to keep seeing `Error:` in IIS Express. Huh.
 
@@ -44,10 +44,10 @@ As I mentioned before, the `dotnet` command does not support IIS Express directl
 
 This configuration file is important: IIS Express cannot host .NET Core applications out of the box. It needs to have the .NET Core hosting bundle installed in order to glue ASP.NET Core into the IIS Express hosting model. It does that by adding a module that then spawns a child process, which IIS Express forwards traffic to.
 
-Have *you* ever written such configuration file? Possibly, but most probably not. Visual Studio and Rider *generate* it for us, and store it under our solution folder in one of these locations:
+Have _you_ ever written such configuration file? Possibly, but most probably not. Visual Studio and Rider _generate_ it for us, and store it under our solution folder in one of these locations:
 
-* `.vs/config/applicationhost.config`
-* `.idea/config/applicationhost.config`
+- `.vs/config/applicationhost.config`
+- `.idea/config/applicationhost.config`
 
 After double-checking these files with a colleague, it seemed that these did not contain any mention of ASP.NET Core. More huh.
 
@@ -65,10 +65,10 @@ Now, checking `%PROGRAMFILES(x86)%\IIS Express\config\templates\PersonalWebServe
 
 The .NET Core hosting bundle should install a couple of things:
 
-* Some binaries:
-  * `%PROGRAMFILES(x86)%\IIS Express\aspnetcore.dll`
-  * `%PROGRAMFILES(x86)%\IIS Express\Asp.Net Core Module\V2\...`
-* Some updates to `%PROGRAMFILES(x86)%\IIS Express\config\templates\PersonalWebServer\applicationhost.config`
+- Some binaries:
+  - `%PROGRAMFILES(x86)%\IIS Express\aspnetcore.dll`
+  - `%PROGRAMFILES(x86)%\IIS Express\Asp.Net Core Module\V2\...`
+- Some updates to `%PROGRAMFILES(x86)%\IIS Express\config\templates\PersonalWebServer\applicationhost.config`
 
 The binaries were there, the updates in `applicationhost.config` were not. Here's what to add:
 
@@ -76,9 +76,9 @@ The binaries were there, the updates in `applicationhost.config` were not. Here'
 
 In case you want to copy/paste some things:
 
-* Under `<system.webServer><globalModules>`, add: `<add name="AspNetCoreModule" image="%IIS_BIN%\aspnetcore.dll" /><add name="AspNetCoreModuleV2" image="%IIS_BIN%\Asp.Net Core Module\V2\aspnetcorev2.dll" />`
-* Under `<sectionGroup name="system.webServer">`, add: `<section name="aspNetCore" overrideModeDefault="Allow" />`
-* Under `<location path="" overrideMode="Allow"><system.webServer><modules>`, add `<add name="AspNetCoreModule" lockItem="true" /><add name="AspNetCoreModuleV2" lockItem="true" />`
+- Under `<system.webServer><globalModules>`, add: `<add name="AspNetCoreModule" image="%IIS_BIN%\aspnetcore.dll" /><add name="AspNetCoreModuleV2" image="%IIS_BIN%\Asp.Net Core Module\V2\aspnetcorev2.dll" />`
+- Under `<sectionGroup name="system.webServer">`, add: `<section name="aspNetCore" overrideModeDefault="Allow" />`
+- Under `<location path="" overrideMode="Allow"><system.webServer><modules>`, add `<add name="AspNetCoreModule" lockItem="true" /><add name="AspNetCoreModuleV2" lockItem="true" />`
 
 Save it, remove the `.vs/config/applicationhost.config` or `.idea/config/applicationhost.config` file, try again. Things will work!
 

@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/01/17/creating-an-external-facing-azure-worker-role-endpoint.html
 ---
+
 [![](/images/image_thumb_11.png)](/images/image_33.png) When [Windows Azure](http://www.azure.com) was first released, only Web Roles were able to have an externally facing endpoint. Since [PDC 2009](http://www.microsoftpdc.com), Worker Roles can now also have an external facing endpoint, allowing for a custom application server to be hosted in a Worker Role. Another option would be to run your own WCF service and have it hosted in a Worker Role. Features like load balancing, multiple instances of the Worker are all available. Let’s see how you can create a simple TCP service that can display the current date and time.
 
-Here’s what I want to see when I connect to my Azure Worker Role using telnet (“*telnet efwr.cloudapp.net 1234*”):
+Here’s what I want to see when I connect to my Azure Worker Role using telnet (“_telnet efwr.cloudapp.net 1234_”):
 
 ![Telnet Azure Worker Role](/images/image_34.png)
 
@@ -20,22 +21,22 @@ Let’s go ahead and build this thing. Example code can be downloaded here: [Ech
 
 ## Configuring the external endpoint
 
-Fire up your Visual Studio and create a new Cloud Service, named *EchoCloud*, with one Worker Role (named *EchoWorker*). After you complete this, you should have a Windows Azure solution containing one Worker Role. Right-click the worker role and select *Properties*. Browse to the *Endpoints* tab and add a new endpoint, like so:
+Fire up your Visual Studio and create a new Cloud Service, named _EchoCloud_, with one Worker Role (named _EchoWorker_). After you complete this, you should have a Windows Azure solution containing one Worker Role. Right-click the worker role and select _Properties_. Browse to the _Endpoints_ tab and add a new endpoint, like so:
 
 ![Configuring an external endpoint on a Windows Azure Worker Role](/images/image_thumb_12.png)
 
-This new endpoint (named *EchoEndpoint*) listens on an external TCP port with port number 1234. Note that you can also make this an internal endpoint, which is an endpoint that can only be reached within your Windows Azure solution and not from an external PC. This can be useful if you wan to host a custom application server in your project and make it available for other Web and Worker Roles in your solution.
+This new endpoint (named _EchoEndpoint_) listens on an external TCP port with port number 1234. Note that you can also make this an internal endpoint, which is an endpoint that can only be reached within your Windows Azure solution and not from an external PC. This can be useful if you wan to host a custom application server in your project and make it available for other Web and Worker Roles in your solution.
 
 ## Building the worker role
 
-As you know, a Worker Role (in the *WorkerRole.cs* file in your newly created solution) consists of 3 methods that can be implemented: *OnStart*, *Run* and *OnStop*. There’s also an event handler *RoleEnvironmentChanging* available. The method names sort of speak for themselves, but allow me to explain quickly:
+As you know, a Worker Role (in the _WorkerRole.cs_ file in your newly created solution) consists of 3 methods that can be implemented: _OnStart_, _Run_ and _OnStop_. There’s also an event handler _RoleEnvironmentChanging_ available. The method names sort of speak for themselves, but allow me to explain quickly:
 
-- *OnStart()* is executed when the Worker Role is starting. Initializations and some checks can be done here.
-- *Run()* is the method which contains the actual Worker Role logic. The cool stuff goes in here :-)
-- *OnStop()* can be used to do things that should be done when the Worker Role is stopped.
-- *RoleEnvironmentChanging()* is the event handler that gets called when the environment changes: configuration changed, extra instances fired, … are possible triggers for this.
+- _OnStart()_ is executed when the Worker Role is starting. Initializations and some checks can be done here.
+- _Run()_ is the method which contains the actual Worker Role logic. The cool stuff goes in here :-)
+- _OnStop()_ can be used to do things that should be done when the Worker Role is stopped.
+- _RoleEnvironmentChanging()_ is the event handler that gets called when the environment changes: configuration changed, extra instances fired, … are possible triggers for this.
 
-Our stuff will go in the *Run()* method. We’ll be creating a new *TcpListener* which will sit and accept connections. Whenever a connection is available, it will be dispatched on a second thread that will be communicating with the client. Let’s see how we can start the *TcpListener*:
+Our stuff will go in the _Run()_ method. We’ll be creating a new _TcpListener_ which will sit and accept connections. Whenever a connection is available, it will be dispatched on a second thread that will be communicating with the client. Let’s see how we can start the _TcpListener_:
 
 ```csharp
 public class WorkerRole : RoleEntryPoint
@@ -66,7 +67,7 @@ public class WorkerRole : RoleEntryPoint
 
 ```
 
-First thing to notice is that the *TcpListener* is initialized using the IPEndpoint from the current Worker Role instance:
+First thing to notice is that the _TcpListener_ is initialized using the IPEndpoint from the current Worker Role instance:
 
 ```csharp
 listener = new TcpListener(
@@ -74,11 +75,11 @@ listener = new TcpListener(
 
 ```
 
-We could have started the *TcpListener* using a static configuration telling it to listen on TCP port 1234, but that would be difficult for the Windows Azure platform. Instead, we start the *TcpListener* using the current IPEndpoint configuration that we set earlier in this blog post. This allows the application to run on the Windows Azure production environment, as well as on the development environment available from the Windows Azure SDK. Here’s how it would work if we had multiple Worker Roles hosting this application:
+We could have started the _TcpListener_ using a static configuration telling it to listen on TCP port 1234, but that would be difficult for the Windows Azure platform. Instead, we start the _TcpListener_ using the current IPEndpoint configuration that we set earlier in this blog post. This allows the application to run on the Windows Azure production environment, as well as on the development environment available from the Windows Azure SDK. Here’s how it would work if we had multiple Worker Roles hosting this application:
 
 [![](/images/image_thumb_13.png)](/images/image_35.png)
 
-Second thing we are doing is starting the infinite loop that accepts connections and dispatches the connection to the *HandleAsyncConnection* method that will sit on another thread. This allows for having multiple connections into one Worker Role. Let’s have a look at the *HandleAsyncConnection* method:
+Second thing we are doing is starting the infinite loop that accepts connections and dispatches the connection to the _HandleAsyncConnection_ method that will sit on another thread. This allows for having multiple connections into one Worker Role. Let’s have a look at the _HandleAsyncConnection_ method:
 
 ```csharp
 private void HandleAsyncConnection(IAsyncResult result)
@@ -128,7 +129,7 @@ private void HandleAsyncConnection(IAsyncResult result)
 
 ```
 
-Code speaks for itself, no? One thing that you may find awkward is the *connectionWaitHandle.Set();*. In the previous code sample, we did *connectionWaitHandle.WaitOne();*. This means that we are not accepting any new connection until the current one is up and running. *connectionWaitHandle.Set();* signals the original thread to start accepting new connections again.
+Code speaks for itself, no? One thing that you may find awkward is the _connectionWaitHandle.Set();_. In the previous code sample, we did _connectionWaitHandle.WaitOne();_. This means that we are not accepting any new connection until the current one is up and running. _connectionWaitHandle.Set();_ signals the original thread to start accepting new connections again.
 
 ## Running the worker role
 

@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/01/06/verifying-code-and-testing-with-pex.html
 ---
+
 [![](/images/WindowsLiveWriter/VerifyingcodeandtestingwithPex_9C89/image_3.png)](http://research.microsoft.com/en-us/projects/Pex/)
 
 Earlier this week, [Katrien](http://blogs.msdn.com/katriend/) posted an update on the [list of Belgian TechDays 2009 speakers](http://blogs.msdn.com/katriend/archive/2009/01/05/techdays-2009-update-on-content-and-speakers.aspx). This post featured a summary on all sessions, of which one was titled “Pex – Automated White Box Testing for .NET”. Here’s the abstract:
@@ -22,7 +23,7 @@ After reading the second sentence in this abstract, I was thinking: “SWEET! Le
 
 First of all, download the academic release of Pex at [http://research.microsoft.com/en-us/projects/Pex/](http://research.microsoft.com/en-us/projects/Pex/). After installing this, Visual Studio 2008 (or 2010 if you are mr. or mrs. Cool), some context menus should be added. We will explore these later on in this post.
 
-What we will do next is analyzing a piece of code in a fictive library of string extension methods. The following method is intended to mimic VB6’s *Left* method.
+What we will do next is analyzing a piece of code in a fictive library of string extension methods. The following method is intended to mimic VB6’s _Left_ method.
 
 ```csharp
 /// <summary>
@@ -42,7 +43,7 @@ public static string Left(this string current, int length)
 
 ```
 
-Great coding! I even throw an *ArgumentOutOfRangeException* if I receive a faulty length parameter.
+Great coding! I even throw an _ArgumentOutOfRangeException_ if I receive a faulty length parameter.
 
 ## Pexify this!
 
@@ -54,7 +55,7 @@ A new add-in window opens in Visual Studio, showing me the output of calling my 
 
 ![Pex Exploration Results](/images/WindowsLiveWriter/VerifyingcodeandtestingwithPex_9C89/image_9.png)
 
-Frustrated, I scream: *“WHAT?!? I did write good code! Pex schmex!”* According to Pex, I didn’t. And actually, it is right. Pex explored all code execution paths in my *Left* method, of which two paths are not returning the correct results. For example, calling *Substring(0, 2)* on an empty string will throw an uncaught *ArgumentOutOfRangeException*. Luckily, Pex is also there to help.
+Frustrated, I scream: _“WHAT?!? I did write good code! Pex schmex!”_ According to Pex, I didn’t. And actually, it is right. Pex explored all code execution paths in my _Left_ method, of which two paths are not returning the correct results. For example, calling _Substring(0, 2)_ on an empty string will throw an uncaught _ArgumentOutOfRangeException_. Luckily, Pex is also there to help.
 
 When I right-click the first failing exploration, I can choose from some menu options. For example, I could assign this as a task to someone in Team Foundation Server.
 
@@ -62,7 +63,7 @@ When I right-click the first failing exploration, I can choose from some menu op
 
 [![](/images/WindowsLiveWriter/VerifyingcodeandtestingwithPex_9C89/image_thumb_3.png)](/images/WindowsLiveWriter/VerifyingcodeandtestingwithPex_9C89/image_11.png)
 
-Nice! It actually avoids the uncaught exception and provides the user of my code with a new *ArgumentException* thrown at the right location and with the right reason. After doing this for both failing explorations, my code looks like this:
+Nice! It actually avoids the uncaught exception and provides the user of my code with a new _ArgumentException_ thrown at the right location and with the right reason. After doing this for both failing explorations, my code looks like this:
 
 ```csharp
 /// <summary>

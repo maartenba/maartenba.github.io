@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/01/07/tools-for-the-lazy-templify-and-nuget.html
 ---
+
 In this blog post, I will cover two interesting tools that, when combined, can bring great value and speed at the beginning of any new software project that has to meet standards that are to be re-used for every project. The tools? [Templify](http://opensource.endjin.com/templify/) and [NuGet](http://nuget.codeplex.com/).
 
-You know the drill. Starting off with a new project usually consists of boring, repetitive tasks, often enforced by (good!) practices defined by the company you work for (or by yourself *for* that company). To give you an example of a project I’ve recently done:
+You know the drill. Starting off with a new project usually consists of boring, repetitive tasks, often enforced by (good!) practices defined by the company you work for (or by yourself _for_ that company). To give you an example of a project I’ve recently done:
 
 1. Create a new ASP.NET MVC application in Visual Studio
 2. Add 2 new projects: <project>.ViewModels and <project>.Controllers
@@ -25,7 +26,7 @@ Maybe you are planning to use jQuery UI?
 Oh right and what was that class you needed to work with MEF inside ASP.NET MVC? Let’s add that one as well:
 
 - Add the class for that
-- Add a reference to *System.ComponentModel.Composition* to the project
+- Add a reference to _System.ComponentModel.Composition_ to the project
 
 Admit it: these tasks are boring, time consuming and boring. Oh and time consuming. And boring. What if there were tools to automate a lot of this? And when I say a lot, I mean a LOT! Meet [Templify](http://opensource.endjin.com/templify/) and [NuGet](http://nuget.codeplex.com/).
 
@@ -46,13 +47,13 @@ Let’s go with the scenario I started my blog post with. You want to automate t
 Oh right and what was that class you needed to work with MEF inside ASP.NET MVC? Let’s add that one as well:
 
 - Add the class for that
-- Add a reference to *System.ComponentModel.Composition* to the project
+- Add a reference to _System.ComponentModel.Composition_ to the project
 
 Let’s automate the first part using [Templify](http://opensource.endjin.com/templify/) and the second part using [NuGet](http://nuget.codeplex.com/).
 
 ## Creating the Templify package
 
-I have some bad news for you: you’ll have to take all project setup steps one more time! Create a new solution with a common name, e.g. “templateproject”. Add project references, library references, *anything* you need for this project to be the ideal *base* solution for any new project. Here’s an overview of what I am talking about:
+I have some bad news for you: you’ll have to take all project setup steps one more time! Create a new solution with a common name, e.g. “templateproject”. Add project references, library references, _anything_ you need for this project to be the ideal _base_ solution for any new project. Here’s an overview of what I am talking about:
 
 [![](/images/image_thumb_57.png)](/images/image_87.png)
 
@@ -68,11 +69,11 @@ Click “Templify”, and behold! Nothing seems to have happened! Except for a s
 
 [![](/images/image_thumb_60.png)](/images/image_90.png)
 
-That’s basically it. If you want to redistribute your Templify package, check the *C:\Users\%USERNAME%\AppData\Roaming\Endjin\Templify\repo*  folder for that.
+That’s basically it. If you want to redistribute your Templify package, check the _C:\Users\%USERNAME%\AppData\Roaming\Endjin\Templify\repo_ folder for that.
 
 ## Creating a NuGet package
 
-For starters, you will need the *[nuget.exe](http://nuget.codeplex.com/releases/52018/download/184132)* command-line utility. If that prerequisite is on your machine, you are already half-way. And to be honest: if you read the documentation over at the [NuGet CodePlex project page](http://nuget.codeplex.com/documentation?title=Creating%20a%20Package) you are there all the way! But I’ll give you a short how-to. First, create a folder structure like this:
+For starters, you will need the _[nuget.exe](http://nuget.codeplex.com/releases/52018/download/184132)_ command-line utility. If that prerequisite is on your machine, you are already half-way. And to be honest: if you read the documentation over at the [NuGet CodePlex project page](http://nuget.codeplex.com/documentation?title=Creating%20a%20Package) you are there all the way! But I’ll give you a short how-to. First, create a folder structure like this:
 
 - content (optional)
 - lib (optional)
@@ -98,10 +99,10 @@ Next, edit the* <your package name>.nuspec* file and add relevant details for yo
 
 ```
 
-Once that’s done, simply call [*nuget.exe*](http://nuget.codeplex.com/releases/52018/download/184132) like so: *nuget pack MefDependencyResolver\mefdependencyresolver.nuspec
+Once that’s done, simply call [_nuget.exe_](http://nuget.codeplex.com/releases/52018/download/184132) like so: *nuget pack MefDependencyResolver\mefdependencyresolver.nuspec
 *Note that this can also be done using an MSBUILD command in any project.
 
-If NuGet is finished, a new package should be available, in my above situation the *MefDependencyResolver.0.0.1.nupkg* file is generated.
+If NuGet is finished, a new package should be available, in my above situation the _MefDependencyResolver.0.0.1.nupkg_ file is generated.
 
 ## Creating a NuGet feed
 

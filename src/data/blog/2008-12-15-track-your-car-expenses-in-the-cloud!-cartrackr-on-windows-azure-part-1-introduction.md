@@ -11,6 +11,7 @@ redirect_from:
   - /post/2008/12/15/track-your-car-expenses-in-the-cloud-cartrackr-on-windows-azure-part-1-introduction.html
   - /post/2008/12/15/track-your-car-expenses-in-the-cloud!-cartrackr-on-windows-azure-part-1-introduction.html
 ---
+
 As you may see in the title, I will be starting a series on modifying my [CarTrackr sample application](/posts/2008-10-21-cartrackr-sample-aspnet-mvc-application/) to a cloud-based, [Windows Azure](http://www.microsoft.com/azure) application. At this point, I don't know if it's easy nor do I know what it takes to achieve this goal. I only have some assumtions on how CarTrackr can be converted to a cloud application.
 
 This post is part 1 of the series, in which I'll describe the architecture of [Windows Azure](http://www.microsoft.com/azure) and what I think it takes to convert my ASP.NET MVC application into a cloud application.
@@ -37,9 +38,9 @@ From my [previous blog post](/posts/2008-10-21-cartrackr-sample-aspnet-mvc-appli
 
 Seriously, here's what I think needs to be done:
 
-| Concept | Current implementation | Azure implementation |
-|------|------|------|
+| Concept    | Current implementation                    | Azure implementation                                     |
+| ---------- | ----------------------------------------- | -------------------------------------------------------- |
 | Data store | Repository pattern on top of Linq to SQL. | Repository pattern (whew!) on top of Azure TableStorage. |
-| Membership | ASP.NET membership | Windows Live ID or Cloudship |
+| Membership | ASP.NET membership                        | Windows Live ID or Cloudship                             |
 
 In addition to the above table, I'll also have to make the CarTrackr solution aware of Azure. Next thing: make Azure aware of ASP.NET MVC... I'll also have to deploy this application in the cloud at the end. Stay tuned!

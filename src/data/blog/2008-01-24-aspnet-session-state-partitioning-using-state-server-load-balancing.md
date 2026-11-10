@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/01/24/asp-net-session-state-partitioning-using-state-server-load-balancing.html
 ---
+
 ![](/images/session_state_load_balancing.png)It seems like amount of posts on ASP.NET's Session State keeps growing. Here's the list:
 
 - [ASP.NET Session State Partitioning](/posts/2008-01-23-aspnet-session-state-partitioning/)
@@ -42,7 +43,7 @@ if (PerformanceCounterCategory.CounterExists("State Server Sessions Active", "AS
 
 ## 2. Creating a custom session id
 
-Somehow, ASP.NET will have to know on which server a specific session is stored. To do this, let's say we make the first character of the session id the state server id from the following *IList*:
+Somehow, ASP.NET will have to know on which server a specific session is stored. To do this, let's say we make the first character of the session id the state server id from the following _IList_:
 
 ```csharp
 IList<StateServer> stateServers = new List<StateServer>();
@@ -53,7 +54,7 @@ IList<StateServer> stateServers = new List<StateServer>();
 
 ```
 
-Next thing we'll have to do is storing these list id's in the session id. For that, we will implement a custom *System.Web.SessionState.SessionIDManager* class. This class simply creates a regular session id, locates the least-busy state server instance and assign the session to that machine:
+Next thing we'll have to do is storing these list id's in the session id. For that, we will implement a custom _System.Web.SessionState.SessionIDManager_ class. This class simply creates a regular session id, locates the least-busy state server instance and assign the session to that machine:
 
 ```csharp
 using System;
@@ -98,7 +99,7 @@ using System;
 
 ```
 
-The class we created will have to be registered in *web.config*. Here's how:
+The class we created will have to be registered in _web.config_. Here's how:
 
 ```csharp
 <configuration>
@@ -113,11 +114,11 @@ The class we created will have to be registered in *web.config*. Here's how:
 
 ```
 
-You notice our custom *SessionIdManager* class is now registered to be the *sessionIDManager*. The *PartitionResolver* I [blogged about](/posts/2008-01-23-aspnet-session-state-partitioning/) is also present in a modified version.
+You notice our custom _SessionIdManager_ class is now registered to be the _sessionIDManager_. The _PartitionResolver_ I [blogged about](/posts/2008-01-23-aspnet-session-state-partitioning/) is also present in a modified version.
 
 ### 3. Using the correct state server for a specific session id
 
-In the previous code listing, we assigned a session to a specific server. Now for ASP.NET to read session state from the correct server, we still have to use the *PartitionResolver* class:
+In the previous code listing, we assigned a session to a specific server. Now for ASP.NET to read session state from the correct server, we still have to use the _PartitionResolver_ class:
 
 ```csharp
 using System;

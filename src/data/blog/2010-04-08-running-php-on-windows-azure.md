@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/04/08/running-php-on-windows-azure.html
 ---
+
 Yesterday I did some talks on PHP and Windows Azure at [JumpIn Camp](http://www.jumpincamp.com) in Z&uuml;rich together with [Josh Holmes](http://www.joshholmes.com/blog/2010/04/07/php-on-azure-resources/). Here are the slide decks and samples we used.
 
 ## Scaling Big while Sleeping Well
@@ -38,4 +39,4 @@ This deck talks about the different storage concepts and how to use them in PHP.
 
 ## Sample code
 
-As a demo, I had *ImageCloud*, a web application similar to [Flickr](http://www.flickr.com). Here’s the sample code: [ImageCloud.rar (5.00 mb)](/images/2010/2/ImageCloud.rar)
+As a demo, I had _ImageCloud_, a web application similar to [Flickr](http://www.flickr.com). Here’s the sample code: [ImageCloud.rar (5.00 mb)](/images/2010/2/ImageCloud.rar)

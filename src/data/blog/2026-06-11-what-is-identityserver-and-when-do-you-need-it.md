@@ -6,7 +6,8 @@ modDatetime: 2026-10-06T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", ".NET", "dotnet", "security", "identityserver", "oauth", "oidc"]
+tags:
+  ["General", ".NET", "dotnet", "security", "identityserver", "oauth", "oidc"]
 author: Maarten Balliauw
 ---
 
@@ -55,7 +56,7 @@ The same goes for a single web application with a single API behind it. ASP.NET 
 
 ## When you do need it
 
-When multiple applications need to share the same authority for users and tokens, there's a big chance you need an identity provider. The moment your architecture looks like _"a web app + a mobile app +  a couple of APIs + a background service + a partner integration"_, you have a question to answer: who issues the tokens, who owns the user identities, and how do all of these things trust each other? You need one place that authenticates users once, issues tokens that all of your applications and APIs accept, and handles machine-to-machine credentials for the services that have no user at all.
+When multiple applications need to share the same authority for users and tokens, there's a big chance you need an identity provider. The moment your architecture looks like _"a web app + a mobile app + a couple of APIs + a background service + a partner integration"_, you have a question to answer: who issues the tokens, who owns the user identities, and how do all of these things trust each other? You need one place that authenticates users once, issues tokens that all of your applications and APIs accept, and handles machine-to-machine credentials for the services that have no user at all.
 
 Some other common scenarios would be:
 
@@ -65,7 +66,7 @@ Some other common scenarios would be:
 
 **External integrations.** The moment you say _"we expose an API and others integrate with it"_. Partners, customers, or third-party developers calling your APIs need a standards-based way to obtain tokens.
 
-If any of these resemble your situation, you need a central identity provider. Where IdentityServer specifically fits is when the identity logic itself is *code*. Per-tenant claim rules in a multi-tenant SaaS, custom token transformation pipelines, federating multiple upstream identity sources into a single token, compliance profiles like FAPI 2.0 that require specific protocol combinations. If your requirements are custom enough that you'd be fighting a configuration UI rather than writing C#, owning the implementation will be a better trade than working around someone else's product.
+If any of these resemble your situation, you need a central identity provider. Where IdentityServer specifically fits is when the identity logic itself is _code_. Per-tenant claim rules in a multi-tenant SaaS, custom token transformation pipelines, federating multiple upstream identity sources into a single token, compliance profiles like FAPI 2.0 that require specific protocol combinations. If your requirements are custom enough that you'd be fighting a configuration UI rather than writing C#, owning the implementation will be a better trade than working around someone else's product.
 
 It also fits when deployment constraints rule out SaaS entirely (on-premises, air-gapped, data sovereignty), or when you're an ISV embedding identity into a product you redistribute to customers.
 

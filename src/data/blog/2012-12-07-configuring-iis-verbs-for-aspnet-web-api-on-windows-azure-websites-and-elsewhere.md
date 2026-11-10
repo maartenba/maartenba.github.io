@@ -11,11 +11,12 @@ redirect_from:
   - /post/2012/12/07/configuring-iis-methods-for-asp-net-web-api-on-windows-azure-websites-and-elsewhere.html
   - /post/2012/12/07/configuring-iis-verbs-for-aspnet-web-api-on-windows-azure-websites-and-elsewhere.html
 ---
+
 That’s a pretty long title, I agree. When working on my [implementation of RFC2324](http://htcpcp.azurewebsites.net/), also known as the [HyperText Coffee Pot Control Protocol](http://tools.ietf.org/html/rfc2324), I’ve been struggling with something that you will struggle with as well in your ASP.NET Web API’s: supporting additional HTTP methods like HEAD, PATCH or PROPFIND. ASP.NET Web API has no issue with those, but when hosting them on IIS you’ll find yourself in Yellow-screen-of-death heaven.
 
 The reason why IIS blocks these methods (or fails to route them to ASP.NET) is because it may happen that your IIS installation has some configuration leftovers from another API: WebDAV. WebDAV allows you to work with a virtual filesystem (and others) using a HTTP API. IIS of course supports this (because flagship product “SharePoint” uses it, probably) and gets in the way of your API.
 
-Bottom line of the story: if you need those methods *or* want to provide your own HTTP methods, here’s the bit of configuration to add to your *Web.config* file:
+Bottom line of the story: if you need those methods _or_ want to provide your own HTTP methods, here’s the bit of configuration to add to your _Web.config_ file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -49,8 +50,8 @@ Bottom line of the story: if you need those methods *or* want to provide your ow
 
 Here’s what each part does:
 
-- Under *modules*, the WebDAVModule is being removed. Just to make sure that it’s not going to get in our way ever again.
-- The *security/requestFiltering* element I’ve added only applies if you want to define your own HTTP methods. So unless you need the *XYZ* method I’ve defined here, don’t add it to your config.
-- Under *handlers*, I’m removing the default handlers that route into ASP.NET. Then, I’m adding them again. The important part? The "*verb* attribute. You can provide a list of comma-separated methods that you want to route into ASP.NET. Again, I’ve added my *XYZ* methodbut you probably don’t need it.
+- Under _modules_, the WebDAVModule is being removed. Just to make sure that it’s not going to get in our way ever again.
+- The _security/requestFiltering_ element I’ve added only applies if you want to define your own HTTP methods. So unless you need the _XYZ_ method I’ve defined here, don’t add it to your config.
+- Under _handlers_, I’m removing the default handlers that route into ASP.NET. Then, I’m adding them again. The important part? The "_verb_ attribute. You can provide a list of comma-separated methods that you want to route into ASP.NET. Again, I’ve added my _XYZ_ methodbut you probably don’t need it.
 
 This will work on any IIS server as well as on Windows Azure Websites. It will make your API… happy.

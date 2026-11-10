@@ -5,11 +5,13 @@ pubDatetime: 2013-03-18T19:45:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "General", "NuGet", "Personal", "Projects", "Software"]
+tags:
+  ["ASP.NET", "CSharp", "General", "NuGet", "Personal", "Projects", "Software"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2013/03/18/nuget-package-source-discovery.html
 ---
+
 It’s already been 2 years since [NuGet](http://www.nuget.org) was introduced. This.NET package manager features the concept of feeds, or “package sources”, on which packages containing .NET libraries and tools can be hosted. In fact, support for feeds inspired us to build [www.myget.org](http://www.myget.org). While not all people are aware of this, Microsoft started out with two feeds as well: one for [www.nuget.org](http://www.nuget.org), the other one for the Orchard CMS.
 
 More and more feeds are being created daily, both by Microsoft as well as others. Here’s a list of feeds Microsoft has that I know of (there are probably more):
@@ -48,7 +50,7 @@ But there’s more. If you would have been authenticated when connecting to my b
 
 ## Recycling standards
 
-If you are a blogger and are using Windows Live Writer, you’ve already used this before. We’ve written the [NuGet Package Source Discovery](http://psd.myget.org/) specification based on what happens with blogs: when a simple *<link />* element is added to your HTML, you are compatible with feed discovery. Here are the two elements that are listed in the source code for my blog:
+If you are a blogger and are using Windows Live Writer, you’ve already used this before. We’ve written the [NuGet Package Source Discovery](http://psd.myget.org/) specification based on what happens with blogs: when a simple _<link />_ element is added to your HTML, you are compatible with feed discovery. Here are the two elements that are listed in the source code for my blog:
 
 ```
 
@@ -89,11 +91,11 @@ Here’s an an example:
 
 ```
 
-As you can see, using RSD we can embed a lot more information about a feed in this document. If we wanted to add a link to someone’s GitHub and have a client that wants to use this, we can add another *<api />* element in here.
+As you can see, using RSD we can embed a lot more information about a feed in this document. If we wanted to add a link to someone’s GitHub and have a client that wants to use this, we can add another _<api />_ element in here.
 
 ## Who is using this?
 
-I am ([]()), Xavier is ([http://www.xavierdecoster.com](http://www.xavierdecoster.com)), Glimpse is ([http://getglimpse.com](http://getglimpse.com)), NancyFX is ([http://www.nancyfx.org](http://www.nancyfx.org/)) and [MyGet has implemented several endpoints](http://blog.myget.org/post/2013/03/18/Support-for-Package-Source-Discovery-draft.aspx) as well. Why don't *you *join the wonderful world of package source discovery?
+I am ([](<>)), Xavier is ([http://www.xavierdecoster.com](http://www.xavierdecoster.com)), Glimpse is ([http://getglimpse.com](http://getglimpse.com)), NancyFX is ([http://www.nancyfx.org](http://www.nancyfx.org/)) and [MyGet has implemented several endpoints](http://blog.myget.org/post/2013/03/18/Support-for-Package-Source-Discovery-draft.aspx) as well. Why don't *you *join the wonderful world of package source discovery?
 
 ## Feedback needed!
 

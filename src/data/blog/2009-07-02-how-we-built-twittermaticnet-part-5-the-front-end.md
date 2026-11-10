@@ -11,7 +11,8 @@ redirect_from:
   - /post/2009/07/02/how-we-built-twittermatic-net-part-5-the-front-end.html
   - /post/2009/07/02/how-we-built-twittermaticnet-part-5-the-front-end.html
 ---
-*[![](/images/twittermatic1015.png)](http://www.twittermatic.net/)**“After having found a god-like guardian for his application, Knight Maarten The Brave Coffeedrinker found out that his application still had no functional front-end. It’s OK to have a guardian and a barn in the cloud, but if there’s nothing to guard, this is a bit useless. Having asked the carpenter and the smith of the village, our knight decided that the so-called “ASP.NET MVC” framework might help in his quest.”*
+
+_[![](/images/twittermatic1015.png)](http://www.twittermatic.net/)**“After having found a god-like guardian for his application, Knight Maarten The Brave Coffeedrinker found out that his application still had no functional front-end. It’s OK to have a guardian and a barn in the cloud, but if there’s nothing to guard, this is a bit useless. Having asked the carpenter and the smith of the village, our knight decided that the so-called “ASP.NET MVC” framework might help in his quest.”_
 
 This post is part of a series on how we built [TwitterMatic.net](http://www.twittermatic.net/). Other parts:
 
@@ -29,7 +30,7 @@ In [part 2 of this series](/posts/2009-07-02-how-we-built-twittermaticnet-part-2
 
 ### Action methods
 
-The *Create* action method will look like this:
+The _Create_ action method will look like this:
 
 ```csharp
 // GET: /Tweet/Create
@@ -78,11 +79,11 @@ public ActionResult Create(int UtcOffset, string SendOnDate, string SendOnTime, 
 
 ```
 
-As you can see, we’re doing the regular GET/POST differentiation here: GET to show the *Create* view, POST to actually do something with user-entered data. Nothing too fancy in the code, just passing some data to the repository we created in an earlier post.
+As you can see, we’re doing the regular GET/POST differentiation here: GET to show the _Create_ view, POST to actually do something with user-entered data. Nothing too fancy in the code, just passing some data to the repository we created in an earlier post.
 
 ### Views
 
-The view for our *Create* action is slightly more work. I’ve noticed a cool date picker at [http://ui.jquery.com](http://ui.jquery.com), and a cool time picker at [http://haineault.com/media/jquery/ui-timepickr/page/](http://haineault.com/media/jquery/ui-timepickr/page/). Why not use them both?
+The view for our _Create_ action is slightly more work. I’ve noticed a cool date picker at [http://ui.jquery.com](http://ui.jquery.com), and a cool time picker at [http://haineault.com/media/jquery/ui-timepickr/page/](http://haineault.com/media/jquery/ui-timepickr/page/). Why not use them both?
 
 Here’s the plain, simple view, no jQuery used:
 
@@ -138,7 +139,7 @@ Nothing fancy in there: just a boring data-entry form. Now let’s spice that on
 
 ```
 
-We’re telling jQuery to make a datepicker of the DOM element with id *#SendOnDate*, and to make a timepickr of the element *#SendOnTime*. Now let’s add some more useful things:
+We’re telling jQuery to make a datepicker of the DOM element with id _#SendOnDate_, and to make a timepickr of the element _#SendOnTime_. Now let’s add some more useful things:
 
 ```csharp
 <script type="text/javascript">
@@ -163,15 +164,15 @@ We’re telling jQuery to make a datepicker of the DOM element with id *#SendOnD
 
 ```
 
-jQuery will now do some more things when the page has loaded: we’re telling the browser to call *calcCharsLeft* every time a key is pressed in the message text area. This way, we can add a fancy character counter next to the text box, which receives different colors when certain amount of text is entered.
+jQuery will now do some more things when the page has loaded: we’re telling the browser to call _calcCharsLeft_ every time a key is pressed in the message text area. This way, we can add a fancy character counter next to the text box, which receives different colors when certain amount of text is entered.
 
 ## Validation: using DataAnnotations
 
 In the action methods listed earlier in this post, you may have noticed that we are not doing a lot of validation checks. Except for the “Time in the future” check, we’re actually not doing any validation at all!
 
-The reason for not having any validation calls in my controller’s action method, is that I’m using a different model binder than the default one: the [ASP.NET MVC team’s DataAnnotationsModelBinder](http://bradwilson.typepad.com/blog/2009/04/dataannotations-and-aspnet-mvc.html?cid=6a00e54fbd8c49883401156fb1291d970c). This model binder makes use of the *System.ComponentModel.DataAnnotations* namespace to perform validation at the moment of binding data to the model. This concept was used for [ASP.NET Dynamic Data](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=27026), recently picked up by the [RIA services](http://blogs.msdn.com/brada/archive/2009/03/19/what-is-net-ria-services.aspx) team and now also available for ASP.NET MVC.
+The reason for not having any validation calls in my controller’s action method, is that I’m using a different model binder than the default one: the [ASP.NET MVC team’s DataAnnotationsModelBinder](http://bradwilson.typepad.com/blog/2009/04/dataannotations-and-aspnet-mvc.html?cid=6a00e54fbd8c49883401156fb1291d970c). This model binder makes use of the _System.ComponentModel.DataAnnotations_ namespace to perform validation at the moment of binding data to the model. This concept was used for [ASP.NET Dynamic Data](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=27026), recently picked up by the [RIA services](http://blogs.msdn.com/brada/archive/2009/03/19/what-is-net-ria-services.aspx) team and now also available for ASP.NET MVC.
 
-Basically, what we have to do, is decorating our *TimedTweet* class’ properties with some *DataAnnotations*:
+Basically, what we have to do, is decorating our _TimedTweet_ class’ properties with some _DataAnnotations_:
 
 ```csharp
 public class TimedTweet : TableStorageEntity, IComparable
@@ -195,7 +196,7 @@ public class TimedTweet : TableStorageEntity, IComparable
 
 ```
 
-See how easy this is? Add a *[Required]* attribute to make a property required. Add a *[StringLength]* attribute to make sure a certain length is not crossed, … The *DataAnnotationsModelBinder* will use these hints as a guide to perform validation on your model.
+See how easy this is? Add a _[Required]_ attribute to make a property required. Add a _[StringLength]_ attribute to make sure a certain length is not crossed, … The _DataAnnotationsModelBinder_ will use these hints as a guide to perform validation on your model.
 
 ## Conclusion
 

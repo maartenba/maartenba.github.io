@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/03/28/developer-amp-it-pro-days-ghent-day-1.html
 ---
+
 Day one of the Belgium Developer & IT Pro days is finished. I've been attending some inspiring sessions. First of all, [Jelle Druyts](http://jelle.druyts.net/) showed us a quick overview of the [Guidance Automation Toolkit](http://msdn2.microsoft.com/en-us/teamsystem/aa718948.aspx). Interesting, and usable in many situations as standard Visual Studio templates do not always fulfill all your needs.
 
 Afterwards, [Jeff Prosise](http://www.wintellect.com) spoke on using background threads in ASP.NET web sites, and how this can speed things up (a lot!).

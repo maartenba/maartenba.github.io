@@ -11,17 +11,18 @@ redirect_from:
   - /post/2008/05/13/asp-net-mvc-custom-actionresult-imageresult.html
   - /post/2008/05/13/aspnet-mvc-custom-actionresult.html
 ---
-The ASP.NET MVC framework introduces the concept of returning an *ActionResult* in *Controller*s since the "preview preview" [release on CodePlex](http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640). The purpose of this concept is to return a generic *ActionResult* object for each *Controller* method, allowing different child classes returning different results.
 
-An example ActionResult (built-in) is the *RenderViewResult*. Whenever you want to render a view, you can simply return an object of this class which will render a specific view in its *ExecuteResult* method. Another example is the *HttpRedirectResult* which will output an HTTP header (Location: /SomethingElse.aspx).
+The ASP.NET MVC framework introduces the concept of returning an _ActionResult_ in *Controller*s since the "preview preview" [release on CodePlex](http://www.codeplex.com/aspnet/Release/ProjectReleases.aspx?ReleaseId=12640). The purpose of this concept is to return a generic _ActionResult_ object for each _Controller_ method, allowing different child classes returning different results.
 
-In my opinion, this is a great concept, because it allows you to develop ASP.NET MVC applications more transparently. In this blog post, I will build a custom *ActionResult* class which will render an image to the HTTP response stream.
+An example ActionResult (built-in) is the _RenderViewResult_. Whenever you want to render a view, you can simply return an object of this class which will render a specific view in its _ExecuteResult_ method. Another example is the _HttpRedirectResult_ which will output an HTTP header (Location: /SomethingElse.aspx).
+
+In my opinion, this is a great concept, because it allows you to develop ASP.NET MVC applications more transparently. In this blog post, I will build a custom _ActionResult_ class which will render an image to the HTTP response stream.
 
 [![](/images/WindowsLiveWriter/ASP.NETMVCcustomActionResultImageResult_D717/image_thumb_2.png)](/images/WindowsLiveWriter/ASP.NETMVCcustomActionResultImageResult_D717/image_6.png)As an example, let's create a page which displays the current time as an image.
 
-One option for implementing this would be creating an ASP.NET HttpHandler which renders this image and can be used inline with a simple HTML tag: *![](DisplayTime.ashx)*
+One option for implementing this would be creating an ASP.NET HttpHandler which renders this image and can be used inline with a simple HTML tag: _![](DisplayTime.ashx)_
 
-Wouldn't it be nice to be able to do something more ASP.NET MVC-like? Let's consider the following: *<%=Html.Image<HomeController>(c => c.DisplayTime(), 200, 50, "Current time")%>*
+Wouldn't it be nice to be able to do something more ASP.NET MVC-like? Let's consider the following: _<%=Html.Image<HomeController>(c => c.DisplayTime(), 200, 50, "Current time")%>_
 
 ## 1. Creating the necessary HtmlHelper extension methods
 
@@ -47,7 +48,7 @@ public static class ImageResultHelper
 
 ## 2. The custom ActionResult class
 
-Our new *ImageResult* class will inherit the abstract class *ActionResult* and implement its *ExecuteResult* method. This method basically performs communication over the HTTP response stream.
+Our new _ImageResult_ class will inherit the abstract class _ActionResult_ and implement its _ExecuteResult_ method. This method basically performs communication over the HTTP response stream.
 
 ```csharp
 public class ImageResult : ActionResult
@@ -83,7 +84,7 @@ public class ImageResult : ActionResult
 
 ## 3. A "DisplayTime" action on the HomeController
 
-We'll add a *DisplayTime* action on the *HomeController* class, which will return an instance of the newly created class *ImageResult*:
+We'll add a _DisplayTime_ action on the _HomeController_ class, which will return an instance of the newly created class _ImageResult_:
 
 ```csharp
 public ActionResult DisplayTime()
@@ -97,7 +98,7 @@ public ActionResult DisplayTime()
 
 ```
 
-And just to be complete, here's the markup of the index view on the *HomeController*:
+And just to be complete, here's the markup of the index view on the _HomeController_:
 
 ```csharp
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="MvcApplication1.Views.Home.Index" %>

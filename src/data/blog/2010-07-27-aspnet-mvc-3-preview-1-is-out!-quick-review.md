@@ -11,6 +11,7 @@ redirect_from:
   - /post/2010/07/27/asp-net-mvc-3-preview-1-is-out-quick-review.html
   - /post/2010/07/27/aspnet-mvc-3-preview-1-is-out!-quick-review.html
 ---
+
 I just noticed a very interesting download: [ASP.NET MVC 3 preview 1](http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=cb42f741-8fb1-4f43-a5fa-812096f8d1e8&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+MicrosoftDownloadCenter+%28Microsoft+Download+Center%29#tm). Yes, you are reading this correctly, the first bits for v3.0 are there! Let’s have a quick look around and see what’s new...
 
 ## Razor Syntax View Engine
@@ -87,13 +88,13 @@ So far for the controller side, there’s also the view side. Have a look at thi
 
 ```
 
-A lot of new stuff there, right? First of all the Razor syntax, but secondly… There’s just something like *@View.Message* in this view, and this is rendering something from the ViewData dictionary/dynamic object. Again: very readable and understandable.
+A lot of new stuff there, right? First of all the Razor syntax, but secondly… There’s just something like _@View.Message_ in this view, and this is rendering something from the ViewData dictionary/dynamic object. Again: very readable and understandable.
 
 It’s a small change on the surface, but I do like it. In my opinion, it’s more readable than using the ViewData dictionary when you are not using a custom view model.
 
 ## Global action filters
 
-Imagine you have a team of developers, all writing controllers. Imagine that they have to add the* [HandleError]* action filter to every controller, and they sometimes tend to forget… That’s where global action filters come to the rescue! Add this line to *Global.asax*:
+Imagine you have a team of developers, all writing controllers. Imagine that they have to add the* [HandleError]* action filter to every controller, and they sometimes tend to forget… That’s where global action filters come to the rescue! Add this line to _Global.asax_:
 
 ```csharp
 GlobalFilters.Filters.Add(new HandleErrorAttribute());
@@ -132,9 +133,9 @@ More on that in my next post on ASP.NET MVC 3, as I think it deserves a full pos
 
 Not very ground-skaing news, but there's a new set of ActionResult variants available which will make your life easier:
 
-- *HttpNotFoundResult* - Speaks for itself, right :-)
-- *HttpStatusCodeResult* - How about [new HttpStatusCodeResult(418, "I'm a teapot");](http://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol)
-- *RedirectPermanent*, *RedirectToRoutePermanent*, *RedirectToActionPermanent* - Writes a permanent redirect header
+- _HttpNotFoundResult_ - Speaks for itself, right :-)
+- _HttpStatusCodeResult_ - How about [new HttpStatusCodeResult(418, "I'm a teapot");](http://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol)
+- _RedirectPermanent_, _RedirectToRoutePermanent_, _RedirectToActionPermanent_ - Writes a permanent redirect header
 
 ## Conclusion
 

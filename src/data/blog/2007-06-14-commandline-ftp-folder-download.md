@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/06/14/commandline-ftp-folder-download.html
 ---
+
 A quick annoyed post... I just spent two hours searching the Internet for a means on how to recursively download a complete FTP folder, command-line, and in a simple way. Oh yeah, and preferably freeware.
 
 The solutions I found were not what I expected: a $50 software product providing a GUI (I said command-line! [:@]), a bloated scheduler thingy that does download in the background (I said simple! [8o|]), to batch-files relying on Windows built-in ftp.exe and a gigantic list of all files that need to be downloaded.

@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/01/28/techdays-2009-agenda-has-been-posted.html
 ---
+
 Just a quick note: the [Belgian TechDays 2009 agenda](http://www.microsoft.com/belux/techdays/developers.aspx) has been published. You can find it on the [TechDays website](http://www.microsoft.com/belux/techdays/). Also, Katrien has posted some more details on the agenda on [her blog](http://blogs.msdn.com/katriend/archive/2009/01/27/techdays-2009-more-confirmed-sessions.aspx).
 
 Hope to see you at the TechDays in Antwerp!

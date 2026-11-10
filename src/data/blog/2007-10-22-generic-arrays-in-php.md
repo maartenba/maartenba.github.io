@@ -10,7 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/10/22/generic-arrays-in-php.html
 ---
-Assuming everyone knows what [generics](http://en.wikipedia.org/wiki/Generic_programming) are, let's get down to business right away. PHP does not support generics or something similar, though it could be very useful in PHP development.  Luckily, using some standard OO-practises, a semi-generic array can easily be created, even in multiple ways! Here's the road to PHP generics.
+
+Assuming everyone knows what [generics](http://en.wikipedia.org/wiki/Generic_programming) are, let's get down to business right away. PHP does not support generics or something similar, though it could be very useful in PHP development. Luckily, using some standard OO-practises, a semi-generic array can easily be created, even in multiple ways! Here's the road to PHP generics.
 
 # The hard way...
 

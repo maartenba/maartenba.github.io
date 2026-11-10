@@ -5,11 +5,22 @@ pubDatetime: 2011-09-28T12:33:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "General", "NuGet", "Personal", "Projects", "Software", "Source control"]
+tags:
+  [
+    "ASP.NET",
+    "CSharp",
+    "General",
+    "NuGet",
+    "Personal",
+    "Projects",
+    "Software",
+    "Source control",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2011/09/28/setting-up-a-nuget-repository-in-seconds-myget-public-feeds.html
 ---
+
 <!-- {EAV_BLOG_VER:eb87d9403f2dec17} -->
 
 A few months ago, my colleague [Xavier Decoster](http://www.xavierdecoster.com) and I [introduced](/posts/2011-05-31-creating-your-own-private-nuget-feed-myget/) MyGet as a tool where you can create your own, private NuGet feeds. A couple of weeks later we introduced some options to [delegate feed privileges](/posts/2011-06-29-delegate-feed-privileges-to-other-users-on-myget/) to other [MyGet](http://www.myget.org) users allowing you to make another MyGet user “co-admin” or “contributor” to a feed. Since then we’ve expanded our view on the NuGet ecosystem and moved MyGet from a solution to create your private feeds to a service that allows you to set up a NuGet feed, whether private or public.
@@ -25,7 +36,7 @@ Setting up a public feed on MyGet is similar to setting up a private feed. In fa
 
 [![](/images/image_thumb_112.png)](/images/image_144.png)
 
-This new feed may be named “public”, however it is private by obscurity: if someone knows the URL to the feed, he/she can consume packages from it. Let’s change that. Go to the “Feed Security” tab and have a look at the assigned privileges for *Everyone*. By default, these are set to “Can consume this feed”, meaning that everyone can add the feed URL to Visual Studio and consume packages. Other options are “No access” (requires authentication prior to being able to consume the feed) and “Can contribute own packages to this feed”. This last one is what we want:
+This new feed may be named “public”, however it is private by obscurity: if someone knows the URL to the feed, he/she can consume packages from it. Let’s change that. Go to the “Feed Security” tab and have a look at the assigned privileges for _Everyone_. By default, these are set to “Can consume this feed”, meaning that everyone can add the feed URL to Visual Studio and consume packages. Other options are “No access” (requires authentication prior to being able to consume the feed) and “Can contribute own packages to this feed”. This last one is what we want:
 
 [![](/images/image_thumb_113.png)](/images/image_145.png)
 
@@ -47,5 +58,4 @@ If you want to have users push packages using nuget.exe or [NuGet Package Explor
 
 Enjoy!
 
-
-*PS: We’re working on lots more, but will probably provide that in a MyGet Premium version. Make sure to subscribe to our newsletter on *[*www.myget.org*](http://www.myget.org)* if this is of interest.*
+_PS: We’re working on lots more, but will probably provide that in a MyGet Premium version. Make sure to subscribe to our newsletter on *[*www.myget.org*](http://www.myget.org)* if this is of interest._

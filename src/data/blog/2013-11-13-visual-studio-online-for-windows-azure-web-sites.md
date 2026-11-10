@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/11/13/visual-studio-online-for-windows-azure-web-sites.html
 ---
+
 Today’s official Visual Studio 2013 launch provides some interesting novelties, especially for Windows Azure Web Sites. There is now the choice of choosing which pipeline to run in (classic or integrated), we can define separate applications in subfolders of our web site, debug a web site right from within Visual Studio. But the most impressive one is this. How about… an in-browser editor for your application?
 
 [![](/images/image_thumb_269.png)](/images/image_308.png)
@@ -24,7 +25,7 @@ On the left-hand menu, we can select the feature to work with. Explore does as i
 
 [![](/images/image_thumb_271.png)](/images/image_310.png)
 
-Most actions in the editor come with keyboard shortcuts, for example ***Ctrl+,*** opens navigation towards files in our application.
+Most actions in the editor come with keyboard shortcuts, for example _**Ctrl+,**_ opens navigation towards files in our application.
 
 [![](/images/image_thumb_272.png)](/images/image_311.png)
 

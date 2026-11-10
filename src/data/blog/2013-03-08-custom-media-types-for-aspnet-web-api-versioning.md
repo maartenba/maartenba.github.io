@@ -11,19 +11,20 @@ redirect_from:
   - /post/2013/03/08/custom-media-types-for-asp-net-web-api-versioning.html
   - /post/2013/03/08/custom-media-types-for-aspnet-web-api-versioning.html
 ---
+
 There is a raging discussion on the interwebs on whether to version API’s by using their URL or by using a custom media type. Some argue that doing it in the URL breaks REST (since a different URL is a different resource while versions don’t necessarily mean a new resource is available). While I still feel good about both approaches, I guess it depends on the domain you are working with.
 
-But that is not the topic of this talk. I recently found a [sample on CodePlex providing support for routing versioned URL’s](http://aspnet.codeplex.com/SourceControl/changeset/view/0e68a22781fd#Samples/WebApi/NamespaceControllerSelector/ReadMe.txt) to different namespaces. In short, it maps */api/v1/values* to *MyApp.V1.Controllers* and /*api/v2/values* to *MyApp.V2.Controllers*. Great! But that only supports the URL-versioning side of the discussion. Let’s implement this sample and build ASP.NET Web API support for versioning an API using custom media types…
+But that is not the topic of this talk. I recently found a [sample on CodePlex providing support for routing versioned URL’s](http://aspnet.codeplex.com/SourceControl/changeset/view/0e68a22781fd#Samples/WebApi/NamespaceControllerSelector/ReadMe.txt) to different namespaces. In short, it maps _/api/v1/values_ to _MyApp.V1.Controllers_ and /_api/v2/values_ to _MyApp.V2.Controllers_. Great! But that only supports the URL-versioning side of the discussion. Let’s implement this sample and build ASP.NET Web API support for versioning an API using custom media types…
 
 ## Custom Media Types
 
-If you have no clue about what I am talking about, no worries. I’ll give you a quick primer on this using [the GitHub API](http://developer.github.com/v3/media/) as an example. Since their API version 3, endpoints for the API (or “resource addresses”) will no longer change every version of the API. Instead, they will be parsing the *Accept* HTTP header to determine the incoming message version and the expected response version.
+If you have no clue about what I am talking about, no worries. I’ll give you a quick primer on this using [the GitHub API](http://developer.github.com/v3/media/) as an example. Since their API version 3, endpoints for the API (or “resource addresses”) will no longer change every version of the API. Instead, they will be parsing the _Accept_ HTTP header to determine the incoming message version and the expected response version.
 
-Getting a list of repositories from the API? The URL will always be */users/repos*. However different incoming and outgoing responses are possible, varying based on their media types. Want to use the V3 message format in JSON? Use *application/vnd.github.v3+json*. Prefer the V3 message format in XML? Use* application/vnd.github.v3+xml*. Whenever they update their messages, they can add a new media type such as *application/vnd.github.v4* without changing any URL. Nifty trick, aye? Let’s do this for our own API.
+Getting a list of repositories from the API? The URL will always be _/users/repos_. However different incoming and outgoing responses are possible, varying based on their media types. Want to use the V3 message format in JSON? Use _application/vnd.github.v3+json_. Prefer the V3 message format in XML? Use* application/vnd.github.v3+xml*. Whenever they update their messages, they can add a new media type such as _application/vnd.github.v4_ without changing any URL. Nifty trick, aye? Let’s do this for our own API.
 
 ## IHttpControllerSelector
 
-The *IHttpControllerSelector* interface allows you to interfere in selecting the right controller for the current request. This is an ideal location for grabbing all contextual information and providing ASP.NET Web API with a controller based on that context.
+The _IHttpControllerSelector_ interface allows you to interfere in selecting the right controller for the current request. This is an ideal location for grabbing all contextual information and providing ASP.NET Web API with a controller based on that context.
 
 ```csharp
 public class AcceptHeaderControllerSelector : IHttpControllerSelector
@@ -153,7 +154,7 @@ public class AcceptHeaderControllerSelector : IHttpControllerSelector
 
 ```
 
-To be honest, I did not write much code in this. I grabbed the *IHttpControllerSelector* implementation [from the sample on CodePlex](http://aspnet.codeplex.com/SourceControl/changeset/view/0e68a22781fd#Samples/WebApi/NamespaceControllerSelector/ReadMe.txt) and added just these lines to check the *Accept* header instead.
+To be honest, I did not write much code in this. I grabbed the _IHttpControllerSelector_ implementation [from the sample on CodePlex](http://aspnet.codeplex.com/SourceControl/changeset/view/0e68a22781fd#Samples/WebApi/NamespaceControllerSelector/ReadMe.txt) and added just these lines to check the _Accept_ header instead.
 
 ```csharp
 // Get the namespace and controller variables from the route data.
@@ -173,11 +174,11 @@ if (namespaceName == null)
 
 ```
 
-The real logic in finding out the version that is called is delegated to the user of this *IHttpControllerSelector*. Let’s wire it up!
+The real logic in finding out the version that is called is delegated to the user of this _IHttpControllerSelector_. Let’s wire it up!
 
 ## Wiring it up
 
-ASP.NET Web API has a lot of “plugs”, among which there’s one where we can plug in our custom *IHttpControllerSelector*, Let’s override the default one and add our own:
+ASP.NET Web API has a lot of “plugs”, among which there’s one where we can plug in our custom _IHttpControllerSelector_, Let’s override the default one and add our own:
 
 ```csharp
 config.Services.Replace(typeof(IHttpControllerSelector),
@@ -200,9 +201,9 @@ config.Services.Replace(typeof(IHttpControllerSelector),
 
 ```
 
-As you can see, we can pass in a lambda which gets called with the contents of the *Accept* header and must return the namespace obtained from the header. The above example will work when using the version property of a header, e.g.: *application/json;version=1.0* and *application/json;version=2.0*. The last statement returns “v2” as the default version when no specific media header is given. Return *null* if you want this to result in a *404 Page Not Found*.
+As you can see, we can pass in a lambda which gets called with the contents of the _Accept_ header and must return the namespace obtained from the header. The above example will work when using the version property of a header, e.g.: _application/json;version=1.0_ and _application/json;version=2.0_. The last statement returns “v2” as the default version when no specific media header is given. Return _null_ if you want this to result in a _404 Page Not Found_.
 
-Using this header scheme is recommended but of course other options are possible. It’s *your* lambda!
+Using this header scheme is recommended but of course other options are possible. It’s _your_ lambda!
 
 Another approach would be going "GitHub style" and use things like *application/vnd.api.v1+json *and similar?
 

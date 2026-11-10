@@ -10,11 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/05/07/linuxwochen-austria.html
 ---
+
 As part of my global domination plans, I this week visited [Vienna, Austria](http://maps.google.com/maps?f=q&source=s_q&hl=nl&geocode=&q=Vienna,+Austria&sll=37.0625,-95.677068&sspn=42.581364,68.466797&ie=UTF8&hq=&hnear=Wenen,+Oostenrijk&t=h&z=11) for a session at [Linuxwochen](http://www.linuxwochen.at) around PHP on Windows.
 
 ## PHP on Windows
 
-Abstract: *“Ever wanted to get started with PHP development on Windows? This session covers the basics of running PHP on the Windows platform and will help getting your development environment ready.”*
+Abstract: _“Ever wanted to get started with PHP development on Windows? This session covers the basics of running PHP on the Windows platform and will help getting your development environment ready.”_
 
 <strong style="display:block;margin:12px 0 4px">[PHP on Windows](http://www.slideshare.net/maartenba/php-on-windows-4003807)</strong><object id="__sse4003807" width="425" height="355">
 

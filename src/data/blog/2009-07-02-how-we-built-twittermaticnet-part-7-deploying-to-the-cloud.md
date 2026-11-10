@@ -11,7 +11,8 @@ redirect_from:
   - /post/2009/07/02/how-we-built-twittermatic-net-part-7-deploying-to-the-cloud.html
   - /post/2009/07/02/how-we-built-twittermaticnet-part-7-deploying-to-the-cloud.html
 ---
-*[![](/images/twittermatic1015%5B4%5D%5B4%5D.png)](http://www.twittermatic.net/)**“K**night Maarten The Brave Coffeedrinker had managed all there is to building an application to interact with the great god of social networking, [Twitter](http://www.twitter.com). A barn in the cloud, worker roles, web roles, a gate keeper, … The moment of truth came near: would the application survive if it was thrown at the azure cloud? Would the digital villagers like the application?”*
+
+_[![](/images/twittermatic1015%5B4%5D%5B4%5D.png)](http://www.twittermatic.net/)**“K**night Maarten The Brave Coffeedrinker had managed all there is to building an application to interact with the great god of social networking, [Twitter](http://www.twitter.com). A barn in the cloud, worker roles, web roles, a gate keeper, … The moment of truth came near: would the application survive if it was thrown at the azure cloud? Would the digital villagers like the application?”_
 
 This post is part of a series on how we built [TwitterMatic.net](http://www.twittermatic.net/). Other parts:
 
@@ -43,6 +44,6 @@ Ask your ISP to fix this for you, or check [Steve marx’ blog post](http://blog
 
 ## Conclusion
 
-*[![](/images/logorealdolmen_2.jpg)](http://www.realdolmen.com) “Everything seemed to fall in place. A moment of peace was about to fall on the digital village, since the digital villagers could now tell the latest stories, even when they were asleep or busy working. Knight Maarten The Brave Coffeedrinker finished his job. A sample application in the cloud was created. It was time for him to move on to a new quest.”*
+_[![](/images/logorealdolmen_2.jpg)](http://www.realdolmen.com) “Everything seemed to fall in place. A moment of peace was about to fall on the digital village, since the digital villagers could now tell the latest stories, even when they were asleep or busy working. Knight Maarten The Brave Coffeedrinker finished his job. A sample application in the cloud was created. It was time for him to move on to a new quest.”_
 
 If you want the source code for Twitter*Matic*, check [http://twittermatic.codeplex.com](http://twittermatic.codeplex.com).

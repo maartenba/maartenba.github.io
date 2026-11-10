@@ -5,12 +5,14 @@ pubDatetime: 2009-02-23T07:25:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "General", "jQuery", "MVC", "Silverlight", "Software"]
+tags:
+  ["ASP.NET", "CSharp", "General", "jQuery", "MVC", "Silverlight", "Software"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2009/02/23/creating-an-asp-net-mvc-application-with-google-gears.html
 ---
-Offline web applications… This term really sounds like 2 different things: offline, no network, and web application, online. *Maarten, you speak in riddles man!* Let me explain the term…
+
+Offline web applications… This term really sounds like 2 different things: offline, no network, and web application, online. _Maarten, you speak in riddles man!_ Let me explain the term…
 
 You probably have been working with Gmail or Google Docs. One of the features with those web applications is that they provide an “offline mode”, which allows you to access your e-mail and documents locally, when an Internet connection is not available. When a connection is available, those items are synchronized between your PC and the application server. This offline functionality is built using JavaScript and a Google product called [Google Gears](http://gears.google.com/).
 
@@ -18,11 +20,11 @@ In this blog post, I will be building a simple notebook application using the AS
 
 ## What is this Gears-thingy?
 
-According to the [Google Gears website](http://gears.google.com/): *Gears is an open source project that enables more powerful web applications, by adding new features to your web browser:*
+According to the [Google Gears website](http://gears.google.com/): _Gears is an open source project that enables more powerful web applications, by adding new features to your web browser:_
 
-- *Let web applications interact naturally with your desktop*
-- *Store data locally in a fully-searchable database*
-- *Run JavaScript in the background to improve performance*
+- _Let web applications interact naturally with your desktop_
+- _Store data locally in a fully-searchable database_
+- _Run JavaScript in the background to improve performance_
 
 Sounds like a good thing. I always wanted to make a web application that I could use offline, too. After reading the tutorial on [Google Gears](http://code.google.com/intl/nl-NL/apis/gears/tutorial.html), I learned some things. Google Gears consists of an offline JavaScript extension framework, installed on your PC, together with a SQLite database. Second, there are some different components built on this client side installation:
 
@@ -43,7 +45,7 @@ Sounds like a good thing. I always wanted to make a web application that I could
 - Read-only offline access: I can use the [LocalServer](http://code.google.com/apis/gears/api_localserver.html) to simply cache all rendered pages for my notes and display these cached pages locally.
 - Synchronized offline access: I can use the [Database](http://code.google.com/apis/gears/api_database.html) component of Google Gears to create a local database containing notes and which I can synchronize with the ASP.NET MVC web application.
 
-*Note: Also check the [architecture page](http://code.google.com/intl/nl-NL/apis/gears/architecture.html) on Google Gears documentation. It covers some strategies on the latter option.*
+_Note: Also check the [architecture page](http://code.google.com/intl/nl-NL/apis/gears/architecture.html) on Google Gears documentation. It covers some strategies on the latter option._
 
 Choices… But which to choose? Let’s not decide yet and first build the “online only” version of the application.
 
@@ -51,9 +53,9 @@ Choices… But which to choose? Let’s not decide yet and first build the “on
 
 Not too many details, the application is pretty straightforward. It’s a simple ASP.NET MVC web application built on top of a SQL Server database using LINQ to SQL. I’ve used a repository pattern to access this data using a defined interface, so I can easily mock my data context when writing tests (which I will NOT for this blog post, but you know you should).
 
-The data model is easy: ASP.NET membership tables (aspnet_Users) linked to a table *Note*, containing title, body and timestamp of last change.
+The data model is easy: ASP.NET membership tables (aspnet_Users) linked to a table _Note_, containing title, body and timestamp of last change.
 
-On the ASP.NET MVC side, I’ve used this repository pattern and LINQ to SQL generated classes using the *Add view…* menu a lot (check [ScottGu’s post on this](http://weblogs.asp.net/scottgu/archive/2009/01/27/asp-net-mvc-1-0-release-candidate-now-available.aspx) to see the magic…). Here’s a screenshot of the application:
+On the ASP.NET MVC side, I’ve used this repository pattern and LINQ to SQL generated classes using the _Add view…_ menu a lot (check [ScottGu’s post on this](http://weblogs.asp.net/scottgu/archive/2009/01/27/asp-net-mvc-1-0-release-candidate-now-available.aspx) to see the magic…). Here’s a screenshot of the application:
 
 ![image](/images/WindowsLiveWriter/Creatin.NETMVCapplicationwithGoogleGears_7484/image_2f31ee79-7c39-4014-818b-8111cc98d610.png)
 
@@ -65,11 +67,11 @@ Next steps: deciding the road to follow and implementing it in the ASP.NET MVC a
 
 Refer to the choices I listed: “I can use the [LocalServer](http://code.google.com/apis/gears/api_localserver.html) to simply cache all rendered pages for my notes and display these cached pages locally.” Let’s try this one!
 
-The [tutorial on Google Gears’ LocalServer](http://code.google.com/intl/nl-NL/apis/gears/tutorial.html) states we need a *manifest.json* file, containing all info related to which pages should be made available offline. Great, but I don’t really want to maintain this. On top of that, offline access will need different files for each user since every user has different notes and so on. Let’s create some helper logic for that!
+The [tutorial on Google Gears’ LocalServer](http://code.google.com/intl/nl-NL/apis/gears/tutorial.html) states we need a _manifest.json_ file, containing all info related to which pages should be made available offline. Great, but I don’t really want to maintain this. On top of that, offline access will need different files for each user since every user has different notes and so on. Let’s create some helper logic for that!
 
 ### Autogenerating the manifest.json class
 
-Let’s add a new *Controller*: the *GearsController*. We will generate a list of urls to cache in here and disguise it as a *manifest.json* file. Here’s the disguise (to be added in your route table):
+Let’s add a new _Controller_: the _GearsController_. We will generate a list of urls to cache in here and disguise it as a _manifest.json_ file. Here’s the disguise (to be added in your route table):
 
 ```csharp
 routes.MapRoute(
@@ -80,7 +82,7 @@ routes.MapRoute(
 
 ```
 
-And here’s (a real short snippet of) the controller, automatically adding a lot of URL’s that I want to be accessible offline. Make sure to download the example code (see further in this post) to view the complete *GearsController* class.
+And here’s (a real short snippet of) the controller, automatically adding a lot of URL’s that I want to be accessible offline. Make sure to download the example code (see further in this post) to view the complete _GearsController_ class.
 
 ```csharp
 List<object> urls = new List<object>();
@@ -99,9 +101,9 @@ The goodness of ASP.NET MVC! A manifest is built using JSON, and ASP.NET MVC pla
 
 ### Going offline…
 
-Next step: going offline! The tutorial I mentioned before contains some example files on how to do this. We need *gears_init.js* to set up the Google Gears environment. Check! We also need a JavaScript file setting up the local instance, caching data. Some development and… here it is: *demo_offline.js*.
+Next step: going offline! The tutorial I mentioned before contains some example files on how to do this. We need _gears_init.js_ to set up the Google Gears environment. Check! We also need a JavaScript file setting up the local instance, caching data. Some development and… here it is: _demo_offline.js_.
 
-This *demo_offline.js* script is built using [jQuery](http://www.jquery.com) and Google Gears code. Let’s step trough a small part, make sure to download the example code (see further in this post) to view the complete file contents.
+This _demo_offline.js_ script is built using [jQuery](http://www.jquery.com) and Google Gears code. Let’s step trough a small part, make sure to download the example code (see further in this post) to view the complete file contents.
 
 ```csharp
 // Bootstrapper (page load)
@@ -159,9 +161,9 @@ $(function() {
 
 What we are doing here is checking if Google gears has permisison to store data from this site on the local PC. If so, it is initialized. Next, we check if we already have something cached. If not, we wire up some code for the “Go offline” link, which will trigger the creation of a local cache on click. If we already have a cache, let’s do things different…
 
-First, we call a simple method on the GearsController class (abstarcted in the *checkOnline* JavaScript function), checking if we can reach the server. If so, we assume we are online and ask Google Gears to check for updated contents. We always want the latest notes available! However, if this function says we are offline, we look for al links stating “Edit” or “Create New” on the current page and disable them. Read-only we said, so we are not caching “Edit” pages anyway. This is just cosmetics to make sure users will not see browser errors when clicking “Edit”.
+First, we call a simple method on the GearsController class (abstarcted in the _checkOnline_ JavaScript function), checking if we can reach the server. If so, we assume we are online and ask Google Gears to check for updated contents. We always want the latest notes available! However, if this function says we are offline, we look for al links stating “Edit” or “Create New” on the current page and disable them. Read-only we said, so we are not caching “Edit” pages anyway. This is just cosmetics to make sure users will not see browser errors when clicking “Edit”.
 
- ![Going offline!](/images/WindowsLiveWriter/Creatin.NETMVCapplicationwithGoogleGears_7484/image_066755aa-e3b1-4864-a5a3-098d11c61966.png)
+![Going offline!](/images/WindowsLiveWriter/Creatin.NETMVCapplicationwithGoogleGears_7484/image_066755aa-e3b1-4864-a5a3-098d11c61966.png)
 
 ### Conlusion for this approach
 

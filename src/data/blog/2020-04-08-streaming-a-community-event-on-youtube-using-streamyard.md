@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2020/04/08/streaming-a-community-event-on-youtube-using-streamyard.html
 ---
+
 Last week, I wrote ~~a blog post~~ a book about [Streaming a Community Event on YouTube - Sharing the Technologies and Learnings from Virtual Azure Community Day](/posts/2020-04-02-streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day/). I ended that post with an appendix of things I've looked into but have no experience with.
 
 That... changed! Our [Azure User Group](https://www.azug.be/) held its first virtual session yesterday. The social aspect of hanging out with a group of peers was definitely amiss, but the streaming went well! This ime, we streamed on YouTube, with the help of StreamYard. I'll write some observations and thoughts that [build on the previous blog post](/posts/2020-04-02-streaming-a-community-event-on-youtube-sharing-the-technologies-and-learnings-from-virtual-azure-community-day/).
@@ -70,9 +71,9 @@ This is what the broadcast studio looked like during the first session:
 
 Things to note:
 
-* The screen you see in the StreamYard studio is what is being broadcast. No production mode like OBS Studio where you can stage the scene and then push it live.
-* Grayed-out participants at the bottom are not visible, but also not audible. If you have a host & a speaker, or two speakers at once, make sure to make them all visible in order to also make them audible.
-* Just below the scene that is being broadcast, there are a couple of scenes to choose from. Pick webcam view of one speaker, multiple speakers, speaker & screen, etc.
+- The screen you see in the StreamYard studio is what is being broadcast. No production mode like OBS Studio where you can stage the scene and then push it live.
+- Grayed-out participants at the bottom are not visible, but also not audible. If you have a host & a speaker, or two speakers at once, make sure to make them all visible in order to also make them audible.
+- Just below the scene that is being broadcast, there are a couple of scenes to choose from. Pick webcam view of one speaker, multiple speakers, speaker & screen, etc.
 
 During the sessions, we switched scenes every once in a while, putting emphasis on the speaker, their screen, or both.
 
@@ -85,6 +86,7 @@ For future live streams, we may keep talking during the session switch and not m
 One thing StreamYard does really well, is aggregating questions & comments. We were streaming on YouTube and Facebook, and their UI showed questions, comments, and remarks from all channels. We could even show them on screen, to engage both audience & speaker!
 
 > I turn on the TV and apparently we have a new channel [#AZUGTV](https://twitter.com/hashtag/AZUGTV?src=hash&ref_src=twsrc%5Etfw) complete with its year 2000 sms chatbox. [pic.twitter.com/rdU1sw2pmY](https://t.co/rdU1sw2pmY)— Jordi Borghers (@JordiBorghers) [April 7, 2020](https://twitter.com/JordiBorghers/status/1247565806067748865?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Like with the OBS Streaming, we found that seeding the conversation a bit helps with interactivity. If you're ever joining a live stream, use the chat, as it's the only connection speakers have with the audience other than their own image in the reflection of their webcam!

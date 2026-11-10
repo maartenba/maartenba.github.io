@@ -10,36 +10,34 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2014/06/20/what-happened-to-code-spaces-could-happen-to-you-on-amazon-azure-and-any-host-out-there.html
 ---
+
 Earlier this week, a sad thing happened to the version control hosting service [Code Spaces](http://www.codespaces.com/). A malicious person gained access to their Amazon control panel and after demanding a ransom to the owners of Code Spaces, that malicious person started deleting data and EC2 instances. After a couple of failed attempts from Code Spaces to stop this from happening, the impossible happened: the hacker rendered Code Spaces dead. Everything that was their business is gone. As they state themselves:
 
 > Code Spaces will not be able to operate beyond this point, the cost of resolving this issue to date and the expected cost of refunding customers who have been left without the service they paid for will put Code Spaces in a irreversible position both financially and in terms of on going credibility.
-
 
 That’s sad. Sad for users, sad for employees and sad for business owner. Some nutcase destroyed a flourishing business over the course of 12 hours. Horrible! But the most horrible thing? It can happen to you! Or as [Jeff Atwood](http://twitter.com/codinghorror) stated:
 
 [![](/images/image_thumb_289.png)](https://twitter.com/codinghorror/status/479880707540406272)
 
-The fact that this could happen is bad. But security is what it is: there is always this chance of something happening, whatever we do to mitigate as much of this as possible. Any service out there, whether Amazon Microsoft Azure or your hosting control panel are open for everyone with a username and password. Being a Microsoft Azure fan, I’ll use this post to scare *everyone* using the service and tools about what can happen. Knowing about what can happen is the first step towards mitigating it.
+The fact that this could happen is bad. But security is what it is: there is always this chance of something happening, whatever we do to mitigate as much of this as possible. Any service out there, whether Amazon Microsoft Azure or your hosting control panel are open for everyone with a username and password. Being a Microsoft Azure fan, I’ll use this post to scare _everyone_ using the service and tools about what can happen. Knowing about what can happen is the first step towards mitigating it.
+
 ##
 
 ## Disclaimer and setting the stage
 
-
 What I do NOT want to do in this post is go into the technical details of every potential mishap that can happen. We’re all developers, there’s a myriad of search engines out there that can present us with all the details. I also do not want to give people the tools to do these mishaps. I’ll give you some theory on what could happen but I don’t want to be the guy who told people to be evil. Don’t. I deny any responsibility for potential consequences of this post.
 
-
 ## Microsoft Account
-
 
 Every Microsoft Azure subscription is linked to either an organizational account or a Microsoft Account. Earlier this week, I saw someone tweet that they had 32 Microsoft Azure subscriptions linked to their Microsoft Account. If I were looking to do bad things there, I’d try and get access to that account using any of the approaches available. Trying to gain access, some social engineering, anything! 32 subscriptions is a lot of ransom I could ask for. And with potentially 20 cores of CPU available in all of them, it’s also an ideal target to go and host some spam bots or some machines to perform a DDoS.
 
 What can we do with our Microsoft Account to make it all a bit more secure?
+
 - Enable 2-factor authentication on your Microsoft Account. Do it!
 - Partition. Have one Microsoft Account for every subscription. With a different, complex password.
 - Managing this many subscriptions with this many accounts is hard. Don’t be tempted to make all the accounts “Administrators” on all of the subscriptions. It’s convenient and you will have one single logon to manage it all, but it broadens the potential attack surface again.
 
 ## Certificates, PowerShell, the Command Line, NuGet and Visual Studio
-
 
 The Microsoft Azure Management API’s can be used to do virtually anything you can do through the management portal. And more! Access to the management API is secured using a certificate that you have to upload to the portal. Great! Unless that management certificate was generated on your end without any security in mind. Not having a passphrase to use it or storing that passphrase on your system means that anyone with access to your computer could, in theory, use the management API with that certificate. But this is probably unlikely since as an attacker I’d have to have access to your computer. There are more clever ways!
 
@@ -50,11 +48,11 @@ Not possible, you say? You never install any software that is out there? And you
 Not using any of the PowerShell or cross-platform tools? No worries: attackers could also leverage the* $dte* object and invoke stuff inside Visual Studio and trigger any of the ample commands available in there. You may notice something in the activity log when this happens, but still.
 
 What can we do to use these tools but make it a bit more secure?
+
 - Think about good certificate management. Give them a shorter lifetime, replace them every now and then. Don’t store passphrases.
 - Using the PowerShell or cross-platform tools? Make sure that after every use you either invalidate the credential used. Don’t just set the active subscription in these tools to null. There’s a list command of which an attacker could set the currect subscription id.
 - That publish settings file? It contains the management certificate. Don't distribute it.
 - Automate using all the tools! But not on all developer machines, do it on the build server.
-
 
 All these tools are very useful and handy to work with, but use them with some common sense. If you have other tips for locking it all down, leave them in the comments.
 

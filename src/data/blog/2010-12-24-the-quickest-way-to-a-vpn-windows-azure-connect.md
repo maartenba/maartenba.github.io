@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/12/24/the-quickest-way-to-a-vpn-windows-azure-connect.html
 ---
+
 [![](/images/1_thumb_1.png)](/images/1_1.png)First of all: Merry Christmas in advance! But to be honest, I already have my Christmas present… I’ll give you a little story first as it’s winter, dark outside and stories are better when it’s winter and you are reading this post n front of your fireplace. Last week, I received the beta invite for [Windows Azure Connect](http://www.microsoft.com/windowsazure/virtualnetwork/default.aspx), a simple and easy-to-manage mechanism to setup IP-based network connectivity between on-premises and Windows Azure resources. Being targeted at interconnecting Windows Azure instances to your local network, it also contains a feature that allows interconnecting endpoints. Interesting!
 
 Now why would that be interesting… Well, I recently moved into my own house, having lived with my parents since birth, now 27 years ago. During that time, I bought a [Windows Home Server](http://www.microsoft.com/windows/products/winfamily/windowshomeserver/default.mspx) that was living happily in our home network and making backups of my PC, my work laptop, my father’s PC and laptop and my brother’s laptop. Oh right, and my virtual server hosting this blog and some other sites. Now what on earth does this have to do with Windows Azure Connect? Well, more then you may think…
@@ -46,11 +47,11 @@ As a side node: it would be great if one endpoint could be joined to multiple �
 
 ## Some findings
 
-Just for the techies out there, here’s some findings… Let’s start with doing an *ipconfig /all* on one of the interconnected machines:
+Just for the techies out there, here’s some findings… Let’s start with doing an _ipconfig /all_ on one of the interconnected machines:
 
 [![](/images/image_thumb_54.png)](/images/image_84.png)
 
-Windows Azure Connect really is a virtual PPP adapter added to your machine. It operates over IPv6. Let’s see if we can ping other machines. *Ebh-vm05* is the virtual machine hosting my blog, running in a datacenter near Brussels. I’m issuing this ping command from my work laptop in my parents home network near Antwerp. Here goes:
+Windows Azure Connect really is a virtual PPP adapter added to your machine. It operates over IPv6. Let’s see if we can ping other machines. _Ebh-vm05_ is the virtual machine hosting my blog, running in a datacenter near Brussels. I’m issuing this ping command from my work laptop in my parents home network near Antwerp. Here goes:
 
 [![](/images/image_thumb_55.png)](/images/image_85.png)
 

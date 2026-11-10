@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/12/18/cartrackr-on-windows-azure-part-4-membership-and-authentication.html
 ---
+
 This post is part 4 of my series on [Windows Azure](http://www.microsoft.com/azure), in which I'll try to convert my ASP.NET MVC application into a cloud application. The current post is all about implementing authentication in CarTrackr.
 
 Other parts:
@@ -22,7 +23,7 @@ Other parts:
 
 ## Picking a solution...
 
-In my [opening post on this series](/posts/2008-12-15-track-your-car-expenses-in-the-cloud-cartrackr-on-windows-azure-part-1-introduction/), i defined some tasks which i would probably have to do prior to being able to run cartrackr on azure. for membership and authentication, i defined 2 solutions:  [cloudship](http://dotnetslackers.com/articles/aspnet/azure-cloudship-membership-provider-for-the-cloud.aspx) or [Windows Live ID](http://dev.live.com/liveid/).
+In my [opening post on this series](/posts/2008-12-15-track-your-car-expenses-in-the-cloud-cartrackr-on-windows-azure-part-1-introduction/), i defined some tasks which i would probably have to do prior to being able to run cartrackr on azure. for membership and authentication, i defined 2 solutions: [cloudship](http://dotnetslackers.com/articles/aspnet/azure-cloudship-membership-provider-for-the-cloud.aspx) or [Windows Live ID](http://dev.live.com/liveid/).
 
 At first, [Cloudship](http://dotnetslackers.com/articles/aspnet/Azure-Cloudship-Membership-Provider-for-the-Cloud.aspx) looked really nice as it is just an implementation of ASP.NET's provider model based on Azure. Some thinking cycles later, this did not feel right for CarTrackr... For CarTrackr, authentication only would be enough, membership would be real overkill.
 
@@ -42,7 +43,7 @@ First of all, add the [WindowsLiveLogin.cs](http://www.codeplex.com/MvcMembershi
 
 ```
 
-Now, I always like removing code. Actually, a lot of methods can be removed from the *AuthenticationController* due to the fact that Live ID will take care of lost password e-mails and stuff like that. After these stripping actions, my *AccountController* looks like the following:
+Now, I always like removing code. Actually, a lot of methods can be removed from the _AuthenticationController_ due to the fact that Live ID will take care of lost password e-mails and stuff like that. After these stripping actions, my _AccountController_ looks like the following:
 
 ```csharp
 using System;
@@ -200,7 +201,7 @@ namespace CarTrackr.Controllers
 
 Yes, that's almost no code left compared to the original! Remember, Live ID will take care of all user-account-related stuff for me. The only thing I'm doing here is accepting the authentication ticket Live ID provides to CarTrackr. Yes, I'm actually registering the user on my cloud storage too, because I want to track how much users actually use CarTrackr...
 
-One thing to notice: I've created an action filter attribute (hence the [LiveLogin] attribute on the *AccountController* class). The *LiveLogin* action filter looks like the following:
+One thing to notice: I've created an action filter attribute (hence the [LiveLogin] attribute on the _AccountController_ class). The _LiveLogin_ action filter looks like the following:
 
 ```csharp
 using System;
@@ -246,7 +247,7 @@ namespace CarTrackr.Filters
 
 ```
 
-What hapens in this code is actually checking for the Live ID context we are in. This context can be used in any view of CarTrackr since it is stored in the *ViewData* dictionary by this action filter: ViewData["WindowsLiveLogin"]. This context is used by a simple *LiveIdControl* (code in download later on) to render the Live ID sign in / sign out link.
+What hapens in this code is actually checking for the Live ID context we are in. This context can be used in any view of CarTrackr since it is stored in the _ViewData_ dictionary by this action filter: ViewData["WindowsLiveLogin"]. This context is used by a simple _LiveIdControl_ (code in download later on) to render the Live ID sign in / sign out link.
 
 ## Reminder for deployment...
 

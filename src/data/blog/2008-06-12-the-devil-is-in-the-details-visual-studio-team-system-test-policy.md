@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/06/12/the-devil-is-in-the-details-visual-studio-team-system-test-policy.html
 ---
+
 Have you ever been in a difficult situation where a software product is overall very good, but a small detail is going wrong? At least I've been, for the past week...
 
 Team System allows [check-in policies](http://msdn.microsoft.com/en-us/library/ms181281.aspx) to be enforced prior to checking in your code. One of these policies is the unit testing policy, which allows you to enforce a specific test list to be run prior to checking in your code.

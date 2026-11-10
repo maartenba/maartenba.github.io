@@ -11,6 +11,7 @@ redirect_from:
   - /post/2009/08/04/accessing-serviceconfiguration-in-fastcgi-php-web-role.html
   - /post/2009/08/04/accessing-serviceconfiguration-in-fastcgi-(php)-web-role.html
 ---
+
 While working on a sample PHP application hosted on Windows Azure, I found that it is nearly impossible to retrieve information from the Windows Azure ServiceConfiguration.cscfg file. Also, it is impossible to write log messages to the Windows Azure Web Role. Well, both are not 100% impossible: you can imagine dirty hacks where you let a ASP.NET page do something from PHP and stuff like that. But how about a clean solution? How about… A PHP extension module?
 
 I’ll not be going into detail on how this module was built, but there is a native C++ RoleManager implementation in the Windows Azure samples. Using the resources listed below, I managed to create a PHP extension module, wrapping this RoleManager. The result? You can now retrieve configuration values from the ServiceConfiguration.
@@ -22,7 +23,7 @@ $storageAccount = azure_getconfig(“StorageAccount”);
 
 ```
 
-Next to this, logging is now also exposed: simply call *azure_log()* and you’re done:
+Next to this, logging is now also exposed: simply call _azure_log()_ and you’re done:
 
 ```csharp
 azure_log(AZURE_LOG_INFORMATION, “This is cool!”);
@@ -43,7 +44,7 @@ $pathMaxSizeInMb = azure_getlocalresourcepathsize('teststore');
 Want to use it in your own PHP applications hosted on Windows Azure?
 
 - Download the php_azure.dll (see below) and make sure you have it in your /path/to/php/ext folder
-- Register the extension in php.ini: *extension=php_azure.dll*
+- Register the extension in php.ini: _extension=php_azure.dll_
 
 ## Downloads
 

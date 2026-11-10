@@ -25,13 +25,13 @@ To make it easier to get started with creating NuGet packages from `.csproj`, I 
 
 How to get it? [From NuGet of course!](https://www.nuget.org/packages/DotNetInit)
 
-	Install-Package DotNetInit
+    Install-Package DotNetInit
 
 Or edit your `.csproj` and add:
 
-	<ItemGroup>
-		<DotNetCliToolReference Include="DotNetInit" Version="*" />
-	</ItemGroup>
+    <ItemGroup>
+    	<DotNetCliToolReference Include="DotNetInit" Version="*" />
+    </ItemGroup>
 
 After a package restore, simply run `dotnet init` and get prompted for basic NuGet properties like the package id, version, description and a few others. Once completed, the tool saves the project file and adds all properties into our `.csproj`:
 
@@ -62,10 +62,10 @@ For example, we could add a tool that is specific to the project we're working o
 
 The .NET CLI tools [can be extended in several ways](https://github.com/dotnet/docs/blob/master/docs/core/tools/extensibility.md), but in essence it all boils down to this:
 
-* Create a console application (in .NET Core or regular .NET, that choice only matters if you want to make the tool cross-platform)
-* The output assembly name should be `dotnet-<something>` so that `dotnet` can pick it up
-* We need to create a NuGet package out of it, and add the following MSBuild property: `<PackageType>DotnetCliTool</PackageType>` (case-sensitive!)
-* Publish it somewhere so people can reference it using the `DotNetCliToolReference` element
+- Create a console application (in .NET Core or regular .NET, that choice only matters if you want to make the tool cross-platform)
+- The output assembly name should be `dotnet-<something>` so that `dotnet` can pick it up
+- We need to create a NuGet package out of it, and add the following MSBuild property: `<PackageType>DotnetCliTool</PackageType>` (case-sensitive!)
+- Publish it somewhere so people can reference it using the `DotNetCliToolReference` element
 
 Code for my `dotnet init` tool is [on GitHub](https://github.com/maartenba/dotnetcli-init). It's a .NET Core console application, and by adding the following properties in `.csproj` we can make it a tools package:
 

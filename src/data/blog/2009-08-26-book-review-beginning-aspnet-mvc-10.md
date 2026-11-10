@@ -11,6 +11,7 @@ redirect_from:
   - /post/2009/08/26/book-review-beginning-asp-net-mvc-1-0.html
   - /post/2009/08/26/book-review-beginning-aspnet-mvc-10.html
 ---
+
 [![](/images/image_10.png)](http://www.amazon.com/gp/product/047043399X?ie=UTF8&tag=maabalblo-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=047043399X) It sure looks like August 2009 is the month in which I found multiple books on my doormat for review. Last week I did ASP.NET 3.5 CMS Development, this time I’ll be reviewing a competitor to my own book on ASP.NET MVC, [ASP.NET MVC 1.0 Quickly](http://www.amazon.com/dp/184719754X?tag=maabalblo-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=184719754X&adid=1X4WGF0SE0JW94CGFYP0&): [Simone Chiaretta](http://codeclimber.net.nz) and [Keyvan Nayyeri](http://nayyeri.net/)’s “[Beginning ASP.NET MVC 1.0](http://www.amazon.com/gp/product/047043399X?ie=UTF8&tag=maabalblo-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=047043399X)”.
 
 Let’s start with the “official book overview”, which I usually copy-paste from Amazon. This book will learn you:

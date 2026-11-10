@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/05/29/detailed-code-metrics-with-ndepend.html
 ---
+
 A while ago, I blogged about [code performance analysis in Visual Studio 2008](/posts/2008-02-07-code-performance-analysis-in-visual-studio-2008/). Using profiling and hot path tracking, I measured code performance and was able to react to that. Last week, [Patrick Smacchia](http://codebetter.com/blogs/patricksmacchia/) contacted me asking if I wanted to test his project [NDepend](http://www.ndepend.com/). He promised me NDepend would provide more insight in my applications. Let's test that!
 
 After [downloading](http://www.ndepend.com/NDependDownload.aspx), extracting and starting NDepend, an almost familiar interface shows up. Unfortunately, the interface that shows up after analyzing a set of assemblies is a little bit overwhelming... Note that this overwhelming feeling fades away after 15 minutes: the interface shows the information you want in a very efficient way! Here's the analysis of a personal "wine tracking" application I wrote 2 years ago.
@@ -20,11 +21,11 @@ Let's start with the obvious... One of the graphs N<u>Depend</u> generates, is a
 
 ![Dependencies mapped](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_19.png)
 
-One thing I can see from this, is that there probably is an assembly too much! *WijnDatabase.Classes* could be a candidate for merging into *WijnDatabase*, the GUI project. These dependencies are also shown in the dependency window.
+One thing I can see from this, is that there probably is an assembly too much! _WijnDatabase.Classes_ could be a candidate for merging into _WijnDatabase_, the GUI project. These dependencies are also shown in the dependency window.
 
 [![](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_20.png)](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_8.png)
 
-You can see (in the upper right corner) that 38 methods of the *WijnDatabase* assembly are using 5 members of *WijnDatabase.Classes*. Left-click this cell, and have more details on this! A diagram of boxes clearly shows my methods in a specific form calling into *WijnDatabase.Classes*.
+You can see (in the upper right corner) that 38 methods of the _WijnDatabase_ assembly are using 5 members of _WijnDatabase.Classes_. Left-click this cell, and have more details on this! A diagram of boxes clearly shows my methods in a specific form calling into _WijnDatabase.Classes_.
 
 [![](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_21.png)](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_10.png)
 
@@ -34,19 +35,15 @@ In my opinion, these kinds of views are really useful to see dependencies in a p
 
 What you can see here is the following:
 
--
-	The zone of pain contains assemblies which are not very extensible (no interfaces, no abstract classes, nor virtual methods, stuff like that). Also, these assemblies tend to have lots of dependent assemblies.
+- The zone of pain contains assemblies which are not very extensible (no interfaces, no abstract classes, nor virtual methods, stuff like that). Also, these assemblies tend to have lots of dependent assemblies.
 
--
-	The zone of uselessness is occupied by very abstract assemblies which have almost no dependent assemblies.
-
+- The zone of uselessness is occupied by very abstract assemblies which have almost no dependent assemblies.
 
 Most of my assemblies don't seem to be very abstract, dependencies are OK (the domain objects are widely used so more in the zone of pain). Conclusion: I should be doing some refactoring to make assemblies more abstract (or replacable, if you prefer it that way).
 
 ## CQL - Code Query Language
 
 Next to all these graphs and diagrams, there's another powerful utility: CQL, or Code Query Language. It's sort of a "SQL to code" thing. Let's find out some things about my application...
-
 
 ### Methods poorly commented
 
@@ -64,15 +61,15 @@ This query searches the top 10 methods containing more than 10 lines of code whe
 
 [![](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_23.png)](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_14.png)
 
-Good news! I did quite good at commenting! The result of this query shows only Visual Studio generated code (the *InitializeComponent()* sort of methods), and some other, smaller methods I wrote myself. Less than 20% of comments in a method consisting of only 11 lines of code (*btnVoegItemToe_Click* in the image) is not bad!
+Good news! I did quite good at commenting! The result of this query shows only Visual Studio generated code (the _InitializeComponent()_ sort of methods), and some other, smaller methods I wrote myself. Less than 20% of comments in a method consisting of only 11 lines of code (_btnVoegItemToe_Click_ in the image) is not bad!
 
 ### Quick summary of methods to refactor
 
-Another cool CQL query is the "quick summary of methods to refactor". Only one method shows up, but I should probably refactor it. *Quiz: why?*
+Another cool CQL query is the "quick summary of methods to refactor". Only one method shows up, but I should probably refactor it. _Quiz: why?_
 
 [![](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_24.png)](/images/WindowsLiveWriter/f0d97f78517c_DC98/image_16.png)
 
-*Answer:* there are 395 IL instructions in this method (and if I drill down, 57 lines of code). I said "probably", because it might be OK after all. But if I drill down, I'm seeing some more information that is probably worrying: cyclomatic complexity is high, there are many variables used, ... Refactoring is indeed the answer for this method!
+_Answer:_ there are 395 IL instructions in this method (and if I drill down, 57 lines of code). I said "probably", because it might be OK after all. But if I drill down, I'm seeing some more information that is probably worrying: cyclomatic complexity is high, there are many variables used, ... Refactoring is indeed the answer for this method!
 
 ### Methods that use boxing/unboxing
 

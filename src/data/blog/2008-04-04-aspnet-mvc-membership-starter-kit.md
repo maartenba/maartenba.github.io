@@ -10,79 +10,67 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/04/04/asp-net-mvc-membership-starter-kit.html
 ---
+
 [![](/images/WindowsLiveWriter/ASP.NetMVCMembershipStarterKit_D20A/image_thumb.png)](/images/WindowsLiveWriter/ASP.NetMVCMembershipStarterKit_D20A/image_2.png) Yesterday, I read a cool blog post from [Troy Goode](http://www.squaredroot.com) about his new CodePlex project [MvcMembership](http://www.squaredroot.com/post/2008/04/MVC-Membership-Starter-Kit.aspx). I also noticed his call for help, so I decided to dedicate some of my evening hours to his project.
 
 Almost every (ASP.NET) website is using some form of authentication, in most cases based on ASP.NET membership. With this in mind, Troy started an ASP.NET MVC version of this. The [current release version](https://www.codeplex.com/Release/ProjectReleases.aspx?ProjectName=MvcMembership) provides a sample application containing some membership functionality:
 
 - FormsAuthenticationController featuring:
-	<ul>
-		<li>Register action & view
-
+  <ul>
+  	<li>Register action & view
 
 - Login action & view
 
-
 - Logout action
 
-	</li>
-	<li>FormsAuthenticationAdministrationController featuring:
+  </li>
+  <li>FormsAuthenticationAdministrationController featuring:
 
 - User List action & view
 
-
 - User Detail action & view
-
 
 - Role List action & view
 
-
 - Create User action & view
-
 
 - Change/Reset Password actions
 
-
 - Role Management actions
 
-	</li>
-	<li>Custom Action Filters, including:
+  </li>
+  <li>Custom Action Filters, including:
 
 - [Rob Conery](http://blog.wekeroad.com/blog/aspnet-mvc-securing-your-controller-actions/)'s RequiresAuthenticationAttribute
 
-
 - [Rob Conery](http://blog.wekeroad.com/blog/aspnet-mvc-securing-your-controller-actions/)'s RequiresRoleAttribute
-
 
 - a RequiresAnonymousAttribute
 
-
 - a RequireAnyRoleAttribute
-
 
 - a RequireEveryRoleAttribute
 
-
 - a RedirectToActionOnErrorAttribute
-
 
 - a RedirectToUrlOnErrorAttribute
 
-	</li>
+  </li>
+
 </ul>
 
 After an evening of contributing code, there's additional functionality in the [source control system](http://www.codeplex.com/MvcMembership/SourceControl/ListDownloadableCommits.aspx):
 
 - FormsAuthenticationController featuring:
-	<ul>
-		<li>Reset password action & view
-
+  <ul>
+  	<li>Reset password action & view
 
 - Retrieve password action & view
 
-
 - Change password action & view
 
-	</li>
+  </li>
+
 </ul>
 
 Also, I've been doing some massive refactoring to this project. Everything that is "generic" for most applications is now stripped out in a separate assembly still allowing situation-specific overrides. For example, if you use this MvcMembership framework, you can simply inherit the *BaseFormsAuthenticationController *class in your own code:
@@ -98,7 +86,7 @@ namespace MvcMembership.Controllers
 
 ```
 
-Need a custom *Login* action? No problem!
+Need a custom _Login_ action? No problem!
 
 ```csharp
 namespace MvcMembership.Controllers
@@ -115,7 +103,7 @@ namespace MvcMembership.Controllers
 
 ```
 
-Want to respond to some actions inside *BaseFormsAuthenticationController*? No problem either!
+Want to respond to some actions inside _BaseFormsAuthenticationController_? No problem either!
 
 ```csharp
 namespace MvcMembership.Controllers

@@ -65,7 +65,6 @@ TimeSpan elapsed = timeProvider.GetElapsedTime(start);
 
 The production singleton is `TimeProvider.System`. It reads from the system clock, same as `DateTimeOffset.UtcNow`. You'll need to register it at startup:
 
-
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<TimeProvider>(TimeProvider.System);

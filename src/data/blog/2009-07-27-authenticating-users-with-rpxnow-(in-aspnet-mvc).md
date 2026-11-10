@@ -11,6 +11,7 @@ redirect_from:
   - /post/2009/07/27/authenticating-users-with-rpxnow-in-asp-net-mvc.html
   - /post/2009/07/27/authenticating-users-with-rpxnow-(in-aspnet-mvc).html
 ---
+
 [![](/images/image_thumb_2.png)](/images/image_2.png) Don’t you get sick of having to register at website X, at website Y, at website Z, …? It is really not fun to maintain all these accounts, change passwords, … Luckily, there are some large websites offering delegated sign-in (for example [Google Accounts](http://code.google.com/apis/accounts/index.html), [Live ID](http://dev.live.com/), [Twitter OAuth](http://apiwiki.twitter.com/OAuth-FAQ), …). You can use these delegated sign-in methods on your own site, removing the need of registering yet another account. Unfortunately, not everyone has an account at provider X…
 
 A while ago, I found out about the free service [JanRain](http://www.janrain.com) is offering: [RPXNow](https://rpxnow.com/). This (free!) service combines the strengths of several major account providers (Google Accounts, Live ID, Twitter, Facebook, OpenID, …) into one simple API. This means that people are able to log in to your website if they have an account at one of these providers! Here’s how to use it in ASP.NET MVC…
@@ -19,7 +20,7 @@ Download sample code: [Rpx4Mvc.zip (246.97 kb)](/files/2009/7/Rpx4Mvc.zip)
 
 ## Creating some HTML helpers
 
-After registering at [RPXNow](https://rpxnow.com/), you will receive an application name and API key. This application name should be used when embedding the login control that is provided. To simplify embedding a login link, I’ve created two *HtmlHelper* extension methods: one for embedding the login control, another one for providing a login link:
+After registering at [RPXNow](https://rpxnow.com/), you will receive an application name and API key. This application name should be used when embedding the login control that is provided. To simplify embedding a login link, I’ve created two _HtmlHelper_ extension methods: one for embedding the login control, another one for providing a login link:
 
 ```csharp
 public static class HtmlHelperExtensions
@@ -91,11 +92,11 @@ public class RpxLogin
 
 ```
 
-Note that the RPX service returns JSON data, which I can deserialize using the *JavaScriptSerializer*. That’s really all it takes to get the logged-in user name.
+Note that the RPX service returns JSON data, which I can deserialize using the _JavaScriptSerializer_. That’s really all it takes to get the logged-in user name.
 
 ## Plumbing it all together
 
-All of the above can be plumbed together in a new *AccountController*. This will have to be extended for your application (i.e. for storing the logged in username in a membership database, … Simply add these two action methods in a blank *AccountController* and you are ready to RPX!
+All of the above can be plumbed together in a new _AccountController_. This will have to be extended for your application (i.e. for storing the logged in username in a membership database, … Simply add these two action methods in a blank _AccountController_ and you are ready to RPX!
 
 ```csharp
 [HandleError]

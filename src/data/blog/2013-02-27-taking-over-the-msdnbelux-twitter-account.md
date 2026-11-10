@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/02/27/taking-over-the-msdnbelux-twitter-account.html
 ---
+
 Just a quick post to let you know I’ll be taking over the [@msdnbelux](http://www.twitter.com/msdnbelux) Twitter account for the next two weeks. This is the official Twitter account for MSDN BeLux. It’s not hacked, I did not steal the password: they gave it to me!
 
 [![](/images/image_thumb_222.png)](/images/image_260.png)

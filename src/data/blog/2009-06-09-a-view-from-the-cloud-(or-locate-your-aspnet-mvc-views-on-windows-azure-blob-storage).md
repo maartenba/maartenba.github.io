@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/06/09/a-view-from-the-cloud-or-locate-your-asp-net-mvc-views-on-windows-azure-blob-storage.html
 ---
+
 Hosting and deploying ASP.NET MVC applications on [Windows Azure](http://www.azure.com/) works like a charm. However, if you have been reading my blog for a while, you [might have seen](/posts/2008-12-19-cartrackr-on-windows-azure-part-5-deploying-in-the-cloud/) that I don’t like the fact that my ASP.NET MVC views are stored in the deployed package as well… Why? If I want to change some text or I made a typo, I would have to re-deploy my entire application for this. Takes a while, application is down during deployment, … And all of that for a typo…
 
 Luckily, Windows Azure also provides blob storage, on which you can host any blob of data (or any file, if you don’t like saying “blob”). These blobs can easily be managed with a tool like [Azure Blob Storage Explorer](http://www.codeplex.com/blobexplorer). Now let’s see if we can abuse blob storage for storing the views of an ASP.NET MVC web application, making it easier to modify the text and stuff. We’ll do this by creating a new [VirtualPathProvider](http://msdn.microsoft.com/en-us/library/system.web.hosting.virtualpathprovider.aspx).
@@ -26,11 +27,11 @@ Note I did not upload every view to blob storage. In the approach we’ll take, 
 
 ## Creating a VirtualPathProvider
 
-You may or may not know the concept of ASP.NET *VirtualPathProvider*s. Therefore, allow me to quickly explain quickly: ASP.NET 2.0 introduced the concept of *VirtualPathProvider*s, where you can create a virtual filesystem that can be sued by your application. A *VirtualPathProvider* has to be registered before ASP.NET will make use of it. After registering, ASP.NET will automatically iterate all *VirtualPathProvider*s to check whether it can provide the contents of a specific virtual file or not. In ASP.NET MVC for example, the *VirtualPathProviderViewEngine* (default) will use this concept to look for its views. Ideal, since we do not have to plug the ASP.NET MVC view engine when we create our *BlobStorageVirtualPathProvider*!
+You may or may not know the concept of ASP.NET *VirtualPathProvider*s. Therefore, allow me to quickly explain quickly: ASP.NET 2.0 introduced the concept of *VirtualPathProvider*s, where you can create a virtual filesystem that can be sued by your application. A _VirtualPathProvider_ has to be registered before ASP.NET will make use of it. After registering, ASP.NET will automatically iterate all *VirtualPathProvider*s to check whether it can provide the contents of a specific virtual file or not. In ASP.NET MVC for example, the _VirtualPathProviderViewEngine_ (default) will use this concept to look for its views. Ideal, since we do not have to plug the ASP.NET MVC view engine when we create our _BlobStorageVirtualPathProvider_!
 
-A *VirtualPathProvider* contains some methods that are used to determine if it can serve a specific virtual file. We’ll only be implementing *FileExists()* and *GetFile()*, but there are also methods like *DirectoryExists()* and *GetDirectory()*. I suppose you’ll know what all this methods are doing by looking at the name…
+A _VirtualPathProvider_ contains some methods that are used to determine if it can serve a specific virtual file. We’ll only be implementing _FileExists()_ and _GetFile()_, but there are also methods like _DirectoryExists()_ and _GetDirectory()_. I suppose you’ll know what all this methods are doing by looking at the name…
 
-In order for our *BlobStorageVirtualPathProvider* class to access Windows Azure Blob Storage, we need to reference the StorageClient project you can find in the [Windows Azure SDK](http://www.microsoft.com/downloads/details.aspx?FamilyID=11b451c4-7a7b-4537-a769-e1d157bad8c6&displaylang=en). Next, our class will have to inherit from *VirtualPathProvider* and need some fields holding useful information:
+In order for our _BlobStorageVirtualPathProvider_ class to access Windows Azure Blob Storage, we need to reference the StorageClient project you can find in the [Windows Azure SDK](http://www.microsoft.com/downloads/details.aspx?FamilyID=11b451c4-7a7b-4537-a769-e1d157bad8c6&displaylang=en). Next, our class will have to inherit from _VirtualPathProvider_ and need some fields holding useful information:
 
 ```csharp
 public class BlobStorageVirtualPathProvider : VirtualPathProvider
@@ -52,7 +53,7 @@ public class BlobStorageVirtualPathProvider : VirtualPathProvider
 
 Allright! We can now hold everyhting that is needed for accessing Windows Azure Blob Storage: the account info (including credentials) and a BlobContainer holding our views. Our constructor accepts these things and makes sure verything is prepared for accessing blob storage.
 
-Next, we’ll have to make sure we can serve a file, by adding *FileExists()* and *GetFile()* method overrides:
+Next, we’ll have to make sure we can serve a file, by adding _FileExists()_ and _GetFile()_ method overrides:
 
 ```csharp
 public override bool FileExists(string virtualPath)
@@ -86,7 +87,7 @@ public override VirtualFile GetFile(string virtualPath)
 
 ```
 
-These methods simply check the *BlobContainer* for the existance of a virtualFile path passed in.  *GetFile()* returns a new *BlobStorageVirtualPath* instance. This class provides all functionality for really returning the file’s contents, in its *Open()* method:
+These methods simply check the _BlobContainer_ for the existance of a virtualFile path passed in. _GetFile()_ returns a new _BlobStorageVirtualPath_ instance. This class provides all functionality for really returning the file’s contents, in its _Open()_ method:
 
 ```csharp
 public override System.IO.Stream Open()
@@ -100,9 +101,9 @@ public override System.IO.Stream Open()
 
 ```
 
-We’ve just made it possible to download a blob from Windows Azure Blob Storage into a *MemoryStream* and pass this on to ASP.NET for further action.
+We’ve just made it possible to download a blob from Windows Azure Blob Storage into a _MemoryStream_ and pass this on to ASP.NET for further action.
 
-Here’s the full *BlobStorageVirtualPathProvider* class:
+Here’s the full _BlobStorageVirtualPathProvider_ class:
 
 ```csharp
 public class BlobStorageVirtualPathProvider : VirtualPathProvider
@@ -159,7 +160,7 @@ public class BlobStorageVirtualPathProvider : VirtualPathProvider
 
 ```
 
-And here’s *BlobStorageVirtualFile*:
+And here’s _BlobStorageVirtualFile_:
 
 ```csharp
 public class BlobStorageVirtualFile : VirtualFile
@@ -183,7 +184,7 @@ public class BlobStorageVirtualFile : VirtualFile
 
 ## Registering BlobStorageVirtualPathProvider with ASP.NET
 
-We’re not completely ready yet. We still have to tell ASP.NET that it can possibly get virtual files using the *BlobStorageVirtualPathProvider*. We’ll do this in the Application_Start event in Global.asax.cs:
+We’re not completely ready yet. We still have to tell ASP.NET that it can possibly get virtual files using the _BlobStorageVirtualPathProvider_. We’ll do this in the Application_Start event in Global.asax.cs:
 
 ```csharp
 protected void Application_Start()

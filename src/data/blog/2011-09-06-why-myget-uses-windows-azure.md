@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/09/06/why-myget-uses-windows-azure.html
 ---
+
 [![](http://www.myget.org/content/themes/myget/logo.png)](http://www.myget.org)Recently one of the Tweeps following me started fooling around and hit one of my sweet spots: Windows Azure. Basically, he mocked me for using Windows Azure for [MyGet](http://www.myget.org), a website with enough users but not enough to justify the “scalability” aspect he thought Windows Azure was offering. Since Windows Azure is much, much more than scalability alone, I decided to do a quick writeup about the various reasons on why we use [Windows Azure](http://www.azure.com) for MyGet. And those are not scalability.
 
 First of all, here’s a high-level overview of our deployment, which may illustrate some of the aspects below:
@@ -18,7 +19,7 @@ First of all, here’s a high-level overview of our deployment, which may illust
 
 ## Costs
 
-Windows Azure is *cheap*. Cheap as in cost-effective, not as in, well, sleezy. Many will disagree with me but the cost perspective of Windows Azure can be real cheap in some cases as well as very expensive in other cases. For example, if someone asks me if they should move to Windows Azure and they now have one server running 300 small sites, I’d probably tell them not to move as it will be a tough price comparison.
+Windows Azure is _cheap_. Cheap as in cost-effective, not as in, well, sleezy. Many will disagree with me but the cost perspective of Windows Azure can be real cheap in some cases as well as very expensive in other cases. For example, if someone asks me if they should move to Windows Azure and they now have one server running 300 small sites, I’d probably tell them not to move as it will be a tough price comparison.
 
 With MyGet we run 2 Windows Azure instances in 2 datacenters across the globe (one in the US and one in the EU). For $180.00 per month this means 2 great machines at two very distant regions of the globe. You can probably find those with other hosters as well, but will they manage your machines? Patch and update them? Probably not, for that amount. In our scenario, Windows Azure is cheap.
 

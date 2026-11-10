@@ -22,7 +22,7 @@ To build my [supply chain attack with .NET](/posts/2021-05-05-building-a-supply-
 
 ## Creating a .NET application to run as a service
 
-A .NET service will need to make use of the `Microsoft.Extensions.Hosting` hosting model. This means any ASP.NET Core application will work, as will projects created using the *Worker Service* template (`dotnet new worker`). I'll use [Rider](https://www.jetbrains.com/rider/) here.
+A .NET service will need to make use of the `Microsoft.Extensions.Hosting` hosting model. This means any ASP.NET Core application will work, as will projects created using the _Worker Service_ template (`dotnet new worker`). I'll use [Rider](https://www.jetbrains.com/rider/) here.
 
 ![Create new worker project in Rider](/images/2021/05/new-worker-solution.png)
 
@@ -47,8 +47,8 @@ public class Program
 
 With that in place, our application can run as a Systemd service on Linux! Well, almost... There are two things left to do:
 
-* Implement the application
-* Register the application with Systemd
+- Implement the application
+- Register the application with Systemd
 
 Let's start with the first, and implement a DNS server that we'll run as a service.
 
@@ -113,9 +113,9 @@ protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 
 Time to unwrap!
 
-* We're setting up the `DnsServer`, which will resolve records using a `SampleRequestResolver` (which we'll need to build).
-* We're subscribing to some events exposed by the `DnsServer`, so that we can look at logs of requests coming in, and see whenever something goes wrong.
-* Finally, we start listening for incoming requests.
+- We're setting up the `DnsServer`, which will resolve records using a `SampleRequestResolver` (which we'll need to build).
+- We're subscribing to some events exposed by the `DnsServer`, so that we can look at logs of requests coming in, and see whenever something goes wrong.
+- Finally, we start listening for incoming requests.
 
 The `ExecuteAsync` is passed a `CancellationToken`, which will be use when Systemd requests our service to terminate. Since the `DNS` library itself does not have support for `CancellationToken`, I'm using `Task.WhenAny` here to start the DNS server, so we are able to shut down our service when cancellation is requested.
 
@@ -156,7 +156,7 @@ Check the [`README.md` of the DNS project](https://github.com/kapetan/dns/blob/m
 
 ## Create service unit configuration
 
-Let's host our service on Linux! Systemd uses *service unit configuration* files that define what a service does, whether it should be restarted, and all that.
+Let's host our service on Linux! Systemd uses _service unit configuration_ files that define what a service does, whether it should be restarted, and all that.
 
 You'll need to create a `.service` file on the Linux machine that you want to register and run the service on. In its simplest form, a service file looks like this:
 
@@ -192,7 +192,7 @@ This creates a `DnsServer` executable of roughly 62 MB (it contains what is need
 
 ## Installing and running the service on Linux
 
-The `.service` file we created  (I named it `dnsserver.service`) needs to exist in the `/etc/systemd/system/` directory of the Linux machine the service will be deployed on.
+The `.service` file we created (I named it `dnsserver.service`) needs to exist in the `/etc/systemd/system/` directory of the Linux machine the service will be deployed on.
 
 Next, run the following command so Systemd loads this new configuration file:
 
@@ -210,7 +210,7 @@ sudo systemctl status dnsserver.service
 
 There are a couple of other commands that may come in handy:
 
-* Start and stop the service:
+- Start and stop the service:
 
   ```
   sudo systemctl start dnsserver.service
@@ -218,7 +218,7 @@ There are a couple of other commands that may come in handy:
   sudo systemctl restart dnsserver.service
   ```
 
-* Make sure the service is started when the Linux machine is started:
+- Make sure the service is started when the Linux machine is started:
 
   ```
   sudo systemctl enable dnsserver.service

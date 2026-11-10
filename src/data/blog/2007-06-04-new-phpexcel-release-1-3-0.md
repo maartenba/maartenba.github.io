@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/06/04/new-phpexcel-release-1-3-0.html
 ---
+
 [![](/images/WindowsLiveWriter/NewPHPExcelrelease1.3.0_A818/small_phpexcel_logo_thumb%5B2%5D.gif)](/images/WindowsLiveWriter/NewPHPExcelrelease1.3.0_A818/small_phpexcel_logo%5B2%5D.gif) The new version of PHPExcel has just been released, bringing 1.3.0 to the public. New features include formula calculation, inserting and removing columns/rows, auto-sizing columns, freezing panes, ...
 
 One of the new features in PHPExcel is formula calculation. Just like Excel or any other spreadsheet application, PHPExcel now provides support for calculating certain cell values, using a formula. For example, the formula "=SUM(A1:A10)" evaluates to the sum of values in A1, A2, ..., A10.

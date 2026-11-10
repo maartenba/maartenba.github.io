@@ -10,7 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/09/17/forms-interaction-with-asp-net-mvc-screencast.html
 ---
-Abstract: *"This screencast is a short demonstration on how you can handle form interactions using the ASP.NET MVC framework."*
+
+Abstract: _"This screencast is a short demonstration on how you can handle form interactions using the ASP.NET MVC framework."_
 
 Download sample code: [MvcCommentForm.zip (593.58 kb)](/files/MvcCommentForm.zip)
 

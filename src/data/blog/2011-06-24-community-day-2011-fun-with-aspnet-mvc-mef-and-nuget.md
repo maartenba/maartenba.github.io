@@ -10,12 +10,13 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/06/24/community-day-2011-fun-with-asp-net-mvc-mef-and-nuget.html
 ---
+
 To start the blog post: AWESOME! That’s what I have to say about the latest edition of [Community Day 2011](http://www.communityday.be). I had the privilege of doing a session on ASP.NET MVC 3, MEF and NuGet, and as promised to the audience: here are the slides. For those who want to see the session, the recording [can be found on Channel 9](/posts/2011-04-14-slides-for-my-talk-at-mix11-fun-with-aspnet-mvc-3-mef-and-nuget/) from a previous event.
 
 **“Fun with ASP.NET MVC3, MEF and NuGet”
 **Community Day 2011, Mechelen, Belgium, 23/06/2011
 
-Abstract: “*So you have a team of developers… And a nice architecture to build on… How about making that architecture easy for everyone and getting developers up to speed quickly? Learn all about integrating the managed extensibility framework (MEF) and ASP.NET MVC with some NuGet sauce for creating loosely coupled, easy to use architectures that anyone can grasp.*”
+Abstract: “_So you have a team of developers… And a nice architecture to build on… How about making that architecture easy for everyone and getting developers up to speed quickly? Learn all about integrating the managed extensibility framework (MEF) and ASP.NET MVC with some NuGet sauce for creating loosely coupled, easy to use architectures that anyone can grasp._”
 
 Here’s the slides:
 

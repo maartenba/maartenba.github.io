@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/05/18/document-interoperability-workshop-london-may-18-2009.html
 ---
+
 ![Microsoft building London, Cardinal Place](/images/Cardinalplace.jpg) After a pleasant flight with [VLM airlines](http://www.flyvlm.com) (Antwerp – London City), traveling under half of the city of London, I arrived at the Microsoft offices in Victoria for their third (?) DII workshop, of which I attended [a previous one](/posts/2008-12-02-openxml-dii-workshop-brussels-quick-summary/) in Brussels last year.
 
 If you are wondering: “What are you doing there???”, here’s a short intro. I’ve been working on Microsoft interop projects for quite a few years now, like [PHPExcel](http://wwww.phpexcel.net), [PHPPowerPoint](http://www.phppowerpoint.net), [PHPLinq](http://www.phplinq.net), [PHPAzure](http://phpazure.codeplex.com/), … When working on PHPExcel and PHPPowerpoint, I hit the term “document interoperability” quite a lot. OpenXML (the underlying file format) is well documented, but there is some work on making sure the generated document by any of those tools is fully compatible with the standard. And that’s what these DII workshops are all about.

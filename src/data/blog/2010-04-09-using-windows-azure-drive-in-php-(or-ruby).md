@@ -10,17 +10,18 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/04/09/using-windows-azure-drive-in-php-or-ruby.html
 ---
+
 At the [JumpIn Camp](http://www.jumpincamp.com) in Z&uuml;rich this week, we are trying to get some of the more popular PHP applications running on Windows Azure. As you may know, [Windows Azure](http://www.azure.com) has different storage options like blobs, tables, queues and drives. There’s the [Windows Azure SDK for PHP](http://phpazure.codeplex.com/) for most of this, except for drives. Which is normal: drives are at the operating system level and have nothing to do with the REST calls that are used for the other storage types. By the way: I did a post on [using Windows Azure Drive (or “XDrive”)](/posts/2010-02-02-using-windows-azure-drive-aka-x-drive/) a while ago if you want more info.
 
 Unfortunately, .NET code is currently the only way to create and mount these virtual hard drives from Windows Azure. But luckily, [IIS7](http://www.iis.net) has this integrated pipeline model which Windows Azure is also using. Among other things, this means that services provided by managed modules (written in .NET) can now be applied to all requests to the server, not just ones handled by ASP.NET! In even other words: you can have some .NET code running in the same request pipeline as the FastCGI process running PHP (or Ruby). Which made me think: it should be possible to create and mount a Windows Azure Drive in a .NET HTTP module and pass the drive letter of this thing to PHP through a server variable. And here’s how...
 
-*Note: I’ll start with the implementation part first, the usage part comes after that. If you don’t care about the implementation, scroll down...*
+_Note: I’ll start with the implementation part first, the usage part comes after that. If you don’t care about the implementation, scroll down..._
 
 Download source code and binaries at [http://phpazurecontrib.codeplex.com](http://phpazurecontrib.codeplex.com/releases/view/43239).
 
 ## Building the Windows Azure Drive HTTP module
 
-Building HTTP modules in .NET is easy! Simply reference the *System.Web* assembly and create a class implementing *IHttpModule*:
+Building HTTP modules in .NET is easy! Simply reference the _System.Web_ assembly and create a class implementing _IHttpModule_:
 
 ```csharp
 public class AzureDriveModule : IHttpModule
@@ -130,7 +131,7 @@ Create a **/bin** folder in your web role project and copy in all .DLL files pro
 
 ### Edit ServiceConfiguration.cscfg (and ServiceDefinition.csdef)
 
-In order to be able to mount, some modifications to *ServiceConfiguration.cscfg* (and *ServiceDefinition.csdef*) are required. The *ServiceDefinition.csdef* file should contain the following additional entries:
+In order to be able to mount, some modifications to _ServiceConfiguration.cscfg_ (and _ServiceDefinition.csdef_) are required. The _ServiceDefinition.csdef_ file should contain the following additional entries:
 
 ```csharp
 <?xml version="1.0" encoding="utf-8"?>
@@ -150,7 +151,7 @@ In order to be able to mount, some modifications to *ServiceConfiguration.cscfg*
 
 ```
 
-Things to note are the *cloudDriveCache* local storage entry, which is needed for caching access to the virtual drive. The configuration settings are defined for use in *ServiceConfiguration.csdef*:
+Things to note are the _cloudDriveCache_ local storage entry, which is needed for caching access to the virtual drive. The configuration settings are defined for use in _ServiceConfiguration.csdef_:
 
 ```csharp
 <?xml version="1.0"?>
@@ -170,7 +171,7 @@ The configuration specifies that a cloud drive “CloudDrive0” (up to “Cloud
 
 ### Edit Web.config
 
-Before the HTTP module is used by IIS7 or Windows Azure, the following should be added to *Web.config*:
+Before the HTTP module is used by IIS7 or Windows Azure, the following should be added to _Web.config_:
 
 ```csharp
 <modules>
@@ -179,7 +180,7 @@ Before the HTTP module is used by IIS7 or Windows Azure, the following should be
 
 ```
 
-Here’s my complete *Web.config*:
+Here’s my complete _Web.config_:
 
 ```csharp
 <?xml version="1.0"?>
@@ -213,7 +214,7 @@ Here’s my complete *Web.config*:
 
 ### Use the thing!
 
-Next thing to do is use your virtual Windows Azure Drive. The HTTP module adds an entry in the *$_SERVER* variable, named after the CloudDrive0-9 settings defined earlier. The following code example stores a file on a virtual Windows Azure Drive and reads it back afterwards:
+Next thing to do is use your virtual Windows Azure Drive. The HTTP module adds an entry in the _$\_SERVER_ variable, named after the CloudDrive0-9 settings defined earlier. The following code example stores a file on a virtual Windows Azure Drive and reads it back afterwards:
 
 ```php
 <?php
@@ -230,7 +231,7 @@ Since there already is a project for [PHP and Azure contributions](http://phpazu
 
 The approach I demonstrated above may be used for other scenarios as well:
 
-- Modifying *php.ini* before PHP runs. The module you can access would run before FastCGI runs, an ideal moment to modigy php.ini settings and such.
+- Modifying _php.ini_ before PHP runs. The module you can access would run before FastCGI runs, an ideal moment to modigy php.ini settings and such.
 - Using .NET authentication modules in PHP, check [this site](http://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) for an example.
 - Download updates to PHP automatically if a new version is available and deploy it into your application at runtime. Probably needs some performance tuning but this trick may work. The same goes for static content and script updates by the way. Imagine pulling a website dynamically from blob storage and deploy it onto your web role without any hassle…
 

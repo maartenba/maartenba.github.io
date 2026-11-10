@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/09/08/asp-net-mvc-dynamic-view-sections.html
 ---
+
 Earlier today, a colleague of mine asked for advice on how he could create a “dynamic” view. To elaborate, he wanted to create a change settings page on which various sections would be rendered based on which plugins are loaded in the application.
 
-Intrigued by the question and having no clue on how to do this, I quickly hacked together a *SettingsViewModel*, to which he could add all section view models no matter what type they are:
+Intrigued by the question and having no clue on how to do this, I quickly hacked together a _SettingsViewModel_, to which he could add all section view models no matter what type they are:
 
 ```
 

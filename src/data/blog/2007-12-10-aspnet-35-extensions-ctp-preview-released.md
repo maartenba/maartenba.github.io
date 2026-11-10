@@ -11,6 +11,7 @@ redirect_from:
   - /post/2007/12/10/asp-net-3-5-extensions-ctp-preview-released.html
   - /post/2007/12/10/aspnet-35-extensions-ctp-preview-released.html
 ---
+
 Just over the weekend, Microsoft has [released the ASP.NET 3.5 Extensions CTP](http://weblogs.asp.net/scottgu/archive/2007/12/09/asp-net-3-5-extensions-ctp-preview-released.aspx). This download includes several additions to ASP.NET 3.5:
 
 - ASP.NET AJAX Improvements contains some new AJAX features like browser history support (back-forward), improvements to the JavaScript library, ...

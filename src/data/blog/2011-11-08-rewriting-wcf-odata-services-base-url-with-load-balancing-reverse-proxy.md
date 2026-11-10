@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/11/08/rewriting-wcf-odata-services-base-url-with-load-balancing-reverse-proxy.html
 ---
+
 When scaling out an application to multiple servers, often a form of load balancing or reverse proxying is used to provide external users access to a web server. For example, one can be in the situation where two servers are hosting a WCF OData Service and are exposed to the Internet through either a load balancer or a reverse proxy. Below is a figure of such setup using a reverse proxy.
 
 [![](/images/image_thumb_114.png)](/images/image_146.png)

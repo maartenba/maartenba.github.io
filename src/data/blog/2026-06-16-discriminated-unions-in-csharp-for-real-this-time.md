@@ -205,7 +205,6 @@ Union types in C# 15 are currently in preview. To try them, you need a [.NET 11 
 </PropertyGroup>
 ```
 
-
 I'm genuinely excited about this one. [F# has had discriminated unions](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions) since the beginning, and C# developers have been asking for something equivalent since [csharplang issue #113](https://github.com/dotnet/csharplang/issues/113) was opened. Now that it's here, with exhaustiveness checking, implicit conversions, and clean pattern matching, it changes how you model domain concepts in C#. Not every problem needs a class hierarchy, and now you have a language-level way to say so.
 
 Give it a spin on a codebase you're working on. I suspect you'll find a few places where a union type fits better than what you have today.

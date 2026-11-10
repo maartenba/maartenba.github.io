@@ -14,7 +14,7 @@ redirect_from:
 
 If you're building workloads on Azure Functions, there's a good chance you've looked at building custom bindings. Custom bindings can greatly reduce the boilerplate code you have to write in an Azure Function, so you can focus on the logic in your function instead.
 
-There are various examples of custom bindings out there, including several that I wrote while working on [*Indexing and searching NuGet.org with Azure Functions and Search*](/posts/2019-07-30-indexing-searching-nuget-with-azure-functions-and-search/).
+There are various examples of custom bindings out there, including several that I wrote while working on [_Indexing and searching NuGet.org with Azure Functions and Search_](/posts/2019-07-30-indexing-searching-nuget-with-azure-functions-and-search/).
 
 And then .NET 5 came, along with the new [Azure Functions .NET Isolated Worker](https://github.com/Azure/azure-functions-dotnet-worker). Not a lot of documentation out there, and custom bindings don't seem to work anymore...
 
@@ -67,10 +67,10 @@ public static async Task RunAsync(
 
 Cleaner, no? The `Blob` input binding gives our function a writable stream, and we can start using it. The Azure Functions runtime (and the `Blob` input binding) take care of making sure we're connected to storage, a container is created, and a blob is made available.
 
-Bindings can *trigger* functions (e.g. a timer interval, or when a message is available in a queue), provide function *input* (like our example before), or handle function *output*. Out of the box, Azure Functions comes with [several bindings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings):
+Bindings can _trigger_ functions (e.g. a timer interval, or when a message is available in a queue), provide function _input_ (like our example before), or handle function _output_. Out of the box, Azure Functions comes with [several bindings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings):
 
 |                  | Trigger | Input | Output |
-|------------------|---------|-------|--------|
+| ---------------- | ------- | ----- | ------ |
 | Timer            | ✔       |       |        |
 | HTTP             | ✔       |       | ✔      |
 | Blob             | ✔       | ✔     | ✔      |
@@ -102,11 +102,11 @@ For Java, Node, PHP, and other function types, the Azure Functions host process 
 
 For .NET 5 and beyond, there is now a "worker process" similar to these. The [Azure Functions .NET Isolated Worker](https://github.com/Azure/azure-functions-dotnet-worker) is what runs your Azure Functions, and the host itself is no longer your concern. This gives you full control over your application's dependencies, and you can pick the .NET runtime that is used, too.
 
-So before, your app ran *in* the host, with the isolated worker model, your app runs *out* of the host.
+So before, your app ran _in_ the host, with the isolated worker model, your app runs _out_ of the host.
 
-**What does this have to do with custom bindings?** Good question! Even with the new worker model, custom bindings need to run *in* the host. The host can provide input to your function, and handle output, but it does this by passing data to and from the isolated worker process.
+**What does this have to do with custom bindings?** Good question! Even with the new worker model, custom bindings need to run _in_ the host. The host can provide input to your function, and handle output, but it does this by passing data to and from the isolated worker process.
 
-In other words: your custom binding has to run *in* the host, and you somehow have to explain to the Azure Functions isolated worker how it all works.
+In other words: your custom binding has to run _in_ the host, and you somehow have to explain to the Azure Functions isolated worker how it all works.
 
 ## Creating a custom binding
 
@@ -172,7 +172,7 @@ namespace CustomBindingExample.Bindings
 }
 ```
 
-The `AppendFileExtensionConfigProvider` is next. It's the entry point to our custom binding. The call to `AddBindingRule` tells the runtime that the `AppendFileAttribute` is in fact a binding. The `BindToCollector` then tells the runtime it's an *output* binding: it *collects* data emitted by the function that will use it.
+The `AppendFileExtensionConfigProvider` is next. It's the entry point to our custom binding. The call to `AddBindingRule` tells the runtime that the `AppendFileAttribute` is in fact a binding. The `BindToCollector` then tells the runtime it's an _output_ binding: it _collects_ data emitted by the function that will use it.
 
 ```csharp
 [Extension("AppendFile")]
@@ -276,18 +276,18 @@ Once restored, the binding assembly is copied into your function project's outpu
 
 ```json
 {
-    "extensions": [
-        {
-            "name": "Startup",
-            "typeName": "Microsoft.Azure.WebJobs.Extensions.FunctionMetadataLoader.Startup, Microsoft.Azure.WebJobs.Extensions.FunctionMetadataLoader, Version=1.0.0.0, Culture=neutral, PublicKeyToken=551316b6919f366c",
-            "hintPath": "./.azurefunctions/Microsoft.Azure.WebJobs.Extensions.FunctionMetadataLoader.dll"
-        },
-        {
-            "name": "CustomBindingExample",
-            "typeName": "CustomBindingExample.Bindings.CustomBindingExampleStartup, CustomBindingExample.Bindings, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "hintPath": "./.azurefunctions/CustomBindingExample.Bindings.dll"
-        }
-    ]
+  "extensions": [
+    {
+      "name": "Startup",
+      "typeName": "Microsoft.Azure.WebJobs.Extensions.FunctionMetadataLoader.Startup, Microsoft.Azure.WebJobs.Extensions.FunctionMetadataLoader, Version=1.0.0.0, Culture=neutral, PublicKeyToken=551316b6919f366c",
+      "hintPath": "./.azurefunctions/Microsoft.Azure.WebJobs.Extensions.FunctionMetadataLoader.dll"
+    },
+    {
+      "name": "CustomBindingExample",
+      "typeName": "CustomBindingExample.Bindings.CustomBindingExampleStartup, CustomBindingExample.Bindings, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "hintPath": "./.azurefunctions/CustomBindingExample.Bindings.dll"
+    }
+  ]
 }
 ```
 

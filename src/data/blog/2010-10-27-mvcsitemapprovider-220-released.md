@@ -11,6 +11,7 @@ redirect_from:
   - /post/2010/10/27/mvcsitemapprovider-2-2-0-released.html
   - /post/2010/10/27/mvcsitemapprovider-220-released.html
 ---
+
 [![](http://download.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=mvcsitemap&DownloadId=137766&Build=17275)](http://mvcsitemap.codeplex.com/)
 
 I’m proud to announce that [MvcSiteMapProvider 2.2.0](http://mvcsitemap.codeplex.com/releases/view/54661) has just been uploaded to CodePlex. It should also be [available through NuPack](/posts/2010-10-08-using-mvcsitemapprovider-throuh-nupack/) in the coming hours. This release has taken a while, but that’s because I’ve been making some important changes...
@@ -31,20 +32,20 @@ In this post, I’ll give you a short update on what has changed as well as some
 
 The MvcSiteMapProvider provides different HtmlHelper extension methods which you can use to generate SiteMap-specific HTML code on your ASP.NET MVC views like a menu, a breadcrumb (sitemap path), a sitemap or just the current node’s title.
 
-All helpers in MvcSiteMapProvider are make use of templates: whenever a node in a menu is to be rendered, a specific partial view is used to render this node. This is based on the idea of [templated helpers](http://msdn.microsoft.com/en-us/library/ee308450.aspx). The default templates that are used can be found on the [downloads](http://mvcsitemap.codeplex.com/releases) page. Locate them under the *Views/DisplayTemplates* folder of your project to be able to customize them.
+All helpers in MvcSiteMapProvider are make use of templates: whenever a node in a menu is to be rendered, a specific partial view is used to render this node. This is based on the idea of [templated helpers](http://msdn.microsoft.com/en-us/library/ee308450.aspx). The default templates that are used can be found on the [downloads](http://mvcsitemap.codeplex.com/releases) page. Locate them under the _Views/DisplayTemplates_ folder of your project to be able to customize them.
 
 When creating your own templates for MvcSiteMapProvider's helpers, the following model objects are used and can be templated:
 
 - Html.MvcSiteMap().Menu() uses:
-*MvcSiteMapProvider.Web.Html.Models.MenuHelperModel* and *MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel*
+  _MvcSiteMapProvider.Web.Html.Models.MenuHelperModel_ and _MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel_
 - Html.MvcSiteMap().SiteMap() uses:
-*MvcSiteMapProvider.Web.Html.Models.SiteMapHelperModel* and *MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel*
+  _MvcSiteMapProvider.Web.Html.Models.SiteMapHelperModel_ and _MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel_
 - Html.MvcSiteMap().SiteMapPath() uses:
-*MvcSiteMapProvider.Web.Html.Models.SiteMapPathHelperModel* and *MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel*
+  _MvcSiteMapProvider.Web.Html.Models.SiteMapPathHelperModel_ and _MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel_
 - Html.MvcSiteMap().SiteMapTitle()
-*MvcSiteMapProvider.Web.Html.Models.Situses:eMapTitleHelperModel*
+  _MvcSiteMapProvider.Web.Html.Models.Situses:eMapTitleHelperModel_
 
-The following template is an example for rendering a sitemap node represented by the *MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel* model.
+The following template is an example for rendering a sitemap node represented by the _MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel_ model.
 
 ```xml
 <%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel>" %>
@@ -62,7 +63,7 @@ The following template is an example for rendering a sitemap node represented by
 
 ## New extensibility point
 
-In the previous release, a number of [extensibility points](/posts/2010-08-03-mvcsitemapprovider-210-released/) have been introduced. I [blogged about them before](/posts/2010-08-03-mvcsitemapprovider-210-released/). A newly introduced extensibility point is the *ISiteMapProviderEventHandler* . A class implementing *MvcSiteMapProvider.Extensibility.ISiteMapProviderEventHandler* can be registered to handle specific events, such as when adding a SiteMapNode.
+In the previous release, a number of [extensibility points](/posts/2010-08-03-mvcsitemapprovider-210-released/) have been introduced. I [blogged about them before](/posts/2010-08-03-mvcsitemapprovider-210-released/). A newly introduced extensibility point is the _ISiteMapProviderEventHandler_ . A class implementing _MvcSiteMapProvider.Extensibility.ISiteMapProviderEventHandler_ can be registered to handle specific events, such as when adding a SiteMapNode.
 
 Here’s an example to log all the nodes that are being added to an MVC sitemap:
 
@@ -87,8 +88,8 @@ public class MySiteMapProviderEventHandler : ISiteMapProviderEventHandler
 
 Generating a search-engine friendly list of all nodes in a sitemap [was already possible](http://mvcsitemap.codeplex.com/wikipage?title=Exporting%20the%20sitemap%20for%20search%20engine%20indexing&referringTitle=Home). This functionality has been vastly improved with two new features:
 
-- Whenever a client sends an HTTP request header with *Accept-encoding* set to a value of *gzip* or *deflate*, the *XmlSiteMapResult* class (which is also used internally in the *XmlSiteMapController*) will automatically compress the sitemap using GZip compression.
-- Whenever a sitemap exceeds 50.000 nodes, the *XmlSiteMapController* will automatically split your sitemap into a sitemap index file (*sitemap.xml*) which references sub-sitemaps (*sitemap-1.xml*, *sitemap-2.xml* etc.) as described on [http://www.sitemaps.org/protocol.php](http://www.sitemaps.org/protocol.php).
+- Whenever a client sends an HTTP request header with _Accept-encoding_ set to a value of _gzip_ or _deflate_, the _XmlSiteMapResult_ class (which is also used internally in the _XmlSiteMapController_) will automatically compress the sitemap using GZip compression.
+- Whenever a sitemap exceeds 50.000 nodes, the _XmlSiteMapController_ will automatically split your sitemap into a sitemap index file (_sitemap.xml_) which references sub-sitemaps (_sitemap-1.xml_, _sitemap-2.xml_ etc.) as described on [http://www.sitemaps.org/protocol.php](http://www.sitemaps.org/protocol.php).
 
 For example, if a website contains more than 50.000 nodes, the sitemap XML that is generated will look similar to the following:
 

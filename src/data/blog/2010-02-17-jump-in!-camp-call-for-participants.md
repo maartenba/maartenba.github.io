@@ -10,7 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/02/17/jump-in-camp-call-for-participants.html
 ---
-![Jump In! Camp](/images/image_41.png) I just got the following invitation from Microsoft, and would like to encourage  you to participate as well if you are interested in bot PHP and the Microsoft worlds.
+
+![Jump In! Camp](/images/image_41.png) I just got the following invitation from Microsoft, and would like to encourage you to participate as well if you are interested in bot PHP and the Microsoft worlds.
 
 > **Jump In! and be a part of it!******
 > Open source programming and Microsoft: two incompatible worlds? Microsoft is partnering with renowned actors of the open-source community to organise the **Jump In!** **Developers' Camp** in an effort to combat this misperception**.** Twenty-five knowledge-hungry open source application developers from all over Europe will be invited to spend four unforgettable days of dialogue, networking and workshops at the beautiful Panorama Resort & Spa Feusisberg in Switzerland.

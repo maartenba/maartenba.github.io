@@ -10,10 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/11/12/sending-e-mail-from-windows-azure.html
 ---
-*
+
+-
+
 Note: this blog post used to be an article for the Windows Azure Roadtrip website. Since that one no longer exists, I decided to post the articles on my blog as well. Find the source code for this post here: [04 SendingEmailsFromTheCloud.zip (922.27 kb)](/files/2012/11/04%20SendingEmailsFromTheCloud.zip).
 
-*
+-
 
 When a user subscribes, you send him a thank-you e-mail. When his account expires, you send him a warning message containing a link to purchase a new subscription. When he places an order, you send him an order confirmation. I think you get the picture: a fairly common scenario in almost any application is sending out e-mails.
 
@@ -45,7 +47,7 @@ In a fresh Windows Azure web role, I’ve created a quick-and-dirty user registr
 
 [![](/images/clip_image006_thumb.jpg)](/images/clip_image006.jpg)
 
-Nothing fancy, just a form that takes a post to an ASP.NET MVC action method. This action method stores the user in a database and adds a message to a queue named *emailconfirmation*. Here’s the code for this action method:
+Nothing fancy, just a form that takes a post to an ASP.NET MVC action method. This action method stores the user in a database and adds a message to a queue named _emailconfirmation_. Here’s the code for this action method:
 
 ```csharp
 [HttpPost, ActionName("Register")]
@@ -75,13 +77,13 @@ public ActionResult Register_Post(RegistrationModel model)
 
 ```
 
-As you can see, it’s not difficult to work with queues. You just enter some data in a message and push it onto the queue. In the code above, I’ve serialized the registration model containing my newly-created user’s name and e-mail to the JSON format (using *JavaScriptSerializer*). A message can contain binary or textual data: as long as it’s less than 64 KB in data size, the message can be added to a queue.
+As you can see, it’s not difficult to work with queues. You just enter some data in a message and push it onto the queue. In the code above, I’ve serialized the registration model containing my newly-created user’s name and e-mail to the JSON format (using _JavaScriptSerializer_). A message can contain binary or textual data: as long as it’s less than 64 KB in data size, the message can be added to a queue.
 
 ### Being cheap with Web Workers
 
 When boning up on Windows Azure, you’ve probably read about so-called [Worker Roles](http://www.windowsazure.com/en-us/home/features/compute/), virtual machines that are able to run your back-end code. The problem I see with Worker Roles is that they are expensive to start with. If your application has 100 users and your back-end load is low, why would you reserve an entire server to run that back-end code? The cloud and Windows Azure are all about scalability and using a “Web Worker” will be much more cost-efficient to start with - until you have a large user base, that is.
 
-A Worker Role consists of a class that inherits the *RoleEntryPoint* class. It looks something along these lines:
+A Worker Role consists of a class that inherits the _RoleEntryPoint_ class. It looks something along these lines:
 
 ```csharp
 public class WebRole : RoleEntryPoint
@@ -104,13 +106,13 @@ public class WebRole : RoleEntryPoint
 
 ```
 
-You can run this same code in a Web Role too! And that’s what I mean by a Web Worker: by simply adding this class which inherits *RoleEntryPoint* to your Web Role, it will act as both a Web and Worker role in one machine.
+You can run this same code in a Web Role too! And that’s what I mean by a Web Worker: by simply adding this class which inherits _RoleEntryPoint_ to your Web Role, it will act as both a Web and Worker role in one machine.
 
 Call me cheap, but I think this is a nice hidden gem. The best part about this is that whenever your application’s load requires a separate virtual machine running the worker role code, you can simply drag and drop this file from the Web Role to the Worker Role and scale out your application as it grows.
 
 ### Did you send that e-mail already?
 
-Now that we have a pending e-mail message in our queue and we know we can reduce costs using a web worker, let’s get our e-mail across the wire. First of all, using SendGrid as our external e-mail service offers us a giant development speed advantage, since they are distributing their API client as a [NuGet](http://www.myget.org/) package. In Visual Studio, right-click your web role project and click the “Library Package Manager” menu. In the dialog (shown below), search for *Sendgrid* and install the package found. This will take a couple of seconds: it will download the SendGrid API client and will add an assembly reference to your project.
+Now that we have a pending e-mail message in our queue and we know we can reduce costs using a web worker, let’s get our e-mail across the wire. First of all, using SendGrid as our external e-mail service offers us a giant development speed advantage, since they are distributing their API client as a [NuGet](http://www.myget.org/) package. In Visual Studio, right-click your web role project and click the “Library Package Manager” menu. In the dialog (shown below), search for _Sendgrid_ and install the package found. This will take a couple of seconds: it will download the SendGrid API client and will add an assembly reference to your project.
 
 [![](/images/clip_image008_thumb.jpg)](/images/clip_image008.jpg)
 
@@ -206,4 +208,4 @@ queue.DeleteMessage(message);
 
 Sending e-mail using SendGrid is in fact getting a new e-mail message instance from the SendGrid API client, passing the e-mail details (from, to, body, etc.) on to it and handing it your SendGrid username and password upon sending.
 
-One last thing: you notice we’re only deleting the message from the queue *after* processing it has succeeded. This is to ensure the message is actually processed. If for some reason the worker role crashes during processing, the message will become visible again on the queue and will be processed by a new worker role which processes this specific queue. That way, messages are never lost and always guaranteed to be processed at least once.
+One last thing: you notice we’re only deleting the message from the queue _after_ processing it has succeeded. This is to ensure the message is actually processed. If for some reason the worker role crashes during processing, the message will become visible again on the queue and will be processed by a new worker role which processes this specific queue. That way, messages are never lost and always guaranteed to be processed at least once.

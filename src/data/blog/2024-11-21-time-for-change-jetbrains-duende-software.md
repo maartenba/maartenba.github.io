@@ -42,7 +42,7 @@ Matt, for many years of friendship, shared hangovers, business trips we have mad
 
 Nastya, thank you for being a friend. It's been great growing our teams together. We managed to have marketing and advocacy reinforce each other.
 
- Paul, for being a friend and sounding board, for coming up with wacky ideas, and for being a great manager for your team (and the Developer Advocacy team, going forward).
+Paul, for being a friend and sounding board, for coming up with wacky ideas, and for being a great manager for your team (and the Developer Advocacy team, going forward).
 
 If we worked together, and you don't see your name here, please don't take it personally.
 

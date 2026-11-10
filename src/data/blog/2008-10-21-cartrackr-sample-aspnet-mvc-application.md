@@ -5,12 +5,22 @@ pubDatetime: 2008-10-21T17:51:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "General", "MVC", "Presentations", "Projects", "Silverlight"]
+tags:
+  [
+    "ASP.NET",
+    "CSharp",
+    "General",
+    "MVC",
+    "Presentations",
+    "Projects",
+    "Silverlight",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2008/10/21/cartrackr-sample-asp-net-mvc-application.html
   - /post/2008/10/21/cartrackr-sample-aspnet-mvc-application.html
 ---
+
 [![](/images/WindowsLiveWriter/CarTrackrSampleASP.NETMVCapplication_C12F/CarTrackr_3.png)](http://www.codeplex.com/CarTrackr) Some people may have already noticed the link in my [VISUG session blog post](/posts/2008-10-15-introduction-to-aspnet-mvc-for-visug-presentation-materials/), but for those who didn't... I've released my sample application [CarTrackr on CodePlex](http://www.codeplex.com/CarTrackr).
 
 CarTrackr is a sample application for the ASP.NET MVC framework using the repository pattern and dependency injection using the Unity application block. It was written for various demos in presentations done by Maarten Balliauw.

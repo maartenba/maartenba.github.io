@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/02/12/data-driven-testing-in-visual-studio-2008-part-1.html
 ---
+
 Last week, I blogged about [code performance analysis in visual studio 2008](/posts/2008-02-07-code-performance-analysis-in-visual-studio-2008/). since that topic provoked [lots of comments](/posts/2008-02-07-code-performance-analysis-in-visual-studio-2008/) (thank you [Bart](http://www.bartonline.be) for associating "hotpaths" with "hotpants"), thought about doing another post on code quality in .NET.
 
 This post will be the first of two on Data Driven Testing. This part will focus on Data Driven Testing in regular Unit Tests. The second part will focus on the same in web testing.
@@ -29,7 +30,7 @@ You are here for the magic, I know. That's why I invented this nifty web applica
 
 ![Example application](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part1_9A2E/image_17a765d8-01dc-49e8-b556-0fc923a2448c.png)
 
-This is a simple "Calculator" which provides a user interface that accepts 2 values, then passes these to a *Calculator* business object that calculates the sum of these two values. Here's the *Calculator* object:
+This is a simple "Calculator" which provides a user interface that accepts 2 values, then passes these to a _Calculator_ business object that calculates the sum of these two values. Here's the _Calculator_ object:
 
 ```csharp
 public class Calculator
@@ -42,7 +43,7 @@ public class Calculator
 
 ```
 
-![Create Unit Tests...](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part1_9A2E/image_31fb708b-3339-425c-999a-380f3f05f8d0.png)Now right-click the *Add* method, and select "Create Unit Tests...". Visual Studio will pop up a wizard. You can simply click "OK" and have your unit test code generated:
+![Create Unit Tests...](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part1_9A2E/image_31fb708b-3339-425c-999a-380f3f05f8d0.png)Now right-click the _Add_ method, and select "Create Unit Tests...". Visual Studio will pop up a wizard. You can simply click "OK" and have your unit test code generated:
 
 ```csharp
 /// <summary>
@@ -63,11 +64,11 @@ public void AddTest()
 
 ```
 
-As you see, in a normal situation we would now fix these *TODO* items and have a unit test ready in no time. For this data driven test, let's first add a database to our project. Create column *a*, *b* and *expected*. These do not have to represent names in the unit test, but it's always more clear. Also, add some data.
+As you see, in a normal situation we would now fix these _TODO_ items and have a unit test ready in no time. For this data driven test, let's first add a database to our project. Create column _a_, _b_ and _expected_. These do not have to represent names in the unit test, but it's always more clear. Also, add some data.
 
 ![Data to test](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part1_9A2E/image_8f9a61db-3eb9-4fba-a8b2-7ba8d8297c11.png)
 
-![Test View](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part1_9A2E/image_c0a8760e-f0ca-4dbb-acdb-a54d5ba259ce.png) Great, but how will our unit test use these values while running? Simply click the test to be bound to data, add the data source and table name properties. Next, read your data from the *TestContext.DataRow* property. The unit test will now look like this:
+![Test View](/images/WindowsLiveWriter/DataDrivenTestinginVisualStudio2008Part1_9A2E/image_c0a8760e-f0ca-4dbb-acdb-a54d5ba259ce.png) Great, but how will our unit test use these values while running? Simply click the test to be bound to data, add the data source and table name properties. Next, read your data from the _TestContext.DataRow_ property. The unit test will now look like this:
 
 ```csharp
 /// <summary>

@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/11/25/partial-page-updates-with-asp-net-mvc-and-jquery-and-action-filters.html
 ---
+
 When building an ASP.NET MVC application, chances are that you are using master pages. After working on the application for a while, it's time to spice up some views with jQuery and partial updates.
 
 Let's start with an example application which does not have any Ajax / jQuery. Our company's website shows a list of all employees and provides a link to a details page containing a bio for that employee. In the current situation, this link is referring to a custom action method which is rendered on a separate page.
@@ -51,7 +52,7 @@ The solution to this broken page is simple. Let's first create a new, empty mast
 
 ```
 
-We can now apply this master page to the details action method whenever an Ajax call is done. You can implement this behaviour by creating a custom action filter: *jQueryPartial*.
+We can now apply this master page to the details action method whenever an Ajax call is done. You can implement this behaviour by creating a custom action filter: _jQueryPartial_.
 
 ```csharp
 public class jQueryPartial : ActionFilterAttribute

@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/03/04/mef-will-not-get-easier-its-cool-as-ice.html
 ---
+
 ![](http://www.thedailygreen.com/cm/thedailygreen/images/iU/gin-tonic-glass-ice-md.jpg)Over the past few weeks, several people asked me to show them how to use MEF ([Managed Extensibility Framework](http://mef.codeplex.com/)), some of them seemed to have some difficulties with the concept of MEF. I tried explaining that it will not get easier than it is currently, hence the title of this blog post. MEF is based on 3 keywords: export, import, compose. Since these 3 words all start with a letter that can be combined to a word, and MEF is cool, here’s a hint on how to remember it: MEF is cool as ICE!
 
 Imagine the following:
@@ -78,7 +79,7 @@ Cleaner, no? The only thing I have to do is start the job, which is more fun whe
 
 ## Export
 
-Export, or the *ExportAttribute* to be precise, is a marker for MEF to tell that you want to export the type or property on which the attribute is placed. Really think of it like a label. Let’s label our hammer:
+Export, or the _ExportAttribute_ to be precise, is a marker for MEF to tell that you want to export the type or property on which the attribute is placed. Really think of it like a label. Let’s label our hammer:
 
 ```csharp
 [Export(typeof(ITool))]
@@ -94,7 +95,7 @@ The same should be done for the saw, the box of nails and the wooden boards. Rem
 
 ## Import
 
-Of course, MEF can go ahead and gather tools and material, but it will not know what to do with it unless you give it a hint. And that’s where the *ImportAttribute* (and the *ImportManyAttribute*) come in handy. I will have to tell MEF that the tools go on one stack, the material goes on another one. Here’s how:
+Of course, MEF can go ahead and gather tools and material, but it will not know what to do with it unless you give it a hint. And that’s where the _ImportAttribute_ (and the _ImportManyAttribute_) come in handy. I will have to tell MEF that the tools go on one stack, the material goes on another one. Here’s how:
 
 ```csharp
 public class BuildAShedCommand : ICommand
@@ -110,6 +111,6 @@ public class BuildAShedCommand : ICommand
 
 ## Conclusion
 
-Easy, no? Of course, MEF can do a lot more than this. For instance, you can specify that a certain import is only valid for exports of a specific type and specific metadata: I can have a small and a large hammer, both *ITool*. For building a shed, I will require the large hammer though.
+Easy, no? Of course, MEF can do a lot more than this. For instance, you can specify that a certain import is only valid for exports of a specific type and specific metadata: I can have a small and a large hammer, both _ITool_. For building a shed, I will require the large hammer though.
 
 Another cool feature is creating your own export provider (example at [TheCodeJunkie.com](http://www.thecodejunkie.com/search/label/MEF)). And if ICE does not make sense, try the [Zoo example](http://amazedsaint.blogspot.com/2009/11/mef-or-managed-extension-framework.html).

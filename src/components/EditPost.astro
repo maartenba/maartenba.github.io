@@ -16,7 +16,10 @@ const { hideEditPost, post, filePath, class: className = "" } = Astro.props;
 const resolvedPath = filePath ?? post?.filePath ?? "";
 const href = `${SITE.editPost.url}${resolvedPath}`;
 const showEditPost =
-  SITE.editPost.enabled && !hideEditPost && href.trim() !== "" && resolvedPath !== "";
+  SITE.editPost.enabled &&
+  !hideEditPost &&
+  href.trim() !== "" &&
+  resolvedPath !== "";
 ---
 
 {
@@ -26,7 +29,7 @@ const showEditPost =
       target="_blank"
       rel="noopener noreferrer"
       class:list={[
-        "inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-sm font-medium text-accent hover:bg-accent/20 transition-colors",
+        "inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-sm font-medium text-accent transition-colors hover:bg-accent/20",
         className,
       ]}
     >

@@ -5,55 +5,51 @@ pubDatetime: 2013-08-20T12:30:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "CSharp", "General", "MVC", "Scalability", "Software", "Webfarm", "Azure"]
+tags:
+  [
+    "ASP.NET",
+    "CSharp",
+    "General",
+    "MVC",
+    "Scalability",
+    "Software",
+    "Webfarm",
+    "Azure",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2013/08/20/using-the-windows-azure-content-delivery-network-cdn.html
 ---
+
 [![](/images/image_thumb_255.png)](/images/image_294.png)With the Windows Azure Content Delivery Network (CDN) released as a preview, I thought it was a good time to write up some details about how to work with it. The CDN can be used for offloading content to a globally distributed network of servers, ensuring faster throughput to your end users.
 
-
-*Note: this is a modified and updated version of my *[*article at ACloudyPlace.com*](https://www.simple-talk.com/cloud/development/using-the-windows-azure-content-delivery-network/)* roughly two years ago. I have added information on how to work with ASP.NET MVC bundling and the Windows Azure CDN, updated screenshots and so on.*
-
+_Note: this is a modified and updated version of my *[*article at ACloudyPlace.com*](https://www.simple-talk.com/cloud/development/using-the-windows-azure-content-delivery-network/)* roughly two years ago. I have added information on how to work with ASP.NET MVC bundling and the Windows Azure CDN, updated screenshots and so on._
 
 ## Reasons for using a CDN
 
-
 There are a number of reasons to use a CDN. One of the obvious reasons lies in the nature of the CDN itself: a CDN is globally distributed and caches static content on edge nodes, closer to the end user. If a user accesses your web application and some of the files are cached on the CDN, the end user will download those files directly from the CDN, experiencing less latency in their request.
-
 
 [![](/images/image_thumb_256.png)](/images/image_295.png)
 
-
 Another reason for using the CDN is throughput. If you look at a typical webpage, about 20% of it is HTML which was dynamically rendered based on the user’s request. The other 80% goes to static files like images, CSS, JavaScript and so forth. Your server has to read those static files from disk and write them on the response stream, both actions which take away some of the resources available on your virtual machine. By moving static content to the CDN, your virtual machine will have more capacity available for generating dynamic content.
-
 
 ## Enabling the Windows Azure CDN
 
-
-The Windows Azure CDN is built for two services that are available in your subscription: storage and cloud services. The easiest way to get started with the CDN is by using the [Windows Azure Management Portal](http://manage.windowsazure.com). From the *New* menu at the bottom, select *App Services | CDN | Quick Create*.
-
+The Windows Azure CDN is built for two services that are available in your subscription: storage and cloud services. The easiest way to get started with the CDN is by using the [Windows Azure Management Portal](http://manage.windowsazure.com). From the _New_ menu at the bottom, select _App Services | CDN | Quick Create_.
 
 [![](/images/image_thumb_257.png)](/images/image_296.png)
 
-
-From the dropdown that is shown, select either a storage account or a cloud service which will serve as the source of our CDN edge data. After clicking *Create*, the CDN will be initialized. This may take up to 60 minutes because the settings you’ve just applied may take that long to propagate to all CDN edge locations globally (over 24 was the last number I read). Your CDN will be assigned a URL in the form of [.vo.msecnd.net">http://<id>.vo.msecnd.net](http://<id>.vo.msecnd.net).
-
+From the dropdown that is shown, select either a storage account or a cloud service which will serve as the source of our CDN edge data. After clicking _Create_, the CDN will be initialized. This may take up to 60 minutes because the settings you’ve just applied may take that long to propagate to all CDN edge locations globally (over 24 was the last number I read). Your CDN will be assigned a URL in the form of [.vo.msecnd.net">http://<id>.vo.msecnd.net](http://<id>.vo.msecnd.net).
 
 Once the CDN endpoint is created, there are some options that can be managed. Currently they are somewhat limited but I’m pretty sure this will expand. For now, you can for example assign a custom domain name to the CDN by clicking the “Manage Domains” button in the toolbar.
 
-
 [![](/images/image_thumb_258.png)](/images/image_297.png)
-
 
 Note that the CDN works using HTTP by default, but HTTPS is supported as well and can be enabled through the management portal. Unfortunately, SSL is using a certificate that Microsoft provides and there’s currently no option to use your own, making it hard to use a custom domain name and HTTPS.
 
-
 ## Serving blob storage content through the CDN
 
-
 Let’s start and offload our static content (CSS, images, JavaScript) to the Windows Azure CDN using a storage account as the source for CDN content. In an ASP.NET MVC project, edit the *_Layout.cshtml *view. Instead of using the bundles for CSS and scripts, let’s include them manually from a URL hosted on your newly created CDN:
-
 
 ```xml
 <!DOCTYPE html>
@@ -127,7 +123,7 @@ The second important line of code, **blob.Properties.CacheControl**, is more int
 
 As a general best practice, make sure that you specify the Cache-Control HTTP header for every blob you want to have cached on the CDN. If you want to have the possibility to update content every hour, make sure you specify a low TTL of, say, 3600 seconds. If you want less traffic to occur between the CDN and your storage account, specify a longer TTL of a few days or even a few weeks.
 
-Another best practice is to address CDN URLs using a version number. Since the CDN can create a separate cache of a blob based on the query string, appending a version number to the URL may make it easier to refresh contents in the CDN based on the version of your application. For example, *main.css?v1* and *main.css?v2* may return different versions of *main.css* cached on the CDN edge node. Do note that the query string support is opt-in and should be enabled through the management portal. Here’s a quick code snippet which appends the *AssemblyVersion* to the CDN URLs to version content based on the deployed application version:
+Another best practice is to address CDN URLs using a version number. Since the CDN can create a separate cache of a blob based on the query string, appending a version number to the URL may make it easier to refresh contents in the CDN based on the version of your application. For example, _main.css?v1_ and _main.css?v2_ may return different versions of _main.css_ cached on the CDN edge node. Do note that the query string support is opt-in and should be enabled through the management portal. Here’s a quick code snippet which appends the _AssemblyVersion_ to the CDN URLs to version content based on the deployed application version:
 
 ```xml
 @{
@@ -155,7 +151,7 @@ So far we’ve seen how you can offload static content to the Windows Azure CDN.
 
 The main difference with using a storage account as the source for the CDN is that the CDN will look into the /cdn/* folder on your cloud service to retrieve its contents. There are two options for doing this: either moving static content to the /cdn folder, or using IIS URL rewriting to “fake” a /cdn folder.
 
-When using ASP.NET MVC’s bundling features, we’ll have to modify the bundle configuration in *BundleConfig.cs*. First, we’ll have to set *bundle.EnableCdn* to true. Next, we’ll have to provide the URL to the CDN version of our bundles. Here’s a snippet which does just that for the *Content/css* bundle. We’re still working with a version number to make sure we can update the CDN contents for every deployment of our application.
+When using ASP.NET MVC’s bundling features, we’ll have to modify the bundle configuration in _BundleConfig.cs_. First, we’ll have to set _bundle.EnableCdn_ to true. Next, we’ll have to provide the URL to the CDN version of our bundles. Here’s a snippet which does just that for the _Content/css_ bundle. We’re still working with a version number to make sure we can update the CDN contents for every deployment of our application.
 
 ```csharp
 var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig)).GetName().Version.ToString();
@@ -176,7 +172,7 @@ The Windows Azure CDN only looks at the /cdn folder as a source of files to cach
 
 An alternative to copying static content to a /cdn folder explicitly is to use IIS URL rewriting. IIS URL rewriting is enabled on Windows Azure by default and can be configured to translate a /cdn URL to a / URL. For example, if the CDN requests the /cdn/Content/css bundle, IIS URL rewriting will simply serve the /Content/css bundle leaving you with no additional work.
 
-To configure IIS URL rewriting, add a *<rewrite>* section under the *<system.webServer>* section in Web.config:
+To configure IIS URL rewriting, add a _<rewrite>_ section under the _<system.webServer>_ section in Web.config:
 
 ```xml
 <system.webServer>

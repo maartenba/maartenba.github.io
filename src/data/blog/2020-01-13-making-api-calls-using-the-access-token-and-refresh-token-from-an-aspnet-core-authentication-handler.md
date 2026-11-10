@@ -5,7 +5,17 @@ pubDatetime: 2020-01-13T03:44:05Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", "Web", ".NET", "dotnet", "ASP.NET Core", "ASP.NET", "Authentication"]
+tags:
+  [
+    "General",
+    "ICT",
+    "Web",
+    ".NET",
+    "dotnet",
+    "ASP.NET Core",
+    "ASP.NET",
+    "Authentication",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2020/01/13/making-api-calls-using-the-access-token-and-refresh-token-from-an-asp-net-core-authentication-handler.html
@@ -38,9 +48,9 @@ This should look very familiar if you are building an ASP.NET Core application t
 
 These authentication handlers will typically do the following:
 
-* Redirect to a OpenIdConnect or OAuth2 consent page, where you will grant the application permission to authenticate and maybe access some resources on your behalf, for example with Space or Azure AD.
-* When access is granted, get an access token and an optional refresh token to use for further authenticated communication with the API, such as Space's team directory or Microsoft Graph.
-* Create an identity and sign you in to your application.
+- Redirect to a OpenIdConnect or OAuth2 consent page, where you will grant the application permission to authenticate and maybe access some resources on your behalf, for example with Space or Azure AD.
+- When access is granted, get an access token and an optional refresh token to use for further authenticated communication with the API, such as Space's team directory or Microsoft Graph.
+- Create an identity and sign you in to your application.
 
 Great! Lots of things that need to happen in the background, but all we have to do as developers is use that handler with some configuration values and be done with it.
 

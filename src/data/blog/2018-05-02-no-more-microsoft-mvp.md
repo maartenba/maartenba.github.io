@@ -34,4 +34,4 @@ I've gotten wonderful opportunities, and I've met some amazing folks. Some of th
 
 **It's all about the passion, the technology and the people, and the drive to develop.**
 
-*Feel free to [reach out](/about/) if you'd like me to come talk at your conference or user group.*
+_Feel free to [reach out](/about/) if you'd like me to come talk at your conference or user group._

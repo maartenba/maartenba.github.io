@@ -10,13 +10,14 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/04/23/asp-net-2-0-event-validation.html
 ---
+
 Event Validation is a new feature in ASP.NET 2.0 which provides an additional level of checks on postback actions. It verifies whether a postback from a control on client-side is really from that control and not from a malicious person trying to break your application.
 
 Even if you forget to add security checks of your own, ASP.NET provides this functionality, because this feature is enabled by default. Sometimes, it is safe to turn this of, but Microsoft tries to have developers turn this of when they know what they are doing.
 
 Unfortunately: I came across Event Validation… A user control on a master page convinced ASP.NET that a postback within that same user control was unsafe, resulting in the following error:
 
-"Invalid postback or callback argument.  Event validation is
+"Invalid postback or callback argument. Event validation is
 enabled using <pages enableEventValidation="true"/> in
 configuration or <%@ Page EnableEventValidation="true" %>
 in a page. For security purposes, this feature verifies that

@@ -1,18 +1,20 @@
 import url from "node:url";
-import type { AstroIntegrationLogger } from "astro";
+import type { AstroIntegration, AstroIntegrationLogger } from "astro";
 import path from "node:path";
 import fs from "node:fs/promises";
 
-export async function configurePlugin(hookOptions: any) {
-    const buildOutput: string = hookOptions.buildOutput;
-    const logger: AstroIntegrationLogger = hookOptions.logger;
+export async function configurePlugin(hookOptions: {
+  buildOutput: string;
+  logger: AstroIntegrationLogger;
+}) {
+  const { buildOutput, logger } = hookOptions;
 
-    if (buildOutput !== "static") {
-        logger.warn(
-            `Skip rewriting redirects: not compatible with '${buildOutput}' builds, only 'static' is supported.`,
-        );
-        return;
-    }
+  if (buildOutput !== "static") {
+    logger.warn(
+      `Skip rewriting redirects: not compatible with '${buildOutput}' builds, only 'static' is supported.`
+    );
+    return;
+  }
 }
 
 /**
@@ -22,22 +24,22 @@ export async function configurePlugin(hookOptions: any) {
  * which causes pagefind to warn about missing <html> elements.
  */
 function wrapInHtmlElement(content: string): string {
-    if (content.includes("<html")) {
-        return content;
-    }
+  if (content.includes("<html")) {
+    return content;
+  }
 
-    // Extract parts: everything between <!doctype html> and <body> goes in <head>,
-    // and <body>...</body> stays as-is.
-    const bodyMatch = content.match(/<body>([\s\S]*)<\/body>/);
-    const bodyContent = bodyMatch ? bodyMatch[1] : "";
+  // Extract parts: everything between <!doctype html> and <body> goes in <head>,
+  // and <body>...</body> stays as-is.
+  const bodyMatch = content.match(/<body>([\s\S]*)<\/body>/);
+  const bodyContent = bodyMatch ? bodyMatch[1] : "";
 
-    // Get everything after <!doctype html> and before <body>
-    const headContent = content
-        .replace(/<!doctype html>/i, "")
-        .replace(/<body>[\s\S]*<\/body>/, "")
-        .trim();
+  // Get everything after <!doctype html> and before <body>
+  const headContent = content
+    .replace(/<!doctype html>/i, "")
+    .replace(/<body>[\s\S]*<\/body>/, "")
+    .trim();
 
-    return `<!doctype html><html><head>${headContent}</head><body>${bodyContent}</body></html>`;
+  return `<!doctype html><html><head>${headContent}</head><body>${bodyContent}</body></html>`;
 }
 
 /**
@@ -47,81 +49,87 @@ function wrapInHtmlElement(content: string): string {
  * disagrees with the canonical on the actual post page.
  */
 function addTrailingSlashToTargets(content: string): string {
-    if (!/http-equiv="refresh"/i.test(content)) {
-        return content;
-    }
-    const fix = (target: string) => {
-        const [pathPart, rest = ""] = target.split(/(?=[?#])/);
-        if (pathPart.endsWith("/") || /\.[a-z0-9]+$/i.test(pathPart)) return target;
-        return `${pathPart}/${rest}`;
-    };
-    return content
-        .replace(/(content="\d+;url=)([^"]+)"/gi, (_, p, t) => `${p}${fix(t)}"`)
-        .replace(/(<link rel="canonical" href=")([^"]+)"/gi, (_, p, t) => `${p}${fix(t)}"`)
-        .replace(/(<a href=")([^"]+)"/gi, (_, p, t) => `${p}${fix(t)}"`);
+  if (!/http-equiv="refresh"/i.test(content)) {
+    return content;
+  }
+  const fix = (target: string) => {
+    const [pathPart, rest = ""] = target.split(/(?=[?#])/);
+    if (pathPart.endsWith("/") || /\.[a-z0-9]+$/i.test(pathPart)) return target;
+    return `${pathPart}/${rest}`;
+  };
+  return content
+    .replace(/(content="\d+;url=)([^"]+)"/gi, (_, p, t) => `${p}${fix(t)}"`)
+    .replace(
+      /(<link rel="canonical" href=")([^"]+)"/gi,
+      (_, p, t) => `${p}${fix(t)}"`
+    )
+    .replace(/(<a href=")([^"]+)"/gi, (_, p, t) => `${p}${fix(t)}"`);
 }
 
-export async function renameRedirectFiles(hookOptions: any) {
-    const outDir: string = url.fileURLToPath(hookOptions.dir);
-    const logger: AstroIntegrationLogger = hookOptions.logger;
+export async function renameRedirectFiles(hookOptions: {
+  dir: URL;
+  logger: AstroIntegrationLogger;
+}) {
+  const outDir: string = url.fileURLToPath(hookOptions.dir);
+  const { logger } = hookOptions;
 
-    // Find redirects to rename (e.g. /some-path.html/index.html -> /some-path.html)
-    const renameRedirects = new Map<string, string>();
-    // Find all redirect HTML files that need the <html> wrapper
-    const redirectFiles: string[] = [];
+  // Find redirects to rename (e.g. /some-path.html/index.html -> /some-path.html)
+  const renameRedirects = new Map<string, string>();
+  // Find all redirect HTML files that need the <html> wrapper
+  const redirectFiles: string[] = [];
 
-    try {
-        const directory = await fs.opendir(outDir, { recursive: true });
+  try {
+    const directory = await fs.opendir(outDir, { recursive: true });
 
-        for await (const entry of directory) {
-            if (entry.isFile() && entry.name.endsWith(".html")) {
-                const filePath = path.join(entry.parentPath, entry.name);
+    for await (const entry of directory) {
+      if (entry.isFile() && entry.name.endsWith(".html")) {
+        const filePath = path.join(entry.parentPath, entry.name);
 
-                if (entry.name == "index.html" && entry.parentPath.endsWith(".html")) {
-                    renameRedirects.set(filePath, entry.parentPath);
-                } else {
-                    redirectFiles.push(filePath);
-                }
-            }
+        if (entry.name == "index.html" && entry.parentPath.endsWith(".html")) {
+          renameRedirects.set(filePath, entry.parentPath);
+        } else {
+          redirectFiles.push(filePath);
         }
-    } catch (err) {
-         console.error("Error reading directory:", err);
+      }
     }
+  } catch (err) {
+    logger.error(`Error reading directory: ${err}`);
+  }
 
-    // Perform rename (and wrap in <html>)
-    for (const [from, to] of renameRedirects) {
-        let fileContents = await fs.readFile(from, "utf-8");
-        fileContents = addTrailingSlashToTargets(wrapInHtmlElement(fileContents));
+  // Perform rename (and wrap in <html>)
+  for (const [from, to] of renameRedirects) {
+    let fileContents = await fs.readFile(from, "utf-8");
+    fileContents = addTrailingSlashToTargets(wrapInHtmlElement(fileContents));
 
-        await fs.rm(to, { recursive: true });
-        await fs.writeFile(to, fileContents);
+    await fs.rm(to, { recursive: true });
+    await fs.writeFile(to, fileContents);
 
-        logger.info(`Renamed redirect file ${from} to ${to}`);
+    logger.info(`Renamed redirect file ${from} to ${to}`);
+  }
+
+  // Wrap remaining redirect files in <html> if needed
+  let wrappedCount = 0;
+  for (const filePath of redirectFiles) {
+    const content = await fs.readFile(filePath, "utf-8");
+    const updated = addTrailingSlashToTargets(wrapInHtmlElement(content));
+    if (updated !== content) {
+      await fs.writeFile(filePath, updated);
+      wrappedCount++;
     }
-
-    // Wrap remaining redirect files in <html> if needed
-    let wrappedCount = 0;
-    for (const filePath of redirectFiles) {
-        const content = await fs.readFile(filePath, "utf-8");
-        const updated = addTrailingSlashToTargets(wrapInHtmlElement(content));
-        if (updated !== content) {
-            await fs.writeFile(filePath, updated);
-            wrappedCount++;
-        }
-    }
-    if (wrappedCount > 0) {
-        logger.info(`Wrapped ${wrappedCount} redirect files in <html> element`);
-    }
+  }
+  if (wrappedCount > 0) {
+    logger.info(`Wrapped ${wrappedCount} redirect files in <html> element`);
+  }
 }
 
-export default function rewriteRedirects() {
-    return {
-        name: "rewrite-redirects",
-        hooks: {
-            "astro:config:done": async (hookOptions: any) =>
-                await configurePlugin(hookOptions),
-            "astro:build:done": async (hookOptions: any) =>
-                await renameRedirectFiles(hookOptions),
-        },
-    };
+export default function rewriteRedirects(): AstroIntegration {
+  return {
+    name: "rewrite-redirects",
+    hooks: {
+      "astro:config:done": async hookOptions =>
+        await configurePlugin(hookOptions),
+      "astro:build:done": async hookOptions =>
+        await renameRedirectFiles(hookOptions),
+    },
+  };
 }

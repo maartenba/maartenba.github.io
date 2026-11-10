@@ -5,7 +5,8 @@ pubDatetime: 2020-08-26T03:44:05Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", "ICT", ".NET", "dotnet", ".NET Core", "Threading", "Performance"]
+tags:
+  ["General", "ICT", ".NET", "dotnet", ".NET Core", "Threading", "Performance"]
 author: Maarten Balliauw
 redirect_from:
   - /post/2020/08/26/producer-consumer-pipelines-with-system-threading-channels.html
@@ -27,11 +28,11 @@ and other posts have good examples of how to use it, such as [Khalid Abuhakmeh's
 
 The application will do the following:
 
-* Read all filenames from the directory that contains my blog posts (a local copy of [this](https://github.com/maartenba/maartenba.github.io/tree/master/_posts))
-* For every file name:
-  * Try to parse the YAML front matter (the header content [here](https://github.com/maartenba/maartenba.github.io/blob/master/_posts/2020-06-09-run-azurite-in-docker-with-rider-and-keep-azure-storage-data-local-to-a-solution.markdown)), to get the post title, author and publish date
-  * Generate the image
-  * Save the image
+- Read all filenames from the directory that contains my blog posts (a local copy of [this](https://github.com/maartenba/maartenba.github.io/tree/master/_posts))
+- For every file name:
+  - Try to parse the YAML front matter (the header content [here](https://github.com/maartenba/maartenba.github.io/blob/master/_posts/2020-06-09-run-azurite-in-docker-with-rider-and-keep-azure-storage-data-local-to-a-solution.markdown)), to get the post title, author and publish date
+  - Generate the image
+  - Save the image
 
 My code contains a class called `ThumbnailGenerator`, which does the heavy lifting:
 
@@ -130,10 +131,10 @@ Every step in our procedure is a producer/consumer combination:
 
 ![Producer/consumer](/images/2020/08/producer-consumer.png)
 
-* A filename producer reads filenames from disks, and adds them to a queue-like structure.
-* A consumer reads from that queue, and for every message, parses YAML front matter. This is then added to the next queue-like structure.
-* A consumer reads from that queue, and for every message, creates an image. This is then added to the next queue-like structure.
-* A consumer reads from that queue, and for every message, stores the image to disk.
+- A filename producer reads filenames from disks, and adds them to a queue-like structure.
+- A consumer reads from that queue, and for every message, parses YAML front matter. This is then added to the next queue-like structure.
+- A consumer reads from that queue, and for every message, creates an image. This is then added to the next queue-like structure.
+- A consumer reads from that queue, and for every message, stores the image to disk.
 
 It almost looks the same as our procedure, but now we can increase concurrency in a more controlled manner.
 For example, we could run 1 filename producer, 2 YAML parsers, 10 image generators, and 4 image writers, depending on what the workload of each task is.
@@ -211,9 +212,9 @@ postPathsChannel.Writer.TryComplete();
 
 A couple of things to unwrap...
 
-* We are creating an unbounded channel of `string` values, because we expect the file paths to not exhaust memory. It's just some strings, right?
-* The unbounded channel is created for multiple readers, and a single writer. It's not required to specify these options, but it helps optimize the data access structure for scenarios with multiple readers/writers.
-* We're posting messages to the channel using `WriteAsync()`, and once all messages are posted, we complete the channel (`TryComplete()`), to let consumers know that no new data is going to come.
+- We are creating an unbounded channel of `string` values, because we expect the file paths to not exhaust memory. It's just some strings, right?
+- The unbounded channel is created for multiple readers, and a single writer. It's not required to specify these options, but it helps optimize the data access structure for scenarios with multiple readers/writers.
+- We're posting messages to the channel using `WriteAsync()`, and once all messages are posted, we complete the channel (`TryComplete()`), to let consumers know that no new data is going to come.
 
 On the consumer side, we can process this channel:
 
@@ -235,10 +236,10 @@ frontMatterChannel.Writer.TryComplete();
 
 A couple of things to unwrap...
 
-* While `postPathsChannel` has not been completed, we `TryRead()` messages.
-* If a message is present, we process the front matter. The processed front matter is then posted to the next channel, `frontMatterChannel`.
-* The `frontMatterChannel` channel is a bounded one. If there are 10 messages in there, the `Task` returned by `WriteAsync()`, by default, will not complete until capacity is available. Since we are using `await`, this will essentially "wait" for capacity, while other tasks in our program can run.
-* Similar to our previous producer, we `TryComplete()` the `frontMatterChannel` to let the next consumer know there will not be new data coming.
+- While `postPathsChannel` has not been completed, we `TryRead()` messages.
+- If a message is present, we process the front matter. The processed front matter is then posted to the next channel, `frontMatterChannel`.
+- The `frontMatterChannel` channel is a bounded one. If there are 10 messages in there, the `Task` returned by `WriteAsync()`, by default, will not complete until capacity is available. Since we are using `await`, this will essentially "wait" for capacity, while other tasks in our program can run.
+- Similar to our previous producer, we `TryComplete()` the `frontMatterChannel` to let the next consumer know there will not be new data coming.
 
 For every step, we'll do something like the above. There are some good [examples of producer/consumer patterns](https://github.com/dotnet/corefxlab/blob/31d98a89d2e38f786303bf1e9f8ba4cf5b203b0f/src/System.Threading.Tasks.Channels/README.md#example-producerconsumer-patterns) in the .NET Core GitHub repo.
 
@@ -290,10 +291,10 @@ await Channel
 
 Not quite as short as our procedural version, but there are some nice things we get from using this approach:
 
-* `Source()` is a producer. Based on data (all files in the blog post directory), the first channel in our pipeline is populated.
-* `PipeAsync()` is a consumer/producer. We can see there are 2 of those, the first parsing front matter, the second generating images.
-* `ReadAllAsync()` is a consumer. It does not produce data, and is essentially the final step in our pipeline. In this example, it writes image files to disk.
-* Both concurrency (how many tasks should be used for a consumer/producer?) and capacity (how many messages to buffer?) can be controlled. Using these we can control the way our pipeline behaves.
+- `Source()` is a producer. Based on data (all files in the blog post directory), the first channel in our pipeline is populated.
+- `PipeAsync()` is a consumer/producer. We can see there are 2 of those, the first parsing front matter, the second generating images.
+- `ReadAllAsync()` is a consumer. It does not produce data, and is essentially the final step in our pipeline. In this example, it writes image files to disk.
+- Both concurrency (how many tasks should be used for a consumer/producer?) and capacity (how many messages to buffer?) can be controlled. Using these we can control the way our pipeline behaves.
 
 ## Conclusion
 
@@ -301,8 +302,8 @@ The original, procedural version of our code took 45 seconds to execute. The cha
 
 Using `System.Threading.Channels`, we ensure concurrency of different kinds of workloads:
 
-* `ReadFrontMatterAsync()` is I/O-bound (reading from disk), and mostly waits for the filesystem
-* `CreateImageAsync()` is CPU-bound (generating an image and calculating stuff), and requires memory and CPU cycles
+- `ReadFrontMatterAsync()` is I/O-bound (reading from disk), and mostly waits for the filesystem
+- `CreateImageAsync()` is CPU-bound (generating an image and calculating stuff), and requires memory and CPU cycles
 
 Concurrent execution does not necessarily mean parallelism! We're using `async`/`await` and channels to make it easier for
 the task scheduler in .NET to shuffle our tasks around. The default `ThreadPoolTaskScheduler` will use threadpool threads,
@@ -321,12 +322,12 @@ If you want to host a channel-based worker like this as a long-running process, 
 
 While I only covered some concepts, there's much more to explore in the realm of channels and pipelines!
 
-* [An Introduction to System.Threading.Channels (Stephen Toub)](https://devblogs.microsoft.com/dotnet/an-introduction-to-system-threading-channels/#what-is-a-channel)
-* [An Introduction to System.Threading.Channels (Steve Gordon)](https://www.stevejgordon.co.uk/an-introduction-to-system-threading-channels)
-* [C# Channels - Publish / Subscribe Workflows (Denis Kyashif)](https://deniskyashif.com/2019/12/08/csharp-channels-part-1/)
-* [C# Channels - Timeout and Cancellation (Denis Kyashif)](https://deniskyashif.com/2019/12/11/csharp-channels-part-2/)
-* [C# Channels - Async Data Pipelines (Denis Kyashif)](https://deniskyashif.com/2020/01/07/csharp-channels-part-3/)
-* [How to implement Producer/Consumer with System.Threading.Channels (Davide Guida)](https://www.davideguida.com/how-to-implement-producer-consumer-with-system-threading-channels/)
-* [System.Threading.Channels README.md (.NET team)](https://github.com/dotnet/corefxlab/blob/31d98a89d2e38f786303bf1e9f8ba4cf5b203b0f/src/System.Threading.Tasks.Channels/README.md)
+- [An Introduction to System.Threading.Channels (Stephen Toub)](https://devblogs.microsoft.com/dotnet/an-introduction-to-system-threading-channels/#what-is-a-channel)
+- [An Introduction to System.Threading.Channels (Steve Gordon)](https://www.stevejgordon.co.uk/an-introduction-to-system-threading-channels)
+- [C# Channels - Publish / Subscribe Workflows (Denis Kyashif)](https://deniskyashif.com/2019/12/08/csharp-channels-part-1/)
+- [C# Channels - Timeout and Cancellation (Denis Kyashif)](https://deniskyashif.com/2019/12/11/csharp-channels-part-2/)
+- [C# Channels - Async Data Pipelines (Denis Kyashif)](https://deniskyashif.com/2020/01/07/csharp-channels-part-3/)
+- [How to implement Producer/Consumer with System.Threading.Channels (Davide Guida)](https://www.davideguida.com/how-to-implement-producer-consumer-with-system-threading-channels/)
+- [System.Threading.Channels README.md (.NET team)](https://github.com/dotnet/corefxlab/blob/31d98a89d2e38f786303bf1e9f8ba4cf5b203b0f/src/System.Threading.Tasks.Channels/README.md)
 
 And while not in .NET, [Kotlin: Diving in to Coroutines and Channels (Jag Saund)](https://proandroiddev.com/kotlin-coroutines-channels-csp-android-db441400965f) is a brilliant explanation of concurrency, coroutines (Kotlin's `Task` equivalent) and channels.

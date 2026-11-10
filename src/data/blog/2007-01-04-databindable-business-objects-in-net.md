@@ -10,13 +10,13 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/01/04/databindable-business-objects-in-net.html
 ---
+
 Checkout [Emmanuel Nuyttens' article on DataBindable Business Objects](http://www.codeproject.com/cs/database/CustomBindableObject.asp). It's an interesting article, focussing on the other side of data binding that I wrote an [article](http://www.balliauw.be/maarten/blog/26,article-in-net-magazine.htm) on myself for .NET magazine.
 
 "There has been, and still is a lot of discussion going around
 of what kind of technique a developer in general should use
 to represent the data from the DataLayer through the
 BusinessLayer to the Presentation Layer.
-
 
 In common, there are 2 main "ideas" floating around,
 those who swear the "one and only object Paradigm"

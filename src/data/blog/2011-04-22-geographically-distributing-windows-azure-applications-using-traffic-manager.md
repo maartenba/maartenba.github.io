@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/04/22/geographically-distributing-windows-azure-applications-using-traffic-manager.html
 ---
+
 With the downtime of Amazon EC2 this week, it seems a lot of websites “in the cloud” are down at the moment. Most comments I read on Twitter (and that I also made, jokingly :-)) are in the lines of “outrageous!” and “don’t go cloud!”. While I understand these comments, I think they are wrong. These “clouds” can fail. They are even designed to fail, and often provide components and services that allow you to cope with these failures. You just have to expect failure at some point in time and build it into your application.
 
 Let me rephrase my introduction. I just told you to expect failure, but I actually believe that clouds don’t “fail”. Yes, you may think I’m lunatic there, providing you with two different and opposing views in 2 paragraphs. Allow me to explain: "a “failing” cloud is actually a “scaling” cloud, only thing is: it’s scaling down to zero. If you design your application so that it can scale out, you should also plan for scaling “in”, eventually to zero. Use different availability zones on Amazon, and if you’re a Windows Azure user: try the new [Traffic Manager CTP](http://blogs.msdn.com/b/hanuk/archive/2011/04/12/windows-azure-traffic-manager-watm-ctp-announced-at-mix-11.aspx)!
@@ -33,4 +34,4 @@ If one of the datacenters goes down, the other service will take over. And as a 
 
 So what’s this have to do with my initial thoughts? Well: design to scale, using an appropriate technique to your specific situation. Use all the tools the platform has to offer, and prepare for scaling out and for scaling '”in”, even to zero instances. And as with backups: test your disaster strategy now and then.
 
-*PS: Artwork based on *[*Josh Twist’s sketches*](http://www.thejoyofcode.com/cloud_artwork.aspx)
+*PS: Artwork based on *[_Josh Twist’s sketches_](http://www.thejoyofcode.com/cloud_artwork.aspx)

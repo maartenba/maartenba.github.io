@@ -44,8 +44,8 @@ Go on, try it. Search for `@maarten@balliauw.be`, and you will find my `@maarten
 Reading ["how to implement a basic ActivityPub server"](https://blog.joinmastodon.org/2018/06/how-to-implement-a-basic-activitypub-server/),
 there are a couple of things that stand out:
 
-* Mastodon (and others) use [ActivityPub](https://activitypub.rocks/) as their protocol to communicate between "actors".
-* Actors are discovered using [WebFinger](https://webfinger.net/), a way to attach information to an email address, or other online resource.
+- Mastodon (and others) use [ActivityPub](https://activitypub.rocks/) as their protocol to communicate between "actors".
+- Actors are discovered using [WebFinger](https://webfinger.net/), a way to attach information to an email address, or other online resource.
 
 Since discovery is what I was after, WebFinger seemed like the only thing I would need to implement.
 
@@ -111,8 +111,8 @@ Discoverability, at this stage, is one of the things that matter to get a proper
 
 Over the past days, there were a couple of tools I found very useful in finding Twitter folks on Mastodon:
 
-* [Twitodon](https://twitodon.com/) learns about which Twitter account matches a Mastodon account, from folks using this service.
-* [Fedifinder](https://fedifinder.glitch.me/) and [Debirdify](https://pruvisto.org/debirdify/) scan Twitter accounts and checks if there is a Mastodon account in their profile data.
+- [Twitodon](https://twitodon.com/) learns about which Twitter account matches a Mastodon account, from folks using this service.
+- [Fedifinder](https://fedifinder.glitch.me/) and [Debirdify](https://pruvisto.org/debirdify/) scan Twitter accounts and checks if there is a Mastodon account in their profile data.
 
 Do make sure to add your Mastodon address somewhere on your Twitter profile as well.
 

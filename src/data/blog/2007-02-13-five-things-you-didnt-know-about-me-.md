@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/02/13/five-things-you-didnt-know-about-me.html
 ---
+
 I was tagged by [Joris](http://jopx.blogspot.com/2007/01/five-things-you-didnt-know-about-me.html) and [Kristof](http://spsfactory.blogspot.com/2007/02/ive-been-tagged-six-things-you-dont.html), so I guess it's about time I give away some secrets about myself.
 
 Did you know that...
@@ -19,7 +20,6 @@ Did you know that...
 - ... I wash my car every week (sometimes every two weeks, when I dont't have the time).
 - ... when I have some spare time, I try to make some electronical music (trance, jump, ...) [like this one](/images/Maarten%20B%20-%20Weblog.mp3), made especially for this post. (Interested in more? Contact me!)
 - ... I drink gallons of coffee every day... Probably more than good for a human being.
-
 
 I'm tagging:
 

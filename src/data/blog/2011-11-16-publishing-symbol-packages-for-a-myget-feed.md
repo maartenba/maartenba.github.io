@@ -10,11 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/11/16/publishing-symbol-packages-for-a-myget-feed.html
 ---
+
 [![](/images/image_thumb_116.png)](/images/image_148.png)Ever since [NuGet](http://www.nuget.org) 1.2, there is a great way for NuGet package authors to let their users debug into the package’s binaries. With almost no additional effort, package authors can publish their symbols and sources, and package consumers can debug into them from Visual Studio, simply by pushing a symbols package in addition to the standard NuGet package.
 
 [![](/images/image_thumb_117.png)](/images/image_149.png)Today, we’re proud to announce [MyGet](http://www.myget.org) has partnered with [SymbolSource.org](http://www.symbolsource.org) to offer an easy workflow to publish symbol packages for a private MyGet feed. This means from now on you can publish symbol packages for your private feeds as well!
 
-*On a sidenote: we're sharing API keys between both services. If you also want to share the same password with both services, simply go to your MyGet profile page and re-enter your password. We'll keep it in sync after that.*
+_On a sidenote: we're sharing API keys between both services. If you also want to share the same password with both services, simply go to your MyGet profile page and re-enter your password. We'll keep it in sync after that._
 
 ## Publishing a symbols package for use with MyGet
 
@@ -34,16 +35,16 @@ nuget push SamplePackage.1.0.0.Symbols.nupkg 00000000-0000-0000-0000-00000000000
 
 ```
 
-An example of these commands can also be found on the *Feed Details* tab for your MyGet feed.
+An example of these commands can also be found on the _Feed Details_ tab for your MyGet feed.
 
 ## Consuming symbol packages in Visual Studio
 
-When logging in to MyGet, you can find the symbols URL compatible with Visual Studio under the *Feed Details* tab for your MyGet feed. This URL will be the same for all feeds you are allowed to consume, so no need to configure 10+ symbol servers in Visual Studio. Here’s how to configure it.
+When logging in to MyGet, you can find the symbols URL compatible with Visual Studio under the _Feed Details_ tab for your MyGet feed. This URL will be the same for all feeds you are allowed to consume, so no need to configure 10+ symbol servers in Visual Studio. Here’s how to configure it.
 
-First of all, Visual Studio typically will only debug your own source code, the source code of the project or projects that are currently opened in Visual Studio. To disable this behavior and to instruct Visual Studio to also try to debug code other than the projects that are currently opened, open the *Options *dialog (under the menu *Tools > Options*). Find the *Debugging* node on the left and click the *General* node underneath. Turn off the option *Enable Just My Code*. Also turn on the option *Enable source server support*. This usually triggers a warning message but it is safe to just click *Yes* and continue with the settings specified.
+First of all, Visual Studio typically will only debug your own source code, the source code of the project or projects that are currently opened in Visual Studio. To disable this behavior and to instruct Visual Studio to also try to debug code other than the projects that are currently opened, open the *Options *dialog (under the menu _Tools > Options_). Find the _Debugging_ node on the left and click the _General_ node underneath. Turn off the option _Enable Just My Code_. Also turn on the option _Enable source server support_. This usually triggers a warning message but it is safe to just click _Yes_ and continue with the settings specified.
 
 [![](/images/image_thumb_119.png)](/images/image_151.png)
 
-Keep the *Options* dialog opened and find the *Symbols* node under the *Debugging* node on the left. In the dialog shown in Figure 4-14, add the symbol server URL for *your* MyGet feed: [http://srv.symbolsource.org/pdb/MyGet/username/11111111-1111-1111-1111-11111111111](http://srv.symbolsource.org/pdb/MyGet/username/11111111-1111-1111-1111-11111111111). After that, click *OK* to confirm configuration changes and consume symbols for NuGet packages.
+Keep the _Options_ dialog opened and find the _Symbols_ node under the _Debugging_ node on the left. In the dialog shown in Figure 4-14, add the symbol server URL for _your_ MyGet feed: [http://srv.symbolsource.org/pdb/MyGet/username/11111111-1111-1111-1111-11111111111](http://srv.symbolsource.org/pdb/MyGet/username/11111111-1111-1111-1111-11111111111). After that, click _OK_ to confirm configuration changes and consume symbols for NuGet packages.
 
 Enjoy!

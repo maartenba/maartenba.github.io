@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/03/21/windows-azure-and-scaling-how-net.html
 ---
+
 One of the key ideas behind cloud computing is the concept of scaling.Talking to customers and cloud enthusiasts, many people seem to be unaware about the fact that there is great opportunity in scaling, even for small applications. In this blog post series, I will talk about the following:
 
 - [Put your cloud on a diet (or: Windows Azure and scaling: why?)](/posts/2011-03-09-put-your-cloud-on-a-diet-or-windows-azure-and-scaling-why/)
@@ -27,7 +28,7 @@ makecert -sky exchange -r -n "CN=<CertificateName>" -pe -a sha1 -len 2048 -ss My
 
 Too anxious to try this out? Download my certificate files ([management.pfx (4.05 kb)](/images/2011/3/management.pfx) and [management.cer (1.18 kb)](/images/2011/3/management.cer)) and feel free to use it (password: phpazure). Beware that it’s not safe to use in production as I just shared this with the world (and you may be sharing your Windows Azure subscription with the world :-)).
 
-Uploading the certificate through the management portal can be done under *Hosted Services > Management Certificates*.
+Uploading the certificate through the management portal can be done under _Hosted Services > Management Certificates_.
 
 [![](/images/image_thumb_78.png)](/images/image_108.png)
 
@@ -49,9 +50,9 @@ AutoScale.exe "management.cer" "subscription-id0" "service-name" "role-name" "pr
 
 ```
 
-Now let’s get started. First of all, we’ll be needing the Windows Azure service management client API SDK. Since there is no official SDK, you can download a sample at [http://archive.msdn.microsoft.com/azurecmdlets](http://archive.msdn.microsoft.com/azurecmdlets). Open the solution, compile it and head for the /bin folder: we’re interested in *Microsoft.Samples.WindowsAzure.ServiceManagement.dll*.
+Now let’s get started. First of all, we’ll be needing the Windows Azure service management client API SDK. Since there is no official SDK, you can download a sample at [http://archive.msdn.microsoft.com/azurecmdlets](http://archive.msdn.microsoft.com/azurecmdlets). Open the solution, compile it and head for the /bin folder: we’re interested in _Microsoft.Samples.WindowsAzure.ServiceManagement.dll_.
 
-Next, create a new Console Application in Visual Studio and add a reference to the above assembly. The code for *Program.cs* will start with the following:
+Next, create a new Console Application in Visual Studio and add a reference to the above assembly. The code for _Program.cs_ will start with the following:
 
 ```csharp
 class Program
@@ -74,7 +75,7 @@ class Program
 
 ```
 
-This constant and *WebHttpBinding()* method will be used by the Service Management client to connect to your Windows Azure subscription’s management API endpoint. The *WebHttpBinding()* creates a new WCF binding that is configured to use a certificate as the client credential. Just the way Windows Azure likes it.
+This constant and _WebHttpBinding()_ method will be used by the Service Management client to connect to your Windows Azure subscription’s management API endpoint. The _WebHttpBinding()_ creates a new WCF binding that is configured to use a certificate as the client credential. Just the way Windows Azure likes it.
 
 I’ll skip the command-line parameter parsing. Next interesting thing is the location where a new management client is created:
 
@@ -84,7 +85,7 @@ var managementClient = Microsoft.Samples.WindowsAzure.ServiceManagement.ServiceM
 
 ```
 
-Afterwards, the deployment details are retrieved. The deployment’s configuration is in there (base64-encoded), so the only thing to do is read that into an *XDocument*, update the number of instances and store it back:
+Afterwards, the deployment details are retrieved. The deployment’s configuration is in there (base64-encoded), so the only thing to do is read that into an _XDocument_, update the number of instances and store it back:
 
 ```csharp
 var deployment = managementClient.GetDeploymentBySlot(subscriptionId, serviceName, slot);
@@ -107,7 +108,7 @@ managementClient.ChangeConfigurationBySlot(subscriptionId, serviceName, slot, ch
 
 ```
 
-Here’s the complete *Program.cs* code:
+Here’s the complete _Program.cs_ code:
 
 ```csharp
 using System;

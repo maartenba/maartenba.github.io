@@ -17,7 +17,7 @@ Here's a blog post about how the new .NET project format references framework as
 
 ## Developer Tools and Automatically Referencing Known NuGet Packages
 
-The story starts with an issue in our tracker: *[RIDER-33542 Support adding NuGet package reference for assemblies stored in nuget packs folders](https://youtrack.jetbrains.com/issue/RIDER-33542/)*. This issue describes a feature in both [ReSharper](https://www.jetbrains.com/reshaper/) and [Rider](https://www.jetbrains.com/rider/) that seems to be misbehaving. Let's look at that.
+The story starts with an issue in our tracker: _[RIDER-33542 Support adding NuGet package reference for assemblies stored in nuget packs folders](https://youtrack.jetbrains.com/issue/RIDER-33542/)_. This issue describes a feature in both [ReSharper](https://www.jetbrains.com/reshaper/) and [Rider](https://www.jetbrains.com/rider/) that seems to be misbehaving. Let's look at that.
 
 When we have multiple projects in a solution, both tools offer a way to automatically reference NuGet packages when using a type that is not referenced yet. For example, when we try using the `IMapper` interface in `ClassLibrary1` and we don't yet have a reference to it, a quick fix lets us reference the NuGet package automatically. This works because in `WebApplication`, we have information about the package & the types contained in it.
 
@@ -71,10 +71,10 @@ In Rider (well, the [2020.1 EAP](https://www.jetbrains.com/rider/eap/)), we can 
 
 Following the SDK reference, we can see that the `Microsoft.NET.Sdk.Web` SDK itself references four other SDKs:
 
-* `Microsoft.NET.Sdk` - General .NET Core things
-* `Microsoft.NET.Sdk.Razor` - Razor, which is always nice to have in a web project
-* `Microsoft.NET.Sdk.Web.ProjectSystem` - The project system that makes development with ASP.NET Core work properly
-* `Microsoft.NET.Sdk.Publish` - Publishing targets that MSBuild can use when publishing the web project
+- `Microsoft.NET.Sdk` - General .NET Core things
+- `Microsoft.NET.Sdk.Razor` - Razor, which is always nice to have in a web project
+- `Microsoft.NET.Sdk.Web.ProjectSystem` - The project system that makes development with ASP.NET Core work properly
+- `Microsoft.NET.Sdk.Publish` - Publishing targets that MSBuild can use when publishing the web project
 
 ![Exploring SDK references](/images/2020/04/exploring-sdk-references.png)
 
@@ -90,7 +90,7 @@ When ~~Project K~~ ASP.NET Core just came about, the idea was be that a project 
 
 ## Is There More Information the Developer Tools could use?
 
-A good nerd snipe goes beyond! If we're investigating the *why*, let's maybe also see if there is more information we could gather to make that quick fix work! Spoiler alert: that does not seem to be the case, but let's still see why that is!
+A good nerd snipe goes beyond! If we're investigating the _why_, let's maybe also see if there is more information we could gather to make that quick fix work! Spoiler alert: that does not seem to be the case, but let's still see why that is!
 
 We ended the last section with the conclusion that .NET Core's SDK/project system uses assembly references. Circling back to `IServiceCollection`, that type lives in the `Microsoft.Extensions.DependencyInjection.Abstractions.dll` assembly that is implicitly referenced. But also in the `Microsoft.Extensions.DependencyInjection.Abstractions` package on NuGet!
 

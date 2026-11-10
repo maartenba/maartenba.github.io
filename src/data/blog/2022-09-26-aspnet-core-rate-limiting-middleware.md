@@ -169,10 +169,11 @@ Or [chime in on this GitHub issue](https://github.com/dotnet/aspnetcore/issues/4
 In our example, we've used the `FixedWindowLimiter` to limit the number of requests in a time window.
 
 There are more rate limiting algorithms available in .NET that you can use:
-* [**Concurrency limit**](https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#concurrency-limit) is the simplest form of rate limiting. It doesn't look at time, just at number of concurrent requests. "Allow 10 concurrent requests".
-* [**Fixed window limit**](https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#fixed-window-limit) lets you apply limits such as "60 requests per minute". Every minute, 60 requests can be made. One every second, but also 60 in one go.
-* [**Sliding window limit**](https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#sliding-window-limit) is similar to the fixed window limit, but uses segments for more fine-grained limits. Think "60 requests per minute, with 1 request per second".
-* [**Token bucket limit**](https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#token-bucket-limit) lets you control flow rate, and allows for bursts. Think "you are given 100 requests every minute". If you make all of them over 10 seconds, you'll have to wait for 1 minute before you are allowed more requests.
+
+- [**Concurrency limit**](https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#concurrency-limit) is the simplest form of rate limiting. It doesn't look at time, just at number of concurrent requests. "Allow 10 concurrent requests".
+- [**Fixed window limit**](https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#fixed-window-limit) lets you apply limits such as "60 requests per minute". Every minute, 60 requests can be made. One every second, but also 60 in one go.
+- [**Sliding window limit**](https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#sliding-window-limit) is similar to the fixed window limit, but uses segments for more fine-grained limits. Think "60 requests per minute, with 1 request per second".
+- [**Token bucket limit**](https://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#token-bucket-limit) lets you control flow rate, and allows for bursts. Think "you are given 100 requests every minute". If you make all of them over 10 seconds, you'll have to wait for 1 minute before you are allowed more requests.
 
 ### Token bucket, sliding window and concurrency limiters
 

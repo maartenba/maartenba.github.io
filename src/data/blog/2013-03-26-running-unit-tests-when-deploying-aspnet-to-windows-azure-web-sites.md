@@ -10,13 +10,14 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/03/26/running-unit-tests-when-deploying-asp-net-to-windows-azure-web-sites.html
 ---
+
 ![Deployment failed](/images/image_273.png)One of the well-loved features of Windows Azure Web Sites is the fact that you can simply push our ASP.NET application’s source code to the platform using Git (or TFS or DropBox) and that sources are compiled and deployed on your Windows Azure Web Site. If you’ve checked the management portal earlier, you may have noticed that a number of deployment steps are executed: the deployment process searches for the project file to compile, compiles it, copies the build artifacts to the web root and has your website running. But did you know you can customize this process?
 
 **[update]** [Mstest seems to work now](http://blog.amitapple.com/post/51576689501/testsduringazurewebsitesdeployment) as well, using the console runner from VS2012.
 
 ## Customizing the build process
 
-To get an understanding of how to customize the build process, I want to explain you how this works. In the root of your repository, you can add a *.deployment* file, containing a simple directive: which command should be run upon deployment.
+To get an understanding of how to customize the build process, I want to explain you how this works. In the root of your repository, you can add a _.deployment_ file, containing a simple directive: which command should be run upon deployment.
 
 ```
 
@@ -48,7 +49,7 @@ After compiling, you can simply xcopy our application to the %DEPLOYMENT_TARGET%
 
 ## Generating deployment scripts
 
-Creating deployment scripts can be a tedious job, good thing that the [azure-cli](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/) tools are there! Once those are installed, simply invoke the following command and have both the *.deployment* file as well as a batch or bash file generated:
+Creating deployment scripts can be a tedious job, good thing that the [azure-cli](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/) tools are there! Once those are installed, simply invoke the following command and have both the _.deployment_ file as well as a batch or bash file generated:
 
 ```
 
@@ -190,7 +191,7 @@ IF NOT DEFINED GALLIO_COMMAND (
 
 ```
 
-See what happens there?  We check if the local system on which your files are stored in WindowsAzure Web Sites already has a copy of the *Gallio.Echo.exe*test runner. If not, let’s download a tool which allows us to unzip. Next, the entire Gallio test runner is downloaded and extracted. As a final step, the %GALLIO_COMMAND% variable is populated with the full path to the test runner executable.
+See what happens there? We check if the local system on which your files are stored in WindowsAzure Web Sites already has a copy of the *Gallio.Echo.exe*test runner. If not, let’s download a tool which allows us to unzip. Next, the entire Gallio test runner is downloaded and extracted. As a final step, the %GALLIO_COMMAND% variable is populated with the full path to the test runner executable.
 
 Right before the line that calls “kudusync”, add the following:
 

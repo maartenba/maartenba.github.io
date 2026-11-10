@@ -10,27 +10,24 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2015/10/13/working-with-a-private-npm-registry-in-azure-web-apps.html
 ---
-Using [Azure Web Apps](https://azure.microsoft.com/en-us/documentation/services/app-service/web/), we can deploy and host Node applications quite easily. But what to do with packages the site depends on? Do we have to upload them manually to Azure Web Apps? Include them in our Git repository? None of that: we just have to make sure our app’s *package,json* is checked in so that Azure Web Apps can install them during deployment. Let’s see how.
 
+Using [Azure Web Apps](https://azure.microsoft.com/en-us/documentation/services/app-service/web/), we can deploy and host Node applications quite easily. But what to do with packages the site depends on? Do we have to upload them manually to Azure Web Apps? Include them in our Git repository? None of that: we just have to make sure our app’s _package,json_ is checked in so that Azure Web Apps can install them during deployment. Let’s see how.
 
 ## Installing node modules during deployment
 
-
-In this blog post, we’ll create a simple application using [Express](http://expressjs.com/). In its simplest form, an Express application will map incoming request paths to a function that generates the response. This makes Express quite interesting to work with: we can return a simple string or delegate work to a full-fledged MVC component if we want to. Here’s the simplest application I could think of, returning “Hello world!” whenever the root URL is requested. We can save it as *server.js* so we can deploy it later on.
-
+In this blog post, we’ll create a simple application using [Express](http://expressjs.com/). In its simplest form, an Express application will map incoming request paths to a function that generates the response. This makes Express quite interesting to work with: we can return a simple string or delegate work to a full-fledged MVC component if we want to. Here’s the simplest application I could think of, returning “Hello world!” whenever the root URL is requested. We can save it as _server.js_ so we can deploy it later on.
 
 ```javascript
 var express = require("express");
 var app = express();
 
-app.get("/", function(req, res) {
-    res.send("Hello world!");
+app.get("/", function (req, res) {
+  res.send("Hello world!");
 });
 
 console.log("Web application starting...");
 app.listen(process.env.PORT);
 console.log("Web application started on port " + process.env.PORT);
-
 ```
 
 Of course, this will not work as-is. We need to ensure Express (and its dependencies) are installed as well. We can do this using npm, running the following commands:
@@ -56,17 +53,17 @@ node server.js
 
 ```
 
-We can now commit our code, excluding the *node_modules* folder to our Azure Web App git repository. Ideally we create a *.gitignore *file that excludes this folder for once and for all. Once committed, Azure Web Apps starts a convention-based deployment process. One of the conventions is that for a Node application, all dependencies from *package.json* are installed. We can see this convention in action from the Azure portal.
+We can now commit our code, excluding the _node_modules_ folder to our Azure Web App git repository. Ideally we create a *.gitignore *file that excludes this folder for once and for all. Once committed, Azure Web Apps starts a convention-based deployment process. One of the conventions is that for a Node application, all dependencies from _package.json_ are installed. We can see this convention in action from the Azure portal.
 
 [![](/images/image_thumb_320.png)](/images/image_360.png)
 
-Great! Seems we have to do nothing special to get this to work. Except… What if we are using our *own, private npm modules*? How can we tell Azure Web Apps to make use of a different npm registry? Let’s see…
+Great! Seems we have to do nothing special to get this to work. Except… What if we are using our _own, private npm modules_? How can we tell Azure Web Apps to make use of a different npm registry? Let’s see…
 
 ## Installing private node modules during deployment
 
 When building applications, we may be splitting parts of the application into separate node modules to make the application more componentized, make it easier to develop individual components and so on. We can use a [private npm registry](http://www.myget.org/npm) to host these components, an example being [MyGet](http://www.myget.org). Using a private npm feed we can give our development team access to these components using “good old npm” while not throwing these components out on the public [npmjs.org](http://npmjs.org).
 
-Imagine we have a module called *demo-site-pages* which contains some of the views our web application will be hosting. We can add a dependency to this module in our *package.json*:
+Imagine we have a module called _demo-site-pages_ which contains some of the views our web application will be hosting. We can add a dependency to this module in our _package.json_:
 
 ```
 
@@ -100,9 +97,9 @@ But now comes the issue: if we push this out to Azure Web Apps, our private regi
 
 ### Generating a .npmrc file to work with a private npm registry in Azure Web Apps
 
-To be able to install node modules from a private npm registry during deployment on Azure Web Apps, we have to ship a *.npmrc* file with our code. Let’s see how we can do this.
+To be able to install node modules from a private npm registry during deployment on Azure Web Apps, we have to ship a _.npmrc_ file with our code. Let’s see how we can do this.
 
-> Since our application uses both npmjs.org as well as our private registry, we want to make sure MyGet proxies packages used from npmjs.org during installation. We can enable this from our feed’s ***Package Sources*** tab and edit the default *Npmjs.org* package source source. Ensure the **Make all upstream packages available in clients* ***option is checked.
+> Since our application uses both npmjs.org as well as our private registry, we want to make sure MyGet proxies packages used from npmjs.org during installation. We can enable this from our feed’s _**Package Sources**_ tab and edit the default _Npmjs.org_ package source source. Ensure the *_Make all upstream packages available in clients_ ***option is checked.
 
 Next, [register your MyGet NPM feed](http://docs.myget.org/docs/walkthrough/getting-started-with-npm) (or another registry URL). The easiest way to do this is by running the following commands:
 
@@ -113,7 +110,7 @@ npm config set always-auth true
 
 ```
 
-This generates a *.npmrc* file under our user profile folder. On Windows that would be something like C*:\Users\Username\.npmrc*. Copy this file into the application’s root folder and open it in an editor. Depending on the version of npm being used, we may have to set the *always-auth* setting to *true*:
+This generates a _.npmrc_ file under our user profile folder. On Windows that would be something like C*:\Users\Username\.npmrc*. Copy this file into the application’s root folder and open it in an editor. Depending on the version of npm being used, we may have to set the _always-auth_ setting to _true_:
 
 ```
 

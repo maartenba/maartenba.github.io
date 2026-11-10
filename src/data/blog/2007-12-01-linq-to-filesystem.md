@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/12/01/linq-to-filesystem.html
 ---
+
 The past few hours, I've been experimenting with LINQ. As a sample application, I'm trying to create a small photo album website, which shows me all images in a specific folder on my webserver.
 
 What does LINQ have to do with that? Everyone has used a loop over all files in a folder, and I decided to try LINQ for that matter. Here's how:
@@ -33,4 +34,4 @@ this.gridView1.DataBind();
 
 ```
 
-*EDIT: (mental note to myself: add LINQ keywords to syntax highlighter...)* - done!
+_EDIT: (mental note to myself: add LINQ keywords to syntax highlighter...)_ - done!

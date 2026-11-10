@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/04/23/msdn-session-on-asp-net-mvc.html
 ---
+
 As promised to all people attending my online session on ASP.NET MVC this afternoon, here is the slide deck I’ve used.
 
 [MSDN - ASP.NET MVC](http://www.slideshare.net/maartenba/msdn-aspnet-mvc?type=powerpoint)<object style="margin:0px" width="425" height="355">

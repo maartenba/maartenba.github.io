@@ -28,9 +28,9 @@ Dev Drive in Windows 11 is based on a newer file system, the [Resilient File Sys
 
 After analyzing typical developer workloads, Microsoft sees this combination of technologies as a perfect fit for workloads and projects where efficient file access is critical:
 
-* Having fast access to your project source code while writing, building, testing and debugging.
-* Speeding up package manager caches and package installation when working with NuGet, npm, Maven, Gradle, pip, Composer and others.
-* Other disk-bound operations, such as cloning sources, copying files, running builds, and so on.
+- Having fast access to your project source code while writing, building, testing and debugging.
+- Speeding up package manager caches and package installation when working with NuGet, npm, Maven, Gradle, pip, Composer and others.
+- Other disk-bound operations, such as cloning sources, copying files, running builds, and so on.
 
 Next to using the newer ReFS file system, Microsoft Defender Antivirus activates [performance mode](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-antivirus-performance-mode?view=o365-worldwide) for Dev Drive. On NTFS volumes, Defender always performs a real-time protection scan when accessing a file. Dev Drives are marked trusted (by default), where Defender will perform a deferred scan of files. This performance mode is faster since there's no real-time security scan overhead, while still performing the scan asynchronously.
 
@@ -84,8 +84,8 @@ A pleasant surprise was that only a few minutes in, 100,000 of the 418,900 items
 
 After moving source code to Dev Drive, I wanted to move package manager directories over. Microsoft's documentation explains [how to do this](https://learn.microsoft.com/en-us/windows/dev-drive/#storing-package-cache-on-dev-drive) for npm (nodejs), NuGet (.NET), vcpkg (C/C++), pip (Python), Cargo (Rust) and Maven (JVM). There are generally 2 steps involved for each of those:
 
-* Setting an environment variable or configuration value to point the package manager to use a different location (the Dev Drive);
-* Copy over existing caches so you don't have to download all of them again.
+- Setting an environment variable or configuration value to point the package manager to use a different location (the Dev Drive);
+- Copy over existing caches so you don't have to download all of them again.
 
 Most of my coding is using .NET and Java/Kotlin, combined with JavaScript, so I wanted to move over package manager caches for those. Based on those, here's a PowerShell script that moves the data for those package managers to a Dev Drive, and sets the environment variables to configure the new path:
 
@@ -112,6 +112,7 @@ Move-Item -Path $env:UserProfile\.gradle* -Destination $DevDrive\Packages
 [Environment]::SetEnvironmentVariable("MAVEN_OPTS", "-Dmaven.repo.local=$DevDrive\Packages\.m2 $env:MAVEN_OPTS", "User")
 [Environment]::SetEnvironmentVariable("GRADLE_USER_HOME", "$DevDrive\Packages\.gradle", "User")
 ```
+
 Check the Dev Drive documentation on [how to configure other package managers](https://learn.microsoft.com/en-us/windows/dev-drive/#storing-package-cache-on-dev-drive).
 
 ## Dev Drive for .NET -- Package restore and MSBuild
@@ -126,7 +127,7 @@ dotnet restore
 The Dev Drive definitely seems faster: I consistently see faster package restores. Here are some unscientific measurements of running `dotnet restore` on a 4-project solution that has 41 dependencies across those projects:
 
 |                     | **Average restore time - NTFS** | **Average restore time - Dev Drive** |
-|---------------------|---------------------------------|--------------------------------------|
+| ------------------- | ------------------------------- | ------------------------------------ |
 | **Project1.csproj** | 846 ms                          | 434 ms                               |
 | **Project2.csproj** | 871 ms                          | 434 ms                               |
 | **Project3.csproj** | 1.39 sec                        | 740 ms                               |
@@ -190,7 +191,7 @@ Two more unscientific benchmarks originated from this: using a stopwatch to meas
 Here are the results:
 
 |                                                               | **Rider on NTFS**<br/>Caches on NTFS<br/>MS Defender real-time<br/>Sources on NTFS | **Rider on Dev Drive**<br/>Caches on Dev Drive<br/>MS Defender performance mode<br/>Sources on Dev Drive | **Rider on NTFS**<br/>Caches on NTFS<br/>**MS Defender disabled**<br/>Sources on NTFS |
-|---------------------------------------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| ------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | **Starting Rider**                                            | ~6.5 sec                                                                           | ~6.5 sec                                                                                                 | ~6.0 sec                                                                              |
 | **Opening solution,<br/>restoring packages,<br/>re-indexing** | ~1 m 07 sec                                                                        | ~58 sec                                                                                                  | ~59 sec                                                                               |
 

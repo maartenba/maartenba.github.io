@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/03/14/accessing-windows-azure-blob-storage-from-php.html
 ---
+
 Pfew! A week of Microsoft TechDays here in Belgium with lots of talks on new Microsoft stuff, [Azure](http://www.microsoft.com/azure) included. You may know [I already experimented with Windows Azure and ASP.NET MVC](/posts/2008-12-15-track-your-car-expenses-in-the-cloud-cartrackr-on-windows-azure-part-1-introduction/). Earlier this week, I thought of doing the same with Windows Azure and PHP...
 
 ## What the ...?
@@ -45,7 +46,7 @@ $storage->putBlob('azuretest', 'images/WindowsAzure.gif', './WindowsAzure.gif');
 
 ```
 
-There we go. I've uploaded my local *WindowsAzure.gif* file to the *azuretest* container and named the file "images/WindowsAzure.gif'". Don't be confused: it is NOT stored in the images/ folder (there's no such thing on Azure), this is really the full filename. But don't worry, you can mimic a regular filesystem with folders, for example by retrieving all files that are prefixed with "images/":
+There we go. I've uploaded my local _WindowsAzure.gif_ file to the _azuretest_ container and named the file "images/WindowsAzure.gif'". Don't be confused: it is NOT stored in the images/ folder (there's no such thing on Azure), this is really the full filename. But don't worry, you can mimic a regular filesystem with folders, for example by retrieving all files that are prefixed with "images/":
 
 ```php
 $storage->listBlobs('azuretest', '/', 'images/');

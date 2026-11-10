@@ -13,7 +13,7 @@ redirect_from:
   - /post/2019/01/11/unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner.html
 ---
 
-We all know it's important to prevent *Cross-Site Request Forgery (CSRF)* attacks against our application. Unfortunately, our inherited code base has *zero* measures implemented - not one action methods with a `[ValidateAntiForgeryToken]` attribute in sight!
+We all know it's important to prevent _Cross-Site Request Forgery (CSRF)_ attacks against our application. Unfortunately, our inherited code base has _zero_ measures implemented - not one action methods with a `[ValidateAntiForgeryToken]` attribute in sight!
 
 In the [previous post](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/), we looked at using [Structural Search and Replace in ReSharper](https://www.jetbrains.com/help/resharper/Navigation_and_Search__Structural_Search_and_Replace.html) to find all action methods in our inherited code base. That proved powerful, but there are so many edge cases to cover that it's not ideal to check our current code base, and also difficult to keep checking for this. We need a unit test to ensure `[ValidateAntiForgeryToken]` attributes are present!
 
@@ -21,9 +21,9 @@ Today, we will look at implementin a unit test that ensures all action methods t
 
 In this series:
 
-* [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/)
-* [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)
-* [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/posts/2019-01-11-unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner/)
+- [Help, I've inherited an ASP.NET MVC Core code base with no Cross-Site Request Forgery (CSRF) measures!](https://blog.maartenballiauw.be/posts/2019-01-09-help-ive-inherited-an-aspnet-mvc-core-code-base-with-no-cross-site-request-forgery-csrf-measures/)
+- [Tracking down action methods that need ValidateAntiForgeryToken using Structural Search and Replace](https://blog.maartenballiauw.be/posts/2019-01-10-tracking-down-action-methods-that-need-validateantiforgerytoken-using-structural-search-and-replace/)
+- [Unit testing for ValidateAntiForgeryToken and clever navigation in the ReSharper/Rider test runner](https://blog.maartenballiauw.be/posts/2019-01-11-unit-testing-for-validateantiforgerytoken-and-clever-navigation-in-the-resharper-rider-test-runner/)
 
 ## How do you validate an anti forgery token in ASP.NET Core?
 
@@ -41,9 +41,9 @@ In the [previous post](https://blog.maartenballiauw.be/posts/2019-01-10-tracking
 
 Great! We also defined our action methods are:
 
-* in a class that extends `Controller`/`ControllerBase`/`IController`
-* is a `public` method (as that's what ASP.NET MVC exposes over HTTP)
-* have a `[HttpPost]` attribute (or `[HttpDelete]`, or `[AcceptVerbs()]`, or ...)
+- in a class that extends `Controller`/`ControllerBase`/`IController`
+- is a `public` method (as that's what ASP.NET MVC exposes over HTTP)
+- have a `[HttpPost]` attribute (or `[HttpDelete]`, or `[AcceptVerbs()]`, or ...)
 
 Sound like a job for... Reflection!
 
@@ -106,10 +106,10 @@ var actionMethodsThatRequireValidateAntiForgeryTokenAttribute = assembly.GetType
 
 Summarized:
 
-* Find all types that extend `Controller`;
-* Find their `public` methods that are *not compiler generated*;
-* Filter out methods that explicitly state they only support `GET` and/or `HEAD`;
-* Order them by namespace, controller, method.
+- Find all types that extend `Controller`;
+- Find their `public` methods that are _not compiler generated_;
+- Filter out methods that explicitly state they only support `GET` and/or `HEAD`;
+- Order them by namespace, controller, method.
 
 This can probably be refined a bit by adding more than just one assembly (if that's what your solution contains), and probably we also want to add a list of action methods that should not be checked because there are always exceptions to the rule.
 
@@ -169,7 +169,7 @@ private class MissingValidateAntiForgeryTokenAttributeException : XunitException
 }
 ```
 
-The message does not really matter, the stack trace does. If it is formatted like to ```$"at {controller}.{actionMethod.Name}() in {actionMethod.DeclaringType.Name}:line 0"``` (the line number does not matter), ReSharper's test runner gives us **Ctrl+Click**-ability to quickly navigate to the correct action method and fix things.
+The message does not really matter, the stack trace does. If it is formatted like to `$"at {controller}.{actionMethod.Name}() in {actionMethod.DeclaringType.Name}:line 0"` (the line number does not matter), ReSharper's test runner gives us **Ctrl+Click**-ability to quickly navigate to the correct action method and fix things.
 
 > **Note:** We could also include the full type name and method name in the message to get navigation.
 
@@ -201,7 +201,7 @@ From here, we can add the `[ValidateAntiForgeryToken]` attribute, then navigate 
 
 ## Conclusion
 
-We now tackled our issue. We inherited a code base that had *zero* of ASP.NET MVC's CSRF protection implemented, and wrote a unit test that helps us find action methods where `[ValidateAntiForgeryToken]` is missing.
+We now tackled our issue. We inherited a code base that had _zero_ of ASP.NET MVC's CSRF protection implemented, and wrote a unit test that helps us find action methods where `[ValidateAntiForgeryToken]` is missing.
 
 By using a clever trick to make navigation from the test runner to our action method easier, we can run our test, find missing `[ValidateAntiForgeryToken]` attributes, and go fix them.
 

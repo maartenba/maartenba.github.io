@@ -62,7 +62,7 @@ The rest of this post is the original explanation. The partitioning story below 
 
 ## Background: what PartitionKey and RowKey are for
 
-For the past few months, I’ve been coaching a “Microsoft Student Partner” (who has a great blog on [Kinect for Windows](http://www.kinectingforwindows.com/) by the way!) on Windows Azure. One of the questions he recently had was around *PartitionKey* and *RowKey* in Windows Azure Table Storage. What are these for? Do I have to specify them manually? Let’s explain…
+For the past few months, I’ve been coaching a “Microsoft Student Partner” (who has a great blog on [Kinect for Windows](http://www.kinectingforwindows.com/) by the way!) on Windows Azure. One of the questions he recently had was around _PartitionKey_ and _RowKey_ in Windows Azure Table Storage. What are these for? Do I have to specify them manually? Let’s explain…
 
 ## Azure storage partitions
 
@@ -117,17 +117,17 @@ Here’s an exercise: say you want to store customers, orders and orderlines. Wh
 
 Let’s use three tables: Customer, Order and Orderline.
 
-An ideal setup *may* be this one, depending on how you want to query everything:
+An ideal setup _may_ be this one, depending on how you want to query everything:
 
 > Customer (PK: sales region, RK: customer id) – it enables fast searches on region and on customer id
-Order (PK: customer id, RK; order id) – it allows me to quickly fetch all orders for a specific customer (as they are colocated in one partition), it still allows fast querying on a specific order id as well)
-Orderline (PK: order id, RK: order line id) – allows fast querying on both order id as well as order line id.
+> Order (PK: customer id, RK; order id) – it allows me to quickly fetch all orders for a specific customer (as they are colocated in one partition), it still allows fast querying on a specific order id as well)
+> Orderline (PK: order id, RK: order line id) – allows fast querying on both order id as well as order line id.
 
 Of course, depending on the system you are building, the following may be a better setup:
 
 > Customer (PK: customer id, RK: display name) – it enables fast searches on customer id and display name
-Order (PK: customer id, RK; order id) – it allows me to quickly fetch all orders for a specific customer (as they are colocated in one partition), it still allows fast querying on a specific order id as well)
-Orderline (PK: order id, RK: item id) – allows fast querying on both order id as well as the item bought, of course given that one order can only contain one order line for a specific item (PK + RK should be unique)
+> Order (PK: customer id, RK; order id) – it allows me to quickly fetch all orders for a specific customer (as they are colocated in one partition), it still allows fast querying on a specific order id as well)
+> Orderline (PK: order id, RK: item id) – allows fast querying on both order id as well as the item bought, of course given that one order can only contain one order line for a specific item (PK + RK should be unique)
 
 You see? Choose them wisely, depending on your queries. And maybe an important sidenote: don’t be afraid of denormalizing your data and storing data twice in a different format, supporting more query variations.
 

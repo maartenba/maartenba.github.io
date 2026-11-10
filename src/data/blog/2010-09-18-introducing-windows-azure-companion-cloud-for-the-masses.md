@@ -5,12 +5,22 @@ pubDatetime: 2010-09-18T19:32:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["Azure", "CSharp", "General", "PHP", "Scalability", "Azure Database", "Webfarm"]
+tags:
+  [
+    "Azure",
+    "CSharp",
+    "General",
+    "PHP",
+    "Scalability",
+    "Azure Database",
+    "Webfarm",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2010/09/18/introducing-windows-azure-companion-cloud-for-the-masses.html
 ---
-[![](/images/999%5B6%5D_thumb.png)](/images/999%5B6%5D.png)At [OSIDays](http://www.osidays.com) in India, the [Interoperability team at Microsoft](http://blogs.msdn.com/b/interoperability/archive/2010/09/19/windows-azure-platform-gets-easier-for-php-developers-to-write-modern-cloud-applications.aspx) has made an interesting series of announcements related to PHP and Windows Azure.  To summarize: [Windows Azure Tools for Eclipse for PHP](http://www.interoperabilitybridges.com/projects/windows-azure-tools-for-eclipse) has been updated and is on par with Visual Studio tooling (which means you can deploy a PHP app to Windows Azure without leaving Eclipse!). The [Windows Azure Command-line Tools for PHP](http://www.interoperabilitybridges.com/projects/windows-azure-command-line-tools-for-php) have been updated, and there’s a new release of the [Windows Azure SDK for PHP](http://www.interoperabilitybridges.com/projects/php-sdk-for-windows-azure) and a [Windows Azure Storage plugin for WordPress](http://wordpress.org/extend/plugins/windows-azure-storage/) built on that.
+
+[![](/images/999%5B6%5D_thumb.png)](/images/999%5B6%5D.png)At [OSIDays](http://www.osidays.com) in India, the [Interoperability team at Microsoft](http://blogs.msdn.com/b/interoperability/archive/2010/09/19/windows-azure-platform-gets-easier-for-php-developers-to-write-modern-cloud-applications.aspx) has made an interesting series of announcements related to PHP and Windows Azure. To summarize: [Windows Azure Tools for Eclipse for PHP](http://www.interoperabilitybridges.com/projects/windows-azure-tools-for-eclipse) has been updated and is on par with Visual Studio tooling (which means you can deploy a PHP app to Windows Azure without leaving Eclipse!). The [Windows Azure Command-line Tools for PHP](http://www.interoperabilitybridges.com/projects/windows-azure-command-line-tools-for-php) have been updated, and there’s a new release of the [Windows Azure SDK for PHP](http://www.interoperabilitybridges.com/projects/php-sdk-for-windows-azure) and a [Windows Azure Storage plugin for WordPress](http://wordpress.org/extend/plugins/windows-azure-storage/) built on that.
 
 What’s most interesting in the series of announcements is the [Windows Azure Companion – September 2010 Community Technology Preview(CTP)](http://code.msdn.microsoft.com/azurecompanion). In short, compare it with [Web Platform Installer](http://www.microsoft.com/web) but targeted at Windows Azure. It allows you to install a set of popular PHP applications on a Windows Azure instance, like WordPress or phpBB.
 
@@ -41,7 +51,7 @@ Getting a “Running” state and a green bullet on the Windows Azure portal? Pe
 
 [![](/images/991_thumb.png)](/images/991.png)
 
-*As a side note: this screenshot was taken with a custom feed I created which included some other applications with SQL Server support, like the Drupal 7 alpha releases. Because these are alpha’s I decided to not include them in my *[*sample feed that you can use*](http://wazstorage.blob.core.windows.net/azurecompanion/default/WindowsAzureCompanionFeed.xml)*. I am confident that more supported applications will come in the future though.*
+_As a side note: this screenshot was taken with a custom feed I created which included some other applications with SQL Server support, like the Drupal 7 alpha releases. Because these are alpha’s I decided to not include them in my *[*sample feed that you can use*](http://wazstorage.blob.core.windows.net/azurecompanion/default/WindowsAzureCompanionFeed.xml)*. I am confident that more supported applications will come in the future though._
 
 Go to the platform tab, select the PHP runtime and other components followed by clicking “Next”. Pick your favorite version numbers and proceed with installing. After this has been finished, you can install an application from the applications tab. How about WordPress?[![](/images/995_thumb.png)](/images/995.png)
 
@@ -49,7 +59,7 @@ In this last step you can choose where an application will be installed. Under t
 
 ## More control with eXtplorer
 
-The [sample feed I provide](http://wazstorage.blob.core.windows.net/azurecompanion/default/WindowsAzureCompanionFeed.xml) includes [eXtplorer](http://extplorer.sourceforge.net/), a web-based file management solution. When installing this, you get full control over the applications folder on your Windows Azure instance, enabling you to edit files (configuration files) but also enabling you to upload *any* application you want to host on Windows Azure Companion. Here is me creating a highly modern homepage: and the rendered version of it:
+The [sample feed I provide](http://wazstorage.blob.core.windows.net/azurecompanion/default/WindowsAzureCompanionFeed.xml) includes [eXtplorer](http://extplorer.sourceforge.net/), a web-based file management solution. When installing this, you get full control over the applications folder on your Windows Azure instance, enabling you to edit files (configuration files) but also enabling you to upload _any_ application you want to host on Windows Azure Companion. Here is me creating a highly modern homepage: and the rendered version of it:
 
 [![](/images/986_thumb.png)](/images/986.png)[![](/images/985_thumb.png)](/images/985.png)
 
@@ -59,7 +69,7 @@ As with any web server, you want some administrative options. Windows Azure Comp
 
 [![](/images/992_thumb.png)](/images/992.png)[![](/images/993_thumb.png)](/images/993.png)
 
-*Note: If you are a control freak, just stop your application on Windows Azure, download the virtual hard drive (.vhd) file from blob storage and make some modifications, upload it again and restart the Windows Azure Companion. I don’t recommend this as you will have to download and upload a large .vhd file but in theory it is possible to fiddle around.*
+_Note: If you are a control freak, just stop your application on Windows Azure, download the virtual hard drive (.vhd) file from blob storage and make some modifications, upload it again and restart the Windows Azure Companion. I don’t recommend this as you will have to download and upload a large .vhd file but in theory it is possible to fiddle around._
 
 ## Internet Explorer 9 jumplist support
 

@@ -11,6 +11,7 @@ redirect_from:
   - /post/2008/01/11/preview-word-files-docx-in-html-using-asp-net-openxml-and-linq-to-xml.html
   - /post/2008/01/11/preview-word-files-(docx)-in-html-using-aspnet-openxml-and-linq-to-xml.html
 ---
+
 Since an image (or even an example) tells more than any text will ever do, here's what I've created in the past few evening hours:
 
 ![image](/images/WindowsLiveWriter/PreviewWordfilesd.NETOpenXMLandLINQtoXML_C70E/image_3.png)
@@ -25,15 +26,15 @@ Want the source code? Download it here: [WordVisualizer.zip (357.01 kb)](/files/
 
 ## Want to know how?
 
-If you want to know how I did this, let me first tell you why I created this. After searching Google for something similar, I found a [Sharepoint blogger who did the same](http://blog.thekid.me.uk/archive/2007/10/20/creating-a-docx-html-preview-handler-for-sharepoint.aspx) using a Sharepoint XSL transformation document called *DocX2Html.xsl*. Great, but this document can not be distributed without a Sharepoint license. The only option for me was to do something similar myself.
+If you want to know how I did this, let me first tell you why I created this. After searching Google for something similar, I found a [Sharepoint blogger who did the same](http://blog.thekid.me.uk/archive/2007/10/20/creating-a-docx-html-preview-handler-for-sharepoint.aspx) using a Sharepoint XSL transformation document called _DocX2Html.xsl_. Great, but this document can not be distributed without a Sharepoint license. The only option for me was to do something similar myself.
 
 ## ASP.NET handlers
 
-The main idea of this project was to be able to type in a URL ending in ".docx", which would then render a preview of the underlying Word document. Luckily, ASP.NET provides a system of creating *HttpHandler*s. A *HttpHandler* is the class instance which is called by the .NET runtime to process an incoming request for a specific extension. So let's trick ASP.NET into believing ".docx" is an extension which should be handled by a custom class...
+The main idea of this project was to be able to type in a URL ending in ".docx", which would then render a preview of the underlying Word document. Luckily, ASP.NET provides a system of creating *HttpHandler*s. A _HttpHandler_ is the class instance which is called by the .NET runtime to process an incoming request for a specific extension. So let's trick ASP.NET into believing ".docx" is an extension which should be handled by a custom class...
 
 ### Creating a custom handler
 
-A custom handler can be created quite easily. Just create a new class, and make it implement the *IHttpHandler* interface:
+A custom handler can be created quite easily. Just create a new class, and make it implement the _IHttpHandler_ interface:
 
 ```csharp
 /// <summary>
@@ -73,15 +74,15 @@ Now if you are using IIS6, you should also register this extension to be handled
 
 [![](/images/WindowsLiveWriter/PreviewWordfilesd.NETOpenXMLandLINQtoXML_C70E/image_thumb_2.png)](/images/WindowsLiveWriter/PreviewWordfilesd.NETOpenXMLandLINQtoXML_C70E/image_8.png)
 
-In the application configuration, add the extension ".docx" and make it point to the following executable: *C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll*
+In the application configuration, add the extension ".docx" and make it point to the following executable: _C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll_
 
-This should be it. Fire up your browser, browse to your web site and type *anything.docx*. You should see "Hello world!" appearing in a nice, white page.
+This should be it. Fire up your browser, browse to your web site and type _anything.docx_. You should see "Hello world!" appearing in a nice, white page.
 
 ## OpenXML
 
-As you may already know, Word 2007 files are [OpenXML](http://en.wikipedia.org/wiki/Office_Open_XML) packages containg WordprocessingML markup. A .docx file can be opened using the *System.IO.Packaging.Package* class (which is available after adding a project reference to WindowsBase.dll).
+As you may already know, Word 2007 files are [OpenXML](http://en.wikipedia.org/wiki/Office_Open_XML) packages containg WordprocessingML markup. A .docx file can be opened using the _System.IO.Packaging.Package_ class (which is available after adding a project reference to WindowsBase.dll).
 
-The *Package* class is created for accessing any OpenXML package. This includes all Office 2007 file formats, but also custom OpenXML formats which you can implement for yourself. Unfortunately, if you want to use *Package* to access an Office 2007 file, you'll have to implement a lot of utility functions to get the right parts from the OpenXML container.
+The _Package_ class is created for accessing any OpenXML package. This includes all Office 2007 file formats, but also custom OpenXML formats which you can implement for yourself. Unfortunately, if you want to use _Package_ to access an Office 2007 file, you'll have to implement a lot of utility functions to get the right parts from the OpenXML container.
 
 Luckily, Microsoft released an [OpenXML SDK (CTP)](http://www.microsoft.com/downloads/details.aspx?familyid=ad0b72fb-4a1d-4c52-bdb5-7dd7e816d046&displaylang=en), which I also used in order to create this Word preview handler.
 
@@ -137,11 +138,11 @@ using (WordprocessingDocument document = WordprocessingDocument.Open("test.docx"
 
 ```
 
-Now if you run this code, you will notice a compilation error... This is due to the fact that I used an [extension method](http://www.developer.com/net/csharp/article.php/3592216) *StringConcatenate*.
+Now if you run this code, you will notice a compilation error... This is due to the fact that I used an [extension method](http://www.developer.com/net/csharp/article.php/3592216) _StringConcatenate_.
 
 ### Extension methods
 
-In the above example, I used an extension method named *StringConcatenate*. An extension method is, as the name implies, an "extension" to a known class. In the following example, find the extension for all *IEnumerable<T>* instances:
+In the above example, I used an extension method named _StringConcatenate_. An extension method is, as the name implies, an "extension" to a known class. In the following example, find the extension for all _IEnumerable<T>_ instances:
 
 ```csharp
 public static class IEnumerableExtensions
@@ -173,7 +174,7 @@ z => z.Name == w_r || z.Name == w_ins || z.Name == w_hyperlink.
 
 ```
 
-A lambda expression is actually an anonymous method, which is called by the *StringConcatenate* extension method. Lambda expressions always accept a parameter, and return true/false. In this case, *z* is instantiated as an *XNode*, returning true/false depending on its Name property.
+A lambda expression is actually an anonymous method, which is called by the _StringConcatenate_ extension method. Lambda expressions always accept a parameter, and return true/false. In this case, _z_ is instantiated as an _XNode_, returning true/false depending on its Name property.
 
 ## Wrapping things up...
 

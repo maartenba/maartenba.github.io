@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/02/01/indexing-word-2007-docx-files-with-zend-search-lucene.html
 ---
+
 You may have noticed Microsoft released their [Search Server 2008](http://www.microsoft.com/enterprisesearch/serverproducts/searchserverexpress/download.aspx) a few weeks ago. Search Server delivers search capabilities to your organization quickly and easily. The PHP world currently does not have a full-featured solution like Search Server, but there's a building block which could be used to create something similar: [Zend Framework](http://framework.zend.com/)'s PHP port of [Lucene](http://lucene.apache.org/). There is also a [.NET port of Lucene](http://incubator.apache.org/lucene.net/) available.
 
 Lucene basically is an indexing and search technology, providing an easy-to-use API to create any type of application that has to do with indexing and searching. If you provide the right methods to extract data from any type of document, Lucene can index it. There are various indexer examples available for different file formats ([PDF](http://www.kapustabrothers.com/2008/01/20/indexing-pdf-documents-with-zend_search_lucene/), [HTML](http://www.phpriot.com/articles/zend-search-lucene), [RSS](http://devzone.zend.com/node/view/id/91), ...), but none for Word 2007 (docx) files. Sounds like a challenge!
@@ -24,7 +25,7 @@ Make sure you use PHP version 5.2, have php_zip and php_xml enabled, and have a 
 
 ## 1. Creating an index
 
-![Creating an index](/images/WindowsLiveWriter/IndexingWord2007docxfileswithZend_Search_94F5/image_6.png) Let's start with creating a *Zend_Search_Lucene* index. We will be needing the Zend Framework classes, so let's start with including them:
+![Creating an index](/images/WindowsLiveWriter/IndexingWord2007docxfileswithZend_Search_94F5/image_6.png) Let's start with creating a _Zend_Search_Lucene_ index. We will be needing the Zend Framework classes, so let's start with including them:
 
 ```php
 /** Zend_Search_Lucene */
@@ -84,9 +85,9 @@ $index->addDocument($luceneDocument);
 
 ```
 
-After creating the index, there's one thing left: optimizing it. *Zend_Search_Lucene* offers a nice method to doing that in one line of code: *$index->optimize();* Since shutdown of the index instance is done automatically, the *$index->commit();* command is not necessary, but it's good to have it present so you know what happens at the end of the indexing process.
+After creating the index, there's one thing left: optimizing it. _Zend_Search_Lucene_ offers a nice method to doing that in one line of code: _$index->optimize();_ Since shutdown of the index instance is done automatically, the _$index->commit();_ command is not necessary, but it's good to have it present so you know what happens at the end of the indexing process.
 
-There, that's it! Our index (of one file...) is now ready! I must admit I did not explain all the magic... One piece of the magic is the *DocXIndexer* class whose method *readDocXContents()* is used to retrieve all text from a Word 2007 file. Here's how this method is built.
+There, that's it! Our index (of one file...) is now ready! I must admit I did not explain all the magic... One piece of the magic is the _DocXIndexer_ class whose method _readDocXContents()_ is used to retrieve all text from a Word 2007 file. Here's how this method is built.
 
 ## 2. Retrieving the full text from a Word 2007 file
 
@@ -102,7 +103,7 @@ $wordprocessingMLSchema = 'http://schemas.openxmlformats.org/wordprocessingml/20
 
 ```
 
-The *$relationshipSchema* is the schema name that describes a relationship between the OpenXML package (the ZIP-file) and the containing XML file ("part"). The *$officeDocumentSchema* is the main document part describing it is a Microsoft Office document. The *$wordprocessingMLSchema* is the schema containing all Word-specific elements, such as paragrahps, runs, printer settings, ... But let's continue coding. I'll put the entire code snippet here and explain every part later:
+The _$relationshipSchema_ is the schema name that describes a relationship between the OpenXML package (the ZIP-file) and the containing XML file ("part"). The _$officeDocumentSchema_ is the main document part describing it is a Microsoft Office document. The _$wordprocessingMLSchema_ is the schema containing all Word-specific elements, such as paragrahps, runs, printer settings, ... But let's continue coding. I'll put the entire code snippet here and explain every part later:
 
 ```php
 // Returnvalue
@@ -138,21 +139,21 @@ return implode(' ', $returnValue);
 
 ```
 
-The first thing that is loaded, is the main ".rels" document, which contains a reference to all parts in the root of this OpenXML package. This file is parsed using *SimpleXML* into a local variable* $relations*. Each relationship has a type (*$rel["Type"]*), which we compare against the *$officeDocumentSchema* schema name. When that schema name is found, we dig deeper into the document, parsing it into *$contents*. Next on our todo list: register the *$wordprocessingMLSchema* for running an XPath query on the document.
+The first thing that is loaded, is the main ".rels" document, which contains a reference to all parts in the root of this OpenXML package. This file is parsed using _SimpleXML_ into a local variable* $relations*. Each relationship has a type (_$rel["Type"]_), which we compare against the _$officeDocumentSchema_ schema name. When that schema name is found, we dig deeper into the document, parsing it into _$contents_. Next on our todo list: register the _$wordprocessingMLSchema_ for running an XPath query on the document.
 
 ```php
 $contents->registerXPathNamespace("w", $wordprocessingMLSchema);
 
 ```
 
-We can now easily run an XPath query "//w:body/w:p", which retrieves all *w:p* childs (paragraphs) of the document's body:
+We can now easily run an XPath query "//w:body/w:p", which retrieves all _w:p_ childs (paragraphs) of the document's body:
 
 ```php
 $paragraphs = $contents->xpath('//w:body/w:p');
 
 ```
 
-The rest is quite easy. In each paragraph, we run a new XPath query "//w:r/w:t", which delivers all text nodes withing the paragraph. Each of these text nodes is then added to the *$returnValue*, which will represent all text content in the main document part upon completion.
+The rest is quite easy. In each paragraph, we run a new XPath query "//w:r/w:t", which delivers all text nodes withing the paragraph. Each of these text nodes is then added to the _$returnValue_, which will represent all text content in the main document part upon completion.
 
 ```php
 foreach($paragraphs as $paragraph) {

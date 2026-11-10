@@ -11,11 +11,12 @@ redirect_from:
   - /post/2009/06/24/application-wide-action-filters-in-asp-net-mvc.html
   - /post/2009/06/24/application-wide-action-filters-in-aspnet-mvc.html
 ---
-Ever had a team of developers using your ASP.NET MVC framework? Chances are you have implemented some action filters (i.e. for logging) which should be applied on all controllers in the application. Two ways to do this: kindly ask your developers to add a [Logging] attribute to the controllers they write, or kindly ask to inherit from *SomeCustomControllerWithActionsInPlace.*
+
+Ever had a team of developers using your ASP.NET MVC framework? Chances are you have implemented some action filters (i.e. for logging) which should be applied on all controllers in the application. Two ways to do this: kindly ask your developers to add a [Logging] attribute to the controllers they write, or kindly ask to inherit from _SomeCustomControllerWithActionsInPlace._
 
 If you have been in this situation, monday mornings, afternoons, tuesdays and other weekdays are in fact days where some developers will forget to do one of the above. This means no logging! Or any other action filters that are executed due to a developer that has not been fed with enough coffee… Wouldn’t it be nice to have a central repository where you can register application-wide action filters? That’s exactly what we are going to do in this blog post.
 
-*Note: you can in fact use a dependency injection strategy for this as well, see *[*Jeremy Skinner’s blog*](http://www.jeremyskinner.co.uk/2008/11/08/dependency-injection-with-aspnet-mvc-action-filters/)*.*
+_Note: you can in fact use a dependency injection strategy for this as well, see *[*Jeremy Skinner’s blog*](http://www.jeremyskinner.co.uk/2008/11/08/dependency-injection-with-aspnet-mvc-action-filters/)*._
 
 Download the example code: [MvcGlobalActionFilter.zip (24.38 kb)](/files/2009/6/MvcGlobalActionFilter.zip)
 
@@ -23,10 +24,10 @@ Download the example code: [MvcGlobalActionFilter.zip (24.38 kb)](/files/2009/6/
 
 Well, all things have to start with an idea, otherwise there’s nothing much left to do. What we’ll be doing in our solution to global action filters is the following:
 
-1. Create a *IGlobalFilter* interface which global action filters have to implement. You can discuss about this, but I think it’s darn handy to add some convenience methods like *ShouldBeInvoked()* where you can abstract away some checks before the filter is actually invoked.
-2. Create some *IGlobalActionFilter*, *IGlobalResultFilter*, *IGlobalAuthorizationFilter*, *IGlobalExceptionFilter* interfaces, just for convenience to the developer that is creating the global filters. You’ll see the use of this later on.
-3. Create a *GlobalFilterActionInvoker*, a piece of logic that is set on each controller so the controller knows how to call its own action methods. We’ll use this one to inject our lists of global filters.
-4. Create a *GlobalFilterControllerFactory*. I’m not happy with this, but we need it to set the *GlobalFilterActionInvoker* instance on each controller when it is created.
+1. Create a _IGlobalFilter_ interface which global action filters have to implement. You can discuss about this, but I think it’s darn handy to add some convenience methods like _ShouldBeInvoked()_ where you can abstract away some checks before the filter is actually invoked.
+2. Create some _IGlobalActionFilter_, _IGlobalResultFilter_, _IGlobalAuthorizationFilter_, _IGlobalExceptionFilter_ interfaces, just for convenience to the developer that is creating the global filters. You’ll see the use of this later on.
+3. Create a _GlobalFilterActionInvoker_, a piece of logic that is set on each controller so the controller knows how to call its own action methods. We’ll use this one to inject our lists of global filters.
+4. Create a _GlobalFilterControllerFactory_. I’m not happy with this, but we need it to set the _GlobalFilterActionInvoker_ instance on each controller when it is created.
 
 ## IGlobalFilter, IGlobalActionFilter, …
 
@@ -48,7 +49,7 @@ And yes, I did suppress some Static Code Analysis rules for this :-)
 
 ## GlobalFilterActionInvoker
 
-The *GlobalFilterActionInvoker* will take care of registering the global filters and making sure each filter is actually invoked on every controller and action method in our ASP.NET MVC application. Here’s a start for our class:
+The _GlobalFilterActionInvoker_ will take care of registering the global filters and making sure each filter is actually invoked on every controller and action method in our ASP.NET MVC application. Here’s a start for our class:
 
 ```csharp
 public class GlobalFilterActionInvoker : ControllerActionInvoker
@@ -78,7 +79,7 @@ public class GlobalFilterActionInvoker : ControllerActionInvoker
 
 ```
 
-We’re providing some utility constructors that take a list of global filters and add it to the internal *FilterInfo* instance (which is an ASP.NET MVC class we can leverage in here). *RegisterGlobalFilter() *will do the magic of adding filters to the right collection in the *FilterInfo* instance.
+We’re providing some utility constructors that take a list of global filters and add it to the internal _FilterInfo_ instance (which is an ASP.NET MVC class we can leverage in here). *RegisterGlobalFilter() *will do the magic of adding filters to the right collection in the _FilterInfo_ instance.
 
 ```csharp
 public void RegisterGlobalFilter(IGlobalFilter filter)
@@ -95,7 +96,7 @@ public void RegisterGlobalFilter(IGlobalFilter filter)
 
 ```
 
-One override left in our implementation: *ControllerActionInvoker*, the class we are inheriting from, provides a method named *GetFilters()*, which is used to get the filters for a specific controller context. Ideal one to override:
+One override left in our implementation: _ControllerActionInvoker_, the class we are inheriting from, provides a method named _GetFilters()_, which is used to get the filters for a specific controller context. Ideal one to override:
 
 ```csharp
 protected override FilterInfo GetFilters(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
@@ -118,11 +119,11 @@ protected override FilterInfo GetFilters(ControllerContext controllerContext, Ac
 
 ```
 
-Basically, we are querying our *IGlobalFilter* if it should be invoked for the given controller context. If so, we add it to the *FilterInfo* object that is required by the *ControllerActionInvoker* base class. Piece of cake!
+Basically, we are querying our _IGlobalFilter_ if it should be invoked for the given controller context. If so, we add it to the _FilterInfo_ object that is required by the _ControllerActionInvoker_ base class. Piece of cake!
 
 ## GlobalFilterControllerFactory
 
-I’m not happy having to create this one, but we need it to set the *GlobalFilterActionInvoker* instance on each controller that is created. Otherwise, there is no way to specify our global filters on a controller or action method… Here’s the class:
+I’m not happy having to create this one, but we need it to set the _GlobalFilterActionInvoker_ instance on each controller that is created. Otherwise, there is no way to specify our global filters on a controller or action method… Here’s the class:
 
 ```csharp
 public class GlobalFilterControllerFactory : DefaultControllerFactory
@@ -146,11 +147,11 @@ public class GlobalFilterControllerFactory : DefaultControllerFactory
 
 ```
 
-What we do here is let the *DefaultControllerFactory* create a controller. Next, we simply set the controller’s *ActionInvoker* property to our *GlobalFilterActionInvoker* .
+What we do here is let the _DefaultControllerFactory_ create a controller. Next, we simply set the controller’s _ActionInvoker_ property to our _GlobalFilterActionInvoker_ .
 
 ## Plumbing it all together!
 
-To plumb things together, add some code in your *Global.asax.cs* class, under *Application_Start*:
+To plumb things together, add some code in your _Global.asax.cs_ class, under _Application_Start_:
 
 ```csharp
 protected void Application_Start()
@@ -170,11 +171,11 @@ protected void Application_Start()
 
 ```
 
-We are now setting the controller factory for our application to *GlobalFilterControllerFactory*, handing it a *GlobalFilterActionInvoker* which specifies one global action filter: *SampleGlobalTitleFilter.*
+We are now setting the controller factory for our application to _GlobalFilterControllerFactory_, handing it a _GlobalFilterActionInvoker_ which specifies one global action filter: _SampleGlobalTitleFilter._
 
-## Sidenote: *SampleGlobalTitleFilter*
+## Sidenote: _SampleGlobalTitleFilter_
 
-As a sidenote, I created a sample result filter named *SampleGlobalTitleFilter*, which is defined as a global filter that always appends a string (“ – Sample Application”) to the page title. Here’s the code for that one:
+As a sidenote, I created a sample result filter named _SampleGlobalTitleFilter_, which is defined as a global filter that always appends a string (“ – Sample Application”) to the page title. Here’s the code for that one:
 
 ```csharp
 public class SampleGlobalTitleFilter : IGlobalResultFilter
@@ -205,4 +206,4 @@ public class SampleGlobalTitleFilter : IGlobalResultFilter
 
 Download the sample code: [MvcGlobalActionFilter.zip (24.38 kb)](/files/2009/6/MvcGlobalActionFilter.zip)
 
-There is no need for my developers to specify *SampleGlobalTitleFilter* on each controller they write. There is no need for my developers to use the *ControllerWithTitleFilter* base class. People can come in and even develop software without drinking 2 liters of coffee! Really, development should not be hard for your developers. Make sure all application-wide infrastructure is there and our people are ready to go. And I’m really loving ASP.NET MVC’s extensibility on that part!
+There is no need for my developers to specify _SampleGlobalTitleFilter_ on each controller they write. There is no need for my developers to use the _ControllerWithTitleFilter_ base class. People can come in and even develop software without drinking 2 liters of coffee! Really, development should not be hard for your developers. Make sure all application-wide infrastructure is there and our people are ready to go. And I’m really loving ASP.NET MVC’s extensibility on that part!

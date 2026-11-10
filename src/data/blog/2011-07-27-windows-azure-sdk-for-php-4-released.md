@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/07/27/version-4-of-the-windows-azure-sdk-for-php-released.html
 ---
+
 Only a few months after the Windows Azure SDK for PHP 3.0.0, [Microsoft](http://www.microsoft.com) and [RealDolmen](http://www.realdolmen.com) are proud to present you the next version of the most complete SDK for Windows Azure out there (yes, that is a rant against the .NET SDK!): [Windows Azure SDK for PHP](http://phpazure.codeplex.com/releases/view/70688). We’ve been working very hard with an expanding globally distributed team on getting this version out.
 
 The Windows Azure SDK 4 contains some significant feature enhancements. For example, it now incorporates a PHP library for accessing Windows Azure storage, a logging component, a session sharing component and clients for both the Windows Azure and SQL Azure Management API’s. On top of that, all of these API’s are now also available from the command-line both under Windows and Linux. This means you can batch-script a complete datacenter setup including servers, storage, SQL Azure, firewalls, … If that’s not cool, move to the North Pole.

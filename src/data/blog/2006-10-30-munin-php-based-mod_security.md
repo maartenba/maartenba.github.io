@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2006/10/30/munin-php-based-mod-security.html
 ---
+
 [![](/images/WindowsLiveWriter/MuninPHPbasedmod_security_9569/20061031_munin_thumb.gif)](/images/WindowsLiveWriter/MuninPHPbasedmod_security_9569/20061031_munin.gif) Today, I discovered a nice PHP thing: [Munin](http://munin.lkonsult.no/). This is a PHP version of Apache mod_security, allowing it to be run on IIS too. Munin performs rule based checks on HTTP headers, get and post data, ... The standard rule set disallows some things like path traversal and possible fopen() attacks.
 
 In addition to these rulesets, one should add some more for filtering out SQL injection attacks, cross-site script loading, ... These things should already be covered in your code, but an extra filter at the front door is always nice.

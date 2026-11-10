@@ -16,13 +16,13 @@ redirect_from:
 
 To get rid of CS8618 on JSON DTOs, I like marking the property with the C# 11 `required` modifier. It keeps the property non-nullable without lying to the compiler. If the JSON can contain nulls, make the property nullable instead, and please avoid silencing the warning with `default!`.
 
-In my blog series, *[Nullable reference types in C# - Migrating to nullable reference types](/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)*, we discussed the benefits of enabling nullable reference types in your C# code, and annotating your code so the compiler and IDE can give you more reliable hints about whether a particular variable or property may need to be checked for being `null` before using it.
+In my blog series, _[Nullable reference types in C# - Migrating to nullable reference types](/posts/2022-04-11-nullable-reference-types-in-csharp-migrating-to-nullable-reference-types-part-1/)_, we discussed the benefits of enabling nullable reference types in your C# code, and annotating your code so the compiler and IDE can give you more reliable hints about whether a particular variable or property may need to be checked for being `null` before using it.
 
 We ended the series with a curious case: [how to annotate classes to deserialize JSON](/posts/2022-05-03-techniques-and-tools-to-update-your-csharp-project-migrating-to-nullable-reference-types-part-4/#deserializing-json).
 
 ## CS8618: Non-nullable property must contain a non-null value when exiting constructor
 
-The compiler reports: *Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.*
+The compiler reports: _Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable._
 
 The cause is a non-nullable property that nothing initializes. For a JSON DTO, that's every property the deserializer fills in later. The compiler can't see that, so it complains.
 

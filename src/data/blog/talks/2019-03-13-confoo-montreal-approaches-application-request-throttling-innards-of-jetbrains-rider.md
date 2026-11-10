@@ -14,8 +14,9 @@ redirect_from:
 This week, I had the privilege to visit [ConFoo Montreal](https://www.confoo.ca) for the third time. It's a great conference that has attendees interested in lots of technologies such as PHP, Java, .NET and more.
 
 Even better: I got to deliver two talks:
-* Approaches for application request throttling
-* Microservices for building an IDE - The innards of JetBrains Rider
+
+- Approaches for application request throttling
+- Microservices for building an IDE - The innards of JetBrains Rider
 
 As promised, here are the slides for both.
 
@@ -33,7 +34,7 @@ In this talk, weâ€™ll explore the simple yet complex realm of rate limiting. Weâ
 
 ## Microservices for building an IDE - The innards of JetBrains Rider
 
-*Tip: this story is also avilable as an article [on CODE Magazine: Building a .NET IDE with JetBrains Rider](https://www.codemag.com/article/1811091).*
+_Tip: this story is also avilable as an article [on CODE Magazine: Building a .NET IDE with JetBrains Rider](https://www.codemag.com/article/1811091)._
 
 ### Session abstract
 

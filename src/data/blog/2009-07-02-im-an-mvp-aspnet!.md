@@ -11,14 +11,15 @@ redirect_from:
   - /post/2009/07/02/im-an-mvp-asp-net.html
   - /post/2009/07/02/im-an-mvp-aspnet!.html
 ---
+
 [![](/images/MVPLogo_thumb.gif)](/images/MVPLogo.gif)Yesterday evening, I received the following e-mail:
 
 > Dear Maarten Balliauw,
 > Congratulations! We are pleased to present you with the 2009 Microsoft&reg; MVP Award! This award is given to exceptional technical community leaders who actively share their high quality, real world expertise with others. We appreciate your outstanding contributions in ASP/ASP.NET technical communities during the past year.
 > (...)
 > Toby Richards
-General Manager
-Community Support Services
+> General Manager
+> Community Support Services
 
 Translated in short: I’m now officially an MVP ASP.NET! I am really honored to be recognized as an MVP. Thank you for the nomination!
 

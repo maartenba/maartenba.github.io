@@ -11,6 +11,7 @@ redirect_from:
   - /post/2010/07/27/asp-net-mvc-3-and-mef-sitting-in-a-tree.html
   - /post/2010/07/27/aspnet-mvc-3-and-mef-sitting-in-a-tree.html
 ---
+
 As I stated in a previous blog post: ASP.NET MVC 3 preview 1 has been released! I talked about some of the new features and promised to do a blog post in the dependency injection part. In this post, I'll show you how to use that together with MEF.
 
 Download my sample code: [Mvc3WithMEF.zip (256.21 kb)](/files/2010/7/Mvc3WithMEF.zip)
@@ -26,7 +27,7 @@ First of all, there’s 4 new hooks for injecting dependencies:
 
 In ASP.NET MVC 2, only one of these hooks was used for dependency injection: a controller factory was implemented, using a dependency injection framework under the covers. I did this once, [creating a controller factory that wired up MEF](/posts/2009-06-17-revised-aspnet-mvc-and-the-managed-extensibility-framework-mef/) and made sure everything in the application was composed through a MEF container. That is, everything that is a controller or part thereof. No easy options for DI-ing things like action filters or views…
 
-ASP.NET MVC 3 shuffled the cards a bit. ASP.NET MVC 3 now contains and uses the [Common Service Locator](http://commonservicelocator.codeplex.com/)’s *IServiceLocator* interface, which is used for resolving services required by the ASP.NET MVC framework. The IServiceLocator implementation should be registered in Global.asax using just one line of code:
+ASP.NET MVC 3 shuffled the cards a bit. ASP.NET MVC 3 now contains and uses the [Common Service Locator](http://commonservicelocator.codeplex.com/)’s _IServiceLocator_ interface, which is used for resolving services required by the ASP.NET MVC framework. The IServiceLocator implementation should be registered in Global.asax using just one line of code:
 
 ```csharp
 MvcServiceLocator.SetCurrent(new SomeServiceLocator());
@@ -39,7 +40,7 @@ This is, since ASP.NET MVC 3 preview 1, the only thing required to make DI work.
 
 First of all: a disclaimer. I already did posts on MEF and ASP.NET MVC before, and in all these posts, I required you to explicitly export your controller types for composition. In this example, again, I will require that, just for keeping code a bit easier to understand. Do note that are [some](http://www.hanselman.com/blog/ExtendingNerdDinnerAddingMEFAndPluginsToASPNETMVC.aspx) [variants](http://www.thecodejunkie.com/2010/03/bringing-convention-based-registration.html) of a convention based registration model available.
 
-As stated before, the only thing to build here is a *MefServiceLocator* that is suited for web (which means: an application-wide catalog and a per-request container). I’ll still have to create my own controller factory as well, because otherwise I would not be able to dynamically compose my controllers. Here goes…
+As stated before, the only thing to build here is a _MefServiceLocator_ that is suited for web (which means: an application-wide catalog and a per-request container). I’ll still have to create my own controller factory as well, because otherwise I would not be able to dynamically compose my controllers. Here goes…
 
 ### Implementing ServiceLocatorControllerFactory
 
@@ -78,7 +79,7 @@ public class ServiceLocatorControllerFactory
 
 ```
 
-Did you see that? A simple, MEF enabled controller factory that uses an *IMvcServiceLocator*. This thing can be used with other service locators as well.
+Did you see that? A simple, MEF enabled controller factory that uses an _IMvcServiceLocator_. This thing can be used with other service locators as well.
 
 ### Implementing MefServiceLocator
 
@@ -237,9 +238,9 @@ public class MefServiceLocator
 
 HOLY SCHMOLEY! That is a lot of code. Let’s break it down…
 
-First of all, I have 3 constructors. 2 for convenience, one for MEF. Since the *MefServiceLocator* will be instantiated in Global.asax and I only want one instance of it to live in the application, I have to do a dirty trick: whenever MEF wants to create a new *MefServiceLocator* for some reason (should in theory only happen once per request, but I want this thing to live application-wide), I’m giving it indeed a new instance which at least shares the part catalog with the one I originally created. Don’t shoot me for doing this…
+First of all, I have 3 constructors. 2 for convenience, one for MEF. Since the _MefServiceLocator_ will be instantiated in Global.asax and I only want one instance of it to live in the application, I have to do a dirty trick: whenever MEF wants to create a new _MefServiceLocator_ for some reason (should in theory only happen once per request, but I want this thing to live application-wide), I’m giving it indeed a new instance which at least shares the part catalog with the one I originally created. Don’t shoot me for doing this…
 
-Next, you will also notice that I’m using a “fallback” locator, which in theory will be the instance stored in *MvcServiceLocator.Default*, which is ASP.NET MVC 3’s default *MvcServiceLocator*. I’m doing this for a reason though… read my disclaimer again: I stated that everything should be decorated with the *[Export]* attribute when I’m relying on MEF. Now since the services exposed by ASP.NET MVC 3, like the IFilterProvider, are not decorated with this attribute, MEF will not be able to find those. When I find myself in that situation, the *MefServiceLocator* is simply asking the default service locator for it. Not a beauty, but it works and makes my life easy.
+Next, you will also notice that I’m using a “fallback” locator, which in theory will be the instance stored in _MvcServiceLocator.Default_, which is ASP.NET MVC 3’s default _MvcServiceLocator_. I’m doing this for a reason though… read my disclaimer again: I stated that everything should be decorated with the _[Export]_ attribute when I’m relying on MEF. Now since the services exposed by ASP.NET MVC 3, like the IFilterProvider, are not decorated with this attribute, MEF will not be able to find those. When I find myself in that situation, the _MefServiceLocator_ is simply asking the default service locator for it. Not a beauty, but it works and makes my life easy.
 
 ## Wiring things
 

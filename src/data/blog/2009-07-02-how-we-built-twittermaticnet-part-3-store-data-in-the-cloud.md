@@ -10,7 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/07/02/how-we-built-twittermatic-net-part-3-store-data-in-the-cloud.html
 ---
-*[![](/images/twittermatic10.png)](http://www.twittermatic.net/) “After setting up his workplace, knight Maarten The Brave Coffeedrinker thought of something else: if a farmer wants to keep a lot of hay, he needs a barn, right? Since the cloudy application would also need to keep things that can be used by the digital villagers, our knight needs a barn in the clouds. Looking at the azure sky, an idea popped into the knight’s head: why not use Windows Azure storage service? It’s a barn that’s always there, a barn that can catch fire and will still have its stored items located in a second barn (and a third). Knight Maarten The Brave Coffeedrinker jumped on his horse and went on a quest, a quest in the clouds.**”*
+
+_[![](/images/twittermatic10.png)](http://www.twittermatic.net/) “After setting up his workplace, knight Maarten The Brave Coffeedrinker thought of something else: if a farmer wants to keep a lot of hay, he needs a barn, right? Since the cloudy application would also need to keep things that can be used by the digital villagers, our knight needs a barn in the clouds. Looking at the azure sky, an idea popped into the knight’s head: why not use Windows Azure storage service? It’s a barn that’s always there, a barn that can catch fire and will still have its stored items located in a second barn (and a third). Knight Maarten The Brave Coffeedrinker jumped on his horse and went on a quest, a quest in the clouds.\**”_
 
 This post is part of a series on how we built [TwitterMatic.net](http://www.twittermatic.net/). Other parts:
 
@@ -32,11 +33,11 @@ Let’s look back at the [Twitter*Matic* architecture](/posts/2009-07-02-how-we-
 
 This means we’ll be using two out of three storage types: Table Storage and Queue Storage. Problem: these services are offered as a RESTful service, somewhere in the cloud. Solution to that: use the StorageClient project located in the [Windows Azure SDK](http://www.microsoft.com/downloads/details.aspx?familyid=11B451C4-7A7B-4537-A769-E1D157BAD8C6&displaylang=en)’s samples directory!
 
-The *StorageClient* project contains .NET API’s that work with the blob, table and queue storage services provided by Windows Azure. For Table Storage, *StorageClient* provides an extension on top of Astoria (ADO.NET Data Services Framework, but I still say Astoria because it’s easier to type and say…). This makes it easier for you as a developer to use existing knowledge, from LINQ to SQL or Entity Framework or Astoria, to develop Windows Azure applications.
+The _StorageClient_ project contains .NET API’s that work with the blob, table and queue storage services provided by Windows Azure. For Table Storage, _StorageClient_ provides an extension on top of Astoria (ADO.NET Data Services Framework, but I still say Astoria because it’s easier to type and say…). This makes it easier for you as a developer to use existing knowledge, from LINQ to SQL or Entity Framework or Astoria, to develop Windows Azure applications.
 
 ## Setting up StorageClient
 
-Add a reference to the StorageClient project to your WebRole project. Next, add some settings to the *ServiceConfiguration.cscfg* file:
+Add a reference to the StorageClient project to your WebRole project. Next, add some settings to the _ServiceConfiguration.cscfg_ file:
 
 ```xml
 <?xml version="1.0"?>
@@ -71,17 +72,17 @@ This way, both the web and worker role know where to find their data (URI) and h
 
 ## Working with tables
 
-We’ll only be using one domain class in our entire project: *TimedTweet*. This class represents a scheduled Twitter update, containing information required to schedule the update. Here’s a list of properties:
+We’ll only be using one domain class in our entire project: _TimedTweet_. This class represents a scheduled Twitter update, containing information required to schedule the update. Here’s a list of properties:
 
-- *Token*: A token used to authenticate against Twitter
-- *TokenSecret*: A second token used to authenticate against Twitter
-- *ScreenName*: Twitter screen name of the user.
-- *Status*: The message to publish on Twitter.
-- *SendOn*: Time to send the message.
-- *SentOn*: Time the message was sent.
-- *SendStatus*: A status message (pending, in progress, published, …)
-- *RetriesLeft*: How many retries left before giving up on the Twitter update.
-- *Archived*: Yes/no if the message is archived.
+- _Token_: A token used to authenticate against Twitter
+- _TokenSecret_: A second token used to authenticate against Twitter
+- _ScreenName_: Twitter screen name of the user.
+- _Status_: The message to publish on Twitter.
+- _SendOn_: Time to send the message.
+- _SentOn_: Time the message was sent.
+- _SendStatus_: A status message (pending, in progress, published, …)
+- _RetriesLeft_: How many retries left before giving up on the Twitter update.
+- _Archived_: Yes/no if the message is archived.
 
 Here’s the code:
 
@@ -125,9 +126,9 @@ public class TimedTweet : TableStorageEntity, IComparable
 
 ```
 
-Note that our *TimedTweet* is inheriting *TableStorageEntity*. This class provides some base functionality for Windows Azure Table Storage.
+Note that our _TimedTweet_ is inheriting _TableStorageEntity_. This class provides some base functionality for Windows Azure Table Storage.
 
-We’ll also need to work with this class against table Storage. For that, we can use *TableStorage* and *TableStorageDataServiceContext* class, like this:
+We’ll also need to work with this class against table Storage. For that, we can use _TableStorage_ and _TableStorageDataServiceContext_ class, like this:
 
 ```csharp
 public List<TimedTweet> RetrieveAllForUser(string screenName) {

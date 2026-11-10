@@ -68,7 +68,7 @@ Many CfP's ask several additional questions, next to the actual session title an
 
 One example would be the "organizer notes". This field can be used to inform the organizers of something you don't want printed in the agenda, but helps reviewing talks. Even though the field may be there, not all organizers check it.
 
-I have seen this field used for a variety of things. Examples are a *"this has not been released yet but by the time the conference happens, it will be"* note which could be useful for talks about the newest of the newest technologies or concepts. Other examples could clarify why you think a certain topic matters. This sometimes comes in handy for "niche" talks, about a lesser known/used framework. Bigger conferences may skip that type of talk because it's not "general audience" enough. Adding some notes may bring it more attention.
+I have seen this field used for a variety of things. Examples are a _"this has not been released yet but by the time the conference happens, it will be"_ note which could be useful for talks about the newest of the newest technologies or concepts. Other examples could clarify why you think a certain topic matters. This sometimes comes in handy for "niche" talks, about a lesser known/used framework. Bigger conferences may skip that type of talk because it's not "general audience" enough. Adding some notes may bring it more attention.
 
 Another usage I have seen is speakers listing key takeaways of a talk. The abstract is there to convince attendees to come see your talk, "organizer notes" can be used to convince the agenda committee to consider your talk.
 
@@ -82,7 +82,7 @@ Related is that dreaded "has this session been presented before?" question. Does
 
 Sometimes, the session title and abstract are not clear enough. People on the agenda committee may choose to reach out to you and ask for clarification, and sometimes work with you to get the title and abstract in shape.
 
-Now, don't *count* on being contacted. It may happen, but it will be rare. What I have seen is that this sometimes happens early on in the CfP, when the agenda committee is still fresh and hasn't read through 200 abstracts yet. Another good reason to submit early on in the CfP.
+Now, don't _count_ on being contacted. It may happen, but it will be rare. What I have seen is that this sometimes happens early on in the CfP, when the agenda committee is still fresh and hasn't read through 200 abstracts yet. Another good reason to submit early on in the CfP.
 
 In general, try to write a good, clear title, and an abstract that sets expectations. Again, check [Niall Merrigan's post](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/) for tips on that part.
 
@@ -152,10 +152,10 @@ That's it. This post was written based on previous experience, and I hope I have
 
 Here are some more resources you may want to check (some already features previously in this post):
 
-* [Don't fear the CfP](https://medium.com/@mattstratton/dont-fear-the-cfp-e8272910972b)
-* [Make me an offer I can't refuse - writing abstracts for a CfP](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/)
-* [The Speaker Maturity Model](https://hadihariri.com/2013/11/12/the-speaker-maturity-model/) - aim at least for level 1. Even and especially if you are just starting out. Your session and insights provide value that a paid-for conference capitalizes on.
-* [On speaker life...](/posts/2017-10-09-on-speaker-life/), my own thoughts on the speaking side of things.
-* Trisha Gee has several good posts on speaking. Start with [Speaker Tips - Focus on Either Content or Delivery](http://trishagee.github.io/post/st_content_or_delivery/) and follow related posts.
+- [Don't fear the CfP](https://medium.com/@mattstratton/dont-fear-the-cfp-e8272910972b)
+- [Make me an offer I can't refuse - writing abstracts for a CfP](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/)
+- [The Speaker Maturity Model](https://hadihariri.com/2013/11/12/the-speaker-maturity-model/) - aim at least for level 1. Even and especially if you are just starting out. Your session and insights provide value that a paid-for conference capitalizes on.
+- [On speaker life...](/posts/2017-10-09-on-speaker-life/), my own thoughts on the speaking side of things.
+- Trisha Gee has several good posts on speaking. Start with [Speaker Tips - Focus on Either Content or Delivery](http://trishagee.github.io/post/st_content_or_delivery/) and follow related posts.
 
 Also, feel free to reach out to any speaker you have seen at a conference or elsewhere. They are not unapproachable rock stars, they are your peers and will be happy to help review a session abstract.

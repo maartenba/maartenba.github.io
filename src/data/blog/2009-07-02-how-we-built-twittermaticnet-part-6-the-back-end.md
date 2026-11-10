@@ -10,7 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/07/02/how-we-built-twittermatic-net-part-6-the-back-end.html
 ---
-*[![](/images/twittermatic1015%5B4%5D.png)](http://www.twittermatic.net/)**“Now that the digital villagers could enter their messages in the application, another need arose: **knight Maarten The Brave Coffeedrinker would have to recruit a lot of slaves to tell all these messages to the great god of social networking, [Twitter](http://www.twitter.com). Being a peaceful person, our knight thought of some digital slaves, sent from the azure sky. And so he started crafting a worker role.”*
+
+*[![](/images/twittermatic1015%5B4%5D.png)](http://www.twittermatic.net/)**“Now that the digital villagers could enter their messages in the application, another need arose: *_knight Maarten The Brave Coffeedrinker would have to recruit a lot of slaves to tell all these messages to the great god of social networking, [Twitter](http://www.twitter.com). Being a peaceful person, our knight thought of some digital slaves, sent from the azure sky. And so he started crafting a worker role.”_
 
 This post is part of a series on how we built [TwitterMatic.net](http://www.twittermatic.net/). Other parts:
 
@@ -28,7 +29,7 @@ The worker role will monitor the table storage for scheduled Tweets. If it’s t
 
 ![TwitterMatic worker role](/images/WorkerRole.png)
 
-We’ll fire up these treads in the worker role’s *Start* method:
+We’ll fire up these treads in the worker role’s _Start_ method:
 
 ```csharp
 public class WorkerRole : RoleEntryPoint
@@ -59,7 +60,7 @@ public class WorkerRole : RoleEntryPoint
 
 ```
 
-Note that we are also logging events to the *RoleManager*, which is the logging infrastructure provided by Windows Azure. These logs can be viewed from the Windows Azure deployment interface.
+Note that we are also logging events to the _RoleManager_, which is the logging infrastructure provided by Windows Azure. These logs can be viewed from the Windows Azure deployment interface.
 
 ### EnqueueUpdates Thread
 

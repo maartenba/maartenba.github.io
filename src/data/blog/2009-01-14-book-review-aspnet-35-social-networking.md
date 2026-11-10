@@ -11,6 +11,7 @@ redirect_from:
   - /post/2009/01/14/book-review-asp-net-3-5-social-networking.html
   - /post/2009/01/14/book-review-aspnet-35-social-networking.html
 ---
+
 [![](/images/WindowsLiveWriter/BookreviewASP.NET3.5SocialNetworking_D0DD/image_8dd93bf1-f374-4ab5-8c20-8a39ae7f4f54.png)](http://www.packtpub.com/expert-guide-for-social-networking-with-asp-.net-3.5/book/mid/100309de0ecq) Last week, I found [another book](/posts/2008-12-24-book-review-aspnet-35-application-architecture-and-design/) from [Packt](http://www.packtpub.com/) in my letterbox. This time, the title is [ASP.NET 3.5 Social Networking](http://www.packtpub.com/expert-guide-for-social-networking-with-asp-.net-3.5/book/mid/100309de0ecq), written by [Andrew Siemer](http://www.andrewsiemer.com/).
 
 On the back cover, I read that this book shows you how to create a scalable, maintainable social network that can support hundreds of thousands of users, multimedia features and stuff like that. The words scalable and maintainable seem to have triggered me: I started reading ASAP. The first chapter talks about what a social network is and proposes a new social network: Fisharoo.com, a web site for salt water aquarium fanatics, complete with blogs, forums, personal web sites, …

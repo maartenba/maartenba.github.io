@@ -23,10 +23,10 @@ Before I start, a **big thank you goes to [Henk Boelman](https://www.henkboelman
 
 Let's start with setting the stage. For VACD, we would need a way to:
 
-* Push 8 hours of sessions into one live stream on YouTube
-* Have 2-3 hosts with voice and webcam in that stream
-* Have 1 speaker with voice, webcam and screen share in that stream (and cycle through 8 speakers throughout the entire stream)
-* Ideally at 1920x1080 (1080p / Full HD) so that presentation and code are crisp and visible on the stream
+- Push 8 hours of sessions into one live stream on YouTube
+- Have 2-3 hosts with voice and webcam in that stream
+- Have 1 speaker with voice, webcam and screen share in that stream (and cycle through 8 speakers throughout the entire stream)
+- Ideally at 1920x1080 (1080p / Full HD) so that presentation and code are crisp and visible on the stream
 
 All the above times 4, as VACD would be hosting 4 tracks as separate streams.
 
@@ -36,7 +36,7 @@ Keep these 4 bullets in mind, as they matter for the setup we landed on. If you 
 
 How would you go about meeting these requirements? Let's look at our attempts!
 
-> *Note: If you're not interested in what did not work, feel free to skip this section.*
+> _Note: If you're not interested in what did not work, feel free to skip this section._
 
 ### Attempt 1: Run a stream from my laptop
 
@@ -60,8 +60,8 @@ The second attempt involved setting up a virtual machine in [Azure](https://www.
 
 In OBS Studio, I set up a scene (more on all of this later) that captured the browser's video and audio, and tried streaming it to YouTube. Let's say it worked, but it was not ideal:
 
-* Audio seemed to have varied quality over time. Sometimes it would be good, sometimes it would be like a very old landline phone.
-* Stream quality was only 720p (1280x720 pixels) because that's what Google Meet does, and due to the slightly lossy encoding of both Google Meet and OBS Studio, code on screen would not be readable.
+- Audio seemed to have varied quality over time. Sometimes it would be good, sometimes it would be like a very old landline phone.
+- Stream quality was only 720p (1280x720 pixels) because that's what Google Meet does, and due to the slightly lossy encoding of both Google Meet and OBS Studio, code on screen would not be readable.
 
 The above, combined with the fact that this was on a 6 CPU/56 GB RAM/NVidia GPU coming in at +1000 EUR per month which still ran at 90% of its capacity, this seemed not the avenue to pursue.
 
@@ -99,33 +99,33 @@ Remember the requirements? We mapped them into the following setup:
 
 We would use an Azure VM ([Azure Standard_NV12 series](https://docs.microsoft.com/en-us/azure/virtual-machines/nv-series)) that would run:
 
-* Windows 10 ([install GPU drivers on the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/hpccompute-gpu-windows))
-* OBS Studio ([download](https://obsproject.com/download))
-* Skype ([download](https://www.skype.com/en/get-skype/)) with [NDI](https://www.ndi.tv/) enabled (Settings \| Calling \| Advanced \| Allow NDI usage)
-* The NDI runtime ([download](http://new.tk/NDIRedistV4))
-* NDI support for OBS Studio ([download](https://github.com/Palakis/obs-ndi/releases))
+- Windows 10 ([install GPU drivers on the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/hpccompute-gpu-windows))
+- OBS Studio ([download](https://obsproject.com/download))
+- Skype ([download](https://www.skype.com/en/get-skype/)) with [NDI](https://www.ndi.tv/) enabled (Settings \| Calling \| Advanced \| Allow NDI usage)
+- The NDI runtime ([download](http://new.tk/NDIRedistV4))
+- NDI support for OBS Studio ([download](https://github.com/Palakis/obs-ndi/releases))
 
 In Skype on the VM, also make sure to turn off audio notifications in the settings, so those don't end up on the stream.
 
 Reboot the VM once after installing the above, to make sure all drivers are picked up correctly.
 
-> *Note: [NDI](https://www.ndi.tv/) is a technology that acts like a virtual video cable. All of the webcam, audio and screen sharing feeds from Skype will come in as an "NDI virtual cable" which we can plug into OBS Studio later. OBS will then be our television control room where we can switch between incoming streams.*
+> _Note: [NDI](https://www.ndi.tv/) is a technology that acts like a virtual video cable. All of the webcam, audio and screen sharing feeds from Skype will come in as an "NDI virtual cable" which we can plug into OBS Studio later. OBS will then be our television control room where we can switch between incoming streams._
 
 ### Skype Accounts
 
 To make sure the host(s) and speakers can connect to our setup, all of them will need a Skype account. Next to that, the Skype running on our VM will need its own account, as this is where everything comes together.
 
-> *Tip: Because in OBS Studio we will later on configure the "video feeds" to use the correct input, it's handy to have a pool of preconfigured Skype accounts instead of host/speakers personal accounts.*
+> _Tip: Because in OBS Studio we will later on configure the "video feeds" to use the correct input, it's handy to have a pool of preconfigured Skype accounts instead of host/speakers personal accounts._
 
 Accounts needed:
 
-* One for OBS
-* One per host (if not using their personal ones)
-* Three that will be pooled for speakers (if not using their personal ones)
+- One for OBS
+- One per host (if not using their personal ones)
+- Three that will be pooled for speakers (if not using their personal ones)
 
 Hosts and speakers will need to install Skype (on Windows, make sure to use Skype for Windows, and not the Windows Store app!)
 
-> *Note: We first created pooled Skype accounts on new Microsoft Accounts. Unfortunately those seem to get blocked quickly after a couple of sign-ins from different locations, which we obviously encountered. If you plan on using this setup, create the accounts a couple of days before your event, as they might get locked after 24 hours. Unlocking is possible, but there may be lockout periods of 24h involved, so you'll want to account for that!*
+> _Note: We first created pooled Skype accounts on new Microsoft Accounts. Unfortunately those seem to get blocked quickly after a couple of sign-ins from different locations, which we obviously encountered. If you plan on using this setup, create the accounts a couple of days before your event, as they might get locked after 24 hours. Unlocking is possible, but there may be lockout periods of 24h involved, so you'll want to account for that!_
 
 ### Connecting to your Azure VM
 
@@ -147,10 +147,10 @@ Lastly: display settings. My laptop runs a native 4k resolution, and when connec
 
 For our stream, we decided to create 4 scenes in OBS Studio:
 
-* a logo image with no audio to display at the start of the event;
-* an intro where we would have two host webcams + speaker webcam + audio for all;
-* a session with speaker webcam and screen share + audio;
-* another logo to show in between sessions.
+- a logo image with no audio to display at the start of the event;
+- an intro where we would have two host webcams + speaker webcam + audio for all;
+- a session with speaker webcam and screen share + audio;
+- another logo to show in between sessions.
 
 Henk has gone out of his way to create a couple of backgrounds that we would use in the stream. On those backgrounds, he created some spots where the speaker webcam, host webcam, screen share, etc. would become visible. To give you an idea:
 
@@ -158,7 +158,7 @@ Henk has gone out of his way to create a couple of backgrounds that we would use
 
 If you want to position different video feeds in one place, this type of backgrounds are a godsend! Dimensions and positions of elements are annotated on the image, so it's easy to place them in OBS Studio.
 
-> *Tip: Have a list of video dimensions at hand. In the 16:9 format, which is also the 1080p / 1920x1080 resolution for our YouTube stream. `16 / 9 = 1.777777777777778`, so if you want to place an element that is 454 pixels wide, it will have to be `454 / 1.777777777777778 = 255` pixels high o have the proper aspect ratio. More on aspect ratio's later!*
+> _Tip: Have a list of video dimensions at hand. In the 16:9 format, which is also the 1080p / 1920x1080 resolution for our YouTube stream. `16 / 9 = 1.777777777777778`, so if you want to place an element that is 454 pixels wide, it will have to be `454 / 1.777777777777778 = 255` pixels high o have the proper aspect ratio. More on aspect ratio's later!_
 
 Anyway, scene setup! We created 4 scenes with the above backgrounds, and added the necessary elements on top.
 
@@ -166,18 +166,18 @@ Anyway, scene setup! We created 4 scenes with the above backgrounds, and added t
 
 On the Azure VM, start a Skype call with yourself, and start webcam + screen sharing. This gives you some visual input to place the elements, instead of just the red bounding box you se on the screenshot above.
 
-> *Tip: In OBS Studio, when adding an NDI Source for one of the host/speaker webcams, make sure to transform it the right way. [Read this Skype FAQ](https://support.skype.com/en/faq/FA34853/what-is-skype-for-content-creators) for more info. We have used OBS Studio as StreamLabs OBS does not seem to have this setting and often randomly resizes the stream - something you do not want to have in the final stream!*
+> _Tip: In OBS Studio, when adding an NDI Source for one of the host/speaker webcams, make sure to transform it the right way. [Read this Skype FAQ](https://support.skype.com/en/faq/FA34853/what-is-skype-for-content-creators) for more info. We have used OBS Studio as StreamLabs OBS does not seem to have this setting and often randomly resizes the stream - something you do not want to have in the final stream!_
 
 While setting up the scenes, make sure to lock everything in place once things are in position, to prevent accidentally messing up your scene once the event runs.
 
-> *Tip: While all the Skype video feeds come in as a different NDI stream, the audio of all streams is replicated on all streams. If you have multiple Skype NDI sources on your scene, make sure to mute all except one! If you don't, there will be a very annoying echo effect in your livestream!*
+> _Tip: While all the Skype video feeds come in as a different NDI stream, the audio of all streams is replicated on all streams. If you have multiple Skype NDI sources on your scene, make sure to mute all except one! If you don't, there will be a very annoying echo effect in your livestream!_
 >
-> *Adding to that, since for VACD we would be cycling through multiple speakers and hiding/showing them on the scenes during production, we added an extra Skype NDI source for the "Active Speaker" on the scene, and positioned it off-screen. This way it would not be visible, but we could keep his as the one and only audio source. Why? Well, if we would hide a speaker, their audio would also disappear. Hence, a source that would always be there.*
+> _Adding to that, since for VACD we would be cycling through multiple speakers and hiding/showing them on the scenes during production, we added an extra Skype NDI source for the "Active Speaker" on the scene, and positioned it off-screen. This way it would not be visible, but we could keep his as the one and only audio source. Why? Well, if we would hide a speaker, their audio would also disappear. Hence, a source that would always be there._
 
 One more thing about audio sources: since there would be one long ongoing call in Skype, and all the audio would be in the outgoing stream, make sure that:
 
-* Every speaker mutes their own microphone in Skype when joining, and only activate it when session starts.
-* Every host mutes their own microphone in Skype when not speaking, to prevent echo, coughs, sniffs and random noises.
+- Every speaker mutes their own microphone in Skype when joining, and only activate it when session starts.
+- Every host mutes their own microphone in Skype when not speaking, to prevent echo, coughs, sniffs and random noises.
 
 Again: one audio feed for Skype in OBS Studio, so there is no way to disable a specific source! (apart from using the Skype instance running in the VM and muting participants - the producer can do this if needed)
 
@@ -189,16 +189,16 @@ On YouTube, make sure you have an account and a channel. Next, in the top toolba
 
 There are two types of streams you can create:
 
-* Webcam based
-* Stream based
+- Webcam based
+- Stream based
 
 For VACD and OBS Studio, we need stream based.
 
-> *Note: [Virtual Global Azure](https://virtual.globalazure.net/) folks may land here as well (as some requested to share this story). Or you may want to just stream yourself & a screen share.*
+> _Note: [Virtual Global Azure](https://virtual.globalazure.net/) folks may land here as well (as some requested to share this story). Or you may want to just stream yourself & a screen share._
 >
-> *Different requirements, for sure, and you may not need our elaborate setup! Unless you want to do a panel session of some kind.*
+> _Different requirements, for sure, and you may not need our elaborate setup! Unless you want to do a panel session of some kind._
 >
-> *If this is you: combine the knowledge from [Scott's post here](https://www.hanselman.com/blog/TakeRemoteWorkerEducatorWebcamVideoCallsToTheNextLevelWithOBSNDIToolsAndElgatoStreamDeck.aspx) with this blog post to set up OBS with just two scenes. For streaming, either stream the OBS virtual webcam, or use the stream based option. I would go with the latter (less transcoding steps in the entire process, so probably better screen sharing quality), but both approaches could work.*
+> _If this is you: combine the knowledge from [Scott's post here](https://www.hanselman.com/blog/TakeRemoteWorkerEducatorWebcamVideoCallsToTheNextLevelWithOBSNDIToolsAndElgatoStreamDeck.aspx) with this blog post to set up OBS with just two scenes. For streaming, either stream the OBS virtual webcam, or use the stream based option. I would go with the latter (less transcoding steps in the entire process, so probably better screen sharing quality), but both approaches could work._
 
 Anyway, onward!
 
@@ -212,13 +212,13 @@ From this screen, we'll need the stream key, which we can set in OBS Studio's st
 
 In theory, we are now all set to start the virtual event. Click "start streaming" in OBS Studio, bring in speakers, and then go live on YouTube.
 
-> *Tip: In that YouTube stream management page, check the small preview after starting in OBS Studio. If the preview shows your OBS Studio output, you can **click the big GO LIVE button** in YouTube. Don't forget, or you'll be streaming from OBS Studio into the void.*
+> _Tip: In that YouTube stream management page, check the small preview after starting in OBS Studio. If the preview shows your OBS Studio output, you can **click the big GO LIVE button** in YouTube. Don't forget, or you'll be streaming from OBS Studio into the void._
 
 If you want to go live on multiple channels at once, check a service like [Restream](https://restream.io/). This lets you add Twitch/Facebook/Twitter/... as secondary targets of your stream.
 
-> *Tip: I **highly recommend doing a few test streams**. You can create these on YouTube and make them unlisted or private. Test streams will help build confidence and smooth out kinks. Don't use the "real" event that is already scheduled, create new test events and use their stream keys.*
+> _Tip: I **highly recommend doing a few test streams**. You can create these on YouTube and make them unlisted or private. Test streams will help build confidence and smooth out kinks. Don't use the "real" event that is already scheduled, create new test events and use their stream keys._
 >
-> *I want to thank my colleagues to help me test this setup with very interesting streams discussing taco's vs. burrito's, a session on how Gatsby is both amazing and awful, a rant on random things, and more. Those videos have all been deleted, but they very much helped build experience. Thanks, all!*
+> _I want to thank my colleagues to help me test this setup with very interesting streams discussing taco's vs. burrito's, a session on how Gatsby is both amazing and awful, a rant on random things, and more. Those videos have all been deleted, but they very much helped build experience. Thanks, all!_
 
 ## The Event Itself: Running and Producing a Virtual Event on YouTube
 
@@ -290,11 +290,11 @@ All of that succeeded, so we discussed who would be introducing which speaker. O
 
 I'll give this as a check list again.
 
-* Switch to the scene that has two hosts and speaker. Introduce the speaker.
-* Switch scenes in OBS Studio to show their screen/webcam/... and cycle through everything as needed by the situation.
-* Verify Twitter, the chat on YouTube (tip: you can pop it out into a separate window), handle Q&A and discussion.
-* Thank the speaker, switch to an "in between sessions" scene that has no audio.
-* Dial in second speaker, and start this again.
+- Switch to the scene that has two hosts and speaker. Introduce the speaker.
+- Switch scenes in OBS Studio to show their screen/webcam/... and cycle through everything as needed by the situation.
+- Verify Twitter, the chat on YouTube (tip: you can pop it out into a separate window), handle Q&A and discussion.
+- Thank the speaker, switch to an "in between sessions" scene that has no audio.
+- Dial in second speaker, and start this again.
 
 Here's the first session with Sammy, as seen from OBS Studio:
 
@@ -316,9 +316,9 @@ For track 2, we used [Camtasia](https://www.techsmith.com/camtasia/) to cut that
 
 The fact that we had a ~15 minute break between sessions where there is no audio on the stream is very visible in Camtasia's editor.
 
-* [Use markers](https://support.techsmith.com/hc/en-us/articles/360023730532-Add-Markers) to quickly annotate the start and end of each session.
-* In the **Edit** menu, split media at all markers and drop the breaks.
-* Render each part individually for upload to YouTube.
+- [Use markers](https://support.techsmith.com/hc/en-us/articles/360023730532-Add-Markers) to quickly annotate the start and end of each session.
+- In the **Edit** menu, split media at all markers and drop the breaks.
+- Render each part individually for upload to YouTube.
 
 ![Camtasia editing](/images/2020/04/camtasia-editing.png)
 
@@ -334,9 +334,9 @@ All in all, I think this was a very successful event. In this section of this bl
 
 Have at least 2 hosts for your stream. There are a couple of "ongoing tasks" while it's running, and you want to make sure you have the bandwidth between the two of you to handle those.
 
-* Content moderation on Twitter/YouTube Live Chat/other channels.
-* Introducing the speaker.
-* Switching OBS Scenes at the start, at the end, and during a presentation - for example from full-screen demo to slides + speaker webcam and back.
+- Content moderation on Twitter/YouTube Live Chat/other channels.
+- Introducing the speaker.
+- Switching OBS Scenes at the start, at the end, and during a presentation - for example from full-screen demo to slides + speaker webcam and back.
 
 It's doable on your own, I think, but having 2 hosts seems a sensible thing to do.
 
@@ -364,12 +364,12 @@ The need for two hosts comes up again: you'll need to watch the presentation and
 
 We were streaming in 16:9, which means ideally speakers would be using any of the following resolutions:
 
-* 1920x1080
-* 2560x1600
-* 3840x2160
-* 1280x720 (not recommended because lower than the outgoing stream - quality is nice to have!)
-* 1366x768
-* 1600x900
+- 1920x1080
+- 2560x1600
+- 3840x2160
+- 1280x720 (not recommended because lower than the outgoing stream - quality is nice to have!)
+- 1366x768
+- 1600x900
 
 And then, **a speaker with a 16:10 desktop resolution joins**!
 
@@ -389,7 +389,7 @@ Luckily, there is a setting in OBS Studio where we can fix this one on the fly: 
 
 We've done this twice throughout the day, and managed to make this work for most speakers.
 
-> *Tip: Speaking of bounding boxes, [read this Skype FAQ](https://support.skype.com/en/faq/FA34853/what-is-skype-for-content-creators) to make sure Skype webcam video streams are sized correctly!*
+> _Tip: Speaking of bounding boxes, [read this Skype FAQ](https://support.skype.com/en/faq/FA34853/what-is-skype-for-content-creators) to make sure Skype webcam video streams are sized correctly!_
 
 ### Do I Need that Azure VM or can I Stream from my Laptop/Desktop?
 
@@ -415,8 +415,8 @@ Given the virtual machine we used was quite beefy, and would get expensive if it
 
 Auto-shutdown is great, but disable it during the event. I had it set for 8 PM, and with the event running until 9 PM this would have been very annoying.
 
-* Disable the Azure VM auto-shutdown.
-* Postpone Windows Updates, just in case that one kicks in with a reboot while you're streaming...
+- Disable the Azure VM auto-shutdown.
+- Postpone Windows Updates, just in case that one kicks in with a reboot while you're streaming...
 
 ## Conclusion
 
@@ -432,9 +432,9 @@ The protocol that powers all live streaming platforms out there is the [Real-Tim
 
 Some solutions out there:
 
-* [Zoom](https://zoom.us/), in its paid plans, lets you publish a meeting to an RTMP stream. This might be an easy solution to stream a virtual event or meetup. There are many rumours out there around Zoom privacy & security issues, so *use your own judgement*.
-* [Jitsi Meet](https://meet.jit.si/), based on the open source [Jitsi.org](https://meet.jit.si/), has an RTMP sink as well, from a Teams/Google Meet/...-like interface. Looks like an interesting alternative to Zoom.
-* [StreamYard (affiliate link)](https://streamyard.com?pal=5957151634227200) / [StreamYard (plain link)](https://streamyard.com/) seems similar to what Google Hangouts on Air once was. Join a meeting with up to 10 people, have a virtual camera person, and stream to an RTMP service. Free (with their logo overlay) or at US $20 per month if you don't want their logo displayed, it's also less expensive than the Azure VM we have been using here - provided you run at least one event per month. One downside seems to be it's a 720p stream (1280x720 pixels), which for screen sharing seems a bit less ideal. But that might not be an issue for you, so go try it out.
+- [Zoom](https://zoom.us/), in its paid plans, lets you publish a meeting to an RTMP stream. This might be an easy solution to stream a virtual event or meetup. There are many rumours out there around Zoom privacy & security issues, so _use your own judgement_.
+- [Jitsi Meet](https://meet.jit.si/), based on the open source [Jitsi.org](https://meet.jit.si/), has an RTMP sink as well, from a Teams/Google Meet/...-like interface. Looks like an interesting alternative to Zoom.
+- [StreamYard (affiliate link)](https://streamyard.com?pal=5957151634227200) / [StreamYard (plain link)](https://streamyard.com/) seems similar to what Google Hangouts on Air once was. Join a meeting with up to 10 people, have a virtual camera person, and stream to an RTMP service. Free (with their logo overlay) or at US $20 per month if you don't want their logo displayed, it's also less expensive than the Azure VM we have been using here - provided you run at least one event per month. One downside seems to be it's a 720p stream (1280x720 pixels), which for screen sharing seems a bit less ideal. But that might not be an issue for you, so go try it out.
 
 **Edit - 2020-04-08:** We've now also [played with StreamYard, read more about it here](/posts/2020-04-08-streaming-a-community-event-on-youtube-using-streamyard/).
 

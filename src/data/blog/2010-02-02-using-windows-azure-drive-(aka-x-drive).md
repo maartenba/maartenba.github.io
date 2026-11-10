@@ -11,13 +11,14 @@ redirect_from:
   - /post/2010/02/02/using-windows-azure-drive-aka-x-drive.html
   - /post/2010/02/02/using-windows-azure-drive-(aka-x-drive).html
 ---
+
 ![Windows Azure X Drive](/images/image_40.png) With today’s release of the [Windows Azure Tools and SDK version 1.1](http://blogs.msdn.com/windowsazure/archive/2010/02/02/windows-azure-tools-and-sdk-1-1-released.aspx), also the Windows Azure Drive feature has been released. Announced at last year’s [PDC](http://www.microsoftpdc.com) as X-Drive, which has nothing to do with a [well-known German car manufacturer](http://www.bmw.de), this new feature enables a Windows Azure application to use existing NTFS APIs to access a durable drive. This allows the Windows Azure application to mount a page blob as a drive letter, such as X:, and enables easily migration of existing NTFS applications to the cloud.
 
 This blog post will describe the necessary steps to create and/or mount a virtual hard disk on a Windows Azure role instance.
 
 ## Using Windows Azure Drive
 
-In a new or existing cloud service, make sure you have a *LocalStorage* definition in *ServiceDefinition.csdef*. This local storage, defined with the name InstanceDriveCache below, will be used by the Windows Azure Drive API to cache virtual hard disks on the virtual machine that is running, enabling faster access times. Here’s the *ServiceDefinition.csdef* for my project:
+In a new or existing cloud service, make sure you have a _LocalStorage_ definition in _ServiceDefinition.csdef_. This local storage, defined with the name InstanceDriveCache below, will be used by the Windows Azure Drive API to cache virtual hard disks on the virtual machine that is running, enabling faster access times. Here’s the _ServiceDefinition.csdef_ for my project:
 
 ```csharp
 <?xml version="1.0" encoding="utf-8"?>
@@ -36,14 +37,14 @@ In a new or existing cloud service, make sure you have a *LocalStorage* definiti
 
 ```
 
-Next, in code, fire up a *CloudStorageAccount*, I’m using development storage settings here:
+Next, in code, fire up a _CloudStorageAccount_, I’m using development storage settings here:
 
 ```csharp
 CloudStorageAccount storageAccount = CloudStorageAccount.DevelopmentStorageAccount;
 
 ```
 
-After that, the Windows Azure Drive environment has to be initialized. Remember the *LocalStorage* definition we made earlier? This is where it comes into play:
+After that, the Windows Azure Drive environment has to be initialized. Remember the _LocalStorage_ definition we made earlier? This is where it comes into play:
 
 ```csharp
 LocalResource localCache = RoleEnvironment.GetLocalResource("InstanceDriveCache");
@@ -71,9 +72,9 @@ CloudDrive myCloudDrive = storageAccount.CreateCloudDrive(
 
 ```
 
-Our cloud drive will be stored in a page blob on the “drives” blob container, named “mysupercooldrive.vhd”. Note that when using development settings, the page blob will not be created on development storage. Instead, files will be located at *C:\Users\<your.user.name>\AppData\Local\dftmp\wadd\devstoreaccount1*.
+Our cloud drive will be stored in a page blob on the “drives” blob container, named “mysupercooldrive.vhd”. Note that when using development settings, the page blob will not be created on development storage. Instead, files will be located at _C:\Users\<your.user.name>\AppData\Local\dftmp\wadd\devstoreaccount1_.
 
-Next up: making sure our virtual hard disk exists.  Note that this should only be done once in a virtual disk’s lifetime. Let’s create a giant virtual disk of 64 MB:
+Next up: making sure our virtual hard disk exists. Note that this should only be done once in a virtual disk’s lifetime. Let’s create a giant virtual disk of 64 MB:
 
 ```csharp
 try
@@ -89,7 +90,7 @@ catch (CloudDriveException ex)
 
 ```
 
-Great, our disk is created. Now let’s mount it, i.e. assign a drive letter to it. The drive letter can not be chosen, instead it is returned by the *Mount()* method. The 25 is the cache size that will be used on the virtual machine instance. The *DriveMountOptions* can be None, *Force* and *FixFileSystemErrors*.
+Great, our disk is created. Now let’s mount it, i.e. assign a drive letter to it. The drive letter can not be chosen, instead it is returned by the _Mount()_ method. The 25 is the cache size that will be used on the virtual machine instance. The _DriveMountOptions_ can be None, _Force_ and _FixFileSystemErrors_.
 
 ```csharp
 string driveLetter = myCloudDrive.Mount(25, DriveMountOptions.None);

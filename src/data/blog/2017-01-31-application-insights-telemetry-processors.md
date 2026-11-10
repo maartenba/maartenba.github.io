@@ -11,20 +11,20 @@ redirect_from:
   - /post/2017/01/31/application-insights-telemetry-processors.html
 ---
 
-Two weeks ago I had a wonderful experience speaking [at a small conference in Finland](http://www.iglooconf.fi). The talk was titled *What is going on - Application diagnostics on Azure* ([slides](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group)) and focused on the importance of semantic logging and how Azure Application Insights (AppInsights) can help make sense of that data and correlate it with other telemetry coming from the application server. What I did not cover in that talk was AppInsights telemetry processors - essentially a pipeline through which your server-side AppInsights data passes before it is sent off to the giant data store that is the AppInsights service.
+Two weeks ago I had a wonderful experience speaking [at a small conference in Finland](http://www.iglooconf.fi). The talk was titled _What is going on - Application diagnostics on Azure_ ([slides](http://www.slideshare.net/maartenba/what-is-going-on-application-diagnostics-on-azure-copenhagen-net-user-group)) and focused on the importance of semantic logging and how Azure Application Insights (AppInsights) can help make sense of that data and correlate it with other telemetry coming from the application server. What I did not cover in that talk was AppInsights telemetry processors - essentially a pipeline through which your server-side AppInsights data passes before it is sent off to the giant data store that is the AppInsights service.
 
 Some use cases for fiddling with the data that is sent off to the AppInsights backend:
 
-* Do we want to send *all* of our telemetry? Or are we happy with a representative sample of, say, 50% of all telemetry? We can configure the pipeline to let some data go through while ignoring some other data.
-* What if there is some data we want to add to each trace/telemetry item we send to the back end? Say we want to add information about which tenant we're working with in our application so we can correlate events with a given customer/tenant.
-* What if the request URLs coming in have secret data in them (e.g. an API key as part of a URL) - can we filter that out so we're not leaking sensitive data to our telemetry store?
-* ... (the ... stands for any scenarios you may think of after reading the three examples below)
+- Do we want to send _all_ of our telemetry? Or are we happy with a representative sample of, say, 50% of all telemetry? We can configure the pipeline to let some data go through while ignoring some other data.
+- What if there is some data we want to add to each trace/telemetry item we send to the back end? Say we want to add information about which tenant we're working with in our application so we can correlate events with a given customer/tenant.
+- What if the request URLs coming in have secret data in them (e.g. an API key as part of a URL) - can we filter that out so we're not leaking sensitive data to our telemetry store?
+- ... (the ... stands for any scenarios you may think of after reading the three examples below)
 
 Let's see how we can do this! But first: how do we even plug in to this telemetry pipeline?
 
 ## Plugging a Telemetry Processor into the AppInsights pipeline
 
-First things first: thus far, I called this all a *pipeline*. Much like in a web application built on top of OWIN that has a pipeline of middlewares sitting between an HTTP request and response, AppInsights has a telemetry chain sitting between capturing telemetry in our application and sending it off to the backend.
+First things first: thus far, I called this all a _pipeline_. Much like in a web application built on top of OWIN that has a pipeline of middlewares sitting between an HTTP request and response, AppInsights has a telemetry chain sitting between capturing telemetry in our application and sending it off to the backend.
 
 A telemetry processor implements `ITelemetryProcessor`, and looks somewhat like this:
 
@@ -71,7 +71,7 @@ That's that. Now let's look at some examples.
 
 While I am a big fan of Application Insights and the rich analysis and querying options it provides, I'm not a big fan of its pricing model. Of course, cloud providers have to make money too and I'm definitely up to doing so, but I'm also against wasting resources (mine, monetary and Azure's, compute-wise).
 
-Do we want to send *all* of our telemetry? Or are we happy with a representative sample of, say, 50% of all telemetry? That depends on why we want the telemetry. For [MyGet](http://www.myget.org), for example, we are mostly interested in trends. Are request times going up or down? Is a given exception occurring after a deployment? To capture these trends, we don't need *all*  data. We can capture these trends as reliably from a sample of 5000 users as we can from the full number of users.
+Do we want to send _all_ of our telemetry? Or are we happy with a representative sample of, say, 50% of all telemetry? That depends on why we want the telemetry. For [MyGet](http://www.myget.org), for example, we are mostly interested in trends. Are request times going up or down? Is a given exception occurring after a deployment? To capture these trends, we don't need _all_ data. We can capture these trends as reliably from a sample of 5000 users as we can from the full number of users.
 
 Good news! [Sampling](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-sampling) is built-in to AppInsights. There is no need to write a custom `ITelemetryProcessor` to reduce the amount of data sent to the back end - it's already in there. The cool thing is the built-in sampling helps us reduce telemetry traffic and storage but preserves a statistically correct analysis of application data. In other words: even when sampling data, the number of users, sessions, requests, exceptions, ... in the AppInsights portal will be correct.
 
@@ -166,7 +166,7 @@ public class StripApiKeyFromUrlTelemetryProcessor : ITelemetryProcessor
 }
 ```
 
-If we want to exclude any request that has a Guid-type string in the URL, we can also choose to simply `return` instead, essentially canceling the pipeline and not sending any data out *at all*:
+If we want to exclude any request that has a Guid-type string in the URL, we can also choose to simply `return` instead, essentially canceling the pipeline and not sending any data out _at all_:
 
 ```csharp
 public class DropDataWhenApiKeyPresentTelemetryProcessor : ITelemetryProcessor

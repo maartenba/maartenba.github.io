@@ -5,7 +5,8 @@ pubDatetime: 2026-10-01T07:00:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["General", ".NET", "dotnet", "csharp", "aspnetcore", "security", "passkeys"]
+tags:
+  ["General", ".NET", "dotnet", "csharp", "aspnetcore", "security", "passkeys"]
 author: Maarten Balliauw
 ---
 
@@ -21,16 +22,16 @@ Passkey support was added to ASP.NET Core Identity in .NET 10. `SignInManager<TU
 
 If you're new to passkeys, I wrote a series about them on the Duende blog that covers the background and the .NET 10 implementation in more depth:
 
-* [An Introduction to Passkeys: The Future of Authentication](https://duendesoftware.com/blog/20250930-introduction-to-passkeys-the-future-of-authentication)
-* [Passkeys in .NET 10 Blazor Apps with ASP.NET Identity](https://duendesoftware.com/blog/20251007-passkeys-in-dotnet-10-blazor-apps-with-aspnet-identity)
-* [Deep-Dive Into Relying Party ID and Origin With Passkeys](https://duendesoftware.com/blog/20251014-deep-dive-into-relying-party-id-and-origin-with-passkeys)
-* [Adding .NET 10 Passkey Support to Duende IdentityServer and ASP.NET Core](https://duendesoftware.com/blog/20251021-adding-dotnet-10-passkey-support-to-duende-identityserver)
+- [An Introduction to Passkeys: The Future of Authentication](https://duendesoftware.com/blog/20250930-introduction-to-passkeys-the-future-of-authentication)
+- [Passkeys in .NET 10 Blazor Apps with ASP.NET Identity](https://duendesoftware.com/blog/20251007-passkeys-in-dotnet-10-blazor-apps-with-aspnet-identity)
+- [Deep-Dive Into Relying Party ID and Origin With Passkeys](https://duendesoftware.com/blog/20251014-deep-dive-into-relying-party-id-and-origin-with-passkeys)
+- [Adding .NET 10 Passkey Support to Duende IdentityServer and ASP.NET Core](https://duendesoftware.com/blog/20251021-adding-dotnet-10-passkey-support-to-duende-identityserver)
 
 A passkey is a public/private key pair. The server sends a challenge, the authenticator on your device (Windows Hello, Touch ID, a YubiKey, your password manager, ...) signs it, and the server verifies the signature with the public key it stored earlier. Here's what the authentication ceremony looks like:
 
 ![Passkey authentication ceremony: the client requests passkey request options, calls navigator.credentials.get() on the authenticator, and posts the credential to the server](/images/2026/passkey-authentication-ceremony.png)
 
-There are two round trips to the server. The first one returns the request options (including the challenge), the second one posts the signed credential back. The server has to remember the challenge it handed out in between, otherwise it can't verify that the signature belongs to *this* login attempt. ASP.NET Core keeps it in an authentication scheme, so there's no need to store it in a database on the server.
+There are two round trips to the server. The first one returns the request options (including the challenge), the second one posts the signed credential back. The server has to remember the challenge it handed out in between, otherwise it can't verify that the signature belongs to _this_ login attempt. ASP.NET Core keeps it in an authentication scheme, so there's no need to store it in a database on the server.
 
 ## Passkeys as a first factor, or a second factor?
 
@@ -51,7 +52,7 @@ builder.Services.AddAuthentication(defaultScheme: "Cookies")
     .AddJwtBearer("Bearer");
 ```
 
-Handlers support a handful of [actions](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/#authentication-concepts). *Authenticate* builds a `ClaimsPrincipal` from the request (a cookie, a token, ...), *challenge* kicks off a login when an anonymous user needs to be authenticated (redirect to a login page or identity provider, or return a 401), and *forbid* handles an authenticated user who isn't allowed in (redirect to an access denied page, or return a 403). Handlers that can persist an identity, like the cookie handler, also support *sign-in* and *sign-out*.
+Handlers support a handful of [actions](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/#authentication-concepts). _Authenticate_ builds a `ClaimsPrincipal` from the request (a cookie, a token, ...), _challenge_ kicks off a login when an anonymous user needs to be authenticated (redirect to a login page or identity provider, or return a 401), and _forbid_ handles an authenticated user who isn't allowed in (redirect to an access denied page, or return a 403). Handlers that can persist an identity, like the cookie handler, also support _sign-in_ and _sign-out_.
 
 Schemes also work together. You can set a different default scheme per action, which is how the classic "cookies plus OpenID Connect" setup works: `DefaultChallengeScheme` points to OpenID Connect so anonymous users get redirected to the identity provider, and when they come back, the OpenID Connect handler signs them into its `SignInScheme` (the cookie scheme), which then authenticates every request after that.
 
@@ -74,10 +75,10 @@ Calling a scheme by name is what makes non-default schemes useful for more than 
 
 ASP.NET Core Identity registers four cookie schemes when you call `AddIdentity()`. You can find them as constants on [`IdentityConstants`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.identityconstants):
 
-* `Identity.Application` is the "real" authentication cookie for a fully signed-in user.
-* `Identity.External` holds the result of an external login (Google, Microsoft, ...) until it's linked to a local account.
-* `Identity.TwoFactorUserId` remembers who passed the first factor while they're completing the second one. It expires after 5 minutes.
-* `Identity.TwoFactorRememberMe` powers the "remember this browser" checkbox for 2FA.
+- `Identity.Application` is the "real" authentication cookie for a fully signed-in user.
+- `Identity.External` holds the result of an external login (Google, Microsoft, ...) until it's linked to a local account.
+- `Identity.TwoFactorUserId` remembers who passed the first factor while they're completing the second one. It expires after 5 minutes.
+- `Identity.TwoFactorRememberMe` powers the "remember this browser" checkbox for 2FA.
 
 ASP.NET Core Identity uses `Identity.TwoFactorUserId` for that kind of state in the two-factor flow. When you log in with a password and 2FA is enabled, [`SignInOrTwoFactorAsync()`](https://github.com/dotnet/aspnetcore/blob/release/10.0/src/Identity/Core/src/SignInManager.cs) signs you into `Identity.TwoFactorUserId` with a principal that holds your user id, and the next request (where you enter your code) reads it back with `GetTwoFactorAuthenticationUserAsync()`.
 
@@ -103,7 +104,7 @@ At first sight, that looks like a problem for two-factor authentication. The use
 
 Look closer, though. When you pass a user to `MakePasskeyRequestOptionsAsync(user)`, the [`PasskeyHandler`](https://github.com/dotnet/aspnetcore/blob/release/10.0/src/Identity/Core/src/PasskeyHandler.cs) puts that user's id into the assertion state, next to the challenge. That state now lives in the same encrypted `Identity.TwoFactorUserId` cookie, with the same 5 minute lifetime. When the credential comes back, the handler loads the user from the state, checks that the passkey belongs to that user (and that the user handle in the response matches), and returns the user in the assertion result.
 
-So the cookie still knows who's logging in, it just stores that in a different shape. What it no longer knows is *why* the ceremony was bound to that user. Any endpoint that calls `MakePasskeyRequestOptionsAsync(user)` produces the same state, including a "type your username, then use your passkey" login that never checks a password. To prove the password step happened, we'll keep one extra piece of state: a small cookie that records which user passed it.
+So the cookie still knows who's logging in, it just stores that in a different shape. What it no longer knows is _why_ the ceremony was bound to that user. Any endpoint that calls `MakePasskeyRequestOptionsAsync(user)` produces the same state, including a "type your username, then use your passkey" login that never checks a password. To prove the password step happened, we'll keep one extra piece of state: a small cookie that records which user passed it.
 
 ## Implementing 2FA with passkeys
 
@@ -113,11 +114,11 @@ With that in mind, we need three things:
 
 1. Tell ASP.NET Core Identity that a user with a passkey has a valid second factor, so password login returns `RequiresTwoFactor`.
 2. A short-lived cookie scheme that remembers who passed the password step.
-3. Two endpoints for the ceremony: one that creates request options *for the two-factor user*, and one that verifies the credential and completes the sign-in. The one thing to avoid here is `PasskeySignInAsync()`, as we'll see.
+3. Two endpoints for the ceremony: one that creates request options _for the two-factor user_, and one that verifies the credential and completes the sign-in. The one thing to avoid here is `PasskeySignInAsync()`, as we'll see.
 
 ### A two-factor token provider for passkeys
 
-`SignInManager.IsTwoFactorEnabledAsync()` checks more than the `TwoFactorEnabled` flag on the user. It also requires at least one *valid* two-factor provider, which is an `IUserTwoFactorTokenProvider<TUser>` whose `CanGenerateTwoFactorTokenAsync()` returns `true`. If your users only have a password and a passkey (no authenticator app, no confirmed phone number), ASP.NET Core Identity will happily skip 2FA altogether.
+`SignInManager.IsTwoFactorEnabledAsync()` checks more than the `TwoFactorEnabled` flag on the user. It also requires at least one _valid_ two-factor provider, which is an `IUserTwoFactorTokenProvider<TUser>` whose `CanGenerateTwoFactorTokenAsync()` returns `true`. If your users only have a password and a passkey (no authenticator app, no confirmed phone number), ASP.NET Core Identity will happily skip 2FA altogether.
 
 A small token provider fixes that:
 
@@ -315,7 +316,7 @@ account.MapPost("/passkey", async (PasskeyRegistrationRequest r, HttpContext htt
 
 The login page is a regular Razor page. `@Html.AntiForgeryToken()` renders the antiforgery token in a hidden input (any `<form method="post">` using the form tag helper does the same), so the JavaScript can pick it up from there:
 
-```cshtml
+```html
 @page
 <form id="login-form">
     @Html.AntiForgeryToken()
@@ -331,58 +332,65 @@ The token is tied to the signed-in user, but that's not a problem during the log
 On the client, the second factor is the regular WebAuthn `navigator.credentials.get()` call. Modern browsers support `PublicKeyCredential.parseRequestOptionsFromJSON()` and `credential.toJSON()`, which turn the server's JSON into WebAuthn options and the credential back into JSON. The `post()` helper sends the antiforgery token in the `RequestVerificationToken` header:
 
 ```javascript
-document.getElementById('login-form').addEventListener('submit', event => {
-    event.preventDefault();
-    login(
-        document.getElementById('email').value,
-        document.getElementById('password').value);
+document.getElementById("login-form").addEventListener("submit", event => {
+  event.preventDefault();
+  login(
+    document.getElementById("email").value,
+    document.getElementById("password").value
+  );
 });
 
 async function login(email, password) {
-    try {
-        const result = await (await post('/account/login', { email, password })).json();
-        const succeeded = result.requiresTwoFactor
-            ? await passkeySecondFactor()
-            : result.succeeded;
+  try {
+    const result = await (
+      await post("/account/login", { email, password })
+    ).json();
+    const succeeded = result.requiresTwoFactor
+      ? await passkeySecondFactor()
+      : result.succeeded;
 
-        if (succeeded) {
-            // Load a new page, with an antiforgery token for the signed-in user
-            window.location.href = '/';
-        } else {
-            showError('Login failed.');
-        }
-    } catch (error) {
-        // For example, the user cancelled the passkey prompt (NotAllowedError)
-        showError(`Login failed: ${error.message}`);
+    if (succeeded) {
+      // Load a new page, with an antiforgery token for the signed-in user
+      window.location.href = "/";
+    } else {
+      showError("Login failed.");
     }
+  } catch (error) {
+    // For example, the user cancelled the passkey prompt (NotAllowedError)
+    showError(`Login failed: ${error.message}`);
+  }
 }
 
 async function passkeySecondFactor() {
-    const options = await (await post('/account/2fa/passkey/options')).json();
-    const credential = await navigator.credentials.get({
-        publicKey: PublicKeyCredential.parseRequestOptionsFromJSON(options)
-    });
-    const result = await (await post('/account/2fa/passkey', {
-        credential: JSON.stringify(credential.toJSON()),
-        rememberClient: false
-    })).json();
-    return result.succeeded;
+  const options = await (await post("/account/2fa/passkey/options")).json();
+  const credential = await navigator.credentials.get({
+    publicKey: PublicKeyCredential.parseRequestOptionsFromJSON(options),
+  });
+  const result = await (
+    await post("/account/2fa/passkey", {
+      credential: JSON.stringify(credential.toJSON()),
+      rememberClient: false,
+    })
+  ).json();
+  return result.succeeded;
 }
 
 function post(url, body) {
-    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
-    return fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'RequestVerificationToken': token
-        },
-        body: body ? JSON.stringify(body) : undefined
-    });
+  const token = document.querySelector(
+    'input[name="__RequestVerificationToken"]'
+  ).value;
+  return fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      RequestVerificationToken: token,
+    },
+    body: body ? JSON.stringify(body) : undefined,
+  });
 }
 
 function showError(message) {
-    document.getElementById('error').textContent = message;
+  document.getElementById("error").textContent = message;
 }
 ```
 

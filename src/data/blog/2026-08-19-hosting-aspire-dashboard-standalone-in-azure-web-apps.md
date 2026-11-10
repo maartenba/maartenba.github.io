@@ -17,8 +17,8 @@ The [.NET Aspire dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fund
 
 Create a new Azure Web App configured for containers, and point it at the official Aspire dashboard image, either the stable version or the nightly build:
 
-* Stable: `mcr.microsoft.com/dotnet/aspire-dashboard:latest`
-* Nightly: `mcr.microsoft.com/dotnet/nightly/aspire-dashboard:latest`
+- Stable: `mcr.microsoft.com/dotnet/aspire-dashboard:latest`
+- Nightly: `mcr.microsoft.com/dotnet/nightly/aspire-dashboard:latest`
 
 The [container image documentation](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard/standalone?tabs=bash#start-the-container) has the full list of available tags if you prefer to pin to a specific version.
 
@@ -35,17 +35,17 @@ Without this, gRPC calls from your applications to the dashboard's OTLP endpoint
 The dashboard needs a handful of environment variables to configure ports, authentication, and telemetry limits. Here's a configuration that works:
 
 | Variable                                      | Value              | Purpose                                                                                   |
-|-----------------------------------------------|--------------------|-------------------------------------------------------------------------------------------|
+| --------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------- |
 | `ASPNETCORE_URLS`                             | `http://[::]:8181` | Dashboard UI listen address                                                               |
 | `WEBSITES_PORT`                               | `8181`             | Tells Azure which port the container exposes for HTTP traffic (the PORT configured above) |
 | `HTTP20_ONLY_PORT`                            | `18889`            | The gRPC/OTLP ingest port (HTTP/2 only)                                                   |
 | `ASPIRE_ALLOW_UNSECURED_TRANSPORT`            | `true`             | Required when running behind a reverse proxy that terminates TLS                          |
 | `DASHBOARD__APPLICATIONNAME`                  | `AcmeCorp`         | Display name shown in the dashboard header                                                |
 | `DASHBOARD__FRONTEND__AUTHMODE`               | `BrowserToken`     | Requires a token to access the dashboard UI                                               |
-| `DASHBOARD__FRONTEND__BROWSERTOKEN`           | *(your token)*     | The token users need to enter when accessing the dashboard                                |
+| `DASHBOARD__FRONTEND__BROWSERTOKEN`           | _(your token)_     | The token users need to enter when accessing the dashboard                                |
 | `DASHBOARD__OTLP__AUTHMODE`                   | `ApiKey`           | Protects the OTLP ingest endpoint with an API key                                         |
-| `DASHBOARD__OTLP__PRIMARYAPIKEY`              | *(a GUID)*         | Primary API key for OTLP ingest                                                           |
-| `DASHBOARD__OTLP__SECONDARYAPIKEY`            | *(a GUID)*         | Secondary key for rotation without downtime                                               |
+| `DASHBOARD__OTLP__PRIMARYAPIKEY`              | _(a GUID)_         | Primary API key for OTLP ingest                                                           |
+| `DASHBOARD__OTLP__SECONDARYAPIKEY`            | _(a GUID)_         | Secondary key for rotation without downtime                                               |
 | `DASHBOARD__OTLP__CORS__ALLOWEDORIGINS`       | `*`                | CORS for the OTLP endpoint (restrict this if you can)                                     |
 | `DASHBOARD__TELEMETRYLIMITS__MAXLOGCOUNT`     | `15000`            | Max log entries kept in memory                                                            |
 | `DASHBOARD__TELEMETRYLIMITS__MAXMETRICSCOUNT` | `40000`            | Max metric data points in memory                                                          |
@@ -72,7 +72,7 @@ builder.Services.AddOpenTelemetry()
 The `UseOtlpExporter()` call picks up its configuration from environment variables. Set these on your application's Azure Web App (or wherever it runs):
 
 | Variable                      | Value                                       |
-|-------------------------------|---------------------------------------------|
+| ----------------------------- | ------------------------------------------- |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | `https://your-dashboard.azurewebsites.net/` |
 | `OTEL_EXPORTER_OTLP_HEADERS`  | `x-otlp-api-key=(one of the GUIDs)`         |
 | `OTEL_EXPORTER_OTLP_PROTOCOL` | `grpc`                                      |

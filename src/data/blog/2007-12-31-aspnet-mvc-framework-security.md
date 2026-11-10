@@ -11,6 +11,7 @@ redirect_from:
   - /post/2007/12/31/asp-net-mvc-framework-security.html
   - /post/2007/12/31/aspnet-mvc-framework-security.html
 ---
+
 Some [posts ago](/posts/2007-12-10-aspnet-mvc-framework-basic-sample-application/), I started playing with the ASP.NET MVC framework. In an example I'm creating, I'm trying to add Forms-based security.
 
 "Classic" ASP.NET offers a nice and easy way to set security on different pages in a web application, trough Web.config. In the example I'm building, I wanted to allow access to "/Entry/Delete/" only to users with the role "Administrator". So I gave the following snip a try:
@@ -35,7 +36,7 @@ In an ideal world, you would specify permissions for a route at the same locatio
 
 Luckily, the .NET framework offers a nice feature under the name "CAS" (Code Access Security). Sounds scary? Perhaps, but it's useful in the MVC security context!
 
-The idea behind CAS is that you specify security requirements using attributes. For example, if authentication is required in my *EntryController* (serving /Entry/...), I could use the following code snippet:
+The idea behind CAS is that you specify security requirements using attributes. For example, if authentication is required in my _EntryController_ (serving /Entry/...), I could use the following code snippet:
 
 ```csharp
 [PrincipalPermission(SecurityAction.Demand, Authenticated=true)]
@@ -45,7 +46,7 @@ public class EntryController : Controller {
 
 ```
 
-Now let's try my example from the beginning of this post. The URL "/Entry/Delete" is routed to my *EntryController*'s *Delete* method. So why not decorate that method with a CAS attribute?
+Now let's try my example from the beginning of this post. The URL "/Entry/Delete" is routed to my _EntryController_'s _Delete_ method. So why not decorate that method with a CAS attribute?
 
 ```csharp
 [ControllerAction]
@@ -56,7 +57,7 @@ public void Delete(int? id) {
 
 ```
 
-This snippet makes sure the *Delete* method can only be called by users in the role "Administrator"
+This snippet makes sure the _Delete_ method can only be called by users in the role "Administrator"
 
 ## Exception handling
 
@@ -64,7 +65,7 @@ Problem using the CAS approach is that you are presented an ugly error when a se
 
 ### Alternative 1: Using Global.asax
 
-In Global.asax, you can specify an *Application_Error* event handler. Within this event handler, you can catch specific types of Exceptions and route them to the right error page. The following example redirects each *SecurityException* to the /Login, my *LoginController*:
+In Global.asax, you can specify an _Application_Error_ event handler. Within this event handler, you can catch specific types of Exceptions and route them to the right error page. The following example redirects each _SecurityException_ to the /Login, my _LoginController_:
 
 ```csharp
 protected void Application_Error(object sender, EventArgs e) {
@@ -82,7 +83,7 @@ protected void Application_Error(object sender, EventArgs e) {
 
 ### Alternative 3: Use in-line CAS
 
-Another option is to use in-line CAS. For example, you can do the folluwing in your *ControllerAction*:
+Another option is to use in-line CAS. For example, you can do the folluwing in your _ControllerAction_:
 
 ```csharp
 try {

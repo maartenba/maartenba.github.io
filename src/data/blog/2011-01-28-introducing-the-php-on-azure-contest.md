@@ -10,16 +10,18 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/01/28/introducing-the-php-on-azure-contest.html
 ---
+
 It’s not every day that I get to be in the jury for [a contest](http://www.phpazurecontest.com/). It’s not every day that I deliver a [training about PHP on Azure](https://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032476474&Culture=en-US). Since this is about a contest where I’m doing both, I thought this is definitely worth telling you:
 
 > [![](http://www.phpazurecontest.com/wp-content/uploads/2011/01/azurecontestthumb-213x300.png)](http://osui3w.bay.livefilestore.com/y1pbSL9AiqZEad4eyMUUTaP6dj0usW01jYMVebem48A36C5j6u-9rcdmcjwwqpek9-KcsQA_r6Rwu5OhrAvQY48KTv6mr8pErK4/phpazurecontestflyer.pdf?download&psid=2)The PHP on Azure Contest is a coding competition run by the PHP Benelux User Group supported by Microsoft. Windows Azure is Microsoft’s Cloud platform with tools and support for PHP.
 > Participate to win a ticket, airfare and hotel to visit MIX2012 in Las Vegas, a Windows Phone 7 or other great prizes!
 > The contest runs from **February 1<sup>st</sup> 2011 to May 15<sup>th</sup> 2011**.
-Participants must register before February 28<sup>th</sup> 2011 to enter the contest. During that time you will build your masterpiece and blog regularly about your experiences of using PHP on the Windows Azure Platform (The good, the bad and the ugly). We even have a prize for the top blogger!
+> Participants must register before February 28<sup>th</sup> 2011 to enter the contest. During that time you will build your masterpiece and blog regularly about your experiences of using PHP on the Windows Azure Platform (The good, the bad and the ugly). We even have a prize for the top blogger!
 > The winners will be announced during the Dutch PHP Conference 2011 in Amsterdam, 19-21 May 2011 ([http://www.phpconference.nl/](http://www.phpconference.nl/)).
+>
 > > [More information about the contest](http://www.phpazurecontest.com/contest/)
-> [Contest registration](http://www.phpazurecontest.com/wp-login.php?action=register)
-> [Getting started](http://www.phpazurecontest.com/getting-started/)
-> [Register now for a free PHP on Azure Training](https://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032476474&Culture=en-US)on February 22nd 2011
+> > [Contest registration](http://www.phpazurecontest.com/wp-login.php?action=register)
+> > [Getting started](http://www.phpazurecontest.com/getting-started/)
+> > [Register now for a free PHP on Azure Training](https://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032476474&Culture=en-US)on February 22nd 2011
 
-Feel like building a killer application on Microsoft’s cloud platform? Want fame and glory, possibly with a MIX2012 visit? I know I would join this!  [Check here for more information about the contest](http://www.phpazurecontest.com/contest/).
+Feel like building a killer application on Microsoft’s cloud platform? Want fame and glory, possibly with a MIX2012 visit? I know I would join this! [Check here for more information about the contest](http://www.phpazurecontest.com/contest/).

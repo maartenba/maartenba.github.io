@@ -40,8 +40,8 @@ When running this request and retrieving the response, response times were indee
 
 Looking at this response, a few things can be observed:
 
-* `Transfer-Encoding: chunked` - there is no content length specified, the server tells us it will send a bunch of chunks whenever it has data, and when the response is done it will tell us by closing the connection.
-* `Server: Microsoft-IIS/10.0` - the server is a Windows machine, and has IIS 10.0 running to serve HTTP.
+- `Transfer-Encoding: chunked` - there is no content length specified, the server tells us it will send a bunch of chunks whenever it has data, and when the response is done it will tell us by closing the connection.
+- `Server: Microsoft-IIS/10.0` - the server is a Windows machine, and has IIS 10.0 running to serve HTTP.
 
 ### Observation 2: profiling with dotTrace
 
@@ -55,8 +55,8 @@ Here's what the snapshot looked like when making that specific request a number 
 
 Whoa! A couple of things to observe!
 
-* Spikes in Garbage Collection correlate with when executing our specific request.
-* Lots of CPU usage in that specific request.
+- Spikes in Garbage Collection correlate with when executing our specific request.
+- Lots of CPU usage in that specific request.
 
 That already gives quite some information. Let's look at the interesting period in the timeline, and then inspect the call stack.
 
@@ -64,8 +64,8 @@ That already gives quite some information. Let's look at the interesting period 
 
 Even more whoa! What we can see here is:
 
-* Some method named `ExplicitFlush` is taking 25% of the time in this particular part of our snapshot.
-* If we look at the call tree below, this seems to be in a path where we are writing JSON to the output.
+- Some method named `ExplicitFlush` is taking 25% of the time in this particular part of our snapshot.
+- If we look at the call tree below, this seems to be in a path where we are writing JSON to the output.
 
 Interesting! The heavy hitter is the `ExplicitFlush` method, in the `System.Web.Hosting.IIS7WorkerRequest` class. Surely Microsoft would optimize their code, right?
 
@@ -73,10 +73,10 @@ Interesting! The heavy hitter is the `ExplicitFlush` method, in the `System.Web.
 
 The next thing to look at in this case would be the call tree we observed. Summarized, it looks like this:
 
-* HTTP request comes in and hits the ASP.NET MVC Controller
-  * Controller does things and returns a `ChunkedFileStreamResult` which, when executed, writes JSON to the output stream
-    * Writing JSON to the output is done using JSON.NET, using the `JsonTextWriter` class
-      * ASP.NET MVC and IIS do their thing to get the response to the client
+- HTTP request comes in and hits the ASP.NET MVC Controller
+  - Controller does things and returns a `ChunkedFileStreamResult` which, when executed, writes JSON to the output stream
+    - Writing JSON to the output is done using JSON.NET, using the `JsonTextWriter` class
+      - ASP.NET MVC and IIS do their thing to get the response to the client
 
 How do we go from here... Let's start at the top and see what happens in more detail!
 
@@ -115,9 +115,9 @@ The `ChunkedFileStreamResult` class looked like a class that was created to be a
 
 When would you use this? Typically in any of these scenarios:
 
-* When you have no idea of the data you will be sending. Typical scenarios here are streaming binary data, where you want to just send over bits and bytes of the data as it comes available.
-* When you want to keep the connection open and send data when needed (often used in "real-time" frameworks, keeping the connection open and sending and processing data when needed).
-* Some more, but these are the most common I have seen.
+- When you have no idea of the data you will be sending. Typical scenarios here are streaming binary data, where you want to just send over bits and bytes of the data as it comes available.
+- When you want to keep the connection open and send data when needed (often used in "real-time" frameworks, keeping the connection open and sending and processing data when needed).
+- Some more, but these are the most common I have seen.
 
 In this application, it could make sense to indeed use chunked encoding. The size of the JSON being sent is unknown upfront, and who knows, if it becomes 500 MB it would be a nice advantage not to have to buffer that in memory, and just send it out in bits and pieces.
 
@@ -151,8 +151,8 @@ public sealed class ChunkedFileStreamResult
 
 Nothing fancy, this is pretty much how we can enable chunked encoding in any ASP.NET application:
 
-* Set `response.BufferOutput = false` so that data is not buffered and instead sent to the client immediately.
-* Write to the `response.OutputStream`
+- Set `response.BufferOutput = false` so that data is not buffered and instead sent to the client immediately.
+- Write to the `response.OutputStream`
 
 ### Part 3: writing JSON to the output stream
 
@@ -224,7 +224,7 @@ And for sure: every single JSON token we are writing [is triggering a flush](htt
 
 There are in fact two fixes to this. A first one is setting [`AutoFlush = false` on our `StreamWriter`](https://msdn.microsoft.com/en-us/library/system.io.streamwriter.autoflush%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396). This will not invoke the underlying `ExplicitFlush` on every write, and would solve things for sure.
 
-We decided to go with another approach, though. As we mentioned earlier in this post, `ChunkedFileStreamResult` *could* be useful if we do not know the size of the data we will be sending. We don't know, but we do know that the typical JSON returned will not be too large (a few 100kb maximum), so there is no need to use chunked encoding anyway.
+We decided to go with another approach, though. As we mentioned earlier in this post, `ChunkedFileStreamResult` _could_ be useful if we do not know the size of the data we will be sending. We don't know, but we do know that the typical JSON returned will not be too large (a few 100kb maximum), so there is no need to use chunked encoding anyway.
 
 So in our controller instead of using this special stream result, we can simply return our JSON by rendering it into a string and returning that instead. Rough pseudo-code:
 

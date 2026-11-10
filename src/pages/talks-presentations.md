@@ -16,26 +16,26 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 ## Past talks and conferences
 
 | **Date**   | **Title**                                                                                        | **Event**                                    | **Where**                    |
-|------------|--------------------------------------------------------------------------------------------------|----------------------------------------------|------------------------------|
-| 2026-6-2   | HTMX and ASP.NET Core - I don’t know how to React                                                | DevSum                                       | Sweden - Stockholm           | 
-| 2026-5-27  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Update Conference 2026                       | Poland - Krakow              | 
-| 2026-5-12  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Techorama Belgium 2026                       | Belgium - Antwerp            | 
-| 2026-2-26  | Building a supply chain attack with .NET and NuGet                                               | Confoo 2026                                  | Canada - Montreal            | 
-| 2026-2-26  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Confoo 2026                                  | Canada - Montreal            | 
-| 2026-1-29  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | NDC London                                   | UK - London                  | 
-| 2025-11-14 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | .NET Conf 2025                               | Online                       | 
-| 2025-10-29 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Techorama NL 2025                            | Netherlands - Utrecht        | 
-| 2025-10-12 | HTMX and ASP.NET Core - I don’t know how to React                                                | Azure Dev Fest                               | Portugal - Lisbon            | 
-| 2025-10-11 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Azure Dev Fest                               | Portugal - Lisbon            | 
-| 2025-10-8  | Bringing C# nullability into existing code - dammit is not the answer!                           | JetBrains .NET Days Online 2025              | Online                       | 
-| 2025-9-11  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | NDC Copenhagen 2025                          | Denmark - Copenhagen         | 
-| 2025-6-12  | Bringing C# nullability into existing code - dammit is not the answer!                           | DevSum 2025                                  | Sweden - Stockholm           | 
-| 2024-2-27  | How .NET manages memory - a trip down memory lane                                                | Confoo 2025                                  | Canada - Montreal            | 
-| 2025-2-26  | HTMX and ASP.NET Core - I don’t know how to React                                                | Confoo 2025                                  | Canada - Montreal            | 
+| ---------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------- | ---------------------------- |
+| 2026-6-2   | HTMX and ASP.NET Core - I don’t know how to React                                                | DevSum                                       | Sweden - Stockholm           |
+| 2026-5-27  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Update Conference 2026                       | Poland - Krakow              |
+| 2026-5-12  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Techorama Belgium 2026                       | Belgium - Antwerp            |
+| 2026-2-26  | Building a supply chain attack with .NET and NuGet                                               | Confoo 2026                                  | Canada - Montreal            |
+| 2026-2-26  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Confoo 2026                                  | Canada - Montreal            |
+| 2026-1-29  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | NDC London                                   | UK - London                  |
+| 2025-11-14 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | .NET Conf 2025                               | Online                       |
+| 2025-10-29 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Techorama NL 2025                            | Netherlands - Utrecht        |
+| 2025-10-12 | HTMX and ASP.NET Core - I don’t know how to React                                                | Azure Dev Fest                               | Portugal - Lisbon            |
+| 2025-10-11 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Azure Dev Fest                               | Portugal - Lisbon            |
+| 2025-10-8  | Bringing C# nullability into existing code - dammit is not the answer!                           | JetBrains .NET Days Online 2025              | Online                       |
+| 2025-9-11  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | NDC Copenhagen 2025                          | Denmark - Copenhagen         |
+| 2025-6-12  | Bringing C# nullability into existing code - dammit is not the answer!                           | DevSum 2025                                  | Sweden - Stockholm           |
+| 2024-2-27  | How .NET manages memory - a trip down memory lane                                                | Confoo 2025                                  | Canada - Montreal            |
+| 2025-2-26  | HTMX and ASP.NET Core - I don’t know how to React                                                | Confoo 2025                                  | Canada - Montreal            |
 | 2024-10-2  | Zijn LLMs wel te vertrouwen? (Can you trust LLMs?)                                               | Elmos ICTechDays                             | Belgium - Antwerp            |
-| 2024-4-29  | Bringing C# nullability into existing code - dammit is not the answer!                           | .NET Zentralschweiz User Group               | Switzerland - Luzern         | 
-| 2024-4-19  | Microservices for building an IDE - The innards of JetBrains Rider                               | dotnetdays                                   | Romania - Iasi               | 
-| 2024-4-6   | Debugging in .NET                                                                                | Warsaw IT Days 24                            | Poland - Warsaw              | 
+| 2024-4-29  | Bringing C# nullability into existing code - dammit is not the answer!                           | .NET Zentralschweiz User Group               | Switzerland - Luzern         |
+| 2024-4-19  | Microservices for building an IDE - The innards of JetBrains Rider                               | dotnetdays                                   | Romania - Iasi               |
+| 2024-4-6   | Debugging in .NET                                                                                | Warsaw IT Days 24                            | Poland - Warsaw              |
 | 2024-2-22  | Debugging in .NET                                                                                | ConFoo 2024                                  | Canada - Montreal            |
 | 2024-2-21  | Bringing C# nullability into existing code - dammit is not the answer!                           | ConFoo 2024                                  | Canada - Montreal            |
 | 2023-11-23 | Microservices for building an IDE - The innards of JetBrains Rider                               | Update Conference 2023                       | Czech Republic - Prague      |
@@ -77,7 +77,7 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 | 2019-10-21 | Exploring .NET’s memory management – a trip down memory lane                                     | JetBrains Meetup Melbourne                   | Australia - Melbourne        |
 | 2019-10-17 | Microservices for building an IDE - The innards of JetBrains Rider                               | NDC Sydney 2019                              | Australia - Sydney           |
 | 2019-10-15 | Exploring .NET’s memory management – a trip down memory lane                                     | JetBrains Night Sydney                       | Australia - Sydney           |
-| 2019-10-3  | Indexing and searching NuGet.org with Azure Functions and Search                                 | GoTech World						                           | Romania - Bucharest          |
+| 2019-10-3  | Indexing and searching NuGet.org with Azure Functions and Search                                 | GoTech World                                 | Romania - Bucharest          |
 | 2019-9-25  | Indexing and searching NuGet.org with Azure Functions                                            | .NET Conf 2019                               | Online                       |
 | 2019-8-30  | Indexing and searching NuGet.org with Azure Functions and Search                                 | CloudBurst 2019                              | Sweden - Stockholm           |
 | 2019-8-28  | Indexing and searching NuGet.org with Azure Functions and Search                                 | CloudBurst @ FooCafe                         | Sweden - Malmo               |

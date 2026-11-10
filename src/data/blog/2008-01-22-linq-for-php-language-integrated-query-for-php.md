@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/01/22/linq-for-php-language-integrated-query-for-php.html
 ---
+
 Perhaps you have already heard of C# 3.5's "[LINQ](http://msdn2.microsoft.com/en-us/netframework/aa904594.aspx)" component. [LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query), or Language Integrated Query, is a component inside the .NET framework which enables you to perform queries on a variety of data sources like arrays, XML, SQL server, ... These queries are defined using a syntax which is very similar to SQL.
 
 There is a problem with LINQ though... If you start using this, you don't want to access data sources differently anymore. Since I'm also a PHP developer, I thought of creating a similar concept for PHP. So here's the result of a few days coding:
@@ -31,11 +32,11 @@ $result = from('$name')->in($names)
 
 Feels familiar to SQL? Yes indeed! No more writing a loop over this array, checking the string's length, and adding it to a temporary variable.
 
-You may have noticed something strange... What's that *$name => strlen($name) < 5* doing? This piece of code is compiled to an anonymous function or [Lambda expression](http://www.developer.com/net/csharp/article.php/3598381) under the covers. This function accepts a parameter *$name*, and returns a boolean value based on the expression *strlen($name) < 5*.
+You may have noticed something strange... What's that _$name => strlen($name) < 5_ doing? This piece of code is compiled to an anonymous function or [Lambda expression](http://www.developer.com/net/csharp/article.php/3598381) under the covers. This function accepts a parameter _$name_, and returns a boolean value based on the expression _strlen($name) < 5_.
 
 ## An advanced example
 
-There are lots of other examples available in the [PHPLinq download](http://www.codeplex.com/PHPLinq), but here's an advanced one... Let's say we have an array of *Employee* objects. This array should be sorted by *Employee* name, then *Employee* age. We want only *Employee*s whose name has a length of 4 characters. Next thing: we do not want an *Employee* instance in our result. Instead, the returning array should contain objects containing an e-mail address and a domain name.
+There are lots of other examples available in the [PHPLinq download](http://www.codeplex.com/PHPLinq), but here's an advanced one... Let's say we have an array of _Employee_ objects. This array should be sorted by _Employee_ name, then _Employee_ age. We want only *Employee*s whose name has a length of 4 characters. Next thing: we do not want an _Employee_ instance in our result. Instead, the returning array should contain objects containing an e-mail address and a domain name.
 
 First of all, let's define our data source:
 
@@ -75,6 +76,6 @@ $result = from('$employee')->in($employees)
 
 ```
 
-Again, you may have noticed something strange... What's this *new { }* thing doing? Actually, this is converted to an anonymous type under the covers. *new { "name" => "test" }* is evaluated to an object containing the property "name" with a value of "test".
+Again, you may have noticed something strange... What's this _new { }_ thing doing? Actually, this is converted to an anonymous type under the covers. _new { "name" => "test" }_ is evaluated to an object containing the property "name" with a value of "test".
 
 This all sounds intuitive, interesting and very handy? Indeed! Now make sure you download a copy of [PHPLinq](http://www.codeplex.com/PHPLinq) today, try it, and provide the necessary feedback / feature requests on the [CodePlex](http://www.codeplex.com/PHPLinq) site.

@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2020/06/18/a-sustainable-nuget-marketplace-will-have-to-compete-with-the-nuget-gallery.html
 ---
+
 Yesterday, [Aaron Stannard](https://twitter.com/Aaronontheweb) posted some **awesome news for the .NET community:
 the [introduction of Sdkbin](https://www.aaronstannard.com/sdkbin-marketplace/)**. Sdkbin is targeted at solving
 the OSS sustainability problem by automating the majority of the sales, fulfillment, licensing, and accounting
@@ -43,15 +44,17 @@ for free? This often starts with trying to build name and reputation, but that w
 10x rockstar developer 🔥
 
 Responsibilities include:
-* Merging PRs immediately
-* Making new features on demand
-* Fixing bugs right now
+
+- Merging PRs immediately
+- Making new features on demand
+- Fixing bugs right now
 
 Compensation:
-* Stars
-* +1's
-* Threats, general and specific
-* Public shaming
+
+- Stars
+- +1's
+- Threats, general and specific
+- Public shaming
 
 Apply at OSS Inc today— Ryan Chenkie (@ryanchenkie) [November 28, 2018](https://twitter.com/ryanchenkie/status/1067801413974032385?ref_src=twsrc%5Etfw)
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -69,10 +72,10 @@ them run their business processes.
 There is zero guarantee that an open source project will be there forever, and that the core contributors will
 always be there. This raises some questions and concerns:
 
-* How can we ensure core contributors remain interested?
-* How do we prevent them from burning out working on things they no longer care about?
-* How can we make sure if their interest fades, the project is maintained?
-* Is this hindering more adoption of open source, because companies may pick "company-backed projects" over random folks pushing code to GitHub?
+- How can we ensure core contributors remain interested?
+- How do we prevent them from burning out working on things they no longer care about?
+- How can we make sure if their interest fades, the project is maintained?
+- Is this hindering more adoption of open source, because companies may pick "company-backed projects" over random folks pushing code to GitHub?
 
 Let's look at how we can answer these...
 
@@ -100,7 +103,7 @@ He makes the point that an open source project has to be treated as a business. 
 come as a package deal. Commercial licenses help support the project, and help build trust with users.
 Adding support packages on top helps support the project, and builds trust with users.
 
-This is where many projects think *sponsorship* comes in. Many open source contributors today have
+This is where many projects think _sponsorship_ comes in. Many open source contributors today have
 a [Patreon](https://www.patreon.com/) link, or have enabled [GitHub Sponsors](https://github.com/sponsors).
 
 Let's look at the sponsors page of a friend of mine, [Tom Kerkhove](https://twitter.com/TomKerkhove).
@@ -163,10 +166,10 @@ Let's look at what a NuGet marketplace should help with.
 
 Open source projects can still be open source, but sell additional services. These could be:
 
-* Dual-licensed open source
-* Paid add-on packages
-* Support services
-* Consulting services
+- Dual-licensed open source
+- Paid add-on packages
+- Support services
+- Consulting services
 
 Dual-licensing will require a set of templates that projects can work with.
 If the project uses Apache-2, MIT, GPL, or other open source licenses, what will a commercial dual-license
@@ -180,6 +183,7 @@ As Aaron mentioned when I showed him a preview of this blog post:
 > There must be standard commercial licenses - because the people buying them will also need to trust that
 > those license agreements won't come back to haunt them down the road.
 > One of the big incentives for adopting OSS right now is the fact that most licenses are permissive
+>
 > - a hurdle we're going to have to overcome is making less permissive, proprietary licenses more palatable.
 
 Support services and consulting services are harder. How will a NuGet marketplace assist with these?
@@ -193,6 +197,7 @@ their abuse. What if I have an MIT-licensed project, and someone sells it with a
 marketplace?
 
 > It will be perfectly legal and valid for someone to sell your MIT licence code. You expressly permitted that.— Damian Hickey (@randompunter) [June 17, 2020](https://twitter.com/randompunter/status/1273173878752370688?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Morally, this is "not done", but legally, this may happen. The marketplace will have to prevent this and have
@@ -215,9 +220,9 @@ do this as well.
 
 A NuGet marketplace will have to act as a Merchant of Record, for several reasons:
 
-* Consumers purchase from one legal entity, with one contract.
-* Consumers can have e.g. a subscription that includes paid-for open source from multiple vendors, without dealing with all of them separately.
-* Consumers will be in several locations - the marketplace will have to accomodate for Value Added Tax (VAT), the EU VAT MOSS, and all that.
+- Consumers purchase from one legal entity, with one contract.
+- Consumers can have e.g. a subscription that includes paid-for open source from multiple vendors, without dealing with all of them separately.
+- Consumers will be in several locations - the marketplace will have to accomodate for Value Added Tax (VAT), the EU VAT MOSS, and all that.
 
 If we want to make the step to sustainable open source, a NuGet marketplace will have to help
 projects in doing so. Not simply by having a downloadable binary with a paywall, but by helping them out
@@ -227,12 +232,12 @@ with being a business.
 
 A NuGet marketplace will need to support various purchasing options. Some examples:
 
-* Trial versions (30 days of usage)
-* Subscriptions (containing one or multiple packages)
-* Licenses with # seats, ideally also where enterprises can manage who can consume packages
+- Trial versions (30 days of usage)
+- Subscriptions (containing one or multiple packages)
+- Licenses with # seats, ideally also where enterprises can manage who can consume packages
 
-* Perpetual licenses
-* Licenses that are valid for major versions of a package only, etc.
+- Perpetual licenses
+- Licenses that are valid for major versions of a package only, etc.
 
 And as a consumer, can we pay by credit card only? Can we raise a purchase order and have NET90 payment terms?
 Not for a $49 purchase, probably, but a marketplace that is out to help open source sustainability will have
@@ -243,11 +248,12 @@ to accommodate the bigger customers with lengthier processes, and take that out 
 Since many open source projects don't have a legal entity, where do funds go? As [Khalid Abuhakmeh](https://twitter.com/buhakmeh/) mentioned:
 
 > I think the stickier topic is how are funds appropriated to contributors. At some point these projects grow passed their creators.— Khalid (@buhakmeh) [June 17, 2020](https://twitter.com/buhakmeh/status/1273220645346856960?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 When there are 4 core contributors, who gets the proceeds? This is one a NuGet marketplace could solve
 by requiring all core contributors to link their account, and get an even portion of proceeds. But maybe a
-marketplace should *not* try to solve this, because this will be different for each project. Let them figure
+marketplace should _not_ try to solve this, because this will be different for each project. Let them figure
 it out among themselves.
 
 There will have to be guidance at least, around how to do this and how to resolve disputes. Issues over this
@@ -265,6 +271,7 @@ and consumers here, and make it crystal clear what may happen with edge cases.
 Something like [@DHH](https://twitter.com/DHH)'s story would be bad for an emerging NuGet marketplace:
 
 > Wow. I'm literally stunned. Apple just doubled down on their rejection of HEY's ability to provide bug fixes and new features, unless we submit to their outrageous demand of 15-30% of our revenue. Even worse: We're told that unless we comply, they'll REMOVE THE APP.— DHH (@dhh) [June 16, 2020](https://twitter.com/dhh/status/1272968382329942017?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Policies matter, and enforcing them properly is equally important.
@@ -286,6 +293,7 @@ Having open source producers commercialize on a NuGet marketplace is one thing, 
 If this NuGet marketplace goes beyond just packages and licenses, others can sell value added services.
 
 > An interesting case that I could see popping up: if I'm an expert at a package, could I sell support for that package that specifies it can't guarantee code changes? I think there's a market for that and I could see myself applying as a vendor for that sort of thing...— Sean Killeen (@sjkilleen) [June 17, 2020](https://twitter.com/sjkilleen/status/1273252987788496897?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 While not a key component of this NuGet marketplace, it may be a good incentive for consumers to flock here
@@ -382,11 +390,12 @@ are using both [Maven Central](https://search.maven.org/) and [JCenter](https://
 for their projects, instead of just one central gallery. In the .NET world, we will have to move to a future
 of multiple authoritative package registries, instead of just one.
 
-*Edit: Dave Glick posted a great analogy on Twitter, comparing this argument with video games and consoles.
+_Edit: Dave Glick posted a great analogy on Twitter, comparing this argument with video games and consoles.
 A NuGet marketplace will need some good exclusives, and make sure some of the popular ones that were previously
-available on NuGet.org will now be available only on this marketplace.*
+available on NuGet.org will now be available only on this marketplace._
 
 > Ah gotcha, so competition isn’t so much about replicating functionality as it is a driver for adoption by creating packages exclusivity on the alternative, which drives/forces use - and without which the marketplace wouldn’t thrive. Not unlike the console wars and exclusive games— Dave Glick 😷 (@daveaglick) [June 18, 2020](https://twitter.com/daveaglick/status/1273648829104095232?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### Competition will come anyway
@@ -406,9 +415,9 @@ The alternative is not competing head-on, which will mean we end up in a fragmen
 marketplace itself as a business may not be sustainable, and ultimately, hurt producer and consumer trust
 in sustainable .NET open source.
 
-*Edit: this is by no means meant to be a kick in the gut. It will happen, which can be fine,
+_Edit: this is by no means meant to be a kick in the gut. It will happen, which can be fine,
 but having fragmentation in such marketplaces would hurt the mission of supporting OSS sustainability.
-A NuGet marketplace will have to go big to drive that mission home.*
+A NuGet marketplace will have to go big to drive that mission home._
 
 ## Conclusion
 

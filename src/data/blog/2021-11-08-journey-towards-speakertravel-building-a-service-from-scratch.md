@@ -11,6 +11,7 @@ redirect_from:
   - /post/2021/11/08/a-journey-towards-speakertravel-building-a-service-from-scratch.html
   - /post/2021/11/08/journey-towards-speakertravel-building-a-service-from-scratch.html
 ---
+
 For close to two years now, I've had [SpeakerTravel](https://speaker.travel/) up & running. It's a tool that helps conference organizers to book flights for speakers. You invite speakers, they pick their flight of choice (within a budget the organizer can specify), and the organizer can then approve and book the flight with a single click.
 
 In this post, I want to go a bit into the process of building this tool. Why I started it in the first place, how it works, a look at it from the business side, and maybe a follow-up post that covers any questions you may have after reading.
@@ -30,6 +31,7 @@ When we started, we did all of this for 5 speakers, which was doable. Then we gr
 That got me thinking, and almost pleading for someone to come up with a solution:
 
 > Startup idea: "Give travel site a bunch of e-mail addresses and budgets. Site lets those people select flights within that budget. I say yes/no and get billed." - Would love this for conference organizing!— Maarten Balliauw (@maartenballiauw) [July 4, 2018](https://twitter.com/maartenballiauw/status/1014515650902089731?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Alas, by the time we had that 19 speaker booking coming up, no such solution came about, and we were once again doing the manual process.
@@ -42,17 +44,17 @@ Of course, building the app itself would be possible. It's what we all do for a 
 
 After researching and reading a lot, it seems that booking a flight ticket always consists of 4 steps:
 
-* You search an inventory of available seats for a flight combination;
-* For that flight combination, a price is requested;
-* For that flight combination, a booking is created;
-* For that booking, tickets are issued.
+- You search an inventory of available seats for a flight combination;
+- For that flight combination, a price is requested;
+- For that flight combination, a booking is created;
+- For that booking, tickets are issued.
 
 Book flights via any website, and you'll go through these steps. There's a reason for this:
 
-* The flight inventory is really a big database with all seats on all (or at least, many) airlines. As far as I could find, airlines populate this database a coule of times a year. It does not contain prices, just seats and conditions to book seats.
-* Pricing checks a given seat with the airline (or other party in between). Requesting a price means the airline can give an actual price for a seat. They can also track interest in a specific seat/group of seats, and price accordingly.
-* Booking reserves the seat, and removes that seat from the big flight inventory database. Ideally, booking has to happen soon after pricing. If no tickets have been issued after a couple of hours, the seat is made available again.
-* Issuing tickets confirms the seat, and gives you the actual ticket that can be used to board a plane. Having these two steps separate means that in between, a booking website can ask you for payment, and only when that is confirmed, issue tickets.
+- The flight inventory is really a big database with all seats on all (or at least, many) airlines. As far as I could find, airlines populate this database a coule of times a year. It does not contain prices, just seats and conditions to book seats.
+- Pricing checks a given seat with the airline (or other party in between). Requesting a price means the airline can give an actual price for a seat. They can also track interest in a specific seat/group of seats, and price accordingly.
+- Booking reserves the seat, and removes that seat from the big flight inventory database. Ideally, booking has to happen soon after pricing. If no tickets have been issued after a couple of hours, the seat is made available again.
+- Issuing tickets confirms the seat, and gives you the actual ticket that can be used to board a plane. Having these two steps separate means that in between, a booking website can ask you for payment, and only when that is confirmed, issue tickets.
 
 So in short, I needed something that could perform all of these steps somehow. More research!
 
@@ -78,10 +80,10 @@ Somewhere in-between GDS and affiliate programs, there are the Online Travel Age
 
 Searching this space, I found a couple of them that had APIs available for the above 4 steps - which seemed promising as it would give full control over the booking process (including automation of sending the correct invoice details when purchasing a ticket):
 
-* [AirHob](https://www.airhob.com/Developers)
-* [Kiwi.com](https://docs.kiwi.com/)
-* [Travelopro](https://www.travelopro.com/flight-api.php)
-* [Travelomatic](http://www.travelomatix.com/)
+- [AirHob](https://www.airhob.com/Developers)
+- [Kiwi.com](https://docs.kiwi.com/)
+- [Travelopro](https://www.travelopro.com/flight-api.php)
+- [Travelomatic](http://www.travelomatix.com/)
 
 After contacting them all, some responded only after a couple of weeks, others had requirements in terms of number of tickets sold (volume), and this got me disillusioned.
 
@@ -119,11 +121,11 @@ A couple of years ago, a friend recommended reading [The Millionaire Fastlane by
 
 CENTS is an acronym for the five aspects on which any idea can be vetted for viability as a business. It's not a startup canvas or anything, just a simple way of checking if there is some viability:
 
-* **C**ontrol - Do you control as many elements of the business as possible, or would something like a price or policy change with a vendor mess with your business?
-* **E**ntry - How hard is entering this market? Can anyone do it in 10 minutes, or would they need a lot of time, money, and other resources?
-* **N**eed - Does anyone actually need this thing you are thinking about?
-* **T**ime - Will you be converting time into money, or can you decouple the two and also earn while you're asleep?
-* **S**cale - Can you see this scale, are there pivots that would work, ...
+- **C**ontrol - Do you control as many elements of the business as possible, or would something like a price or policy change with a vendor mess with your business?
+- **E**ntry - How hard is entering this market? Can anyone do it in 10 minutes, or would they need a lot of time, money, and other resources?
+- **N**eed - Does anyone actually need this thing you are thinking about?
+- **T**ime - Will you be converting time into money, or can you decouple the two and also earn while you're asleep?
+- **S**cale - Can you see this scale, are there pivots that would work, ...
 
 Before diving into the deep and coughing up that certification fee (and building the tool), I wanted to check these...
 
@@ -145,8 +147,8 @@ Building a tool for our own conference is one thing, building it for third-party
 
 Instead of trying to figure this out myself, I asked for advise here from a lawyer. The response came in (together with an invoice for their time researching), and for my Belgian company there were a few things to know about:
 
-* Flights-only is fine. You're never *selling* flights, you are facilitating a transaction between the traveler and the airline.
-* If you combine flights and hotels, flights and rental cars, etc., you're selling travel packages. Travel packages have stricter requirements.
+- Flights-only is fine. You're never _selling_ flights, you are facilitating a transaction between the traveler and the airline.
+- If you combine flights and hotels, flights and rental cars, etc., you're selling travel packages. Travel packages have stricter requirements.
 
 Great! So I could go ahead with flights (and only flights), and start building the app!
 
@@ -176,7 +178,7 @@ About an hour of cursing on a simple "Hello, World" later, React was replaced wi
 
 What wasn't fun though, was the slow-going. New to Vue.js, a lot of things went very slow while building. After 2 weeks of spending evenings on just a login that worked smoothly, I started wondering...
 
-*"Am I doing this to solve a problem, or to learn new tech?"*
+_"Am I doing this to solve a problem, or to learn new tech?"_
 
 Building this thing over the weekend and in the evening hours, I reconsidered the tech stack and started anew.
 
@@ -186,7 +188,7 @@ This time, I started with an ASP.NET MVC Core project. Individual user accounts 
 
 A few hours into development, I had the login/register/manage account pages customized. The layout page was converted to load a [Bootswatch UI theme](https://bootswatch.com/) (on top of [Bootstrap](https://getbootstrap.com/)), and was starting to get into building the flows of inviting speakers, searching flights (with 100% made up data), approving and rejecting flights, and all that. This was finished in a week or 6 and then another few weeks to properly integrate with AllMyles' staging environment.
 
-While developing the app, a lot of new ideas and improvements popped up. I tried to be ruthless in asking myself *"do I really need this for version 1?"*, and log anything else in the issue tracker and pick it up in the future. This definitely helped with productivity.
+While developing the app, a lot of new ideas and improvements popped up. I tried to be ruthless in asking myself _"do I really need this for version 1?"_, and log anything else in the issue tracker and pick it up in the future. This definitely helped with productivity.
 
 Some fun was had implementing [tag helpers to show/hide HTML elements (blog post)](https://blog.maartenballiauw.be/posts/2020-04-14-building-an-aspnet-core-tag-helper-to-show-hide-ui-elements-based-on-authorization/), which realy works well to make certain parts of the UI available based on user permissions and roles.
 
@@ -194,15 +196,15 @@ The first version was ready near the end of August 2019, including a basic [prod
 
 The [application itself](https://app.speaker.travel/) was built and deployed on the following stack:
 
-* ASP.NET Core MVC + Razor pages for the scaffolded identity area, on .NET Core 2.1
-* Bootstrap and Bootswatch for UI
-* A sprinkle of jQuery
-* [Hangfire](https://www.hangfire.io/) for background jobs (the actual bookingm, sending e-mails, anything that's async/retryable)
-* SQL Server LocalDb for development, Azure SQL Database for production
-* Azure Web Apps for the app and product website
-* Private GitHub repository
-* Azure DevOps to build and deploy
-* SendGrid for sending e-mails
+- ASP.NET Core MVC + Razor pages for the scaffolded identity area, on .NET Core 2.1
+- Bootstrap and Bootswatch for UI
+- A sprinkle of jQuery
+- [Hangfire](https://www.hangfire.io/) for background jobs (the actual bookingm, sending e-mails, anything that's async/retryable)
+- SQL Server LocalDb for development, Azure SQL Database for production
+- Azure Web Apps for the app and product website
+- Private GitHub repository
+- Azure DevOps to build and deploy
+- SendGrid for sending e-mails
 
 Overall, this was and is a very familiar stack for me, and as a result a stack in which I was immediately productive. Server-side rendering is fine 😉 And .NET is truly great!
 
@@ -229,6 +231,7 @@ The app was deployed (targeting AllMyles staging), and I requested certification
 This was right on time for our CloudBrew conference in 2019, and it was really exciting to see folks request flights, booking them via the API, and seeing actual flight tickets sent out by airlines. Not to mention, much easier in terms of workload and back-and-forth compared to the manual process that triggered this entire endeavour! And speakers themselves also enjoyed this workflow:
 
 > Massive props to [@CloudBrewConf](https://twitter.com/CloudBrewConf?ref_src=twsrc%5Etfw) - their travel booking system for the speakers has really raised the bar!— Paul Stack (@stack72) [August 14, 2019](https://twitter.com/stack72/status/1161543315218739201?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Thanks, Paul 🤗
@@ -236,9 +239,10 @@ Thanks, Paul 🤗
 Very quickly, a couple of organizer-friends jumped aboard as well. And for a conference I was attending myself, I used it to book a flight in my own name. Pretty cool!
 
 > First time taking a flight booked through my own [@SpeakerTravel_](https://twitter.com/SpeakerTravel_?ref_src=twsrc%5Etfw) - pretty cool to fly on a ticket you issued yourself 😎— Maarten Balliauw (@maartenballiauw) [January 15, 2020](https://twitter.com/maartenballiauw/status/1217352024091766785?ref_src=twsrc%5Etfw)
+
  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-A couple of conferences later, some bugs were ironed out, some  feature requests were handled, and the certification fee was covered. Business-wise, and conveniently brushing aside time spent building this thing, SpeakerTravel was break-even!
+A couple of conferences later, some bugs were ironed out, some feature requests were handled, and the certification fee was covered. Business-wise, and conveniently brushing aside time spent building this thing, SpeakerTravel was break-even!
 
 ### COVID-19 💊 and working on the backlog
 
@@ -248,14 +252,14 @@ This was a bummer, but a good time to work on that backlog of features I wanted 
 
 Today's tech stack:
 
-* ASP.NET Core MVC + Razor pages for the scaffolded identity area, on .NET 6.0 RC2
-* Bootstrap and Bootswatch
-* A sprinkle of jQuery (that I want to replace with [HTMX](https://htmx.org/))
-* [Hangfire](https://www.hangfire.io/) for background jobs (the actual bookingm, sending e-mails, anything that's async/retryable)
-* SQL Server LocalDb for development, Azure SQL Database for production
-* Product website and application are Docker images now, deployed to Azure Web Apps for Containers
-* [JetBrains Space](https://www.jetbrains.com/space/) for Git, CI/CD, and container registry
-* [Mailjet](https://www.mailjet.com/) for sending out e-mails. Smaller company, better support.
+- ASP.NET Core MVC + Razor pages for the scaffolded identity area, on .NET 6.0 RC2
+- Bootstrap and Bootswatch
+- A sprinkle of jQuery (that I want to replace with [HTMX](https://htmx.org/))
+- [Hangfire](https://www.hangfire.io/) for background jobs (the actual bookingm, sending e-mails, anything that's async/retryable)
+- SQL Server LocalDb for development, Azure SQL Database for production
+- Product website and application are Docker images now, deployed to Azure Web Apps for Containers
+- [JetBrains Space](https://www.jetbrains.com/space/) for Git, CI/CD, and container registry
+- [Mailjet](https://www.mailjet.com/) for sending out e-mails. Smaller company, better support.
 
 > **Note:** If you're interested in seeing CI/CD with Space, check [this Twitter thread](https://twitter.com/maartenballiauw/status/1440228410668716035/).
 
@@ -281,12 +285,12 @@ Speaking of which, I'm super happy that since September 2021, a few conferences 
 
 ### Why not pivot?
 
-A question I got recently was: *Why not pivot to business travel?* - great idea!
+A question I got recently was: _Why not pivot to business travel?_ - great idea!
 
 Earlier in this post, I described the model where employees could search and pick travel options, and the company can approve and pay. This would indeed be a great pivot, but there are a couple of things holding me back on this:
 
-* It's a very crowded market (with some big players like American Express). This is not a big issue though, it validates there is a market, but it would need quite some effort to get traction.
-* I'd have to expand from flights into flights + hotels + cars. While possible in terms of APIs, it does require fulfilling some extra regulations.
+- It's a very crowded market (with some big players like American Express). This is not a big issue though, it validates there is a market, but it would need quite some effort to get traction.
+- I'd have to expand from flights into flights + hotels + cars. While possible in terms of APIs, it does require fulfilling some extra regulations.
 
 Both of these would mean going bigger than what I currently want to handle.
 

@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/11/05/advanced-asp-net-caching-events.html
 ---
+
 Currently, I'm giving an ASP.NET classroom training at [our company](http://www.dolmen.be), which actually is quite good for me: I needed to refresh all ASP.NET concepts, as those all fade away slowly when you don't use them for a while... Now, one of those refreshed concepts is ASP.NET's caching.
 
 ASP.NET offers a flexible built-in caching mechanism, providing you with a global "Cache" object in which you can get and put data which needs to be cached for a while. One of the cool things about ASP.NET caching is that it actually listens to what you want: if you need the cache to expire after 10 minutes, it does so. Also, when memory is needed for other actions on the webserver, ASP.NET will gently clean the cache depeding on cache item priorities.

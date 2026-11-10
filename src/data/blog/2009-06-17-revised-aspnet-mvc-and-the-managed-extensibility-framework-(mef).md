@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/06/17/revised-asp-net-mvc-and-the-managed-extensibility-framework-mef.html
 ---
+
 A while ago, I did a [blog post on combining ASP.NET MVC and MEF (Managed Extensibility Framework)](/posts/2009-04-21-aspnet-mvc-and-the-managed-extensibility-framework-mef/), making it possible to “plug” controllers and views into your application as a module. I received a lot of positive feedback as well as a hard question from [Dan Swatik](http://www.danswatik.com/) who was experiencing a Server Error with this approach… Here’s a better approach to ASP.NET MVC and MEF.
 
 ## The Exception
@@ -69,15 +70,15 @@ Allright, go calling me stupid… Our ~/Plugins/Views folder was not containing 
 
 ```
 
-Now why would you need this one anyway? Well: first of all, you do not want your views to expose their source code. Therefore, we add the *HttpNotFoundHandler* for this folder. Next, we do not want request validation to happen again (because this is already done when invoking the controller). Next: we want the *MvcViewTypeParserFilter* to be used for enabling strong-typed views (more on this by [Phil Haack](http://haacked.com/archive/2009/05/05/page-view-lockdown.aspx)).
+Now why would you need this one anyway? Well: first of all, you do not want your views to expose their source code. Therefore, we add the _HttpNotFoundHandler_ for this folder. Next, we do not want request validation to happen again (because this is already done when invoking the controller). Next: we want the _MvcViewTypeParserFilter_ to be used for enabling strong-typed views (more on this by [Phil Haack](http://haacked.com/archive/2009/05/05/page-view-lockdown.aspx)).
 
 ## Problem two: MEF’s approach to plugins and ASP.NET’s approach to rendering views…
 
-When compiling a view, ASP.NET dynamically compiles the markup into a temporary assembly, after which it is rendered. This compilation process knows only the assemblies loaded by your web application’s *AppDomain*. Unfortunately, assemblies loaded by MEF are not available for this compilation process… I went ahead and checked with [Reflector](http://www.red-gate.com/products/reflector/) if we could do something about this on ASP.NET side: nope. The main classes we need for this are internal :-( The MEF side could be easily tweaked since its source code is available on [CodePlex](http://mef.codeplex.com), but… it’s still subject to change and will be included in .NET 4.0 as a framework component, which would limit my customizations a bit for the future.
+When compiling a view, ASP.NET dynamically compiles the markup into a temporary assembly, after which it is rendered. This compilation process knows only the assemblies loaded by your web application’s _AppDomain_. Unfortunately, assemblies loaded by MEF are not available for this compilation process… I went ahead and checked with [Reflector](http://www.red-gate.com/products/reflector/) if we could do something about this on ASP.NET side: nope. The main classes we need for this are internal :-( The MEF side could be easily tweaked since its source code is available on [CodePlex](http://mef.codeplex.com), but… it’s still subject to change and will be included in .NET 4.0 as a framework component, which would limit my customizations a bit for the future.
 
-Now let’s describe this problem as one, simple sentence: we need the MEF plugin assembly loaded in our current *AppDomain*, available for all other components in the web application.
+Now let’s describe this problem as one, simple sentence: we need the MEF plugin assembly loaded in our current _AppDomain_, available for all other components in the web application.
 
-The solution to this: I want a MEF *DirectoryCatalog* to monitor my plugins folder and load/unload the assemblies in there dynamically. Loading should be no problem, but unloading… The assemblies will always be locked by my web server’s process! So let’s go for another approach: monitor the plugins folder, copy the new/modified assemblies to the web application’s /bin folder and instruct MEF to load its exports from there. The solution: *WebServerDirectoryCatalog*. Here’s the code:
+The solution to this: I want a MEF _DirectoryCatalog_ to monitor my plugins folder and load/unload the assemblies in there dynamically. Loading should be no problem, but unloading… The assemblies will always be locked by my web server’s process! So let’s go for another approach: monitor the plugins folder, copy the new/modified assemblies to the web application’s /bin folder and instruct MEF to load its exports from there. The solution: _WebServerDirectoryCatalog_. Here’s the code:
 
 ```csharp
 public sealed class WebServerDirectoryCatalog : ComposablePartCatalog

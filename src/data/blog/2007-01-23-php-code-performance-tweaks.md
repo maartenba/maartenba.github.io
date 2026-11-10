@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2007/01/23/php-code-performance-tweaks.html
 ---
+
 [![](/images/WindowsLiveWriter/PHPcodeperformancetweaks_9EB0/performance_thumb%5B4%5D.gif)](/images/WindowsLiveWriter/PHPcodeperformancetweaks_9EB0/performance%5B4%5D.gif) Thanks to Sam Cooper's testing, some scalability issues came up in my [SpreadSheet classes](http://www.balliauw.be/maarten/blog/25,office-2007-spreadsheetml-classes-in-php---project.htm). Seems PHP has some odd internal quirks, which cause performance loss that can be severe on large amounts of data. These strange things are probably caused by PHP because it uses multiple C functions in order to perform something a single C function can handle.
 
 Here's an example I discovered in my own code:

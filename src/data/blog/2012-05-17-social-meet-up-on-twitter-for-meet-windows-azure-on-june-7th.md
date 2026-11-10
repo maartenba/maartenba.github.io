@@ -10,18 +10,15 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/05/17/social-meet-up-on-twitter-for-meet-windows-azure-on-june-7th.html
 ---
-[![](/images/AzureBanner_300x250_thumb.png)](/images/AzureBanner_300x250.png)Here’s a perhaps rather redundant event for you but it should be kind of fun: [MEET Windows Azure on Twitter (+ Beer)](http://lanyrd.com/2012/meetazure/). The idea is to list people who have a twitter account and intend to follow the [MEET Windows Azure](http://www.meetwindowsazure.com/) event via live streaming on June 7th (1pm PDT).
 
+[![](/images/AzureBanner_300x250_thumb.png)](/images/AzureBanner_300x250.png)Here’s a perhaps rather redundant event for you but it should be kind of fun: [MEET Windows Azure on Twitter (+ Beer)](http://lanyrd.com/2012/meetazure/). The idea is to list people who have a twitter account and intend to follow the [MEET Windows Azure](http://www.meetwindowsazure.com/) event via live streaming on June 7th (1pm PDT).
 
 - Here is where you register to [watch MEET Windows Azure](http://register.meetwindowsazure.com/) via live streaming!
 - Here is where you register your participation in the [Twitter meet up for MEET Windows Azure at Lanyard](http://lanyrd.com/2012/meetazure/)!
 
-
 So see you online for the event on the 7th! My Twitter handle is [@maartenballiauw](http://twitter.com/maartenballiauw)
 
-
 **MEET Windows Azure Blog Relay:**
-
 
 - Roger Jennings ([@rogerjenn](https://twitter.com/#!/rogerjenn)): [Social meet up on Twitter for Meet Windows Azure on June 7th](http://oakleafblog.blogspot.se/2012/05/social-meet-up-on-twitter-for-meet.html)
 - Anton Staykov ([@astaykov](https://twitter.com/#!/astaykov)): [MEET Windows Azure on June the 7th](http://blogs.staykov.net/2012/05/meet-windows-azure-on-june-7th.html)
@@ -43,8 +40,6 @@ So see you online for the event on the 7th! My Twitter handle is [@maartenballia
 - Eric Boyd ([@EricDBoyd](https://twitter.com/#%21/EricDBoyd)): [Meet Windows Azure – Unveiling the Latest Platform](http://ericdboyd.com/2012/06/05/meet-windows-azure-unveiling-the-latest-platform/)
 - Magnus Mårtensson ([@noopman](https://twitter.com/#!/noopman)): [Social meet up on Twitter for MEET Windows Azure on June 7th](http://www.magnusmartensson.com/post/2012/05/16/Social-meet-up-on-Twitter-for-MEET-Windows-Azure-on-June-7th.aspx)
 
-
 **+ Beer?** Since you are watching the event from your coucnh (or the totilet, or your bed, or actually, from wherever you want), feel free to open up a beer.
-
 
 **Call to action:** Link to this blog post on your blog and I will update this post to link to you!

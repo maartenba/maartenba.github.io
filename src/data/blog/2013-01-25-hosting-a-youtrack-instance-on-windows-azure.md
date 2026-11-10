@@ -10,7 +10,8 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/01/25/hosting-a-youtrack-instance-on-windows-azure.html
 ---
-*Note: this is a cross-post from the JetBrains *[*YouTrack blog*](http://blog.jetbrains.com/youtrack/)*. Since it is centered around Windows Azure, I thought it is appropriate to post a copy on my own blog as well.*
+
+_Note: this is a cross-post from the JetBrains *[*YouTrack blog*](http://blog.jetbrains.com/youtrack/)*. Since it is centered around Windows Azure, I thought it is appropriate to post a copy on my own blog as well._
 
 ---
 
@@ -22,7 +23,7 @@ In this post we’ll walk you through getting a Windows Azure subscription, crea
 
 In order to be able to work with Windows Azure, we’ll need a subscription. Microsoft has several options there but as a first-time user, there is a 90-day free trial which comes with a limited amount of free resources, enough for hosting YouTrack. If you are an MSDN subscriber or BizSpark member, there are some [additional benefits that are worth exploring](http://www.windowsazure.com/en-us/pricing/member-offers/).
 
-On [www.windowsazure.com](http://www.windowsazure.com), click the *Try it free* button to start the subscription wizard. You will be asked for a Windows Live ID and for credit card details, depending on the country you live in. No worries: you will not be charged in this trial unless you explicitly remove the spending cap.
+On [www.windowsazure.com](http://www.windowsazure.com), click the _Try it free_ button to start the subscription wizard. You will be asked for a Windows Live ID and for credit card details, depending on the country you live in. No worries: you will not be charged in this trial unless you explicitly remove the spending cap.
 
 [![](/images/clip_image002_thumb_2.jpg)](/images/clip_image002_3.jpg)
 
@@ -38,19 +39,19 @@ Once that’s done, we can direct our browser to [http://manage.windowsazure.com
 
 ## Creating a virtual machine
 
-The Windows Azure Management Portal gives us access to all services activated in our subscription. Under *Virtual Machines* we can manage existing virtual machines or create our own.
+The Windows Azure Management Portal gives us access to all services activated in our subscription. Under _Virtual Machines_ we can manage existing virtual machines or create our own.
 
-When clicking the *+ New* button, we can create a new virtual machine, either by using the *Quick create* option or by using the *From gallery* option. We’ll choose the latter as it provides us with some preinstalled virtual machines running a variety of operating systems, both Windows and Linux.
+When clicking the _+ New_ button, we can create a new virtual machine, either by using the _Quick create_ option or by using the _From gallery_ option. We’ll choose the latter as it provides us with some preinstalled virtual machines running a variety of operating systems, both Windows and Linux.
 
 [![](/images/clip_image006_thumb_1.jpg)](/images/clip_image006_1.jpg)
 
 Depending on your preferences, feel free to go with one of the templates available. YouTrack is supported on both Windows and Linux. Let’s go with the latest version of Windows Server 2012 for this blog post.
 
-Following the wizard, we can name our virtual machine and provide the administrator password. The name we’re giving in this screen is the actual hostname, not the DNS name we will be using to access the machine remotely. Note the machine size can also be selected. If you are using the free trial, make sure to use the *Small* machine size or charges will incur. There is also an *Extra Small* instance but this has few resources available.
+Following the wizard, we can name our virtual machine and provide the administrator password. The name we’re giving in this screen is the actual hostname, not the DNS name we will be using to access the machine remotely. Note the machine size can also be selected. If you are using the free trial, make sure to use the _Small_ machine size or charges will incur. There is also an _Extra Small_ instance but this has few resources available.
 
 [![](/images/clip_image008_thumb_1.jpg)](/images/clip_image008_1.jpg)
 
-In the next step of the wizard, we have to provide the DNS name for our machine. Pick anything you would like to use, do note it will always end in *.cloudapp.net*. No worries if you would like to link a custom domain name later since that is [supported as well](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/).
+In the next step of the wizard, we have to provide the DNS name for our machine. Pick anything you would like to use, do note it will always end in _.cloudapp.net_. No worries if you would like to link a custom domain name later since that is [supported as well](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/).
 
 We can also select the region where our virtual machine will be located. Microsoft has [8 Windows Azure datacenters globally](http://matthew.sorvaag.net/2011/06/windows-azure-data-centre-locations/): 4 in the US, 2 in Europe and 2 in Asia. Pick one that’s close to you since that will reduce network latency.
 
@@ -62,7 +63,7 @@ After clicking the *Complete *button, we can relax a bit. Depending on the virtu
 
 [![](/images/clip_image012_thumb.jpg)](/images/clip_image012.jpg)
 
-Every machine has only one open firewall port by default: remote desktop for Windows VM’s (on TCP port 3389) or SSH for Linux VM’s (on TCP port 22). Which is enough to start our YouTrack installation. Using the *Connect* button or by opening a remote desktop or SSH session to the URL we created in the VM creation wizard, we can connect to our fresh machine as an administrator.
+Every machine has only one open firewall port by default: remote desktop for Windows VM’s (on TCP port 3389) or SSH for Linux VM’s (on TCP port 22). Which is enough to start our YouTrack installation. Using the _Connect_ button or by opening a remote desktop or SSH session to the URL we created in the VM creation wizard, we can connect to our fresh machine as an administrator.
 
 ## Installing YouTrack
 
@@ -70,7 +71,7 @@ After logging in to the virtual machine using remote desktop, we have a complete
 
 [![](/images/clip_image014_thumb.jpg)](/images/clip_image014.jpg)
 
-From our browser we can navigate to the JetBrains website and [download the YouTrack installer](http://www.jetbrains.com/youtrack/download/get_youtrack.html). Note that by default, Internet Explorer on Windows Server is being paranoid about any website and will display a security warning. Use the *Add* button to allow it to access the JetBrains website. If you want to disable this entirely it’s also possible to [disable Internet Explorer Enhanced Security](http://blogs.technet.com/b/thailand/archive/2012/09/13/how-to-disable-internet-explorer-enhanced-security-configuration-in-windows-server-2012.aspx).
+From our browser we can navigate to the JetBrains website and [download the YouTrack installer](http://www.jetbrains.com/youtrack/download/get_youtrack.html). Note that by default, Internet Explorer on Windows Server is being paranoid about any website and will display a security warning. Use the _Add_ button to allow it to access the JetBrains website. If you want to disable this entirely it’s also possible to [disable Internet Explorer Enhanced Security](http://blogs.technet.com/b/thailand/archive/2012/09/13/how-to-disable-internet-explorer-enhanced-security-configuration-in-windows-server-2012.aspx).
 
 [![](/images/clip_image016_thumb.jpg)](/images/clip_image016.jpg)
 
@@ -88,7 +89,7 @@ The final step of the YouTrack installation wizard requires us to provide the po
 
 [![](/images/clip_image022_thumb.jpg)](/images/clip_image022.jpg)
 
-Once the wizard completes, a browser Window is opened and the initial YouTrack configuration page is loaded. Note that the first start may take a couple of minutes. An important setting to specify, next to the root password, is the system base URL. By default, this will read [*http://localhost*](http://localhost). Since we want to be able to use this YouTrack instance through any browser and have correctly generated URLs in e-mail being sent out, we have to specify the full DNS name to our Windows Azure VM.
+Once the wizard completes, a browser Window is opened and the initial YouTrack configuration page is loaded. Note that the first start may take a couple of minutes. An important setting to specify, next to the root password, is the system base URL. By default, this will read [_http://localhost_](http://localhost). Since we want to be able to use this YouTrack instance through any browser and have correctly generated URLs in e-mail being sent out, we have to specify the full DNS name to our Windows Azure VM.
 
 [![](/images/clip_image024_thumb.jpg)](/images/clip_image024.jpg)
 
@@ -110,15 +111,15 @@ If you are a command-line person, open up a command console in the remote deskto
 
 netsh advfirewall firewall add rule name="YouTrack" dir=in action=allow protocol=TCP localport=80
 
-If not, here’s a crash-course in configuring Windows Firewall. From the remote desktop session to our machine we can bring up Windows Firewall configuration by using the *Server Manager* (starts with Windows) and clicking *Configure this local server* and then *Windows Firewall*.
+If not, here’s a crash-course in configuring Windows Firewall. From the remote desktop session to our machine we can bring up Windows Firewall configuration by using the _Server Manager_ (starts with Windows) and clicking _Configure this local server_ and then _Windows Firewall_.
 
 [![](/images/clip_image028_thumb.jpg)](/images/clip_image028.jpg)
 
-Next, open *Advanced settings*.
+Next, open _Advanced settings_.
 
 [![](/images/clip_image030_thumb.jpg)](/images/clip_image030.jpg)
 
-Next, add a new inbound rule by right-clicking the *Inbound Rules* node and using the *New Rule…* menu item. In the wizard that opens, add a *Port* rule, specify TCP port 80, allow the connection and apply it to all firewall modes. Finally, we can give the rule a descriptive name like “Allow YouTrack”.
+Next, add a new inbound rule by right-clicking the _Inbound Rules_ node and using the _New Rule…_ menu item. In the wizard that opens, add a _Port_ rule, specify TCP port 80, allow the connection and apply it to all firewall modes. Finally, we can give the rule a descriptive name like “Allow YouTrack”.
 
 [![](/images/clip_image032_thumb.jpg)](/images/clip_image032.jpg)
 
@@ -126,11 +127,11 @@ Once that’s done, we can configure the Windows Azure load balancer.
 
 ### Configuring the Windows Azure load balancer
 
-From the [Windows Azure management portal](http://manage.windowsazure.com/), we can navigate to our newly created VM and open the *Endpoints* tab. Next, click *Add Endpoint* and open up public TCP port 80 and forward it to private port 80 (or another one if you’ve configured YouTrack differently).
+From the [Windows Azure management portal](http://manage.windowsazure.com/), we can navigate to our newly created VM and open the _Endpoints_ tab. Next, click _Add Endpoint_ and open up public TCP port 80 and forward it to private port 80 (or another one if you’ve configured YouTrack differently).
 
 [![](/images/clip_image034_thumb.jpg)](/images/clip_image034.jpg)
 
-After clicking *Complete*, the load balancer rules will be updated. This operation typically takes a couple of seconds. Progress will be reported on the *Endpoints* tab.
+After clicking _Complete_, the load balancer rules will be updated. This operation typically takes a couple of seconds. Progress will be reported on the _Endpoints_ tab.
 
 [![](/images/clip_image036_thumb.jpg)](/images/clip_image036.jpg)
 

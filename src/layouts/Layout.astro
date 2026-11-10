@@ -28,7 +28,6 @@ export interface Props {
 const {
   title = SITE.title,
   author = SITE.author,
-  profile = SITE.profile,
   description = SITE.desc,
   ogImage = SITE.ogImage ? `/${SITE.ogImage}` : "/og.png",
   canonicalURL = new URL(Astro.url.pathname, Astro.url),
@@ -121,11 +120,9 @@ const websiteStructuredData = {
     <meta name="author" content={author} />
     <meta
       name="robots"
-      content={
-        noindex
-          ? "noindex, nofollow"
-          : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-      }
+      content={noindex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -199,6 +196,8 @@ const websiteStructuredData = {
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
+        // gtag.js requires the arguments object, not a rest array
+        // eslint-disable-next-line prefer-rest-params
         dataLayer.push(arguments);
       }
       gtag("js", new Date());

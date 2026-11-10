@@ -11,6 +11,7 @@ redirect_from:
   - /post/2008/12/24/book-review-asp-net-3-5-application-architecture-and-design.html
   - /post/2008/12/24/book-review-aspnet-35-application-architecture-and-design.html
 ---
+
 [![](/images/WindowsLiveWriter/Bookre.5ApplicationArchitectureandDesign_9740/image_3.png)](http://www.amazon.com/gp/product/1847195504?ie=UTF8&tag=maabalblo-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1847195504) The people at [Packt](http://www.packtpub.com/) asked it [again](/posts/2008-01-29-books-i-recently-read/): “Do you want to review this book?” Sure I do! The book I’m reviewing this time is [ASP.NET 3.5 Application Architecture and Design](http://www.amazon.com/gp/product/1847195504?ie=UTF8&tag=maabalblo-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1847195504), written by [Vivek Thakur](http://www.vivekthakur.com/).
 
 Application Architecture is always an interesting topic to read on. Different people have different opinions, there is no one perfect solution to a problem, … This book covers application architecture, applied to ASP.NET, although these concepts can be applied in any application. Questions like “What are tiers?” and “How do you structure an application?” are dug into in the first few chapters. The next chapters focus on more specific areas of application architecture: the domain model, UML, creating an ER diagram, SOA, the ASP.NET MVC framework, … Each of these concepts is explained using a single project example, which makes it easy to see the differences, pro’s and con’s of a certain solution.

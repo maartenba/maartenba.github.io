@@ -5,11 +5,22 @@ pubDatetime: 2011-05-31T09:49:00Z
 comments: true
 published: true
 categories: ["post"]
-tags: ["ASP.NET", "Azure", "CSharp", "General", "MEF", "MVC", "Projects", "Software"]
+tags:
+  [
+    "ASP.NET",
+    "Azure",
+    "CSharp",
+    "General",
+    "MEF",
+    "MVC",
+    "Projects",
+    "Software",
+  ]
 author: Maarten Balliauw
 redirect_from:
   - /post/2011/05/31/creating-your-own-private-nuget-feed-myget.html
 ---
+
 [![](/images/image_thumb_86.png)](/images/image_116.png)Ever since [NuGet](http://www.nuget.org) came out, I’ve been thinking about leveraging it in a corporate environment. I've seen two NuGet server implementations appear on the Internet: the [official NuGet gallery server](http://docs.nuget.org/docs/contribute/setting-up-a-local-gallery) and [Phil Haack’s NuGet.Server package](http://www.nuget.org/List/Packages/NuGet.Server). As these both are good, there’s one thing wrong with them: you can't be lazy! You have to do some stuff you don’t always want to do, namely: configure and deploy.
 
 After discussing some ideas with my colleague [Xavier Decoster](http://www.xavierdecoster.com/post/2011/05/31/Announcing-MyGet.aspx), we decided it’s time to turn our heads into the cloud: we’re providing you NuGet-as-a-Service (NaaS)! Say hello to *My*Get.

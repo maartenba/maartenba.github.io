@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/08/17/signed-access-signatures-and-php-sdk-for-windows-azure.html
 ---
+
 [![](/images/image_5.png)](http://phpazure.codeplex.com/) The latest [Windows Azure storage release](http://blogs.msdn.com/windowsazure/archive/2009/08/11/new-windows-azure-blob-features-august-2009.aspx) featured a new concept: “Shared Access Signatures”. The idea of those is that you can create signatures for specific resources in blob storage and that you can provide more granular access than the default “all-or-nothing” approach that is taken by Azure blob storage. Steve Marx [posted a sample on this](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures), demonstrating how you can provide read access to a blob for a specified amount of minutes, after which the access is revoked.
 
 The [PHP SDK for Windows Azure](http://phpazure.codeplex.com/) is now equipped with a credentials mechanism, based on Signed Access Signatures. Let’s see if we can demonstrate how this would work…
@@ -24,7 +25,7 @@ https://wazdrop.blob.core.windows.net/files/d30769f6-35b9-4337-8c34-014ff590b18f
 
 If we take a detailed look, the Azure account name used is “wazdrop”, and we have access to 2 files in Steve’s storage account, namely “7bf9417f-c405-4042-8f99-801acb1ea494” and “d30769f6-35b9-4337-8c34-014ff590b18f” in the “files” container.
 
-Great! But if I want to use the [PHP SDK for Windows Azure](http://phpazure.codeplex.com) to access the resources above, how would I do that? Well, that should not be difficult. Instantiate a new *Microsoft_Azure_Storage_Blob* client, and pass it a new *Microsoft_Azure_SharedAccessSignatureCredentials* instance:
+Great! But if I want to use the [PHP SDK for Windows Azure](http://phpazure.codeplex.com) to access the resources above, how would I do that? Well, that should not be difficult. Instantiate a new _Microsoft_Azure_Storage_Blob_ client, and pass it a new _Microsoft_Azure_SharedAccessSignatureCredentials_ instance:
 
 ```php
 $storageClient = new Microsoft_Azure_Storage_Blob('blob.core.windows.net', 'wazdrop', '');
@@ -36,7 +37,7 @@ $storageClient->setCredentials(
 
 One thing to notice here: we do know the storage account (“wazdrop”), but not Steve’s shared key to his storage account. Which is good for him, otherwise I would be able to manage all containers and blobs in his account.
 
-The above code sample will now fail every action I invoke on it. Every *getBlob()*, *putBlob()*, *createContainer()*, … will fail because I cannot authenticate! Fortunately, Steve’s application provided me with two URL’s that I can use to read 2 blobs. Now set these as permissions on our storage client:
+The above code sample will now fail every action I invoke on it. Every _getBlob()_, _putBlob()_, _createContainer()_, … will fail because I cannot authenticate! Fortunately, Steve’s application provided me with two URL’s that I can use to read 2 blobs. Now set these as permissions on our storage client:
 
 ```php
 $storageClient->getCredentials()->setPermissionSet(array(

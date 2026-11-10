@@ -11,11 +11,12 @@ redirect_from:
   - /post/2009/11/26/supporting-multiple-submit-buttons-on-an-asp-net-mvc-view.html
   - /post/2009/11/26/supporting-multiple-submit-buttons-on-an-aspnet-mvc-view.html
 ---
+
 ![Multiple buttons on an ASP.NET MVC view](/images/image_23.png) A while ago, I was asked for advice on how to support multiple submit buttons in an ASP.NET MVC application, preferably without using any JavaScript. The idea was that a form could contain more than one submit button issuing a form post to a different controller action.
 
-The above situation can be solved in many ways, one a bit cleaner than the other. For example, one could post the form back to one action method and determine which method should be called from that action method. Good solution, however: not standardized within a project and just not that maintainable… A better solution in this case was to create an *ActionNameSelectorAttribute*.
+The above situation can be solved in many ways, one a bit cleaner than the other. For example, one could post the form back to one action method and determine which method should be called from that action method. Good solution, however: not standardized within a project and just not that maintainable… A better solution in this case was to create an _ActionNameSelectorAttribute_.
 
-Whenever you decorate an action method in a controller with the *ActionNameSelectorAttribute* (or a subclass), ASP.NET MVC will use this attribute to determine which action method to call. For example, one of the ASP.NET MVC *ActionNameSelectorAttribute* subclasses is the *ActionNameAttribute*. Guess what the action name for the following code snippet will be for ASP.NET MVC:
+Whenever you decorate an action method in a controller with the _ActionNameSelectorAttribute_ (or a subclass), ASP.NET MVC will use this attribute to determine which action method to call. For example, one of the ASP.NET MVC _ActionNameSelectorAttribute_ subclasses is the _ActionNameAttribute_. Guess what the action name for the following code snippet will be for ASP.NET MVC:
 
 ```csharp
 public class HomeController : Controller
@@ -29,7 +30,7 @@ public class HomeController : Controller
 
 ```
 
-That’s correct: this action method will be called *Index* instead of *Abcdefghij*. What happens at runtime is that ASP.NET MVC checks the *ActionNameAttribute* and asks if it applies for a specific request. Now let’s see if we can use this behavior for our multiple submit button scenario.
+That’s correct: this action method will be called _Index_ instead of _Abcdefghij_. What happens at runtime is that ASP.NET MVC checks the _ActionNameAttribute_ and asks if it applies for a specific request. Now let’s see if we can use this behavior for our multiple submit button scenario.
 
 ## The view
 
@@ -104,13 +105,13 @@ public class HomeController : Controller
 
 Some things to note:
 
-- There’s the *Index* action method which just renders the view described previously.
-- There’s a *Cancel* action method which will trigger when clicking the Cancel button.
-- There’s a *Create* action method which will trigger when clicking the Create button.
+- There’s the _Index_ action method which just renders the view described previously.
+- There’s a _Cancel_ action method which will trigger when clicking the Cancel button.
+- There’s a _Create_ action method which will trigger when clicking the Create button.
 
-Now how do these last two work… You may also have noticed the *MultiButtonAttribute* being applied. We’ll see the implementation in a minute. In short, this is a subclass for the *ActionNameSelectorAttribute*, triggering on the parameters *MatchFormKey* and *MatchFormValues*. Now let’s see how the *MultiButtonAttribute* class is built…
+Now how do these last two work… You may also have noticed the _MultiButtonAttribute_ being applied. We’ll see the implementation in a minute. In short, this is a subclass for the _ActionNameSelectorAttribute_, triggering on the parameters _MatchFormKey_ and _MatchFormValues_. Now let’s see how the _MultiButtonAttribute_ class is built…
 
-## The *MultiButtonAttribute* class
+## The _MultiButtonAttribute_ class
 
 Now do be surprised of the amount of code that is coming…
 
@@ -129,4 +130,4 @@ public class MultiButtonAttribute : ActionNameSelectorAttribute
 
 ```
 
-When applying the *MultiButtonAttribute* to an action method, ASP.NET MVC will come and call the *IsValidName* method. Next, we just check if the *MatchFormKey* value is one of the request keys, and the *MatchFormValue* matches the value in the request. Simple, straightforward and re-usable.
+When applying the _MultiButtonAttribute_ to an action method, ASP.NET MVC will come and call the _IsValidName_ method. Next, we just check if the _MatchFormKey_ value is one of the request keys, and the _MatchFormValue_ matches the value in the request. Simple, straightforward and re-usable.

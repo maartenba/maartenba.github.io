@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/06/01/slides-for-ndc2011-oslo.html
 ---
+
 It was great speaking at NDC2011! As promised during the sessions I gave, here are the slide decks:
 
 - [Cost architecting for Windows Azure - NDC 2011.pptx (714.40 kb)](/files/Cost%20architecting%20for%20Windows%20Azure%20-%20NDC%202011.pptx)

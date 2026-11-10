@@ -11,7 +11,8 @@ redirect_from:
   - /post/2009/07/02/how-we-built-twittermatic-net-part-4-authentication-and-membership.html
   - /post/2009/07/02/how-we-built-twittermaticnet-part-4-authentication-and-membership.html
 ---
-*[![](/images/twittermatic10%5B1%5D.png)](http://www.twittermatic.net/)**“Knight Maarten The Brave Coffeedrinker just returned from his quest to a barn in the clouds, when he discovered that he forgot to lock the door to his workplace. He immediately asked the digital village’s smith.to create a lock and provide him a key. Our knight returned to his workplace and concluded that using the smith’s lock would be OK, but having the great god of social networking, [Twitter](http://www.twitter.com), as a guardian, seemed like a better idea. “O, Auth!”, he said. And the god provided him with a set of prayers, an API, which our knight could use.”*
+
+_[![](/images/twittermatic10%5B1%5D.png)](http://www.twittermatic.net/)**“Knight Maarten The Brave Coffeedrinker just returned from his quest to a barn in the clouds, when he discovered that he forgot to lock the door to his workplace. He immediately asked the digital village’s smith.to create a lock and provide him a key. Our knight returned to his workplace and concluded that using the smith’s lock would be OK, but having the great god of social networking, [Twitter](http://www.twitter.com), as a guardian, seemed like a better idea. “O, Auth!”, he said. And the god provided him with a set of prayers, an API, which our knight could use.”_
 
 This post is part of a series on how we built [TwitterMatic.net](http://www.twittermatic.net/). Other parts:
 
@@ -37,7 +38,7 @@ Now let’s build this in to our application…
 
 First of all: if you are developing something and it involves a third-party product or service, chances are there’s something useful for you on [CodePlex](http://www.codeplex.com). In Twitter*Matic’*s case, that useful tool is [LINQ to Twitter](http://linqtotwitter.codeplex.com/), providing OAuth implementation as well as a full API to the Twitter REST services. Thank you, [JoeMayo](http://twitter.com/JoeMayo)!
 
-The only thing we still have to do in order for Twitter*Matic* OAuth authentication to work, is create an *AccountController* in the web role project. Let’s start with a Login action method:
+The only thing we still have to do in order for Twitter*Matic* OAuth authentication to work, is create an _AccountController_ in the web role project. Let’s start with a Login action method:
 
 ```csharp
 IOAuthTwitter oAuthTwitter = new OAuthTwitter();
@@ -57,7 +58,7 @@ if (string.IsNullOrEmpty(oauth_token)) {
 
 ```
 
-Our users will now be redirected to Twitter in order to authenticate, if the method receives an empty or invalid oauth-token. If we however do retrieve a valid token, we’ll use *FormsAuthentication* cookies to keep the user logged in on Twitter*Matic* as well. Note that we are also saving the authentication token as the user’s password, we’ll be needing this same token to post updates afterwards.
+Our users will now be redirected to Twitter in order to authenticate, if the method receives an empty or invalid oauth-token. If we however do retrieve a valid token, we’ll use _FormsAuthentication_ cookies to keep the user logged in on Twitter*Matic* as well. Note that we are also saving the authentication token as the user’s password, we’ll be needing this same token to post updates afterwards.
 
 ```csharp
 // Should be authorized. Get the access token and secret.
@@ -104,7 +105,7 @@ else
 
 ```
 
-Here’s the full code to *AccountController*:
+Here’s the full code to _AccountController_:
 
 ```csharp
 [HandleError]

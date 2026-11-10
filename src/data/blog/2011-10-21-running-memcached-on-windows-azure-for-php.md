@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/10/21/running-memcached-on-windows-azure-for-php.html
 ---
+
 After three conferences in two weeks with a lot of “airport time”, which typically converts into “let’s code!” time, I think I may have tackled a commonly requested Windows Azure feature for PHP developers. Some sort of distributed caching is always a great thing to have when building scalable services and applications. While Windows Azure offers a distributed caching layer under the form of the [Windows Azure Caching](http://www.microsoft.com/windowsazure/features/caching/), that components currently lacks support for non-.NET technologies. I’ve heard there’s work being done there, but that’s not very interesting if you are building your app today. This blog post will show you how to modify a Windows Azure deployment to run and use [Memcached](http://memcached.org/) in the easiest possible manner.
 
-*Note: this post focuses on PHP but can also be used to setup Memcached on Windows Azure for NodeJS, Java, Ruby, Python, …*
+_Note: this post focuses on PHP but can also be used to setup Memcached on Windows Azure for NodeJS, Java, Ruby, Python, …_
 
 **Related downloads:**
 The scaffolder source code: [MemcachedScaffolderSource.zip (1.12 mb)](/files/2011/10/MemcachedScaffolderSource.zip)
@@ -24,7 +25,7 @@ As you may know, when working with PHP on Windows Azure and when making use of t
 
 If you want to use Memcached in your project, do the following:
 
-- Download my custom MemcacheScaffolder ([MemcachedScaffolder.phar (2.87 mb)](/images/2011/10/MemcachedScaffolder.phar)) and make sure it is located either under the *scaffolders* folder of the Windows Azure SDK for PHP, or that you remember the path to this scaffolder
+- Download my custom MemcacheScaffolder ([MemcachedScaffolder.phar (2.87 mb)](/images/2011/10/MemcachedScaffolder.phar)) and make sure it is located either under the _scaffolders_ folder of the Windows Azure SDK for PHP, or that you remember the path to this scaffolder
 - Run the scaffolder from the command line: (note: best use the latest SVN version of the command line tools)
 
 ```
@@ -51,7 +52,7 @@ Of course, behind this “developers can simply use 1 line of code” trick a lo
 
 ### The ServiceDefinition.csdef file
 
-Let’s start with the beginning: when running Memcached in a Windows Azure instance, you’ll have to specify it with a port number to use. As such, the *ServiceDefinition.csdef* file which defines what the datacenter configuration for your app should be looks like the following:
+Let’s start with the beginning: when running Memcached in a Windows Azure instance, you’ll have to specify it with a port number to use. As such, the _ServiceDefinition.csdef_ file which defines what the datacenter configuration for your app should be looks like the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,17 +91,17 @@ Let’s start with the beginning: when running Memcached in a Windows Azure inst
 
 ```
 
-Note the *<InternalEndpoint name="MemcachedEndpoint" protocol="tcp" /> *line of code. This one defines that the web role instance should open some TCP port in the firewall with the name *MemcachedEndpoint* and expose that to the other virtual machines in your deployment. We’ll use this named endpoint later when starting Memcached.
+Note the *<InternalEndpoint name="MemcachedEndpoint" protocol="tcp" /> *line of code. This one defines that the web role instance should open some TCP port in the firewall with the name _MemcachedEndpoint_ and expose that to the other virtual machines in your deployment. We’ll use this named endpoint later when starting Memcached.
 
-Something else in this file is noteworthy: the startup tasks under the *<Startup>* element. With the default scaffolder, the first two tasks (namely *add-environment-variables.cmd *and *install-php.cmd*) are also present. These do nothing more than providing some environment information about your deployment in the environment variables. The second one does what its name implies: install PHP on your virtual machine. The latter two scripts added, *memcached.cmd* and *monitor-environment.cmd* are used to bootstrap Memcached. Note these two tasks run as *background* tasks: I wanted to have these two always running to ensure when Memcached crashes the task can simply restart Memcached.
+Something else in this file is noteworthy: the startup tasks under the _<Startup>_ element. With the default scaffolder, the first two tasks (namely *add-environment-variables.cmd *and _install-php.cmd_) are also present. These do nothing more than providing some environment information about your deployment in the environment variables. The second one does what its name implies: install PHP on your virtual machine. The latter two scripts added, _memcached.cmd_ and _monitor-environment.cmd_ are used to bootstrap Memcached. Note these two tasks run as _background_ tasks: I wanted to have these two always running to ensure when Memcached crashes the task can simply restart Memcached.
 
-### The *php* folder
+### The _php_ folder
 
-If you’ve played with the default scaffolder in the [Windows Azure SDK for PHP](http://phpazure.codeplex.com), you probably know that the PHP installation in Windows Azure is a “default” one. This means: no memcached extension is in there. To overcome this, simply copy the correct *[php_memcache.dll](http://downloads.php.net/pierre/)* extension into the */php/ext* folder and Windows Azure (well, the *install-php.cmd* script) will know what to do with it.
+If you’ve played with the default scaffolder in the [Windows Azure SDK for PHP](http://phpazure.codeplex.com), you probably know that the PHP installation in Windows Azure is a “default” one. This means: no memcached extension is in there. To overcome this, simply copy the correct _[php_memcache.dll](http://downloads.php.net/pierre/)_ extension into the _/php/ext_ folder and Windows Azure (well, the _install-php.cmd_ script) will know what to do with it.
 
 ### Memcached.cmd and Memcached.ps1
 
-Under the application’s *bin* folder, I’ve added some additional startup tasks. The one responsible for starting (and maintaining a running instance of) Memcached is, of course, Memcached.cmd. This one simply delegates the call to Memcached.ps1, of which the following is the source code:
+Under the application’s _bin_ folder, I’ve added some additional startup tasks. The one responsible for starting (and maintaining a running instance of) Memcached is, of course, Memcached.cmd. This one simply delegates the call to Memcached.ps1, of which the following is the source code:
 
 ```php
 [Reflection.Assembly]::LoadWithPartialName("Microsoft.WindowsAzure.ServiceRuntime")
@@ -114,11 +115,11 @@ while (1) {
 
 ```
 
-To be honest, this file is pretty simple. It loads the WindowsAzure ServiceRuntime assembly which contains all kinds of information about the current deployment. Next, I start an infinite loop which continuously starts a new *memcached.exe* process consuming 64MB of RAM memory and listens on the port specified by the *MemcachedEndpoint* defined earlier.
+To be honest, this file is pretty simple. It loads the WindowsAzure ServiceRuntime assembly which contains all kinds of information about the current deployment. Next, I start an infinite loop which continuously starts a new _memcached.exe_ process consuming 64MB of RAM memory and listens on the port specified by the _MemcachedEndpoint_ defined earlier.
 
 ### Monitor-environment.cmd and Monitor-environment.ps1
 
-The *monitor-environment.cmd* script takes the same approach as the *memcached.cmd* script: just pass the command along to a PowerShell script in the form of *monitor-environment.ps1*. I do want to show you the *monitor-environment.cmd *script however, as there’s one difference in there: I’m changing the file system permissions for my application (the *icacls* line).
+The _monitor-environment.cmd_ script takes the same approach as the _memcached.cmd_ script: just pass the command along to a PowerShell script in the form of _monitor-environment.ps1_. I do want to show you the *monitor-environment.cmd *script however, as there’s one difference in there: I’m changing the file system permissions for my application (the _icacls_ line).
 
 ```bash
 @echo off
@@ -181,7 +182,7 @@ while(1) {
 
 ```
 
-The output is being written every minute to the *memcached-servers.php* file. Why every minute? Well, if servers are added or removed I want my application to use the correct set of servers. This leaves a possible gap of one minute where some server may not be available, you can easily catch any error related to this in your PHP code (or add a comment to this blog post telling me what’s a better interval). Anyway, here’s the sample output:
+The output is being written every minute to the _memcached-servers.php_ file. Why every minute? Well, if servers are added or removed I want my application to use the correct set of servers. This leaves a possible gap of one minute where some server may not be available, you can easily catch any error related to this in your PHP code (or add a comment to this blog post telling me what’s a better interval). Anyway, here’s the sample output:
 
 ```php
 <?php
@@ -189,7 +190,7 @@ $memcachedServers = array(array('10.0.0.1', 11211), array('10.0.0.2', 11211), );
 
 ```
 
-All there’s left to do is consume this array. I’ve added a default *memcache.inc.php* file in the root of the web role to make things easy:
+All there’s left to do is consume this array. I’ve added a default _memcache.inc.php_ file in the root of the web role to make things easy:
 
 ```php
 <?php

@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2006/08/25/internet-explorer-7-rc1-available.html
 ---
+
 [![](/images/WindowsLiveWriter/InternetExplorer7RC1available_8DB1/ie7_thumb%5B2%5D.jpg)](/images/WindowsLiveWriter/InternetExplorer7RC1available_8DB1/ie7%5B2%5D.jpg) When I opened my RSS reader this morning, I saw good news: Internet Explorer 7 RC1 has just been released! You can download it [here](http://www.microsoft.com/downloads/details.aspx?FamilyId=94E5BF41-2907-4415-8F72-DA7C2C2ACE09&displaylang=en) or install it as [stand-alone version](http://tredosoft.com/IE7_standalone) (unofficial!).
 
 Many people will like the new UI features, like tabbed browsing, tab preview, easier interface, less toolbars, ... The features I like are the better CSS support and other tech enhancements. For example, this blog uses several IE-specific CSS hacks to get everything (almost) in place. Now let's hope IE7 does not get confused by those hacks.

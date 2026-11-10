@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2011/04/21/windows-azure-sdk-for-php-v3-0-0-beta-released.html
 ---
+
 [![image](/images/image_thumb_79.png)Microsoft](http://www.microsoft.com) and [RealDolmen](http://www.realdolmen.com) are very proud to announce the availability of the [Windows Azure SDK for PHP v3.0.0 BETA](http://phpazure.codeplex.com/releases/view/64047) on CodePlex. This releases is something we’ve been working on in the past few weeks, implementing a lot of new features that enable you to fully leverage the Windows Azure platform from PHP.
 
 This release is BETA software, which means it is feature complete. However, since we have one breaking change, we’re releasing a BETA first to ensure every edge case is covered. Of you are using the current version of the Windows Azure SDK for PHP, feel free to upgrade and let us know your comments.
@@ -34,6 +35,6 @@ To close this post, here’s the official changelog:
 
 Get it while it’s hot: [http://phpazure.codeplex.com/releases/view/64047](http://phpazure.codeplex.com/releases/view/64047)
 
-Do you prefer PEAR? Well... *pear channel-discover pear.pearplex.net & pear install  pearplex/PHPAzure *should do the trick. Make sure you allow BETA stability packages in order to get the fresh bits.
+Do you prefer PEAR? Well... *pear channel-discover pear.pearplex.net & pear install pearplex/PHPAzure *should do the trick. Make sure you allow BETA stability packages in order to get the fresh bits.
 
-*PS: We’re running a PHP on Windows Azure contest in Belgium and surrounding countries. The contest is closed for registration, but there’s good value in the blog posts coming out of it. Check *[*www.phpazurecontest.com*](http://www.phpazurecontest.com)* for more details.*
+_PS: We’re running a PHP on Windows Azure contest in Belgium and surrounding countries. The contest is closed for registration, but there’s good value in the blog posts coming out of it. Check *[*www.phpazurecontest.com*](http://www.phpazurecontest.com)* for more details._

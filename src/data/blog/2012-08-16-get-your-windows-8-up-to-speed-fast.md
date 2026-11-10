@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2012/08/16/get-your-windows-8-up-to-speed-fast.html
 ---
+
 With the release of Windows 8 on MSDN yesterday, I have a gut feeling that today, around the globe, people are installing this fresh operating system on their machine. I’ve done so too and I wanted to share with your two tools: one that helped me get up to speed fast, one that will help me up to speed even faster the next time I want to reset my PC.
 
 ## Chocolatey
@@ -26,11 +27,11 @@ and go to bed. In the morning, everything is on your PC.
 
 ## Windows 8 - Reset Your PC
 
-There’s a new feature in Windows 8 called “Refresh/reset Your PC”. What it does is revert to a certain baseline whenever you feel the need of a *format C:* coming up. This baseline, by default, is a fresh install. Now what if you could just set your own baseline and revert back to that one next time you need a reinstall? The good news: you can do this!
+There’s a new feature in Windows 8 called “Refresh/reset Your PC”. What it does is revert to a certain baseline whenever you feel the need of a _format C:_ coming up. This baseline, by default, is a fresh install. Now what if you could just set your own baseline and revert back to that one next time you need a reinstall? The good news: you can do this!
 
 - Configure your PC at will
 - From an elevated command prompt, issue:
-***mkdir C:\SoFreshThatItSmellsGreat
-******recimg -CreateImage C:\SoFreshThatItSmellsGreat***
+  ***mkdir C:\SoFreshThatItSmellsGreat
+  ***_**recimg -CreateImage C:\SoFreshThatItSmellsGreat**_
 
 Done!

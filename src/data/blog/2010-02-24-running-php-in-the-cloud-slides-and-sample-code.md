@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/02/24/running-php-in-the-cloud-slides-and-sample-code.html
 ---
+
 Just got back from London where I did a fun talk on PHP and Windows Azure yesterday evening. It was the first time I did a presentation after three beers, but I think it went allright. As promised, here's the slide deck and sample code ([ImageCloud.rar (5.00 mb)](/images/2010/2/ImageCloud.rar)).
 
-Abstract: "*This session covers the basics of Microsoft’s Windows Azure cloud platform. Learn how you can develop and deploy a PHP application in Windows Azure, using the tools and libraries Microsoft provides. Creating a photo upload application, the different aspects of the Windows Azure platform are leveraged for creating a performant and scalable PHP application.*"
+Abstract: "_This session covers the basics of Microsoft’s Windows Azure cloud platform. Learn how you can develop and deploy a PHP application in Windows Azure, using the tools and libraries Microsoft provides. Creating a photo upload application, the different aspects of the Windows Azure platform are leveraged for creating a performant and scalable PHP application._"
 
 [Running PHP in the Cloud](http://www.slideshare.net/maartenba/running-php-in-the-cloud)<object style="margin:0px" width="425" height="355">
 

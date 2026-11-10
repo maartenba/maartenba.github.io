@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/12/31/top-blog-posts-in-2008.html
 ---
+
 ![Happy new year 2009!](/images/WindowsLiveWriter/Topblogpostsin2008_D71D/image_5.png) Since everyone (that is [Simone Chiaretta](http://codeclimber.net.nz/archive/2008/12/31/best-of-2008-5-most-popular-posts.aspx) and [Phil Haack](http://www.haacked.com/archive/2008/12/30/not-your-typical-top-ten-of-2008-post.aspx)) seems to be blogging about 2008 and their top posts, here’s my list.
 
 ## Top 5 blog posts in 2008

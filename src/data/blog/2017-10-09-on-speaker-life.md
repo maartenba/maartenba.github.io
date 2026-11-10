@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2017/10/09/on-speaker-life.html
 ---
+
 Last week, I did a tweet while at the Paris Charles de Gaulle airport, working on blog posts (part of my job) and drinking bad coffee.
 
 > At airport, working on blog posts with crappy coffee. If you ever thought speaker life is glamourous, think again. (but it's fun though)— Maarten Balliauw (@maartenballiauw) [6 oktober 2017](https://twitter.com/maartenballiauw/status/916191768709943296?ref_src=twsrc%5Etfw)
@@ -46,7 +47,7 @@ A fun thing happened at some point. I was chatting with someone after a session,
 
 Conferences often highlight a few well-known names to sell tickets, and contribute to looking at speakers like they are rockstars, but remember again: they are not. The conference just wants to sell tickets and does so by marketing. Period. Some companies may have special titles to attribute "rockstar" to some people, but that is also marketing. There are no rockstars. Speakers are like you and me. Everyone I have met so far, barring a few exceptions, is super approachable and will be happy to talk before and after sessions, over beer or coffee, about technology, life and random things.
 
-On to glamour. I often post a picture of the city I'm in on Facebook, but that's mostly to show my family I am still alive while in a three week conference spree. The traveling is not glamourous. Often people tell me I have been everywhere, and that is true to a certain extent. I have definitely been to a lot of hotels and conference venues, but that's not the same as visiting a foreign city to explore. It's not vacation either. It's doing what I like to do, and trying to mix in actual work when I can because one has to make a living and keep the boss happy. That means doing some work and drinking bad coffee while you have an hour to spare at the airport. The travel is often just the airport, plane, hotel, conference you see. I've been in many places, but haven't *seen* them all.
+On to glamour. I often post a picture of the city I'm in on Facebook, but that's mostly to show my family I am still alive while in a three week conference spree. The traveling is not glamourous. Often people tell me I have been everywhere, and that is true to a certain extent. I have definitely been to a lot of hotels and conference venues, but that's not the same as visiting a foreign city to explore. It's not vacation either. It's doing what I like to do, and trying to mix in actual work when I can because one has to make a living and keep the boss happy. That means doing some work and drinking bad coffee while you have an hour to spare at the airport. The travel is often just the airport, plane, hotel, conference you see. I've been in many places, but haven't _seen_ them all.
 
 Of course it's not all dull. I've met a lot of people I consider friends and going to a conference also means seeing those friends and hanging out and having a beer or coffee. Approach me at a conference and I'll elaborate :-) So yes, that's fun! Also most conferences have a nice speaker dinner or speaker activity. I've had dinners in cool places (the Atomium in Belgium, a sugar shack in Canada, ...), swam in a hole in a frozen lake in Finland, ... So yes, maybe a little bit of glamour, but that's often a thank-you from the conference organizers for being there. Because...
 

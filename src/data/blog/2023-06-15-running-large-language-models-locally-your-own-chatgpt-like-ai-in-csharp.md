@@ -41,11 +41,12 @@ Georgi Gerganov [released `llama.cpp`](https://github.com/ggerganov/llama.cpp), 
 It can now run a variety of models: LLaMA, Alpaca, GPT4All, Vicuna, Koala, OpenBuddy, WizardLM, and more.
 
 There are also wrappers for a number of languages:
-* Python: [abetlen/llama-cpp-python](https://github.com/abetlen/llama-cpp-python)
-* Go: [go-skynet/go-llama.cpp](https://github.com/go-skynet/go-llama.cpp)
-* Node.js: [hlhr202/llama-node](https://github.com/hlhr202/llama-node)
-* Ruby: [yoshoku/llama_cpp.rb](https://github.com/yoshoku/llama_cpp.rb)
-* .NET (C#): [SciSharp/LLamaSharp](https://github.com/SciSharp/LLamaSharp)
+
+- Python: [abetlen/llama-cpp-python](https://github.com/abetlen/llama-cpp-python)
+- Go: [go-skynet/go-llama.cpp](https://github.com/go-skynet/go-llama.cpp)
+- Node.js: [hlhr202/llama-node](https://github.com/hlhr202/llama-node)
+- Ruby: [yoshoku/llama_cpp.rb](https://github.com/yoshoku/llama_cpp.rb)
+- .NET (C#): [SciSharp/LLamaSharp](https://github.com/SciSharp/LLamaSharp)
 
 Let's put the last one from that list to the test!
 
@@ -103,10 +104,11 @@ This snippet loads the model from the directory where you stored your downloaded
 It also passes several other parameters (and there are many more available than those in this example).
 
 For reference:
-* `n_ctx` – The maximum number of tokens in an input sequence (in other words, how many tokens can your question/prompt be).
-* `interactive` – Specifies you want to keep the context in between prompts, so you can build on previous results. This makes the model behave like a chat.
-* `repeat_penalty` – Determines the [penalty for long responses](https://github.com/ggerganov/llama.cpp/issues/331) (and helps keep responses more to-the-point).
-* `verbose_prompt` – Toggles the verbosity.
+
+- `n_ctx` – The maximum number of tokens in an input sequence (in other words, how many tokens can your question/prompt be).
+- `interactive` – Specifies you want to keep the context in between prompts, so you can build on previous results. This makes the model behave like a chat.
+- `repeat_penalty` – Determines the [penalty for long responses](https://github.com/ggerganov/llama.cpp/issues/331) (and helps keep responses more to-the-point).
+- `verbose_prompt` – Toggles the verbosity.
 
 Again, there are many more parameters available, most of which are [explained in the `llama.cpp` repository](https://github.com/ggerganov/llama.cpp).
 

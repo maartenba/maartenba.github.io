@@ -11,6 +11,7 @@ redirect_from:
   - /post/2009/11/26/book-review-zend-framework-1-8-web-application-development.html
   - /post/2009/11/26/book-review-zend-framework-18-web-application-development.html
 ---
+
 [![](/images/image_22.png)](http://www.packtpub.com/zend-framework-1-8-web-application-development/book) My book shelf is starting to look a lot like the warehouse of [Packt Publishing](http://www.packtpub.com): I’ve received yet another book from them. Different from all previous reviews I did: this one is a PHP book, titled “[Zend Framework 1.8 Web Application Development](http://www.packtpub.com/zend-framework-1-8-web-application-development/book)” by [Keith Pope](http://thepopeisdead.com/).
 
 A chapter overview:
@@ -18,7 +19,7 @@ A chapter overview:
 - Chapter 1: Creating a Basic MVC Application
 - Chapter 2: The Zend Framework MVC Architecture
 - Chapter 3: Storefront Basic Setup
-- Chapter 4: Storefront Models *(great chapter!)*
+- Chapter 4: Storefront Models _(great chapter!)_
 - Chapter 5: Implementing the Catalog
 - Chapter 6: Implementing User Accounts
 - Chapter 7: The Shopping Cart

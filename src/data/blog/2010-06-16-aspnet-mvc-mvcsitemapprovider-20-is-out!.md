@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/06/16/asp-net-mvc-mvcsitemapprovider-2-0-is-out.html
 ---
+
 I’m very proud to announce the release of the ASP.NET MVC MvcSiteMapProvider 2.0! I’m also proud that the name of this product now exceeds the average length of Microsoft product names. In this blog post, I will give you a feel of what you can (and can not) do with this ASP.NET-specific SiteMapProvider.
 
 As a warning: if you’ve used version 1 of this library, you will notice that I have not thought of backwards compatibility. A lot of principles have also changed. For good reasons though: this release is a rewrite of the original version with improved features, extensibility and stability.
@@ -55,19 +56,18 @@ After downloading the MvcSiteMapProvider, you will have to add a reference to th
 
 The following configuration directives can be specified:
 
-| Directive | Required? | Default | Description |
-|------|------|------|------|
-| siteMapFile | No | ~/Web.sitemap | The sitemap XML file to use. |
-| securityTrimmingEnabled | No | false | Use security trimming? When enabled, nodes that the user can not access will not be displayed in any sitemap control. |
-| enableLocalization | No | false | Enables localization of sitemap nodes. |
-| scanAssembliesForSiteMapNodes | No | false | Scan assemblies for sitemap nodes defined in code? |
-| skipAssemblyScanOn | No | (empty) | Comma-separated list of assemblies that should be skipped when scanAssembliesForSiteMapNodes is enabled. |
-| attributesToIgnore | No | (empty) | Comma-separated list of attributes defined on a sitemap node that should be ignored by the MvcSiteMapProvider. |
-| nodeKeyGenerator | No | MvcSiteMapProvider.DefaultNodeKeyGenerator, MvcSiteMapProvider | Class that will be used to generate sitemap node keys. |
-| controllerTypeResolver | No | MvcSiteMapProvider.DefaultControllerTypeResolver, MvcSiteMapProvider | Class that will be used to resolve the controller for a specific sitemap node. |
-| actionMethodParameterResolver | No | MvcSiteMapProvider.DefaultActionMethodParameterResolver, MvcSiteMapProvider | Class that will be used to determine the list of parameters on a sitemap node. |
-| aclModule | No | MvcSiteMapProvider.DefaultAclModule, MvcSiteMapProvider | Class that will be used to verify security and access rules for sitemap nodes. |
-
+| Directive                     | Required? | Default                                                                     | Description                                                                                                           |
+| ----------------------------- | --------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| siteMapFile                   | No        | ~/Web.sitemap                                                               | The sitemap XML file to use.                                                                                          |
+| securityTrimmingEnabled       | No        | false                                                                       | Use security trimming? When enabled, nodes that the user can not access will not be displayed in any sitemap control. |
+| enableLocalization            | No        | false                                                                       | Enables localization of sitemap nodes.                                                                                |
+| scanAssembliesForSiteMapNodes | No        | false                                                                       | Scan assemblies for sitemap nodes defined in code?                                                                    |
+| skipAssemblyScanOn            | No        | (empty)                                                                     | Comma-separated list of assemblies that should be skipped when scanAssembliesForSiteMapNodes is enabled.              |
+| attributesToIgnore            | No        | (empty)                                                                     | Comma-separated list of attributes defined on a sitemap node that should be ignored by the MvcSiteMapProvider.        |
+| nodeKeyGenerator              | No        | MvcSiteMapProvider.DefaultNodeKeyGenerator, MvcSiteMapProvider              | Class that will be used to generate sitemap node keys.                                                                |
+| controllerTypeResolver        | No        | MvcSiteMapProvider.DefaultControllerTypeResolver, MvcSiteMapProvider        | Class that will be used to resolve the controller for a specific sitemap node.                                        |
+| actionMethodParameterResolver | No        | MvcSiteMapProvider.DefaultActionMethodParameterResolver, MvcSiteMapProvider | Class that will be used to determine the list of parameters on a sitemap node.                                        |
+| aclModule                     | No        | MvcSiteMapProvider.DefaultAclModule, MvcSiteMapProvider                     | Class that will be used to verify security and access rules for sitemap nodes.                                        |
 
 ## Creating a first sitemap
 
@@ -86,29 +86,28 @@ The following is a simple sitemap XML file that can be used with the MvcSiteMapP
 
 The following attributes can be given on an XML node element:
 
-| Attribute | Required? | Default | Description |
-|------|------|------|------|
-| title | Yes | (empty) | The title of the node. |
-| description | No | (empty) | Description of the node. |
-| area | No | (empty) | The MVC area for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy. |
-| controller | Yes | (empty) | The MVC controller for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy. |
-| action | Yes | (empty) | The MVC action method for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy. |
-| key | No | (autogenerated) | The unique identifier for the node. |
-| url | No | (autogenerated based on routes) | The URL represented by the node. |
-| roles | No | (empty) | Comma-separated list of roles allowed to access the node and its child nodes. |
-| resourceKey | No | (empty) | Optional resource key. |
-| clickable | No | True | Is the node clickable or just a grouping node? |
-| targetFrame | No | (empty) | Optional target frame for the node link. |
-| imageUrl | No | (empty) | Optional image to be shown by supported HtmlHelpers. |
-| lastModifiedDate | No | (empty) | Last modified date for the node. |
-| changeFrequency | No | Undefined | Change frequency for the node. |
-| updatePriority | No | Undefined | Update priority for the node. |
-| dynamicNodeProvider | No | (empty) | A class name implementing MvcSiteMapProvider.Extensibility.IDynamicNodeProvider and providing dynamic nodes for the site map. |
-
+| Attribute           | Required? | Default                         | Description                                                                                                                   |
+| ------------------- | --------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| title               | Yes       | (empty)                         | The title of the node.                                                                                                        |
+| description         | No        | (empty)                         | Description of the node.                                                                                                      |
+| area                | No        | (empty)                         | The MVC area for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy.                |
+| controller          | Yes       | (empty)                         | The MVC controller for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy.          |
+| action              | Yes       | (empty)                         | The MVC action method for the sitemap node. If not specified, it will be inherited from a node higher in the hierarchy.       |
+| key                 | No        | (autogenerated)                 | The unique identifier for the node.                                                                                           |
+| url                 | No        | (autogenerated based on routes) | The URL represented by the node.                                                                                              |
+| roles               | No        | (empty)                         | Comma-separated list of roles allowed to access the node and its child nodes.                                                 |
+| resourceKey         | No        | (empty)                         | Optional resource key.                                                                                                        |
+| clickable           | No        | True                            | Is the node clickable or just a grouping node?                                                                                |
+| targetFrame         | No        | (empty)                         | Optional target frame for the node link.                                                                                      |
+| imageUrl            | No        | (empty)                         | Optional image to be shown by supported HtmlHelpers.                                                                          |
+| lastModifiedDate    | No        | (empty)                         | Last modified date for the node.                                                                                              |
+| changeFrequency     | No        | Undefined                       | Change frequency for the node.                                                                                                |
+| updatePriority      | No        | Undefined                       | Update priority for the node.                                                                                                 |
+| dynamicNodeProvider | No        | (empty)                         | A class name implementing MvcSiteMapProvider.Extensibility.IDynamicNodeProvider and providing dynamic nodes for the site map. |
 
 ## Defining sitemap nodes in code
 
-In some cases, defining a sitemap node in code is more convenient than defining it in a sitemap xml file. To do this, decorate an action method with the *MvcSiteMapNodeAttribute* attribute. For example:
+In some cases, defining a sitemap node in code is more convenient than defining it in a sitemap xml file. To do this, decorate an action method with the _MvcSiteMapNodeAttribute_ attribute. For example:
 
 ```csharp
 // GET: /Checkout/Complete
@@ -120,7 +119,7 @@ public ActionResult Complete(int id)
 
 ```
 
-Note that the *ParentKey* property should be specified to ensure the MvcSiteMapProvider  can determine the hierarchy for all nodes.
+Note that the _ParentKey_ property should be specified to ensure the MvcSiteMapProvider can determine the hierarchy for all nodes.
 
 ## Dynamic sitemaps
 
@@ -133,7 +132,7 @@ First of all, a sitemap node should be defined in XML. This node will serve as a
 
 ```
 
-Next, a class implementing *MvcSiteMapProvider.Extensibility.IDynamicNodeProvider* or extending *MvcSiteMapProvider.Extensibility.DynamicNodeProviderBase* should be created in your application code. Here’s an example:
+Next, a class implementing _MvcSiteMapProvider.Extensibility.IDynamicNodeProvider_ or extending _MvcSiteMapProvider.Extensibility.DynamicNodeProviderBase_ should be created in your application code. Here’s an example:
 
 ```csharp
 public class StoreDetailsDynamicNodeProvider
@@ -165,7 +164,7 @@ public class StoreDetailsDynamicNodeProvider
 
 ### Cache dependency
 
-When providing dynamic sitemap nodes to the MvcSiteMapProvider, chances are that the hierarchy of nodes will become stale, for example when adding products in an e-commerce website. This can be solved by specifying a *CacheDescriptor* on your *MvcSiteMapProvider.Extensibility.IDynamicNodeProvider* implementation:
+When providing dynamic sitemap nodes to the MvcSiteMapProvider, chances are that the hierarchy of nodes will become stale, for example when adding products in an e-commerce website. This can be solved by specifying a _CacheDescriptor_ on your _MvcSiteMapProvider.Extensibility.IDynamicNodeProvider_ implementation:
 
 ```csharp
 public class StoreDetailsDynamicNodeProvider
@@ -218,7 +217,7 @@ Note that these should be registered in Web.config, i.e. under <pages> add the f
 
 ### SiteMapTitle
 
-In some situations, you may want to dynamically change the *SiteMap.CurrentNode.Title* in an action method. This can be done manually by setting *SiteMap.CurrentNode.Title*, or by adding the *SiteMapTitle* action filter attribute.
+In some situations, you may want to dynamically change the _SiteMap.CurrentNode.Title_ in an action method. This can be done manually by setting _SiteMap.CurrentNode.Title_, or by adding the _SiteMapTitle_ action filter attribute.
 
 Imagine you are building a blog and want to use the Blog's Headline property as the site map node title. You can use the following snippet:
 
@@ -231,7 +230,7 @@ public ViewResult Show(int blogId) {
 
 ```
 
-You can also use a non-strong typed *ViewData* value as the site map node title:
+You can also use a non-strong typed _ViewData_ value as the site map node title:
 
 ```csharp
 [SiteMapTitle("SomeKey")]
@@ -245,7 +244,7 @@ public ViewResult Show(int blogId) {
 
 ## Exporting the sitemap for search engine indexing
 
-When building a website, chances are that you want to provide an XML sitemap used for search engine indexing. The *XmlSiteMapResult* class creates an XML sitemap that can be submitted to Google, Yahoo and other search engines to help them crawl your website better. The usage is very straightforward:
+When building a website, chances are that you want to provide an XML sitemap used for search engine indexing. The _XmlSiteMapResult_ class creates an XML sitemap that can be submitted to Google, Yahoo and other search engines to help them crawl your website better. The usage is very straightforward:
 
 ```csharp
 public class HomeController

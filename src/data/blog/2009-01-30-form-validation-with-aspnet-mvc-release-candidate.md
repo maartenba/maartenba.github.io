@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/01/30/form-validation-with-asp-net-mvc-release-candidate.html
 ---
+
 Last week, the [ASP.NET MVC framework release candidate](http://go.microsoft.com/fwlink/?LinkID=141184&clcid=0x409) was released (check [ScottGu’s post](http://weblogs.asp.net/scottgu/archive/2009/01/27/asp-net-mvc-1-0-release-candidate-now-available.aspx)). Apart from some great new tooling support, form validation has never been easier. Here’s a quick introduction.
 
-![Employee from Northwind database](/images/WindowsLiveWriter/Formvalidationwit.NETMVCreleasecandidate_B5DF/image_998c0166-17e9-4114-b1c7-cc1bc0cae030.png) Imagine we have a LINQ to SQL data model, containing an *Employee* from the Northwind database. As you may know, LINQ to SQL will generate this *Employee* class as a partial class, which we can use to extend this domain object’s behaviour. Let’s extend this class with an interface implementation for *IDataErrorInfo*.
+![Employee from Northwind database](/images/WindowsLiveWriter/Formvalidationwit.NETMVCreleasecandidate_B5DF/image_998c0166-17e9-4114-b1c7-cc1bc0cae030.png) Imagine we have a LINQ to SQL data model, containing an _Employee_ from the Northwind database. As you may know, LINQ to SQL will generate this _Employee_ class as a partial class, which we can use to extend this domain object’s behaviour. Let’s extend this class with an interface implementation for _IDataErrorInfo_.
 
 ```csharp
 public partial class Employee : IDataErrorInfo
@@ -31,7 +32,7 @@ public partial class Employee : IDataErrorInfo
 
 ```
 
-*IDataErrorInfo* is an interface definition that is found in *System.ComponentModel*. It provides the functionality to offer custom error information that a user interface can bind to. Great, let’s do that! Assume we have a view which is used to edit this *Employee* object. The code for this will be quite easy: some HTML form stuff, *Html.ValidationMessage* calls, … Here’s a snippet:
+_IDataErrorInfo_ is an interface definition that is found in _System.ComponentModel_. It provides the functionality to offer custom error information that a user interface can bind to. Great, let’s do that! Assume we have a view which is used to edit this _Employee_ object. The code for this will be quite easy: some HTML form stuff, _Html.ValidationMessage_ calls, … Here’s a snippet:
 
 ```csharp
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -74,7 +75,7 @@ public ActionResult Edit(int id, FormCollection collection)
 
 ```
 
-Nothing fancy here: a call to *UpdateModel* (to populate the *Employee* instance with data fom the form) and a try-catch construction. How will this thing know what’s wrong? This is where the *IDataErrorInfo* interface comes useful. ASP.NET MVC’s *UpdateModel* method will look for this interface implementation and retrieve information from it. The *Error* property that is defined on *IDataErrorInfo* returns a string containing any error that is “global” for the *Employee* object. The *this[string columnName] *indexer that is defined on *IDataErrorInfo* is used to retrieve error messages for a specific property. Now let’s make sure *FirstName* and *LastName* are provided:
+Nothing fancy here: a call to _UpdateModel_ (to populate the _Employee_ instance with data fom the form) and a try-catch construction. How will this thing know what’s wrong? This is where the _IDataErrorInfo_ interface comes useful. ASP.NET MVC’s _UpdateModel_ method will look for this interface implementation and retrieve information from it. The _Error_ property that is defined on _IDataErrorInfo_ returns a string containing any error that is “global” for the _Employee_ object. The *this[string columnName] *indexer that is defined on _IDataErrorInfo_ is used to retrieve error messages for a specific property. Now let’s make sure _FirstName_ and _LastName_ are provided:
 
 ```csharp
 public partial class Employee : IDataErrorInfo

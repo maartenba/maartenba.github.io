@@ -10,11 +10,12 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/08/21/asp-net-mvc-chained-controller-factory.html
 ---
-My last post on the [REST for ASP.NET MVC SDK](/posts/2009-08-19-rest-for-aspnet-mvc-sdk/) received an interesting comment… Basically, the spirit of the comment was: “There are tons of controller factories out there, but you can only use one at a time!”. This is true. One can have an *IControllerFactory* for MEF, for Castle Windsor, a custom one that creates a controller based on the current weather, … Most of the time, these *IControllerFactory*  implementations do not glue together… Unless you chain them!
+
+My last post on the [REST for ASP.NET MVC SDK](/posts/2009-08-19-rest-for-aspnet-mvc-sdk/) received an interesting comment… Basically, the spirit of the comment was: “There are tons of controller factories out there, but you can only use one at a time!”. This is true. One can have an _IControllerFactory_ for MEF, for Castle Windsor, a custom one that creates a controller based on the current weather, … Most of the time, these _IControllerFactory_ implementations do not glue together… Unless you chain them!
 
 ## Chaining IControllerFactory
 
-The *ChainedControllerFactory* that I will be creating is quite easy: it builds a list of *IControllerFactory *instances that may be able to create an *IController* and asks them one by one to create it. The one that can create it, will be the one that delivers the controller. In code:
+The _ChainedControllerFactory_ that I will be creating is quite easy: it builds a list of *IControllerFactory *instances that may be able to create an _IController_ and asks them one by one to create it. The one that can create it, will be the one that delivers the controller. In code:
 
 ```csharp
 public class ChainedControllerFactory : IControllerFactory
@@ -51,7 +52,7 @@ public class ChainedControllerFactory : IControllerFactory
 
 ```
 
-We have to register this one as the default *IControllerFactory* in *Global.asax.cs*:
+We have to register this one as the default _IControllerFactory_ in _Global.asax.cs_:
 
 ```csharp
 protected void Application_Start()
@@ -67,11 +68,11 @@ protected void Application_Start()
 
 ```
 
-Note: the *DummyControllerFactory* and the *OnlyHomeControllerFactory* are some sample, stupid *IControllerFactory* implementations.
+Note: the _DummyControllerFactory_ and the _OnlyHomeControllerFactory_ are some sample, stupid _IControllerFactory_ implementations.
 
 ## Caveats
 
-There is actually one caveat to know when using this *ChainedControllerFactory*: not all controller factories out there follow the convention of returning *null* when they can not create a controller. The *ChainedControllerFactory* expects *null* to determine if it should try the next *IControllerFactory* in the chain.
+There is actually one caveat to know when using this _ChainedControllerFactory_: not all controller factories out there follow the convention of returning _null_ when they can not create a controller. The _ChainedControllerFactory_ expects _null_ to determine if it should try the next _IControllerFactory_ in the chain.
 
 ## Download source code
 

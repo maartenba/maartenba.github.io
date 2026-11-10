@@ -10,9 +10,10 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2013/01/07/tales-from-the-trenches-resizing-a-windows-azure-virtual-disk-the-smooth-way.html
 ---
+
 We’ve all been there. Running a virtual machine on Windows Azure and all of a sudden you notice that a virtual disk is running full. Having no access to the hypervisor nor to its storage (directly), there’s no easy way out…
 
-***Big disclaimer: use the provided code on your own risk! I’m not responsible if something breaks! The provided code is as-is without warranty! I have tested this on a couple of data disks without any problems. I've tested this on OS disks and this sometimes works, sometimes fails. Be warned.***
+_**Big disclaimer: use the provided code on your own risk! I’m not responsible if something breaks! The provided code is as-is without warranty! I have tested this on a couple of data disks without any problems. I've tested this on OS disks and this sometimes works, sometimes fails. Be warned.**_
 
 Download/contribute: [on GitHub](https://github.com/maartenba/WindowsAzureDiskResizer)
 
@@ -32,20 +33,20 @@ Last saturday, I was in this situation… A decision would have to be made: spen
 
 ![Now what!](/images/image_249.png)
 
-Being a bit geeked out, I decided to read up on the [VHD file format](http://msdn.microsoft.com/en-us/library/windows/desktop/dd323654(v=vs.85).aspx) and download the [specs](http://go.microsoft.com/fwlink/p/?linkid=137171).
+Being a bit geeked out, I decided to read up on the [VHD file format](<http://msdn.microsoft.com/en-us/library/windows/desktop/dd323654(v=vs.85).aspx>) and download the [specs](http://go.microsoft.com/fwlink/p/?linkid=137171).
 
 Before we dive in: why would I even read up on the VHD file format? Well, since Windows Azure storage is used as the underlying store for Windows Azure Virtual Machine VHD’s *and *Windows Azure storage supports byte operations without having to download an entire file, it occurred to me that combining both would result in a less-than-one-second VHD resize. Or would it?
 
-*Note that if you’re just interested in the bits to “get it done”, check the last section of this post.*
+_Note that if you’re just interested in the bits to “get it done”, check the last section of this post._
 
 ## Researching the VHD file format specs
 
 The [specs](http://go.microsoft.com/fwlink/p/?linkid=137171) for the VHD file format are publicly available. Which means it shouldn't be to hard to learn how VHD files, the underlying format for virtual disks on Windows Azure Virtual Machines, are structured. Having fear of extremely complex file structures, I started reading and found that a VHD isn’t actually that complicated.
 
-Apparently, VHD files created with Virtual PC 2004 are a bit different from newer VHD files. But hey, Microsoft will probably not use that old beast in their datacenters, right? Using that assumption and the assumption that VHD files for Windows Azure Virtual Machines are always *fixed* in size, I learnt the following over-generalized lesson:
+Apparently, VHD files created with Virtual PC 2004 are a bit different from newer VHD files. But hey, Microsoft will probably not use that old beast in their datacenters, right? Using that assumption and the assumption that VHD files for Windows Azure Virtual Machines are always _fixed_ in size, I learnt the following over-generalized lesson:
 
 > **A fixed-size VHD for Windows Azure Virtual Machines is a bunch of bytes representing the actual disk contents, followed by a 512-byte file footer that holds some metadata.
-**Maarten Balliauw – last Saturday
+> **Maarten Balliauw – last Saturday
 
 A-ha! So in short, if the size of the VHD file is known, the offset to the footer can be calculated and the entire footer can be read. And this footer is just a simple byte array. From the [specs](http://go.microsoft.com/fwlink/p/?linkid=137171):
 
@@ -61,13 +62,13 @@ My first approach to “fixing” this issue was simple:
 - Write null values over it and resize the disk to (desired size + 512 bytes)
 - Write the footer in those last 512 bytes
 
-Guess what? I tried [mounting an updated VHD file](http://technet.microsoft.com/en-us/magazine/ee872416.aspx) in Windows, without any successful result. Time for some more reading… resulting in the big *Eureka!* scream: the “current size” field in the footer must be updated!
+Guess what? I tried [mounting an updated VHD file](http://technet.microsoft.com/en-us/magazine/ee872416.aspx) in Windows, without any successful result. Time for some more reading… resulting in the big _Eureka!_ scream: the “current size” field in the footer must be updated!
 
-So I did that… and got failure again. But *Eureka!* again: the checksum must be updated so that the VHD driver can verify the footer is valid!
+So I did that… and got failure again. But _Eureka!_ again: the checksum must be updated so that the VHD driver can verify the footer is valid!
 
 So I did that… and found more failure.
 
-*sigh* – the fallback scenario of download/resize/update came to mind again…
+_sigh_ – the fallback scenario of download/resize/update came to mind again…
 
 ## Resizing a VHD file - take 2
 
@@ -75,9 +76,9 @@ Being a persistent developer, I decided to do some more searching. For most prob
 
 Going through the sources and doing some research, I found the one missing piece from my first attempt: “geometry”. An old class on basic computer principles came to mind where the professor taught us that disks have geometry: cylinder-head-sector or [CHS](http://en.wikipedia.org/wiki/Cylinder-head-sector) information for the disk driver which can use this info for determining physical data blocks on the disk.
 
-Being lazy, I decided to copy-and-adapt the [Footer class from this library](http://discutils.codeplex.com/SourceControl/changeset/view/14fd51607559#src/Vhd/Footer.cs). Why reinvent the wheel? Why risk  going sub-zero on the WIfe Acceptance Factor since this was saturday?
+Being lazy, I decided to copy-and-adapt the [Footer class from this library](http://discutils.codeplex.com/SourceControl/changeset/view/14fd51607559#src/Vhd/Footer.cs). Why reinvent the wheel? Why risk going sub-zero on the WIfe Acceptance Factor since this was saturday?
 
-So I decided to generate a fresh VHD file in Windows and try to resize that one using this *Footer* class. Let’s start simple: specify the file to open, the desired new size and open a read/write stream to it.
+So I decided to generate a fresh VHD file in Windows and try to resize that one using this _Footer_ class. Let’s start simple: specify the file to open, the desired new size and open a read/write stream to it.
 
 ```csharp
 string file = @"c:\temp\path\to\some.vhd";
@@ -90,7 +91,7 @@ using (Stream stream = new FileStream(file, FileMode.OpenOrCreate, FileAccess.Re
 
 ```
 
-Since we know the size of the file we’ve just opened, the footer is at length – 512, the *Footer* class takes these bytes and creates a .NET object for it:
+Since we know the size of the file we’ve just opened, the footer is at length – 512, the _Footer_ class takes these bytes and creates a .NET object for it:
 
 ```csharp
 stream.Seek(-512, SeekOrigin.End);
@@ -129,7 +130,7 @@ while (stream.Length < newSize)
 
 ```
 
-Now that we have a VHD file that holds the desired new size capacity, there’s one thing left: updating the VHD file footer. Again, the *Footer* class can help us here by updating the *current size*, *original size*, *geometry* and *checksum* fields:
+Now that we have a VHD file that holds the desired new size capacity, there’s one thing left: updating the VHD file footer. Again, the _Footer_ class can help us here by updating the _current size_, _original size_, _geometry_ and _checksum_ fields:
 
 ```
 
@@ -158,7 +159,7 @@ That’s it. And my big surprise after running this? Great success! A VHD that d
 
 [![](/images/image_thumb_213.png)](/images/image_251.png)
 
-So we can now resize VHD files in under a second. That’s much faster than *any* VHD resizer tool you find out here! But still: what about the download/upload?
+So we can now resize VHD files in under a second. That’s much faster than _any_ VHD resizer tool you find out here! But still: what about the download/upload?
 
 ## Resizing a VHD file stored in blob storage
 
@@ -192,7 +193,7 @@ var footerInstance = Footer.FromBytes(footer, 0);
 
 ```
 
-After doing the check on disk type again (fixed and smaller than the desired new size), we can resize the VHD. This time *not* by writing zeroes to it, but by calling one simple method on the storage SDK.
+After doing the check on disk type again (fixed and smaller than the desired new size), we can resize the VHD. This time _not_ by writing zeroes to it, but by calling one simple method on the storage SDK.
 
 ```
 
@@ -249,7 +250,7 @@ Now let’s resize a disk. Here are the steps to take:
 - In the Windows Azure portal, delete the disk (retain the data!) do that the lease Windows Azure has on it is removed
 - Run WindowsAzureDiskResizer
 - In the Windows Azure portal, recreate the disk based on the existing blob
-- Recreate the VM  -or- reattach the disk if it’s not the OS disk
+- Recreate the VM -or- reattach the disk if it’s not the OS disk
 - Start the VM
 - Use diskpart / disk management to resize the partition
 

@@ -10,12 +10,13 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/08/12/simplified-access-control-using-windows-azure-appfabric-labs.html
 ---
+
 [![](/images/image_thumb_28.png)](/images/image_56.png)Earlier this week, [Zane Adam announced the availability of the New AppFabric Access Control service in LABS](http://blogs.msdn.com/b/zaneadam/archive/2010/08/05/new-access-control-service-in-labs-delivers-greatly-expanded-capabilities.aspx). The highlights for this release (and I quote):
 
 - **Expanded Identity provider support** - allowing developers to build applications and services that accept both enterprise identities (through integration with Active Directory Federation Services 2.0), and a broad range of web identities (through support of Windows Live ID, Open ID, Google, Yahoo, Facebook identities) using a single code base.
 - **WS-Trust and WS-Federation protocol support** – Interoperable WS-* support is important to many of our enterprise customers.
 - **Full integration with Windows Identity Foundation (WIF)** - developers can apply the familiar WIF identity programming model and tooling for cloud applications and services.
-- **A new management web portal** -  gives simple, complete control over all Access Control settings.
+- **A new management web portal** - gives simple, complete control over all Access Control settings.
 
 Wow! This just **has** to be good! Let’s see how easy it is to work with [claims based authentication](http://msdn.microsoft.com/en-us/magazine/ee335707.aspx) and the AppFabric Labs Access Control Service, which I’ll abbreviate to “ACS” throughout this post.
 
@@ -67,7 +68,7 @@ Your claims:
 
 ```
 
-Next, edit Default.aspx.cs and add the following *Page_Load* event handler:
+Next, edit Default.aspx.cs and add the following _Page_Load_ event handler:
 
 ```csharp
 protected void Page_Load(object sender, EventArgs e)
@@ -86,10 +87,10 @@ protected void Page_Load(object sender, EventArgs e)
 
 So far, so good. If we had everything configured, Default.aspx would simply show us the claims we received from ACS once we have everything running. Now in order to configure the application to use the ACS, there’s two steps left to do:
 
-- Add a reference to *Microsoft.IdentityModel* (located somewhere at* C:\Program Files\Reference Assemblies\Microsoft\Windows Identity Foundation\v3.5\Microsoft.IdentityModel.dll*)
+- Add a reference to _Microsoft.IdentityModel_ (located somewhere at* C:\Program Files\Reference Assemblies\Microsoft\Windows Identity Foundation\v3.5\Microsoft.IdentityModel.dll*)
 - Add an STS reference…
 
-That first step should be easy: add a reference to *Microsoft.IdentityModel* in your ASP.NET application. The second step is almost equally easy: right-click the project and select “Add STS reference…”, like so:
+That first step should be easy: add a reference to _Microsoft.IdentityModel_ in your ASP.NET application. The second step is almost equally easy: right-click the project and select “Add STS reference…”, like so:
 
 [![](/images/Add%20STS%20reference_thumb.png)](/images/Add%20STS%20reference.png)
 
@@ -103,7 +104,7 @@ In the next step, enter the URL to the STS federation metadata. To the what wher
 
 In the next step, select “Disable security chain validation”. Because we are using self-signed certificates, selecting the second option would lead us to doom because all infrastructure would require a certificate provided by a valid certificate authority.
 
-From now on, it’s just “Next”, “Next”, “Finish”. If you now have a look at your *Web.config* file, you’ll see that the wizard has configured the application to use ACS as the federation authentication provider. Furthermore, a new folder called “FederationMetadata” has been created, which contains an XML file that specifies which claims this application requires. Oh, and some other details on the application, but nothing to worry about at this point.
+From now on, it’s just “Next”, “Next”, “Finish”. If you now have a look at your _Web.config_ file, you’ll see that the wizard has configured the application to use ACS as the federation authentication provider. Furthermore, a new folder called “FederationMetadata” has been created, which contains an XML file that specifies which claims this application requires. Oh, and some other details on the application, but nothing to worry about at this point.
 
 Our application has now been configured: off to the ACS side!
 
@@ -147,7 +148,7 @@ So far so good. Now sign in using one of the identity providers listed. After a 
 ASP.NET request validation kicked in since it detected unusual headers. Let’s fix that. Two possible approaches:
 
 - Disable request validation, but I’d prefer not to do that
-- Create a custom *RequestValidator*
+- Create a custom _RequestValidator_
 
 Let’s go with the latter option… Here’s a class that you can copy-paste in your application:
 
@@ -175,7 +176,7 @@ public class WifRequestValidator : RequestValidator
 
 ```
 
-Basically, it’s just validating the request and returning true to ASP.NET request validation if a *SignInMesage* is in the request. One thing left to do: register this provider with ASP.NET. Add the following line of code in the *<system.web>* section of *Web.config*:
+Basically, it’s just validating the request and returning true to ASP.NET request validation if a _SignInMesage_ is in the request. One thing left to do: register this provider with ASP.NET. Add the following line of code in the _<system.web>_ section of _Web.config_:
 
 ```
 

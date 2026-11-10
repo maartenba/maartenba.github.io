@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2008/09/01/using-the-asp-net-mvc-modelbinder-attribute.html
 ---
+
 ASP.NET MVC action methods can be developed using regular method parameters. In earlier versions of the ASP.NET MVC framework, these parameters were all simple types like integers, strings, booleans, … When required, a method parameter can be a complex type like a Contact with Name, Email and Message properties. It is, however, required to add a ModelBinder attribute in this case.
 
 Here’s how a controller action method could look like:

@@ -10,18 +10,19 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2009/02/03/saving-a-phpexcel-spreadsheet-to-google-documents.html
 ---
-As you may know, [PHPExcel](http://www.phpexcel.net/) is built using an extensible model, supporting different input and output formats. The PHPExcel core class library features a spreadsheet engine, which is supported by *IReader* and *IWriter* instances used for reading and writing a spreadsheet to/from a file.
+
+As you may know, [PHPExcel](http://www.phpexcel.net/) is built using an extensible model, supporting different input and output formats. The PHPExcel core class library features a spreadsheet engine, which is supported by _IReader_ and _IWriter_ instances used for reading and writing a spreadsheet to/from a file.
 
 ![PHPExcel architecture](/images/WindowsLiveWriter/SavingaPHPExcelspreadsheettoGoogleDocume_B85C/image_115695bd-411a-4210-bc0e-27922ae74679.png)
 
 Currently, PHPExcel supports writers for Excel2007, Excel5 (Excel 97+), CSV, HTML and PDF. Wouldnt it be nice if we could use PHPExcel to store a spreadsheet on [Google Documents](http://docs.google.com)? Let’s combine some technologies:
 
 - PHPExcel – [www.phpexcel.net](http://www.phpexcel.net) for the spreadsheet stuff
-- Zend Framework - [http://framework.zend.com/](http://framework.zend.com/) for the Google stuff. Zend Framework provides a nice *[Zend_Gdata](http://framework.zend.com/manual/en/zend.gdata.html)* class that provides out of the box interaction with Google Documents
+- Zend Framework - [http://framework.zend.com/](http://framework.zend.com/) for the Google stuff. Zend Framework provides a nice _[Zend_Gdata](http://framework.zend.com/manual/en/zend.gdata.html)_ class that provides out of the box interaction with Google Documents
 
 ## Creating a custom GoogleDocs writer
 
-First, we need an implementation of PHPExcel_Writer_IWriter which will support writing stuff to Google Documents. Since Google accepts XLS files and *Zend_Gdata* provides an upload method, I think an overloaded version of PHPExcel’s integrated *PHPExcel_Writer_Excel5* will be a good starting point.
+First, we need an implementation of PHPExcel_Writer_IWriter which will support writing stuff to Google Documents. Since Google accepts XLS files and _Zend_Gdata_ provides an upload method, I think an overloaded version of PHPExcel’s integrated _PHPExcel_Writer_Excel5_ will be a good starting point.
 
 ```csharp
 class PHPExcel_Writer_GoogleDocs extends PHPExcel_Writer_Excel5 implements PHPExcel_Writer_IWriter {
@@ -45,7 +46,7 @@ class PHPExcel_Writer_GoogleDocs extends PHPExcel_Writer_Excel5 implements PHPEx
 
 ```
 
-Next, let’s override the *save()* method. This method will save the document as an XLS spreadsheet somewhere, upload it to Google Docs and afterwards remove it from the file system. Here we go:
+Next, let’s override the _save()_ method. This method will save the document as an XLS spreadsheet somewhere, upload it to Google Docs and afterwards remove it from the file system. Here we go:
 
 ```php
 public function save($pFilename = null) {
@@ -72,7 +73,7 @@ $objPHPExcel = $objReader->load("05featuredemo.xlsx");
 
 ```
 
-Next, let’s use PHPExcel’s *IOFactory* class to load our* PHPExcel_Writer_GoogleDocs* class. We will also set credentials on it. Afterwards, we save.
+Next, let’s use PHPExcel’s _IOFactory_ class to load our* PHPExcel_Writer_GoogleDocs* class. We will also set credentials on it. Afterwards, we save.
 
 ```php
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'GoogleDocs');

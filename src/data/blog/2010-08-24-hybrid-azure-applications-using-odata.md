@@ -10,6 +10,7 @@ author: Maarten Balliauw
 redirect_from:
   - /post/2010/08/24/hybrid-azure-applications-using-odata.html
 ---
+
 [![](/images/OData%20in%20the%20cloud%20on%20Azure_thumb.png)](/images/OData%20in%20the%20cloud%20on%20Azure.png)In the whole [Windows Azure](http://www.azure.com) story, Microsoft has always been telling you could build hybrid applications: an on-premise application with a service on Azure or a database on SQL Azure. But how to do it in the opposite direction? Easy answer there: use the (careful, long product name coming!) Windows Azure platform AppFabric Service Bus to expose an on-premise WCF service securely to an application hosted on Windows Azure. Now how would you go about exposing your database to Windows Azure? Open a hole in the firewall? Use something like [PortBridge](http://blogs.msdn.com/b/clemensv/archive/2009/11/18/port-bridge.aspx) to redirect TCP traffic over the service bus? Why not just create an OData service for our database and expose that over AppFabric Service Bus. In this post, I’ll show you how.
 
 For those who can not wait: download the sample code: [ServiceBusHost.zip (7.87 kb)](/files/2010/8/ServiceBusHost.zip)
@@ -66,7 +67,7 @@ public class ContosoService : DataService<ContosoSalesEntities>
 
 ```
 
-Let’s explain this thing: the *ContosoService* class inherits *DataService<ContosoSalesEntities>*, a ready-to-use service implementation which you pass the type of your Entity Data Model. In the *InitializeService* method, there’s only one thing left to do: specify the access rules for entities. I chose to expose the entity set “Store” with all rights (read/write).
+Let’s explain this thing: the _ContosoService_ class inherits _DataService<ContosoSalesEntities>_, a ready-to-use service implementation which you pass the type of your Entity Data Model. In the _InitializeService_ method, there’s only one thing left to do: specify the access rules for entities. I chose to expose the entity set “Store” with all rights (read/write).
 
 In a normal world: this would be it: we would now have a service ready to expose our database through OData. Quick, simple, flexible. But in our console application, there’s a small problem: we are not hosting inside a web application, so we’ll have to write the WCF hosting code ourselves.
 
@@ -74,7 +75,7 @@ In a normal world: this would be it: we would now have a service ready to expose
 
 Since we’re not hosting inside a web application but in a console application, there’s some plumbing we need to do: set up our own WCF host and configure it accordingly.
 
-Let’s first work on our *App.config* file:
+Let’s first work on our _App.config_ file:
 
 ```xml
 <?xml version="1.0"?>
@@ -143,9 +144,9 @@ There's a lot of stuff going on in there!
 
 To be honest: that second bullet is a bunch of work…
 
-- We specify 2 endpoints: one local (so we can access the OData service from our local network) and one on the service bus, hence the *https://<service_namespace>.servicebus.windows.net/ContosoModel/* URL.
+- We specify 2 endpoints: one local (so we can access the OData service from our local network) and one on the service bus, hence the _https://<service_namespace>.servicebus.windows.net/ContosoModel/_ URL.
 - The service bus endpoint has 2 behaviors specified: the service behavior is configured to allow metadata retrieval. The endpoint behavior is configured to use the service bus credentials (that can be found on the AppFabric portal site once logged in) when connecting to the service bus.
-- The *webHttpRelayBinding*, a new binding type for Windows Azure AppFabric Service Bus, is configured to use no authentication when someone connects to it. That way, we will have an OData service that is accessible from the Internet for anyone.
+- The _webHttpRelayBinding_, a new binding type for Windows Azure AppFabric Service Bus, is configured to use no authentication when someone connects to it. That way, we will have an OData service that is accessible from the Internet for anyone.
 
 With that configuration in place, we can start building our WCF service host in code. Here’s the full blown snippet:
 
@@ -191,13 +192,13 @@ class Program
 
 ```
 
-We’ve just created our hosting environment, completely configured using the configuration file for WCF. The important thing to note here is that we’re spinning up a *WebServiceHost*, and that we’re using it to host multiple endpoints. Compile, run, F5, and here’s what happens:
+We’ve just created our hosting environment, completely configured using the configuration file for WCF. The important thing to note here is that we’re spinning up a _WebServiceHost_, and that we’re using it to host multiple endpoints. Compile, run, F5, and here’s what happens:
 
 [![](/images/image_thumb_31.png)](/images/image_59.png)
 
 ## Consuming the feed
 
-Now just leave that host running and browse to the public service bus endpoint for your OData service, i.e. *https://<service_namespace>.servicebus.windows.net/ContosoModel/*:
+Now just leave that host running and browse to the public service bus endpoint for your OData service, i.e. _https://<service_namespace>.servicebus.windows.net/ContosoModel/_:
 
 [![](/images/image_thumb_32.png)](/images/image_60.png)
 
