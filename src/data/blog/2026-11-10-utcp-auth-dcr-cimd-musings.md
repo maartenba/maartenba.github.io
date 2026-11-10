@@ -144,7 +144,7 @@ A manual tells your agent where to send requests, and potentially where to send 
 
 UTCP's reference clients already guard against the obvious variants, such as plain HTTP and credential forwarding across origins. Still, the trust model differs from MCP, where you at least installed a specific server on purpose. With UTCP, whether a manual was actually published by the API owner matters a lot. Serving it from the API's own origin, at a well-known path, goes a long way, and signed manuals would go further.
 
-Binding tokens to an audience helps as well. If a token is restricted to one resource (using [resource indicators](https://datatracker.ietf.org/doc/html/rfc8707)) or sender-constrained with DPoP (the same idea behind [Device Bound Session Credentials](/posts/2026-09-16-device-bound-session-credentials-in-aspnet-core/) for browser cookies), a malicious manual that redirects calls elsewhere ends up with a token that's useless at the destination. It's standard OAuth practice, but the stakes go up when an agent calls your API based on a manual someone else wrote.
+Binding tokens to an audience helps as well. If a token is restricted to one resource (using [resource indicators](https://datatracker.ietf.org/doc/html/rfc8707)) or sender-constrained with DPoP (the same idea behind [Device Bound Session Credentials](/posts/2026-09-16-device-bound-session-credentials-in-aspnet-core/) for browser cookies), a malicious manual that redirects calls elsewhere ends up with a token that's useless at the destination.
 
 ## Where this leaves us
 
