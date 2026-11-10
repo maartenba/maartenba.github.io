@@ -56,7 +56,7 @@ The same goes for a single web application with a single API behind it. ASP.NET 
 
 ## When you do need it
 
-When multiple applications need to share the same authority for users and tokens, there's a big chance you need an identity provider. The moment your architecture looks like _"a web app + a mobile app + a couple of APIs + a background service + a partner integration"_, you have a question to answer: who issues the tokens, who owns the user identities, and how do all of these things trust each other? You need one place that authenticates users once, issues tokens that all of your applications and APIs accept, and handles machine-to-machine credentials for the services that have no user at all.
+When multiple applications need to share the same authority for users and tokens, there's a big chance you need an identity provider. The moment your architecture looks like _"a web app + a mobile app + a couple of APIs + a background service + a partner integration"_, you have a question to answer: who issues the tokens, who owns the user identities, and how do all of these things trust each other? You need one place that authenticates users once, issues tokens that all of your applications and APIs accept, and handles machine-to-machine credentials for the services that have no user at all. AI agents are becoming one more of those clients, and I wrote some thoughts on [how AI agent authentication could work with UTCP and MCP](/posts/2026-11-10-utcp-auth-dcr-cimd-musings/).
 
 Some other common scenarios would be:
 
