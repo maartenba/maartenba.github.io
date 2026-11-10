@@ -55,7 +55,3 @@ Aha! And indeed: after adding the following to our Web.config, load balancing se
 ```
 
 Enjoy!
-
-##
-
-*Disclaimer: I’m an Azure geezer and may have misnamed Azure App Service Web Apps as “Azure Websites” throughout this blog post.*

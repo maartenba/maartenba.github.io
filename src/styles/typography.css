@@ -32,7 +32,7 @@
     }
 
     a {
-      @apply break-words text-foreground decoration-dashed underline-offset-4 hover:text-accent focus-visible:no-underline;
+      @apply break-words text-foreground decoration-accent/60 decoration-dashed underline-offset-4 hover:text-accent hover:decoration-accent focus-visible:no-underline;
     }
 
     ul {
@@ -44,11 +44,11 @@
     }
 
     hr {
-      @apply border-border;
+      @apply border-dashed border-border;
     }
 
     img {
-      @apply mx-auto border border-border;
+      @apply mx-auto rounded-xl border border-border shadow-sm;
     }
 
     figcaption {
@@ -71,15 +71,15 @@
     }
 
     code {
-      @apply rounded bg-muted/75 p-1 break-words text-foreground before:content-none after:content-none;
+      @apply rounded-md border border-border bg-muted px-1.5 py-0.5 text-[0.875em] break-words text-foreground before:content-none after:content-none;
     }
 
     .astro-code code {
-      @apply flex-[1_0_100%] bg-inherit p-0;
+      @apply flex-[1_0_100%] rounded-none border-0 bg-inherit p-0 text-[1em];
     }
 
     blockquote {
-      @apply border-s-4 border-s-accent/80 break-words pl-4 opacity-80;
+      @apply rounded-e-xl border-s-4 border-s-accent bg-accent/5 py-1 pr-4 pl-4 break-words not-italic;
     }
 
     details {
@@ -97,7 +97,7 @@
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   .astro-code {
-    @apply flex border bg-(--shiki-light-bg) text-(--shiki-light) outline-border [&_span]:text-(--shiki-light);
+    @apply flex rounded-xl border shadow-sm bg-(--shiki-light-bg) text-(--shiki-light) outline-border [&_span]:text-(--shiki-light);
   }
 
   html[data-theme="dark"] .astro-code {
@@ -120,4 +120,113 @@
       @apply rounded-sm border border-border px-0.5 py-px;
     }
   }
+}
+
+/* ===== A11y: raise low-contrast Shiki token colors to WCAG AA (>= 4.5:1) ===== */
+html:not([data-theme="dark"]) .astro-code span[style*="--shiki-light:#C2C3C5"] {
+  color: #6a6e75 !important;
+}
+html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#637777"] {
+  color: #8da3a3 !important;
+}
+html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#D3423E"] {
+  color: #f0645f !important;
+}
+html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#5F7E97"] {
+  color: #8aa6bd !important;
+}
+
+/* ===== EthicalAds: styled as a clickable card via the client's documented ===== */
+/* ===== --ea-* custom properties (https://ethical-ad-client.readthedocs.io/en/latest/#customizing-styles). */
+/* Site tokens flip with the theme, so light/dark/toggle all stay AA without the ad client's own dark mode. */
+[data-ea-publisher] {
+  --ea-bgcolor: var(--muted);
+  --ea-bgcolor-dark: var(--muted);
+  --ea-color-link: var(--foreground);
+  --ea-color-link-dark: var(--foreground);
+  --ea-color-link-active: var(--foreground);
+  --ea-color-link-dark-active: var(--foreground);
+  --ea-color-link-bold: var(--accent);
+  --ea-color-link-bold-dark: var(--accent);
+  --ea-color-link-callout: color-mix(in srgb, var(--foreground) 78%, var(--background));
+  --ea-color-link-callout-dark: color-mix(in srgb, var(--foreground) 78%, var(--background));
+  --ea-color-link-callout-active: var(--accent);
+  --ea-color-link-callout-dark-active: var(--accent);
+  --ea-font-family: inherit;
+  --ea-font-size: 0.875rem;
+  /* Reserve the ad's rendered height (text placement) to avoid layout shift. */
+  min-height: 8.5rem;
+}
+@media (min-width: 640px) {
+  [data-ea-publisher] {
+    min-height: 6rem;
+  }
+}
+/* Card (specificity beats the client's injected stylesheet).
+   A light accent tint and accent border make it visible without shouting. */
+div[data-ea-publisher].loaded.adaptive-css .ea-content {
+  @apply relative rounded-xl border shadow-sm transition-[border-color,box-shadow,background-color] duration-200 motion-reduce:transition-none;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  background: color-mix(in srgb, var(--accent) 7%, var(--background));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content:hover {
+  @apply border-accent shadow-md;
+  background: color-mix(in srgb, var(--accent) 11%, var(--background));
+}
+/* Whole card clickable: stretch the ad link over the card */
+div[data-ea-publisher].loaded.adaptive-css .ea-content a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content a,
+div[data-ea-publisher].loaded.adaptive-css .ea-content a:hover .ea-body {
+  text-decoration: none;
+  color: var(--foreground);
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-headline {
+  color: color-mix(in srgb, var(--accent) 80%, var(--foreground));
+  font-weight: 700;
+}
+/* Call to action (e.g. "Try TeamCity"): a small pill so it reads as a button */
+div[data-ea-publisher].loaded.adaptive-css .ea-content strong:not(.ea-headline),
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta {
+  display: inline-block;
+  margin-inline-start: 0.375rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 600;
+  white-space: nowrap;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content strong:not(.ea-headline)::after,
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta::after {
+  content: " \2192";
+}
+/* Ads without their own call to action get a subtle arrow after the body */
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-body::after {
+  content: " \2192";
+  color: var(--accent);
+  font-weight: 600;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-body:has(strong)::after,
+div[data-ea-publisher].loaded.adaptive-css .ea-content:has(.ea-cta, strong:not(.ea-headline)) .ea-body::after {
+  content: none;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-callout {
+  margin: 0.375rem 0 0;
+  padding: 0 0.25rem;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-callout a {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 0.25rem 0;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }

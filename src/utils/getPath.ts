@@ -34,3 +34,11 @@ export function getPath(
 
   return [basePath, ...pathSegments, slug].join("/");
 }
+
+/**
+ * URL to link to a blog post. Adds the trailing slash the host serves pages
+ * at, so links don't go through an extra 301 redirect.
+ */
+export function getPostHref(id: string, filePath: string | undefined) {
+  return `${getPath(id, filePath)}/`;
+}

@@ -17,6 +17,12 @@ export interface Props {
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
   ogType?: string;
+  /** Set to true to emit `noindex, nofollow` instead of the default robots meta */
+  noindex?: boolean;
+  /** Tags of the article (emitted as article:tag) */
+  tags?: string[];
+  /** Whether the og image is known to be 1200x630 (generated OG images are) */
+  ogImageGenerated?: boolean;
 }
 
 const {
@@ -30,9 +36,16 @@ const {
   modDatetime,
   scrollSmooth = false,
   ogType = "website",
+  noindex = false,
+  tags = [],
+  ogImageGenerated,
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
+
+// Default site OG image and dynamically generated post OG images are 1200x630
+// (see src/utils/og-templates); custom/remote images have unknown dimensions.
+const knownOgSize = ogImageGenerated ?? !Astro.props.ogImage;
 
 const structuredData = pubDatetime
   ? {
@@ -51,7 +64,7 @@ const structuredData = pubDatetime
         {
           "@type": "Person",
           name: `${author}`,
-          url: SITE.website,
+          url: `${SITE.website}about/`,
           sameAs: [
             "https://github.com/maartenba",
             "https://www.linkedin.com/in/maartenballiauw/",
@@ -106,6 +119,14 @@ const websiteStructuredData = {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
+    <meta
+      name="robots"
+      content={
+        noindex
+          ? "noindex, nofollow"
+          : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      }
+    />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
@@ -114,6 +135,19 @@ const websiteStructuredData = {
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
     <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:locale" content="en_US" />
+    {
+      knownOgSize && (
+        <>
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+        </>
+      )
+    }
+    <meta property="og:image:alt" content={title} />
+    {pubDatetime && <meta property="article:author" content={author} />}
+    {tags.map(tag => <meta property="article:tag" content={tag} />)}
 
     <!-- Article Published/Modified time -->
     {
@@ -139,6 +173,7 @@ const websiteStructuredData = {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:image:alt" content={title} />
 
     <!-- Google JSON-LD Structured data -->
     {
