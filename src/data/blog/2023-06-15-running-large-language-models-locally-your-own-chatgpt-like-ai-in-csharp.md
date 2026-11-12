@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Running Large Language Models locally – Your own ChatGPT-like AI in C#"
+description: "How to run a large language model locally on your own CPU and use it from C#, for a ChatGPT-like AI without OpenAI or cloud services."
 pubDatetime: 2023-06-15T03:44:05Z
 comments: true
 published: true

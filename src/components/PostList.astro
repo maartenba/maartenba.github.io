@@ -1,0 +1,17 @@
+---
+import EthicalAd from "@/components/EthicalAd.astro";
+
+interface Props {
+  /** Render the sponsor as the first row of the list. */
+  ad?: boolean;
+}
+
+const { ad = false } = Astro.props;
+---
+
+<ul
+  class="rounded-lg border border-ln bg-card px-[22px] py-1 shadow-[0_1px_2px_#0000000d]"
+>
+  {ad && <EthicalAd variant="row" />}
+  <slot />
+</ul>

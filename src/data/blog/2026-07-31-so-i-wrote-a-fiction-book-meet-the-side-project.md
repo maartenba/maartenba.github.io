@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'So, I wrote a fiction book. Meet "The Side Project".'
+description: "I wrote a fiction novel called The Side Project. Why I moved from technical writing to fiction, how I started, and the tools and structure that helped."
 pubDatetime: 2026-07-31T03:44:05Z
 comments: true
 published: true

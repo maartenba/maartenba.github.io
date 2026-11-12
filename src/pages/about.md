@@ -6,7 +6,7 @@ description: "Maarten Balliauw: Head of Customer Success at Duende Software, for
 
 <img width="200" height="200" alt="Maarten Balliauw" src="/images/avatars/maarten-2018-800x800.jpg" style="float: right; margin: 0 0 1rem 1.5rem; border-radius: 50%;" />
 
-**Hi, I'm Maarten.** I build things for the web with .NET, and I've spent most of the past 20 years helping other developers build theirs. These days I lead Customer Success at [Duende Software](https://duendesoftware.com), the folks behind [Duende IdentityServer](https://duendesoftware.com/products/identityserver). Before that I spent many years at [JetBrains](https://www.jetbrains.com), and before *that* I founded [MyGet](https://www.myget.org).
+**Hi, I'm Maarten.** I build things for the web with .NET, and I've spent most of the past 20 years helping other developers build theirs. These days I lead Customer Success at [Duende Software](https://duendesoftware.com), the folks behind [Duende IdentityServer](https://duendesoftware.com/products/identityserver). Before that I spent many years at [JetBrains](https://www.jetbrains.com), and before _that_ I founded [MyGet](https://www.myget.org).
 
 I'm based in [Antwerp, Belgium](https://en.wikipedia.org/wiki/Antwerp), and if you've been to a .NET conference in the past decade or so, there's a decent chance I was the one with the Belgian accent on stage (or at the booth, or at the bar afterwards).
 
@@ -21,7 +21,7 @@ I'm based in [Antwerp, Belgium](https://en.wikipedia.org/wiki/Antwerp), and if y
 
 ### Head of Customer Success at Duende Software
 
-*2025 - now*
+_2025 - now_
 
 I lead the Customer Success team at Duende, which covers developer advocacy, onboarding, support and sales engineering. The goal is simple to explain and harder to do: help new and existing customers fall into the pit of success with IdentityServer and the BFF Security Framework. I'm part of the leadership team, but it's very much a hands-on job, and I like it that way.
 
@@ -36,7 +36,7 @@ On a given week, that can mean any of these:
 
 ### Head of Developer Advocacy at JetBrains
 
-*Previously*
+_Previously_
 
 At JetBrains I started out doing developer advocacy for PhpStorm, then .NET tools (ReSharper, Rider, dotMemory, dotTrace), and eventually led the developer advocacy team. I also helped launch JetBrains Space, starting from the product launch on stage at KotlinConf 2019.
 
@@ -44,7 +44,7 @@ Some things I'm still happy about:
 
 - Writing most of the [Space SDK for .NET](https://github.com/JetBrains/space-dotnet-sdk) (700+ commits), a client generated from a pretty large API, and helping with the Kotlin one.
 - Contributing to [Azure Toolkit for Rider](https://github.com/JetBrains/azure-tools-for-intellij) and the [JetBrains Guide](https://www.jetbrains.com/guide/).
-- Speaking at a *lot* of events, from NDC and ConFoo to JetBrains Days and Nights in Seoul, Tokyo, Sydney, Melbourne, Paris and Istanbul.
+- Speaking at a _lot_ of events, from NDC and ConFoo to JetBrains Days and Nights in Seoul, Tokyo, Sydney, Melbourne, Paris and Istanbul.
 - Blog posts, webinars and videos, and bringing feedback from developers back to the product teams.
 
 ### Founder of MyGet and SpeakerTravel

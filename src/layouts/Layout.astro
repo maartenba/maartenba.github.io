@@ -2,8 +2,9 @@
 import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
-import "@fontsource-variable/jetbrains-mono";
-import "@fontsource-variable/inter";
+import sans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url";
+import sans700 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2?url";
+import "@/styles/fonts.css";
 import "@/styles/global.css";
 
 export interface Props {
@@ -103,6 +104,20 @@ const websiteStructuredData = {
   class={`${scrollSmooth && "scroll-smooth"}`}
 >
   <head>
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={sans400}
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={sans700}
+      crossorigin
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 

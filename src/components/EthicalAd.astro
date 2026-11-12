@@ -1,15 +1,55 @@
 ---
+interface Props {
+  /** Post tags, sent as page-specific keywords for ad targeting. */
+  keywords?: string[];
+  /** "row" renders as the first row of a post list; default is the in-prose strip. */
+  variant?: "strip" | "row";
+}
 
+const { keywords = [], variant = "strip" } = Astro.props;
+// data-ea-keywords is a pipe-separated list (ethical-ad-client docs).
+const eaKeywords = [
+  ...new Set(
+    keywords
+      .map(k =>
+        k
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "")
+      )
+      .filter(k => k && k !== "general")
+  ),
+]
+  .slice(0, 10)
+  .join("|");
 ---
 
 <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"
 ></script>
-<div
-  class="adaptive-css"
-  data-ea-publisher="blog-maartenballiauw-be"
-  data-ea-type="text"
->
-</div>
+{
+  variant === "row" ? (
+    <li class="ad-row">
+      <span class="ad-row-label" aria-hidden="true">
+        sponsor
+      </span>
+      <div
+        class="adaptive-css"
+        data-ea-publisher="blog-maartenballiauw-be"
+        data-ea-type="text"
+        data-ea-keywords={eaKeywords || undefined}
+      />
+    </li>
+  ) : (
+    <div class="ad-inline">
+      <div
+        class="adaptive-css"
+        data-ea-publisher="blog-maartenballiauw-be"
+        data-ea-type="text"
+        data-ea-keywords={eaKeywords || undefined}
+      />
+    </div>
+  )
+}
 <script is:inline>
   // ClientRouter swaps pages without a full reload, so the ad client never
   // sees the new placement. Ask it to fill the placement after navigation.

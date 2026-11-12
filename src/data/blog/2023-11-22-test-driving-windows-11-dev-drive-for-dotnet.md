@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Test-Driving Windows 11 Dev Drive for .NET"
+description: "I moved part of my .NET workflow to a Windows 11 Dev Drive (ReFS): how to set it up, move NuGet, Maven, Gradle and npm caches, and whether it feels faster."
 pubDatetime: 2023-11-22T03:44:05Z
 comments: true
 published: true

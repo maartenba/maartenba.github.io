@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Using ASP.NET Core Passkeys for Second Factor Authentication"
+description: "Use passkeys as a second factor after password login in ASP.NET Core Identity on .NET 10, with a 2FA token provider and two endpoints to create and verify."
 pubDatetime: 2026-10-01T07:00:00Z
 comments: true
 published: true

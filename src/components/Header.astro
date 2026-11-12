@@ -1,171 +1,100 @@
 ---
-import Hr from "./Hr.astro";
-import IconX from "@/assets/icons/IconX.svg";
-import IconMoon from "@/assets/icons/IconMoon.svg";
-import IconSearch from "@/assets/icons/IconSearch.svg";
-import IconArchive from "@/assets/icons/IconArchive.svg";
-import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
-import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
-import LinkButton from "./LinkButton.astro";
+import { Image } from "astro:assets";
+import avatar from "@/assets/images/avatar.jpg";
 import { SITE } from "@/config";
 
+export interface Props {
+  variant?: "home" | "compact";
+}
+
+const { variant = "compact" } = Astro.props;
+const home = variant === "home";
+
 const { pathname } = Astro.url;
+const first = pathname.split("/").filter(Boolean)[0];
 
-// Remove trailing slash from current pathname if exists
-const currentPath =
-  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
-
-const isActive = (path: string) => {
-  const currentPathArray = currentPath.split("/").filter(p => p.trim());
-  const pathArray = path.split("/").filter(p => p.trim());
-
-  return currentPath === path || currentPathArray[0] === pathArray[0];
-};
+const links = [
+  { label: "posts", href: "/posts/", key: "posts" },
+  { label: "talks", href: "/talks-presentations/", key: "talks-presentations" },
+  { label: "about", href: "/about/", key: "about" },
+  { label: "rss", href: "/feed.xml", key: "feed.xml" },
+  { label: "search", href: "/search/", key: "search" },
+];
 ---
 
-<header>
+<header class="mx-auto w-full max-w-app px-4 pt-8 pb-2 sm:pt-11">
   <a
     id="skip-to-content"
     href="#main-content"
-    class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4"
+    class="absolute start-16 -top-full z-50 bg-bg px-3 py-2 text-ac transition-all focus:top-4"
   >
     Skip to content
   </a>
-  <div
-    id="nav-container"
-    class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"
-  >
-    <div
-      id="top-nav-wrap"
-      class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"
+  <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+    <a
+      href="/"
+      class:list={["flex items-center", home ? "gap-5" : "gap-3.5"]}
+      aria-label={SITE.author}
     >
-      <a
-        href="/"
-        class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
-      >
-        {SITE.title}
-      </a>
-      <nav
-        id="nav-menu"
-        class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
-      >
-        <button
-          id="menu-btn"
-          class="focus-outline self-end p-2 sm:hidden"
-          aria-label="Open Menu"
-          aria-expanded="false"
-          aria-controls="menu-items"
-        >
-          <IconX id="close-icon" class="hidden" />
-          <IconMenuDeep id="menu-icon" />
-        </button>
-        <ul
-          id="menu-items"
-          class:list={[
-            "mt-4 grid w-44 grid-cols-2 place-content-center gap-2",
-            "[&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:hover:text-accent sm:[&>li>a]:px-2 sm:[&>li>a]:py-1",
-            "hidden",
-            "sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0",
-          ]}
-        >
-          <li class="col-span-2">
-            <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-              Posts
-            </a>
-          </li>
-          <li class="col-span-2">
-            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
-              About
-            </a>
-          </li>
-          <li class="col-span-2">
-            <a
-              href="/talks-presentations"
-              class:list={{ "active-nav": isActive("/talks-presentations") }}
-            >
-              Talks &amp; Presentations
-            </a>
-          </li>
-          {
-            SITE.showArchives && (
-              <li class="col-span-2">
-                <LinkButton
-                  href="/archives"
-                  class:list={[
-                    "focus-outline flex justify-center p-3 sm:p-1",
-                    {
-                      "active-nav [&>svg]:stroke-accent": isActive("/archives"),
-                    },
-                  ]}
-                  ariaLabel="archives"
-                  title="Archives"
-                >
-                  <IconArchive class="hidden sm:inline-block" />
-                  <span class="sm:sr-only">Archives</span>
-                </LinkButton>
-              </li>
-            )
-          }
-          <li class="col-span-1 flex items-center justify-center">
-            <LinkButton
-              href="/search"
-              class:list={[
-                "focus-outline flex p-3 sm:p-1",
-                { "[&>svg]:stroke-accent": isActive("/search") },
-              ]}
-              ariaLabel="search"
-              title="Search"
-            >
-              <IconSearch />
-              <span class="sr-only">Search</span>
-            </LinkButton>
-          </li>
-          {
-            SITE.lightAndDarkMode && (
-              <li class="col-span-1 flex items-center justify-center">
-                <button
-                  id="theme-btn"
-                  class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent"
-                  title="Toggles light & dark"
-                  aria-label="auto"
-                  aria-live="polite"
-                >
-                  <IconMoon class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-                  <IconSunHigh class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-                </button>
-              </li>
-            )
-          }
-        </ul>
-      </nav>
-    </div>
+      <Image
+        src={avatar}
+        alt=""
+        width={home ? 72 : 40}
+        height={home ? 72 : 40}
+        densities={[1, 2]}
+        format="webp"
+        fetchpriority={home ? "high" : undefined}
+        loading={home ? "eager" : undefined}
+        class:list={[
+          "shrink-0 object-cover outline-1 outline-ln",
+          home
+            ? "size-[72px] rounded-[10px] outline-offset-4"
+            : "size-10 rounded-lg outline-offset-3",
+        ]}
+      />
+      {
+        home ? null : (
+          <span class="text-[17px] font-bold text-hi">{SITE.author}</span>
+        )
+      }
+    </a>
+    {
+      home && (
+        <div class="min-w-0">
+          <h1 class="text-[26px] leading-tight font-bold text-hi">
+            {SITE.author}
+          </h1>
+          <p class="mt-px text-mu">{SITE.bio}</p>
+        </div>
+      )
+    }
+    <nav
+      aria-label="Main"
+      class="flex w-full flex-wrap items-center gap-x-[18px] gap-y-1 font-mono text-[13px] text-mu sm:ms-auto sm:w-auto"
+    >
+      {
+        links.map(l => (
+          <a
+            href={l.href}
+            aria-current={first === l.key ? "page" : undefined}
+            class="inline-flex min-h-6 items-center hover:text-hi aria-[current=page]:font-semibold aria-[current=page]:text-hi"
+          >
+            {l.label}
+          </a>
+        ))
+      }
+      {
+        SITE.lightAndDarkMode && (
+          <button
+            id="theme-btn"
+            type="button"
+            class="inline-flex min-h-6 items-center font-mono text-[13px] hover:text-hi"
+            aria-label="auto"
+          >
+            <span data-theme-label>◐ dark</span>
+          </button>
+        )
+      }
+    </nav>
   </div>
-  <Hr />
 </header>
-
-<script>
-  function toggleNav() {
-    const menuBtn = document.querySelector("#menu-btn");
-    const menuItems = document.querySelector("#menu-items");
-    const menuIcon = document.querySelector("#menu-icon");
-    const closeIcon = document.querySelector("#close-icon");
-
-    if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
-
-    menuBtn.addEventListener("click", () => {
-      const openMenu = menuBtn.getAttribute("aria-expanded") === "true";
-
-      menuBtn.setAttribute("aria-expanded", openMenu ? "false" : "true");
-      menuBtn.setAttribute("aria-label", openMenu ? "Open Menu" : "Close Menu");
-
-      menuItems.classList.toggle("hidden");
-      menuIcon.classList.toggle("hidden");
-      closeIcon.classList.toggle("hidden");
-    });
-  }
-
-  toggleNav();
-
-  // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", toggleNav);
-</script>

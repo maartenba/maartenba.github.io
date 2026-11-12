@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Time for a change... Moving from JetBrains to Duende Software"
+description: "After close to 12 years at JetBrains, I am joining Duende Software in 2025 to drive customer success and advocate for IdentityServer. Here is why."
 pubDatetime: 2024-11-21T03:44:05Z
 comments: true
 published: true

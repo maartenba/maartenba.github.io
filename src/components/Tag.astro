@@ -1,6 +1,4 @@
 ---
-import IconHash from "@/assets/icons/IconHash.svg";
-
 export interface Props {
   tag: string;
   tagName: string;
@@ -10,22 +8,15 @@ export interface Props {
 const { tag, tagName, size = "sm" } = Astro.props;
 ---
 
-<li class:list={["group inline-block", size === "sm" ? "my-1" : "mx-1 my-3"]}>
+<li class="inline-block">
   <a
     href={`/tags/${tag}/`}
     transition:name={tag}
     class:list={[
-      "inline-flex items-center gap-0.5 rounded-full border border-accent/20 bg-accent/5 px-2.5 py-0.5 text-foreground/80 no-underline transition-colors hover:border-accent/40 hover:bg-accent/10 hover:text-accent focus-visible:p-1 focus-visible:no-underline",
-      size === "sm" ? "text-xs" : "text-sm",
+      "inline-block rounded-full bg-acs px-[11px] py-1 font-mono font-medium text-ac no-underline hover:underline",
+      size === "sm" ? "text-xs" : "text-[13px]",
     ]}
   >
-    <IconHash
-      class:list={[
-        "inline-block opacity-60",
-        { "size-3": size === "sm" },
-        { "size-4": size === "lg" },
-      ]}
-    />
-    <span>{tagName}</span>
+    {tagName}
   </a>
 </li>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Nullable reference types in C# - Migrating to nullable reference types - Part 1"
+description: "Nullable reference types in C# 8 help avoid NullReferenceException, but migrating an existing codebase takes effort. First post of a series on what works."
 pubDatetime: 2022-04-11T03:44:05Z
 comments: true
 published: true

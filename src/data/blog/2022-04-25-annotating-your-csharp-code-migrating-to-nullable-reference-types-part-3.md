@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Annotating your C# code - Migrating to nullable reference types - Part 3"
+description: "The attributes and annotations you can use to help C# flow analysis understand your code, so you and your library consumers get more reliable null hints."
 pubDatetime: 2022-04-25T03:44:05Z
 comments: true
 published: true

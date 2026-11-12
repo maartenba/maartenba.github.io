@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How to test ASP.NET Core Minimal APIs"
+description: "How to test ASP.NET Core Minimal APIs without deploying: test a hello world endpoint and a JSON API, then swap out services in the test host."
 pubDatetime: 2022-06-07T03:44:05Z
 comments: true
 published: true

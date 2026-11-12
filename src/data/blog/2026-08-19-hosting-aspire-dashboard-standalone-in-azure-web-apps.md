@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Hosting the .NET Aspire Dashboard as a Standalone Container in Azure Web Apps"
+description: "Run the .NET Aspire dashboard as a standalone container in Azure Web Apps to view OpenTelemetry traces, metrics and logs, including the HTTP/2 and gRPC setup."
 pubDatetime: 2026-08-19T07:00:00Z
 comments: true
 published: true

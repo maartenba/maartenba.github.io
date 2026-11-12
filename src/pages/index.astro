@@ -1,90 +1,119 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
-import Socials from "@/components/Socials.astro";
-import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
+import EthicalAd from "@/components/EthicalAd.astro";
+import Footer from "@/components/Footer.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
-import IconRss from "@/assets/icons/IconRss.svg";
-import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { getPostHref } from "@/utils/getPath";
 import { SITE } from "@/config";
-import { SOCIALS } from "@/constants";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const [latest, ...rest] = sortedPosts;
+const recent = rest.slice(0, 20);
+
+const byYear = recent.reduce<Record<string, typeof recent>>((acc, p) => {
+  const y = String(new Date(p.data.pubDatetime).getUTCFullYear());
+  (acc[y] ??= []).push(p);
+  return acc;
+}, {});
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+
+const when = (p: (typeof sortedPosts)[number], fmt: string) => {
+  const { pubDatetime, modDatetime, timezone: tz } = p.data;
+  const modified = modDatetime && modDatetime > pubDatetime;
+  return dayjs(modified ? modDatetime : pubDatetime)
+    .tz(tz || SITE.timezone)
+    .format(fmt);
+};
+
+let minutes: number | undefined;
+if (latest) {
+  const { remarkPluginFrontmatter } = await render(latest);
+  minutes = remarkPluginFrontmatter?.minutesRead;
+}
 ---
 
 <Layout>
-  <Header />
-  <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-8 pb-6">
-      <div class="flex items-center gap-5 sm:gap-6">
-        <img
-          src="/images/avatars/maarten-2018-800x800.jpg"
-          alt="Maarten Balliauw"
-          width="80"
-          height="80"
-          class="size-16 rounded-full border-2 border-white/30 shadow-lg sm:size-20"
-        />
-        <div>
-          <h1 class="inline-block text-3xl font-bold sm:text-5xl">
-            Maarten Balliauw
-            <span class="font-light opacity-80">{"{blog}"}</span>
-          </h1>
-          <a
-            target="_blank"
-            href="/feed.xml"
-            class="ml-2 inline-block align-middle"
-            aria-label="rss feed"
-            title="RSS Feed"
-          >
-            <IconRss
-              width={18}
-              height={18}
-              class="scale-110 stroke-3 rtl:-rotate-90"
-            />
-            <span class="sr-only">RSS Feed</span>
-          </a>
-        </div>
-      </div>
-
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <Socials />
+  <Header variant="home" />
+  <main
+    id="main-content"
+    data-layout="index"
+    class="mx-auto w-full max-w-app px-4 pt-8 pb-10 sm:pt-9"
+  >
+    {
+      latest && (
+        <a
+          href={getPostHref(latest.id, latest.filePath)}
+          class="group block rounded-lg border border-ll bg-lc px-[22px] py-[22px] shadow-[0_1px_0_var(--ll)] transition-colors hover:border-ac sm:px-[30px] sm:py-7"
+        >
+          <div class="flex items-center justify-between font-mono text-xs font-medium text-mu">
+            <span class="rounded-full bg-acs px-[9px] py-[3px] font-semibold text-ac">
+              latest
+            </span>
+            <span>
+              {when(latest, "MMM D, YYYY")}
+              {minutes ? ` · ${minutes} min` : ""}
+            </span>
           </div>
-        )
-      }
-    </section>
+          <h2 class="mt-3.5 mb-2 max-w-[28ch] text-2xl leading-[1.15] font-bold tracking-[-0.015em] text-hi sm:text-[34px]">
+            {latest.data.title}
+          </h2>
+          {latest.data.description && (
+            <p class="line-clamp-3 max-w-[62ch] text-base text-fg">
+              {latest.data.description}
+            </p>
+          )}
+          <span class="mt-4 inline-block font-mono text-[13px] font-medium text-ac">
+            Read it →
+          </span>
+        </a>
+      )
+    }
 
     {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
+      recent.length > 0 && (
+        <section id="recent" aria-labelledby="recent-label" class="mt-5 !px-0">
+          <h2
+            id="recent-label"
+            class="mb-2 font-mono text-xs font-semibold tracking-[0.08em] text-hi uppercase"
+          >
+            recent
+          </h2>
+          <ul class="rounded-lg border border-ln bg-card px-[22px] py-1 shadow-[0_1px_2px_#0000000d]">
+            <EthicalAd variant="row" />
+            {years.map(y => (
+              <>
+                <li
+                  aria-hidden="true"
+                  class="pt-3.5 pb-0.5 font-mono text-xs font-semibold tracking-[0.08em] text-mu first:pt-2.5"
+                >
+                  {y}
+                </li>
+                {byYear[y].map(p => (
+                  <Card {...p} showDescription />
+                ))}
+              </>
+            ))}
           </ul>
         </section>
       )
     }
 
-    <div class="my-8 text-center">
-      <LinkButton
-        href="/posts/"
-        class="rounded-full border border-accent/30 bg-accent/5 px-6 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/10"
-      >
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
+    <a
+      href="/posts/"
+      class="mt-4 inline-block font-mono text-[13px] font-medium text-ac hover:underline"
+    >
+      All {sortedPosts.length} posts →
+    </a>
   </main>
   <Footer />
 </Layout>

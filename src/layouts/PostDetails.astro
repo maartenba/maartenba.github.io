@@ -3,15 +3,18 @@ import { render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Datetime from "@/components/Datetime.astro";
 import EditPost from "@/components/EditPost.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
-import BackToTopButton from "@/components/BackToTopButton.astro";
+import Toc from "@/components/Toc.astro";
+import AuthorCard from "@/components/AuthorCard.astro";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezonePlugin from "dayjs/plugin/timezone";
+import avatar from "@/assets/images/avatar.jpg";
+import { Image } from "astro:assets";
 import { getPath, getPostHref } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
-import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
-import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import EthicalAd from "@/components/EthicalAd.astro";
 import { getRelatedPosts } from "@/utils/getRelatedPosts";
 import { SITE } from "@/config";
@@ -27,6 +30,7 @@ const {
   title,
   author,
   description,
+  descriptionGenerated,
   ogImage: initOgImage,
   canonicalURL,
   pubDatetime,
@@ -36,7 +40,10 @@ const {
   hideEditPost,
 } = post.data;
 
-const { Content, remarkPluginFrontmatter } = await render(post);
+dayjs.extend(utc);
+dayjs.extend(timezonePlugin);
+
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
 const minutesRead: number | undefined = remarkPluginFrontmatter?.minutesRead;
 
 let ogImageUrl: string | undefined;
@@ -86,10 +93,18 @@ const currentPostIndex = allPosts.findIndex(a => a.id === post.id);
 
 const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
 const nextPost =
-  currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
+  currentPostIndex < allPosts.length - 1
+    ? allPosts[currentPostIndex + 1]
+    : null;
 
-const cardClass =
-  "group flex flex-col gap-2 rounded-xl border border-border bg-background p-4 no-underline transition-[border-color,box-shadow] duration-200 hover:border-accent hover:shadow-md focus-visible:border-accent motion-reduce:transition-none";
+const fmt = (d: Date) =>
+  dayjs(d)
+    .tz(timezone || SITE.timezone)
+    .format("MMM D, YYYY");
+const published = fmt(pubDatetime);
+const updated =
+  modDatetime && modDatetime > pubDatetime ? fmt(modDatetime) : undefined;
+const mainTag = tags.find(t => t.toLowerCase() !== "general") ?? tags[0];
 
 const postPath = getPostHref(post.id, post.filePath);
 const postUrl = new URL(postPath, SITE.website).href;
@@ -120,113 +135,143 @@ const breadcrumbData = {
   </Fragment>
   <Header />
   <BackButton />
-  <main
-    id="main-content"
-    class:list={[
-      "mx-auto w-full max-w-app px-4 pb-12",
-      { "mt-8": !SITE.showBackButton },
-    ]}
-    data-pagefind-body
-  >
-    <!-- Post header banner (matches OG image gradient style) -->
-    <div
-      class="post-hero relative mb-8 overflow-hidden rounded-xl bg-gradient-to-br from-[#1e3a5f] via-[#2563eb] to-[#7c3aed] px-6 py-8 sm:px-8 sm:py-10 dark:from-[#1a1b2e] dark:via-[#1e40af] dark:to-[#5b21b6]"
-    >
-      <div
-        class="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/[0.06]"
-      >
-      </div>
-      <div
-        class="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-white/[0.04]"
-      >
-      </div>
-      <div class="relative">
-        <ul class="mb-3 flex flex-wrap gap-1.5">
+  <main id="main-content" class="post-wrap">
+    <div class="post-article">
+      <header class="post-head">
+        <div class="post-crumb">
           {
-            tags.slice(0, 3).map(tag => (
-              <li class="inline-block">
-                <a
-                  href={`/tags/${slugifyStr(tag)}/`}
-                  class="inline-flex items-center rounded-full border border-white/25 bg-white/[0.12] px-2.5 py-0.5 text-xs text-white/90 no-underline transition-colors hover:bg-white/20"
-                >
-                  # {tag}
-                </a>
-              </li>
-            ))
+            mainTag && (
+              <a href={`/tags/${slugifyStr(mainTag)}/`} class="post-pill">
+                {mainTag}
+              </a>
+            )
           }
-        </ul>
-        <h1
-          transition:name={slugifyStr(title)}
-          class="text-2xl leading-tight font-bold text-white sm:text-3xl"
-        >
-          {title}
-        </h1>
-        <div class="mt-4 flex items-center gap-3 text-white/70">
-          <img
-            src="/images/avatars/maarten-2018-800x800.jpg"
-            alt={author}
-            width="36"
-            height="36"
-            class="size-9 rounded-full border border-white/30"
-          />
-          <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2">
-            <a
-              href="/about/"
-              rel="author"
-              class="text-sm font-medium text-white/80 no-underline underline-offset-4 hover:text-white hover:underline"
-            >
-              {author}
-            </a>
-            <span class="hidden text-white/40 sm:inline">&middot;</span>
-            <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
-            {
-              minutesRead && (
-                <>
-                  <span class="hidden text-white/40 sm:inline">&middot;</span>
-                  <span class="text-sm text-white/80 sm:text-base">
-                    {minutesRead} min read
-                  </span>
-                </>
-              )
-            }
-          </div>
+          <time datetime={dayjs(pubDatetime).toISOString()}>{published}</time>
+          {
+            minutesRead && (
+              <>
+                <span aria-hidden="true">&middot;</span>
+                <span>{minutesRead} min read</span>
+              </>
+            )
+          }
         </div>
+        <h1 transition:name={slugifyStr(title)}>{title}</h1>
+        {
+          descriptionGenerated !== true && description && (
+            <p class="post-dek">{description}</p>
+          )
+        }
+        <div class="post-by">
+          <Image
+            src={avatar}
+            alt=""
+            width={28}
+            height={28}
+            loading="eager"
+            class="post-by-avatar"
+          />
+          <span>
+            <a href="/about/" rel="author">{author}</a>
+            <EditPost
+              {hideEditPost}
+              {post}
+              variant="link"
+              class="post-by-edit"
+            />
+          </span>
+        </div>
+      </header>
+
+      <div class="post-body">
+        <article id="article" class="app-prose" data-pagefind-body>
+          <div data-pagefind-ignore><EthicalAd keywords={tags} /></div>
+          <Content />
+        </article>
+        <Toc {headings} {post} {tags} {published} {updated} />
       </div>
     </div>
-    <EthicalAd />
 
-    <article
-      id="article"
-      class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
-    >
-      <Content />
-    </article>
-
-    <hr class="my-8 border-dashed" />
-
-    <div
+    <nav
       data-pagefind-ignore
-      class="flex flex-col gap-5 rounded-xl border border-border bg-muted/40 p-5 sm:flex-row sm:items-center sm:justify-between"
+      aria-label="Previous and next posts"
+      class="post-end"
     >
-      <div class="flex flex-col items-start gap-3">
-        <EditPost {hideEditPost} {post} />
-        <p class="text-sm text-foreground/80">
-          <a
-            href="https://www.google.com/preferences/source?q=blog.maartenballiauw.be"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Add blog.maartenballiauw.be as a preferred source on Google"
-            aria-label="Prefer this blog on Google: add blog.maartenballiauw.be as a preferred source"
-            class="inline-block py-1 hover:text-accent"
-          >
-            &#9733; Prefer this blog on Google
+      {
+        prevPost ? (
+          <a href={getPostHref(prevPost.id, prevPost.filePath)} class="post-nx">
+            <small>&larr; previous</small>
+            <span>{prevPost.title}</span>
           </a>
-        </p>
-      </div>
-      <ShareLinks />
-    </div>
+        ) : (
+          <span class="post-nx-empty" />
+        )
+      }
+      {
+        nextPost && (
+          <a
+            href={getPostHref(nextPost.id, nextPost.filePath)}
+            class="post-nx post-nx-r"
+          >
+            <small>next &rarr;</small>
+            <span>{nextPost.title}</span>
+          </a>
+        )
+      }
+    </nav>
 
-    <BackToTopButton />
+    <AuthorCard />
+
+    {
+      relatedPosts.length > 0 && (
+        <div
+          data-pagefind-ignore
+          class="post-box"
+          role="region"
+          aria-labelledby="related-posts"
+        >
+          <h2 id="related-posts" class="post-box-label">
+            Related posts
+          </h2>
+          <ul class="post-related">
+            {relatedPosts.map(related => (
+              <li>
+                <a href={getPostHref(related.id, related.filePath)}>
+                  {related.data.title}
+                </a>
+                <time
+                  datetime={new Date(related.data.pubDatetime).toISOString()}
+                >
+                  {new Date(related.data.pubDatetime).toLocaleDateString(
+                    "en-GB",
+                    {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                      timeZone: "UTC",
+                    }
+                  )}
+                </time>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+
+    <div data-pagefind-ignore class="post-box post-share">
+      <ShareLinks />
+      <a
+        href="https://www.google.com/preferences/source?q=blog.maartenballiauw.be"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Add blog.maartenballiauw.be as a preferred source on Google"
+        aria-label="Prefer this blog on Google: add blog.maartenballiauw.be as a preferred source"
+        class="post-prefer"
+      >
+        &#9733; Prefer this blog on Google
+      </a>
+    </div>
 
     <script
       is:inline
@@ -244,98 +289,7 @@ const breadcrumbData = {
       data-lang="en"
       data-loading="lazy"
       crossorigin="anonymous"
-      async
-    ></script>
-
-    <hr class="my-8 border-dashed" />
-
-    <!-- Previous/Next Post Cards -->
-    <nav
-      data-pagefind-ignore
-      aria-label="Previous and next posts"
-      class="grid grid-cols-1 gap-4 sm:grid-cols-2"
-    >
-      {
-        prevPost && (
-          <a
-            href={getPostHref(prevPost.id, prevPost.filePath)}
-            class={`${cardClass} items-start`}
-          >
-            <span class="flex items-center gap-1 text-xs font-medium tracking-wide text-foreground/80 uppercase">
-              <IconChevronLeft class="size-5 flex-none rtl:rotate-180" />
-              Previous post
-            </span>
-            <span class="line-clamp-2 font-medium text-accent">
-              {prevPost.title}
-            </span>
-          </a>
-        )
-      }
-      {
-        nextPost && (
-          <a
-            href={getPostHref(nextPost.id, nextPost.filePath)}
-            class={`${cardClass} items-end text-end sm:col-start-2`}
-          >
-            <span class="flex items-center gap-1 text-xs font-medium tracking-wide text-foreground/80 uppercase">
-              Next post
-              <IconChevronRight class="size-5 flex-none rtl:rotate-180" />
-            </span>
-            <span class="line-clamp-2 font-medium text-accent">
-              {nextPost.title}
-            </span>
-          </a>
-        )
-      }
-    </nav>
-
-    {
-      relatedPosts.length > 0 && (
-        <section
-          data-pagefind-ignore
-          class="mt-10 !px-0"
-          aria-labelledby="related-posts"
-        >
-          <h2 id="related-posts" class="mb-4 text-xl font-semibold">
-            Related posts
-          </h2>
-          <ul class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {relatedPosts.map(related => (
-              <li class="flex">
-                <a
-                  href={getPostHref(related.id, related.filePath)}
-                  class={`${cardClass} w-full`}
-                >
-                  <span class="line-clamp-3 text-sm font-medium text-accent">
-                    {related.data.title}
-                  </span>
-                  <span class="mt-auto flex flex-wrap items-center gap-x-2 text-xs text-foreground/80">
-                    <time
-                      datetime={new Date(
-                        related.data.pubDatetime
-                      ).toISOString()}
-                    >
-                      {new Date(related.data.pubDatetime).toLocaleDateString(
-                        "en-GB",
-                        {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                          timeZone: "UTC",
-                        }
-                      )}
-                    </time>
-                    {related.data.tags[0] && (
-                      <span># {related.data.tags[0]}</span>
-                    )}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )
-    }
+      async></script>
   </main>
   <Footer />
 </Layout>
@@ -386,7 +340,9 @@ const breadcrumbData = {
    *  allowing sharing of sections easily */
   function addHeadingLinks() {
     const headings = Array.from(
-      document.querySelectorAll("h2, h3, h4, h5, h6")
+      document.querySelectorAll(
+        "#article h2, #article h3, #article h4, #article h5, #article h6"
+      )
     );
     for (const heading of headings) {
       heading.classList.add("group");
@@ -408,56 +364,18 @@ const breadcrumbData = {
   }
   addHeadingLinks();
 
-  /** Attaches copy buttons to code blocks in the document,
-   * allowing users to copy code easily. */
-  function attachCopyButtons() {
-    const copyButtonLabel = "Copy";
-    const codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-    for (const codeBlock of codeBlocks) {
-      const wrapper = document.createElement("div");
-      wrapper.style.position = "relative";
-
-      // Check if --file-name-offset custom property exists
-      const computedStyle = getComputedStyle(codeBlock);
-      const hasFileNameOffset =
-        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
-
-      // Determine the top positioning class
-      const topClass = hasFileNameOffset
-        ? "top-(--file-name-offset)"
-        : "-top-3";
-
-      const copyButton = document.createElement("button");
-      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
-      copyButton.innerHTML = copyButtonLabel;
-      codeBlock.setAttribute("tabindex", "0");
-      codeBlock.appendChild(copyButton);
-
-      // wrap codebock with relative parent element
-      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
-      wrapper.appendChild(codeBlock);
-
-      copyButton.addEventListener("click", async () => {
-        await copyCode(codeBlock, copyButton);
-      });
-    }
-
-    async function copyCode(block, button) {
-      const code = block.querySelector("code");
-      const text = code?.innerText;
-
+  /** One delegated listener (guarded so ClientRouter navigations don't stack it). */
+  if (!window.__copyBound) {
+    window.__copyBound = true;
+    document.addEventListener("click", async e => {
+      const btn = e.target.closest?.(".code .copy");
+      if (!btn) return;
+      const text = btn.closest(".code")?.querySelector("pre code")?.innerText;
       await navigator.clipboard.writeText(text ?? "");
-
-      // visual feedback that task is completed
-      button.innerText = "Copied";
-
-      setTimeout(() => {
-        button.innerText = copyButtonLabel;
-      }, 700);
-    }
+      btn.textContent = "copied";
+      setTimeout(() => (btn.textContent = "copy"), 1500);
+    });
   }
-  attachCopyButtons();
 
   /* Go to page start after page swap */
   document.addEventListener("astro:after-swap", () =>

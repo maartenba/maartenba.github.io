@@ -1,42 +1,56 @@
 ---
-import { slugifyStr } from "@/utils/slugify";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 import type { CollectionEntry } from "astro:content";
 import { getPostHref } from "@/utils/getPath";
-import Datetime from "./Datetime.astro";
+import { SITE } from "@/config";
 
-export interface Props extends CollectionEntry<"blog"> {
-  variant?: "h2" | "h3";
-}
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
-const { variant = "h2", data, id, filePath } = Astro.props;
+export type Props = CollectionEntry<"blog"> & { showDescription?: boolean };
 
-const { title, description, pubDatetime, modDatetime, timezone } = data;
-
-const headerProps = {
-  style: { viewTransitionName: slugifyStr(title) },
-  class: "text-lg font-medium decoration-dashed hover:underline",
-};
+const { data, id, filePath, showDescription = false } = Astro.props;
+const {
+  title,
+  description,
+  descriptionGenerated,
+  pubDatetime,
+  modDatetime,
+  timezone: tz,
+} = data;
+const desc = showDescription && !descriptionGenerated ? description : undefined;
+const modified = modDatetime && modDatetime > pubDatetime;
+const date = dayjs(modified ? modDatetime : pubDatetime)
+  .tz(tz || SITE.timezone)
+  .format("MMM D, YYYY");
 ---
 
-<li class="my-6">
+<li class="border-b border-ln last:border-0">
   <a
     href={getPostHref(id, filePath)}
-    class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+    class="group grid gap-x-4 py-3 no-underline sm:grid-cols-[110px_1fr]"
   >
-    {
-      variant === "h2" ? (
-        <h2 {...headerProps}>{title}</h2>
-      ) : (
-        <h3 {...headerProps}>{title}</h3>
-      )
-    }
+    <time
+      datetime={new Date(pubDatetime).toISOString()}
+      class="pt-[3px] font-mono text-[13px] text-mu"
+    >
+      {date}
+    </time>
+    <span class="min-w-0">
+      <span
+        class="block text-base leading-[1.35] font-semibold text-hi group-hover:text-ac"
+      >
+        {title}
+      </span>
+      {
+        desc && (
+          <span class="mt-[3px] line-clamp-2 block text-[14.5px] text-mu">
+            {desc}
+          </span>
+        )
+      }
+    </span>
   </a>
-  <Datetime {pubDatetime} {modDatetime} {timezone} />
-  {
-    description && (
-      <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-foreground/80">
-        {description}
-      </p>
-    )
-  }
 </li>

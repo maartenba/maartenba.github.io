@@ -23,39 +23,24 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
 }
 ---
 
-<nav class="mx-auto mt-8 mb-1 w-full max-w-app px-4" aria-label="breadcrumb">
-  <ul
-    class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"
-  >
+<nav class="mx-auto mt-6 w-full max-w-app px-4" aria-label="breadcrumb">
+  <ul class="font-mono text-xs text-mu [&>li]:inline">
     <li>
-      <a
-        href="/"
-        class="underline decoration-dashed underline-offset-4 opacity-80"
-        >Home</a
-      >
-      <span aria-hidden="true" class="opacity-80">&raquo;</span>
+      <a href="/" class="hover:text-ac hover:underline">home</a>
+      <span aria-hidden="true">/</span>
     </li>
     {
       breadcrumbList.map((breadcrumb, index) =>
         index + 1 === breadcrumbList.length ? (
           <li>
-            <span
-              class:list={["capitalize opacity-75", { lowercase: index > 0 }]}
-              aria-current="page"
-            >
-              {/* make the last part lowercase in Home > Tags > some-tag */}
-              {decodeURIComponent(breadcrumb)}
-            </span>
+            <span aria-current="page">{decodeURIComponent(breadcrumb)}</span>
           </li>
         ) : (
           <li>
-            <a
-              href={`/${breadcrumb}/`}
-              class="capitalize underline decoration-dashed underline-offset-4 opacity-70"
-            >
+            <a href={`/${breadcrumb}/`} class="hover:text-ac hover:underline">
               {breadcrumb}
             </a>
-            <span aria-hidden="true">&raquo;</span>
+            <span aria-hidden="true">/</span>
           </li>
         )
       )

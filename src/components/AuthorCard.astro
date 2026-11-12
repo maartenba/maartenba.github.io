@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import avatar from "@/assets/images/avatar.jpg";
+import { SITE } from "@/config";
+import { SOCIALS } from "@/constants";
+
+const links = [
+  { label: "rss", href: "/feed.xml" },
+  ...SOCIALS.map(s => ({ label: s.name.toLowerCase(), href: s.href })),
+];
+---
+
+<div class="author-card" data-pagefind-ignore>
+  <Image
+    src={avatar}
+    alt=""
+    width={64}
+    height={64}
+    class="author-avatar"
+    loading="lazy"
+  />
+  <div class="author-text">
+    <b>{SITE.author}</b>
+    <p>{SITE.bio}</p>
+  </div>
+  <nav aria-label="Author links">
+    {
+      links.map(l => (
+        <a
+          href={l.href}
+          rel={l.href.startsWith("http") ? "me noopener" : undefined}
+        >
+          {l.label}
+        </a>
+      ))
+    }
+  </nav>
+</div>

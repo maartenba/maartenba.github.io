@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Provide opt-in to experimental APIs using C#12 ExperimentalAttribute"
+description: "C# 12 adds ExperimentalAttribute so library authors can mark APIs as experimental and make consumers explicitly opt in. How it works and how to suppress it."
 pubDatetime: 2023-11-08T03:44:05Z
 comments: true
 published: true

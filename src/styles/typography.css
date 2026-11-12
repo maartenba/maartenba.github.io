@@ -3,22 +3,38 @@
 @layer base {
   /* ===== Override default Tailwind Typography styles ===== */
   .app-prose {
-    @apply prose;
+    @apply prose max-w-[68ch] text-[17px] leading-[1.7] text-fg;
+    --tw-prose-body: var(--fg);
+    --tw-prose-bold: var(--hi);
+    --tw-prose-headings: var(--hi);
+    --tw-prose-counters: var(--mu);
+    --tw-prose-bullets: var(--ac);
+    --tw-prose-hr: var(--ln);
+    --tw-prose-th-borders: var(--ln);
+    --tw-prose-td-borders: var(--ln);
+
+    > :first-child {
+      @apply mt-0;
+    }
 
     h1,
     h2,
     h3,
     h4,
     th {
-      @apply mb-3 text-foreground;
+      @apply text-hi;
     }
 
     h2 {
-      @apply border-b border-border pb-2;
+      @apply mt-[1.9em] mb-3 text-[25px] leading-tight font-bold tracking-tight;
     }
 
     h3 {
-      @apply font-semibold;
+      @apply mt-[1.6em] mb-2 text-xl font-semibold;
+    }
+
+    .heading-link {
+      @apply font-normal text-mu no-underline;
     }
 
     p,
@@ -26,13 +42,16 @@
     ol,
     ul,
     figcaption,
-    table,
-    code {
-      @apply text-foreground;
+    table {
+      @apply text-fg;
+    }
+
+    strong {
+      @apply text-hi;
     }
 
     a {
-      @apply break-words text-foreground decoration-accent/60 decoration-dashed underline-offset-4 hover:text-accent hover:decoration-accent focus-visible:no-underline;
+      @apply font-normal break-words text-ac underline decoration-[color-mix(in_srgb,var(--ac)_45%,transparent)] decoration-1 underline-offset-[3px] hover:decoration-ac focus-visible:no-underline;
     }
 
     ul {
@@ -40,25 +59,29 @@
     }
 
     li {
-      @apply marker:text-accent;
+      @apply marker:text-ac;
     }
 
     hr {
-      @apply border-dashed border-border;
+      @apply border-ln;
     }
 
     img {
-      @apply mx-auto rounded-xl border border-border shadow-sm;
+      @apply mx-auto box-border rounded-md border border-ln;
+    }
+
+    figure {
+      @apply my-6;
     }
 
     figcaption {
-      @apply opacity-75;
+      @apply mt-2 font-mono text-[13px] text-mu;
     }
 
     table {
       th,
       td {
-        @apply border border-border p-2;
+        @apply border border-ln p-2;
       }
 
       th {
@@ -71,19 +94,41 @@
     }
 
     code {
-      @apply rounded-md border border-border bg-muted px-1.5 py-0.5 text-[0.875em] break-words text-foreground before:content-none after:content-none;
+      @apply rounded bg-ic px-[0.35em] py-[0.1em] font-mono text-[0.86em] font-medium break-words text-hi before:content-none after:content-none;
+    }
+
+    a code {
+      @apply text-ac;
     }
 
     .astro-code code {
-      @apply flex-[1_0_100%] rounded-none border-0 bg-inherit p-0 text-[1em];
+      @apply block rounded-none border-0 bg-transparent p-0 text-[1em] font-normal break-normal;
     }
 
     blockquote {
-      @apply rounded-e-xl border-s-4 border-s-accent bg-accent/5 py-1 pr-4 pl-4 break-words not-italic;
+      @apply my-6 rounded-lg border border-ll bg-lc px-[18px] py-3.5 text-base font-normal break-words text-fg not-italic;
+      quotes: none;
+    }
+
+    blockquote > :first-child {
+      @apply mt-0;
+    }
+
+    blockquote > :last-child {
+      @apply mb-0;
+    }
+
+    blockquote p::before,
+    blockquote p::after {
+      content: none;
+    }
+
+    blockquote > p:first-child > strong:first-child {
+      @apply mb-0.5 block font-mono text-xs font-semibold tracking-wider text-ac uppercase;
     }
 
     details {
-      @apply inline-block cursor-pointer text-foreground select-none [&_p]:hidden [&_ul]:!my-0;
+      @apply inline-block cursor-pointer text-fg select-none [&_p]:hidden [&_ul]:!my-0;
     }
 
     summary {
@@ -95,133 +140,275 @@
     }
   }
 
-  /* ===== Code Blocks & Syntax Highlighting ===== */
-  .astro-code {
-    @apply flex rounded-xl border bg-(--shiki-light-bg) text-(--shiki-light) shadow-sm outline-border [&_span]:text-(--shiki-light);
+  /* ===== Post page layout ===== */
+  .post-wrap {
+    @apply mx-auto w-full max-w-app px-4 pt-8 pb-14;
+  }
+  .post-article {
+    @apply rounded-lg border border-ll bg-card;
+  }
+  .post-head {
+    @apply rounded-t-[7px] border-b border-ll bg-lc px-[22px] py-[26px] sm:px-10 sm:py-[34px];
+  }
+  .post-crumb {
+    @apply flex flex-wrap items-center gap-2.5 font-mono text-xs font-medium text-mu;
+  }
+  .post-pill {
+    @apply rounded-full bg-acs px-[9px] py-0.5 font-semibold text-ac no-underline;
+  }
+  .post-head h1 {
+    @apply mt-3.5 mb-3 max-w-[24ch] text-[30px] leading-[1.12] font-bold tracking-tight text-hi sm:text-[40px];
+  }
+  .post-dek {
+    @apply max-w-[60ch] text-[19px] leading-normal text-fg;
+  }
+  .post-by {
+    @apply mt-5 flex items-center gap-2.5 text-sm text-mu;
+  }
+  .post-by-avatar {
+    @apply size-7 rounded-full;
+  }
+  .post-by a[rel="author"] {
+    @apply font-semibold text-hi no-underline hover:underline;
+  }
+  .post-by-edit {
+    @apply inline-flex min-h-6 items-center px-1.5 no-underline;
+  }
+  .edit-link.post-by-edit {
+    text-decoration: none;
+  }
+  .post-by-edit span {
+    @apply underline decoration-[color-mix(in_srgb,var(--ac)_45%,transparent)] underline-offset-[3px];
+  }
+  .post-by-edit:hover span {
+    @apply decoration-ac;
+  }
+  .post-by-edit::before {
+    content: "\00b7";
+    display: inline-block;
+    @apply me-2.5 text-mu;
+  }
+  .edit-link {
+    @apply text-ac underline decoration-[color-mix(in_srgb,var(--ac)_45%,transparent)] underline-offset-[3px] hover:decoration-ac;
+  }
+  .post-body {
+    @apply grid grid-cols-[minmax(0,1fr)] gap-12 px-[22px] py-7 min-[861px]:grid-cols-[minmax(0,1fr)_200px] sm:px-10 sm:pt-11 sm:pb-10;
+  }
+  .toc {
+    @apply sticky top-6 hidden self-start text-sm min-[861px]:block;
+  }
+  .toc-label {
+    @apply mb-2 font-mono text-xs font-semibold tracking-widest text-hi uppercase;
+  }
+  .toc-link {
+    @apply block py-[5px] leading-snug text-mu no-underline hover:text-hi;
+  }
+  .toc-sub {
+    @apply ps-3;
+  }
+  .toc-link.on {
+    @apply font-semibold text-ac;
+  }
+  .toc-meta {
+    @apply mt-[22px] border-t border-ln pt-3.5 font-mono text-xs leading-[1.9] text-mu;
+  }
+  .toc-tags {
+    @apply flex flex-wrap gap-x-[0.6ch];
+  }
+  .toc-tags a:not(:last-child)::after {
+    content: ",";
+    @apply text-mu;
+  }
+  .toc-meta a {
+    @apply text-ac;
+  }
+  .post-end {
+    @apply mt-4 grid grid-cols-1 gap-3.5 sm:grid-cols-2;
+  }
+  .post-nx {
+    @apply block rounded-lg border border-ln bg-card px-5 py-[18px] no-underline hover:border-ac;
+  }
+  .post-nx small {
+    @apply mb-1 block font-mono text-xs font-medium text-mu;
+  }
+  .post-nx span {
+    @apply text-base leading-snug font-semibold text-hi;
+  }
+  .post-nx-r {
+    @apply text-end sm:col-start-2;
+  }
+  .post-nx-empty {
+    @apply hidden;
+  }
+  .author-card {
+    @apply mt-4 flex flex-wrap items-center gap-[18px] rounded-lg border border-ln bg-card p-[22px];
+  }
+  .author-avatar {
+    @apply size-16 rounded-[10px];
+  }
+  .author-text b {
+    @apply text-[17px] text-hi;
+  }
+  .author-text p {
+    @apply text-[15px] leading-normal text-mu;
+  }
+  .author-card nav {
+    @apply flex flex-wrap gap-3.5 font-mono text-[13px] font-medium sm:ms-auto;
+  }
+  .author-card nav a {
+    @apply text-ac no-underline hover:underline;
+  }
+  .post-box {
+    @apply mt-4 rounded-lg border border-ln bg-card px-[22px] py-[18px];
+  }
+  .post-box-label {
+    @apply mb-2 font-mono text-xs font-semibold tracking-widest text-hi uppercase;
+  }
+  .post-related li {
+    @apply flex items-baseline justify-between gap-4 py-1.5 text-[15px];
+  }
+  .post-related a {
+    @apply text-fg no-underline hover:text-ac;
+  }
+  .post-related time {
+    @apply shrink-0 font-mono text-xs text-mu;
+  }
+  .post-share {
+    @apply flex flex-wrap items-center justify-between gap-3;
+  }
+  .post-prefer {
+    @apply py-1 font-mono text-xs text-ac no-underline hover:underline;
   }
 
-  html[data-theme="dark"] .astro-code {
-    @apply bg-(--shiki-dark-bg) text-(--shiki-dark) [&_span]:text-(--shiki-dark);
+  /* ===== Code Blocks & Syntax Highlighting ===== */
+  .code {
+    @apply my-6 overflow-hidden rounded-lg border border-cln bg-code;
+  }
+  .code .ch {
+    @apply flex items-center justify-between border-b border-cln px-3.5 py-1.5 font-mono text-xs font-semibold text-mu;
+  }
+  .code .copy {
+    @apply cursor-pointer border-0 bg-transparent font-[inherit] text-mu hover:text-ac focus-visible:outline-2 focus-visible:outline-ac;
+  }
+  .code pre.astro-code {
+    @apply m-0 overflow-x-auto rounded-none border-0 bg-code px-4 py-3.5 font-mono text-[14px] leading-[1.6] text-hi;
+    background-color: var(--code);
+  }
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-light);
+  }
+  html[data-theme="dark"] .astro-code,
+  html[data-theme="dark"] .astro-code span {
+    color: var(--shiki-dark);
+  }
+  .astro-code span[style*="font-style"] {
+    font-style: italic;
   }
 
   /* Styles for Shiki transformers */
   /* https://shiki.style/packages/transformers */
   .astro-code {
     .line.diff.add {
-      @apply relative inline-block w-full bg-green-400/20 before:absolute before:-left-3 before:text-green-500 before:content-['+'];
+      @apply relative inline-block w-full bg-ac/10 before:absolute before:-left-3 before:text-ac before:content-['+'];
     }
     .line.diff.remove {
-      @apply relative inline-block w-full bg-red-500/20 before:absolute before:-left-3 before:text-red-500 before:content-['-'];
+      @apply relative inline-block w-full bg-nu/15 before:absolute before:-left-3 before:text-nu before:content-['-'];
     }
     .line.highlighted {
-      @apply inline-block w-full bg-slate-400/20;
+      @apply inline-block w-full bg-ac/10;
     }
     .highlighted-word {
-      @apply rounded-sm border border-border px-0.5 py-px;
+      @apply rounded-sm border border-ln px-0.5 py-px;
     }
   }
 }
 
-/* ===== A11y: raise low-contrast Shiki token colors to WCAG AA (>= 4.5:1) ===== */
-html:not([data-theme="dark"]) .astro-code span[style*="--shiki-light:#C2C3C5"] {
-  color: #6a6e75 !important;
-}
-html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#637777"] {
-  color: #8da3a3 !important;
-}
-html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#D3423E"] {
-  color: #f0645f !important;
-}
-html[data-theme="dark"] .astro-code span[style*="--shiki-dark:#5F7E97"] {
-  color: #8aa6bd !important;
-}
-
-/* ===== EthicalAds: styled as a clickable card via the client's documented ===== */
+/* ===== EthicalAds: quiet inline "sponsor" strip, styled via the client's documented ===== */
 /* ===== --ea-* custom properties (https://ethical-ad-client.readthedocs.io/en/latest/#customizing-styles). */
 /* Site tokens flip with the theme, so light/dark/toggle all stay AA without the ad client's own dark mode. */
 [data-ea-publisher] {
-  --ea-bgcolor: var(--muted);
-  --ea-bgcolor-dark: var(--muted);
-  --ea-color-link: var(--foreground);
-  --ea-color-link-dark: var(--foreground);
-  --ea-color-link-active: var(--foreground);
-  --ea-color-link-dark-active: var(--foreground);
-  --ea-color-link-bold: var(--accent);
-  --ea-color-link-bold-dark: var(--accent);
-  --ea-color-link-callout: color-mix(
-    in srgb,
-    var(--foreground) 78%,
-    var(--background)
-  );
-  --ea-color-link-callout-dark: color-mix(
-    in srgb,
-    var(--foreground) 78%,
-    var(--background)
-  );
-  --ea-color-link-callout-active: var(--accent);
-  --ea-color-link-callout-dark-active: var(--accent);
+  --ea-bgcolor: transparent;
+  --ea-bgcolor-dark: transparent;
+  --ea-color-link: var(--fg);
+  --ea-color-link-dark: var(--fg);
+  --ea-color-link-active: var(--fg);
+  --ea-color-link-dark-active: var(--fg);
+  --ea-color-link-bold: var(--hi);
+  --ea-color-link-bold-dark: var(--hi);
+  --ea-color-link-callout: var(--mu);
+  --ea-color-link-callout-dark: var(--mu);
+  --ea-color-link-callout-active: var(--ac);
+  --ea-color-link-callout-dark-active: var(--ac);
   --ea-font-family: inherit;
   --ea-font-size: 0.875rem;
-  /* Reserve the ad's rendered height (text placement) to avoid layout shift. */
-  min-height: 8.5rem;
+  margin: 0;
+  /* Reserve the rendered height (text placement) to avoid layout shift. */
+  min-height: 10.2rem;
 }
 @media (min-width: 640px) {
   [data-ea-publisher] {
-    min-height: 6rem;
+    min-height: 7.4rem;
   }
 }
-/* Card (specificity beats the client's injected stylesheet).
-   A light accent tint and accent border make it visible without shouting. */
 div[data-ea-publisher].loaded.adaptive-css .ea-content {
-  @apply relative rounded-xl border shadow-sm transition-[border-color,box-shadow,background-color] duration-200 motion-reduce:transition-none;
-  margin: 0;
-  padding: 1rem 1.25rem;
-  background: color-mix(in srgb, var(--accent) 7%, var(--background));
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  position: relative;
+  margin: 0 -14px;
+  padding: 12px 14px;
+  border: 0;
+  border-block: 1px dashed var(--ln);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content::before {
+  content: "sponsor";
+  display: block;
+  margin-bottom: 0.125rem;
+  font: 600 10.5px/1.6 var(--font-mono, "IBM Plex Mono", monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mu);
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content {
+  transition: background-color 0.15s ease;
 }
 div[data-ea-publisher].loaded.adaptive-css .ea-content:hover {
-  @apply border-accent shadow-md;
-  background: color-mix(in srgb, var(--accent) 11%, var(--background));
-}
-/* Whole card clickable: stretch the ad link over the card */
-div[data-ea-publisher].loaded.adaptive-css .ea-content a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
+  background: color-mix(in srgb, var(--lc) 70%, transparent);
 }
 div[data-ea-publisher].loaded.adaptive-css .ea-content a,
 div[data-ea-publisher].loaded.adaptive-css .ea-content a:hover .ea-body {
   text-decoration: none;
-  color: var(--foreground);
+  color: var(--fg);
+}
+div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-body {
+  color: var(--fg);
 }
 div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-headline {
-  color: color-mix(in srgb, var(--accent) 80%, var(--foreground));
+  color: var(--hi);
   font-weight: 700;
 }
-/* Call to action (e.g. "Try TeamCity"): a small pill so it reads as a button */
 div[data-ea-publisher].loaded.adaptive-css .ea-content strong:not(.ea-headline),
 div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta {
   display: inline-block;
-  margin-inline-start: 0.375rem;
-  padding: 0.125rem 0.625rem;
-  border-radius: 9999px;
-  background: var(--accent);
-  color: var(--background);
+  padding: 0.0625rem 0.625rem;
+  border-radius: 99px;
+  background: var(--acs);
+  color: var(--ac);
+  font-size: 0.8125rem;
   font-weight: 600;
+  line-height: 1.5;
   white-space: nowrap;
+  margin-inline-start: 0.5rem;
+  margin-block: 0.125rem;
 }
 div[data-ea-publisher].loaded.adaptive-css
   .ea-content
   strong:not(.ea-headline)::after,
 div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta::after {
-  content: " \2192";
-}
-/* Ads without their own call to action get a subtle arrow after the body */
-div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-body::after {
-  content: " \2192";
-  color: var(--accent);
-  font-weight: 600;
+  content: none;
 }
 div[data-ea-publisher].loaded.adaptive-css
   .ea-content
@@ -231,16 +418,103 @@ div[data-ea-publisher].loaded.adaptive-css
   .ea-body::after {
   content: none;
 }
+/* Required attribution, kept inside the strip */
 div[data-ea-publisher].loaded.adaptive-css .ea-callout {
-  margin: 0.375rem 0 0;
-  padding: 0 0.25rem;
+  margin: 0.125rem 0 0;
+  padding: 0;
+  text-align: right;
 }
 div[data-ea-publisher].loaded.adaptive-css .ea-callout a {
   position: relative;
   z-index: 1;
   display: inline-block;
-  padding: 0.25rem 0;
-  font-size: 0.75rem;
+  padding: 0.125rem 0;
+  font-size: 0.6875rem;
+  color: var(--mu);
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.ad-inline {
+  margin: 0 0 1.5rem;
+}
+
+/* ===== Ad as the first row of a post list (list pages). Space is reserved; ===== */
+/* ===== the label, tint and border only appear once an ad has filled. ===== */
+.ad-row {
+  display: grid;
+  gap: 0 1rem;
+  margin: -4px -22px 0; /* bleed over the list card's py-1 */
+  padding: 4px 22px 0;
+  min-height: calc(10.3rem + 4px);
+  border-radius: 7px 7px 0 0;
+  align-content: start;
+}
+@media (min-width: 640px) {
+  .ad-row {
+    grid-template-columns: 110px 1fr;
+    min-height: calc(4.5rem + 4px);
+  }
+}
+.ad-row:has([data-ea-publisher].loaded) {
+  background: var(--lc);
+  border-bottom: 1px solid var(--ln);
+}
+.ad-row-label {
+  visibility: hidden;
+  padding-top: 0.75rem;
+  font: 600 11px/1.6 var(--font-mono, "IBM Plex Mono", monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mu);
+}
+.ad-row:has([data-ea-publisher].loaded) .ad-row-label {
+  visibility: visible;
+}
+.ad-row [data-ea-publisher] {
+  min-height: 0;
+  padding: 0.75rem 0;
+}
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-placement,
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-text {
+  margin: 0;
+  padding: 0;
+}
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-content {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.875rem;
+}
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-content:hover {
+  background: transparent;
+}
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-content::before {
+  content: none;
+}
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-link,
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-text {
+  display: inline;
+}
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-link {
+  margin-right: 0.5rem;
+}
+.ad-row
+  div[data-ea-publisher].loaded.adaptive-css
+  .ea-content
+  strong:not(.ea-headline),
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-content .ea-cta {
+  margin-inline-start: 0;
+}
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-callout {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+.ad-row div[data-ea-publisher].loaded.adaptive-css .ea-callout a {
+  padding: 0;
+  font: 12px/1.5 var(--font-mono, "IBM Plex Mono", monospace);
 }
