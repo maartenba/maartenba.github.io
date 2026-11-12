@@ -4,6 +4,7 @@ export const SITE = {
   profile: null,
   desc: "Web development, .NET, C#, Azure, ...",
   title: "Maarten Balliauw {blog}",
+  bio: "Writing about .NET, web, performance and security, since 2006.",
   ogImage: "og.png",
   lightAndDarkMode: true,
   postPerIndex: 10,

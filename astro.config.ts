@@ -9,7 +9,9 @@ import {
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
-import { transformerFileName } from "./src/utils/transformers/fileName";
+import { transformerCodeFigure } from "./src/utils/transformers/codeFigure";
+import plexLight from "./src/utils/shiki/plex-light";
+import plexDark from "./src/utils/shiki/plex-dark";
 import rehypeImgAttrs from "./src/utils/rehype-img-attrs";
 import remarkReadingTime from "./src/utils/remark-reading-time";
 import remarkToc from "remark-toc";
@@ -81,11 +83,11 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
-      themes: { light: "min-light", dark: "night-owl" },
+      themes: { light: plexLight, dark: plexDark },
       defaultColor: false,
       wrap: false,
       transformers: [
-        transformerFileName({ style: "v2", hideDot: false }),
+        transformerCodeFigure(),
         transformerNotationHighlight(),
         transformerNotationWordHighlight(),
         transformerNotationDiff({ matchAlgorithm: "v3" }),

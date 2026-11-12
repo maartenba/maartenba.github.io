@@ -1,0 +1,94 @@
+---
+import type { MarkdownHeading } from "astro";
+import { slugifyStr } from "@/utils/slugify";
+import EditPost from "@/components/EditPost.astro";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  headings: MarkdownHeading[];
+  post: CollectionEntry<"blog">;
+  tags: string[];
+  published: string;
+  updated?: string;
+}
+
+const { headings, post, tags, published, updated } = Astro.props;
+const items = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+
+<aside class="toc" aria-label="On this page" data-pagefind-ignore>
+  {
+    items.length > 0 && (
+      <>
+        <div class="toc-label">On this page</div>
+        <nav>
+          <a href="#article" class="toc-link on">
+            Introduction
+          </a>
+          {items.map(h => (
+            <a
+              href={`#${h.slug}`}
+              class:list={["toc-link", { "toc-sub": h.depth === 3 }]}
+            >
+              {h.text}
+            </a>
+          ))}
+        </nav>
+      </>
+    )
+  }
+  <div class="toc-meta">
+    <span>tags:</span>
+    <span class="toc-tags">
+      {
+        tags
+          .filter(t => t.toLowerCase() !== "general")
+          .map(tag => <a href={`/tags/${slugifyStr(tag)}/`}>{tag}</a>)
+      }
+    </span><br />
+    published {published}<br />
+    {
+      updated && (
+        <>
+          updated {updated}
+          <br />
+        </>
+      )
+    }
+    <EditPost
+      post={post}
+      hideEditPost={post.data.hideEditPost}
+      variant="link"
+    />
+  </div>
+</aside>
+
+<script is:inline data-astro-rerun>
+  (() => {
+    const links = document.querySelectorAll(".toc-link");
+    if (!links.length || !("IntersectionObserver" in window)) return;
+    const map = {};
+    const intro = links[0];
+    links.forEach(a => {
+      if (a !== intro) map[a.getAttribute("href").slice(1)] = a;
+    });
+    const heads = Object.keys(map)
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    const update = () => {
+      // active = last heading above the 30% line, else the introduction
+      let cur = intro;
+      heads.forEach(h => {
+        if (h.getBoundingClientRect().top <= innerHeight * 0.3) {
+          cur = map[h.id];
+        }
+      });
+      links.forEach(l => l.classList.toggle("on", l === cur));
+    };
+    const io = new IntersectionObserver(update, {
+      rootMargin: "0px 0px -70% 0px",
+    });
+    heads.forEach(h => io.observe(h));
+    update();
+  })();
+</script>

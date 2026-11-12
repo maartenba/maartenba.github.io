@@ -1,6 +1,5 @@
 ---
-import Hr from "./Hr.astro";
-import Socials from "./Socials.astro";
+import { SOCIALS } from "@/constants";
 
 const currentYear = new Date().getFullYear();
 
@@ -11,28 +10,21 @@ export interface Props {
 const { noMarginTop = false } = Astro.props;
 ---
 
-<footer class:list={["w-full", { "mt-auto": !noMarginTop }]}>
-  <Hr noPadding />
-  <div
-    class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"
+<footer class:list={["w-full max-w-app px-4", { "mt-auto": !noMarginTop }]}>
+  <p
+    class="flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-ln py-6 font-mono text-xs text-mu"
   >
-    <div class="flex flex-col items-center gap-1">
-      <Socials centered />
-      <a
-        href="https://www.google.com/preferences/source?q=blog.maartenballiauw.be"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Add blog.maartenballiauw.be as a preferred source on Google"
-        aria-label="Prefer this blog on Google: add blog.maartenballiauw.be as a preferred source"
-        class="inline-block py-1 text-xs opacity-70 hover:text-accent hover:opacity-100"
-      >
-        &#9733; Prefer this blog on Google
-      </a>
-    </div>
-    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>Copyright &#169; 2006-{currentYear} Maarten Balliauw</span>
-      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span>
-    </div>
-  </div>
+    <span>© 2006–{currentYear} Maarten Balliauw</span>
+    {
+      SOCIALS.map(s => (
+        <a
+          href={s.href}
+          rel="me noopener"
+          class="inline-flex min-h-6 items-center hover:text-hi"
+        >
+          {s.name.toLowerCase()}
+        </a>
+      ))
+    }
+  </p>
 </footer>

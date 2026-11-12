@@ -21,6 +21,7 @@ function blogLoader() {
             const renderedContent = await context.renderMarkdown(body);
 
             values[i].data.description = getExcerpt(renderedContent.html, 600);
+            values[i].data.descriptionGenerated = true;
             context.store.set(values[i]);
           }
         }
@@ -42,6 +43,7 @@ const blog = defineCollection({
       tags: z.array(z.string()).default(["others"]),
       ogImage: image().or(z.string()).optional(),
       description: z.string().optional(),
+      descriptionGenerated: z.boolean().optional(),
       canonicalURL: z.string().optional(),
       hideEditPost: z.boolean().optional(),
       timezone: z.string().optional(),

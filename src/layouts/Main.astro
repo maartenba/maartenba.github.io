@@ -1,6 +1,5 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import EthicalAd from "@/components/EthicalAd.astro";
 import { SITE } from "@/config";
 
 interface StringTitleProp {
@@ -25,43 +24,30 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
 <main
   data-backUrl={backUrl}
   id="main-content"
-  class="mx-auto w-full max-w-app px-4 pb-4"
+  class="mx-auto w-full max-w-app px-4 pb-6"
 >
-  <!-- Page header banner -->
-  <div
-    class="relative mb-8 overflow-hidden rounded-xl bg-gradient-to-br from-[#1e3a5f] via-[#2563eb] to-[#7c3aed] px-6 py-6 sm:px-8 sm:py-8 dark:from-[#1a1b2e] dark:via-[#1e40af] dark:to-[#5b21b6]"
+  <h1
+    class="mt-5 text-[26px] leading-tight font-bold tracking-[-0.015em] text-hi sm:text-[32px]"
   >
-    <div
-      class="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/[0.06]"
-    >
-    </div>
-    <div
-      class="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-white/[0.04]"
-    >
-    </div>
-    <div class="relative">
-      {
-        "titleTransition" in props ? (
-          <h1 class="text-2xl font-bold text-white sm:text-3xl">
-            {props.pageTitle[0]}
-            <span transition:name={props.titleTransition}>
-              {props.pageTitle[1]}
-            </span>
-          </h1>
-        ) : (
-          <h1 class="text-2xl font-bold text-white sm:text-3xl">
-            {props.pageTitle}
-          </h1>
-        )
-      }
-      {
-        props.pageDesc && (
-          <p class="mt-2 text-white/70 italic">{props.pageDesc}</p>
-        )
-      }
-    </div>
-  </div>
-  <EthicalAd />
+    {
+      "titleTransition" in props ? (
+        <>
+          {props.pageTitle[0]}{" "}
+          <span transition:name={props.titleTransition}>
+            {props.pageTitle[1]}
+          </span>
+        </>
+      ) : (
+        props.pageTitle
+      )
+    }
+  </h1>
+  {
+    props.pageDesc && (
+      <p class="mt-2 mb-6 text-base text-mu">{props.pageDesc}</p>
+    )
+  }
+  {!props.pageDesc && <div class="mb-6" />}
   <slot />
 </main>
 

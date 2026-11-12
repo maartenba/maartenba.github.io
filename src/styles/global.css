@@ -5,34 +5,87 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #fafafa;
-  --foreground: #1e1e2e;
-  --accent: #2563eb;
-  --muted: #f0f0f5;
-  --border: #e2e2ea;
+  color-scheme: light;
+  --bg: #e6e8ee;
+  --fg: #1f2635;
+  --hi: #0b1020;
+  --mu: #555d6f;
+  --ln: #cfd3dc;
+  --ac: #4b2fd0;
+  --acs: #e1dbff;
+  --card: #fff;
+  --lc: #f4f1ff;
+  --ll: #c9bdfb;
+  --code: #f6f7fa;
+  --cln: #e1e4ea;
+  --kw: #4b2fd0;
+  --ty: #0f6b8a;
+  --st: #9a3b12;
+  --cm: #656d80;
+  --nu: #a0136b;
+  --ic: #efecfb;
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --accent: var(--ac);
+  --muted: var(--card);
+  --border: var(--ln);
 }
 
 html[data-theme="dark"] {
-  --background: #1a1b2e;
-  --foreground: #e8eaf0;
-  --accent: #60a5fa;
-  --muted: #2a2d45;
-  --border: #2e3150;
+  color-scheme: dark;
+  --bg: #0b0c10;
+  --fg: #d0d3db;
+  --hi: #fff;
+  --mu: #9a9fad;
+  --ln: #2f3240;
+  --ac: #b3a5ff;
+  --acs: #2e2758;
+  --card: #1a1c24;
+  --lc: #1e1a36;
+  --ll: #463c86;
+  --code: #111218;
+  --cln: #2a2c38;
+  --kw: #b3a5ff;
+  --ty: #6fd3e8;
+  --st: #f2b88a;
+  --cm: #7d8293;
+  --nu: #f59ac7;
+  --ic: #262241;
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --accent: var(--ac);
+  --muted: var(--card);
+  --border: var(--ln);
 }
 
 @theme inline {
+  --font-weight-medium: 600;
   --font-mono:
-    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+    "IBM Plex Mono", "Plex Mono Fallback", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --font-sans:
-    "Inter Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    "IBM Plex Sans", "Plex Sans Fallback", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-hi: var(--hi);
+  --color-code: var(--code);
+  --color-cln: var(--cln);
+  --color-nu: var(--nu);
+  --color-mu: var(--mu);
+  --color-ln: var(--ln);
+  --color-ac: var(--ac);
+  --color-acs: var(--acs);
+  --color-card: var(--card);
+  --color-lc: var(--lc);
+  --color-ll: var(--ll);
+  --color-ic: var(--ic);
 }
 
 @layer base {
@@ -62,7 +115,7 @@ html[data-theme="dark"] {
 }
 
 @utility max-w-app {
-  @apply max-w-4xl xl:max-w-5xl;
+  max-width: calc(1000px + 2rem);
 }
 
 .active-nav {
@@ -73,73 +126,6 @@ html[data-theme="dark"] {
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 1rem;
-}
-
-/* Hero section gradient banner (matches OG image style) */
-#hero {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #7c3aed 100%);
-  color: #ffffff;
-  border-radius: 0.75rem;
-  padding: 2.5rem 2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  position: relative;
-  overflow: hidden;
-}
-
-#hero::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  pointer-events: none;
-}
-
-#hero::after {
-  content: "";
-  position: absolute;
-  bottom: -50px;
-  left: -50px;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-}
-
-#hero h1 {
-  color: #ffffff;
-}
-
-#hero a,
-#hero div,
-#hero span {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-#hero a:hover {
-  color: #ffffff;
-}
-
-#hero svg {
-  stroke: rgba(255, 255, 255, 0.9);
-}
-
-html[data-theme="dark"] #hero {
-  background: linear-gradient(135deg, #1a1b2e 0%, #1e40af 50%, #5b21b6 100%);
-}
-
-:root,
-html[data-theme="light"] {
-  --accent-end: #7c3aed;
-}
-
-html[data-theme="dark"] {
-  --accent-end: #a78bfa;
 }
 
 /* Post card hover effect: ring + shadow + tint only (no transform, so the hit area never moves under the pointer) */

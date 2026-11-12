@@ -26,31 +26,21 @@ const filePath = `src/pages/${slug}.md`;
   <Header />
   <Breadcrumb />
   <main id="main-content">
-    <!-- Page header banner -->
-    <div class="page-hero mx-auto max-w-app px-4">
-      <div
-        class="relative mb-8 overflow-hidden rounded-xl bg-gradient-to-br from-[#1e3a5f] via-[#2563eb] to-[#7c3aed] px-6 py-8 sm:px-8 sm:py-10 dark:from-[#1a1b2e] dark:via-[#1e40af] dark:to-[#5b21b6]"
+    <div class="mx-auto w-full max-w-app px-4">
+      <h1
+        class="mt-5 mb-6 text-[26px] leading-tight font-bold tracking-[-0.015em] text-hi sm:text-[32px]"
       >
-        <div
-          class="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/[0.06]"
-        >
-        </div>
-        <div
-          class="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-white/[0.04]"
-        >
-        </div>
-        <h1
-          class="relative text-2xl font-bold tracking-wider text-white sm:text-3xl"
-        >
-          {frontmatter.title}
-        </h1>
-      </div>
-      <EthicalAd />
+        {frontmatter.title}
+      </h1>
+      <section
+        id="about"
+        class="app-prose mb-12 max-w-none rounded-lg border border-ln bg-card px-[22px] py-6 shadow-[0_1px_2px_#0000000d] sm:px-[30px] prose-img:border-0"
+      >
+        <EthicalAd />
+        <slot />
+        <EditPost filePath={filePath} class="mt-8" />
+      </section>
     </div>
-    <section id="about" class="app-prose mb-28 max-w-app prose-img:border-0">
-      <slot />
-      <EditPost filePath={filePath} class="mt-8" />
-    </section>
   </main>
   <Footer />
 </Layout>
