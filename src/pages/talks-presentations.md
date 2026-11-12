@@ -17,6 +17,12 @@ If you want me to deliver a talk at your user group or conference, feel free to 
 
 | **Date**   | **Title**                                                                                        | **Event**                                    | **Where**                    |
 | ---------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------- | ---------------------------- |
+| 2026-11-25 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | Luzern .NET User group | Switzerland - Luzern |
+| 2026-11-24 | Building a supply chain attack with .NET and NuGet | Bern .NET User Group | Switzerland - Bern |
+| 2026-11-17 | Building a supply chain attack with .NET and NuGet | VISUG XL 2026 | Belgium - Sint-Katelijne-Waver |
+| 2026-10-7 | Building a supply chain attack with .NET and NuGet | JetBrains .NET Day Online 2026 | Online -  |
+| 2026-9-29 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | VISUG User Group | Belgium - Essen |
+| 2026-9-16 | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core | NDC Oslo 2026 | Norway - Oslo |
 | 2026-6-2   | HTMX and ASP.NET Core - I don’t know how to React                                                | DevSum                                       | Sweden - Stockholm           |
 | 2026-5-27  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Update Conference 2026                       | Poland - Krakow              |
 | 2026-5-12  | Going Passwordless - A Practical Guide to Passkeys in ASP.NET Core                               | Techorama Belgium 2026                       | Belgium - Antwerp            |
