@@ -14,15 +14,21 @@ permissions:
   pages: write
   id-token: write
 
+# Only one deployment at a time; a newer push cancels an older in-flight run
+# so an older commit can never finish last and overwrite a newer one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: "☁️ Checkout repository"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: "📦 Install Node/npm"
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: "npm"
@@ -34,10 +40,10 @@ jobs:
         run: npm run build
 
       - name: Upload pages directory
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
       - name: "🌐 Deploy to GitHub Pages"
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
