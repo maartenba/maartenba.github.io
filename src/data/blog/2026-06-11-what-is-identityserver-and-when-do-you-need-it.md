@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "What is IdentityServer and When Do You Need it?"
+description: "IdentityServer is a .NET SDK for building an OpenID Connect and OAuth 2.0 identity provider. When you need it, and when ASP.NET Core Identity is enough."
 pubDatetime: 2026-06-11T08:00:00Z
 modDatetime: 2026-10-06T08:00:00Z
 comments: true

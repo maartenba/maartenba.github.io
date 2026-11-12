@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "TimeProvider and the End of Untestable DateTime.Now"
+description: "DateTime.Now is hard to test. Since .NET 8, TimeProvider replaces your own clock wrapper: how to inject it and control time in tests with FakeTimeProvider."
 pubDatetime: 2026-07-22T03:44:05Z
 comments: true
 published: true

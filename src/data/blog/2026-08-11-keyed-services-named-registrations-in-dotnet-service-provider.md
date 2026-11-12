@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Keyed Services (Named registrations) in .NET Service Provider"
+description: "Keyed services in .NET 8 let you register several implementations of one interface under a key, and inject the right one without factories or switch statements."
 pubDatetime: 2026-08-11T07:00:00Z
 comments: true
 published: true

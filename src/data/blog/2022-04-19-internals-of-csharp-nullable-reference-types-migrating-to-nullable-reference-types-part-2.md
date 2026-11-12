@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Internals of C# nullable reference types - Migrating to nullable reference types - Part 2"
+description: "How C# nullable reference types work under the hood: what ends up in IL, and how the compiler and IDE use the nullable annotation context."
 pubDatetime: 2022-04-19T03:44:05Z
 comments: true
 published: true

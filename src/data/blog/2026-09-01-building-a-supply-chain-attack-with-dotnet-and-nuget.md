@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Building a Supply Chain Attack with .NET and NuGet"
+description: "A story of building a supply chain attack with .NET and NuGet: package name spoofing, module initializers, source generators and MSBuild targets, and how to defend."
 pubDatetime: 2026-09-01T06:00:00Z
 comments: true
 published: false

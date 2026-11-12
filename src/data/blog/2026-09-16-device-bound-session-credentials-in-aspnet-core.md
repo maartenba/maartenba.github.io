@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Device Bound Session Credentials in ASP.NET Core"
+description: "Device Bound Session Credentials tie a session cookie to a private key on the device, so stolen cookies go stale. How DBSC works, and why .NET 11 dropped it."
 pubDatetime: 2026-09-16T07:00:00Z
 modDatetime: 2026-10-20T08:00:00Z
 comments: true

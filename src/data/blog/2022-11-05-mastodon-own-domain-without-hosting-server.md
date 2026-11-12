@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Mastodon on your own domain without hosting a server"
+description: "Get a Mastodon address on your own domain without hosting a server: serve WebFinger JSON on your domain and it resolves to your existing account."
 pubDatetime: 2022-11-05T03:44:05Z
 modDatetime: 2026-10-06T08:00:00Z
 comments: true

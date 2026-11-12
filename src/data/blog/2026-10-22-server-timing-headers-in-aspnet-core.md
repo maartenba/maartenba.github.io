@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Server-Timing Headers in ASP.NET Core: Backend Metrics in Browser DevTools"
+description: "Add Server-Timing headers to an ASP.NET Core app so database and API timings show up in Chrome, Edge and Firefox DevTools next to the request."
 pubDatetime: 2026-10-22T07:00:00Z
 comments: true
 published: true

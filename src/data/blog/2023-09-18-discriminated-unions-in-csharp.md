@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Discriminated Unions in C#"
+description: "C# has no discriminated unions yet. Here are the workarounds, from Results<> and TypedResults to libraries, that let the compiler know about a closed set of types."
 pubDatetime: 2023-09-18T03:44:05Z
 comments: true
 published: true

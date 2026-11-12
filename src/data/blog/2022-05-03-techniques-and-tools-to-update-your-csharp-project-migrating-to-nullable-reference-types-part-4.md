@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Techniques and tools to update your C# project - Migrating to nullable reference types - Part 4"
+description: "Techniques and tools to migrate an existing C# project to nullable reference types, from picking an approach to the annotation context per file or project."
 pubDatetime: 2022-05-03T03:44:05Z
 comments: true
 published: true

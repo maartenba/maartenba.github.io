@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Rate limiting in web applications - Concepts and approaches"
+description: "Concepts behind rate limiting web applications: which resources to limit, what the limits should be, and where to enforce them, with ASP.NET Core examples."
 pubDatetime: 2022-10-03T03:44:05Z
 comments: true
 published: true
