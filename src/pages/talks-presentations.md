@@ -7,7 +7,7 @@ redirect_from:
 
 This page contains links and short information on the talks that I have (co-)presented. If available, a link to slides and recording is also provided.
 
-Attended a talk and looking for demo material or thought of a question? Don't hesitate to [reach out](/about-me.html)
+Attended a talk and looking for demo material or thought of a question? Don't hesitate to [reach out](/about-me.html).
 
 ## Upcoming talks and conferences
 
