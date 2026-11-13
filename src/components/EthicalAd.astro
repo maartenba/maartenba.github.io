@@ -24,8 +24,6 @@ const eaKeywords = [
   .join("|");
 ---
 
-<script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"
-></script>
 {
   variant === "row" ? (
     <li class="ad-row">
@@ -51,31 +49,38 @@ const eaKeywords = [
   )
 }
 <script is:inline>
-  // ClientRouter swaps pages without a full reload, so the ad client never
-  // sees the new placement. Ask it to fill the placement after navigation.
-  // https://ethical-ad-client.readthedocs.io/en/latest/#single-page-apps
-  if (!window.__eaReloadBound) {
-    window.__eaReloadBound = true;
-    // The ad client injects its stylesheet into <head> once. ClientRouter
-    // replaces <head> on navigation, which drops it (unstyled ad, visible
-    // tracking pixel). Carry those <style> tags over into the incoming page.
-    document.addEventListener("astro:before-swap", event => {
-      document.head.querySelectorAll("style").forEach(style => {
-        const css = style.textContent || "";
-        if (css.includes(".ea-") || css.includes("[data-ea-")) {
-          event.newDocument.head.appendChild(style.cloneNode(true));
-        }
-      });
-    });
-    let firstLoad = true;
-    document.addEventListener("astro:page-load", () => {
-      if (firstLoad) {
-        firstLoad = false; // the client loads the ad itself on a full page load
+  // Load the ad client lazily: when a placement nears the viewport, once.
+  (function () {
+    if (window.__eaLazyBound) return;
+    window.__eaLazyBound = true;
+    function load() {
+      if (window.__eaLoaded) return;
+      window.__eaLoaded = true;
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://media.ethicalads.io/media/client/ethicalads.min.js";
+      document.head.appendChild(s);
+    }
+    function init() {
+      const els = document.querySelectorAll("[data-ea-publisher]");
+      if (!els.length) return;
+      if (!("IntersectionObserver" in window)) {
+        load();
         return;
       }
-      if (window.ethicalads && document.querySelector("[data-ea-publisher]")) {
-        window.ethicalads.reload();
-      }
-    });
-  }
+      const io = new IntersectionObserver(
+        function (entries) {
+          if (entries.some(function (e) { return e.isIntersecting; })) {
+            io.disconnect();
+            load();
+          }
+        },
+        { rootMargin: "300px" }
+      );
+      els.forEach(function (el) { io.observe(el); });
+    }
+    if (document.readyState === "loading")
+      document.addEventListener("DOMContentLoaded", init);
+    else init();
+  })();
 </script>

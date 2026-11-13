@@ -11,7 +11,6 @@ const { tag, tagName, size = "sm" } = Astro.props;
 <li class="inline-block">
   <a
     href={`/tags/${tag}/`}
-    transition:name={tag}
     class:list={[
       "inline-block rounded-full bg-acs px-[11px] py-1 font-mono font-medium text-ac no-underline hover:underline",
       size === "sm" ? "text-xs" : "text-[13px]",

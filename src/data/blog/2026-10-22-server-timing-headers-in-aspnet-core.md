@@ -14,7 +14,7 @@ The Network tab in browser DevTools tells you quite a bit about a request, inclu
 
 With the [`Server-Timing`](https://www.w3.org/TR/server-timing/) response header, an application can include its own measurements. Chrome, Edge, and Firefox display these alongside the timings the browser already collects.
 
-![Server Timings in Chrome DevTools](/images/2026/server-timings.png)
+![Server Timings in Chrome DevTools](../../assets/images/2026/server-timings.png)
 
 If you already use OpenTelemetry, you probably have these measurements in your tracing backend. But when you are already looking at a request in DevTools, having the database and API timings right there is pretty helpful. And building it is fun, of course!
 

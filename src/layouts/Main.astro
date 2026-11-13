@@ -33,7 +33,7 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
       "titleTransition" in props ? (
         <>
           {props.pageTitle[0]}{" "}
-          <span transition:name={props.titleTransition}>
+          <span>
             {props.pageTitle[1]}
           </span>
         </>
@@ -52,7 +52,7 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
 </main>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const mainContent: HTMLElement | null =
       document.querySelector("#main-content");
     const backUrl = mainContent?.dataset?.backurl;

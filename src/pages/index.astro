@@ -119,7 +119,7 @@ if (latest) {
 </Layout>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const indexLayout = (document.querySelector("#main-content") as HTMLElement)
       ?.dataset?.layout;
     if (indexLayout) {

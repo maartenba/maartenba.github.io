@@ -63,7 +63,7 @@ const items = headings.filter(h => h.depth === 2 || h.depth === 3);
   </div>
 </aside>
 
-<script is:inline data-astro-rerun>
+<script is:inline>
   (() => {
     const links = document.querySelectorAll(".toc-link");
     if (!links.length || !("IntersectionObserver" in window)) return;

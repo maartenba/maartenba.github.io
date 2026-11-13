@@ -15,7 +15,7 @@ const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
     <div
       class="rounded-lg border border-ln bg-card px-[22px] py-5 shadow-[0_1px_2px_#0000000d]"
     >
-      <div id="pagefind-search" transition:persist data-backurl={backUrl}></div>
+      <div id="pagefind-search" data-backurl={backUrl}></div>
     </div>
   </Main>
   <Footer />
@@ -82,14 +82,6 @@ const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
     });
   }
 
-  document.addEventListener("astro:after-swap", () => {
-    const pagefindSearch = document.querySelector("#pagefind-search");
-
-    // if pagefind search form already exists, don't initialize search component
-    if (pagefindSearch && pagefindSearch.querySelector("form")) return;
-
-    initSearch();
-  });
   initSearch();
 </script>
 

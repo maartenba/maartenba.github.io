@@ -106,7 +106,7 @@ I started experimenting. The first attempt was the classic "`rn` looks like `m`"
 
 Then I tried [lookalike Unicode characters](https://gist.github.com/StevenACoffman/a5f6f682d94e38ed804182dc2693ed4b). Ukrainian dotted і (which looks identical to Latin i), Armenian ո (looks like n), Greek ο (looks like o), Greek е (looks like e). With enough substitutions, I was able to upload `Mіcrosοft.EոtityFramewοrkCorе` to NuGet.org. It looked legitimate: version 10.0.0, the real EF Core description copied verbatim, package icon matching. [See for yourself!](https://www.nuget.org/packages/M%D1%96cros%CE%BFft.E%D5%B8tityFramew%CE%BFrkCor%D0%B5/#readme-body-tab)
 
-![Mіcrosοft.EոtityFramewοrkCorе on NuGet](/images/2026/entityframework-forged.png)
+![Mіcrosοft.EոtityFramewοrkCorе on NuGet](../../assets/images/2026/entityframework-forged.png)
 
 If I'd have a script download the package a few thousand times each day, the download count could even look legitimate.
 
@@ -114,7 +114,7 @@ I reported this to the Microsoft Security Response Center (MSRC). Their initial 
 
 So, I started toying with the idea of doing "drive-by PRs", and being genuinely helpful to other public projects on GitHub in updating their EntityFramework Core version. When I tried this on an internal repo, I was... shocked. The diff shown in GitHub's PR interface would show the changes, but without a clear indication that I meddled with the package ID. See for yourself: it looks like only the version was bumped:
 
-![GitHub PR UI showing unicode? No.](/images/2026/github-pr-unicode.png)
+![GitHub PR UI showing unicode? No.](../../assets/images/2026/github-pr-unicode.png)
 
 Imagine I would do this with 2000 GitHub projects, over time. I'm sure some would accept the PR without any issue, which would be great!
 
