@@ -18,6 +18,7 @@ export default function remarkReadingTime() {
       return undefined;
     });
     const words = text.split(/\s+/).filter(Boolean).length;
+    file.data.astro.frontmatter.wordCount = words;
     file.data.astro.frontmatter.minutesRead = Math.max(
       1,
       Math.ceil(words / WORDS_PER_MINUTE)

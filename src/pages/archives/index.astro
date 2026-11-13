@@ -8,6 +8,8 @@ import PostList from "@/components/PostList.astro";
 import Card from "@/components/Card.astro";
 import getPostsByGroupCondition from "@/utils/getPostsByGroupCondition";
 import { SITE } from "@/config";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { collectionPageNode } from "@/utils/structuredData";
 
 // Redirect to 404 page if `showArchives` config is false
 if (!SITE.showArchives) {
@@ -17,7 +19,17 @@ if (!SITE.showArchives) {
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 ---
 
-<Layout title={`Archives | ${SITE.title}`}>
+<Layout
+  title={`Archives | ${SITE.title}`}
+  structuredData={[
+    collectionPageNode(
+      "Archives",
+      new URL("archives/", SITE.website).href,
+      getSortedPosts(posts),
+      "All the articles I've archived."
+    ),
+  ]}
+>
   <Header />
   <Main pageTitle="Archives" pageDesc="All the articles I've archived.">
     {

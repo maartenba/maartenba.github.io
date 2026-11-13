@@ -10,6 +10,7 @@ import Card from "@/components/Card.astro";
 import Pagination from "@/components/Pagination.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { SITE } from "@/config";
+import { collectionPageNode } from "@/utils/structuredData";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -19,7 +20,17 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 ---
 
-<Layout title={`Posts | ${SITE.title}`}>
+<Layout
+  title={`Posts | ${SITE.title}`}
+  structuredData={[
+    collectionPageNode(
+      "Posts",
+      new URL(Astro.url.pathname, SITE.website).href,
+      page.data,
+      "All the articles I've posted."
+    ),
+  ]}
+>
   <Header />
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
     <PostList ad>

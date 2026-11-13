@@ -11,6 +11,7 @@ import Footer from "@/components/Footer.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { getPostHref } from "@/utils/getPath";
 import { SITE } from "@/config";
+import { blogNode } from "@/utils/structuredData";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -40,9 +41,10 @@ if (latest) {
   const { remarkPluginFrontmatter } = await render(latest);
   minutes = remarkPluginFrontmatter?.minutesRead;
 }
+const shown = latest ? [latest, ...recent] : recent;
 ---
 
-<Layout>
+<Layout structuredData={[blogNode(shown)]}>
   <Header variant="home" />
   <main
     id="main-content"
