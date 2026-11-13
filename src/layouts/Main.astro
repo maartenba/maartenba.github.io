@@ -32,10 +32,7 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
     {
       "titleTransition" in props ? (
         <>
-          {props.pageTitle[0]}{" "}
-          <span>
-            {props.pageTitle[1]}
-          </span>
+          {props.pageTitle[0]} <span>{props.pageTitle[1]}</span>
         </>
       ) : (
         props.pageTitle

@@ -6,6 +6,7 @@ import EditPost from "@/components/EditPost.astro";
 import EthicalAd from "@/components/EthicalAd.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
+import { profilePageNode } from "@/utils/structuredData";
 
 export interface Props {
   frontmatter: {
@@ -22,7 +23,13 @@ const slug = Astro.url.pathname.replace(/^\/|\/$/g, "");
 const filePath = `src/pages/${slug}.md`;
 ---
 
-<Layout title={`${frontmatter.title} | ${SITE.title}`}>
+<Layout
+  title={`${frontmatter.title} | ${SITE.title}`}
+  description={frontmatter.description}
+  structuredData={slug === "about"
+    ? [profilePageNode(new URL("about/", SITE.website).href)]
+    : []}
+>
   <Header />
   <Breadcrumb />
   <main id="main-content">

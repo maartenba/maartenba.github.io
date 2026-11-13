@@ -3,6 +3,13 @@ import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
 import sans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url";
 import sans700 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff2?url";
+import {
+  PERSON_ID,
+  WEBSITE_ID,
+  personNode,
+  websiteNode,
+  type JsonLd,
+} from "@/utils/structuredData";
 import "@/styles/fonts.css";
 import "@/styles/global.css";
 
@@ -23,6 +30,12 @@ export interface Props {
   tags?: string[];
   /** Whether the og image is known to be 1200x630 (generated OG images are) */
   ogImageGenerated?: boolean;
+  /** Word count of the article (BlogPosting.wordCount) */
+  wordCount?: number;
+  /** Article headline (BlogPosting.headline); defaults to title */
+  headline?: string;
+  /** Extra page-specific JSON-LD nodes, merged into the @graph */
+  structuredData?: JsonLd[];
 }
 
 const {
@@ -38,6 +51,9 @@ const {
   noindex = false,
   tags = [],
   ogImageGenerated,
+  wordCount,
+  headline,
+  structuredData = [],
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
@@ -46,53 +62,40 @@ const socialImageURL = new URL(ogImage, Astro.url);
 // (see src/utils/og-templates); custom/remote images have unknown dimensions.
 const knownOgSize = ogImageGenerated ?? !Astro.props.ogImage;
 
-const structuredData = pubDatetime
+const postNode: JsonLd | null = pubDatetime
   ? {
-      "@context": "https://schema.org",
       "@type": "BlogPosting",
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id": `${canonicalURL}`,
-      },
-      headline: `${title}`,
-      description: `${description}`,
-      image: `${socialImageURL}`,
+      "@id": `${canonicalURL}#article`,
+      mainEntityOfPage: { "@type": "WebPage", "@id": `${canonicalURL}` },
+      headline: headline ?? title,
+      description,
+      image: knownOgSize
+        ? {
+            "@type": "ImageObject",
+            url: `${socialImageURL}`,
+            width: 1200,
+            height: 630,
+          }
+        : `${socialImageURL}`,
       datePublished: pubDatetime.toISOString(),
       ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-      author: [
-        {
-          "@type": "Person",
-          name: `${author}`,
-          url: `${SITE.website}about/`,
-          sameAs: [
-            "https://github.com/maartenba",
-            "https://www.linkedin.com/in/maartenballiauw/",
-            "https://x.com/maartenballiauw",
-            "https://bsky.app/profile/maartenballiauw.be/",
-          ],
-        },
-      ],
-      publisher: {
-        "@type": "Organization",
-        name: SITE.title,
-        url: SITE.website,
-      },
+      author: { "@id": PERSON_ID },
+      publisher: { "@id": PERSON_ID },
+      isPartOf: { "@id": WEBSITE_ID },
+      inLanguage: SITE.lang,
+      ...(tags.length && { keywords: tags.join(", ") }),
+      ...(wordCount && { wordCount }),
     }
   : null;
 
-const websiteStructuredData = {
+const graph = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE.title,
-  url: SITE.website,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE.website}search?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
+  "@graph": [
+    personNode(),
+    websiteNode(),
+    ...(postNode ? [postNode] : []),
+    ...structuredData,
+  ],
 };
 ---
 
@@ -187,19 +190,10 @@ const websiteStructuredData = {
     <meta property="twitter:image:alt" content={title} />
 
     <!-- Google JSON-LD Structured data -->
-    {
-      structuredData && (
-        <script
-          type="application/ld+json"
-          is:inline
-          set:html={JSON.stringify(structuredData)}
-        />
-      )
-    }
     <script
       type="application/ld+json"
       is:inline
-      set:html={JSON.stringify(websiteStructuredData)}
+      set:html={JSON.stringify(graph)}
     />
 
     <!-- Google tag (gtag.js) -->

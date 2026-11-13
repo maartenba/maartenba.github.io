@@ -11,6 +11,7 @@ import Pagination from "@/components/Pagination.astro";
 import getUniqueTags from "@/utils/getUniqueTags";
 import getPostsByTag from "@/utils/getPostsByTag";
 import { SITE } from "@/config";
+import { breadcrumbNode, collectionPageNode } from "@/utils/structuredData";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getCollection("blog");
@@ -30,9 +31,25 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 const params = Astro.params;
 const { tag } = params;
 const { page, tagName } = Astro.props;
+const tagUrl = new URL(`tags/${tag}/`, SITE.website).href;
 ---
 
-<Layout title={`Tag: ${tagName} | ${SITE.title}`}>
+<Layout
+  title={`Tag: ${tagName} | ${SITE.title}`}
+  structuredData={[
+    collectionPageNode(
+      `Tag: ${tagName}`,
+      new URL(Astro.url.pathname, SITE.website).href,
+      page.data,
+      `All the articles with the tag "${tagName}".`
+    ),
+    breadcrumbNode([
+      { name: "Home", url: SITE.website },
+      { name: "Tags", url: new URL("tags/", SITE.website).href },
+      { name: tagName, url: tagUrl },
+    ]),
+  ]}
+>
   <Header />
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}
