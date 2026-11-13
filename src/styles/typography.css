@@ -213,7 +213,11 @@
     @apply mt-[22px] border-t border-ln pt-3.5 font-mono text-xs leading-[1.9] text-mu;
   }
   .toc-tags {
-    @apply flex flex-wrap gap-x-[0.6ch];
+    @apply flex flex-wrap gap-x-[1ch] gap-y-1;
+  }
+  .toc-tags a {
+    /* WCAG 2.5.8: touch targets at least 24×24px */
+    @apply inline-flex min-h-6 min-w-6 items-center;
   }
   .toc-tags a:not(:last-child)::after {
     content: ",";
