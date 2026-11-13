@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
 import sans400 from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url";
@@ -204,10 +203,6 @@ const websiteStructuredData = {
     />
 
     <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-3H6PHFSRVX"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -216,15 +211,26 @@ const websiteStructuredData = {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      // Page views are sent manually so ClientRouter navigations are tracked too
-      gtag("config", "G-3H6PHFSRVX", { send_page_view: false });
-      document.addEventListener("astro:page-load", () => {
-        gtag("event", "page_view", {
-          page_location: window.location.href,
-          page_path: window.location.pathname,
-          page_title: document.title,
-        });
-      });
+      gtag("config", "G-3H6PHFSRVX");
+      // Load Google Analytics after the page has loaded and the browser is idle
+      (function () {
+        let loaded = false;
+        function load() {
+          if (loaded) return;
+          loaded = true;
+          const s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=G-3H6PHFSRVX";
+          document.head.appendChild(s);
+        }
+        function schedule() {
+          if ("requestIdleCallback" in window)
+            requestIdleCallback(load, { timeout: 4000 });
+          else setTimeout(load, 3000);
+        }
+        if (document.readyState === "complete") schedule();
+        else window.addEventListener("load", schedule);
+      })();
     </script>
 
     <slot name="head" />
@@ -251,8 +257,6 @@ const websiteStructuredData = {
         />
       )
     }
-
-    <ClientRouter />
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>

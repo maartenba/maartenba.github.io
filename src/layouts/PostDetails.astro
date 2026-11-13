@@ -156,7 +156,7 @@ const breadcrumbData = {
             )
           }
         </div>
-        <h1 transition:name={slugifyStr(title)}>{title}</h1>
+        <h1>{title}</h1>
         {
           descriptionGenerated !== true && description && (
             <p class="post-dek">{description}</p>
@@ -273,28 +273,56 @@ const breadcrumbData = {
       </a>
     </div>
 
-    <script
-      is:inline
-      src="https://giscus.app/client.js"
-      data-repo="maartenba/maartenba.github.io"
-      data-repo-id="MDEwOlJlcG9zaXRvcnk2NDcxNDE5Mw=="
-      data-category="General"
-      data-category-id="DIC_kwDOA9t10c4CyCS_"
-      data-mapping="url"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="bottom"
-      data-theme="preferred_color_scheme"
-      data-lang="en"
-      data-loading="lazy"
-      crossorigin="anonymous"
-      async></script>
+    <div id="giscus-container" class="mt-10"></div>
+    <script is:inline>
+      (function () {
+        const el = document.getElementById("giscus-container");
+        if (!el) return;
+        let loaded = false;
+        function load() {
+          if (loaded) return;
+          loaded = true;
+          const s = document.createElement("script");
+          s.src = "https://giscus.app/client.js";
+          s.async = true;
+          s.crossOrigin = "anonymous";
+          const attrs = {
+      "data-repo": "maartenba/maartenba.github.io",
+      "data-repo-id": "MDEwOlJlcG9zaXRvcnk2NDcxNDE5Mw==",
+      "data-category": "General",
+      "data-category-id": "DIC_kwDOA9t10c4CyCS_",
+      "data-mapping": "url",
+      "data-strict": "0",
+      "data-reactions-enabled": "1",
+      "data-emit-metadata": "0",
+      "data-input-position": "bottom",
+      "data-theme": "preferred_color_scheme",
+      "data-lang": "en",
+      "data-loading": "lazy",
+    };
+          for (const k in attrs) s.setAttribute(k, attrs[k]);
+          el.appendChild(s);
+        }
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver(
+            function (entries, obs) {
+              if (entries.some(function (e) { return e.isIntersecting; })) {
+                obs.disconnect();
+                load();
+              }
+            },
+            { rootMargin: "400px" }
+          ).observe(el);
+        } else {
+          window.addEventListener("load", load);
+        }
+      })();
+    </script>
   </main>
   <Footer />
 </Layout>
 
-<script is:inline data-astro-rerun>
+<script is:inline>
   /** Create a progress indicator
    *  at the top */
   function createProgressBar() {
@@ -364,21 +392,13 @@ const breadcrumbData = {
   }
   addHeadingLinks();
 
-  /** One delegated listener (guarded so ClientRouter navigations don't stack it). */
-  if (!window.__copyBound) {
-    window.__copyBound = true;
-    document.addEventListener("click", async e => {
-      const btn = e.target.closest?.(".code .copy");
-      if (!btn) return;
-      const text = btn.closest(".code")?.querySelector("pre code")?.innerText;
-      await navigator.clipboard.writeText(text ?? "");
-      btn.textContent = "copied";
-      setTimeout(() => (btn.textContent = "copy"), 1500);
-    });
-  }
-
-  /* Go to page start after page swap */
-  document.addEventListener("astro:after-swap", () =>
-    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
-  );
+  /** One delegated listener */
+  document.addEventListener("click", async e => {
+    const btn = e.target.closest?.(".code .copy");
+    if (!btn) return;
+    const text = btn.closest(".code")?.querySelector("pre code")?.innerText;
+    await navigator.clipboard.writeText(text ?? "");
+    btn.textContent = "copied";
+    setTimeout(() => (btn.textContent = "copy"), 1500);
+  });
 </script>

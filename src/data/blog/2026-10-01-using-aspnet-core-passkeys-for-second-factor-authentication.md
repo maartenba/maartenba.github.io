@@ -30,7 +30,7 @@ If you're new to passkeys, I wrote a series about them on the Duende blog that c
 
 A passkey is a public/private key pair. The server sends a challenge, the authenticator on your device (Windows Hello, Touch ID, a YubiKey, your password manager, ...) signs it, and the server verifies the signature with the public key it stored earlier. Here's what the authentication ceremony looks like:
 
-![Passkey authentication ceremony: the client requests passkey request options, calls navigator.credentials.get() on the authenticator, and posts the credential to the server](/images/2026/passkey-authentication-ceremony.png)
+![Passkey authentication ceremony: the client requests passkey request options, calls navigator.credentials.get() on the authenticator, and posts the credential to the server](../../assets/images/2026/passkey-authentication-ceremony.png)
 
 There are two round trips to the server. The first one returns the request options (including the challenge), the second one posts the signed credential back. The server has to remember the challenge it handed out in between, otherwise it can't verify that the signature belongs to _this_ login attempt. ASP.NET Core keeps it in an authentication scheme, so there's no need to store it in a database on the server.
 
