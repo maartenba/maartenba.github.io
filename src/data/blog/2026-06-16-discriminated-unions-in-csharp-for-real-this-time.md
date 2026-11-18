@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Union types in C# 15: discriminated unions in .NET 11"
+title: "Discriminated unions in C# 15: the union keyword in .NET 11"
 pubDatetime: 2026-06-16T03:44:05Z
 description: "C# 15 adds a union keyword for discriminated unions in .NET 11: declaring union types, implicit conversions, exhaustive switch and null handling."
 comments: true
@@ -15,6 +15,10 @@ Back in 2023, [I wrote about discriminated unions in C#](/posts/2023-09-18-discr
 Well, the wait is over. C# 15, shipping with .NET 11, introduces first-class union types. Let's have a look.
 
 The short version: a union type in C# is a type that is exactly one of a fixed set of case types, declared with `public union Pet(Cat, Dog, Bird);`. Each case converts implicitly to the union, and a `switch` over it must handle every case or the compiler warns you.
+
+## Does C# have discriminated unions?
+
+Yes, as of C# 15 / .NET 11. Before that, C# had no language support for them, and you had to fall back to class hierarchies, `Results<>`-style generic types or a library like OneOf. C# 15 adds them as union types, available in .NET 11.
 
 ## A quick recap: the problem
 
