@@ -2,7 +2,7 @@
 layout: post
 title: "Call for Papers meaning: what happens after you submit"
 pubDatetime: 2019-08-27T03:44:05Z
-modDatetime: 2026-11-09T08:00:00Z
+modDatetime: 2026-11-18T08:00:00Z
 description: "A call for papers (CFP) invites speakers to submit talks to a conference. Here is what happens after you submit, from committee to acceptance or rejection."
 comments: true
 published: true
@@ -62,6 +62,14 @@ Personally, I like CfP's that are done through [Sessionize](https://sessionize.c
 
 Keep in mind that your session title and abstract are your most important weapons at this stage. Check out [Niall Merrigan's post - "Make me an offer I can't refuse"](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/), for tips and tricks around writing a good session title and abstract. Remember the agenda committee has to go through _a lot_ of titles and abstracts, so remember that first impression counts.
 
+## How to write a CfP abstract that gets accepted
+
+From the committee side, the abstracts that make my shortlist tend to have a few things in common. The title tells me what the talk is about, not just that it is clever. The first two sentences say what problem the talk addresses and who it is for. And somewhere in there, I can tell what an attendee walks out with: a technique, a mental model, a set of trade-offs.
+
+The ones that don't make it are often "Introduction to X" abstracts that could have been copied from the product's home page, or abstracts that spend three paragraphs on the speaker and one line on the talk. Keep the bio for the bio field, and make it relevant to the topic you're submitting.
+
+Read the conference's previous agendas before submitting. If a conference has never had a beginner talk on its agenda, your "Getting started with X" is up against more than other submissions. And if the CfP asks for a specific format or length, stick to it. Committees notice.
+
 ## Organizer notes, past speaking experience and other metadata
 
 Many CfP's ask several additional questions, next to the actual session title and abstract.
@@ -78,7 +86,7 @@ Another field is "past speaking experience". This will be used to search for pas
 
 Related is that dreaded "has this session been presented before?" question. Does that imply the conference only wants new content? Or do they want to check whether the session has had at least one run somewhere and thus has had a proper run-through. Two viewpoints that could be the truth, although there is a big chance this field will be ignored by folks on the agenda committee anyway - there's already an information overload.
 
-## Checking back
+## Will the agenda committee contact you?
 
 Sometimes, the session title and abstract are not clear enough. People on the agenda committee may choose to reach out to you and ask for clarification, and sometimes work with you to get the title and abstract in shape.
 
@@ -86,7 +94,7 @@ Now, don't _count_ on being contacted. It may happen, but it will be rare. What 
 
 In general, try to write a good, clear title, and an abstract that sets expectations. Again, check [Niall Merrigan's post](https://blog.ndcconferences.com/make-me-an-offer-i-cant-refuse-writing-an-abstracts-for-a-cfp/) for tips on that part.
 
-## On Sessionize/PaperCall/...
+## Submitting through Sessionize and other CfP tools
 
 Nowadays, many CfP's are run using tools like [Sessionize](https://www.sessionize.com) or [PaperCall](https://www.papercall.io). They make submitting session proposals easier for speakers, and make evaluating proposals easier for organizers.
 
@@ -132,6 +140,12 @@ One way of marketing a conference is by putting some "big names" on the agenda, 
 
 So, there is a chance that the headliner's session will be chosen over yours if the session topic is similar. There is no free lunch, and in this case having that headliner will help with providing that lunch at the conference.
 
+## How long until you hear back after a CfP?
+
+It depends on the conference, but for most of the conferences I have been involved with, speakers heard back somewhere between one and six weeks after the CfP closed. Larger conferences with more submissions and more committee members tend to sit at the longer end. The CfP page or the confirmation e-mail often mentions a date, so check there first.
+
+If that date has passed and you haven't heard anything, it's fine to send the organizers a short e-mail. Sometimes notifications end up in spam, and sometimes the agenda is simply running late.
+
 ## Acceptance and rejection
 
 Sending out those acceptance and rejection e-mails is a happy and sad moment.
@@ -146,9 +160,13 @@ Most often, the "why" of not getting selected is a simple capacity problem. Thin
 
 In other words: it's probably not you, but a matter of marrying all aspects of conference planning into an agenda.
 
+## What to do after a CfP rejection
+
+Ask for feedback. Not every conference can give it, given the number of submissions, but some will, and a single sentence like "we had four talks on this topic" tells you a lot. Then submit the same talk elsewhere. A rejection at one conference says very little about how the talk will do at the next one, especially if you tweak the title and abstract based on what you learned.
+
 That's it. This post was written based on previous experience, and I hope I have been able to shine a little more light on what happens right after a conference Call for Papers and in building an agenda.
 
-## Addendum
+## More resources for conference speakers
 
 Here are some more resources you may want to check (some already features previously in this post):
 
