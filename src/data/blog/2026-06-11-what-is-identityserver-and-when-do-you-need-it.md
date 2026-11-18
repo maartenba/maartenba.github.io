@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "What is IdentityServer and When Do You Need it?"
-description: "IdentityServer is a .NET SDK for building an OpenID Connect and OAuth 2.0 identity provider. When you need it, and when ASP.NET Core Identity is enough."
+title: "Duende IdentityServer: what it is and when you need it"
+description: "Duende IdentityServer is an OAuth 2.0 and OpenID Connect SDK for ASP.NET Core. What it does, how it differs from ASP.NET Core Identity, and when to skip it."
 pubDatetime: 2026-06-11T08:00:00Z
-modDatetime: 2026-10-06T08:00:00Z
+modDatetime: 2026-11-18T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -13,6 +13,8 @@ author: Maarten Balliauw
 ---
 
 IdentityServer is a .NET SDK for building an OpenID Connect and OAuth 2.0 identity provider on ASP.NET Core, issuing tokens to multiple clients and APIs. You need it for several apps or APIs, single sign-on, federation, or standards-based tokens. A single app with local users doesn't; ASP.NET Core Identity suffices.
+
+If you're looking for the product itself, the [IdentityServer documentation](https://docs.duendesoftware.com/identityserver/) and the [quickstarts](https://docs.duendesoftware.com/identityserver/quickstarts/0-overview/) are the place to start. This post is about deciding whether you need it.
 
 Earlier this week at [Duende Software](https://duendesoftware.com/), we had a prospect reach out that wanted to implement IdentityServer in their solution. Their application consisted of one ASP.NET Core application with local users, no mobile applications or other clients, no API surface, and no plans in the roadmap to move towards an architecture with any of these. All they wanted was to add external authentication to Google.
 
@@ -31,6 +33,12 @@ The source code is available on [GitHub](https://github.com/DuendeSoftware/produ
 It supports OAuth 2.0/2.1, OIDC Core, FAPI 2.0, DPoP (RFC 9449), PAR, CIBA, Token Exchange, mTLS, and SAML 2.0. Multi-issuer, automatic key management, and dynamic client registration are in there too. The [feature overview](https://duendesoftware.com/products/identityserver) has the full list if you want to compare.
 
 There is no built-in login UI or admin UI (although [third-party options exist](https://docs.duendesoftware.com/identityserver/ui/admin/)). For user storage, you can use the newly-released [Duende User Management](https://docs.duendesoftware.com/identityserver/usermanagement), [ASP.NET Identity](https://docs.duendesoftware.com/identityserver/aspnet-identity/), or bring your own store. You build and integrate these yourself, which gives you full control. Whether that's freeing or annoying depends on what you need.
+
+## IdentityServer vs ASP.NET Core Identity
+
+These two get mixed up a lot, partly because of the names. ASP.NET Core Identity is a membership system: it stores users, hashes passwords, handles two-factor authentication and lockout, and signs users into the one application it runs in. IdentityServer is a token service: it implements OpenID Connect and OAuth 2.0 so that other applications and APIs can trust the users and clients it authenticates.
+
+They are not alternatives so much as layers. A common setup is IdentityServer with ASP.NET Core Identity as its user store. If you only have one application, the membership layer is often all you need.
 
 ## When you don't need it
 
