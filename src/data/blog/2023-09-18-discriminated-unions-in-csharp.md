@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Discriminated Unions in C#"
-description: "C# has no discriminated unions yet. Here are the workarounds, from Results<> and TypedResults to libraries, that let the compiler know about a closed set of types."
+title: "Discriminated unions in C# before C# 15: the workarounds"
+description: "Before C# 15, C# had no discriminated unions. How ASP.NET Core Results<> fakes one with implicit operators, and when to use OneOf or F# instead."
 pubDatetime: 2023-09-18T03:44:05Z
+modDatetime: 2026-11-18T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -14,6 +15,8 @@ redirect_from:
 ---
 
 Discriminated unions have been a [long-standing request for C#](https://github.com/dotnet/csharplang/issues/113). While F# users [have had discriminated unions for years](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions), C# developers will have to wait a bit longer.
+
+**Update (2026):** the wait is over. C# 15 in .NET 11 adds real union types with a `union` keyword, and I wrote about them in [discriminated unions in C# 15](/posts/2026-06-16-discriminated-unions-in-csharp-for-real-this-time/). This post covers the workarounds that came before, which are still useful on older .NET versions.
 
 What discriminated unions allow you to do is tell the compiler (and other tooling like your IDE) that data can be one of a range of pre-defined types.
 
