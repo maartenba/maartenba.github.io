@@ -14,6 +14,94 @@ const recentPosts = getSortedPosts(posts).slice(0, 5);
 ---
 
 <Layout title={`404 Not Found | ${SITE.title}`} noindex>
+  <!--
+    Rescue old URLs (BlogEngine /post/..., /talk/..., /category/...) that miss
+    the exact-match redirect pages. Runs before Google Analytics loads, so a
+    successful redirect doesn't count as a 404 hit.
+  -->
+  <script is:inline slot="head">
+    (function () {
+      var path = location.pathname;
+      var go = function (to) {
+        location.replace(to + location.search + location.hash);
+      };
+      var aliases = [
+        [
+          /^\/(page\/about-me|about-me|hire-me|contact)(\.html?|\.aspx)?$/i,
+          "/about/",
+        ],
+        [/^\/talks-presentations\.html?$/i, "/talks-presentations/"],
+        [/^\/(search\.aspx|search\.html?)$/i, "/search/"],
+        [/^\/(rss\.html?|syndication\.axd|feed)$/i, "/feed.xml"],
+        [
+          /^\/(archive\/posts-by-year\.html?|archive\/?|\d{4}\/\d{2}\/default\.html?)$/i,
+          "/archives/",
+        ],
+      ];
+      for (var i = 0; i < aliases.length; i++) {
+        if (aliases[i][0].test(path)) return go(aliases[i][1]);
+      }
+      var axd = location.search.match(/[?&]file=([^&]+)/);
+      if (/^\/file\.axd$/i.test(path) && axd) {
+        return location.replace(
+          "/files/" +
+            decodeURIComponent(axd[1].replace(/\+/g, " ")).replace(/^\/+/, "")
+        );
+      }
+      var tag = path.match(
+        /^\/(?:category|archive\/tags)\/([^/]+?)(?:\/default)?(?:\.html?|\.aspx)?$/i
+      );
+      if (tag)
+        return go(
+          "/tags/" +
+            decodeURIComponent(tag[1])
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/^-|-$/g, "") +
+            "/"
+        );
+
+      if (!/^\/(post|posts|talk|archive)\//i.test(path)) return;
+      var segs = path.split("/").filter(function (s) {
+        return s && !/^\d+$/.test(s);
+      });
+      var slug = segs[segs.length - 1] || "";
+      // Must stay in sync with src/utils/redirectKey.ts
+      try {
+        slug = decodeURIComponent(slug);
+      } catch (e) {}
+      var key = slug
+        .toLowerCase()
+        .replace(/\.(aspx|html?).*$/, "")
+        .replace(/^\d{4}-\d{2}-\d{2}-/, "")
+        .replace(/[^a-z0-9]/g, "");
+      if (key.length < 4) return;
+
+      fetch("/redirect-map.json")
+        .then(function (r) {
+          return r.json();
+        })
+        .then(function (map) {
+          var to = map[key];
+          if (!to && key.length >= 15) {
+            // Truncated links, e.g. "/post/2008/01/11/Preview-Word-files-(docx"
+            var hits = Object.keys(map).filter(function (k) {
+              return k.indexOf(key) === 0;
+            });
+            var uniq = hits
+              .map(function (k) {
+                return map[k];
+              })
+              .filter(function (v, i, a) {
+                return a.indexOf(v) === i;
+              });
+            if (uniq.length === 1) to = uniq[0];
+          }
+          if (to && to !== path) go(to);
+        })
+        .catch(function () {});
+    })();
+  </script>
   <Header />
 
   <main
