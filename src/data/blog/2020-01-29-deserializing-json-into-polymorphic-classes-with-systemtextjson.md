@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "System.Text.Json Polymorphic Deserialization"
+title: "System.Text.Json polymorphic deserialization in .NET"
 description: "Deserialize JSON into derived or abstract types: $type discriminators, [JsonPolymorphic] in .NET 7+, and a custom JsonConverter for legacy payloads."
 pubDatetime: 2020-01-29T03:44:05Z
-modDatetime: 2026-10-06T08:00:00Z
+modDatetime: 2026-11-18T08:00:00Z
 comments: true
 published: true
 categories: ["post"]
@@ -58,9 +58,15 @@ Console.WriteLine(JsonSerializer.Serialize<Shape>(new Square { Side = 3 }));
 
 `$type` is already the default discriminator name. You only need `TypeDiscriminatorPropertyName` if you want something else, like `kind`.
 
+### Serializing derived types and unknown types
+
 To get the discriminator in the output, the declared type has to be the base type, like `Serialize<Shape>(...)` or a `Shape` property. Serialize it as a `Circle` and you won't see `$type`. Unregistered derived types throw unless you set `UnknownDerivedTypeHandling`.
 
+### When the type discriminator isn't the first property
+
 By default, the discriminator has to be the first property in the JSON object. Some APIs put it somewhere in the middle. Set `JsonSerializerOptions.AllowOutOfOrderMetadataProperties` to `true` for those (added in .NET 9). It makes the deserializer buffer the object.
+
+### Polymorphic deserialization without attributes
 
 If you can't add attributes because you don't own the types, set `PolymorphismOptions` on the type info from a `DefaultJsonTypeInfoResolver` modifier:
 
